@@ -1,3 +1,4 @@
+// src/components/PremiumPackages.jsx
 import { motion } from 'framer-motion';
 
 const premiumTiers = [
@@ -35,13 +36,20 @@ const premiumTiers = [
       "Product Demo Dashboards",
       "PWA / Mobile App Shell",
       "90 Days of Launch Support"
-    ]
+    ],
+    highlight: true
   }
 ];
 
 export default function PremiumPackages() {
   return (
-    <section className="bg-gradient-to-br from-[#0e0e0e] via-[#1a1a1a] to-[#121212] text-white py-20 px-6">
+    <motion.section
+      className="bg-gradient-to-br from-[#0e0e0e] via-[#1a1a1a] to-[#121212] text-white py-20 px-6"
+      initial={{ opacity: 0, y: 50 }}
+      whileInView={{ opacity: 1, y: 0 }}
+      transition={{ duration: 0.6 }}
+      viewport={{ once: true }}
+    >
       <div className="max-w-6xl mx-auto text-center mb-12">
         <h2 className="text-4xl font-bold mb-4">Premium Tiers</h2>
         <p className="text-gray-400">Elite systems that outperform high-ticket agencies.</p>
@@ -51,25 +59,35 @@ export default function PremiumPackages() {
         {premiumTiers.map((tier, idx) => (
           <motion.div
             key={idx}
-            className="flex-1 bg-[#1a1a1a] border border-[#333] rounded-2xl shadow-lg p-6 text-left hover:border-[#ff914d] transition"
-            whileHover={{ scale: 1.03 }}
+            className={`flex-1 rounded-2xl p-6 border shadow-xl transition-all duration-300 ${
+              tier.highlight
+                ? 'bg-[#ff914d] text-black border-[#ff914d]'
+                : 'bg-[#1a1a1a] border-gray-700 text-white'
+            }`}
+            whileHover={{
+              scale: 1.04,
+              boxShadow: tier.highlight
+                ? '0 0 40px rgba(255,145,77,0.5)'
+                : '0 0 25px rgba(255,255,255,0.12)',
+            }}
             initial={{ opacity: 0, y: 30 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ delay: idx * 0.1 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.4, delay: idx * 0.1 }}
+            viewport={{ once: true }}
           >
-            <h3 className="text-2xl font-bold text-[#ff914d] mb-2">{tier.title}</h3>
-            <p className="text-xl font-semibold mb-3">{tier.price}</p>
-            <p className="text-gray-400 mb-4 text-sm">{tier.description}</p>
-            <ul className="space-y-2 text-sm">
-              {tier.features.map((feature, i) => (
+            <h3 className="text-2xl font-bold mb-1">{tier.title}</h3>
+            <p className="text-3xl font-extrabold mb-2">{tier.price}</p>
+            <p className="text-sm text-gray-400 mb-4">{tier.description}</p>
+            <ul className="space-y-2 text-sm font-medium">
+              {tier.features.map((item, i) => (
                 <li key={i} className="flex items-start gap-2">
-                  <span className="text-[#ff914d]">✔</span> {feature}
+                  <span className="text-[#ff914d]">✔</span> {item}
                 </li>
               ))}
             </ul>
           </motion.div>
         ))}
       </div>
-    </section>
+    </motion.section>
   );
 }
