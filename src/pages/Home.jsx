@@ -6,6 +6,8 @@ import IndustryBlock from '../components/IndustryBlock';
 import PremiumPackages from '../components/PremiumPackages';
 import ComparisonTable from '../components/ComparisonTable';
 import FounderMessage from '../components/FounderMessage';
+import WhyChoose from '../components/WhyChoose';
+import LiveDemos from '../components/LiveDemos';
 import { motion } from 'framer-motion';
 
 export default function Home() {
@@ -17,12 +19,33 @@ export default function Home() {
       transition={{ duration: 0.8 }}
     >
       <HeroSection />
+      <WhyChoose />
+
       <motion.div
         initial={{ opacity: 0, y: 40 }}
         whileInView={{ opacity: 1, y: 0 }}
         transition={{ duration: 0.6 }}
         viewport={{ once: true }}
       >
+
+           <FounderMessage />
+      </motion.div>
+      <motion.div
+        initial={{ opacity: 0, y: 40 }}
+        whileInView={{ opacity: 1, y: 0 }}
+        transition={{ duration: 0.6 }}
+        viewport={{ once: true }}
+      >
+        
+        <LiveDemos />
+        </motion.div>
+        <motion.div
+        initial={{ opacity: 0, y: 40 }}
+        whileInView={{ opacity: 1, y: 0 }}
+        transition={{ duration: 0.6 }}
+        viewport={{ once: true }}
+      >
+
         <CorePackages />
       </motion.div>
       <motion.div
@@ -56,14 +79,6 @@ export default function Home() {
         viewport={{ once: true }}
       >
         <ComparisonTable />
-      </motion.div>
-      <motion.div
-        initial={{ opacity: 0, y: 40 }}
-        whileInView={{ opacity: 1, y: 0 }}
-        transition={{ duration: 0.6 }}
-        viewport={{ once: true }}
-      >
-        <FounderMessage />
       </motion.div>
     </motion.div>
   );

@@ -1,3 +1,4 @@
+// src/components/IndustryBlock.jsx
 import { useState } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 
@@ -58,7 +59,13 @@ export default function IndustryBlock() {
   const [active, setActive] = useState(null);
 
   return (
-    <section className="bg-[#0c0c0c] text-white py-20 px-6">
+    <motion.section
+      className="bg-[#0c0c0c] text-white py-20 px-6"
+      initial={{ opacity: 0, y: 50 }}
+      whileInView={{ opacity: 1, y: 0 }}
+      transition={{ duration: 0.6 }}
+      viewport={{ once: true }}
+    >
       <div className="max-w-6xl mx-auto text-center mb-12">
         <h2 className="text-4xl font-bold mb-4">Industry-Specific Capabilities</h2>
         <p className="text-gray-400">Tailored features for your exact business type.</p>
@@ -66,7 +73,14 @@ export default function IndustryBlock() {
 
       <div className="max-w-4xl mx-auto space-y-4">
         {industries.map((industry, index) => (
-          <div key={index} className="bg-[#1a1a1a] border border-gray-700 rounded-xl">
+          <motion.div
+            key={index}
+            className="bg-[#1a1a1a] border border-gray-700 rounded-xl overflow-hidden"
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            transition={{ delay: index * 0.05, duration: 0.4 }}
+            viewport={{ once: true }}
+          >
             <button
               className="w-full flex justify-between items-center p-4 text-left text-lg font-semibold hover:bg-[#232323] transition"
               onClick={() => setActive(active === index ? null : index)}
@@ -75,7 +89,7 @@ export default function IndustryBlock() {
               <span className="text-[#ff914d]">{active === index ? "−" : "+"}</span>
             </button>
 
-            <AnimatePresence>
+            <AnimatePresence initial={false}>
               {active === index && (
                 <motion.ul
                   className="px-6 pb-4 space-y-2 text-sm text-gray-300"
@@ -92,9 +106,9 @@ export default function IndustryBlock() {
                 </motion.ul>
               )}
             </AnimatePresence>
-          </div>
+          </motion.div>
         ))}
       </div>
-    </section>
+    </motion.section>
   );
 }
