@@ -32,13 +32,15 @@ export default function HeroSection() {
       </motion.h1>
 
       <motion.p
-        className="mt-6 text-lg md:text-xl text-gray-300 max-w-2xl"
-        initial={{ opacity: 0, y: 20 }}
-        animate={{ opacity: 1, y: 0 }}
-        transition={{ delay: 0.3, duration: 0.8 }}
-      >
-        We build professional websites and back-end systems for real businesses — starting at just <strong>$350</strong>.
-      </motion.p>
+  className="mt-4 text-lg md:text-xl text-gray-300 z-10 max-w-2xl mx-auto leading-relaxed"
+  initial={{ opacity: 0, y: 20 }}
+  animate={{ opacity: 1, y: 0 }}
+  transition={{ delay: 0.2, duration: 0.8 }}
+>
+  StephensCode is a veteran-owned web development studio specializing in
+  <strong> custom websites, admin dashboards, and business systems</strong> built for real-world workflows.
+  We deliver powerful solutions with <strong>flat-rate pricing</strong>, modern design, and full code ownership — no fluff, no templates, no BS.
+</motion.p>
 
       <motion.div
         className="mt-8 flex gap-4 z-10"

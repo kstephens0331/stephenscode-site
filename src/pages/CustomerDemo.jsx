@@ -1,6 +1,14 @@
 // src/pages/CustomerDemo.jsx
 import { motion } from "framer-motion";
 
+
+<motion.div
+  initial={{ opacity: 0, y: 20 }}
+  animate={{ opacity: 1, y: 0 }}
+  exit={{ opacity: 0, y: -20 }}
+  transition={{ duration: 0.4 }}
+></motion.div>
+
 export default function CustomerDemo() {
   return (
     <div className="bg-[#0e0e0e] text-white min-h-screen pt-28 pb-20 px-6">

@@ -1,7 +1,21 @@
 import { motion } from "framer-motion";
+import { Helmet } from "react-helmet";
+
+<motion.div
+  initial={{ opacity: 0, y: 20 }}
+  animate={{ opacity: 1, y: 0 }}
+  exit={{ opacity: 0, y: -20 }}
+  transition={{ duration: 0.4 }}
+></motion.div>
 
 export default function About() {
   return (
+    <>
+     <Helmet>
+        <title>About StephensCode | Veteran-Owned Web Dev</title>
+        <meta name="description" content="StephensCode was founded by Kyle Stephens, a Marine Corps veteran and full-stack developer building powerful tools for real businesses." />
+      </Helmet>
+
     <div className="bg-[#0e0e0e] text-white min-h-screen pt-28 pb-20 px-6">
       {/* Page Title */}
       <motion.h1
@@ -23,7 +37,7 @@ export default function About() {
       >
         <h2 className="text-3xl font-bold mb-4 text-orange-400">Meet the Founder</h2>
         <p className="text-gray-300 text-lg leading-relaxed">
-          I'm Kyle Stephens — founder of StephensCode, a full-stack developer, and a dad to five incredible daughters.
+          I'm Kyle Stephens — founder of StephensCode, a full-stack developer, a husband of 12 years, and a dad to five incredible daughters.
           I’m focused on building powerful, custom-made business systems that actually make life easier for real business owners.
         </p>
 
@@ -94,10 +108,11 @@ export default function About() {
           <li>Straight answers and fair pricing — no fluff</li>
           <li>Design and functionality tailored to your business goals</li>
           <li>Direct communication — you talk to me, not a support queue</li>
-          <li>Systems built to grow and adapt — not boxed-in templates</li>
+          <li>Systems built to grow and adapt — no boxed-in templates</li>
           <li>Real ownership of what you pay for — no forced monthly fees</li>
         </ul>
       </motion.div>
     </div>
+    </>
   );
 }

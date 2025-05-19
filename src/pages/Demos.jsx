@@ -11,6 +11,14 @@ import {
 } from "react-icons/fa";
 import Lightbox from "../components/Lightbox";
 import { useState } from "react";
+import { Helmet } from "react-helmet";
+
+<motion.div
+  initial={{ opacity: 0, y: 20 }}
+  animate={{ opacity: 1, y: 0 }}
+  exit={{ opacity: 0, y: -20 }}
+  transition={{ duration: 0.4 }}
+></motion.div>
 
 export default function Demos() {
   const [lightboxOpen, setLightboxOpen] = useState(false);
@@ -21,49 +29,50 @@ export default function Demos() {
     {
       title: "Admin Portal Demo",
       icon: FaTools,
-      image: "https://via.placeholder.com/500x300?text=Admin+Portal",
-      link: "/admin-demo",
+      image: "/src/assets/logo.png",
+      link: "/demos/admin-portal",
     },
     {
       title: "Customer Portal Demo",
       icon: FaUserShield,
-      image: "https://via.placeholder.com/500x300?text=Customer+Portal",
-      link: "/customer-demo",
+      image: "/src/assets/logo.png",
+      link: "/demos/customer-portal"
     },
   ];
 
   const categoryDemos = [
-    {
-      title: "Demo Healthcare",
-      icon: FaHospital,
-      image: "/src/assets/previews/demo-healthcare.png",
-      link: "#",
-    },
-    {
-      title: "Demo Event Coordination",
-      icon: FaCalendarCheck,
-      image: "/src/assets/previews/demo-events.png",
-      link: "#",
-    },
-    {
-      title: "Demo Security",
-      icon: FaShieldAlt,
-      image: "/src/assets/previews/demo-security.png",
-      link: "#",
-    },
-    {
-      title: "Demo Construction",
-      icon: FaWarehouse,
-      image: "/src/assets/previews/demo-construction.png",
-      link: "#",
-    },
-    {
-      title: "Demo E-Commerce",
-      icon: FaShoppingCart,
-      image: "/src/assets/previews/demo-ecommerce.png",
-      link: "#",
-    },
-  ];
+  {
+    title: "Demo Healthcare",
+    icon: FaHospital,
+    image: "/src/assets/logo.png",
+    link: "/demos/healthcare",
+  },
+  {
+    title: "Demo Event Coordination",
+    icon: FaCalendarCheck,
+    image: "/src/assets/logo.png",
+    link: "/demos/event",
+  },
+  {
+    title: "Demo Security",
+    icon: FaShieldAlt,
+    image: "/src/assets/logo.png",
+    link: "/demos/security",
+  },
+  {
+    title: "Demo Construction",
+    icon: FaWarehouse,
+    image: "/src/assets/logo.png",
+    link: "/demos/construction",
+  },
+  {
+    title: "Demo E-Commerce",
+    icon: FaShoppingCart,
+    image: "/src/assets/logo.png",
+    link: "/demos/ecommerce",
+  },
+];
+
 
   const DemoGrid = ({ demos, cols = "grid-cols-1 sm:grid-cols-2 lg:grid-cols-3" }) => (
     <div className={`max-w-6xl mx-auto grid ${cols} gap-8 justify-items-center`}>
@@ -121,6 +130,16 @@ export default function Demos() {
   );
 
   return (
+    <>
+
+    <Helmet>
+  <title>Live Demo Previews | StephensCode</title>
+  <meta
+    name="description"
+    content="Explore demo websites, customer portals, and admin dashboards built from scratch. See what StephensCode can build for your business."
+  />
+</Helmet>
+
     <div className="bg-[#0e0e0e] text-white min-h-screen pt-28 pb-20 px-6">
       {/* Admin & Customer Demos */}
       <motion.h1
@@ -165,5 +184,6 @@ export default function Demos() {
         title={lightboxTitle}
       />
     </div>
+    </>
   );
 }
