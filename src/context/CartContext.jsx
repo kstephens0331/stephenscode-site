@@ -1,7 +1,6 @@
 import { createContext, useContext, useEffect, useState } from "react";
 
 const CartContext = createContext();
-
 export const useCart = () => useContext(CartContext);
 
 export function CartProvider({ children }) {
@@ -15,8 +14,13 @@ export function CartProvider({ children }) {
   }, [cartItems]);
 
   const addToCart = (item) => {
-    if (!cartItems.find((i) => i.id === item.id)) {
-      setCartItems([...cartItems, item]);
+    const existing = cartItems.find((i) => i.id === item.id);
+    if (existing) {
+      setCartItems(cartItems.map((i) =>
+        i.id === item.id ? { ...i, quantity: i.quantity + 1 } : i
+      ));
+    } else {
+      setCartItems([...cartItems, { ...item, quantity: 1 }]);
     }
   };
 

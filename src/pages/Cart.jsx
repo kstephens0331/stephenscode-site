@@ -1,6 +1,7 @@
 import React from 'react';
 import axios from 'axios';
 import { useCart } from '../context/CartContext';
+import { FaTrash } from 'react-icons/fa';
 
 const Cart = () => {
   const { cartItems, removeFromCart, clearCart } = useCart();
@@ -9,14 +10,20 @@ const Cart = () => {
     return <p className="text-center text-white pt-20">Your cart is empty.</p>;
   }
 
-  const subtotal = cartItems.reduce((sum, item) => sum + item.price, 0);
+  const subtotal = cartItems.reduce((sum, item) => sum + item.price * item.quantity, 0);
   const taxRate = 0.0825;
   const tax = +(subtotal * taxRate).toFixed(2);
   const total = +(subtotal + tax).toFixed(2);
 
   const handleCheckout = async () => {
     const emailInput = document.getElementById('email');
-    const email = emailInput?.value;
+    const email = emailInput?.value.trim();
+
+    const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+    if (!emailRegex.test(email)) {
+      alert('Please enter a valid email address.');
+      return;
+    }
 
     try {
       const res = await axios.post('https://api.stephenscode.dev/create-checkout-session', {
@@ -25,11 +32,12 @@ const Cart = () => {
           name: item.title,
           price: item.price,
           description: item.description,
+          quantity: item.quantity,
         })),
       });
 
       if (res.data?.url) {
-        clearCart(); // Optional: clear cart after redirect
+        clearCart();
         window.location.href = res.data.url;
       } else {
         alert('Checkout session failed. Try again.');
@@ -47,3 +55,52 @@ const Cart = () => {
       {cartItems.map((item, idx) => (
         <div key={idx} className="bg-gray-800 p-4 rounded mb-4 shadow">
           <div className="flex justify-between items-center">
+            <div>
+              <h3 className="text-lg font-semibold">{item.title}</h3>
+              <p className="text-sm text-gray-400">{item.description}</p>
+              <p className="text-sm text-gray-400">x {item.quantity}</p>
+            </div>
+            <div className="text-right">
+              <p className="text-lg font-semibold">${(item.price * item.quantity).toFixed(2)}</p>
+              <FaTrash
+                onClick={() => removeFromCart(item.id)}
+                className="cursor-pointer text-red-400 hover:text-red-600 text-lg"
+                title="Remove item"
+              />
+            </div>
+          </div>
+        </div>
+      ))}
+
+      {/* Summary and Checkout */}
+      <div className="text-sm text-gray-400 mb-2">
+        Subtotal: ${subtotal.toFixed(2)}<br />
+        Tax: ${tax.toFixed(2)}<br />
+        <strong>Total: ${total.toFixed(2)}</strong>
+      </div>
+
+      <button
+        onClick={clearCart}
+        className="mb-4 w-full text-sm bg-red-500 hover:bg-red-600 text-white py-2 rounded"
+      >
+        Clear Cart
+      </button>
+
+      <input
+        id="email"
+        type="email"
+        placeholder="Enter your email"
+        className="w-full p-2 rounded bg-gray-900 border border-gray-700 text-white mb-4"
+      />
+
+      <button
+        onClick={handleCheckout}
+        className="w-full bg-orange-600 hover:bg-orange-700 text-white font-semibold py-3 rounded"
+      >
+        Pay ${total.toFixed(2)}
+      </button>
+    </div>
+  );
+};
+
+export default Cart;
