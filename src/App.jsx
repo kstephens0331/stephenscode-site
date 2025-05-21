@@ -26,7 +26,6 @@ import AdminPortalDemo from "./pages/demos/AdminPortalDemo";
 import CustomerPortalDemo from "./pages/demos/CustomerPortalDemo";
 import EcommerceDemo from "./pages/demos/EcommerceDemo";
 import Cart from "./pages/Cart";
-import CheckoutEmbedded from "./pages/CheckoutEmbedded";
 
 
 export default function App() {
@@ -58,7 +57,6 @@ export default function App() {
             <Route path="/demos/admin-portal" element={<AdminPortalDemo />} />
             <Route path="/demos/customer-portal" element={<CustomerPortalDemo />} />
             <Route path="/cart" element={<Cart />} />
-            <Route path="/checkout-embedded" element={<CheckoutEmbedded />} />
           </Routes>
         </AnimatePresence>
       </main>
