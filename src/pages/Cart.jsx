@@ -1,78 +1,56 @@
-import React, { useState } from "react";
+import React from 'react';
+import axios from 'axios';
 
 const Cart = () => {
-  const [cartItems] = useState([
-    {
-      title: "Standard Website",
-      description: "Home, About, Services, Contact pages, Admin back office & customer login, Responsive design",
-      price: 350,
-    },
-  ]);
-
-  const taxRate = 0.0625;
-  const subtotal = cartItems.reduce((sum, item) => sum + item.price, 0);
-  const tax = subtotal * taxRate;
-  const grandTotal = subtotal + tax;
-
-  const [email, setEmail] = useState("");
-
   const handleCheckout = async () => {
+    const emailInput = document.getElementById('email');
+    const email = emailInput?.value;
+
     try {
-      const response = await fetch(`${import.meta.env.VITE_API_URL}/create-checkout-session`, {
-        method: "POST",
-        headers: { "Content-Type": "application/json" },
-        body: JSON.stringify({
-          items: cartItems,
-          email,
-        }),
+      const res = await axios.post('https://api.stephenscode.dev/create-checkout-session', {
+        email,
+        items: [
+          {
+            name: 'Standard Website',
+            price: 350,
+          },
+        ],
       });
 
-      const data = await response.json();
-      if (data.url) {
-        window.location.href = data.url;
+      if (res.data?.url) {
+        window.location.href = res.data.url;
       } else {
-        alert("Failed to redirect to Stripe Checkout.");
+        alert('Checkout session failed. Try again.');
       }
-    } catch (error) {
-      console.error("Checkout error:", error);
-      alert("An error occurred. Try again.");
+    } catch (err) {
+      console.error('Checkout error:', err);
+      alert('An error occurred during checkout.');
     }
   };
 
   return (
-    <div className="max-w-2xl mx-auto p-6">
-      <h2 className="text-2xl font-bold mb-4">Secure Checkout</h2>
-
-      <div className="space-y-4">
-        {cartItems.map((item, index) => (
-          <div key={index} className="border border-gray-300 rounded p-4 shadow-sm">
-            <p className="text-lg font-semibold">{item.title}</p>
-            <p className="text-sm text-gray-600">{item.description}</p>
-            <p className="text-right font-bold mt-2">${item.price.toFixed(2)}</p>
-          </div>
-        ))}
-
-        <div className="border-t pt-4 space-y-1 text-right">
-          <p>Subtotal: ${subtotal.toFixed(2)}</p>
-          <p>Tax (6.25%): ${tax.toFixed(2)}</p>
-          <p className="text-xl font-bold">Total: ${grandTotal.toFixed(2)}</p>
-        </div>
-
+    <div className="p-6 text-white max-w-xl mx-auto">
+      <div className="bg-gray-800 p-4 rounded mb-4">
+        <h2 className="text-xl font-bold">Standard Website</h2>
+        <p className="text-sm text-gray-400">
+          Home, About, Services, Contact pages, Admin back office & customer login, Responsive design
+        </p>
+        <p className="text-right mt-2 text-lg font-semibold">$350.00</p>
+      </div>
+      <div className="mb-4">
         <input
+          id="email"
           type="email"
           placeholder="Enter your email"
-          value={email}
-          onChange={(e) => setEmail(e.target.value)}
-          className="w-full px-4 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-orange-500"
+          className="w-full p-2 rounded bg-gray-900 border border-gray-700 text-white"
         />
-
-        <button
-          onClick={handleCheckout}
-          className="w-full bg-orange-600 text-white font-bold py-3 rounded-md hover:bg-orange-700 transition"
-        >
-          Pay ${grandTotal.toFixed(2)}
-        </button>
       </div>
+      <button
+        onClick={handleCheckout}
+        className="w-full bg-orange-600 hover:bg-orange-700 text-white font-semibold py-3 rounded"
+      >
+        Pay $371.88
+      </button>
     </div>
   );
 };
