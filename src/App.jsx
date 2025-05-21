@@ -13,7 +13,6 @@ import About from './pages/About';
 import Contact from './pages/Contact';
 import AdminDemo from './pages/AdminDemo';
 import CustomerDemo from './pages/CustomerDemo';
-import Thanks from './pages/Thanks';
 import Pricing from './pages/Pricing';
 import Services from './pages/Services';
 import Blog from './pages/Blog';
@@ -44,7 +43,6 @@ export default function App() {
             <Route path="/contact" element={<Contact />} />
             <Route path="/admin-demo" element={<AdminDemo />} />
             <Route path="/customer-demo" element={<CustomerDemo />} />
-            <Route path="/thanks" element={<Thanks />} />
             <Route path="/pricing" element={<Pricing />} />
             <Route path="/services" element={<Services />} />
             <Route path="*" element={<NotFound />} />
