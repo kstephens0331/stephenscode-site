@@ -175,7 +175,21 @@ const CheckoutForm = () => {
   {/* 💳 Card Input */}
   <div>
     <label className="block text-sm font-medium text-gray-700 mb-2">Card Information</label>
-    <CardElement className="p-4 border border-gray-300 rounded-md shadow-sm bg-white" />
+    <CardElement
+  className="p-4 border border-gray-300 rounded-md shadow-sm bg-white block min-h-[48px]"
+  options={{
+    style: {
+      base: {
+        fontSize: "16px",
+        color: "#32325d",
+        '::placeholder': { color: "#a0aec0" },
+      },
+      invalid: {
+        color: "#e53e3e",
+      },
+    },
+  }}
+/>
   </div>
 </div>
 
