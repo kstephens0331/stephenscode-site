@@ -2,15 +2,26 @@ import React from 'react';
 import axios from 'axios';
 import { useCart } from '../context/CartContext';
 import { FaTrash } from 'react-icons/fa';
+import { db } from '../firebase';
+import { collection, addDoc, serverTimestamp } from 'firebase/firestore';
 
 const Cart = () => {
-  const { cartItems, removeFromCart, clearCart } = useCart();
+  const {
+    cartItems,
+    removeFromCart,
+    clearCart,
+    increaseQuantity,
+    decreaseQuantity,
+  } = useCart();
 
   if (cartItems.length === 0) {
     return <p className="text-center text-white pt-20">Your cart is empty.</p>;
   }
 
-  const subtotal = cartItems.reduce((sum, item) => sum + item.price * item.quantity, 0);
+  const subtotal = cartItems.reduce(
+    (sum, item) => sum + item.price * item.quantity,
+    0
+  );
   const taxRate = 0.0825;
   const tax = +(subtotal * taxRate).toFixed(2);
   const total = +(subtotal + tax).toFixed(2);
@@ -26,17 +37,29 @@ const Cart = () => {
     }
 
     try {
-      const res = await axios.post('https://api.stephenscode.dev/create-checkout-session', {
-        email,
-        items: cartItems.map(item => ({
-          name: item.title,
-          price: item.price,
-          description: item.description,
-          quantity: item.quantity,
-        })),
-      });
+      const res = await axios.post(
+        'https://api.stephenscode.dev/create-checkout-session',
+        {
+          email,
+          items: cartItems.map((item) => ({
+            name: item.title,
+            price: item.price,
+            description: item.description,
+            quantity: item.quantity,
+          })),
+        }
+      );
 
       if (res.data?.url) {
+        await addDoc(collection(db, 'orders'), {
+          email,
+          items: cartItems,
+          subtotal,
+          tax,
+          total,
+          createdAt: serverTimestamp(),
+        });
+
         clearCart();
         window.location.href = res.data.url;
       } else {
@@ -58,10 +81,26 @@ const Cart = () => {
             <div>
               <h3 className="text-lg font-semibold">{item.title}</h3>
               <p className="text-sm text-gray-400">{item.description}</p>
-              <p className="text-sm text-gray-400">x {item.quantity}</p>
+              <div className="flex items-center gap-2 mt-2">
+                <button
+                  onClick={() => decreaseQuantity(item.id)}
+                  className="px-2 py-1 bg-gray-700 hover:bg-gray-600 text-white rounded"
+                >
+                  −
+                </button>
+                <span className="text-white">{item.quantity}</span>
+                <button
+                  onClick={() => increaseQuantity(item.id)}
+                  className="px-2 py-1 bg-gray-700 hover:bg-gray-600 text-white rounded"
+                >
+                  +
+                </button>
+              </div>
             </div>
             <div className="text-right">
-              <p className="text-lg font-semibold">${(item.price * item.quantity).toFixed(2)}</p>
+              <p className="text-lg font-semibold">
+                ${(item.price * item.quantity).toFixed(2)}
+              </p>
               <FaTrash
                 onClick={() => removeFromCart(item.id)}
                 className="cursor-pointer text-red-400 hover:text-red-600 text-lg"
@@ -72,7 +111,6 @@ const Cart = () => {
         </div>
       ))}
 
-      {/* Summary and Checkout */}
       <div className="text-sm text-gray-400 mb-2">
         Subtotal: ${subtotal.toFixed(2)}<br />
         Tax: ${tax.toFixed(2)}<br />
