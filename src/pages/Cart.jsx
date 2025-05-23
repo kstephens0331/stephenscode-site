@@ -42,7 +42,7 @@ const Cart = () => {
         {
           email,
           items: cartItems.map((item) => ({
-            name: item.title,
+            title: item.title,
             price: item.price,
             description: item.description,
             quantity: item.quantity,
