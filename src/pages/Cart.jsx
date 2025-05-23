@@ -2,7 +2,7 @@ import React from 'react';
 import axios from 'axios';
 import { useCart } from '../context/CartContext';
 import { FaTrash } from 'react-icons/fa';
-import { db } from '../firebase';
+import { db } from '../../firebase';
 import { collection, addDoc, serverTimestamp } from 'firebase/firestore';
 
 const Cart = () => {
