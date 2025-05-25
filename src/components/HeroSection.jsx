@@ -49,13 +49,13 @@ export default function HeroSection() {
         transition={{ delay: 0.6, duration: 0.8 }}
       >
         <a
-          href="#pricing"
+          href="/pricing"
           className="px-6 py-3 bg-orange-500 hover:bg-orange-600 text-white font-semibold rounded-md transition"
         >
           View Packages
         </a>
         <a
-          href="#demos"
+          href="/demos"
           className="px-6 py-3 border border-gray-400 text-white hover:bg-white hover:text-black rounded-md transition"
         >
           See Live Demos
