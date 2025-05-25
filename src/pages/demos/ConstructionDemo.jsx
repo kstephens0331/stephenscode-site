@@ -1,8 +1,8 @@
 import React from "react";
 import HeroSection from "./ConstructionSections/HeroSection";
-import AboutSection from "./ConstructionSections/AboutSection";
 import ServicesSection from "./ConstructionSections/ServicesSection";
-import ProjectGallerySection from "./ConstructionSections/ProjectGallerySection";
+import AboutSection from "./ConstructionSections/AboutSection";
+import TestimonialsSection from "./ConstructionSections/TestimonialsSection"; // new section to build credibility
 import QuoteRequestSection from "./ConstructionSections/QuoteRequestSection";
 import ContactSection from "./ConstructionSections/ContactSection";
 
@@ -12,7 +12,7 @@ export default function ConstructionDemo() {
       <HeroSection />
       <AboutSection />
       <ServicesSection />
-      <ProjectGallerySection />
+      <TestimonialsSection />
       <QuoteRequestSection />
       <ContactSection />
     </div>

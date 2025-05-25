@@ -1,44 +1,22 @@
 import React from "react";
-import { motion } from "framer-motion";
 
-const HeroSection = () => {
+export default function HeroSection() {
   return (
-    <section
-      className="relative h-screen w-full bg-cover bg-center"
-      style={{
-        backgroundImage:
-          "url('https://source.unsplash.com/1600x900/?event,table,decor,wedding')",
-      }}
+   <section className="relative py-20 text-center font-[cursive] backdrop-blur-sm bg-white/30 rounded-lg shadow-lg mx-4 mt-4">
+  <div className="max-w-3xl mx-auto px-4">
+    <h1 className="text-5xl font-extrabold text-pink-600 mb-4">
+      Let’s Make Magic Together!
+    </h1>
+    <p className="text-lg text-gray-600 mb-6">
+      Whimsical, wonderful events designed with heart and sprinkled with a touch of magic.
+    </p>
+    <a
+      href="#contact"
+      className="inline-block px-8 py-3 bg-pink-500 text-white font-semibold rounded-full shadow hover:bg-pink-600 transition"
     >
-      <div className="absolute inset-0 bg-black bg-opacity-40" />
-      <div className="relative z-10 h-full flex flex-col justify-center items-center text-center text-white px-6">
-        <motion.h1
-          initial={{ opacity: 0, y: -30 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.8 }}
-          className="text-4xl md:text-6xl font-bold tracking-wide mb-4"
-        >
-          Celebrate Beautifully
-        </motion.h1>
-        <motion.p
-          initial={{ opacity: 0, y: 20 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ delay: 0.3, duration: 0.8 }}
-          className="text-lg md:text-xl max-w-2xl"
-        >
-          From concept to cleanup — elegant events crafted with care and creativity.
-        </motion.p>
-        <motion.a
-          href="#quote"
-          whileHover={{ scale: 1.05 }}
-          whileTap={{ scale: 0.95 }}
-          className="mt-8 inline-block bg-pink-500 hover:bg-pink-600 text-white font-semibold py-3 px-6 rounded shadow-lg transition"
-        >
-          Start Planning
-        </motion.a>
-      </div>
-    </section>
+      Start Your Journey
+    </a>
+  </div>
+</section>
   );
-};
-
-export default HeroSection;
+}

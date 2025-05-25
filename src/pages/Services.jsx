@@ -1,7 +1,7 @@
 
 import { useState } from 'react';
 import { motion } from 'framer-motion';
-import { Helmet } from 'react-helmet';
+import { Helmet } from "react-helmet-async";
 import { Link } from 'react-router-dom';
 import {
   FaLaptopCode,
@@ -69,7 +69,7 @@ export default function Services() {
           name="description"
           content="Explore everything we offer — websites, admin portals, customer dashboards, APIs, automation tools, and more."
         />
-      </Helmet>
+     </Helmet>
 
       <motion.div
         className="text-center max-w-3xl mx-auto mb-12"

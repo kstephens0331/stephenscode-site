@@ -4,7 +4,7 @@ import CorePackages from "../components/CorePackages";
 import AddOnsGrid from "../components/AddOnsGrid";
 import PremiumPackages from "../components/PremiumPackages";
 import ComparisonTable from "../components/ComparisonTable";
-import { Helmet } from "react-helmet";
+import { Helmet } from "react-helmet-async";
 
 
 <motion.div

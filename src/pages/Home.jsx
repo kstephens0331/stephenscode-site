@@ -4,7 +4,7 @@ import WhyChoose from '../components/WhyChoose';
 import LiveDemos from '../components/LiveDemos';
 import IndustryBlock from '../components/IndustryBlock'; // optional
 import { motion } from 'framer-motion';
-import { Helmet } from "react-helmet";
+import { Helmet } from "react-helmet-async";
 
 export default function Home() {
   return (

@@ -1,0 +1,6 @@
+[submodule "admin-dashboard"]
+	path = admin-dashboard
+	url = https://github.com/kstephens0331/admin-dashboard.git
+[submodule "clean-checkout-server"]
+	path = clean-checkout-server
+	url = https://github.com/kstephens0331/clean-checkout-server.git

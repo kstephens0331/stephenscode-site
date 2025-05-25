@@ -1,41 +1,39 @@
 import React from "react";
-import { FaPhoneAlt, FaEnvelope, FaMapMarkerAlt } from "react-icons/fa";
 
-const ContactSection = () => {
+export default function ContactSection() {
   return (
-    <footer className="bg-white text-gray-800 pt-20 pb-10 px-6 border-t" id="contact">
-      <div className="max-w-6xl mx-auto grid md:grid-cols-2 gap-12">
-        <div>
-          <h3 className="text-2xl font-bold text-orange-600 mb-4">Contact Us</h3>
-          <p className="flex items-center gap-2 mb-3">
-            <FaPhoneAlt className="text-orange-500" /> (555) 987-6543
-          </p>
-          <p className="flex items-center gap-2 mb-3">
-            <FaEnvelope className="text-orange-500" /> contact@demo-construction.com
-          </p>
-          <p className="flex items-center gap-2">
-            <FaMapMarkerAlt className="text-orange-500" />
-            1234 Industrial Ave, Cityville, ST 12345
-          </p>
-        </div>
-
-        <div>
-          <iframe
-            title="Map Location"
-            src="https://maps.google.com/maps?q=construction%20company&t=&z=13&ie=UTF8&iwloc=&output=embed"
-            width="100%"
-            height="250"
-            className="rounded-lg shadow"
-            loading="lazy"
-          ></iframe>
-        </div>
+    <section className="py-16 bg-gray-50 text-gray-800" id="contact">
+      <div className="max-w-4xl mx-auto px-4 text-center">
+        <h2 className="text-3xl font-bold uppercase text-orange-600 mb-4">
+          Get in Touch
+        </h2>
+        <p className="text-lg mb-8 text-gray-600">
+          We’re here to bring your vision to life. Let’s start the conversation—reach out today!
+        </p>
+        <form className="grid grid-cols-1 gap-4 max-w-md mx-auto">
+          <input
+            type="text"
+            placeholder="Your Name"
+            className="p-3 border border-gray-300 rounded focus:outline-none focus:border-orange-500 transition"
+          />
+          <input
+            type="email"
+            placeholder="Your Email"
+            className="p-3 border border-gray-300 rounded focus:outline-none focus:border-orange-500 transition"
+          />
+          <textarea
+            placeholder="Your Message"
+            className="p-3 border border-gray-300 rounded focus:outline-none focus:border-orange-500 transition"
+            rows="4"
+          ></textarea>
+          <button
+            type="submit"
+            className="bg-orange-600 text-white font-semibold px-6 py-3 rounded hover:bg-orange-700 transition"
+          >
+            Send Message
+          </button>
+        </form>
       </div>
-
-      <div className="text-center mt-12 text-sm text-gray-500">
-        &copy; {new Date().getFullYear()} Demo Construction Co. All rights reserved.
-      </div>
-    </footer>
+    </section>
   );
-};
-
-export default ContactSection;
+}

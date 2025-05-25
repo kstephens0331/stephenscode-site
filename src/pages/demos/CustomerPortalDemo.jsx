@@ -76,7 +76,7 @@ export default function CustomerPortalDemo() {
   return (
     <div className="flex h-screen bg-[#f9f9f9] text-gray-800 font-sans">
       {/* Sidebar */}
-      <aside className="w-64 bg-white border-r shadow-sm flex flex-col">
+      <aside className="w-64 bg-white border-r shadow-sm flex flex-col mt-16">
         <div className="p-6 text-2xl font-bold text-blue-600 border-b border-gray-200">
           Customer Portal
         </div>
@@ -107,7 +107,7 @@ export default function CustomerPortalDemo() {
       </aside>
 
       {/* Main Content */}
-      <main className="flex-1 p-8 overflow-y-auto relative bg-[#f9f9f9]">
+      <main className="flex-1 p-8 overflow-y-auto relative bg-[#f9f9f9] pt-16">
         <div className="mb-8">
           <h1 className="text-2xl font-bold text-blue-700 capitalize">{activeTab}</h1>
           <p className="text-sm text-gray-500">
