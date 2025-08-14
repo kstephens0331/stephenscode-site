@@ -1,5 +1,8 @@
 {
   "projects": {
-    "default": "admin-dashboard-stephenscode"
-  }
+    "default": "admin-dashboard-stephenscode",
+    "email list": "customer-stephenscode"
+  },
+  "targets": {},
+  "etags": {}
 }
