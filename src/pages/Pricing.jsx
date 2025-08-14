@@ -16,7 +16,7 @@ export default function Pricing() {
       {
         title: 'Plug and Play',
         price: '$250 flat-rate',
-        features: ['professional design and layout for services like WIX, GoDaddy, ect.'],
+        features: ['Professional design and layout for services like WIX, GoDaddy, ect.'],
       },
       {
         title: 'Website Rebuild',
