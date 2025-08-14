@@ -1,10 +1,13 @@
 // src/components/IndustryBlock.jsx
-import { useState } from 'react';
-import { motion, AnimatePresence } from 'framer-motion';
+import { useState } from "react";
+import { Link } from "react-router-dom";
+import { motion, AnimatePresence } from "framer-motion";
 
 const industries = [
   {
     name: "Construction & Trades",
+    image: "/demo-images/construction-demo.png", // ✅ public path
+    link: "/demos/construction",                 // ✅ working route
     features: [
       "Estimate & Quote Builder",
       "Job Scheduling System",
@@ -15,6 +18,8 @@ const industries = [
   },
   {
     name: "Event Planners & Rentals",
+    image: "/demo-images/event-demo.png",
+    link: "/demos/event",
     features: [
       "Event Dashboard & Calendar",
       "Rental Inventory Management",
@@ -25,6 +30,8 @@ const industries = [
   },
   {
     name: "Medical & Coaching",
+    image: "/demo-images/healthcare-demo.png",
+    link: "/demos/healthcare",
     features: [
       "HIPAA-Safe Intake Forms",
       "Appointment Calendar",
@@ -34,23 +41,27 @@ const industries = [
     ],
   },
   {
-    name: "Real Estate & Rentals",
+    name: "Customer Portal",
+    image: "/demo-images/customer-portal.png", // using customer portal preview
+    link: "/demos/customer-portal",
     features: [
-      "Interactive Listings with Maps",
-      "Lead Routing Tools",
-      "Virtual Tours Integration",
-      "Tenant Application Forms",
-      "Saved Properties Dashboard",
+      "View Quotes, Invoices & Pay Online",
+      "Track Job/Project Status & Tickets",
+      "Secure Messaging with Your Team",
+      "Upload/Download Project Documents",
+      "Schedule or Reschedule Appointments",
     ],
   },
   {
-    name: "Online Courses / LMS",
+    name: "Admin Portal",
+    image: "/demo-images/admin-portal.png", // placeholder preview
+    link: "/demos/admin-portal",
     features: [
-      "Course Library + Progress Bars",
-      "Video Embeds with Checks",
-      "Downloadable Resources",
-      "Quiz Builder with Scoring",
-      "Certificate Generator",
+      "KPI Dashboard: Revenue, P&L, MRR",
+      "Sales & Orders Overview + Forecasts",
+      "Expense Tracking & Budget vs Actual",
+      "Team/Ticket Performance & SLAs",
+      "Reports Export (PDF/CSV)",
     ],
   },
 ];
@@ -74,7 +85,7 @@ export default function IndustryBlock() {
       <div className="max-w-4xl mx-auto space-y-4">
         {industries.map((industry, index) => (
           <motion.div
-            key={index}
+            key={industry.name}
             className="bg-[#1a1a1a] border border-gray-700 rounded-xl overflow-hidden"
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
@@ -91,19 +102,56 @@ export default function IndustryBlock() {
 
             <AnimatePresence initial={false}>
               {active === index && (
-                <motion.ul
-                  className="px-6 pb-4 space-y-2 text-sm text-gray-300"
+                <motion.div
                   initial={{ height: 0, opacity: 0 }}
-                  animate={{ height: 'auto', opacity: 1 }}
+                  animate={{ height: "auto", opacity: 1 }}
                   exit={{ height: 0, opacity: 0 }}
                   transition={{ duration: 0.3 }}
                 >
-                  {industry.features.map((item, idx) => (
-                    <li key={idx} className="flex items-start gap-2">
-                      <span className="text-[#ff914d]">✔</span> {item}
-                    </li>
-                  ))}
-                </motion.ul>
+                  {/* Optional preview image from /public/demo-images */}
+                  {industry.image && (
+                    <div className="px-6">
+                      <div className="aspect-[16/9] w-full overflow-hidden rounded-lg border border-gray-700 mb-4 bg-black/40">
+                        <img
+                          src={industry.image}
+                          alt={`${industry.name} preview`}
+                          loading="lazy"
+                          className="w-full h-full object-cover"
+                          onError={(e) => (e.currentTarget.style.display = "none")}
+                        />
+                      </div>
+                    </div>
+                  )}
+
+                  <ul className="px-6 pb-4 space-y-2 text-sm text-gray-300">
+                    {industry.features.map((item) => (
+                      <li key={item} className="flex items-start gap-2">
+                        <span className="text-[#ff914d]">✔</span> {item}
+                      </li>
+                    ))}
+                  </ul>
+
+                  {/* Demo link actions */}
+                  <div className="px-6 pb-6">
+                    {industry.link ? (
+                      <Link
+                        to={industry.link}
+                        className="inline-flex items-center gap-2 px-4 py-2 bg-orange-600 hover:bg-orange-700 rounded-md text-sm font-semibold"
+                      >
+                        View Demo
+                        <span aria-hidden>→</span>
+                      </Link>
+                    ) : (
+                      <Link
+                        to="/demos"
+                        className="inline-flex items-center gap-2 px-4 py-2 bg-gray-700 hover:bg-gray-800 rounded-md text-sm font-semibold"
+                      >
+                        See All Demos
+                        <span aria-hidden>→</span>
+                      </Link>
+                    )}
+                  </div>
+                </motion.div>
               )}
             </AnimatePresence>
           </motion.div>
