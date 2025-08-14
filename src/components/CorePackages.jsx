@@ -3,7 +3,7 @@ import PackageCard from './PackageCard';
 const packages = [
   {
     title: 'Professional Website',
-    price: '350',
+    price: '$2,200',
     highlight: false,
     features: [
       'Custom Homepage + Services + About Page',
@@ -16,7 +16,7 @@ const packages = [
   },
   {
     title: 'E-Commerce Site',
-    price: '450',
+    price: '$1,600',
     highlight: true,
     features: [
       'Everything in the $350 Package',

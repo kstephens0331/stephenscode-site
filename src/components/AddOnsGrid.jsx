@@ -2,16 +2,16 @@
 import { motion } from 'framer-motion';
 
 const addOns = [
-  { title: "Business Email Setup", description: "Professional email (Google Workspace or domain-based).", price: "$20 one-time" },
-  { title: "Monthly Maintenance", description: "Hosting, updates, backups, and bug fixes.", price: "$50/mo" },
-  { title: "Maintenance + Email", description: "Includes hosting + email upkeep.", price: "$65/mo" },
-  { title: "Maintenance + Email + Ad", description: "Includes everything + your site featured on ours.", price: "$75/mo" },
+  { title: "Business Email Setup", description: "Professional email (Google Workspace or domain-based).", price: "$25 one-time" },
+  { title: "Monthly Maintenance", description: "Hosting, updates, backups, and bug fixes.", price: "$50-75/mo" },
+  { title: "Maintenance + Email", description: "Includes hosting + email upkeep.", price: "$85/mo" },
+  { title: "Maintenance + Email + Ad", description: "Includes everything + your site featured on ours.", price: "$100/mo" },
   { title: "Consulting & Strategy", description: "Business dev, systems planning, marketing.", price: "$75/hr" },
-  { title: "Blog / Insights Section", description: "Add a styled blog or article hub.", price: "$50" },
-  { title: "Appointment Booking", description: "Allow customers to schedule with you.", price: "$75" },
-  { title: "Live Chat Integration", description: "Add Crisp, Tawk.to, or custom widget.", price: "$40" },
-  { title: "Multilingual Support", description: "Switch between languages on your site.", price: "$75" },
-  { title: "Custom Forms & Automation", description: "Intake, contact, or triggered actions.", price: "$40+" }
+  { title: "Blog / Insights Section", description: "Add a styled blog or article hub.", price: "$110" },
+  { title: "Appointment Booking", description: "Allow customers to schedule with you.", price: "$150" },
+  { title: "Live Chat Integration", description: "Add Crisp, Tawk.to, or custom widget.", price: "$100" },
+  { title: "Multilingual Support", description: "Switch between languages on your site.", price: "$140" },
+  { title: "Custom Forms & Automation", description: "Intake, contact, or triggered actions.", price: "$100" }
 ];
 
 export default function AddOnsGrid() {
