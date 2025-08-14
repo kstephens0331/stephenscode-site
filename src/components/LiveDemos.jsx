@@ -1,43 +1,53 @@
 import { motion } from "framer-motion";
 import { Helmet } from "react-helmet";
 
-const demoSites = [
-  {
-    title: "Demo Healthcare",
-    image: "/src/assets/logo.png",
-    link: "/demos/healthcare",
-  },
-  {
-    title: "Demo Event Coordination",
-    image: "/src/assets/logo.png",
-    link: "/demos/event",
-  },
-  {
-    title: "Demo Security",
-    image: "/src/assets/logo.png",
-    link: "/demos/security",
-  },
-  {
-    title: "Demo Construction",
-    image: "/src/assets/logo.png",
-    link: "/demos/construction",
-  },
-  {
-    title: "Demo E-Commerce",
-    image: "/src/assets/logo.png",
-    link: "/demos/ecommerce",
-  },
-  {
-    title: "Demo Admin Portal",
-    image: "/src/assets/logo.png",
-    link: "/demos/admin-portal",
-  },
-  {
-    title: "Demo Customer Portal",
-    image: "/src/assets/logo.png",
-    link: "/demos/customer-portal",
-  },
-];
+  const portalDemos = [
+    {
+      title: "Admin Portal Demo",
+      icon: FaTools,
+      image: "/demo-images/admin-portal.png",
+      link: "/demos/admin-portal",
+    },
+    {
+      title: "Customer Portal Demo",
+      icon: FaUserShield,
+      image: "/demo-images/customer-portal.png",
+      link: "/demos/customer-portal",
+    },
+  ];
+
+  const categoryDemos = [
+    {
+      title: "Healthcare Demo",
+      icon: FaHospitalSymbol,
+      image: "/demo-images/healthcare-demo.png",
+      link: "/demos/healthcare",
+    },
+    {
+      title: "Event Coordination Demo",
+      icon: FaCalendarAlt,
+      image: "/demo-images/event-demo.png",
+      link: "/demos/event",
+    },
+    {
+      title: "Security Demo",
+      icon: FaShieldAlt,
+      image: "/demo-images/security-demo.png",
+      link: "/demos/security",
+    },
+    {
+      title: "Construction Demo",
+      icon: FaWarehouse,
+      image: "/demo-images/construction-demo.png",
+      link: "/demos/construction",
+    },
+    {
+      title: "E-Commerce Demo",
+      icon: FaShoppingCart,
+      image: "/demo-images/ecommerce-demo.png",
+      link: "/demos/ecommerce",
+    },
+  ];
 
 export default function LiveDemos() {
   return (

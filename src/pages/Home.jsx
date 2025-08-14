@@ -1,57 +1,97 @@
-import HeroSection from '../components/HeroSection';
-import FounderMessage from '../components/FounderMessage';
-import WhyChoose from '../components/WhyChoose';
-import LiveDemos from '../components/LiveDemos';
-import IndustryBlock from '../components/IndustryBlock'; // optional
-import { motion } from 'framer-motion';
+// src/pages/Demos.jsx
+import { useState } from "react";
+import { Link } from "react-router-dom";
+import { motion } from "framer-motion";
 import { Helmet } from "react-helmet-async";
 
-const demoSites = [
-  {
-    title: "Demo Healthcare",
-    image: "/src/assets/logo.png",
-    link: "/demos/healthcare",
-  },
-  {
-    title: "Demo Event Coordination",
-    image: "/src/assets/logo.png",
-    link: "/demos/event",
-  },
-  {
-    title: "Demo Security",
-    image: "/src/assets/logo.png",
-    link: "/demos/security",
-  },
-  {
-    title: "Demo Construction",
-    image: "/src/assets/logo.png",
-    link: "/demos/construction",
-  },
-  {
-    title: "Demo E-Commerce",
-    image: "/src/assets/logo.png",
-    link: "/demos/ecommerce",
-  },
-  {
-    title: "Demo Admin Portal",
-    image: "/src/assets/logo.png",
-    link: "/demos/admin-portal",
-  },
-  {
-    title: "Demo Customer Portal",
-    image: "/src/assets/logo.png",
-    link: "/demos/customer-portal",
-  },
-];
+import HeroSection from "../components/HeroSection";
+import FounderMessage from "../components/FounderMessage";
+import WhyChoose from "../components/WhyChoose";
+// import IndustryBlock from "../components/IndustryBlock"; // optional
 
-export default function Home() {
+import {
+  FaTools,
+  FaUserShield,
+  FaHospitalSymbol,
+  FaCalendarAlt,
+  FaShieldAlt,
+  FaWarehouse,
+  FaShoppingCart,
+} from "react-icons/fa";
+
+// ✅ Import images from /src so Vite handles them correctly
+import logo from "../assets/logo.png"; // replace with per-demo thumbnails when available
+
+export default function Demos() {
+  const [lightboxOpen, setLightboxOpen] = useState(false);
+  const [lightboxImage, setLightboxImage] = useState(null);
+  const [lightboxTitle, setLightboxTitle] = useState("");
+
+  // ---------- DEMO DATA ----------
+  const portalDemos = [
+    {
+      title: "Demo Admin Portal",
+      image: logo,
+      link: "/demos/admin-portal",
+      icon: FaUserShield,
+    },
+    {
+      title: "Demo Customer Portal",
+      image: logo,
+      link: "/demos/customer-portal",
+      icon: FaTools,
+    },
+    {
+      title: "Demo E‑Commerce",
+      image: logo,
+      link: "/demos/ecommerce",
+      icon: FaShoppingCart,
+    },
+  ];
+
+  const categoryDemos = [
+    {
+      title: "Demo Healthcare",
+      image: logo,
+      link: "/demos/healthcare",
+      icon: FaHospitalSymbol,
+    },
+    {
+      title: "Demo Event Coordination",
+      image: logo,
+      link: "/demos/event",
+      icon: FaCalendarAlt,
+    },
+    {
+      title: "Demo Security",
+      image: logo,
+      link: "/demos/security",
+      icon: FaShieldAlt,
+    },
+    {
+      title: "Demo Construction",
+      image: logo,
+      link: "/demos/construction",
+      icon: FaWarehouse,
+    },
+  ];
+  // --------------------------------
+
+  const openLightbox = (image, title) => {
+    setLightboxImage(image);
+    setLightboxTitle(title);
+    setLightboxOpen(true);
+  };
+
+  const closeLightbox = () => setLightboxOpen(false);
+
   return (
     <>
       <Helmet>
-        <title>StephensCode | Custom Websites & Business Systems</title>
+        <title>StephensCode | Live Demos</title>
         <meta
           name="description"
-          content="Veteran-owned dev agency specializing in flat-rate custom websites, admin dashboards, portals, and automation tools for growing businesses."
+          content="Explore live demo previews for portals and industry solutions from StephensCode."
         />
       </Helmet>
 
@@ -61,9 +101,9 @@ export default function Home() {
         animate={{ opacity: 1 }}
         transition={{ duration: 0.8 }}
       >
+        {/* Top sections (optional) */}
         <HeroSection />
         <WhyChoose />
-
         <motion.div
           initial={{ opacity: 0, y: 40 }}
           whileInView={{ opacity: 1, y: 0 }}
@@ -72,58 +112,112 @@ export default function Home() {
         >
           <FounderMessage />
         </motion.div>
+        {/* <IndustryBlock /> */}
 
-        {/* Optional: IndustryBlock for variety */}
-      <section className="bg-[#111] text-white py-20 px-6">
-        <motion.h2
-          className="text-3xl md:text-4xl font-extrabold text-center mb-12"
-          initial={{ opacity: 0, y: -20 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.6 }}
+        {/* ---------- DEMO GRIDS ---------- */}
+        <motion.section
+          className="py-12 px-4 md:px-8 max-w-7xl mx-auto"
+          initial={{ opacity: 0, y: 20 }}
+          animate={{ opacity: 1, y: 0 }}
+          exit={{ opacity: 0, y: -20 }}
+          transition={{ duration: 0.4 }}
         >
-          Explore Our Live Demos
-        </motion.h2>
+          <h1 className="text-3xl font-bold text-center text-white mb-8">
+            Live Demo Previews
+          </h1>
 
-        <div className="max-w-6xl mx-auto grid md:grid-cols-3 gap-8">
-          {demoSites.map((site, index) => (
-            <motion.div
-              key={index}
-              className="relative rounded-xl overflow-hidden shadow-lg group border border-gray-800"
-              initial={{ opacity: 0, y: 30 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              transition={{ delay: index * 0.15, duration: 0.6 }}
-            >
-              {/* Background Preview */}
-              <img
-                src={site.image}
-                alt={site.title}
-                className="w-full h-60 object-cover group-hover:scale-105 transition duration-500"
-              />
-
-              {/* Overlay */}
-              <div className="absolute inset-0 bg-black bg-opacity-60 opacity-0 group-hover:opacity-100 flex items-center justify-center transition duration-300 space-x-4">
-                <a
-                  href={site.link}
-                  className="px-5 py-2 bg-orange-500 hover:bg-orange-600 rounded text-sm font-medium"
-                >
-                  View Demo
-                </a>
+          {/* Portal demos */}
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-6 mb-12">
+            {portalDemos.map((demo) => (
+              <article
+                key={demo.link}
+                className="bg-[#111] rounded-lg overflow-hidden shadow-lg border border-[#333] hover:scale-[1.02] transition-transform"
+              >
                 <button
-                  onClick={() => alert("Lightbox preview coming soon")} // Replace with real preview modal
-                  className="px-4 py-2 bg-gray-700 hover:bg-gray-800 rounded text-sm"
+                  type="button"
+                  className="relative w-full cursor-pointer"
+                  onClick={() => openLightbox(demo.image, demo.title)}
+                  aria-label={`Open preview for ${demo.title}`}
                 >
-                  Preview
+                  <div className="aspect-[16/9] w-full bg-black/40 overflow-hidden">
+                    <img
+                      src={demo.image}
+                      alt={demo.title}
+                      loading="lazy"
+                      className="w-full h-full object-cover"
+                    />
+                  </div>
+                  <div className="absolute top-0 left-0 m-2 text-white text-2xl bg-orange-600 rounded-full p-2 shadow">
+                    <demo.icon />
+                  </div>
                 </button>
-              </div>
 
-              {/* Title */}
-              <div className="bg-[#1a1a1a] py-4 px-6">
-                <h3 className="text-lg font-semibold">{site.title}</h3>
-              </div>
-            </motion.div>
-          ))}
-        </div>
-      </section>
+                <div className="p-4 text-center text-white font-semibold">
+                  <Link to={demo.link} className="hover:underline">
+                    {demo.title}
+                  </Link>
+                </div>
+              </article>
+            ))}
+          </div>
+
+          <h2 className="text-2xl font-bold text-center text-orange-500 mb-8">
+            Industry Demo Previews
+          </h2>
+
+          {/* Industry demos */}
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
+            {categoryDemos.map((demo) => (
+              <article
+                key={demo.link}
+                className="bg-[#111] rounded-lg overflow-hidden shadow-lg border border-[#333] hover:scale-[1.02] transition-transform"
+              >
+                <button
+                  type="button"
+                  className="relative w-full cursor-pointer"
+                  onClick={() => openLightbox(demo.image, demo.title)}
+                  aria-label={`Open preview for ${demo.title}`}
+                >
+                  <div className="aspect-[16/9] w-full bg-black/40 overflow-hidden">
+                    <img
+                      src={demo.image}
+                      alt={demo.title}
+                      loading="lazy"
+                      className="w-full h-full object-cover"
+                    />
+                  </div>
+                  <div className="absolute top-0 left-0 m-2 text-white text-2xl bg-orange-600 rounded-full p-2 shadow">
+                    <demo.icon />
+                  </div>
+                </button>
+
+                <div className="p-4 text-center text-white font-semibold">
+                  <Link to={demo.link} className="hover:underline">
+                    {demo.title}
+                  </Link>
+                </div>
+              </article>
+            ))}
+          </div>
+        </motion.section>
+
+        {/* ---------- LIGHTBOX ---------- */}
+        {lightboxOpen && (
+          <div
+            className="fixed inset-0 bg-black/80 flex items-center justify-center z-50 p-4"
+            onClick={closeLightbox}
+            role="dialog"
+            aria-modal="true"
+            aria-label={lightboxTitle}
+          >
+            <img
+              src={lightboxImage}
+              alt={lightboxTitle}
+              className="max-w-[95vw] max-h-[85vh] rounded shadow-lg"
+              onClick={(e) => e.stopPropagation()}
+            />
+          </div>
+        )}
       </motion.div>
     </>
   );
