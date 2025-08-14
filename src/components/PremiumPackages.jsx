@@ -4,7 +4,7 @@ import { motion } from 'framer-motion';
 const premiumTiers = [
   {
     title: "Launch Pro",
-    price: "$5,000",
+    price: "$3,000",
     description: "For funded startups or companies ready to scale.",
     features: [
       "Custom Branding & Strategy",
@@ -16,7 +16,7 @@ const premiumTiers = [
   },
   {
     title: "Growth Engine",
-    price: "$8,500",
+    price: "$6,500",
     description: "For scaling businesses or full SaaS builds.",
     features: [
       "Everything in Launch Pro",
