@@ -1,6 +1,16 @@
 import { motion } from "framer-motion";
 import { Helmet } from "react-helmet";
 
+import {
+  FaTools,
+  FaUserShield,
+  FaHospitalSymbol,
+  FaCalendarAlt,
+  FaShieldAlt,
+  FaWarehouse,
+  FaShoppingCart,
+} from "react-icons/fa";
+
   const portalDemos = [
     {
       title: "Admin Portal Demo",
