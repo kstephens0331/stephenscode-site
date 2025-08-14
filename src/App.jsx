@@ -2,6 +2,7 @@
 import { Routes, Route, useLocation } from 'react-router-dom';
 import { AnimatePresence } from 'framer-motion';
 import { HelmetProvider } from "react-helmet-async";
+import Analytics from "./components/Analytics";
 
 import Navbar from './components/Navbar';
 import Footer from './components/Footer';
@@ -32,6 +33,7 @@ export default function App() {
 
   return (
     <HelmetProvider>
+      <Analytics />
       <div className="flex flex-col min-h-screen bg-[#0e0e0e]">
         <Navbar />
         <main className="flex-grow">
