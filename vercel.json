@@ -1,0 +1,5 @@
+{
+  "buildCommand": "cd stephenscode-marketing && npm install && npm run build",
+  "devCommand": "cd stephenscode-marketing && npm run dev",
+  "installCommand": "npm install --prefix stephenscode-marketing"
+}
