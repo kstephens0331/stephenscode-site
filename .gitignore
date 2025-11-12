@@ -1,1 +1,72 @@
-node_modules
+# Dependencies
+node_modules/
+**/node_modules/
+
+# Next.js (Marketing Site)
+stephenscode-marketing/.next/
+stephenscode-marketing/out/
+stephenscode-marketing/.turbo/
+
+# Build outputs
+dist/
+build/
+out/
+.next/
+
+# Environment variables
+.env
+.env.local
+.env*.local
+**/.env
+**/.env.local
+**/.env*.local
+
+# Logs
+*.log
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+firebase-debug.log*
+
+# OS files
+.DS_Store
+Thumbs.db
+desktop.ini
+
+# Editor directories
+.vscode/
+.idea/
+*.swp
+*.swo
+*~
+
+# Temporary files
+.tmp/
+.tmp.*/
+*.tmp
+.cache/
+
+# Firebase
+.firebase/
+firebase-debug.log
+
+# Vercel
+.vercel
+
+# Python
+__pycache__/
+*.py[cod]
+*$py.class
+*.so
+.Python
+env/
+venv/
+ENV/
+
+# Session/Summary files (optional - uncomment if you don't want to track these)
+# SESSION_SUMMARY.md
+# REBUILD_PROGRESS.md
+# CUSTOMER_PORTAL_ENHANCEMENTS.md
+
+# Claude artifacts
+.claude/
