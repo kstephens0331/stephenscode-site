@@ -1,5 +1,3 @@
 {
-  "buildCommand": "cd stephenscode-marketing && npm install && npm run build",
-  "installCommand": "cd stephenscode-marketing && npm install",
   "framework": "nextjs"
 }
