@@ -1,0 +1,36 @@
+rules_version = '2';
+
+service cloud.firestore {
+  match /databases/{database}/documents {
+
+    // Customers collection - Allow read from admin, write for authenticated users
+    match /customers/{customerId} {
+      // Allow users to read/write their own customer document
+      allow read, write: if request.auth != null && request.auth.uid == customerId;
+
+      // Allow read access for admin dashboard
+      allow read: if request.auth != null;
+    }
+
+    // Update Requests - Allow authenticated users to create, allow all to read
+    match /updateRequests/{requestId} {
+      allow read: if request.auth != null;
+      allow create: if request.auth != null;
+      allow update: if request.auth != null;
+    }
+
+    // Module Requests - Allow authenticated users to create, allow all to read
+    match /moduleRequests/{requestId} {
+      allow read: if request.auth != null;
+      allow create: if request.auth != null;
+      allow update: if request.auth != null;
+    }
+
+    // Private Feedback - Allow authenticated users to create, allow all to read
+    match /privateFeedback/{feedbackId} {
+      allow read: if request.auth != null;
+      allow create: if request.auth != null;
+      allow update: if request.auth != null;
+    }
+  }
+}
