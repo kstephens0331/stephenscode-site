@@ -1,0 +1,12 @@
+rules_version = '2';
+
+service cloud.firestore {
+  match /databases/{database}/documents {
+
+    // Orders collection
+    match /orders/{orderId} {
+      // Allow admin dashboard to read and write all orders
+      allow read, write: if request.auth != null;
+    }
+  }
+}
