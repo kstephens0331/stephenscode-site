@@ -1,0 +1,80 @@
+{
+  "name": "Sweet Dreams Bakery",
+  "slug": "sweet-dreams-bakery",
+  "category": "E-Commerce",
+  "price": 1100,
+  "description": "Premium bakery e-commerce site with online ordering, custom cake builder, delivery scheduling, and catering services",
+  "features": [
+    "Online ordering system",
+    "Custom cake builder with options",
+    "Delivery date/time scheduling",
+    "Order tracking dashboard",
+    "Menu categories (cakes, cookies, pastries, bread)",
+    "Allergen information display",
+    "Dietary options (gluten-free, vegan)",
+    "Catering package builder",
+    "Gift options and packaging",
+    "Customer account management"
+  ],
+  "pages": [
+    {
+      "name": "Home",
+      "path": "/",
+      "description": "Welcome page with featured products and daily specials"
+    },
+    {
+      "name": "Menu",
+      "path": "/menu",
+      "description": "Complete product catalog with categories and filtering"
+    },
+    {
+      "name": "Custom Cakes",
+      "path": "/custom-cakes",
+      "description": "Interactive cake builder with customization options"
+    },
+    {
+      "name": "Order Online",
+      "path": "/order",
+      "description": "Online ordering system with real-time inventory"
+    },
+    {
+      "name": "Catering",
+      "path": "/catering",
+      "description": "Catering packages and event planning tools"
+    },
+    {
+      "name": "Delivery",
+      "path": "/delivery",
+      "description": "Delivery scheduling and tracking information"
+    },
+    {
+      "name": "Cart",
+      "path": "/cart",
+      "description": "Shopping cart with checkout process"
+    },
+    {
+      "name": "Account",
+      "path": "/account",
+      "description": "Customer dashboard with order history and tracking"
+    },
+    {
+      "name": "About",
+      "path": "/about",
+      "description": "Bakery story, values, and team information"
+    },
+    {
+      "name": "Contact",
+      "path": "/contact",
+      "description": "Location, hours, and contact information"
+    }
+  ],
+  "colors": {
+    "primary": "#d62828",
+    "secondary": "#f77f00",
+    "accent": "#fcbf49"
+  },
+  "fonts": {
+    "heading": "Playfair Display",
+    "body": "Inter"
+  }
+}

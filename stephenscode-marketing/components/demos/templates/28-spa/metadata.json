@@ -1,0 +1,82 @@
+{
+  "name": "Serenity Spa & Wellness",
+  "slug": "serenity-spa-wellness",
+  "category": "Premium Build",
+  "price": 2000,
+  "description": "Luxury spa and wellness center with membership portal, package builder, gift certificate system, and advanced booking platform",
+  "features": [
+    "Advanced online booking with therapist selection",
+    "Membership management portal",
+    "Custom package builder",
+    "Digital gift certificate system",
+    "Treatment menu with detailed descriptions",
+    "Therapist profiles and availability",
+    "Loyalty rewards tracking",
+    "Product e-commerce integration",
+    "Appointment reminder system",
+    "Client history and preferences",
+    "Multi-location support",
+    "Automated email marketing"
+  ],
+  "pages": [
+    {
+      "name": "Home",
+      "path": "/",
+      "description": "Welcome page with featured treatments and promotions"
+    },
+    {
+      "name": "Services",
+      "path": "/services",
+      "description": "Complete treatment menu with categories and pricing"
+    },
+    {
+      "name": "Packages",
+      "path": "/packages",
+      "description": "Pre-designed and custom wellness packages"
+    },
+    {
+      "name": "Book Now",
+      "path": "/book",
+      "description": "Advanced booking system with therapist and time selection"
+    },
+    {
+      "name": "Memberships",
+      "path": "/memberships",
+      "description": "Monthly membership plans with exclusive benefits"
+    },
+    {
+      "name": "Gift Certificates",
+      "path": "/gifts",
+      "description": "Purchase and manage digital gift certificates"
+    },
+    {
+      "name": "Member Portal",
+      "path": "/portal",
+      "description": "Member dashboard with appointments and rewards"
+    },
+    {
+      "name": "Shop Products",
+      "path": "/shop",
+      "description": "Premium skincare and wellness products"
+    },
+    {
+      "name": "About",
+      "path": "/about",
+      "description": "Spa philosophy, facilities, and team"
+    },
+    {
+      "name": "Contact",
+      "path": "/contact",
+      "description": "Location, hours, and contact information"
+    }
+  ],
+  "colors": {
+    "primary": "#6a4c93",
+    "secondary": "#8b6d9c",
+    "accent": "#c9ada7"
+  },
+  "fonts": {
+    "heading": "Playfair Display",
+    "body": "Inter"
+  }
+}

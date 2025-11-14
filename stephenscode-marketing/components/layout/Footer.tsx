@@ -3,11 +3,11 @@ import Link from 'next/link'
 export default function Footer() {
   const navigation = {
     services: [
-      { name: 'Custom Websites', href: '/services/custom-websites' },
-      { name: 'E-Commerce', href: '/services/ecommerce' },
-      { name: 'Business Automation', href: '/services/business-automation' },
-      { name: 'Dashboards', href: '/services/dashboards' },
-      { name: 'Premium Solutions', href: '/services/premium' },
+      { name: 'Plug & Play', href: '/services/plug-and-play' },
+      { name: 'Website Rebuild', href: '/services/website-rebuild' },
+      { name: 'Standard Website', href: '/services/standard-website' },
+      { name: 'E-Commerce', href: '/services/ecommerce-website' },
+      { name: 'Premium Build', href: '/services/premium-build' },
     ],
     company: [
       { name: 'About', href: '/about' },

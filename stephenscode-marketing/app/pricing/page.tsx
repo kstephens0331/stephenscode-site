@@ -355,8 +355,8 @@ export default function PricingPage() {
               <h3 className="text-2xl font-bold text-gray-900">Basic Add-Ons</h3>
               <span className="text-sm text-gray-500">{basicAddOns.length} options</span>
             </div>
-            <div className="grid gap-6 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4">
-              {basicAddOns.slice(0, 8).map((addon) => (
+            <div className="grid gap-6 sm:grid-cols-2 lg:grid-cols-2">
+              {basicAddOns.slice(0, 4).map((addon) => (
                 <Link
                   key={addon.id}
                   href={`/services/${addon.slug}`}
@@ -375,9 +375,9 @@ export default function PricingPage() {
                 </Link>
               ))}
             </div>
-            {basicAddOns.length > 8 && (
+            {basicAddOns.length > 4 && (
               <div className="mt-8 text-center">
-                <p className="text-gray-600">+ {basicAddOns.length - 8} more basic add-ons available</p>
+                <p className="text-gray-600">+ {basicAddOns.length - 4} more basic add-ons available</p>
               </div>
             )}
           </div>

@@ -1,0 +1,82 @@
+{
+  "name": "Swift Logistics Services",
+  "slug": "swift-logistics-services",
+  "category": "Premium Build",
+  "price": 2000,
+  "description": "Professional logistics and freight management platform with real-time tracking, customer portal, quote calculator, and comprehensive reporting",
+  "features": [
+    "Real-time shipment tracking system",
+    "Interactive quote calculator",
+    "Customer portal with shipment history",
+    "Automated reporting dashboard",
+    "Multi-carrier integration",
+    "Route optimization tools",
+    "Proof of delivery system",
+    "Document management",
+    "Automated notifications",
+    "Service area mapping",
+    "Fleet management tools",
+    "Analytics and insights"
+  ],
+  "pages": [
+    {
+      "name": "Home",
+      "path": "/",
+      "description": "Welcome page with service overview and value proposition"
+    },
+    {
+      "name": "Services",
+      "path": "/services",
+      "description": "Complete logistics service catalog and capabilities"
+    },
+    {
+      "name": "Get Quote",
+      "path": "/quote",
+      "description": "Interactive shipping calculator with instant quotes"
+    },
+    {
+      "name": "Track Shipment",
+      "path": "/track",
+      "description": "Real-time shipment tracking with detailed status"
+    },
+    {
+      "name": "Customer Portal",
+      "path": "/portal",
+      "description": "Client dashboard with shipment history and analytics"
+    },
+    {
+      "name": "Reporting",
+      "path": "/reporting",
+      "description": "Comprehensive analytics and performance reports"
+    },
+    {
+      "name": "Service Areas",
+      "path": "/areas",
+      "description": "Coverage map and service locations"
+    },
+    {
+      "name": "About",
+      "path": "/about",
+      "description": "Company information, fleet, and certifications"
+    },
+    {
+      "name": "Careers",
+      "path": "/careers",
+      "description": "Job opportunities and driver application"
+    },
+    {
+      "name": "Contact",
+      "path": "/contact",
+      "description": "Contact information and support"
+    }
+  ],
+  "colors": {
+    "primary": "#005f73",
+    "secondary": "#0a9396",
+    "accent": "#94d2bd"
+  },
+  "fonts": {
+    "heading": "Inter",
+    "body": "Inter"
+  }
+}
