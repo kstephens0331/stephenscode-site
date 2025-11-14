@@ -49,6 +49,11 @@ desktop.ini
 # Firebase
 .firebase/
 firebase-debug.log
+serviceAccountKey*.json
+**/serviceAccountKey*.json
+
+# Migration data (temporary)
+migration-data/
 
 # Vercel
 .vercel

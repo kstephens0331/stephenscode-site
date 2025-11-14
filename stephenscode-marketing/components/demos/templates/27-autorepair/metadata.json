@@ -1,0 +1,84 @@
+{
+  "name": "Precision Auto Repair",
+  "slug": "precision-auto-repair",
+  "category": "Premium Build",
+  "price": 2000,
+  "description": "Premium auto repair showcase featuring real client work from carscollisionandrefinishshop.com - Complete service scheduling, cost estimator, customer portal, and vehicle history tracking",
+  "realClientShowcase": true,
+  "clientWebsite": "https://carscollisionandrefinishshop.com",
+  "features": [
+    "Real client website integration showcase",
+    "Live service scheduling system",
+    "Interactive cost estimator tool",
+    "Customer portal with vehicle history",
+    "Service package builder",
+    "Before/after photo gallery",
+    "Insurance claim assistance",
+    "Vehicle maintenance tracking",
+    "Appointment reminder system",
+    "Multi-location management",
+    "Staff scheduling dashboard",
+    "Parts inventory tracking"
+  ],
+  "pages": [
+    {
+      "name": "Home",
+      "path": "/",
+      "description": "Welcome page showcasing real client work and services"
+    },
+    {
+      "name": "Services",
+      "path": "/services",
+      "description": "Complete collision repair and refinishing services catalog"
+    },
+    {
+      "name": "Cost Estimator",
+      "path": "/estimate",
+      "description": "Interactive damage assessment and cost estimation tool"
+    },
+    {
+      "name": "Schedule Service",
+      "path": "/schedule",
+      "description": "Advanced scheduling with service type and vehicle selection"
+    },
+    {
+      "name": "Gallery",
+      "path": "/gallery",
+      "description": "Before/after photos of completed repair work"
+    },
+    {
+      "name": "Customer Portal",
+      "path": "/portal",
+      "description": "Customer dashboard with vehicle history and service records"
+    },
+    {
+      "name": "Insurance Claims",
+      "path": "/insurance",
+      "description": "Insurance claim submission and tracking"
+    },
+    {
+      "name": "Maintenance Plans",
+      "path": "/maintenance",
+      "description": "Preventive maintenance packages and subscriptions"
+    },
+    {
+      "name": "About",
+      "path": "/about",
+      "description": "Shop information, certifications, and team"
+    },
+    {
+      "name": "Contact",
+      "path": "/contact",
+      "description": "Multi-location contact information and directions"
+    }
+  ],
+  "colors": {
+    "primary": "#03071e",
+    "secondary": "#370617",
+    "accent": "#dc2f02"
+  },
+  "fonts": {
+    "heading": "Inter",
+    "body": "Inter"
+  }
+}
