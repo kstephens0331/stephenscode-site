@@ -11,9 +11,16 @@ export const metadata: Metadata = {
   title: 'Custom Solutions - SaaS, Web Apps, Scrapers & More | StephensCode',
   description: 'Need a custom software solution? We build SaaS platforms, web applications, data scrapers, and bespoke tools tailored to your business. Flat-rate pricing based on $50/hour estimates.',
   openGraph: {
-    title: 'Custom Solutions - SaaS, Web Apps, Scrapers & More | StephensCode',
-    description: 'Need a custom software solution? We build SaaS platforms, web applications, data scrapers, and bespoke tools tailored to your business.',
+    title: 'Custom Solutions - SaaS, Web Apps, Scrapers & More',
+    description: 'We build SaaS platforms, web applications, data scrapers, and bespoke tools tailored to your business. Flat-rate pricing based on $50/hour estimates.',
     type: 'website',
+    url: 'https://www.stephenscode.dev/custom-solutions',
+    siteName: 'StephensCode',
+  },
+  twitter: {
+    card: 'summary_large_image',
+    title: 'Custom Solutions - SaaS, Web Apps, Scrapers & More',
+    description: 'We build SaaS platforms, web applications, data scrapers, and bespoke tools. Flat-rate pricing based on $50/hour estimates.',
   },
 };
 
