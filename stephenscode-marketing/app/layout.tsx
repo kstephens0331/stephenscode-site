@@ -32,11 +32,21 @@ export const metadata: Metadata = {
     siteName: 'StephensCode',
     title: 'StephensCode | Veteran-Owned Web Development | Conroe TX',
     description: 'Custom websites, dashboards, and automation by a veteran-owned company serving Houston and Conroe.',
+    images: [
+      {
+        url: 'https://www.stephenscode.dev/og-image.svg',
+        width: 1200,
+        height: 630,
+        alt: 'StephensCode - Veteran-Owned Web Development',
+        type: 'image/svg+xml',
+      }
+    ],
   },
   twitter: {
     card: 'summary_large_image',
     title: 'StephensCode | Veteran-Owned Web Development',
     description: 'Custom websites and business solutions serving Houston and Conroe.',
+    images: ['https://www.stephenscode.dev/og-image.svg'],
   },
   robots: {
     index: true,

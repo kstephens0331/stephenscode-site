@@ -16,11 +16,21 @@ export const metadata: Metadata = {
     type: 'website',
     url: 'https://www.stephenscode.dev/custom-solutions',
     siteName: 'StephensCode',
+    images: [
+      {
+        url: 'https://www.stephenscode.dev/og-image.svg',
+        width: 1200,
+        height: 630,
+        alt: 'StephensCode Custom Solutions - SaaS, Web Apps, Automation',
+        type: 'image/svg+xml',
+      }
+    ],
   },
   twitter: {
     card: 'summary_large_image',
     title: 'Custom Solutions - SaaS, Web Apps, Scrapers & More',
     description: 'We build SaaS platforms, web applications, data scrapers, and bespoke tools. Flat-rate pricing based on $50/hour estimates.',
+    images: ['https://www.stephenscode.dev/og-image.svg'],
   },
 };
 
