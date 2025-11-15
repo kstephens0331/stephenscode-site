@@ -433,6 +433,84 @@ export default function PricingPage() {
         </div>
       </section>
 
+      {/* Custom Solutions CTA */}
+      <section className="relative bg-gradient-to-br from-slate-900 via-blue-900 to-slate-900 py-24 sm:py-32 overflow-hidden">
+        {/* Background pattern */}
+        <div className="absolute inset-0 opacity-10">
+          <div className="absolute inset-0" style={{
+            backgroundImage: 'radial-gradient(circle at 2px 2px, white 1px, transparent 0)',
+            backgroundSize: '32px 32px'
+          }} />
+        </div>
+
+        <div className="relative mx-auto max-w-7xl px-6 lg:px-8">
+          <div className="mx-auto max-w-4xl">
+            <div className="rounded-3xl bg-gradient-to-br from-slate-800/80 to-slate-700/80 p-12 border-2 border-blue-500/30 shadow-2xl shadow-blue-500/10">
+              <div className="text-center mb-8">
+                <div className="inline-flex items-center rounded-full bg-blue-500/20 border border-blue-500/30 px-4 py-2 text-sm font-semibold text-blue-400 mb-6">
+                  🚀 Need Something Different?
+                </div>
+                <h2 className="text-4xl md:text-5xl font-bold text-white mb-4">
+                  Custom Solutions
+                </h2>
+                <p className="text-xl text-slate-300 leading-relaxed">
+                  SaaS platforms, web applications, data scrapers, automation tools, and bespoke software tailored to your exact needs.
+                </p>
+              </div>
+
+              <div className="grid md:grid-cols-2 gap-8 mb-8">
+                <div className="bg-slate-800/50 rounded-xl p-6 border border-slate-600/30">
+                  <div className="flex items-start gap-4">
+                    <div className="flex-shrink-0 w-12 h-12 rounded-xl bg-gradient-to-br from-blue-500 to-cyan-600 flex items-center justify-center">
+                      <svg className="w-6 h-6 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 8c-1.657 0-3 .895-3 2s1.343 2 3 2 3 .895 3 2-1.343 2-3 2m0-8c1.11 0 2.08.402 2.599 1M12 8V7m0 1v8m0 0v1m0-1c-1.11 0-2.08-.402-2.599-1M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
+                      </svg>
+                    </div>
+                    <div>
+                      <h3 className="text-lg font-bold text-white mb-2">Transparent Pricing</h3>
+                      <p className="text-slate-300 text-sm">
+                        Based on $50/hour estimates, but quoted as a <strong className="text-white">flat-rate price</strong>. No hourly billing, no cost overruns.
+                      </p>
+                    </div>
+                  </div>
+                </div>
+
+                <div className="bg-slate-800/50 rounded-xl p-6 border border-slate-600/30">
+                  <div className="flex items-start gap-4">
+                    <div className="flex-shrink-0 w-12 h-12 rounded-xl bg-gradient-to-br from-green-500 to-emerald-600 flex items-center justify-center">
+                      <svg className="w-6 h-6 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z" />
+                      </svg>
+                    </div>
+                    <div>
+                      <h3 className="text-lg font-bold text-white mb-2">Fixed Quote</h3>
+                      <p className="text-slate-300 text-sm">
+                        Your price is locked in upfront. If development takes longer, <strong className="text-white">you don't pay more</strong>.
+                      </p>
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+              <div className="text-center">
+                <Link
+                  href="/custom-solutions"
+                  className="inline-flex items-center gap-2 px-8 py-4 bg-gradient-to-r from-blue-500 to-cyan-500 text-white font-bold rounded-xl hover:from-blue-600 hover:to-cyan-600 transition-all duration-300 shadow-lg shadow-blue-500/25 hover:scale-105"
+                >
+                  Explore Custom Solutions
+                  <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M17 8l4 4m0 0l-4 4m4-4H3" />
+                  </svg>
+                </Link>
+                <p className="mt-4 text-sm text-slate-400">
+                  Get a detailed quote within 24 hours • No obligation
+                </p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
       {/* Why Flat-Rate Pricing */}
       <section className="relative bg-gradient-to-br from-primary-900 via-primary-800 to-primary-700 py-24 sm:py-32 overflow-hidden">
         {/* Background pattern */}
