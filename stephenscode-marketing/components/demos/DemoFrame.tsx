@@ -4,10 +4,47 @@ import { useEffect, useState } from 'react'
 import Link from 'next/link'
 import type { Demo } from '@/lib/demos-data'
 
-// Import demo templates
-import RestaurantDemo from './templates/RestaurantDemo'
-import ContractorDemo from './templates/ContractorDemo'
-import ECommerceDemo from './templates/ECommerceDemo'
+// Import demo templates - All 40 demos
+import BarbershopDemo from './templates/01-barbershop'
+import HandymanDemo from './templates/02-handyman'
+import PhotographyDemo from './templates/03-photography'
+import CleaningDemo from './templates/04-cleaning'
+import TutoringDemo from './templates/05-tutoring'
+import LandscapingDemo from './templates/06-landscaping'
+import DentalDemo from './templates/07-dental'
+import AccountingDemo from './templates/08-accounting'
+import SalonDemo from './templates/09-salon'
+import HvacDemo from './templates/10-hvac'
+import LawFirmDemo from './templates/11-law-firm'
+import PlumbingDemo from './templates/12-plumbing'
+import RealEstateDemo from './templates/13-realestate'
+import GymDemo from './templates/14-gym'
+import VeterinaryDemo from './templates/15-veterinary'
+import BoutiqueDemo from './templates/16-boutique'
+import BakeryDemo from './templates/17-bakery'
+import SupplementsDemo from './templates/18-supplements'
+import JewelryDemo from './templates/19-jewelry'
+import BeerDemo from './templates/20-beer'
+import PlantsDemo from './templates/21-plants'
+import CoffeeDemo from './templates/22-coffee'
+import PetFoodDemo from './templates/23-petfood'
+import RestaurantDemo from './templates/24-restaurant'
+import ConstructionDemo from './templates/25-construction'
+import MedicalDemo from './templates/26-medical'
+import AutoRepairDemo from './templates/27-autorepair'
+import SpaDemo from './templates/28-spa'
+import LogisticsDemo from './templates/29-logistics'
+import PropertyDemo from './templates/30-property'
+import StaffingDemo from './templates/31-staffing'
+import EventsDemo from './templates/32-events'
+import FranchiseDemo from './templates/33-franchise'
+import ManufacturingDemo from './templates/34-manufacturing'
+import BookingDemo from './templates/35-booking'
+import AnalyticsDemo from './templates/36-analytics'
+import MembershipDemo from './templates/37-membership'
+import CrmDemo from './templates/38-crm'
+import InventoryDemo from './templates/39-inventory'
+import WorkflowDemo from './templates/40-workflow'
 import GenericDemo from './templates/GenericDemo'
 
 interface DemoFrameProps {
@@ -39,14 +76,105 @@ export default function DemoFrame({ demo }: DemoFrameProps) {
     }
   }, [demo.id])
 
-  // Render the appropriate demo template based on demo type
+  // Render the appropriate demo template based on demo slug
   const renderDemo = () => {
-    if (demo.slug === 'gourmet-kitchen-restaurant') {
+    // Plug & Play demos (1-5)
+    if (demo.slug === 'classic-cuts-barbershop') {
+      return <BarbershopDemo demo={demo} viewMode={viewMode} />
+    } else if (demo.slug === 'fixit-fast-handyman') {
+      return <HandymanDemo demo={demo} viewMode={viewMode} />
+    } else if (demo.slug === 'lens-light-photography') {
+      return <PhotographyDemo demo={demo} viewMode={viewMode} />
+    } else if (demo.slug === 'sparkle-clean-services') {
+      return <CleaningDemo demo={demo} viewMode={viewMode} />
+    } else if (demo.slug === 'smart-start-tutoring') {
+      return <TutoringDemo demo={demo} viewMode={viewMode} />
+
+    // Website Rebuild demos (6-9)
+    } else if (demo.slug === 'green-valley-landscaping') {
+      return <LandscapingDemo demo={demo} viewMode={viewMode} />
+    } else if (demo.slug === 'bright-smile-dental') {
+      return <DentalDemo demo={demo} viewMode={viewMode} />
+    } else if (demo.slug === 'peak-financial-advisors') {
+      return <AccountingDemo demo={demo} viewMode={viewMode} />
+    } else if (demo.slug === 'glamour-studio-salon') {
+      return <SalonDemo demo={demo} viewMode={viewMode} />
+
+    // Standard Website demos (10-15)
+    } else if (demo.slug === 'cool-breeze-hvac') {
+      return <HvacDemo demo={demo} viewMode={viewMode} />
+    } else if (demo.slug === 'justice-associates-law') {
+      return <LawFirmDemo demo={demo} viewMode={viewMode} />
+    } else if (demo.slug === 'premier-plumbing-pros') {
+      return <PlumbingDemo demo={demo} viewMode={viewMode} />
+    } else if (demo.slug === 'skyline-realty-group') {
+      return <RealEstateDemo demo={demo} viewMode={viewMode} />
+    } else if (demo.slug === 'iron-temple-fitness') {
+      return <GymDemo demo={demo} viewMode={viewMode} />
+    } else if (demo.slug === 'paws-care-animal-hospital') {
+      return <VeterinaryDemo demo={demo} viewMode={viewMode} />
+
+    // E-Commerce demos (16-23)
+    } else if (demo.slug === 'bella-boutique-fashion') {
+      return <BoutiqueDemo demo={demo} viewMode={viewMode} />
+    } else if (demo.slug === 'sweet-dreams-bakery') {
+      return <BakeryDemo demo={demo} viewMode={viewMode} />
+    } else if (demo.slug === 'peak-performance-supplements') {
+      return <SupplementsDemo demo={demo} viewMode={viewMode} />
+    } else if (demo.slug === 'timeless-treasures-jewelry') {
+      return <JewelryDemo demo={demo} viewMode={viewMode} />
+    } else if (demo.slug === 'hoppy-trails-craft-beer') {
+      return <BeerDemo demo={demo} viewMode={viewMode} />
+    } else if (demo.slug === 'urban-jungle-plant-shop') {
+      return <PlantsDemo demo={demo} viewMode={viewMode} />
+    } else if (demo.slug === 'roasted-perfection-coffee') {
+      return <CoffeeDemo demo={demo} viewMode={viewMode} />
+    } else if (demo.slug === 'happy-paws-pet-supplies') {
+      return <PetFoodDemo demo={demo} viewMode={viewMode} />
+
+    // Premium Build demos (24-29)
+    } else if (demo.slug === 'gourmet-kitchen-restaurant') {
       return <RestaurantDemo demo={demo} viewMode={viewMode} />
     } else if (demo.slug === 'buildright-construction') {
-      return <ContractorDemo demo={demo} viewMode={viewMode} />
-    } else if (demo.package.includes('E-Commerce')) {
-      return <ECommerceDemo demo={demo} viewMode={viewMode} />
+      return <ConstructionDemo demo={demo} viewMode={viewMode} />
+    } else if (demo.slug === 'healthfirst-medical-group') {
+      return <MedicalDemo demo={demo} viewMode={viewMode} />
+    } else if (demo.slug === 'precision-auto-repair') {
+      return <AutoRepairDemo demo={demo} viewMode={viewMode} />
+    } else if (demo.slug === 'serenity-spa-wellness') {
+      return <SpaDemo demo={demo} viewMode={viewMode} />
+    } else if (demo.slug === 'swift-logistics-services') {
+      return <LogisticsDemo demo={demo} viewMode={viewMode} />
+
+    // Custom Business Platform demos (30-32)
+    } else if (demo.slug === 'elite-property-management') {
+      return <PropertyDemo demo={demo} viewMode={viewMode} />
+    } else if (demo.slug === 'premier-staffing-solutions') {
+      return <StaffingDemo demo={demo} viewMode={viewMode} />
+    } else if (demo.slug === 'celebration-events-company') {
+      return <EventsDemo demo={demo} viewMode={viewMode} />
+
+    // Enterprise Platform demos (33-34)
+    } else if (demo.slug === 'fastserve-franchise-network') {
+      return <FranchiseDemo demo={demo} viewMode={viewMode} />
+    } else if (demo.slug === 'techpro-manufacturing') {
+      return <ManufacturingDemo demo={demo} viewMode={viewMode} />
+
+    // Feature Showcase demos (35-40)
+    } else if (demo.slug === 'booking-system-showcase') {
+      return <BookingDemo demo={demo} viewMode={viewMode} />
+    } else if (demo.slug === 'analytics-dashboard-showcase') {
+      return <AnalyticsDemo demo={demo} viewMode={viewMode} />
+    } else if (demo.slug === 'membership-portal-showcase') {
+      return <MembershipDemo demo={demo} viewMode={viewMode} />
+    } else if (demo.slug === 'crm-system-showcase') {
+      return <CrmDemo demo={demo} viewMode={viewMode} />
+    } else if (demo.slug === 'inventory-management-showcase') {
+      return <InventoryDemo demo={demo} viewMode={viewMode} />
+    } else if (demo.slug === 'workflow-automation-showcase') {
+      return <WorkflowDemo demo={demo} viewMode={viewMode} />
+
+    // Default generic template
     } else {
       return <GenericDemo demo={demo} viewMode={viewMode} />
     }
