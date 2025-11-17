@@ -1,6 +1,7 @@
 {
+  "buildCommand": "npm run build",
+  "outputDirectory": ".next",
+  "installCommand": "npm install",
   "framework": "nextjs",
-  "buildCommand": "cd stephenscode-marketing && npm run build",
-  "outputDirectory": "stephenscode-marketing/.next",
-  "installCommand": "cd stephenscode-marketing && npm install"
+  "rootDirectory": "stephenscode-marketing"
 }
