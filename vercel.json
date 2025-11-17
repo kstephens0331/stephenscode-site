@@ -1,3 +1,6 @@
 {
-  "framework": "nextjs"
+  "framework": "nextjs",
+  "buildCommand": "cd stephenscode-marketing && npm run build",
+  "outputDirectory": "stephenscode-marketing/.next",
+  "installCommand": "cd stephenscode-marketing && npm install"
 }
