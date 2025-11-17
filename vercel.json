@@ -1,5 +1,5 @@
 {
-  "installCommand": "cd stephenscode-marketing && npm install",
+  "installCommand": "npm install --prefix stephenscode-marketing",
   "buildCommand": "npm run build",
   "outputDirectory": "stephenscode-marketing/.next"
 }
