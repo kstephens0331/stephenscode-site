@@ -1,0 +1,11 @@
+{
+  "name": "stephenscode-site",
+  "private": true,
+  "version": "1.0.0",
+  "scripts": {
+    "dev": "cd stephenscode-marketing && npm run dev",
+    "build": "cd stephenscode-marketing && npm run build",
+    "start": "cd stephenscode-marketing && npm run start",
+    "lint": "cd stephenscode-marketing && npm run lint"
+  }
+}
