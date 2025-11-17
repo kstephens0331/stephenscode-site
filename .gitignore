@@ -68,10 +68,20 @@ env/
 venv/
 ENV/
 
-# Session/Summary files (optional - uncomment if you don't want to track these)
-# SESSION_SUMMARY.md
-# REBUILD_PROGRESS.md
-# CUSTOMER_PORTAL_ENHANCEMENTS.md
+# Documentation and planning files (keep local only)
+*.md
+!stephenscode-marketing/README.md
+!admin-dashboard/README.md
+!customer.stephenscode.dev/README.md
+
+# Root-level config files that belong to other projects (not Next.js)
+/index.html
+/vite.config.js
+/src/
+/public/demo-images/
+/public/vite.svg
+/public/manifest.json
+/scripts/
 
 # Claude artifacts
 .claude/
