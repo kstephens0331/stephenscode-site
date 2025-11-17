@@ -3,7 +3,6 @@
 import { useEffect, useState } from 'react'
 import Link from 'next/link'
 import type { Demo } from '@/lib/demos-data'
-import { demoColorPalettes } from '@/lib/demo-colors'
 
 // Import demo templates - All 40 demos
 import BarbershopDemo from './templates/01-barbershop'
@@ -77,110 +76,107 @@ export default function DemoFrame({ demo }: DemoFrameProps) {
     }
   }, [demo.id])
 
-  // Get colors for this demo
-  const colors = demoColorPalettes[demo.slug] || demoColorPalettes['classic-cuts-barbershop']
-
   // Render the appropriate demo template based on demo slug
   const renderDemo = () => {
     // Plug & Play demos (1-5)
     if (demo.slug === 'classic-cuts-barbershop') {
-      return <BarbershopDemo demo={demo} colors={colors} />
+      return <BarbershopDemo demo={demo} viewMode={viewMode} />
     } else if (demo.slug === 'fixit-fast-handyman') {
-      return <HandymanDemo demo={demo} colors={colors} />
+      return <HandymanDemo demo={demo} viewMode={viewMode} />
     } else if (demo.slug === 'lens-light-photography') {
-      return <PhotographyDemo demo={demo} colors={colors} />
+      return <PhotographyDemo demo={demo} viewMode={viewMode} />
     } else if (demo.slug === 'sparkle-clean-services') {
-      return <CleaningDemo demo={demo} colors={colors} />
+      return <CleaningDemo demo={demo} viewMode={viewMode} />
     } else if (demo.slug === 'smart-start-tutoring') {
-      return <TutoringDemo demo={demo} colors={colors} />
+      return <TutoringDemo demo={demo} viewMode={viewMode} />
 
     // Website Rebuild demos (6-9)
     } else if (demo.slug === 'green-valley-landscaping') {
-      return <LandscapingDemo demo={demo} colors={colors} />
+      return <LandscapingDemo demo={demo} viewMode={viewMode} />
     } else if (demo.slug === 'bright-smile-dental') {
-      return <DentalDemo demo={demo} colors={colors} />
+      return <DentalDemo demo={demo} viewMode={viewMode} />
     } else if (demo.slug === 'peak-financial-advisors') {
-      return <AccountingDemo demo={demo} colors={colors} />
+      return <AccountingDemo demo={demo} viewMode={viewMode} />
     } else if (demo.slug === 'glamour-studio-salon') {
-      return <SalonDemo demo={demo} colors={colors} />
+      return <SalonDemo demo={demo} viewMode={viewMode} />
 
     // Standard Website demos (10-15)
     } else if (demo.slug === 'cool-breeze-hvac') {
-      return <HvacDemo demo={demo} colors={colors} />
+      return <HvacDemo demo={demo} viewMode={viewMode} />
     } else if (demo.slug === 'justice-associates-law') {
-      return <LawFirmDemo demo={demo} colors={colors} />
+      return <LawFirmDemo demo={demo} viewMode={viewMode} />
     } else if (demo.slug === 'premier-plumbing-pros') {
-      return <PlumbingDemo demo={demo} colors={colors} />
+      return <PlumbingDemo demo={demo} viewMode={viewMode} />
     } else if (demo.slug === 'skyline-realty-group') {
-      return <RealEstateDemo demo={demo} colors={colors} />
+      return <RealEstateDemo demo={demo} viewMode={viewMode} />
     } else if (demo.slug === 'iron-temple-fitness') {
-      return <GymDemo demo={demo} colors={colors} />
+      return <GymDemo demo={demo} viewMode={viewMode} />
     } else if (demo.slug === 'paws-care-animal-hospital') {
-      return <VeterinaryDemo demo={demo} colors={colors} />
+      return <VeterinaryDemo demo={demo} viewMode={viewMode} />
 
     // E-Commerce demos (16-23)
     } else if (demo.slug === 'bella-boutique-fashion') {
-      return <BoutiqueDemo demo={demo} colors={colors} />
+      return <BoutiqueDemo demo={demo} viewMode={viewMode} />
     } else if (demo.slug === 'sweet-dreams-bakery') {
-      return <BakeryDemo demo={demo} colors={colors} />
+      return <BakeryDemo demo={demo} viewMode={viewMode} />
     } else if (demo.slug === 'peak-performance-supplements') {
-      return <SupplementsDemo demo={demo} colors={colors} />
+      return <SupplementsDemo demo={demo} viewMode={viewMode} />
     } else if (demo.slug === 'timeless-treasures-jewelry') {
-      return <JewelryDemo demo={demo} colors={colors} />
+      return <JewelryDemo demo={demo} viewMode={viewMode} />
     } else if (demo.slug === 'hoppy-trails-craft-beer') {
-      return <BeerDemo demo={demo} colors={colors} />
+      return <BeerDemo demo={demo} viewMode={viewMode} />
     } else if (demo.slug === 'urban-jungle-plant-shop') {
-      return <PlantsDemo demo={demo} colors={colors} />
+      return <PlantsDemo demo={demo} viewMode={viewMode} />
     } else if (demo.slug === 'roasted-perfection-coffee') {
-      return <CoffeeDemo demo={demo} colors={colors} />
+      return <CoffeeDemo demo={demo} viewMode={viewMode} />
     } else if (demo.slug === 'happy-paws-pet-supplies') {
-      return <PetFoodDemo demo={demo} colors={colors} />
+      return <PetFoodDemo demo={demo} viewMode={viewMode} />
 
     // Premium Build demos (24-29)
     } else if (demo.slug === 'gourmet-kitchen-restaurant') {
-      return <RestaurantDemo demo={demo} colors={colors} />
+      return <RestaurantDemo demo={demo} viewMode={viewMode} />
     } else if (demo.slug === 'buildright-construction') {
-      return <ConstructionDemo demo={demo} colors={colors} />
+      return <ConstructionDemo demo={demo} viewMode={viewMode} />
     } else if (demo.slug === 'healthfirst-medical-group') {
-      return <MedicalDemo demo={demo} colors={colors} />
+      return <MedicalDemo demo={demo} viewMode={viewMode} />
     } else if (demo.slug === 'precision-auto-repair') {
-      return <AutoRepairDemo demo={demo} colors={colors} />
+      return <AutoRepairDemo demo={demo} viewMode={viewMode} />
     } else if (demo.slug === 'serenity-spa-wellness') {
-      return <SpaDemo demo={demo} colors={colors} />
+      return <SpaDemo demo={demo} viewMode={viewMode} />
     } else if (demo.slug === 'swift-logistics-services') {
-      return <LogisticsDemo demo={demo} colors={colors} />
+      return <LogisticsDemo demo={demo} viewMode={viewMode} />
 
     // Custom Business Platform demos (30-32)
     } else if (demo.slug === 'elite-property-management') {
-      return <PropertyDemo demo={demo} colors={colors} />
+      return <PropertyDemo demo={demo} viewMode={viewMode} />
     } else if (demo.slug === 'premier-staffing-solutions') {
-      return <StaffingDemo demo={demo} colors={colors} />
+      return <StaffingDemo demo={demo} viewMode={viewMode} />
     } else if (demo.slug === 'celebration-events-company') {
-      return <EventsDemo demo={demo} colors={colors} />
+      return <EventsDemo demo={demo} viewMode={viewMode} />
 
     // Enterprise Platform demos (33-34)
     } else if (demo.slug === 'fastserve-franchise-network') {
-      return <FranchiseDemo demo={demo} colors={colors} />
+      return <FranchiseDemo demo={demo} viewMode={viewMode} />
     } else if (demo.slug === 'techpro-manufacturing') {
-      return <ManufacturingDemo demo={demo} colors={colors} />
+      return <ManufacturingDemo demo={demo} viewMode={viewMode} />
 
     // Feature Showcase demos (35-40)
     } else if (demo.slug === 'booking-system-showcase') {
-      return <BookingDemo demo={demo} colors={colors} />
+      return <BookingDemo demo={demo} viewMode={viewMode} />
     } else if (demo.slug === 'analytics-dashboard-showcase') {
-      return <AnalyticsDemo demo={demo} colors={colors} />
+      return <AnalyticsDemo demo={demo} viewMode={viewMode} />
     } else if (demo.slug === 'membership-portal-showcase') {
-      return <MembershipDemo demo={demo} colors={colors} />
+      return <MembershipDemo demo={demo} viewMode={viewMode} />
     } else if (demo.slug === 'crm-system-showcase') {
-      return <CrmDemo demo={demo} colors={colors} />
+      return <CrmDemo demo={demo} viewMode={viewMode} />
     } else if (demo.slug === 'inventory-management-showcase') {
-      return <InventoryDemo demo={demo} colors={colors} />
+      return <InventoryDemo demo={demo} viewMode={viewMode} />
     } else if (demo.slug === 'workflow-automation-showcase') {
-      return <WorkflowDemo demo={demo} colors={colors} />
+      return <WorkflowDemo demo={demo} viewMode={viewMode} />
 
     // Default generic template
     } else {
-      return <GenericDemo demo={demo} colors={colors} />
+      return <GenericDemo demo={demo} viewMode={viewMode} />
     }
   }
 
