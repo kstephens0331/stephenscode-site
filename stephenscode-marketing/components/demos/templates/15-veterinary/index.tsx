@@ -27,7 +27,7 @@ export default function VeterinaryDemo({ demo, viewMode }: VeterinaryDemoProps) 
       {viewMode === 'customer' ? (
         <CustomerView businessInfo={businessInfo} colors={colors} />
       ) : (
-        <AdminView demo={demo} colors={colors} />
+        <AdminView businessInfo={businessInfo} onUpdateBusinessInfo={() => {}} colors={colors} />
       )}
     </div>
   )
