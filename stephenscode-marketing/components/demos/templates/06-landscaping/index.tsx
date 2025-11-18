@@ -17,9 +17,9 @@ export default function LandscapingDemo({ demo, viewMode }: LandscapingDemoProps
   return (
     <div style={generateColorVars(colors)} className="min-h-screen">
       {viewMode === 'customer' ? (
-        <CustomerView demo={demo} colors={colors} />
+        <CustomerView />
       ) : (
-        <AdminView demo={demo} colors={colors} />
+        <AdminView />
       )}
     </div>
   )
