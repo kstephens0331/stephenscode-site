@@ -22,12 +22,24 @@ export default function VeterinaryDemo({ demo, viewMode }: VeterinaryDemoProps) 
     hours: 'Mon-Fri: 8AM-8PM, Sat-Sun: 9AM-5PM'
   }
 
+  // Simple colors for AdminView
+  const adminColors = {
+    primary: colors.primary,
+    secondary: colors.secondary,
+    accent: colors.accent
+  }
+
   return (
     <div style={generateColorVars(colors)} className="min-h-screen">
       {viewMode === 'customer' ? (
         <CustomerView businessInfo={businessInfo} colors={colors} />
       ) : (
-        <AdminView businessInfo={businessInfo} onUpdateBusinessInfo={() => {}} colors={colors} />
+        <AdminView
+          businessInfo={businessInfo}
+          onUpdateBusinessInfo={() => {}}
+          colors={adminColors}
+          onUpdateColors={() => {}}
+        />
       )}
     </div>
   )
