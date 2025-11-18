@@ -110,11 +110,11 @@ export default function CustomerView({ demo, colors }: CustomerViewProps) {
       case 'checkout':
         return <CheckoutPage {...pageProps} cart={cart} clearCart={clearCart} />
       case 'account':
-        return <AccountPage {...pageProps} />
+        return <AccountPage />
       case 'about':
-        return <AboutPage {...pageProps} />
+        return <AboutPage setCurrentPage={setCurrentPage} />
       case 'contact':
-        return <ContactPage {...pageProps} />
+        return <ContactPage />
       default:
         return <HomePage {...pageProps} />
     }

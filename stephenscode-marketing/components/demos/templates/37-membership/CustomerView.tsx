@@ -10,9 +10,11 @@ interface CustomerViewProps {
   colors: ColorPalette
 }
 
+type MembershipTier = 'basic' | 'premium' | 'vip'
+
 export default function CustomerView({ demo, colors }: CustomerViewProps) {
   const [activeTab, setActiveTab] = useState('dashboard')
-  const currentTier = 'premium'
+  const currentTier = 'premium' as MembershipTier
 
   const membershipTiers = [
     {
