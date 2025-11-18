@@ -2,12 +2,12 @@
 
 import { useState } from 'react'
 import type { Demo } from '@/lib/demos-data'
-import type { DemoColors } from '@/lib/demo-colors'
+import type { ColorPalette } from '@/lib/demo-colors'
 import { ShoppingCart, User, Menu, X, Search, Dumbbell, Heart, Phone, Mail, MapPin, Star, Package, Truck, Calendar, TrendingUp, Award, Users as UsersIcon, CheckCircle } from 'lucide-react'
 
 interface CustomerViewProps {
   demo: Demo
-  colors: DemoColors
+  colors: ColorPalette
 }
 
 interface CartItem {
