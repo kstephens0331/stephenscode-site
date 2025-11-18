@@ -1,13 +1,13 @@
 'use client'
 
 import type { Demo } from '@/lib/demos-data'
-import type { DemoColors } from '@/lib/demo-colors'
+import type { ColorPalette } from '@/lib/demo-colors'
 import type { CartItem } from '../CustomerView'
 import { Coffee, Truck, Award, Heart, ArrowRight, Star, Package } from 'lucide-react'
 
 interface HomePageProps {
   demo: Demo
-  colors: DemoColors
+  colors: ColorPalette
   setCurrentPage: (page: string) => void
   addToCart: (item: Omit<CartItem, 'quantity'>) => void
 }

@@ -2,7 +2,7 @@
 
 import { useState } from 'react'
 import type { Demo } from '@/lib/demos-data'
-import type { DemoColors } from '@/lib/demo-colors'
+import type { ColorPalette } from '@/lib/demo-colors'
 import { ShoppingCart, User, Menu, X, Search, Coffee, Package, BookOpen, Users, Phone, FileText } from 'lucide-react'
 import HomePage from './pages/HomePage'
 import ShopPage from './pages/ShopPage'
@@ -17,7 +17,7 @@ import ContactPage from './pages/ContactPage'
 
 interface CustomerViewProps {
   demo: Demo
-  colors: DemoColors
+  colors: ColorPalette
 }
 
 export type CartItem = {

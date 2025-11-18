@@ -2,12 +2,12 @@
 
 import { useState } from 'react'
 import type { Demo } from '@/lib/demos-data'
-import type { DemoColors } from '@/lib/demo-colors'
+import type { ColorPalette } from '@/lib/demo-colors'
 import { Package, ShoppingBag, Users, DollarSign, TrendingUp, BarChart3, Settings, Bell } from 'lucide-react'
 
 interface AdminViewProps {
   demo: Demo
-  colors: DemoColors
+  colors: ColorPalette
 }
 
 export default function AdminView({ demo, colors }: AdminViewProps) {
