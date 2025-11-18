@@ -79,7 +79,7 @@ export default function AdminView({ demo, colors }: AdminViewProps) {
 
             <div className="bg-white rounded-lg shadow">
               <div className="p-6 border-b" style={{ borderColor: colors.border }}>
-                <h2 className="text-xl font-bold font-serif" style={{ color: colors.text }}>Today's Appointments</h2>
+                <h2 className="text-xl font-bold font-serif" style={{ color: colors.text }}>Today&apos;s Appointments</h2>
               </div>
               <div className="overflow-x-auto">
                 <table className="w-full">

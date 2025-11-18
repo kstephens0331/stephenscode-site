@@ -91,7 +91,7 @@ export default function PrivateEventsPage({ colors }: PrivateEventsPageProps) {
                   </p>
                   <div style={{ color: '#666666' }} className="space-y-2 text-sm">
                     <div>✓ Private sommelier service</div>
-                    <div>✓ Chef's tasting menu available</div>
+                    <div>✓ Chef&apos;s tasting menu available</div>
                     <div>✓ Wine pairing experiences</div>
                     <div>✓ Intimate and exclusive atmosphere</div>
                   </div>
