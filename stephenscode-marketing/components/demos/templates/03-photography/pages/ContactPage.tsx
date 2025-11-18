@@ -3,7 +3,6 @@
 import React, { useState } from 'react';
 import { motion } from 'framer-motion';
 import { Phone, Mail, MapPin, Clock, Send, CheckCircle } from 'lucide-react';
-import { Helmet } from 'react-helmet-async';
 
 interface ContactPageProps {
   onNavigate: (page: string) => void;
@@ -103,18 +102,6 @@ export default function ContactPage({ onNavigate }: ContactPageProps) {
 
   return (
     <>
-      <Helmet>
-        <title>Contact Us - Lens & Light Photography</title>
-        <meta
-          name="description"
-          content="Get in touch with Lens & Light Photography to book your session. Located in Studio City, CA. Call (555) 123-4567 or email hello@lensandlight.com. Professional photography services available."
-        />
-        <meta name="keywords" content="contact photographer, book photography session, Studio City photographer, photography inquiry, schedule photoshoot" />
-        <meta property="og:title" content="Contact Us - Lens & Light Photography" />
-        <meta property="og:description" content="Get in touch to book your photography session. Professional service in Studio City, CA." />
-        <meta property="og:type" content="website" />
-      </Helmet>
-
       {/* Hero Section */}
       <section className="relative py-24 px-6 bg-gradient-to-br from-[#2d3142] to-[#4f5d75]">
         <div className="max-w-7xl mx-auto text-center">

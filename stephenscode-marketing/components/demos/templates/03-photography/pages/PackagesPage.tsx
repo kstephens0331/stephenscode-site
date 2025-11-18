@@ -3,7 +3,6 @@
 import React from 'react';
 import { motion } from 'framer-motion';
 import { Check, Camera, Clock, Image, Star } from 'lucide-react';
-import { Helmet } from 'react-helmet-async';
 
 interface PackagesPageProps {
   onNavigate: (page: string) => void;
@@ -146,18 +145,6 @@ export default function PackagesPage({ onNavigate }: PackagesPageProps) {
 
   return (
     <>
-      <Helmet>
-        <title>Photography Packages & Pricing - Lens & Light Photography</title>
-        <meta
-          name="description"
-          content="Affordable professional photography packages for weddings ($2,500), families ($350), headshots ($150), and more. Transparent pricing with no hidden fees. Book your session today."
-        />
-        <meta name="keywords" content="photography prices, wedding photographer cost, family portrait prices, headshot pricing, photography packages, professional photography rates" />
-        <meta property="og:title" content="Photography Packages & Pricing - Lens & Light Photography" />
-        <meta property="og:description" content="Affordable professional photography packages starting at $150. Transparent pricing with no hidden fees." />
-        <meta property="og:type" content="website" />
-      </Helmet>
-
       {/* Hero Section */}
       <section className="relative py-24 px-6 bg-gradient-to-br from-[#2d3142] to-[#4f5d75]">
         <div className="max-w-7xl mx-auto text-center">

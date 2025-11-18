@@ -3,7 +3,6 @@
 import React from 'react';
 import { motion } from 'framer-motion';
 import { Camera, Heart, Award, Users, ArrowRight, Star } from 'lucide-react';
-import { Helmet } from 'react-helmet-async';
 
 interface HomePageProps {
   onNavigate: (page: string) => void;
@@ -79,18 +78,6 @@ export default function HomePage({ onNavigate }: HomePageProps) {
 
   return (
     <>
-      <Helmet>
-        <title>Lens & Light Photography - Professional Photography Services</title>
-        <meta
-          name="description"
-          content="Professional photography services in Studio City. Specializing in weddings, family portraits, corporate events, and lifestyle photography. Award-winning photographer with 10+ years experience."
-        />
-        <meta name="keywords" content="photography, wedding photographer, family portraits, corporate photography, Studio City photographer, professional photographer" />
-        <meta property="og:title" content="Lens & Light Photography - Professional Photography Services" />
-        <meta property="og:description" content="Capturing life's precious moments with artistry and passion. Professional photography for weddings, families, and businesses." />
-        <meta property="og:type" content="website" />
-      </Helmet>
-
       {/* Hero Section */}
       <section className="relative h-[85vh] min-h-[600px] bg-gradient-to-br from-[#2d3142] via-[#4f5d75] to-[#2d3142] flex items-center justify-center overflow-hidden">
         {/* Background Pattern */}
