@@ -23,7 +23,7 @@ export default function CareersPage({ colors, onNavigate }: CareersPageProps) {
         <div className="bg-white rounded-lg shadow-xl p-8 mb-8">
           <h2 className="text-2xl font-bold mb-6" style={{ color: colors.text }}>Join Our Team</h2>
           <p className="mb-6" style={{ color: colors.textLight }}>
-            We're always looking for talented individuals to join our growing team.
+            We&apos;re always looking for talented individuals to join our growing team.
             Competitive pay, great benefits, and opportunities for advancement.
           </p>
           <div className="space-y-4">

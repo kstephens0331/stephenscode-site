@@ -844,7 +844,7 @@ const TechProManufacturing = () => {
         {/* Production Metrics */}
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-6">
           <div className="bg-[#0b090a] rounded-lg shadow-xl p-6 border border-gray-800">
-            <h3 className="text-xl font-bold text-white mb-4">Today's Production</h3>
+            <h3 className="text-xl font-bold text-white mb-4">Today&apos;s Production</h3>
             <div className="space-y-4">
               {[
                 { label: 'Target Output', value: '3,000', actual: '2,847', percent: 95 },

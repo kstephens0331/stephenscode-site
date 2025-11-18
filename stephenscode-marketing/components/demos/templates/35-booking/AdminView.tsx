@@ -237,7 +237,7 @@ export default function AdminView({ demo, colors }: AdminViewProps) {
 
                 <div className="space-y-4">
                   <div className="flex items-center justify-between pb-3 border-b" style={{ borderColor: colors.border }}>
-                    <span className="text-sm font-semibold" style={{ color: colors.textLight }}>Today's Appointments</span>
+                    <span className="text-sm font-semibold" style={{ color: colors.textLight }}>Today&apos;s Appointments</span>
                     <span className="font-bold" style={{ color: colors.primary }}>{member.appointments}</span>
                   </div>
 
