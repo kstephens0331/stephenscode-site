@@ -115,7 +115,7 @@ export default function GenericDemo({ demo, viewMode }: GenericDemoProps) {
               {demo.features[activeTab]}
             </h2>
             <p className="text-xl text-gray-600 mb-8">
-              This section demonstrates the "{demo.features[activeTab]}" feature. In a live site, this would contain
+              This section demonstrates the &quot;{demo.features[activeTab]}&quot; feature. In a live site, this would contain
               specific content, functionality, and interactivity related to this feature.
             </p>
 
