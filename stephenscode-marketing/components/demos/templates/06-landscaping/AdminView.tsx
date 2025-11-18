@@ -23,7 +23,7 @@ import {
 } from 'lucide-react';
 
 interface AdminViewProps {
-  onSwitchToCustomer: () => void;
+  onSwitchToCustomer?: () => void;
 }
 
 export default function AdminView({ onSwitchToCustomer }: AdminViewProps) {
