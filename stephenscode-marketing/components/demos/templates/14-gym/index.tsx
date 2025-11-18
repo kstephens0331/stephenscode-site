@@ -20,7 +20,7 @@ export default function GymDemo({ demo, viewMode }: GymDemoProps) {
       {viewMode === 'customer' ? (
         <CustomerView basePath={basePath} />
       ) : (
-        <AdminView basePath={basePath} demo={demo} />
+        <AdminView basePath={basePath} />
       )}
     </div>
   )
