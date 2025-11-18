@@ -479,7 +479,7 @@ const UrbanJunglePlantShop = () => {
                   <div className="flex items-center gap-2 mb-3 text-sm">
                     <Sun className={`w-4 h-4 ${plant.light === 'Bright' ? 'text-yellow-500' : plant.light === 'Medium' ? 'text-orange-400' : 'text-gray-400'}`} />
                     <Droplets className={`w-4 h-4 ${plant.water === 'High' ? 'text-blue-500' : plant.water === 'Medium' ? 'text-blue-400' : 'text-blue-300'}`} />
-                    {plant.petFriendly && <Award className="w-4 h-4 text-green-500" title="Pet Friendly" />}
+                    {plant.petFriendly && <span title="Pet Friendly"><Award className="w-4 h-4 text-green-500" /></span>}
                   </div>
                   <div className="flex items-center justify-between">
                     <span className="text-xl font-bold text-[#2d6a4f]">${plant.price.toFixed(2)}</span>
@@ -599,7 +599,7 @@ const UrbanJunglePlantShop = () => {
                 <Sun className={`w-4 h-4 ${plant.light === 'Bright' ? 'text-yellow-500' : plant.light === 'Medium' ? 'text-orange-400' : 'text-gray-400'}`} />
                 <Droplets className={`w-4 h-4 ${plant.water === 'High' ? 'text-blue-500' : plant.water === 'Medium' ? 'text-blue-400' : 'text-blue-300'}`} />
                 <Wind className={`w-4 h-4 ${plant.humidity === 'High' ? 'text-cyan-500' : plant.humidity === 'Medium' ? 'text-cyan-400' : 'text-gray-400'}`} />
-                {plant.petFriendly && <Award className="w-4 h-4 text-green-500" title="Pet Friendly" />}
+                {plant.petFriendly && <span title="Pet Friendly"><Award className="w-4 h-4 text-green-500" /></span>}
               </div>
               <div className="flex items-center gap-1 mb-3">
                 {[...Array(5)].map((_, i) => (
