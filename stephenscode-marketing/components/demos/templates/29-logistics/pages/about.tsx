@@ -16,7 +16,7 @@ export default function AboutPage({ colors, onNavigate }: AboutPageProps) {
         <div className="bg-white rounded-lg shadow-xl p-8 mb-8">
           <p className="text-lg mb-6" style={{ color: colors.textLight }}>
             Since 1995, Swift Logistics Services has been a trusted partner in freight and logistics management.
-            With over 25 years of experience, we've built a reputation for reliability, innovation, and customer service.
+            With over 25 years of experience, we&apos;ve built a reputation for reliability, innovation, and customer service.
           </p>
           <div className="grid md:grid-cols-3 gap-6">
             {[

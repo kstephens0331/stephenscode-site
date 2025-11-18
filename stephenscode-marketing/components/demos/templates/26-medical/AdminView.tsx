@@ -51,7 +51,7 @@ export default function AdminView({ demo, colors }: AdminViewProps) {
       <div className="max-w-7xl mx-auto px-4 -mt-4 mb-8">
         <div className="grid md:grid-cols-4 gap-6">
           <div style={{ backgroundColor: '#ffffff' }} className="p-6 shadow-lg">
-            <div style={{ color: '#666666' }} className="text-sm font-bold uppercase mb-2">Today's Patients</div>
+            <div style={{ color: '#666666' }} className="text-sm font-bold uppercase mb-2">Today&apos;s Patients</div>
             <div style={{ color: '#1a1a1a' }} className="text-4xl font-black mb-1">47</div>
             <div style={{ color: '#22c55e' }} className="text-sm font-bold">8 walk-ins, 39 scheduled</div>
           </div>
@@ -100,7 +100,7 @@ export default function AdminView({ demo, colors }: AdminViewProps) {
         {activeTab === 'appointments' && (
           <div style={{ backgroundColor: '#ffffff' }} className="p-8 shadow-lg">
             <div className="flex justify-between items-center mb-6">
-              <h2 style={{ color: '#1a1a1a' }} className="text-2xl font-black">Today's Schedule</h2>
+              <h2 style={{ color: '#1a1a1a' }} className="text-2xl font-black">Today&apos;s Schedule</h2>
               <div className="flex gap-3">
                 <button style={{ backgroundColor: '#0353a4', color: '#ffffff' }} className="px-6 py-3 font-bold">
                   + New Appointment
