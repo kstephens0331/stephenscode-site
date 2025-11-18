@@ -3,7 +3,6 @@
 import React, { useState } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { Camera, ZoomIn } from 'lucide-react';
-import { Helmet } from 'react-helmet-async';
 
 interface PortfolioPageProps {
   onNavigate: (page: string) => void;
@@ -116,18 +115,6 @@ export default function PortfolioPage({ onNavigate }: PortfolioPageProps) {
 
   return (
     <>
-      <Helmet>
-        <title>Portfolio - Lens & Light Photography</title>
-        <meta
-          name="description"
-          content="Browse our stunning photography portfolio featuring weddings, family portraits, corporate photography, and lifestyle shoots. Professional photography that captures your story."
-        />
-        <meta name="keywords" content="photography portfolio, wedding photos, family portraits, corporate photography examples, professional photography gallery" />
-        <meta property="og:title" content="Portfolio - Lens & Light Photography" />
-        <meta property="og:description" content="Browse our stunning photography portfolio featuring weddings, families, portraits, and more." />
-        <meta property="og:type" content="website" />
-      </Helmet>
-
       {/* Hero Section */}
       <section className="relative py-24 px-6 bg-gradient-to-br from-[#2d3142] to-[#4f5d75]">
         <div className="max-w-7xl mx-auto text-center">
