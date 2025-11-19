@@ -72,6 +72,7 @@ ENV/
 *.md
 !stephenscode-marketing/README.md
 !stephenscode-marketing/content/blog/*.md
+!stephenscode-marketing/content/service-areas/*.md
 !admin-dashboard/README.md
 !customer.stephenscode.dev/README.md
 

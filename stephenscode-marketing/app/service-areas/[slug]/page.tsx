@@ -2,6 +2,7 @@ import type { Metadata } from 'next'
 import Link from 'next/link'
 import { notFound } from 'next/navigation'
 import { serviceAreas, getServiceAreaBySlug, getAllServiceAreaSlugs } from '@/lib/service-areas-data'
+import { getServiceAreaContent } from '@/lib/service-area-content'
 
 interface ServiceAreaPageProps {
   params: Promise<{
@@ -50,6 +51,9 @@ export default async function ServiceAreaPage({ params }: ServiceAreaPageProps) 
   if (!area) {
     notFound()
   }
+
+  // Load unique markdown content if available
+  const markdownContent = await getServiceAreaContent(slug)
 
   // Enhanced schema with more details
   const localSchema = {
@@ -145,74 +149,85 @@ export default async function ServiceAreaPage({ params }: ServiceAreaPageProps) 
         </div>
       </section>
 
-      {/* Introduction - Heavy SEO Content */}
-      <section className="bg-white py-16 sm:py-24">
-        <div className="mx-auto max-w-4xl px-6 lg:px-8">
-          <div className="prose prose-lg max-w-none">
-            <h2 className="text-3xl font-bold text-gray-900 mb-6">
-              Why {area.name} Businesses Need a Professional Web Developer
-            </h2>
-
-            <p className="text-gray-600 leading-8 mb-6">
-              In today's digital-first economy, your website is often the first impression potential customers have of your {area.name} business. Whether you're a restaurant in {area.neighborhoods?.[0] || 'downtown'}, a contractor serving {area.name} homeowners, or a professional service provider looking to grow your client base, having a professionally designed website isn't optional—it's essential for survival and growth.
-            </p>
-
-            <p className="text-gray-600 leading-8 mb-6">
-              The {area.name} market is competitive. With a population of {area.population} and growing, local businesses face increasing competition from both established companies and new entrants. Your website needs to do more than just exist—it needs to actively generate leads, build trust, and convert visitors into customers. That's where professional web development makes the difference.
-            </p>
-
-            <p className="text-gray-600 leading-8 mb-6">
-              At StephensCode, we specialize in building custom websites for {area.name} small businesses. Based in nearby Conroe (just {area.distanceFromConroe} away), we understand the local market and what it takes to succeed here. We've helped dozens of businesses in {area.county} increase their online visibility, generate more leads, and grow their revenue through strategic web development.
-            </p>
-
-            <h3 className="text-2xl font-bold text-gray-900 mt-10 mb-4">
-              The Problem with Template Websites
-            </h3>
-
-            <p className="text-gray-600 leading-8 mb-6">
-              Many {area.name} business owners start with template platforms like Wix, Squarespace, or GoDaddy website builders. While these seem convenient and affordable at first, they create serious problems for local businesses trying to compete:
-            </p>
-
-            <ul className="list-disc pl-6 space-y-3 text-gray-600 mb-6">
-              <li><strong>Slow loading speeds</strong> – Template sites average 4-6 seconds to load. Google recommends under 2.5 seconds. Slow sites lose customers and rank poorly in search results.</li>
-              <li><strong>Generic appearance</strong> – Your {area.name} competitors are using the same templates. Customers can't tell you apart, so they choose based on price alone.</li>
-              <li><strong>SEO limitations</strong> – Template platforms restrict access to technical SEO elements. You can't fully optimize for "{area.name}" searches.</li>
-              <li><strong>No ownership</strong> – Stop paying the monthly fee and your site disappears. You don't own the code, design, or sometimes even your content.</li>
-              <li><strong>Hidden costs</strong> – That $29/month quickly becomes $100+ when you add necessary features. After 2-3 years, you've paid more than a custom site costs.</li>
-            </ul>
-
-            <p className="text-gray-600 leading-8 mb-6">
-              A custom website solves all these problems. It loads fast (under 2 seconds), looks unique to your brand, ranks better in local search, and you own it forever. For {area.name} businesses serious about growth, it's the only real choice.
-            </p>
-
-            <h3 className="text-2xl font-bold text-gray-900 mt-10 mb-4">
-              Understanding the {area.name} Market
-            </h3>
-
-            <p className="text-gray-600 leading-8 mb-6">
-              {area.description}
-            </p>
-
-            <p className="text-gray-600 leading-8 mb-6">
-              The local economy in {area.name} is driven by diverse industries including {area.businessTypes.slice(0, 4).join(', ')}, and more. Each of these sectors has unique website needs, and we have experience serving them all.
-            </p>
-
-            <p className="text-gray-600 leading-8 mb-6">
-              Key characteristics of the {area.name} market that affect web development strategy:
-            </p>
-
-            <ul className="list-disc pl-6 space-y-3 text-gray-600 mb-6">
-              {area.localFeatures.map((feature, index) => (
-                <li key={index}>{feature}</li>
-              ))}
-            </ul>
-
-            <p className="text-gray-600 leading-8 mb-6">
-              Understanding these local factors helps us build websites that resonate with {area.name} customers and rank for the searches they're actually making.
-            </p>
+      {/* Unique Markdown Content (if available) or Templated Introduction */}
+      {markdownContent ? (
+        <section className="bg-white py-16 sm:py-24">
+          <div className="mx-auto max-w-4xl px-6 lg:px-8">
+            <div
+              className="prose prose-lg max-w-none prose-headings:text-gray-900 prose-p:text-gray-600 prose-li:text-gray-600 prose-strong:text-gray-900"
+              dangerouslySetInnerHTML={{ __html: markdownContent.content }}
+            />
           </div>
-        </div>
-      </section>
+        </section>
+      ) : (
+        <section className="bg-white py-16 sm:py-24">
+          <div className="mx-auto max-w-4xl px-6 lg:px-8">
+            <div className="prose prose-lg max-w-none">
+              <h2 className="text-3xl font-bold text-gray-900 mb-6">
+                Why {area.name} Businesses Need a Professional Web Developer
+              </h2>
+
+              <p className="text-gray-600 leading-8 mb-6">
+                In today's digital-first economy, your website is often the first impression potential customers have of your {area.name} business. Whether you're a restaurant in {area.neighborhoods?.[0] || 'downtown'}, a contractor serving {area.name} homeowners, or a professional service provider looking to grow your client base, having a professionally designed website isn't optional—it's essential for survival and growth.
+              </p>
+
+              <p className="text-gray-600 leading-8 mb-6">
+                The {area.name} market is competitive. With a population of {area.population} and growing, local businesses face increasing competition from both established companies and new entrants. Your website needs to do more than just exist—it needs to actively generate leads, build trust, and convert visitors into customers. That's where professional web development makes the difference.
+              </p>
+
+              <p className="text-gray-600 leading-8 mb-6">
+                At StephensCode, we specialize in building custom websites for {area.name} small businesses. Based in nearby Conroe (just {area.distanceFromConroe} away), we understand the local market and what it takes to succeed here. We've helped dozens of businesses in {area.county} increase their online visibility, generate more leads, and grow their revenue through strategic web development.
+              </p>
+
+              <h3 className="text-2xl font-bold text-gray-900 mt-10 mb-4">
+                The Problem with Template Websites
+              </h3>
+
+              <p className="text-gray-600 leading-8 mb-6">
+                Many {area.name} business owners start with template platforms like Wix, Squarespace, or GoDaddy website builders. While these seem convenient and affordable at first, they create serious problems for local businesses trying to compete:
+              </p>
+
+              <ul className="list-disc pl-6 space-y-3 text-gray-600 mb-6">
+                <li><strong>Slow loading speeds</strong> – Template sites average 4-6 seconds to load. Google recommends under 2.5 seconds. Slow sites lose customers and rank poorly in search results.</li>
+                <li><strong>Generic appearance</strong> – Your {area.name} competitors are using the same templates. Customers can't tell you apart, so they choose based on price alone.</li>
+                <li><strong>SEO limitations</strong> – Template platforms restrict access to technical SEO elements. You can't fully optimize for "{area.name}" searches.</li>
+                <li><strong>No ownership</strong> – Stop paying the monthly fee and your site disappears. You don't own the code, design, or sometimes even your content.</li>
+                <li><strong>Hidden costs</strong> – That $29/month quickly becomes $100+ when you add necessary features. After 2-3 years, you've paid more than a custom site costs.</li>
+              </ul>
+
+              <p className="text-gray-600 leading-8 mb-6">
+                A custom website solves all these problems. It loads fast (under 2 seconds), looks unique to your brand, ranks better in local search, and you own it forever. For {area.name} businesses serious about growth, it's the only real choice.
+              </p>
+
+              <h3 className="text-2xl font-bold text-gray-900 mt-10 mb-4">
+                Understanding the {area.name} Market
+              </h3>
+
+              <p className="text-gray-600 leading-8 mb-6">
+                {area.description}
+              </p>
+
+              <p className="text-gray-600 leading-8 mb-6">
+                The local economy in {area.name} is driven by diverse industries including {area.businessTypes.slice(0, 4).join(', ')}, and more. Each of these sectors has unique website needs, and we have experience serving them all.
+              </p>
+
+              <p className="text-gray-600 leading-8 mb-6">
+                Key characteristics of the {area.name} market that affect web development strategy:
+              </p>
+
+              <ul className="list-disc pl-6 space-y-3 text-gray-600 mb-6">
+                {area.localFeatures.map((feature, index) => (
+                  <li key={index}>{feature}</li>
+                ))}
+              </ul>
+
+              <p className="text-gray-600 leading-8 mb-6">
+                Understanding these local factors helps us build websites that resonate with {area.name} customers and rank for the searches they're actually making.
+              </p>
+            </div>
+          </div>
+        </section>
+      )}
 
       {/* Services Detail Section */}
       <section className="bg-gray-50 py-16 sm:py-24">
