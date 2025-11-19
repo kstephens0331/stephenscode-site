@@ -2,6 +2,7 @@ import { MetadataRoute } from 'next'
 import { corePackages, premiumBuilds } from '@/lib/services-data'
 import { allDemos } from '@/lib/demos-data'
 import { getAllPosts } from '@/lib/blog'
+import { serviceAreas } from '@/lib/service-areas-data'
 
 export default function sitemap(): MetadataRoute.Sitemap {
   const baseUrl = 'https://www.stephenscode.dev'
@@ -73,7 +74,21 @@ export default function sitemap(): MetadataRoute.Sitemap {
       changeFrequency: 'daily',
       priority: 0.8,
     },
+    {
+      url: `${baseUrl}/service-areas`,
+      lastModified: currentDate,
+      changeFrequency: 'monthly',
+      priority: 0.8,
+    },
   ]
+
+  // Service area pages (0.85) - Local SEO pages
+  const serviceAreaPages: MetadataRoute.Sitemap = serviceAreas.map((area) => ({
+    url: `${baseUrl}/service-areas/${area.slug}`,
+    lastModified: currentDate,
+    changeFrequency: 'monthly' as const,
+    priority: 0.85,
+  }))
 
   // Service pages (0.9 - 0.85) - Individual service offerings
   const allServices = [...corePackages, ...premiumBuilds]
@@ -114,6 +129,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
   return [
     ...corePagesHigh,
     ...importantPages,
+    ...serviceAreaPages,
     ...servicePages,
     ...blogPostPages,
     ...blogCategoryPages,
