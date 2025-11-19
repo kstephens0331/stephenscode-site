@@ -71,6 +71,7 @@ ENV/
 # Documentation and planning files (keep local only)
 *.md
 !stephenscode-marketing/README.md
+!stephenscode-marketing/content/blog/*.md
 !admin-dashboard/README.md
 !customer.stephenscode.dev/README.md
 
