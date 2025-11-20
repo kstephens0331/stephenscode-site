@@ -1,7 +1,6 @@
 'use client'
 
 import Link from 'next/link'
-import Image from 'next/image'
 import { useState } from 'react'
 import { Bars3Icon, XMarkIcon } from '@heroicons/react/24/outline'
 
@@ -24,13 +23,11 @@ export default function Header() {
         <div className="flex w-full items-center justify-between py-4">
           <div className="flex items-center">
             <Link href="/" className="flex items-center gap-2 text-2xl font-bold text-primary-900">
-              <Image
+              {/* eslint-disable-next-line @next/next/no-img-element */}
+              <img
                 src="/images/favicon-512.png"
                 alt="StephensCode Logo"
-                width={32}
-                height={32}
                 className="w-8 h-8"
-                unoptimized
               />
               <span>StephensCode</span>
             </Link>
