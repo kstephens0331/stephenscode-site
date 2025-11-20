@@ -30,6 +30,7 @@ export default function Header() {
                 width={32}
                 height={32}
                 className="w-8 h-8"
+                unoptimized
               />
               <span>StephensCode</span>
             </Link>
