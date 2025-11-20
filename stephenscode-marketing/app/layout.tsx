@@ -26,6 +26,11 @@ export const metadata: Metadata = {
   authors: [{ name: 'Kyle Stephens', url: 'https://www.stephenscode.dev/about' }],
   creator: 'StephensCode LLC',
   publisher: 'StephensCode LLC',
+  icons: {
+    icon: '/images/favicon-512.png',
+    shortcut: '/images/favicon-512.png',
+    apple: '/images/favicon-512.png',
+  },
   openGraph: {
     type: 'website',
     locale: 'en_US',
