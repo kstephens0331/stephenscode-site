@@ -295,8 +295,33 @@ export default function ContactPage() {
                     <div className="text-sm text-gray-600 mt-1">
                       Serving Houston, Conroe, The Woodlands & all of Texas
                     </div>
+                    <a
+                      href="https://www.google.com/maps/dir//Conroe+TX+77304"
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="inline-flex items-center gap-1 text-sm font-semibold text-primary-600 hover:text-primary-700 mt-2"
+                    >
+                      Get Directions
+                      <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14" />
+                      </svg>
+                    </a>
                   </div>
                 </div>
+              </div>
+
+              {/* Google Maps */}
+              <div className="mt-8 rounded-2xl overflow-hidden border-2 border-gray-200 shadow-lg">
+                <iframe
+                  src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d110684.96908!2d-95.5560!3d30.3119!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x864731e2f73c2a15%3A0xc6e5b1e2d9e8c!2sConroe%2C%20TX%2077304!5e0!3m2!1sen!2sus!4v1234567890"
+                  width="100%"
+                  height="300"
+                  style={{ border: 0 }}
+                  allowFullScreen
+                  loading="lazy"
+                  referrerPolicy="no-referrer-when-downgrade"
+                  title="StephensCode Location - Conroe, TX"
+                />
               </div>
 
               {/* Trust Badges */}
