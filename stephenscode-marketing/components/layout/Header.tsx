@@ -22,8 +22,11 @@ export default function Header() {
       <nav className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8" aria-label="Top">
         <div className="flex w-full items-center justify-between py-4">
           <div className="flex items-center">
-            <Link href="/" className="text-2xl font-bold text-primary-900">
-              StephensCode
+            <Link href="/" className="flex items-center gap-2 text-2xl font-bold text-primary-900">
+              <div className="w-8 h-8 bg-accent-500 rounded-lg flex items-center justify-center">
+                <span className="text-white text-lg font-bold">S</span>
+              </div>
+              <span>StephensCode</span>
             </Link>
           </div>
           <div className="hidden lg:flex lg:items-center lg:space-x-6">
