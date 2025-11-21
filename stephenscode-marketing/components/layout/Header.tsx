@@ -23,12 +23,22 @@ export default function Header() {
         <div className="flex w-full items-center justify-between py-4">
           <div className="flex items-center">
             <Link href="/" className="flex items-center gap-2 text-2xl font-bold text-primary-900">
-              {/* eslint-disable-next-line @next/next/no-img-element */}
-              <img
-                src="/images/favicon-512.png"
-                alt="StephensCode Logo"
-                className="w-8 h-8"
-              />
+              <div className="w-8 h-8 flex-shrink-0">
+                {/* eslint-disable-next-line @next/next/no-img-element */}
+                <img
+                  src="/images/favicon-512.png"
+                  alt="StephensCode Logo"
+                  width="32"
+                  height="32"
+                  className="w-full h-full object-contain"
+                  onError={(e) => {
+                    // Fallback to orange S if image fails to load
+                    const target = e.target as HTMLImageElement;
+                    target.style.display = 'none';
+                    target.parentElement!.innerHTML = '<div class="w-full h-full bg-accent-500 rounded-lg flex items-center justify-center"><span class="text-white text-lg font-bold">S</span></div>';
+                  }}
+                />
+              </div>
               <span>StephensCode</span>
             </Link>
           </div>
