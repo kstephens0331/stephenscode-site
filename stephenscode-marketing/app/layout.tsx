@@ -10,6 +10,9 @@ const inter = Inter({ subsets: ['latin'] })
 
 export const metadata: Metadata = {
   metadataBase: new URL('https://www.stephenscode.dev'),
+  alternates: {
+    canonical: '/',
+  },
   title: {
     default: 'StephensCode | Veteran-Owned Web Development | Conroe TX',
     template: '%s | StephensCode'
