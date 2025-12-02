@@ -3,6 +3,7 @@ import Link from 'next/link'
 import { notFound } from 'next/navigation'
 import { serviceAreas, getServiceAreaBySlug, getAllServiceAreaSlugs } from '@/lib/service-areas-data'
 import { getServiceAreaContent } from '@/lib/service-area-content'
+import Breadcrumbs from '@/components/Breadcrumbs'
 
 interface ServiceAreaPageProps {
   params: Promise<{
@@ -107,6 +108,14 @@ export default async function ServiceAreaPage({ params }: ServiceAreaPageProps) 
       <script
         type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: JSON.stringify(localSchema) }}
+      />
+
+      {/* Breadcrumbs */}
+      <Breadcrumbs
+        items={[
+          { name: 'Service Areas', href: '/service-areas' },
+          { name: area.name, href: `/service-areas/${slug}` },
+        ]}
       />
 
       {/* Hero Section */}

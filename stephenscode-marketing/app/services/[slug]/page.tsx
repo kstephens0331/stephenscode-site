@@ -4,6 +4,7 @@ import type { Metadata } from 'next'
 import { corePackages, premiumBuilds } from '@/lib/services-data'
 import { allAddOns } from '@/lib/addons-data'
 import { serviceSchema } from '@/lib/schemas'
+import Breadcrumbs from '@/components/Breadcrumbs'
 
 // Combine all services
 const allServices = [...corePackages, ...premiumBuilds, ...allAddOns]
@@ -65,6 +66,14 @@ export default async function ServicePage({ params }: Props) {
         }}
       />
 
+      {/* Breadcrumbs */}
+      <Breadcrumbs
+        items={[
+          { name: 'Services', href: '/services' },
+          { name: service.name, href: `/services/${slug}` },
+        ]}
+      />
+
       {/* Hero Section */}
       <section className="relative bg-gradient-to-br from-primary-900 via-primary-800 to-primary-700 text-white overflow-hidden">
         {/* Pattern overlay */}
@@ -81,15 +90,6 @@ export default async function ServicePage({ params }: Props) {
 
         <div className="relative mx-auto max-w-7xl px-6 py-24 sm:py-32 lg:px-8">
           <div className="mx-auto max-w-4xl">
-            {/* Breadcrumbs */}
-            <nav className="mb-8 flex text-sm text-gray-300 animate-fade-in-up">
-              <Link href="/" className="hover:text-white transition-colors">Home</Link>
-              <span className="mx-2">/</span>
-              <Link href="/services" className="hover:text-white transition-colors">Services</Link>
-              <span className="mx-2">/</span>
-              <span className="text-white font-semibold">{service.name}</span>
-            </nav>
-
             <div className="inline-flex items-center rounded-full bg-accent-500/20 px-4 py-2 text-sm font-semibold text-white ring-1 ring-inset ring-accent-500/30 mb-8 animate-fade-in-up animation-delay-200">
               {service.category}
             </div>
