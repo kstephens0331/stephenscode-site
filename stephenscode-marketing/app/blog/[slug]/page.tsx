@@ -2,6 +2,7 @@ import type { Metadata } from 'next'
 import Link from 'next/link'
 import { notFound } from 'next/navigation'
 import { getAllPosts, getPostBySlug } from '@/lib/blog'
+import Breadcrumbs from '@/components/Breadcrumbs'
 
 interface BlogPostPageProps {
   params: Promise<{
@@ -48,20 +49,17 @@ export default async function BlogPostPage({ params }: BlogPostPageProps) {
 
   return (
     <>
+      {/* Breadcrumbs */}
+      <Breadcrumbs
+        items={[
+          { name: 'Blog', href: '/blog' },
+          { name: post.title, href: `/blog/${slug}` },
+        ]}
+      />
+
       {/* Hero Section */}
       <section className="relative bg-gradient-to-br from-primary-900 via-primary-800 to-primary-700 text-white">
         <div className="mx-auto max-w-4xl px-6 py-16 sm:py-24 lg:px-8">
-          <div className="mb-6">
-            <Link
-              href="/blog"
-              className="inline-flex items-center gap-2 text-sm font-semibold text-gray-200 hover:text-white"
-            >
-              <svg className="h-4 w-4" fill="currentColor" viewBox="0 0 20 20">
-                <path fillRule="evenodd" d="M12.707 5.293a1 1 0 010 1.414L9.414 10l3.293 3.293a1 1 0 01-1.414 1.414l-4-4a1 1 0 010-1.414l4-4a1 1 0 011.414 0z" clipRule="evenodd" />
-              </svg>
-              Back to Blog
-            </Link>
-          </div>
           <div>
             <div className="flex items-center gap-x-4 text-sm mb-6">
               <time dateTime={post.date} className="text-gray-200">
@@ -166,6 +164,39 @@ export default async function BlogPostPage({ params }: BlogPostPageProps) {
               >
                 in
               </a>
+            </div>
+          </div>
+
+          {/* Author Bio */}
+          <div className="mt-12 pt-8 border-t border-gray-200">
+            <div className="flex items-start gap-4 sm:gap-6">
+              <div className="h-16 w-16 sm:h-20 sm:w-20 rounded-full bg-primary-100 flex items-center justify-center text-3xl sm:text-4xl flex-shrink-0">
+                🎖️
+              </div>
+              <div className="flex-1">
+                <h3 className="text-lg font-semibold text-gray-900">About the Author</h3>
+                <p className="text-sm font-medium text-primary-600 mb-2">{post.author}</p>
+                <p className="text-gray-600 text-sm leading-6">
+                  Kyle Stephens is a Marine Corps veteran and founder of StephensCode, a web development company
+                  serving small businesses in the Greater Houston area. With 14+ years of experience building
+                  custom websites, he helps local businesses compete online through fast, SEO-optimized websites
+                  at transparent flat-rate prices.
+                </p>
+                <div className="mt-4 flex gap-4">
+                  <Link
+                    href="/about"
+                    className="text-sm font-semibold text-primary-600 hover:text-primary-700"
+                  >
+                    Learn more about Kyle →
+                  </Link>
+                  <Link
+                    href="/contact"
+                    className="text-sm font-semibold text-primary-600 hover:text-primary-700"
+                  >
+                    Get in touch →
+                  </Link>
+                </div>
+              </div>
             </div>
           </div>
         </div>
