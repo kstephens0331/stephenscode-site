@@ -4,8 +4,8 @@ import { corePackages, premiumBuilds } from '@/lib/services-data'
 import { basicAddOns, advancedAddOns } from '@/lib/addons-data'
 
 export const metadata: Metadata = {
-  title: 'Transparent Pricing | Web Development Packages $250-$7500 | Houston TX',
-  description: 'Clear, flat-rate pricing for professional web development. Core packages starting at $250, premium builds from $2,000, and 40+ add-ons. No hidden fees, no hourly rates. Serving Houston, Conroe, The Woodlands, and surrounding Texas areas.',
+  title: 'Transparent Pricing | Web Development Packages $250+ | Houston TX',
+  description: 'Clear, flat-rate pricing for professional web development. Core packages starting at $250, premium builds from $2,500, enterprise custom quotes, and 40+ add-ons. No hidden fees, no hourly rates. Serving Houston, Conroe, The Woodlands, and surrounding Texas areas.',
   keywords: [
     'web development pricing Houston',
     'website cost Conroe TX',
@@ -177,7 +177,7 @@ export default function PricingPage() {
               <div className="text-sm text-gray-600 mt-2">Hidden Fees</div>
             </div>
             <div className="animate-fade-in-up animation-delay-600">
-              <div className="text-4xl font-bold text-primary-900">7</div>
+              <div className="text-4xl font-bold text-primary-900">8</div>
               <div className="text-sm text-gray-600 mt-2">Package Options</div>
             </div>
           </div>
@@ -279,7 +279,7 @@ export default function PricingPage() {
             </p>
           </div>
 
-          <div className="grid gap-8 lg:grid-cols-3">
+          <div className="grid gap-8 lg:grid-cols-2 xl:grid-cols-4">
             {premiumBuilds.map((pkg) => (
               <div
                 key={pkg.id}
