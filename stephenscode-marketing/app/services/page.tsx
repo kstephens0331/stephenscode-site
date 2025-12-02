@@ -27,7 +27,7 @@ const serviceSchema = {
     "name": "StephensCode LLC",
     "image": "https://www.stephenscode.dev/logo.png",
     "telephone": "+1-936-323-4527",
-    "priceRange": "$250-$7500",
+    "priceRange": "$250+",
     "address": {
       "@type": "PostalAddress",
       "addressLocality": "Conroe",
@@ -106,7 +106,7 @@ export default function ServicesPage() {
       title: 'Transparent Flat-Rate Pricing',
       description: 'Know exactly what you\'ll pay before we start. No hourly rates, no surprise bills, no hidden fees.',
       icon: '💰',
-      stats: 'Packages from $250-$7,500'
+      stats: 'Packages from $250+'
     },
     {
       title: 'Fast Turnaround Time',
@@ -203,7 +203,7 @@ export default function ServicesPage() {
             </h1>
 
             <p className="mt-8 text-xl leading-8 text-gray-100 max-w-3xl mx-auto">
-              From $250 starter websites to $7,500 enterprise platforms. Custom development, e-commerce, business automation, and everything in between. <strong className="text-white">Based in Houston, serving clients nationwide through remote collaboration.</strong> Flat-rate pricing, no hourly billing, no surprises.
+              From $250 starter websites to enterprise platforms with custom quotes. Custom development, e-commerce, business automation, and everything in between. <strong className="text-white">Based in Houston, serving clients nationwide through remote collaboration.</strong> Flat-rate pricing, no hourly billing, no surprises.
             </p>
 
             <div className="mt-12 flex flex-wrap items-center justify-center gap-4">
