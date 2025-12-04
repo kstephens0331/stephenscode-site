@@ -11,6 +11,7 @@ export default function Header() {
     { name: 'Services', href: '/services' },
     { name: 'Pricing', href: '/pricing' },
     { name: 'Demos', href: '/demos' },
+    { name: 'SACVPN', href: '/sacvpn' },
     { name: 'Work', href: '/work' },
     { name: 'About', href: '/about' },
     { name: 'Blog', href: '/blog' },
