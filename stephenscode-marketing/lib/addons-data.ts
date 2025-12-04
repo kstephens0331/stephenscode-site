@@ -2637,6 +2637,71 @@ export const advancedAddOns: Service[] = [
     metaTitle: 'Secure Document Portal | $190 | Client File Sharing & E-Signatures',
     metaDescription: 'Secure client document portal with file sharing, e-signatures, and access controls. Professional document management. $190 flat rate. Houston & Conroe.',
   },
+  {
+    id: 'enterprise-vpn',
+    name: 'Enterprise VPN (SACVPN)',
+    slug: 'enterprise-vpn',
+    category: 'addon-advanced',
+    price: 200,
+    priceLabel: '$200/setup + subscription',
+    shortDescription: 'Enterprise-grade VPN security for your business via SACVPN',
+    longDescription: `Protect your business with enterprise-grade VPN security through SACVPN, our secure access solution built for businesses that take data protection seriously. This add-on provides complete setup, configuration, and integration of SACVPN for your organization, ensuring your remote workforce, client communications, and sensitive data are protected with military-grade encryption.
+
+    In today's world of remote work, public Wi-Fi, and increasing cyber threats, a business VPN is no longer optional - it's essential. SACVPN provides the same level of security used by government agencies and financial institutions, but packaged for small to medium businesses at an affordable price. Every time your team connects to the internet, their data is encrypted and protected from hackers, data thieves, and surveillance.
+
+    Our Enterprise VPN add-on includes complete SACVPN setup and configuration for your business, user account creation for your entire team, admin dashboard access for managing users and monitoring usage, device setup assistance for Windows, Mac, iOS, and Android, integration with your existing security policies, training documentation for your team, and ongoing support for configuration changes. We handle all the technical complexity so your team can simply connect with one click.
+
+    SACVPN features include AES-256 military-grade encryption for all data in transit, a global server network for fast reliable connections worldwide, multi-user management through an easy admin dashboard, high-speed performance with optimized infrastructure, cross-platform support for all major operating systems, and a strict zero-log policy ensuring your business data stays private. Your browsing activity, communications, and file transfers are never tracked, stored, or shared.
+
+    Common use cases include securing remote workforce access to company resources, protecting client communications for law firms and healthcare providers, shielding employees from hackers on public Wi-Fi at hotels, airports, and conferences, meeting HIPAA, PCI-DSS, and other regulatory compliance requirements, securing branch office connections, and protecting executive travel with encrypted connections anywhere in the world.
+
+    The setup fee covers initial configuration and training. SACVPN subscription pricing varies based on team size and is billed separately through sacvpn.com. We recommend SACVPN for any business handling sensitive client data, operating with remote employees, or requiring compliance with security regulations. Visit sacvpn.com for subscription pricing or contact us to discuss enterprise volume licensing.`,
+    features: [
+      'Complete SACVPN setup and configuration',
+      'User account creation for your team',
+      'Admin dashboard access',
+      'Device setup assistance (all platforms)',
+      'Security policy integration',
+      'AES-256 military-grade encryption',
+      'Global server network access',
+      'Multi-user management',
+      'Zero-log privacy policy',
+      'Training documentation',
+      'Ongoing configuration support',
+    ],
+    benefits: [
+      'Protect remote workforce',
+      'Secure client communications',
+      'Meet compliance requirements',
+      'Shield from public Wi-Fi threats',
+      'Military-grade encryption',
+      'Cross-platform support',
+      'Easy team management',
+      'Complete privacy',
+    ],
+    useCases: [
+      'Remote workforce security',
+      'Healthcare HIPAA compliance',
+      'Legal firm client confidentiality',
+      'Financial services data protection',
+      'Executive travel security',
+      'Branch office connections',
+      'Public Wi-Fi protection',
+      'Regulatory compliance',
+    ],
+    deliverables: [
+      'SACVPN business account setup',
+      'User accounts for team members',
+      'Admin dashboard configuration',
+      'Device installation guides',
+      'Security policy documentation',
+      'Team training materials',
+    ],
+    timeline: '1-2 days',
+    seoKeywords: ['enterprise VPN Houston', 'business VPN Texas', 'secure VPN Conroe', 'SACVPN setup', 'corporate VPN solution'],
+    metaTitle: 'Enterprise VPN (SACVPN) | $200 Setup | Business VPN Security',
+    metaDescription: 'Enterprise-grade VPN security for your business via SACVPN. Military-grade encryption, team management, compliance ready. Setup and configuration. $200 flat rate. Houston & Conroe.',
+  },
 ]
 
 export const allAddOns = [...basicAddOns, ...advancedAddOns]
