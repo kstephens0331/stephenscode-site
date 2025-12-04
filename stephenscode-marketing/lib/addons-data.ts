@@ -2643,7 +2643,7 @@ export const advancedAddOns: Service[] = [
     slug: 'enterprise-vpn',
     category: 'addon-advanced',
     price: 200,
-    priceLabel: '$200/setup + subscription',
+    priceLabel: '$200',
     shortDescription: 'Enterprise-grade VPN security for your business via SACVPN',
     longDescription: `Protect your business with enterprise-grade VPN security through SACVPN, our secure access solution built for businesses that take data protection seriously. This add-on provides complete setup, configuration, and integration of SACVPN for your organization, ensuring your remote workforce, client communications, and sensitive data are protected with military-grade encryption.
 
@@ -2655,7 +2655,7 @@ export const advancedAddOns: Service[] = [
 
     Common use cases include securing remote workforce access to company resources, protecting client communications for law firms and healthcare providers, shielding employees from hackers on public Wi-Fi at hotels, airports, and conferences, meeting HIPAA, PCI-DSS, and other regulatory compliance requirements, securing branch office connections, and protecting executive travel with encrypted connections anywhere in the world.
 
-    The setup fee covers initial configuration and training. SACVPN subscription pricing varies based on team size and is billed separately through sacvpn.com. We recommend SACVPN for any business handling sensitive client data, operating with remote employees, or requiring compliance with security regulations. Visit sacvpn.com for subscription pricing or contact us to discuss enterprise volume licensing.`,
+    The $200 flat rate covers complete setup, configuration, and training. SACVPN subscription pricing varies based on team size and is billed separately through sacvpn.com. We recommend SACVPN for any business handling sensitive client data, operating with remote employees, or requiring compliance with security regulations. Visit sacvpn.com for subscription pricing or contact us to discuss enterprise volume licensing.`,
     features: [
       'Complete SACVPN setup and configuration',
       'User account creation for your team',
@@ -2699,8 +2699,8 @@ export const advancedAddOns: Service[] = [
     ],
     timeline: '1-2 days',
     seoKeywords: ['enterprise VPN Houston', 'business VPN Texas', 'secure VPN Conroe', 'SACVPN setup', 'corporate VPN solution'],
-    metaTitle: 'Enterprise VPN (SACVPN) | $200 Setup | Business VPN Security',
-    metaDescription: 'Enterprise-grade VPN security for your business via SACVPN. Military-grade encryption, team management, compliance ready. Setup and configuration. $200 flat rate. Houston & Conroe.',
+    metaTitle: 'Enterprise VPN (SACVPN) | $200 | Business VPN Security',
+    metaDescription: 'Enterprise-grade VPN security for your business via SACVPN. Military-grade encryption, team management, compliance ready. $200 flat rate. Houston & Conroe.',
   },
 ]
 
