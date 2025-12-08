@@ -7,6 +7,7 @@ export interface Service {
   category: ServiceCategory
   price: number
   priceLabel: string
+  pricingUrl?: string
   shortDescription: string
   longDescription: string
   features: string[]
