@@ -10,7 +10,7 @@ export default function Header() {
   const navigation = [
     { name: 'Services', href: '/services' },
     { name: 'Pricing', href: '/pricing' },
-    { name: 'Add-Ons', href: '/add-ons' },
+    { name: 'Add-Ons', href: '/pricing/add-ons' },
     { name: 'Demos', href: '/demos' },
     { name: 'SACVPN', href: '/sacvpn' },
     { name: 'Work', href: '/work' },
