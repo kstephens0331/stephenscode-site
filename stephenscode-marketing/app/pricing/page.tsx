@@ -421,7 +421,7 @@ export default function PricingPage() {
           {/* View All Add-Ons CTA */}
           <div className="mt-12 text-center">
             <Link
-              href="/services"
+              href="/add-ons"
               className="inline-flex items-center gap-2 rounded-lg bg-primary-600 px-6 py-3 text-base font-semibold text-white shadow-lg hover:bg-primary-700 transition-all hover:scale-105"
             >
               View All 40+ Add-Ons
