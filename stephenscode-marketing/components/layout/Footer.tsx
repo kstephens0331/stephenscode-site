@@ -15,6 +15,7 @@ export default function Footer() {
       { name: 'Blog', href: '/blog' },
       { name: 'Contact', href: '/contact' },
       { name: 'Pricing', href: '/pricing' },
+      { name: 'Partners', href: '/partners' },
     ],
     resources: [
       { name: 'Admin Portal', href: 'https://admin.stephenscode.dev' },
