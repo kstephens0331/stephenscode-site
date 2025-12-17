@@ -17,7 +17,7 @@ export const metadata: Metadata = {
     default: 'StephensCode | Veteran-Owned Web Development | Conroe TX',
     template: '%s | StephensCode'
   },
-  description: 'Veteran-owned web development serving Houston & Conroe. Custom websites, business dashboards, and automation. 14+ years experience. Transparent flat-rate pricing from $250.',
+  description: 'Veteran-owned web development serving Houston & Conroe. Custom websites, business dashboards & automation. 14+ years experience. Pricing starts at $250.',
   keywords: [
     'web developer Conroe TX',
     'custom website development Houston',
