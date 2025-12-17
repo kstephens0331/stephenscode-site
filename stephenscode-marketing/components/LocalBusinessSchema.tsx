@@ -17,6 +17,7 @@ export default function LocalBusinessSchema() {
     foundingDate: '2011',
     address: {
       '@type': 'PostalAddress',
+      streetAddress: '2378 Strong Horse Dr',
       addressLocality: 'Conroe',
       addressRegion: 'TX',
       postalCode: '77301',
@@ -83,6 +84,7 @@ export default function LocalBusinessSchema() {
     sameAs: [
       'https://www.linkedin.com/company/stephenscode',
       'https://github.com/stephenscode',
+      'https://www.facebook.com/stephenscodedev',
     ],
     hasOfferCatalog: {
       '@type': 'OfferCatalog',
