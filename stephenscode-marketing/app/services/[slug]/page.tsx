@@ -56,6 +56,54 @@ export default async function ServicePage({ params }: Props) {
     .filter((s) => s.category === service.category && s.id !== service.id)
     .slice(0, 3)
 
+  // FAQ schema for service pages
+  const faqSchema = {
+    '@context': 'https://schema.org',
+    '@type': 'FAQPage',
+    mainEntity: [
+      {
+        '@type': 'Question',
+        name: `What is included in the ${service.name} package?`,
+        acceptedAnswer: {
+          '@type': 'Answer',
+          text: service.features.slice(0, 5).join(', ') + '. All packages include professional design, mobile optimization, and SEO basics.',
+        },
+      },
+      {
+        '@type': 'Question',
+        name: `How much does ${service.name} cost?`,
+        acceptedAnswer: {
+          '@type': 'Answer',
+          text: `${service.name} is priced at ${service.priceLabel}. This is a flat rate with no hidden fees or surprise charges.`,
+        },
+      },
+      {
+        '@type': 'Question',
+        name: `How long does ${service.name} take to complete?`,
+        acceptedAnswer: {
+          '@type': 'Answer',
+          text: `${service.name} typically takes ${service.timeline} to complete, assuming prompt feedback and content delivery from you.`,
+        },
+      },
+      {
+        '@type': 'Question',
+        name: 'Do you offer revisions?',
+        acceptedAnswer: {
+          '@type': 'Answer',
+          text: 'Yes, all packages include 2 rounds of revisions to ensure you are completely satisfied with the final result.',
+        },
+      },
+      {
+        '@type': 'Question',
+        name: 'What happens after the project is complete?',
+        acceptedAnswer: {
+          '@type': 'Answer',
+          text: 'You receive 30 days of free support after launch. We also offer ongoing maintenance plans starting at $50/month.',
+        },
+      },
+    ],
+  }
+
   return (
     <>
       {/* Schema Markup */}
@@ -64,6 +112,10 @@ export default async function ServicePage({ params }: Props) {
         dangerouslySetInnerHTML={{
           __html: JSON.stringify(serviceSchema(service.name, service.price.toString()))
         }}
+      />
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(faqSchema) }}
       />
 
       {/* Breadcrumbs */}
