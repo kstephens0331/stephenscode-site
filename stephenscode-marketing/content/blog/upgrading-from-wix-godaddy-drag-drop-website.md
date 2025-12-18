@@ -2,7 +2,7 @@
 title: "Time to Upgrade? Signs Your Wix, GoDaddy, or Squarespace Site Is Holding You Back"
 date: "2025-01-29"
 author: "Kyle Stephens"
-excerpt: "Drag-and-drop website builders were great to get started, but they may be costing you customers now. Learn when it's time to upgrade and what to expect from the transition."
+excerpt: "Drag-and-drop website builders were great to start. But they may be costing you customers now. Learn when it's time to upgrade."
 category: "Web Development"
 tags: ["Wix", "GoDaddy", "Squarespace", "website builders", "custom websites", "website migration", "small business"]
 readTime: "14 min read"

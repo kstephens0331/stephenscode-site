@@ -2,7 +2,7 @@
 title: "Local SEO for Houston Businesses: The Complete 2025 Guide"
 date: "2025-01-28"
 author: "Kyle Stephens"
-excerpt: "Dominate local search results and get more Houston customers. Step-by-step guide to Google Business Profile, local keywords, citations, reviews, and everything else that matters for local SEO."
+excerpt: "Dominate local search results in Houston. Step-by-step guide to Google Business Profile, local keywords, citations, and reviews."
 category: "SEO"
 tags: ["local SEO", "Houston", "Google Business Profile", "local search", "small business marketing", "Texas"]
 readTime: "16 min read"

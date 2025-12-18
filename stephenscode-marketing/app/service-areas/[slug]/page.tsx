@@ -56,18 +56,28 @@ export default async function ServiceAreaPage({ params }: ServiceAreaPageProps) 
   // Load unique markdown content if available
   const markdownContent = await getServiceAreaContent(slug)
 
-  // Enhanced schema with more details
+  // Enhanced schema with Service and FAQ
   const localSchema = {
     '@context': 'https://schema.org',
     '@type': 'WebPage',
     name: `Web Development Services in ${area.name}, TX`,
     description: `Professional web development, SEO, and e-commerce services for businesses in ${area.name}, Texas. Custom websites starting at $250.`,
+    url: `https://www.stephenscode.dev/service-areas/${slug}`,
     provider: {
       '@type': 'ProfessionalService',
+      '@id': 'https://www.stephenscode.dev/#organization',
       name: 'StephensCode',
       telephone: '+1-936-323-4527',
       email: 'kyle@stephenscode.dev',
       priceRange: '$$',
+      address: {
+        '@type': 'PostalAddress',
+        streetAddress: '2378 Strong Horse Dr',
+        addressLocality: 'Conroe',
+        addressRegion: 'TX',
+        postalCode: '77301',
+        addressCountry: 'US',
+      },
       areaServed: {
         '@type': 'City',
         name: area.name,
@@ -103,11 +113,63 @@ export default async function ServiceAreaPage({ params }: ServiceAreaPageProps) 
     },
   }
 
+  // FAQ Schema for rich results
+  const faqSchema = {
+    '@context': 'https://schema.org',
+    '@type': 'FAQPage',
+    mainEntity: [
+      {
+        '@type': 'Question',
+        name: `How much does a website cost for a ${area.name} business?`,
+        acceptedAnswer: {
+          '@type': 'Answer',
+          text: 'Plug and Play sites (4 pages) are $250, Standard sites (8-12 pages) are $850, Website Rebuilds are $600, and E-Commerce stores are $1,100. Premium custom platforms start at $2,500. These are flat rates—not estimates that balloon later.',
+        },
+      },
+      {
+        '@type': 'Question',
+        name: 'How long does it take to build a website?',
+        acceptedAnswer: {
+          '@type': 'Answer',
+          text: 'Most business websites are completed in 1-2 weeks. Plug and Play sites can be done in 3-5 days. E-commerce takes 2-3 weeks.',
+        },
+      },
+      {
+        '@type': 'Question',
+        name: `Will my website rank in ${area.name} searches?`,
+        acceptedAnswer: {
+          '@type': 'Answer',
+          text: 'We build every site with local SEO best practices. Most clients see ranking improvements within 60-90 days. Results depend on your industry competition and ongoing SEO efforts.',
+        },
+      },
+      {
+        '@type': 'Question',
+        name: 'Do you offer ongoing maintenance?',
+        acceptedAnswer: {
+          '@type': 'Answer',
+          text: 'Yes, we offer maintenance plans starting at $50/month including security updates, backups, content updates, and support.',
+        },
+      },
+      {
+        '@type': 'Question',
+        name: 'Can I update the website myself?',
+        acceptedAnswer: {
+          '@type': 'Answer',
+          text: 'Yes! We can integrate a content management system so you can update text, images, blog posts, and products without touching code. We provide training on how to use it.',
+        },
+      },
+    ],
+  }
+
   return (
     <>
       <script
         type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: JSON.stringify(localSchema) }}
+      />
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(faqSchema) }}
       />
 
       {/* Breadcrumbs */}

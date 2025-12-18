@@ -2,7 +2,7 @@
 title: "Why Veteran-Owned Businesses Deserve Your Trust (And Your Business)"
 date: "2025-02-10"
 author: "Kyle Stephens"
-excerpt: "Veteran-owned businesses bring military discipline, integrity, and mission-focused execution to every project. Here's why hiring a veteran isn't just patriotic—it's smart business."
+excerpt: "Veteran-owned businesses bring military discipline and integrity to every project. Here's why hiring a veteran is smart business."
 category: "Business"
 tags: ["veteran-owned", "small business", "Houston", "trust", "military", "Texas"]
 readTime: "8 min read"

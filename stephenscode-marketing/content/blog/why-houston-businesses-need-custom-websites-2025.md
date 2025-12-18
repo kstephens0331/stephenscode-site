@@ -2,7 +2,7 @@
 title: "Why Houston Businesses Need Custom Websites in 2025: The Complete Guide"
 date: "2025-01-15"
 author: "Kyle Stephens"
-excerpt: "Template websites are holding Houston businesses back. Learn why custom development is the smart investment for 2025 and beyond, with real examples and ROI analysis."
+excerpt: "Template websites are holding Houston businesses back. Learn why custom development is the smart investment for 2025."
 category: "Web Development"
 tags: ["Houston", "custom websites", "web development", "business growth", "2025", "SEO", "small business"]
 readTime: "12 min read"
