@@ -2,7 +2,7 @@
 title: "10 Website Mistakes That Are Killing Your Small Business (And How to Fix Them)"
 date: "2025-01-20"
 author: "Kyle Stephens"
-excerpt: "Your website might be driving customers away without you knowing. Discover the most common mistakes small businesses make and learn exactly how to fix them for better conversions."
+excerpt: "Your website might be driving customers away. Discover the 10 most common mistakes small businesses make and how to fix them fast."
 category: "Web Development"
 tags: ["website mistakes", "small business", "conversion optimization", "web design", "UX", "Houston business"]
 readTime: "14 min read"

@@ -2,7 +2,7 @@
 title: "E-Commerce for Houston Small Businesses: A Practical Guide to Selling Online"
 date: "2025-01-27"
 author: "Kyle Stephens"
-excerpt: "Ready to sell online? This practical guide covers everything Houston small businesses need to know about e-commerce—from platform choices to payment processing to shipping."
+excerpt: "Ready to sell online? Everything Houston small businesses need to know about e-commerce, payments, and shipping."
 category: "Business"
 tags: ["e-commerce", "online store", "Houston business", "small business", "payment processing", "Stripe", "selling online"]
 readTime: "15 min read"
