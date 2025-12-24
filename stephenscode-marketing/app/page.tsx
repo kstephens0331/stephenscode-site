@@ -270,31 +270,41 @@ export default function Home() {
               </a>
             </div>
 
-            {/* Trust Indicators */}
-            <div className="mt-16 flex flex-wrap items-center justify-center gap-8 text-sm animate-fade-in-up animation-delay-800">
-              <div className="flex items-center gap-2">
-                <svg className="h-6 w-6 text-accent-400" fill="currentColor" viewBox="0 0 20 20">
-                  <path fillRule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.857-9.809a.75.75 0 00-1.214-.882l-3.483 4.79-1.88-1.88a.75.75 0 10-1.06 1.061l2.5 2.5a.75.75 0 001.137-.089l4-5.5z" clipRule="evenodd" />
-                </svg>
-                <span className="font-semibold">14+ Years Experience</span>
-              </div>
-              <div className="flex items-center gap-2">
-                <svg className="h-6 w-6 text-accent-400" fill="currentColor" viewBox="0 0 20 20">
-                  <path fillRule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.857-9.809a.75.75 0 00-1.214-.882l-3.483 4.79-1.88-1.88a.75.75 0 10-1.06 1.061l2.5 2.5a.75.75 0 001.137-.089l4-5.5z" clipRule="evenodd" />
-                </svg>
-                <span className="font-semibold">200+ Projects Delivered</span>
-              </div>
-              <div className="flex items-center gap-2">
-                <svg className="h-6 w-6 text-accent-400" fill="currentColor" viewBox="0 0 20 20">
-                  <path fillRule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.857-9.809a.75.75 0 00-1.214-.882l-3.483 4.79-1.88-1.88a.75.75 0 10-1.06 1.061l2.5 2.5a.75.75 0 001.137-.089l4-5.5z" clipRule="evenodd" />
-                </svg>
-                <span className="font-semibold">98% Client Satisfaction</span>
-              </div>
-              <div className="flex items-center gap-2">
-                <svg className="h-6 w-6 text-accent-400" fill="currentColor" viewBox="0 0 20 20">
-                  <path fillRule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.857-9.809a.75.75 0 00-1.214-.882l-3.483 4.79-1.88-1.88a.75.75 0 10-1.06 1.061l2.5 2.5a.75.75 0 001.137-.089l4-5.5z" clipRule="evenodd" />
-                </svg>
-                <span className="font-semibold">Local to Houston</span>
+            {/* Trust Badges */}
+            <div className="mt-16 animate-fade-in-up animation-delay-800">
+              <div className="flex flex-wrap items-center justify-center gap-4">
+                {/* Marine Corps Veteran Badge */}
+                <div className="flex items-center gap-3 rounded-xl bg-white/10 backdrop-blur-sm px-5 py-3 border border-white/20">
+                  <span className="text-2xl">🎖️</span>
+                  <div className="text-left">
+                    <span className="block text-xs text-gray-300 uppercase tracking-wide">USMC Veteran</span>
+                    <span className="block text-sm font-bold text-white">Marine Corps Owned</span>
+                  </div>
+                </div>
+                {/* Experience Badge */}
+                <div className="flex items-center gap-3 rounded-xl bg-white/10 backdrop-blur-sm px-5 py-3 border border-white/20">
+                  <span className="text-2xl">⭐</span>
+                  <div className="text-left">
+                    <span className="block text-xs text-gray-300 uppercase tracking-wide">Since 2011</span>
+                    <span className="block text-sm font-bold text-white">14+ Years Experience</span>
+                  </div>
+                </div>
+                {/* Projects Badge */}
+                <div className="flex items-center gap-3 rounded-xl bg-white/10 backdrop-blur-sm px-5 py-3 border border-white/20">
+                  <span className="text-2xl">🚀</span>
+                  <div className="text-left">
+                    <span className="block text-xs text-gray-300 uppercase tracking-wide">Track Record</span>
+                    <span className="block text-sm font-bold text-white">200+ Projects Delivered</span>
+                  </div>
+                </div>
+                {/* Local Badge */}
+                <div className="flex items-center gap-3 rounded-xl bg-white/10 backdrop-blur-sm px-5 py-3 border border-white/20">
+                  <span className="text-2xl">📍</span>
+                  <div className="text-left">
+                    <span className="block text-xs text-gray-300 uppercase tracking-wide">Based In</span>
+                    <span className="block text-sm font-bold text-white">Conroe, Texas</span>
+                  </div>
+                </div>
               </div>
             </div>
           </div>

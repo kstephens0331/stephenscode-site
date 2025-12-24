@@ -5,6 +5,7 @@ import './globals.css'
 import Header from '@/components/layout/Header'
 import Footer from '@/components/layout/Footer'
 import LocalBusinessSchema from '@/components/LocalBusinessSchema'
+import FloatingContactButton from '@/components/FloatingContactButton'
 
 const inter = Inter({ subsets: ['latin'] })
 
@@ -60,9 +61,7 @@ export const metadata: Metadata = {
       'max-snippet': -1,
     },
   },
-  verification: {
-    google: 'your-google-verification-code',
-  },
+  // Google Search Console verified via DNS TXT record
 }
 
 export default function RootLayout({
@@ -101,6 +100,7 @@ export default function RootLayout({
         <Header />
         <main id="main-content">{children}</main>
         <Footer />
+        <FloatingContactButton />
       </body>
     </html>
   )
