@@ -8,11 +8,10 @@ export default function Header() {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false)
 
   const navigation = [
-    { name: 'Services', href: '/services' },
+    { name: 'Web Dev', href: '/services' },
+    { name: 'IT Services', href: '/msp' },
     { name: 'Pricing', href: '/pricing' },
-    { name: 'Add-Ons', href: '/pricing/add-ons' },
     { name: 'Demos', href: '/demos' },
-    { name: 'SACVPN', href: '/sacvpn' },
     { name: 'Work', href: '/work' },
     { name: 'About', href: '/about' },
     { name: 'Blog', href: '/blog' },

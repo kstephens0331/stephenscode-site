@@ -2,12 +2,19 @@ import Link from 'next/link'
 
 export default function Footer() {
   const navigation = {
-    services: [
+    webdev: [
       { name: 'Plug & Play', href: '/services/plug-and-play' },
-      { name: 'Website Rebuild', href: '/services/website-rebuild' },
       { name: 'Standard Website', href: '/services/standard-website' },
       { name: 'E-Commerce', href: '/services/ecommerce-website' },
       { name: 'Premium Build', href: '/services/premium-build' },
+      { name: 'All Web Services', href: '/services' },
+    ],
+    msp: [
+      { name: 'Managed IT', href: '/msp/business-it-management' },
+      { name: 'Cybersecurity', href: '/msp/advanced-threat-protection' },
+      { name: 'Cloud Solutions', href: '/msp/microsoft-365-management' },
+      { name: 'IT Support', href: '/msp/break-fix-support' },
+      { name: 'All IT Services', href: '/msp' },
     ],
     company: [
       { name: 'About', href: '/about' },
@@ -15,7 +22,6 @@ export default function Footer() {
       { name: 'Blog', href: '/blog' },
       { name: 'Contact', href: '/contact' },
       { name: 'Pricing', href: '/pricing' },
-      { name: 'Partners', href: '/partners' },
     ],
     resources: [
       { name: 'Admin Portal', href: 'https://admin.stephenscode.dev' },
@@ -33,7 +39,7 @@ export default function Footer() {
           <div className="space-y-8">
             <div className="text-2xl font-bold text-white">StephensCode</div>
             <p className="text-sm leading-6 text-gray-300">
-              Veteran-owned web development serving Houston and Conroe. 14+ years of experience delivering quality solutions.
+              Veteran-owned web development and managed IT services serving Houston and Conroe. 14+ years of experience delivering quality technology solutions.
             </p>
             <div className="flex items-center gap-2">
               <span className="text-2xl">🇺🇸</span>
@@ -60,9 +66,9 @@ export default function Footer() {
           <div className="mt-16 grid grid-cols-2 gap-8 xl:col-span-2 xl:mt-0">
             <div className="md:grid md:grid-cols-2 md:gap-8">
               <div>
-                <h3 className="text-sm font-semibold leading-6 text-white">Services</h3>
+                <h3 className="text-sm font-semibold leading-6 text-white">Web Development</h3>
                 <ul role="list" className="mt-6 space-y-4">
-                  {navigation.services.map((item) => (
+                  {navigation.webdev.map((item) => (
                     <li key={item.name}>
                       <Link href={item.href} className="text-sm leading-6 text-gray-300 hover:text-white">
                         {item.name}
@@ -72,6 +78,20 @@ export default function Footer() {
                 </ul>
               </div>
               <div className="mt-10 md:mt-0">
+                <h3 className="text-sm font-semibold leading-6 text-white">IT Services</h3>
+                <ul role="list" className="mt-6 space-y-4">
+                  {navigation.msp.map((item) => (
+                    <li key={item.name}>
+                      <Link href={item.href} className="text-sm leading-6 text-gray-300 hover:text-white">
+                        {item.name}
+                      </Link>
+                    </li>
+                  ))}
+                </ul>
+              </div>
+            </div>
+            <div className="md:grid md:grid-cols-2 md:gap-8">
+              <div>
                 <h3 className="text-sm font-semibold leading-6 text-white">Company</h3>
                 <ul role="list" className="mt-6 space-y-4">
                   {navigation.company.map((item) => (
@@ -83,36 +103,36 @@ export default function Footer() {
                   ))}
                 </ul>
               </div>
-            </div>
-            <div>
-              <h3 className="text-sm font-semibold leading-6 text-white">Contact</h3>
-              <ul role="list" className="mt-6 space-y-4">
-                <li className="text-sm leading-6 text-gray-300">
-                  <a href="tel:+19363234527" className="hover:text-white">
-                    (936) 323-4527
-                  </a>
-                </li>
-                <li className="text-sm leading-6 text-gray-300">
-                  <a href="mailto:info@stephenscode.dev" className="hover:text-white">
-                    info@stephenscode.dev
-                  </a>
-                </li>
-                <li className="text-sm leading-6 text-gray-300">
-                  2378 Strong Horse Dr<br />
-                  Conroe, TX 77301
-                </li>
-              </ul>
-              <div className="mt-10">
-                <h3 className="text-sm font-semibold leading-6 text-white">Portals</h3>
+              <div className="mt-10 md:mt-0">
+                <h3 className="text-sm font-semibold leading-6 text-white">Contact</h3>
                 <ul role="list" className="mt-6 space-y-4">
-                  {navigation.resources.map((item) => (
-                    <li key={item.name}>
-                      <a href={item.href} className="text-sm leading-6 text-gray-300 hover:text-white" target="_blank" rel="noopener noreferrer">
-                        {item.name}
-                      </a>
-                    </li>
-                  ))}
+                  <li className="text-sm leading-6 text-gray-300">
+                    <a href="tel:+19363234527" className="hover:text-white">
+                      (936) 323-4527
+                    </a>
+                  </li>
+                  <li className="text-sm leading-6 text-gray-300">
+                    <a href="mailto:info@stephenscode.dev" className="hover:text-white">
+                      info@stephenscode.dev
+                    </a>
+                  </li>
+                  <li className="text-sm leading-6 text-gray-300">
+                    2378 Strong Horse Dr<br />
+                    Conroe, TX 77301
+                  </li>
                 </ul>
+                <div className="mt-6">
+                  <h4 className="text-xs font-semibold leading-6 text-gray-400">Portals</h4>
+                  <ul role="list" className="mt-2 space-y-2">
+                    {navigation.resources.map((item) => (
+                      <li key={item.name}>
+                        <a href={item.href} className="text-sm leading-6 text-gray-300 hover:text-white" target="_blank" rel="noopener noreferrer">
+                          {item.name}
+                        </a>
+                      </li>
+                    ))}
+                  </ul>
+                </div>
               </div>
             </div>
           </div>

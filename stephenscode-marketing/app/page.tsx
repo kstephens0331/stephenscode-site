@@ -234,13 +234,13 @@ export default function Home() {
 
             {/* Main Headline - SEO Optimized */}
             <h1 className="text-5xl font-black tracking-tight sm:text-7xl mb-8 animate-fade-in-up animation-delay-200">
-              Houston Web Development
+              Web Development & IT Services
               <span className="block text-accent-400 mt-2">Built by Veterans, Trusted by Business</span>
             </h1>
 
             {/* SEO-Rich Subheadline */}
             <p className="mt-8 text-xl leading-8 text-gray-100 max-w-3xl mx-auto animate-fade-in-up animation-delay-400">
-              Custom websites, e-commerce platforms, and business automation for Houston, Conroe, and The Woodlands businesses. <strong className="text-white">Serving clients nationwide through remote collaboration.</strong> Flat-rate pricing from $250. No hourly rates, no surprises. 14+ years of experience, 200+ successful projects.
+              Custom websites, managed IT services, and cybersecurity for Houston, Conroe, and The Woodlands businesses. <strong className="text-white">Web development from $250. IT support from $99/user/mo.</strong> No hourly rates, no surprises. 14+ years of experience, 200+ successful projects.
             </p>
 
             {/* CTA Buttons */}
@@ -419,6 +419,82 @@ export default function Home() {
               <svg className="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                 <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M13 7l5 5m0 0l-5 5m5-5H6" />
               </svg>
+            </Link>
+          </div>
+        </div>
+      </section>
+
+      {/* IT Services Section */}
+      <section className="bg-gray-900 text-white py-24 sm:py-32">
+        <div className="mx-auto max-w-7xl px-6 lg:px-8">
+          <div className="mx-auto max-w-2xl text-center mb-16">
+            <div className="inline-flex items-center gap-3 rounded-full bg-red-500/20 px-6 py-3 text-sm font-semibold backdrop-blur-lg border border-red-500/30 mb-6">
+              <span className="text-2xl">🔒</span>
+              <span>Managed IT & Cybersecurity</span>
+            </div>
+            <h2 className="text-4xl font-black tracking-tight sm:text-5xl mb-6">
+              IT Services That Protect Your Business
+            </h2>
+            <p className="text-lg leading-8 text-gray-300">
+              Complete managed IT services and cybersecurity solutions. 24/7 monitoring, helpdesk support, and enterprise-grade protection.
+            </p>
+          </div>
+
+          <div className="grid grid-cols-1 gap-8 lg:grid-cols-4">
+            {[
+              {
+                name: 'Managed IT',
+                price: 'From $99/user/mo',
+                description: 'Complete IT management with helpdesk, monitoring, and strategic planning.',
+                icon: '🖥️',
+                href: '/msp/business-it-management'
+              },
+              {
+                name: 'Cybersecurity',
+                price: 'From $29/user/mo',
+                description: 'Threat protection, EDR, dark web monitoring, and incident response.',
+                icon: '🔒',
+                href: '/msp/advanced-threat-protection'
+              },
+              {
+                name: 'Cloud Solutions',
+                price: 'From $10/user/mo',
+                description: 'Microsoft 365 management, cloud backup, and migration services.',
+                icon: '☁️',
+                href: '/msp/cloud-backup'
+              },
+              {
+                name: 'IT Consulting',
+                price: '$150/hour',
+                description: 'Strategic technology planning, vendor selection, and IT roadmaps.',
+                icon: '💡',
+                href: '/msp/it-consulting'
+              }
+            ].map((service) => (
+              <Link
+                key={service.name}
+                href={service.href}
+                className="group relative rounded-2xl bg-white/10 backdrop-blur-lg border border-white/20 p-8 hover:bg-white/20 transition-all hover:scale-105"
+              >
+                <div className="text-4xl mb-4">{service.icon}</div>
+                <h3 className="text-xl font-bold text-white mb-2">{service.name}</h3>
+                <p className="text-red-400 font-bold mb-4">{service.price}</p>
+                <p className="text-gray-300 text-sm">{service.description}</p>
+                <div className="mt-6 inline-flex items-center gap-2 text-sm font-bold text-white group-hover:text-red-400 transition-colors">
+                  <span>Learn More</span>
+                  <span className="group-hover:translate-x-1 transition-transform">→</span>
+                </div>
+              </Link>
+            ))}
+          </div>
+
+          <div className="mt-12 text-center">
+            <Link
+              href="/msp"
+              className="inline-flex items-center gap-2 rounded-lg bg-red-500 px-8 py-4 text-lg font-bold text-white shadow-lg hover:bg-red-600 transition-all hover:scale-105"
+            >
+              <span>View All IT Services</span>
+              <span>→</span>
             </Link>
           </div>
         </div>
