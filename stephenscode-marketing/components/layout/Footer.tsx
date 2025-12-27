@@ -10,10 +10,10 @@ export default function Footer() {
       { name: 'All Web Services', href: '/services' },
     ],
     msp: [
-      { name: 'Managed IT', href: '/msp/business-it-management' },
+      { name: 'Essential IT', href: '/msp/essential-it' },
+      { name: 'Business Pro', href: '/msp/business-pro' },
+      { name: 'Complete IT', href: '/msp/complete-it' },
       { name: 'Cybersecurity', href: '/msp/advanced-threat-protection' },
-      { name: 'Cloud Solutions', href: '/msp/microsoft-365-management' },
-      { name: 'IT Support', href: '/msp/break-fix-support' },
       { name: 'All IT Services', href: '/msp' },
     ],
     company: [
