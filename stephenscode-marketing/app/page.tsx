@@ -443,32 +443,36 @@ export default function Home() {
           <div className="grid grid-cols-1 gap-8 lg:grid-cols-4">
             {[
               {
-                name: 'Managed IT',
-                price: 'From $99/user/mo',
-                description: 'Complete IT management with helpdesk, monitoring, and strategic planning.',
+                name: 'Essential IT',
+                price: '$99/user/mo',
+                description: 'Helpdesk, monitoring, email security & password manager included.',
                 icon: '🖥️',
-                href: '/msp/business-it-management'
+                href: '/msp/essential-it',
+                value: '$125+ value'
               },
               {
-                name: 'Cybersecurity',
-                price: 'From $29/user/mo',
-                description: 'Threat protection, EDR, dark web monitoring, and incident response.',
+                name: 'Business Pro',
+                price: '$129/user/mo',
+                description: 'Full IT + backup, dark web monitoring & MFA included.',
+                icon: '🛡️',
+                href: '/msp/business-pro',
+                value: '$175+ value'
+              },
+              {
+                name: 'Complete IT',
+                price: '$179/user/mo',
+                description: 'IT + Security bundle with EDR, SIEM & training.',
                 icon: '🔒',
-                href: '/msp/advanced-threat-protection'
+                href: '/msp/complete-it',
+                value: '$230+ value'
               },
               {
-                name: 'Cloud Solutions',
-                price: 'From $10/user/mo',
-                description: 'Microsoft 365 management, cloud backup, and migration services.',
-                icon: '☁️',
-                href: '/msp/cloud-backup'
-              },
-              {
-                name: 'IT Consulting',
-                price: '$150/hour',
-                description: 'Strategic technology planning, vendor selection, and IT roadmaps.',
-                icon: '💡',
-                href: '/msp/it-consulting'
+                name: 'Enterprise',
+                price: 'Custom',
+                description: '24/7 support, dedicated team, full compliance.',
+                icon: '🏢',
+                href: '/msp/enterprise-it-solutions',
+                value: '50+ users'
               }
             ].map((service) => (
               <Link
@@ -478,7 +482,8 @@ export default function Home() {
               >
                 <div className="text-4xl mb-4">{service.icon}</div>
                 <h3 className="text-xl font-bold text-white mb-2">{service.name}</h3>
-                <p className="text-red-400 font-bold mb-4">{service.price}</p>
+                <p className="text-red-400 font-bold">{service.price}</p>
+                <p className="text-green-400 text-xs font-semibold mb-4">{service.value}</p>
                 <p className="text-gray-300 text-sm">{service.description}</p>
                 <div className="mt-6 inline-flex items-center gap-2 text-sm font-bold text-white group-hover:text-red-400 transition-colors">
                   <span>Learn More</span>
