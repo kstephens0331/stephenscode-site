@@ -484,7 +484,7 @@ export default function Work() {
               Ready to Get Started?
             </h2>
             <p className="mx-auto mt-6 max-w-xl text-lg leading-8 text-gray-200">
-              Join 150+ satisfied clients. Let's build something great together with transparent pricing and proven results.
+              Join 200+ satisfied clients. Let's build something great together with transparent pricing and proven results.
             </p>
             <div className="mt-10 flex flex-col sm:flex-row items-center justify-center gap-6">
               <Link

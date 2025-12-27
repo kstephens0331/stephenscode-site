@@ -10,6 +10,7 @@ export default function Header() {
   const navigation = [
     { name: 'Web Dev', href: '/services' },
     { name: 'IT Services', href: '/msp' },
+    { name: 'SACVPN', href: 'https://sacvpn.com', external: true },
     { name: 'Pricing', href: '/pricing' },
     { name: 'Demos', href: '/demos' },
     { name: 'Work', href: '/work' },
@@ -45,13 +46,25 @@ export default function Header() {
           </div>
           <div className="hidden lg:flex lg:items-center lg:space-x-6">
             {navigation.map((link) => (
-              <Link
-                key={link.name}
-                href={link.href}
-                className="text-base font-medium text-gray-700 hover:text-primary-600 transition-colors"
-              >
-                {link.name}
-              </Link>
+              link.external ? (
+                <a
+                  key={link.name}
+                  href={link.href}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="text-base font-medium text-gray-700 hover:text-primary-600 transition-colors"
+                >
+                  {link.name}
+                </a>
+              ) : (
+                <Link
+                  key={link.name}
+                  href={link.href}
+                  className="text-base font-medium text-gray-700 hover:text-primary-600 transition-colors"
+                >
+                  {link.name}
+                </Link>
+              )
             ))}
             <Link
               href="/contact"
@@ -80,14 +93,27 @@ export default function Header() {
           <div className="lg:hidden pb-4">
             <div className="space-y-2">
               {navigation.map((link) => (
-                <Link
-                  key={link.name}
-                  href={link.href}
-                  className="block rounded-lg px-3 py-2 text-base font-medium text-gray-700 hover:bg-gray-50"
-                  onClick={() => setMobileMenuOpen(false)}
-                >
-                  {link.name}
-                </Link>
+                link.external ? (
+                  <a
+                    key={link.name}
+                    href={link.href}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="block rounded-lg px-3 py-2 text-base font-medium text-gray-700 hover:bg-gray-50"
+                    onClick={() => setMobileMenuOpen(false)}
+                  >
+                    {link.name}
+                  </a>
+                ) : (
+                  <Link
+                    key={link.name}
+                    href={link.href}
+                    className="block rounded-lg px-3 py-2 text-base font-medium text-gray-700 hover:bg-gray-50"
+                    onClick={() => setMobileMenuOpen(false)}
+                  >
+                    {link.name}
+                  </Link>
+                )
               ))}
               <Link
                 href="/contact"

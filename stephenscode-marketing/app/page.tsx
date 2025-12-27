@@ -440,12 +440,12 @@ export default function Home() {
             </p>
           </div>
 
-          <div className="grid grid-cols-1 gap-8 lg:grid-cols-4">
+          <div className="grid grid-cols-1 gap-6 sm:grid-cols-2 lg:grid-cols-5">
             {[
               {
                 name: 'Essential IT',
                 price: '$99/user/mo',
-                description: 'Helpdesk, monitoring, email security & password manager included.',
+                description: 'Helpdesk, monitoring, email security & password manager.',
                 icon: '🖥️',
                 href: '/msp/essential-it',
                 value: '$125+ value'
@@ -453,7 +453,7 @@ export default function Home() {
               {
                 name: 'Business Pro',
                 price: '$129/user/mo',
-                description: 'Full IT + backup, dark web monitoring & MFA included.',
+                description: 'Full IT + backup, dark web monitoring & MFA.',
                 icon: '🛡️',
                 href: '/msp/business-pro',
                 value: '$175+ value'
@@ -461,10 +461,19 @@ export default function Home() {
               {
                 name: 'Complete IT',
                 price: '$179/user/mo',
-                description: 'IT + Security bundle with EDR, SIEM & training.',
+                description: 'IT + Security with EDR, SIEM & training.',
                 icon: '🔒',
                 href: '/msp/complete-it',
                 value: '$230+ value'
+              },
+              {
+                name: 'SACVPN',
+                price: 'Per User',
+                description: 'Enterprise VPN with military-grade encryption.',
+                icon: '🔐',
+                href: 'https://sacvpn.com',
+                value: 'Zero-Log Policy',
+                external: true
               },
               {
                 name: 'Enterprise',
@@ -475,21 +484,41 @@ export default function Home() {
                 value: '50+ users'
               }
             ].map((service) => (
-              <Link
-                key={service.name}
-                href={service.href}
-                className="group relative rounded-2xl bg-white/10 backdrop-blur-lg border border-white/20 p-8 hover:bg-white/20 transition-all hover:scale-105"
-              >
-                <div className="text-4xl mb-4">{service.icon}</div>
-                <h3 className="text-xl font-bold text-white mb-2">{service.name}</h3>
-                <p className="text-red-400 font-bold">{service.price}</p>
-                <p className="text-green-400 text-xs font-semibold mb-4">{service.value}</p>
-                <p className="text-gray-300 text-sm">{service.description}</p>
-                <div className="mt-6 inline-flex items-center gap-2 text-sm font-bold text-white group-hover:text-red-400 transition-colors">
-                  <span>Learn More</span>
-                  <span className="group-hover:translate-x-1 transition-transform">→</span>
-                </div>
-              </Link>
+              service.external ? (
+                <a
+                  key={service.name}
+                  href={service.href}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="group relative rounded-2xl bg-white/10 backdrop-blur-lg border border-white/20 p-8 hover:bg-white/20 transition-all hover:scale-105"
+                >
+                  <div className="text-4xl mb-4">{service.icon}</div>
+                  <h3 className="text-xl font-bold text-white mb-2">{service.name}</h3>
+                  <p className="text-red-400 font-bold">{service.price}</p>
+                  <p className="text-green-400 text-xs font-semibold mb-4">{service.value}</p>
+                  <p className="text-gray-300 text-sm">{service.description}</p>
+                  <div className="mt-6 inline-flex items-center gap-2 text-sm font-bold text-white group-hover:text-red-400 transition-colors">
+                    <span>Visit Site</span>
+                    <span className="group-hover:translate-x-1 transition-transform">→</span>
+                  </div>
+                </a>
+              ) : (
+                <Link
+                  key={service.name}
+                  href={service.href}
+                  className="group relative rounded-2xl bg-white/10 backdrop-blur-lg border border-white/20 p-8 hover:bg-white/20 transition-all hover:scale-105"
+                >
+                  <div className="text-4xl mb-4">{service.icon}</div>
+                  <h3 className="text-xl font-bold text-white mb-2">{service.name}</h3>
+                  <p className="text-red-400 font-bold">{service.price}</p>
+                  <p className="text-green-400 text-xs font-semibold mb-4">{service.value}</p>
+                  <p className="text-gray-300 text-sm">{service.description}</p>
+                  <div className="mt-6 inline-flex items-center gap-2 text-sm font-bold text-white group-hover:text-red-400 transition-colors">
+                    <span>Learn More</span>
+                    <span className="group-hover:translate-x-1 transition-transform">→</span>
+                  </div>
+                </Link>
+              )
             ))}
           </div>
 
