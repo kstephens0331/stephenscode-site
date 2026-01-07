@@ -285,6 +285,83 @@ export default function MSPServicesPage() {
         </div>
       </section>
 
+      {/* FAQ Section */}
+      <section className="bg-white py-24 sm:py-32">
+        <div className="mx-auto max-w-4xl px-6 lg:px-8">
+          <div className="mx-auto max-w-2xl text-center mb-16">
+            <h2 className="text-base font-semibold leading-7 text-red-600">Frequently Asked Questions</h2>
+            <p className="mt-2 text-4xl font-black tracking-tight text-gray-900 sm:text-5xl">
+              Managed IT Services FAQ
+            </p>
+          </div>
+
+          <div className="space-y-6">
+            {[
+              {
+                question: "What is included in managed IT services?",
+                answer: "Our managed IT services include 24/7 system monitoring, helpdesk support, cybersecurity protection (antivirus, firewall, threat detection), backup and disaster recovery, Microsoft 365 management, patch management, and strategic IT consulting. The specific features depend on your plan—Essential IT ($99/user), Business Pro ($129/user), or Complete IT ($179/user)."
+              },
+              {
+                question: "How much do managed IT services cost?",
+                answer: "We offer transparent per-user pricing: Essential IT at $99/user/month, Business Pro at $129/user/month, and Complete IT at $179/user/month. Enterprise pricing is custom for organizations with 50+ users. This predictable pricing replaces unpredictable hourly IT bills with a fixed monthly cost."
+              },
+              {
+                question: "What areas do you provide IT support?",
+                answer: "We provide on-site IT support throughout the Houston metropolitan area including Conroe, The Woodlands, Spring, Tomball, Katy, Sugar Land, Pearland, Cypress, and Humble. Remote support is available nationwide for clients who don't need physical on-site visits."
+              },
+              {
+                question: "How fast is your response time?",
+                answer: "We guarantee response times based on issue severity: Critical issues (system down) get immediate response with a 2-hour resolution target. High priority issues get 4-hour response. Standard requests are addressed within 8 business hours. Our 24/7 monitoring often catches and resolves issues before you notice them."
+              },
+              {
+                question: "Do you provide cybersecurity services?",
+                answer: "Yes, cybersecurity is core to our managed IT services. All plans include email security, antivirus, and firewall management. Higher tiers add endpoint detection and response (EDR), dark web monitoring, security awareness training, and SIEM (Security Information and Event Management). We also offer standalone Advanced Threat Protection services."
+              },
+              {
+                question: "Can you support our Microsoft 365 environment?",
+                answer: "Absolutely. We're Microsoft 365 specialists. We handle user provisioning, license management, email configuration, SharePoint administration, Teams setup, security policies, and ongoing optimization. We can also migrate you to Microsoft 365 if you're on legacy systems."
+              },
+              {
+                question: "What's the difference between MSP and break-fix IT?",
+                answer: "Break-fix IT means you call someone when something breaks, pay hourly, and hope they're available. Managed IT (MSP) means proactive monitoring, maintenance, and support for a flat monthly fee. We catch problems before they cause downtime, and you get predictable IT costs instead of surprise repair bills."
+              },
+              {
+                question: "How do we get started with managed IT services?",
+                answer: "Start with a free IT assessment. We'll evaluate your current infrastructure, identify vulnerabilities, and recommend the right service level. There's no obligation—just honest advice about your IT needs. If you decide to move forward, onboarding typically takes 1-2 weeks."
+              }
+            ].map((faq, index) => (
+              <details
+                key={index}
+                className="group rounded-2xl border-2 border-gray-200 bg-gray-50 hover:border-red-300 transition-colors"
+              >
+                <summary className="flex cursor-pointer items-center justify-between p-6 text-lg font-bold text-gray-900">
+                  <span>{faq.question}</span>
+                  <span className="ml-4 flex-shrink-0 text-red-600 group-open:rotate-180 transition-transform">
+                    <svg className="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 9l-7 7-7-7" />
+                    </svg>
+                  </span>
+                </summary>
+                <div className="px-6 pb-6">
+                  <p className="text-gray-600 leading-relaxed">{faq.answer}</p>
+                </div>
+              </details>
+            ))}
+          </div>
+
+          <div className="mt-12 text-center">
+            <p className="text-gray-600 mb-4">Ready to improve your IT?</p>
+            <Link
+              href="/contact"
+              className="inline-flex items-center gap-2 text-red-600 font-bold hover:text-red-700"
+            >
+              <span>Schedule your free IT assessment</span>
+              <span>→</span>
+            </Link>
+          </div>
+        </div>
+      </section>
+
       {/* CTA Section */}
       <section className="relative overflow-hidden bg-gradient-to-br from-red-600 via-red-700 to-red-800 text-white">
         <div className="absolute inset-0 opacity-10">

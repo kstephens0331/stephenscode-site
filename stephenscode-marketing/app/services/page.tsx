@@ -415,6 +415,83 @@ export default function ServicesPage() {
         </div>
       </section>
 
+      {/* FAQ Section */}
+      <section className="bg-white py-24 sm:py-32">
+        <div className="mx-auto max-w-4xl px-6 lg:px-8">
+          <div className="mx-auto max-w-2xl text-center mb-16">
+            <h2 className="text-base font-semibold leading-7 text-primary-600">Frequently Asked Questions</h2>
+            <p className="mt-2 text-4xl font-black tracking-tight text-gray-900 sm:text-5xl">
+              Web Development FAQ
+            </p>
+          </div>
+
+          <div className="space-y-6">
+            {[
+              {
+                question: "How much does a custom website cost?",
+                answer: "Our flat-rate pricing starts at $250 for a 4-page Plug and Play website. Standard custom websites are $850, website rebuilds are $600, and e-commerce stores start at $1,100. Premium enterprise solutions range from $2,500-$10,000+ depending on complexity. All prices are transparent with no hidden fees."
+              },
+              {
+                question: "How long does it take to build a website?",
+                answer: "Most projects are completed in 1-2 weeks. Plug and Play sites can be ready in 3-5 days. Standard websites take 1-2 weeks. Complex e-commerce or custom platforms may take 2-4 weeks. We'll give you an accurate timeline during your free consultation."
+              },
+              {
+                question: "Do you offer website hosting?",
+                answer: "Yes! We offer managed hosting starting at $29/month which includes SSL certificates, daily backups, security monitoring, and unlimited support. Hosting is optional—we can also deploy to your existing hosting or platforms like Vercel, Netlify, or your own servers."
+              },
+              {
+                question: "Can you redesign my existing website?",
+                answer: "Absolutely. Our Website Rebuild package ($600) is specifically designed for businesses with outdated websites. We'll modernize your design, improve performance, enhance SEO, and ensure mobile responsiveness while preserving your brand identity."
+              },
+              {
+                question: "What's included in the price?",
+                answer: "All packages include custom design, responsive development, basic SEO setup, contact forms, Google Analytics integration, and 30 days of post-launch support. E-commerce packages include payment processing setup. We don't nickel-and-dime—what we quote is what you pay."
+              },
+              {
+                question: "Do I own my website after it's built?",
+                answer: "Yes, 100%. You own all code, content, and design assets. Unlike template website builders that hold your site hostage, we build on open platforms and provide full source code. You can host it anywhere and modify it however you want."
+              },
+              {
+                question: "Do you work with clients outside Houston?",
+                answer: "Yes! While we're based in Conroe and serve the Houston area with in-person meetings, we work with clients nationwide through video calls, screen sharing, and collaborative tools. About 40% of our clients are outside Texas."
+              },
+              {
+                question: "What technologies do you use?",
+                answer: "We use modern, industry-standard technologies: React/Next.js for frontend, Node.js or Python for backend, PostgreSQL or Firebase for databases, and Tailwind CSS for styling. We choose the best tools for each project rather than forcing one-size-fits-all solutions."
+              }
+            ].map((faq, index) => (
+              <details
+                key={index}
+                className="group rounded-2xl border-2 border-gray-200 bg-gray-50 hover:border-primary-300 transition-colors"
+              >
+                <summary className="flex cursor-pointer items-center justify-between p-6 text-lg font-bold text-gray-900">
+                  <span>{faq.question}</span>
+                  <span className="ml-4 flex-shrink-0 text-primary-600 group-open:rotate-180 transition-transform">
+                    <svg className="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 9l-7 7-7-7" />
+                    </svg>
+                  </span>
+                </summary>
+                <div className="px-6 pb-6">
+                  <p className="text-gray-600 leading-relaxed">{faq.answer}</p>
+                </div>
+              </details>
+            ))}
+          </div>
+
+          <div className="mt-12 text-center">
+            <p className="text-gray-600 mb-4">Still have questions?</p>
+            <Link
+              href="/contact"
+              className="inline-flex items-center gap-2 text-primary-600 font-bold hover:text-primary-700"
+            >
+              <span>Contact us for a free consultation</span>
+              <span>→</span>
+            </Link>
+          </div>
+        </div>
+      </section>
+
       {/* Final CTA */}
       <section className="relative overflow-hidden bg-gradient-to-br from-primary-900 via-primary-800 to-primary-700 text-white">
         <div className="absolute inset-0 opacity-10">
