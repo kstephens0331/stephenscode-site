@@ -3,18 +3,26 @@ import type { Metadata } from 'next'
 import { managedITServices, cybersecurityServices, cloudServices, supportServices } from '@/lib/msp-services-data'
 
 export const metadata: Metadata = {
-  title: 'Managed IT Services & Cybersecurity Houston | MSP | StephensCode',
-  description: 'Professional managed IT services and cybersecurity for Houston businesses. 24/7 support, threat protection, cloud solutions. Veteran-owned MSP serving Conroe, The Woodlands, and Houston.',
+  title: 'Houston Managed IT Services | $99/User/Mo | 24/7 Support',
+  description: 'Tired of IT problems? Get 24/7 monitoring, cybersecurity, and helpdesk support from $99/user/mo. No contracts. Veteran-owned MSP serving Houston, Conroe, The Woodlands. Free IT assessment.',
+  alternates: {
+    canonical: '/msp',
+  },
   keywords: [
     'managed IT services Houston',
     'MSP Houston',
-    'cybersecurity services Conroe',
+    'IT support Conroe',
+    'cybersecurity services Houston',
     'IT support The Woodlands',
     'managed service provider Texas',
     'business IT support Houston',
-    'cyber security Houston',
-    'IT outsourcing Texas'
+    'IT company near me',
   ],
+  openGraph: {
+    title: 'Houston Managed IT Services | From $99/User/Month',
+    description: '24/7 monitoring, cybersecurity, and helpdesk support. No long-term contracts. Veteran-owned MSP.',
+    url: 'https://www.stephenscode.dev/msp',
+  },
 }
 
 const mspSchema = {

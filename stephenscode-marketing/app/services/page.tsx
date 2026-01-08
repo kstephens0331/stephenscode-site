@@ -4,17 +4,26 @@ import { corePackages, premiumBuilds } from '@/lib/services-data'
 import { allAddOns } from '@/lib/addons-data'
 
 export const metadata: Metadata = {
-  title: 'Web Development Services Houston | Custom Websites & E-Commerce | StephensCode',
-  description: 'Professional web development services in Houston, TX. Custom websites from $250, e-commerce stores, business automation, and premium builds. Veteran-owned, flat-rate pricing, 14+ years experience.',
+  title: 'Houston Web Design | Websites from $250 | Free Quote Today',
+  description: 'Get a custom website in 1-2 weeks. Flat-rate pricing from $250 with no hidden fees. Veteran-owned with 14+ years exp. Call (936) 323-4527 for your free quote.',
+  alternates: {
+    canonical: '/services',
+  },
   keywords: [
     'web development services Houston',
+    'Conroe web design',
     'custom website development Conroe',
     'e-commerce development Texas',
-    'business automation Houston',
     'web design The Woodlands',
     'professional website Houston',
-    'veteran web developer Texas'
+    'veteran web developer Texas',
+    'affordable web design Houston',
   ],
+  openGraph: {
+    title: 'Houston Web Design | Custom Websites from $250',
+    description: 'Get a professional website built in 1-2 weeks. Flat-rate pricing, no hidden fees. Veteran-owned.',
+    url: 'https://www.stephenscode.dev/services',
+  },
 }
 
 // Service schema for SEO
