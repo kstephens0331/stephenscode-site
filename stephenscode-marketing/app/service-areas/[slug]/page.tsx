@@ -28,20 +28,30 @@ export async function generateMetadata({ params }: ServiceAreaPageProps): Promis
   }
 
   return {
-    title: `Web Developer ${area.name} TX | Custom Websites, SEO & E-Commerce`,
-    description: `Professional web development serving ${area.name}, Texas. Custom websites starting at $250, local SEO, e-commerce solutions. Veteran-owned with 14+ years experience. Free consultation.`,
+    title: `${area.name} Web Design & SEO | Websites from $250 | Free Quote`,
+    description: `Need a website in ${area.name}? Get a custom site in 1-2 weeks. Flat-rate pricing from $250, no hidden fees. Veteran-owned, 14+ years exp. Call (936) 323-4527 for a free quote.`,
+    alternates: {
+      canonical: `/service-areas/${slug}`,
+    },
     keywords: [
       `web developer ${area.name}`,
       `website design ${area.name} TX`,
       `${area.name} web development`,
       `custom website ${area.name}`,
+      `SEO company ${area.name}`,
       `SEO services ${area.name}`,
       `small business website ${area.name}`,
       `${area.name} website designer`,
       `affordable web design ${area.name}`,
       `e-commerce ${area.name} TX`,
       `local SEO ${area.name}`,
+      `web design company ${area.name}`,
     ],
+    openGraph: {
+      title: `${area.name} Web Design & SEO | Custom Websites from $250`,
+      description: `Get a professional website for your ${area.name} business. Flat-rate pricing, fast turnaround, veteran-owned. Call for a free consultation.`,
+      url: `https://www.stephenscode.dev/service-areas/${slug}`,
+    },
   }
 }
 

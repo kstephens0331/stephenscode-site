@@ -87,3 +87,6 @@ ENV/
 
 # Claude artifacts
 .claude/
+
+# Separate customer portal repo (has its own git)
+customer.stephenscode.dev/
