@@ -1,11 +1,11 @@
 import type { Metadata } from 'next'
 import { Inter } from 'next/font/google'
-import Script from 'next/script'
 import './globals.css'
 import Header from '@/components/layout/Header'
 import Footer from '@/components/layout/Footer'
 import LocalBusinessSchema from '@/components/LocalBusinessSchema'
 import FloatingContactButton from '@/components/FloatingContactButton'
+import GoogleAnalytics from '@/components/GoogleAnalytics'
 
 const inter = Inter({ subsets: ['latin'] })
 
@@ -75,19 +75,7 @@ export default function RootLayout({
         <LocalBusinessSchema />
       </head>
       <body className={inter.className}>
-        {/* Google Analytics */}
-        <Script
-          src="https://www.googletagmanager.com/gtag/js?id=G-W7W7DR4VYJ"
-          strategy="afterInteractive"
-        />
-        <Script id="google-analytics" strategy="afterInteractive">
-          {`
-            window.dataLayer = window.dataLayer || [];
-            function gtag(){dataLayer.push(arguments);}
-            gtag('js', new Date());
-            gtag('config', 'G-W7W7DR4VYJ');
-          `}
-        </Script>
+        <GoogleAnalytics />
 
         {/* Skip to content link for accessibility */}
         <a
