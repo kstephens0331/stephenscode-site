@@ -6,6 +6,7 @@ import Footer from '@/components/layout/Footer'
 import LocalBusinessSchema from '@/components/LocalBusinessSchema'
 import FloatingContactButton from '@/components/FloatingContactButton'
 import GoogleAnalytics from '@/components/GoogleAnalytics'
+import TrustedTypesPolicy from '@/components/TrustedTypesPolicy'
 
 const inter = Inter({ subsets: ['latin'] })
 
@@ -72,6 +73,7 @@ export default function RootLayout({
   return (
     <html lang="en">
       <head>
+        <TrustedTypesPolicy />
         <LocalBusinessSchema />
       </head>
       <body className={inter.className}>
