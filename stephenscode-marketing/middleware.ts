@@ -5,11 +5,12 @@ export function middleware(request: NextRequest) {
   // Generate a random nonce for CSP
   const nonce = Buffer.from(crypto.randomUUID()).toString('base64')
 
-  // Build CSP header with nonce - maximum security
+  // Build CSP header with nonce
   const cspHeader = `
     default-src 'self';
-    script-src 'self' 'nonce-${nonce}' 'strict-dynamic' https://www.googletagmanager.com https://www.google-analytics.com;
+    script-src 'self' 'unsafe-inline' 'unsafe-eval' https://www.googletagmanager.com https://www.google-analytics.com;
     style-src 'self' 'unsafe-inline' https://fonts.googleapis.com;
+    style-src-elem 'self' 'unsafe-inline' https://fonts.googleapis.com;
     font-src 'self' https://fonts.gstatic.com data:;
     img-src 'self' https: data: blob:;
     connect-src 'self' https://www.google-analytics.com https://analytics.google.com https://region1.google-analytics.com https://*.google-analytics.com;
@@ -18,8 +19,6 @@ export function middleware(request: NextRequest) {
     base-uri 'self';
     form-action 'self';
     upgrade-insecure-requests;
-    require-trusted-types-for 'script';
-    trusted-types nextjs default;
   `.replace(/\s{2,}/g, ' ').trim()
 
   // Clone the request headers
