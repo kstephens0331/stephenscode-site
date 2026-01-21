@@ -66,7 +66,7 @@ export const corePackages: Service[] = [
     timeline: '1 week',
     seoKeywords: ['WIX website design', 'GoDaddy website redesign', 'affordable website design Houston', 'small business website Conroe'],
     metaTitle: 'Plug & Play Website | $250',
-    metaDescription: 'Professional website design for WIX, GoDaddy, and other platforms. Custom design on your existing platform for just $250. 1-week turnaround. Houston & Conroe.',
+    metaDescription: 'Professional website design for WIX, GoDaddy, and similar platforms. Custom design on your platform for $250. Houston, Conroe & The Woodlands.',
   },
   {
     id: 'website-rebuild',
@@ -115,7 +115,7 @@ export const corePackages: Service[] = [
     timeline: '2 weeks',
     seoKeywords: ['website rebuild Houston', 'website redesign Conroe', 'modernize website Texas', 'website refresh services'],
     metaTitle: 'Website Rebuild | $350',
-    metaDescription: 'Complete website rebuild and refresh service. Modernize your outdated site with mobile-responsive design and SEO improvements. $350 flat rate. Houston & Conroe.',
+    metaDescription: 'Complete website rebuild service. Modernize your outdated site with mobile-responsive design and SEO optimization. $350 flat rate. Houston & Conroe.',
   },
   {
     id: 'standard-website',
@@ -167,7 +167,7 @@ export const corePackages: Service[] = [
     timeline: '3-4 weeks',
     seoKeywords: ['custom website development Houston', 'small business website Conroe', 'professional website design Texas', 'Next.js website development'],
     metaTitle: 'Custom Website | $850 | Conroe TX',
-    metaDescription: 'Professional custom website development for small businesses. Fully responsive, SEO-optimized, built with modern tech. $850 flat rate. 3-4 week delivery. Houston & Conroe.',
+    metaDescription: 'Custom website development for small businesses. Fully responsive, SEO-optimized, modern tech stack. $850 flat rate. Houston, Conroe & The Woodlands.',
   },
   {
     id: 'ecommerce-website',
@@ -391,7 +391,7 @@ export const premiumBuilds: Service[] = [
     timeline: '12-16 weeks',
     seoKeywords: ['enterprise web development Houston', 'custom enterprise platform Texas', 'business automation platform Conroe', 'enterprise software development'],
     metaTitle: 'Enterprise Platform | $7,500',
-    metaDescription: 'Enterprise-grade platform with admin systems, automation, and advanced features. Up to 40 pages. $7,500 flat rate. Houston & Conroe.',
+    metaDescription: 'Enterprise-grade platform with admin systems, workflow automation, and advanced analytics. Up to 40 pages included. $7,500 flat rate. Houston, Conroe & The Woodlands.',
   },
   {
     id: 'enterprise-custom',
@@ -449,7 +449,7 @@ export const premiumBuilds: Service[] = [
     timeline: 'Varies by project',
     seoKeywords: ['enterprise software development Houston', 'custom enterprise solutions Texas', 'government website development', 'large scale web development'],
     metaTitle: 'Enterprise Development | Custom Quote',
-    metaDescription: 'Large-scale enterprise solutions for complex requirements. Mobile apps, 40+ pages, government-grade security. Custom quotes starting at $15,000+. Houston & Conroe.',
+    metaDescription: 'Large-scale enterprise solutions with mobile apps, 40+ pages, and government-grade security. Custom quotes from $15,000. Houston & Conroe.',
   },
 ]
 
