@@ -196,7 +196,7 @@ export default function DemoFrame({ demo }: DemoFrameProps) {
               </Link>
               <div className="h-6 w-px bg-gray-700"></div>
               <div>
-                <h1 className="text-sm font-bold">{demo.name}</h1>
+                <span className="text-sm font-bold block">{demo.name}</span>
                 <p className="text-xs text-gray-400">{demo.package}</p>
               </div>
             </div>

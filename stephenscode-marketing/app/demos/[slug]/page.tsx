@@ -74,6 +74,8 @@ export default async function DemoPage({ params }: DemoPageProps) {
         type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: JSON.stringify(getBreadcrumbSchema(demo)) }}
       />
+      {/* Visually hidden H1 for SEO/accessibility */}
+      <h1 className="sr-only">{demo.name} - Interactive Website Demo by StephensCode</h1>
       <DemoFrame demo={demo} />
     </>
   )

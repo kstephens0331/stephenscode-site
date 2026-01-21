@@ -70,7 +70,7 @@ export const managedITServices: MSPService[] = [
     ],
     timeline: 'Setup in 1-2 days',
     seoKeywords: ['managed IT support Houston', 'small business IT support Conroe', 'helpdesk services Texas', 'IT support near me'],
-    metaTitle: 'Essential IT | $99/user/mo | Managed IT Services Houston',
+    metaTitle: 'Essential IT | $99/user/mo',
     metaDescription: 'Complete IT support with email security & password manager included. $99/user/month - more value than competitors at $125+. Houston, Conroe, The Woodlands.',
   },
   {
@@ -126,7 +126,7 @@ export const managedITServices: MSPService[] = [
     ],
     timeline: 'Setup in 3-5 days',
     seoKeywords: ['managed IT services Houston', 'IT management Conroe', 'outsourced IT Texas', 'business IT support The Woodlands'],
-    metaTitle: 'Business Pro IT | $129/user/mo | Complete Managed IT Services',
+    metaTitle: 'Business Pro IT | $129/user/mo',
     metaDescription: 'Full managed IT with backup, dark web monitoring & MFA included. $129/user - $175+ value. Priority support, vendor management. Houston, Conroe, The Woodlands.',
   },
   {
@@ -182,7 +182,7 @@ export const managedITServices: MSPService[] = [
     ],
     timeline: 'Setup in 5-7 days',
     seoKeywords: ['managed IT and security Houston', 'MSP with cybersecurity Texas', 'complete IT services Conroe', 'IT security bundle'],
-    metaTitle: 'Complete IT | $179/user/mo | Managed IT + Security Bundle',
+    metaTitle: 'Complete IT | $179/user/mo',
     metaDescription: 'IT + cybersecurity in one package. EDR, SIEM, security training, dedicated support. $179/user - saves $50+ vs separate services. Houston, Conroe, The Woodlands.',
   },
   {
@@ -236,7 +236,7 @@ export const managedITServices: MSPService[] = [
     ],
     timeline: 'Onboarding in 2-4 weeks',
     seoKeywords: ['enterprise IT services Houston', 'managed service provider Texas', 'MSP Houston', 'IT outsourcing Conroe'],
-    metaTitle: 'Enterprise IT Solutions | Custom Quote | Full-Service MSP',
+    metaTitle: 'Enterprise IT | Custom Quote',
     metaDescription: 'Enterprise managed IT services with 24/7 support, dedicated resources, compliance, and strategic consulting. Custom solutions for 50+ employee businesses.',
   },
 ]
@@ -288,7 +288,7 @@ export const cybersecurityServices: MSPService[] = [
     ],
     timeline: 'Deployed in 1-2 days',
     seoKeywords: ['cybersecurity services Houston', 'small business security Conroe', 'email security Texas', 'antivirus management'],
-    metaTitle: 'Security Essentials | $29/user/mo | Basic Cybersecurity',
+    metaTitle: 'Security Essentials | $29/user/mo',
     metaDescription: 'Essential cybersecurity for small businesses. Antivirus, email security, phishing protection. $29/user/month. Houston, Conroe, The Woodlands.',
   },
   {
@@ -341,7 +341,7 @@ export const cybersecurityServices: MSPService[] = [
     ],
     timeline: 'Deployed in 3-5 days',
     seoKeywords: ['advanced threat protection Houston', 'EDR security Texas', 'cybersecurity monitoring Conroe', 'managed security services'],
-    metaTitle: 'Advanced Threat Protection | $59/user/mo | EDR & SIEM Security',
+    metaTitle: 'Advanced Threat Protection | $59/user',
     metaDescription: 'Advanced cybersecurity with EDR, SIEM, dark web monitoring. Threat hunting and incident response. $59/user/month. Houston, Conroe, The Woodlands.',
   },
   {
@@ -393,7 +393,7 @@ export const cybersecurityServices: MSPService[] = [
     ],
     timeline: '1-2 weeks',
     seoKeywords: ['security assessment Houston', 'vulnerability assessment Texas', 'penetration testing Conroe', 'security audit'],
-    metaTitle: 'Security Assessment | $1,500 | Comprehensive Cybersecurity Audit',
+    metaTitle: 'Security Assessment | $1,500',
     metaDescription: 'Comprehensive security assessment with vulnerability scanning, penetration testing, and remediation plan. $1,500 one-time. Houston, Conroe, The Woodlands.',
   },
   {
@@ -445,7 +445,7 @@ export const cybersecurityServices: MSPService[] = [
     ],
     timeline: 'Varies by framework',
     seoKeywords: ['HIPAA compliance Houston', 'PCI compliance Texas', 'SOC2 preparation', 'CMMC compliance Conroe'],
-    metaTitle: 'Compliance Services | HIPAA, PCI, SOC2 | Regulatory Compliance',
+    metaTitle: 'Compliance Services | HIPAA, PCI, SOC2',
     metaDescription: 'Expert compliance services for HIPAA, PCI-DSS, SOC2, CMMC. Gap assessments, policy development, audit preparation. Houston, Conroe, The Woodlands.',
   },
 ]
@@ -499,7 +499,7 @@ export const cloudServices: MSPService[] = [
     ],
     timeline: 'Setup in 1-3 days',
     seoKeywords: ['Microsoft 365 management Houston', 'M365 administration Texas', 'Office 365 support Conroe', 'Microsoft 365 consulting'],
-    metaTitle: 'Microsoft 365 Management | $15/user/mo | M365 Administration',
+    metaTitle: 'Microsoft 365 Management | $15/user',
     metaDescription: 'Professional Microsoft 365 management and administration. Security, optimization, support. $15/user/month. Houston, Conroe, The Woodlands.',
   },
   {
@@ -550,7 +550,7 @@ export const cloudServices: MSPService[] = [
     ],
     timeline: 'Deployed in 1-2 days',
     seoKeywords: ['cloud backup Houston', 'data backup services Texas', 'Microsoft 365 backup Conroe', 'business backup solutions'],
-    metaTitle: 'Cloud Backup Solutions | $10/user/mo | Data Protection',
+    metaTitle: 'Cloud Backup | $10/user/mo',
     metaDescription: 'Automated cloud backup for endpoints and Microsoft 365. Ransomware protection, fast recovery. $10/user/month. Houston, Conroe, The Woodlands.',
   },
   {
@@ -602,7 +602,7 @@ export const cloudServices: MSPService[] = [
     ],
     timeline: '2-8 weeks depending on scope',
     seoKeywords: ['cloud migration Houston', 'Azure migration Texas', 'AWS migration Conroe', 'cloud consulting'],
-    metaTitle: 'Cloud Migration Services | From $2,500 | Azure, AWS, Google Cloud',
+    metaTitle: 'Cloud Migration | From $2,500',
     metaDescription: 'Expert cloud migration to Azure, AWS, or Google Cloud. Assessment, planning, execution. From $2,500. Houston, Conroe, The Woodlands.',
   },
 ]
@@ -652,7 +652,7 @@ export const supportServices: MSPService[] = [
     ],
     timeline: 'Same-day to next-day response',
     seoKeywords: ['IT support Houston', 'computer repair Conroe', 'on-demand IT Texas', 'hourly IT support'],
-    metaTitle: 'Break/Fix IT Support | $125/hour | On-Demand IT Services',
+    metaTitle: 'Break/Fix IT Support | $125/hr',
     metaDescription: 'On-demand IT support billed hourly. No contracts, no minimums. $125/hour. Remote and on-site in Houston, Conroe, The Woodlands.',
   },
   {
@@ -703,7 +703,7 @@ export const supportServices: MSPService[] = [
     ],
     timeline: '1-5 days depending on scope',
     seoKeywords: ['network installation Houston', 'business networking Texas', 'office network setup Conroe', 'WiFi installation'],
-    metaTitle: 'Network Installation | From $500 | Business Networking',
+    metaTitle: 'Network Installation | From $500',
     metaDescription: 'Professional business network installation. Design, equipment, cabling, configuration. From $500. Houston, Conroe, The Woodlands.',
   },
   {
@@ -753,7 +753,7 @@ export const supportServices: MSPService[] = [
     ],
     timeline: 'Varies by engagement',
     seoKeywords: ['IT consulting Houston', 'technology consulting Texas', 'IT strategy Conroe', 'virtual CIO'],
-    metaTitle: 'IT Consulting | $150/hour | Strategic Technology Consulting',
+    metaTitle: 'IT Consulting | $150/hr',
     metaDescription: 'Expert IT consulting for technology strategy, vendor selection, and IT planning. $150/hour. Houston, Conroe, The Woodlands.',
   },
 ]
