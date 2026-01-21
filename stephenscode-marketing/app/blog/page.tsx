@@ -35,8 +35,8 @@ export default function BlogPage() {
     { name: 'All Posts', slug: 'all', icon: '📚', color: 'from-blue-500 to-cyan-500' },
     { name: 'Web Development', slug: 'web-development', icon: '💻', color: 'from-purple-500 to-blue-500' },
     { name: 'SEO', slug: 'seo', icon: '🔍', color: 'from-green-500 to-teal-500' },
-    { name: 'Business Tips', slug: 'business', icon: '💼', color: 'from-orange-500 to-red-500' },
-    { name: 'Case Studies', slug: 'case-studies', icon: '📊', color: 'from-pink-500 to-rose-500' },
+    { name: 'Business', slug: 'business', icon: '💼', color: 'from-orange-500 to-red-500' },
+    { name: 'E-Commerce', slug: 'ecommerce', icon: '🛒', color: 'from-pink-500 to-rose-500' },
   ]
 
   return (

@@ -1,5 +1,6 @@
 import { MetadataRoute } from 'next'
 import { corePackages, premiumBuilds } from '@/lib/services-data'
+import { allMSPServices } from '@/lib/msp-services-data'
 import { allDemos } from '@/lib/demos-data'
 import { getAllPosts } from '@/lib/blog'
 import { serviceAreas } from '@/lib/service-areas-data'
@@ -94,6 +95,12 @@ export default function sitemap(): MetadataRoute.Sitemap {
       priority: 0.85,
     },
     {
+      url: `${baseUrl}/partners`,
+      lastModified: currentDate,
+      changeFrequency: 'monthly',
+      priority: 0.85,
+    },
+    {
       url: `${baseUrl}/demos`,
       lastModified: currentDate,
       changeFrequency: 'weekly',
@@ -104,6 +111,12 @@ export default function sitemap(): MetadataRoute.Sitemap {
       lastModified: currentDate,
       changeFrequency: 'monthly',
       priority: 0.85,
+    },
+    {
+      url: `${baseUrl}/pricing/add-ons`,
+      lastModified: currentDate,
+      changeFrequency: 'weekly',
+      priority: 0.8,
     },
     {
       url: `${baseUrl}/blog`,
@@ -136,6 +149,14 @@ export default function sitemap(): MetadataRoute.Sitemap {
     priority: service.category === 'core' ? 0.9 : 0.85,
   }))
 
+  // MSP service pages (0.85) - IT services
+  const mspServicePages: MetadataRoute.Sitemap = allMSPServices.map((service) => ({
+    url: `${baseUrl}/msp/${service.slug}`,
+    lastModified: currentDate,
+    changeFrequency: 'weekly' as const,
+    priority: 0.85,
+  }))
+
   // Demo pages (0.7) - Portfolio/demo showcases
   const demoPages: MetadataRoute.Sitemap = allDemos.map((demo) => ({
     url: `${baseUrl}/demos/${demo.slug}`,
@@ -153,8 +174,8 @@ export default function sitemap(): MetadataRoute.Sitemap {
     priority: 0.75,
   }))
 
-  // Blog category pages (0.7) - Blog organization
-  const blogCategories = ['web-development', 'seo', 'business', 'case-studies']
+  // Blog category pages (0.7) - Blog organization (must match categoryMap in blog/category/[category]/page.tsx)
+  const blogCategories = ['web-development', 'seo', 'business', 'ecommerce']
   const blogCategoryPages: MetadataRoute.Sitemap = blogCategories.map((category) => ({
     url: `${baseUrl}/blog/category/${category}`,
     lastModified: currentDate,
@@ -168,6 +189,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
     ...importantPages,
     ...serviceAreaPages,
     ...servicePages,
+    ...mspServicePages,
     ...blogPostPages,
     ...blogCategoryPages,
     ...demoPages,
