@@ -151,6 +151,80 @@ export default function Work() {
     }
   ]
 
+  // Live Portfolio - Actual client websites with SEO-rich descriptions
+  const livePortfolio = [
+    {
+      name: 'Terracotta Construction',
+      url: 'https://terracottaconstruction.com',
+      industry: 'Construction',
+      shortDesc: 'Houston-area general contractor specializing in residential and commercial construction.',
+      description: 'Terracotta Construction is a trusted Houston-area general contractor delivering quality residential and commercial construction services. We built their professional website featuring project galleries showcasing their craftsmanship, detailed service pages for each construction specialty, and integrated lead capture forms that connect potential clients directly with their team. The mobile-responsive design ensures homeowners can explore their portfolio from any device.',
+      services: ['Custom Website', 'SEO Optimization', 'Contact Forms', 'Project Gallery'],
+      icon: '🏗️',
+      color: 'from-amber-500 to-orange-600'
+    },
+    {
+      name: "Car's Collision & Refinish Shop",
+      url: 'https://www.carscollisionandrefinishshop.com',
+      industry: 'Automotive',
+      shortDesc: 'Professional auto body repair and collision center serving the Houston community.',
+      description: "Car's Collision & Refinish Shop provides expert auto body repair, paint refinishing, and collision restoration services. Their website showcases dramatic before-and-after galleries of their restoration work, detailed service explanations for insurance claims, and an easy-to-use online quote request system. The site helps customers understand the repair process and builds trust through visual proof of their quality workmanship.",
+      services: ['Custom Website', 'Photo Gallery', 'Quote System', 'Service Pages'],
+      icon: '🚗',
+      color: 'from-red-500 to-rose-600'
+    },
+    {
+      name: 'AMW Air Conditioning',
+      url: 'https://www.amwairconditioning.com',
+      industry: 'HVAC',
+      shortDesc: 'Reliable HVAC services including AC repair, installation, and maintenance plans.',
+      description: 'AMW Air Conditioning delivers reliable heating and cooling solutions for homes and businesses throughout the Houston area. We developed their website with emergency service prominently featured for urgent AC repairs, detailed maintenance plan options for year-round comfort, and online scheduling capabilities. The SEO-optimized content helps them rank for local HVAC searches and connect with customers who need fast, professional service.',
+      services: ['Custom Website', 'Service Booking', 'SEO', 'Emergency Services Page'],
+      icon: '❄️',
+      color: 'from-cyan-500 to-blue-600'
+    },
+    {
+      name: 'Forge-X',
+      url: 'https://forge-x.app',
+      industry: 'Technology',
+      shortDesc: 'Advanced technology platform delivering innovative software solutions.',
+      description: 'Forge-X represents our capabilities in building sophisticated technology platforms. This full-stack application features secure user authentication, interactive dashboards with real-time data visualization, and complex business logic handling. The platform demonstrates our ability to architect and develop enterprise-grade software solutions that scale with business needs.',
+      services: ['Full-Stack Platform', 'User Portal', 'API Development', 'Dashboard Design'],
+      icon: '⚡',
+      color: 'from-violet-500 to-purple-600'
+    },
+    {
+      name: 'SACVPN',
+      url: 'https://www.sacvpn.com',
+      industry: 'Cybersecurity',
+      shortDesc: 'Zero-log enterprise VPN service providing secure, private internet access.',
+      description: 'SACVPN is a zero-log enterprise VPN solution built for businesses and privacy-conscious users who demand true security. We developed the complete platform including user account management, Stripe subscription billing with multiple pricing tiers, secure authentication systems, and server connection infrastructure. The platform serves enterprise clients with centralized team management and dedicated IP options.',
+      services: ['Enterprise Platform', 'Payment Processing', 'User Management', 'Subscription System'],
+      icon: '🔐',
+      color: 'from-emerald-500 to-green-600'
+    },
+    {
+      name: 'ColorFuse Prints',
+      url: 'https://www.colorfuseprints.com',
+      industry: 'E-Commerce / Print',
+      shortDesc: 'Custom printing and promotional products with easy online ordering.',
+      description: 'ColorFuse Prints offers custom printing services for businesses and individuals, from business cards to promotional materials. We built their complete e-commerce platform with product customization tools that let customers design their own products, a robust shopping cart system, secure payment processing, and order management backend. The intuitive interface makes ordering custom prints simple for both first-time and returning customers.',
+      services: ['E-Commerce', 'Product Customization', 'Order System', 'Payment Integration'],
+      icon: '🎨',
+      color: 'from-pink-500 to-fuchsia-600'
+    },
+    {
+      name: 'FC Photo Houston',
+      url: 'https://fcphotohouston.com',
+      industry: 'Photography',
+      shortDesc: 'Professional photography services capturing life\'s most important moments.',
+      description: 'FC Photo Houston captures weddings, events, portraits, and commercial photography with artistic excellence. We created their stunning portfolio website featuring high-resolution image galleries, an integrated booking system for scheduling sessions, and client proofing capabilities where customers can view and select their photos. The elegant design reflects the quality and professionalism of their photography work.',
+      services: ['Portfolio Website', 'Booking System', 'Client Galleries', 'Image Optimization'],
+      icon: '📸',
+      color: 'from-slate-500 to-gray-700'
+    }
+  ]
+
   const testimonials = [
     {
       quote: 'StephensCode built our complete scheduling and workflow automation platform. The system handles everything from client bookings to automated reminders seamlessly.',
@@ -218,7 +292,7 @@ export default function Work() {
         <div className="relative mx-auto max-w-7xl px-6 py-24 sm:py-32 lg:px-8">
           <div className="mx-auto max-w-3xl text-center">
             <div className="inline-flex items-center rounded-full bg-accent-500/20 px-4 py-2 text-sm font-semibold text-white ring-1 ring-inset ring-accent-500/30 mb-8 animate-fade-in-up">
-              🏆 200+ Successful Projects
+              🏆 2,600+ Successful Projects
             </div>
             <h1 className="text-5xl font-bold tracking-tight sm:text-7xl animate-fade-in-up animation-delay-200">
               Our Work
@@ -258,13 +332,13 @@ export default function Work() {
           <div className="grid grid-cols-2 md:grid-cols-4 gap-8 text-center">
             <div className="animate-fade-in-up">
               <div className="text-5xl mb-3">📊</div>
-              <div className="text-4xl font-bold bg-gradient-to-r from-primary-900 to-accent-600 bg-clip-text text-transparent">200+</div>
+              <div className="text-4xl font-bold bg-gradient-to-r from-primary-900 to-accent-600 bg-clip-text text-transparent">2,600+</div>
               <div className="text-sm text-gray-600 mt-2">Projects Completed</div>
             </div>
             <div className="animate-fade-in-up animation-delay-200">
               <div className="text-5xl mb-3">😊</div>
-              <div className="text-4xl font-bold bg-gradient-to-r from-primary-900 to-accent-600 bg-clip-text text-transparent">150+</div>
-              <div className="text-sm text-gray-600 mt-2">Happy Clients</div>
+              <div className="text-4xl font-bold bg-gradient-to-r from-primary-900 to-accent-600 bg-clip-text text-transparent">14+</div>
+              <div className="text-sm text-gray-600 mt-2">Years Experience</div>
             </div>
             <div className="animate-fade-in-up animation-delay-400">
               <div className="text-5xl mb-3">⚡</div>
@@ -276,6 +350,99 @@ export default function Work() {
               <div className="text-4xl font-bold bg-gradient-to-r from-primary-900 to-accent-600 bg-clip-text text-transparent">98%</div>
               <div className="text-sm text-gray-600 mt-2">Client Satisfaction</div>
             </div>
+          </div>
+        </div>
+      </section>
+
+      {/* Live Portfolio Section */}
+      <section className="bg-gradient-to-b from-white to-gray-50 py-24 sm:py-32">
+        <div className="mx-auto max-w-7xl px-6 lg:px-8">
+          <div className="mx-auto max-w-2xl text-center mb-16">
+            <div className="inline-flex items-center rounded-full bg-green-100 px-4 py-2 text-sm font-semibold text-green-900 mb-4">
+              🌐 Live Portfolio
+            </div>
+            <h2 className="text-4xl font-bold tracking-tight text-gray-900 sm:text-5xl">
+              See Our Work Live
+            </h2>
+            <p className="mt-4 text-lg leading-8 text-gray-600">
+              Real websites we've built for real businesses. Click to visit each site.
+            </p>
+          </div>
+
+          <div className="space-y-8">
+            {livePortfolio.map((project, index) => (
+              <article
+                key={project.name}
+                className="group relative bg-white rounded-3xl shadow-xl overflow-hidden border-2 border-gray-200 hover:border-primary-300 hover:shadow-2xl transition-all"
+                style={{ animationDelay: `${index * 100}ms` }}
+              >
+                <div className="md:flex">
+                  {/* Header gradient - side on desktop, top on mobile */}
+                  <div className={`md:w-64 md:min-h-full h-32 md:h-auto bg-gradient-to-br ${project.color} flex items-center justify-center flex-shrink-0`}>
+                    <span className="text-6xl md:text-7xl filter drop-shadow-lg group-hover:scale-110 transition-transform">
+                      {project.icon}
+                    </span>
+                  </div>
+
+                  <div className="p-6 md:p-8 flex-1">
+                    {/* Industry badge */}
+                    <div className="inline-flex items-center rounded-full bg-gray-100 px-3 py-1 text-xs font-semibold text-gray-700 mb-3">
+                      {project.industry}
+                    </div>
+
+                    <h3 className="text-2xl font-bold text-gray-900 mb-2 group-hover:text-primary-600 transition-colors">
+                      {project.name}
+                    </h3>
+
+                    <p className="text-primary-600 font-medium text-sm mb-4">
+                      {project.shortDesc}
+                    </p>
+
+                    <p className="text-gray-700 mb-6 leading-relaxed">
+                      {project.description}
+                    </p>
+
+                    {/* Services tags */}
+                    <div className="flex flex-wrap gap-2 mb-6">
+                      {project.services.map((service) => (
+                        <span
+                          key={service}
+                          className="px-3 py-1 bg-primary-50 text-primary-700 text-sm font-medium rounded-full"
+                        >
+                          {service}
+                        </span>
+                      ))}
+                    </div>
+
+                    {/* Visit link */}
+                    <a
+                      href={project.url}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="inline-flex items-center gap-2 px-6 py-3 bg-primary-600 text-white font-bold rounded-lg hover:bg-primary-700 transition-colors"
+                    >
+                      <span>Visit {project.name}</span>
+                      <svg className="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14" />
+                      </svg>
+                    </a>
+                  </div>
+                </div>
+              </article>
+            ))}
+          </div>
+
+          <div className="mt-12 text-center">
+            <p className="text-gray-600 mb-6">
+              Want your business featured here?
+            </p>
+            <Link
+              href="/contact"
+              className="inline-flex items-center gap-2 rounded-lg bg-primary-600 px-8 py-4 text-lg font-bold text-white shadow-lg hover:bg-primary-700 transition-all hover:scale-105"
+            >
+              <span>Start Your Project</span>
+              <span>→</span>
+            </Link>
           </div>
         </div>
       </section>
