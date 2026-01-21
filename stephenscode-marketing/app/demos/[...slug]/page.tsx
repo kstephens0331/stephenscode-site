@@ -33,19 +33,23 @@ function getBreadcrumbSchema(demo: Demo) {
 
 interface DemoPageProps {
   params: Promise<{
-    slug: string
+    slug: string[]
   }>
 }
 
 export async function generateStaticParams() {
+  // Generate params for base demo pages
+  // Sub-pages are handled dynamically via the catch-all route
   return allDemos.map((demo) => ({
-    slug: demo.slug,
+    slug: [demo.slug],
   }))
 }
 
 export async function generateMetadata({ params }: DemoPageProps): Promise<Metadata> {
   const { slug } = await params
-  const demo = allDemos.find(d => d.slug === slug)
+  // First segment is the demo slug, rest are sub-pages
+  const demoSlug = slug[0]
+  const demo = allDemos.find(d => d.slug === demoSlug)
 
   if (!demo) {
     return {
@@ -61,7 +65,9 @@ export async function generateMetadata({ params }: DemoPageProps): Promise<Metad
 
 export default async function DemoPage({ params }: DemoPageProps) {
   const { slug } = await params
-  const demo = allDemos.find(d => d.slug === slug)
+  // First segment is the demo slug, rest are sub-pages handled by client-side routing
+  const demoSlug = slug[0]
+  const demo = allDemos.find(d => d.slug === demoSlug)
 
   if (!demo) {
     notFound()
