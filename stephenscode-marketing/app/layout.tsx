@@ -16,18 +16,19 @@ export const metadata: Metadata = {
     canonical: '/',
   },
   title: {
-    default: 'StephensCode | Veteran-Owned Web Development | Conroe TX',
+    default: 'Conroe Web Developer | API Integration & Automation | StephensCode',
     template: '%s | StephensCode'
   },
-  description: 'Veteran-owned web development serving Houston & Conroe. Custom websites, business dashboards & automation. 14+ years experience. Pricing starts at $250.',
+  description: 'Veteran-owned web development company in Conroe, TX. Custom websites, API integration, web scraping, and business automation. 14+ years experience, 2,600+ projects. Call (936) 323-4527.',
   keywords: [
+    'Conroe web developer',
     'web developer Conroe TX',
-    'custom website development Houston',
-    'veteran-owned web design',
+    'API integration developer',
+    'web scraping services',
     'business automation Houston',
-    'HVAC website design',
-    'e-commerce development Texas',
-    'custom dashboard development'
+    'veteran owned web developer Texas',
+    'custom website development Houston',
+    'Montgomery County web development'
   ],
   authors: [{ name: 'Kyle Stephens', url: 'https://www.stephenscode.dev/about' }],
   creator: 'StephensCode LLC',
