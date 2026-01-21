@@ -71,7 +71,7 @@ export const managedITServices: MSPService[] = [
     timeline: 'Setup in 1-2 days',
     seoKeywords: ['managed IT support Houston', 'small business IT support Conroe', 'helpdesk services Texas', 'IT support near me'],
     metaTitle: 'Essential IT | $99/user/mo',
-    metaDescription: 'Complete IT support with email security & password manager included. $99/user/month - more value than competitors at $125+. Houston, Conroe, The Woodlands.',
+    metaDescription: 'Complete IT support with email security & password manager included. $99/user/month with 4-hour response. Houston, Conroe, The Woodlands.',
   },
   {
     id: 'business-pro',
@@ -127,7 +127,7 @@ export const managedITServices: MSPService[] = [
     timeline: 'Setup in 3-5 days',
     seoKeywords: ['managed IT services Houston', 'IT management Conroe', 'outsourced IT Texas', 'business IT support The Woodlands'],
     metaTitle: 'Business Pro IT | $129/user/mo',
-    metaDescription: 'Full managed IT with backup, dark web monitoring & MFA included. $129/user - $175+ value. Priority support, vendor management. Houston, Conroe, The Woodlands.',
+    metaDescription: 'Full managed IT with cloud backup, dark web monitoring & MFA. $129/user/month with 2-hour priority support. Houston, Conroe, The Woodlands.',
   },
   {
     id: 'complete-it',
@@ -183,7 +183,7 @@ export const managedITServices: MSPService[] = [
     timeline: 'Setup in 5-7 days',
     seoKeywords: ['managed IT and security Houston', 'MSP with cybersecurity Texas', 'complete IT services Conroe', 'IT security bundle'],
     metaTitle: 'Complete IT | $179/user/mo',
-    metaDescription: 'IT + cybersecurity in one package. EDR, SIEM, security training, dedicated support. $179/user - saves $50+ vs separate services. Houston, Conroe, The Woodlands.',
+    metaDescription: 'IT and cybersecurity combined. EDR, SIEM, security training, and dedicated support. $179/user/month. Houston, Conroe, The Woodlands.',
   },
   {
     id: 'enterprise-it-solutions',
@@ -342,7 +342,7 @@ export const cybersecurityServices: MSPService[] = [
     timeline: 'Deployed in 3-5 days',
     seoKeywords: ['advanced threat protection Houston', 'EDR security Texas', 'cybersecurity monitoring Conroe', 'managed security services'],
     metaTitle: 'Advanced Threat Protection | $59/user',
-    metaDescription: 'Advanced cybersecurity with EDR, SIEM, dark web monitoring. Threat hunting and incident response. $59/user/month. Houston, Conroe, The Woodlands.',
+    metaDescription: 'Advanced cybersecurity with EDR, SIEM, dark web monitoring, and incident response. $59/user/month for Houston, Conroe, The Woodlands businesses.',
   },
   {
     id: 'security-assessment',
@@ -446,7 +446,7 @@ export const cybersecurityServices: MSPService[] = [
     timeline: 'Varies by framework',
     seoKeywords: ['HIPAA compliance Houston', 'PCI compliance Texas', 'SOC2 preparation', 'CMMC compliance Conroe'],
     metaTitle: 'Compliance Services | HIPAA, PCI, SOC2',
-    metaDescription: 'Expert compliance services for HIPAA, PCI-DSS, SOC2, CMMC. Gap assessments, policy development, audit preparation. Houston, Conroe, The Woodlands.',
+    metaDescription: 'Expert compliance services for HIPAA, PCI-DSS, SOC2, and CMMC. Gap assessments, policy development, and audit preparation. Houston, Conroe, The Woodlands.',
   },
 ]
 
@@ -500,7 +500,7 @@ export const cloudServices: MSPService[] = [
     timeline: 'Setup in 1-3 days',
     seoKeywords: ['Microsoft 365 management Houston', 'M365 administration Texas', 'Office 365 support Conroe', 'Microsoft 365 consulting'],
     metaTitle: 'Microsoft 365 Management | $15/user',
-    metaDescription: 'Professional Microsoft 365 management and administration. Security, optimization, support. $15/user/month. Houston, Conroe, The Woodlands.',
+    metaDescription: 'Professional Microsoft 365 management including Teams, SharePoint, and Exchange administration. Security and optimization. $15/user/month. Houston area.',
   },
   {
     id: 'cloud-backup',
@@ -603,7 +603,7 @@ export const cloudServices: MSPService[] = [
     timeline: '2-8 weeks depending on scope',
     seoKeywords: ['cloud migration Houston', 'Azure migration Texas', 'AWS migration Conroe', 'cloud consulting'],
     metaTitle: 'Cloud Migration | From $2,500',
-    metaDescription: 'Expert cloud migration to Azure, AWS, or Google Cloud. Assessment, planning, execution. From $2,500. Houston, Conroe, The Woodlands.',
+    metaDescription: 'Expert cloud migration services for Azure, AWS, and Google Cloud. Full assessment, planning, and execution from $2,500. Houston, Conroe, The Woodlands.',
   },
 ]
 
@@ -653,7 +653,7 @@ export const supportServices: MSPService[] = [
     timeline: 'Same-day to next-day response',
     seoKeywords: ['IT support Houston', 'computer repair Conroe', 'on-demand IT Texas', 'hourly IT support'],
     metaTitle: 'Break/Fix IT Support | $125/hr',
-    metaDescription: 'On-demand IT support billed hourly. No contracts, no minimums. $125/hour. Remote and on-site in Houston, Conroe, The Woodlands.',
+    metaDescription: 'On-demand IT support billed hourly with no contracts or minimums. Remote and on-site help at $125/hour. Serving Houston, Conroe, The Woodlands.',
   },
   {
     id: 'network-installation',
@@ -704,7 +704,7 @@ export const supportServices: MSPService[] = [
     timeline: '1-5 days depending on scope',
     seoKeywords: ['network installation Houston', 'business networking Texas', 'office network setup Conroe', 'WiFi installation'],
     metaTitle: 'Network Installation | From $500',
-    metaDescription: 'Professional business network installation. Design, equipment, cabling, configuration. From $500. Houston, Conroe, The Woodlands.',
+    metaDescription: 'Professional business network installation including design, equipment, cabling, and configuration. From $500. Serving Houston, Conroe, The Woodlands.',
   },
   {
     id: 'it-consulting',
@@ -754,7 +754,7 @@ export const supportServices: MSPService[] = [
     timeline: 'Varies by engagement',
     seoKeywords: ['IT consulting Houston', 'technology consulting Texas', 'IT strategy Conroe', 'virtual CIO'],
     metaTitle: 'IT Consulting | $150/hr',
-    metaDescription: 'Expert IT consulting for technology strategy, vendor selection, and IT planning. $150/hour. Houston, Conroe, The Woodlands.',
+    metaDescription: 'Expert IT consulting for technology strategy, vendor selection, and IT roadmap planning. $150/hour for businesses in Houston, Conroe, The Woodlands.',
   },
 ]
 
