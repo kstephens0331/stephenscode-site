@@ -3,20 +3,20 @@ import Link from 'next/link'
 import { getAllPosts } from '@/lib/blog'
 import { notFound } from 'next/navigation'
 
-// Map URL slugs to category names
+// Map URL slugs to category names (must match blog post frontmatter categories exactly)
 const categoryMap: { [key: string]: string } = {
   'web-development': 'Web Development',
   'seo': 'SEO',
-  'business': 'Business Tips',
-  'case-studies': 'Case Studies',
+  'business': 'Business',
+  'ecommerce': 'E-Commerce',
 }
 
 // Map categories to icons and colors
 const categoryConfig: { [key: string]: { icon: string; color: string; gradient: string } } = {
   'Web Development': { icon: '💻', color: 'from-purple-500 to-blue-500', gradient: 'from-purple-900 via-purple-800 to-blue-900' },
   'SEO': { icon: '🔍', color: 'from-green-500 to-teal-500', gradient: 'from-green-900 via-teal-800 to-teal-900' },
-  'Business Tips': { icon: '💼', color: 'from-orange-500 to-red-500', gradient: 'from-orange-900 via-red-800 to-red-900' },
-  'Case Studies': { icon: '📊', color: 'from-pink-500 to-rose-500', gradient: 'from-pink-900 via-rose-800 to-rose-900' },
+  'Business': { icon: '💼', color: 'from-orange-500 to-red-500', gradient: 'from-orange-900 via-red-800 to-red-900' },
+  'E-Commerce': { icon: '🛒', color: 'from-pink-500 to-rose-500', gradient: 'from-pink-900 via-rose-800 to-rose-900' },
 }
 
 type Props = {
@@ -36,15 +36,15 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
   const titles: { [key: string]: string } = {
     'Web Development': 'Web Development Tips & Best Practices | StephensCode Blog',
     'SEO': 'SEO Strategies & Local Search Tips | StephensCode Blog',
-    'Business Tips': 'Small Business Growth & Marketing Tips | StephensCode Blog',
-    'Case Studies': 'Client Success Stories & Case Studies | StephensCode Blog',
+    'Business': 'Small Business Growth & Marketing Tips | StephensCode Blog',
+    'E-Commerce': 'E-Commerce Tips & Online Store Guides | StephensCode Blog',
   }
 
   const descriptions: { [key: string]: string } = {
     'Web Development': 'Expert web development tips, coding best practices, and modern framework tutorials. Learn from 14+ years of building custom websites and applications.',
     'SEO': 'Proven SEO strategies, local search optimization, and ranking techniques for Houston small businesses. Increase visibility and drive organic traffic.',
-    'Business Tips': 'Business growth strategies, marketing automation, and conversion optimization tips for small businesses. Real advice that drives results.',
-    'Case Studies': 'Real client success stories and case studies from Houston businesses. See how we help companies grow online with custom web solutions.',
+    'Business': 'Business growth strategies, marketing automation, and conversion optimization tips for small businesses. Real advice that drives results.',
+    'E-Commerce': 'E-commerce strategies, online store optimization, and sales conversion tips for Houston retailers. Build and grow your online store.',
   }
 
   return {
@@ -76,8 +76,8 @@ export default async function CategoryPage({ params }: Props) {
     { name: 'All Posts', slug: 'all', icon: '📚', color: 'from-blue-500 to-cyan-500' },
     { name: 'Web Development', slug: 'web-development', icon: '💻', color: 'from-purple-500 to-blue-500' },
     { name: 'SEO', slug: 'seo', icon: '🔍', color: 'from-green-500 to-teal-500' },
-    { name: 'Business Tips', slug: 'business', icon: '💼', color: 'from-orange-500 to-red-500' },
-    { name: 'Case Studies', slug: 'case-studies', icon: '📊', color: 'from-pink-500 to-rose-500' },
+    { name: 'Business', slug: 'business', icon: '💼', color: 'from-orange-500 to-red-500' },
+    { name: 'E-Commerce', slug: 'ecommerce', icon: '🛒', color: 'from-pink-500 to-rose-500' },
   ]
 
   return (
