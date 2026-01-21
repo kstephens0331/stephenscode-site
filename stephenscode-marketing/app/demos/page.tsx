@@ -7,6 +7,17 @@ export const metadata: Metadata = {
   title: 'Live Demos - See Our Work in Action | StephensCode',
   description: 'Explore 40+ fully interactive website demos showcasing our packages and features. Try admin dashboards, customer portals, and advanced functionality.',
   keywords: ['website demos', 'interactive portfolio', 'web development examples', 'Houston web design showcase'],
+  openGraph: {
+    title: 'Live Demos - See Our Work in Action | StephensCode',
+    description: 'Explore 40+ fully interactive website demos. Try admin dashboards, customer portals, and advanced functionality.',
+    url: 'https://www.stephenscode.dev/demos',
+    type: 'website',
+  },
+  twitter: {
+    card: 'summary_large_image',
+    title: 'Live Demos - See Our Work in Action | StephensCode',
+    description: 'Explore 40+ fully interactive website demos. Try admin dashboards, customer portals, and advanced functionality.',
+  },
 }
 
 export default function DemosPage() {
