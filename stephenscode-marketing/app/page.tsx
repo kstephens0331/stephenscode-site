@@ -134,9 +134,9 @@ export default function Home() {
 
   const stats = [
     { label: 'Years Experience', value: '14+', icon: '⏱️' },
-    { label: 'Projects Delivered', value: '200+', icon: '🚀' },
-    { label: 'Happy Clients', value: '150+', icon: '😊' },
-    { label: 'Client Satisfaction', value: '98%', icon: '⭐' }
+    { label: 'Projects Delivered', value: '2,600+', icon: '🚀' },
+    { label: 'API Integrations', value: '200+', icon: '🔗' },
+    { label: 'Web Scraping Jobs', value: '500+', icon: '📊' }
   ]
 
   const processSteps = [
@@ -234,13 +234,13 @@ export default function Home() {
 
             {/* Main Headline - SEO Optimized */}
             <h1 className="text-5xl font-black tracking-tight sm:text-7xl mb-8 animate-fade-in-up animation-delay-200">
-              Web Development & IT Services
+              Conroe Web Developer & Software Solutions
               <span className="block text-accent-400 mt-2">Built by Veterans, Trusted by Business</span>
             </h1>
 
             {/* SEO-Rich Subheadline */}
             <p className="mt-8 text-xl leading-8 text-gray-100 max-w-3xl mx-auto animate-fade-in-up animation-delay-400">
-              Custom websites, managed IT services, and cybersecurity for Houston, Conroe, and The Woodlands businesses. <strong className="text-white">Web development from $250. IT support from $99/user/mo.</strong> No hourly rates, no surprises. 14+ years of experience, 200+ successful projects.
+              Custom websites, API integration, web scraping, and business automation for Houston, Conroe, and Montgomery County businesses. <strong className="text-white">Web development from $250.</strong> No hourly rates, no surprises. 14+ years of experience, 2,600+ completed projects.
             </p>
 
             {/* CTA Buttons */}
