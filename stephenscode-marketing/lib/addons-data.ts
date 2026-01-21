@@ -52,7 +52,7 @@ export const basicAddOns: Service[] = [
     ],
     timeline: '1-2 days',
     seoKeywords: ['professional email setup Houston', 'business email configuration Conroe', 'domain email setup Texas', 'Google Workspace setup'],
-    metaTitle: 'Professional Email Setup | $25 | Branded Business Email',
+    metaTitle: 'Professional Email Setup | $25',
     metaDescription: 'Professional email setup for your domain. Configure branded email addresses and stop using generic Gmail. DNS setup, spam filtering, and device configuration. $25 flat rate. Houston & Conroe.',
   },
   {
@@ -108,7 +108,7 @@ export const basicAddOns: Service[] = [
     ],
     timeline: 'Ongoing monthly service',
     seoKeywords: ['website maintenance Houston', 'website support plan Texas', 'ongoing website management Conroe', 'WordPress maintenance'],
-    metaTitle: 'Website Maintenance Plan | From $50/mo | Ongoing Support',
+    metaTitle: 'Website Maintenance | From $50/mo',
     metaDescription: 'Comprehensive website maintenance and support. Updates, security monitoring, daily backups, and content changes. Priority support. From $50/month. Houston & Conroe.',
   },
   {
@@ -169,7 +169,7 @@ export const basicAddOns: Service[] = [
     ],
     timeline: '3-5 days',
     seoKeywords: ['custom form builder Houston', 'contact form development Texas', 'web form creation Conroe', 'form validation'],
-    metaTitle: 'Custom Form Generator | $100 | Advanced Web Forms',
+    metaTitle: 'Custom Form Generator | $100',
     metaDescription: 'Custom form builder with advanced validation, spam protection, conditional logic, and email notifications. Perfect for contact forms, quotes, and applications. $100 flat rate. Houston & Conroe.',
   },
   {
@@ -229,7 +229,7 @@ export const basicAddOns: Service[] = [
     ],
     timeline: '5-7 days',
     seoKeywords: ['accounting module Houston', 'expense tracking software Texas', 'small business accounting Conroe', 'financial management system'],
-    metaTitle: 'Accounting Module | $150 | Expense & Revenue Tracking',
+    metaTitle: 'Accounting Module | $150',
     metaDescription: 'Custom accounting module for small businesses. Track expenses, revenue, invoices, and generate financial reports. No monthly fees. $150 flat rate. Houston & Conroe.',
   },
   {
@@ -288,7 +288,7 @@ export const basicAddOns: Service[] = [
     ],
     timeline: '5-7 days',
     seoKeywords: ['customer portal Houston', 'client dashboard Texas', 'customer login system Conroe', 'client self-service portal'],
-    metaTitle: 'Customer Dashboard Portal | $160 | Client Self-Service',
+    metaTitle: 'Customer Dashboard | $160',
     metaDescription: 'Professional customer dashboard for tracking projects, quotes, invoices, and support tickets. Reduce support calls with 24/7 client access. $160 flat rate. Houston & Conroe.',
   },
   {
@@ -347,7 +347,7 @@ export const basicAddOns: Service[] = [
     ],
     timeline: '4-6 days',
     seoKeywords: ['PDF generator Houston', 'automated invoice creation Texas', 'quote generator Conroe', 'document automation'],
-    metaTitle: 'PDF Generator | $120 | Automated Document Creation',
+    metaTitle: 'PDF Generator | $120',
     metaDescription: 'Automated PDF generator for invoices, quotes, reports, and contracts. Custom templates with branding and email delivery. $120 flat rate. Houston & Conroe.',
   },
   {
@@ -406,7 +406,7 @@ export const basicAddOns: Service[] = [
     ],
     timeline: '3-5 days',
     seoKeywords: ['SEO optimization Houston', 'local SEO Conroe', 'search engine optimization Texas', 'schema markup Houston'],
-    metaTitle: 'SEO Boost Service | $120 | Advanced Search Optimization',
+    metaTitle: 'SEO Boost Service | $120',
     metaDescription: 'Advanced SEO optimization for better Google rankings. Schema markup, XML sitemaps, meta optimization, and local SEO. Increase organic traffic. $120 flat rate. Houston & Conroe.',
   },
   {
@@ -461,7 +461,7 @@ export const basicAddOns: Service[] = [
     ],
     timeline: '2-3 days',
     seoKeywords: ['image optimization Houston', 'WebP conversion Texas', 'website speed optimization Conroe', 'image compression'],
-    metaTitle: 'Image Optimizer | $90 | Automatic WebP Conversion',
+    metaTitle: 'Image Optimizer | $90',
     metaDescription: 'Automatic image optimization and WebP conversion for faster websites. Reduce image sizes by 50-80% without quality loss. Improve rankings. $90 flat rate. Houston & Conroe.',
   },
   {
@@ -520,7 +520,7 @@ export const basicAddOns: Service[] = [
     ],
     timeline: '4-5 days',
     seoKeywords: ['content scheduler Houston', 'blog scheduling Texas', 'content calendar automation Conroe', 'scheduled posts'],
-    metaTitle: 'Content Scheduler | $115 | Automated Content Publishing',
+    metaTitle: 'Content Scheduler | $115',
     metaDescription: 'Schedule blog posts, announcements, and content in advance. Maintain consistent publishing with automated scheduling. Visual calendar and notifications. $115 flat rate. Houston & Conroe.',
   },
   {
@@ -578,7 +578,7 @@ export const basicAddOns: Service[] = [
     ],
     timeline: '5-6 days',
     seoKeywords: ['review aggregator Houston', 'display Google reviews Texas', 'review widget Conroe', 'testimonial display'],
-    metaTitle: 'Review Aggregator | $130 | Display All Your Reviews',
+    metaTitle: 'Review Aggregator | $130',
     metaDescription: 'Automatically collect and display reviews from Google, Facebook, Yelp on your website. Build trust with social proof. Rich snippet eligible. $130 flat rate. Houston & Conroe.',
   },
   {
@@ -639,7 +639,7 @@ export const basicAddOns: Service[] = [
     ],
     timeline: '4-5 days',
     seoKeywords: ['blog module Houston', 'WordPress alternative Texas', 'custom blog development Conroe', 'content management'],
-    metaTitle: 'Blog Module | $110 | Professional Business Blog',
+    metaTitle: 'Blog Module | $110',
     metaDescription: 'Full-featured blog module with categories, tags, SEO optimization, and author profiles. Start content marketing easily. $110 flat rate. Houston & Conroe.',
   },
   {
@@ -696,7 +696,7 @@ export const basicAddOns: Service[] = [
     ],
     timeline: '3-4 days',
     seoKeywords: ['FAQ page Houston', 'FAQ schema markup Texas', 'frequently asked questions Conroe', 'FAQ rich snippets'],
-    metaTitle: 'FAQ Manager | $85 | Searchable FAQ System',
+    metaTitle: 'FAQ Manager | $85',
     metaDescription: 'Organized FAQ section with search, categories, and schema markup for rich snippets. Reduce support inquiries. $85 flat rate. Houston & Conroe.',
   },
   {
@@ -753,7 +753,7 @@ export const basicAddOns: Service[] = [
     ],
     timeline: '5-7 days',
     seoKeywords: ['multilingual website Houston', 'Spanish website translation Texas', 'multi-language site Conroe', 'bilingual website'],
-    metaTitle: 'Multi-Language Support | $140 | Multilingual Websites',
+    metaTitle: 'Multi-Language Support | $140',
     metaDescription: 'Add multiple languages to your website with proper SEO. Spanish, French, or any language. Reach broader markets. $140 for 2 languages. Houston & Conroe.',
   },
   {
@@ -813,7 +813,7 @@ export const basicAddOns: Service[] = [
     ],
     timeline: '5-7 days',
     seoKeywords: ['appointment booking Houston', 'online scheduling Texas', 'appointment system Conroe', 'booking calendar'],
-    metaTitle: 'Appointment Booking System | $150 | Online Scheduling',
+    metaTitle: 'Appointment Booking | $150',
     metaDescription: 'Online appointment booking with calendar sync, automatic reminders, and payment options. Reduce no-shows and save time. $150 flat rate. Houston & Conroe.',
   },
   {
@@ -870,7 +870,7 @@ export const basicAddOns: Service[] = [
     ],
     timeline: '3-4 days',
     seoKeywords: ['social media feed Houston', 'Instagram feed website Texas', 'social feed integration Conroe', 'embed social media'],
-    metaTitle: 'Social Media Feeds | $95 | Display Instagram, Facebook, Twitter',
+    metaTitle: 'Social Media Feeds | $95',
     metaDescription: 'Automatically display your Instagram, Facebook, and Twitter feeds on your website. Keep content fresh and grow social following. $95 flat rate. Houston & Conroe.',
   },
   {
@@ -927,7 +927,7 @@ export const basicAddOns: Service[] = [
     ],
     timeline: '2-3 days',
     seoKeywords: ['newsletter signup Houston', 'email list building Texas', 'Mailchimp integration Conroe', 'email marketing'],
-    metaTitle: 'Newsletter Signup | $75 | Email List Building',
+    metaTitle: 'Newsletter Signup | $75',
     metaDescription: 'Professional newsletter signup forms integrated with Mailchimp, ConvertKit, and more. Build your email list effectively. $75 flat rate. Houston & Conroe.',
   },
   {
@@ -988,7 +988,7 @@ export const basicAddOns: Service[] = [
     ],
     timeline: '5-6 days',
     seoKeywords: ['event calendar Houston', 'event registration Texas', 'event management Conroe', 'calendar system'],
-    metaTitle: 'Event Calendar | $135 | Event Management & Registration',
+    metaTitle: 'Event Calendar | $135',
     metaDescription: 'Professional event calendar with registration, payments, and reminders. Promote and manage events easily. Schema markup for Google. $135 flat rate. Houston & Conroe.',
   },
   {
@@ -1045,7 +1045,7 @@ export const basicAddOns: Service[] = [
     ],
     timeline: '2-3 days',
     seoKeywords: ['live chat Houston', 'chatbot integration Texas', 'website chat Conroe', 'customer support chat'],
-    metaTitle: 'Chat Widget Integration | $100 | Live Chat & AI Chatbot',
+    metaTitle: 'Chat Widget | $100',
     metaDescription: 'Add live chat or AI chatbot to your website. Instant customer support and higher conversions. Intercom, Drift, or Tawk.to. $100 flat rate. Houston & Conroe.',
   },
   {
@@ -1103,7 +1103,7 @@ export const basicAddOns: Service[] = [
     ],
     timeline: '2-3 days',
     seoKeywords: ['exit popup Houston', 'lead capture popup Texas', 'email popup Conroe', 'conversion optimization'],
-    metaTitle: 'Pop-Up Lead Capture | $90 | Strategic Email Capture',
+    metaTitle: 'Pop-Up Lead Capture | $90',
     metaDescription: 'Exit-intent and strategic popups for email capture and promotions. Increase signups 300%+. Non-annoying, mobile-friendly. $90 flat rate. Houston & Conroe.',
   },
   {
@@ -1161,7 +1161,7 @@ export const basicAddOns: Service[] = [
     ],
     timeline: '4-5 days',
     seoKeywords: ['simple ecommerce Houston', 'basic online store Texas', 'Stripe checkout Conroe', 'small product catalog'],
-    metaTitle: 'Simple eCommerce | $225 | Basic Online Store (20 Products)',
+    metaTitle: 'Simple eCommerce | $225',
     metaDescription: 'Add basic e-commerce to your website. Product pages, cart, and secure Stripe checkout for up to 20 items. No monthly fees. $225 flat rate. Houston & Conroe.',
   },
 ]
@@ -1235,7 +1235,7 @@ export const advancedAddOns: Service[] = [
     ],
     timeline: '5-7 days',
     seoKeywords: ['quote calculator Houston', 'pricing calculator Texas', 'automated quote system Conroe', 'interactive estimator'],
-    metaTitle: 'Dynamic Quote Builder | $150 | Automated Pricing Calculator',
+    metaTitle: 'Quote Builder | $150',
     metaDescription: 'Interactive quote builder with real-time pricing and PDF generation. Automate quotes, qualify leads, increase conversions. CRM integration. $150 flat rate. Houston & Conroe.',
   },
   {
@@ -1300,7 +1300,7 @@ export const advancedAddOns: Service[] = [
     ],
     timeline: '4-6 days',
     seoKeywords: ['role based access control Houston', 'user permissions Texas', 'staff access management Conroe', 'RBAC system'],
-    metaTitle: 'Staff Role Controls | $130 | User Permission Management',
+    metaTitle: 'Staff Role Controls | $130',
     metaDescription: 'Define user roles and restrict access levels. Protect sensitive data with granular permissions and activity logging. Compliance-ready. $130 flat rate. Houston & Conroe.',
   },
   {
@@ -1366,7 +1366,7 @@ export const advancedAddOns: Service[] = [
     ],
     timeline: '5-7 days',
     seoKeywords: ['ticketing system Houston', 'work order management Texas', 'support ticket software Conroe', 'job tracking'],
-    metaTitle: 'Job Ticketing System | $140 | Work Order Management',
+    metaTitle: 'Job Ticketing System | $140',
     metaDescription: 'Track work orders, support tickets, and tasks from creation to completion. Improve accountability and response times. Time tracking and SLA monitoring. $140 flat rate. Houston & Conroe.',
   },
   {
@@ -1430,7 +1430,7 @@ export const advancedAddOns: Service[] = [
     ],
     timeline: '4-5 days',
     seoKeywords: ['e-signature Houston', 'document signing Texas', 'file upload system Conroe', 'electronic signature'],
-    metaTitle: 'File Upload & Signing | $100 | Electronic Signature System',
+    metaTitle: 'File Upload & E-Sign | $100',
     metaDescription: 'Secure file upload and e-signature system. Legally binding electronic signatures with audit trails. Eliminate printing and mailing. $100 flat rate. Houston & Conroe.',
   },
   {
@@ -1494,7 +1494,7 @@ export const advancedAddOns: Service[] = [
     ],
     timeline: '6-8 days',
     seoKeywords: ['multi-location website Houston', 'franchise website Texas', 'location finder Conroe', 'multi-store management'],
-    metaTitle: 'Multi-Location Support | $175 | Manage Multiple Locations',
+    metaTitle: 'Multi-Location Support | $175',
     metaDescription: 'Manage multiple business locations from one system. Location finder, local SEO, centralized management. Perfect for franchises and chains. $175 flat rate. Houston & Conroe.',
   },
   {
@@ -1558,7 +1558,7 @@ export const advancedAddOns: Service[] = [
     ],
     timeline: '4-5 days',
     seoKeywords: ['loyalty program Houston', 'rewards system Texas', 'customer loyalty Conroe', 'points program'],
-    metaTitle: 'Customer Rewards Tracker | $90 | Loyalty Program System',
+    metaTitle: 'Customer Rewards | $90',
     metaDescription: 'Points-based customer loyalty program. Increase retention and repeat business. Customizable rewards and earning methods. $90 flat rate. Houston & Conroe.',
   },
   {
@@ -1628,7 +1628,7 @@ export const advancedAddOns: Service[] = [
     ],
     timeline: '4-6 days',
     seoKeywords: ['QuickBooks integration Houston', 'CRM integration Texas', 'business software integration Conroe', 'API integration'],
-    metaTitle: 'System Connector | $120 | Business Software Integration',
+    metaTitle: 'System Connector | $120',
     metaDescription: 'Connect your website to QuickBooks, Salesforce, Mailchimp, and more. Automate data sync and eliminate manual entry. $120 flat rate. Houston & Conroe.',
   },
   {
@@ -1698,7 +1698,7 @@ export const advancedAddOns: Service[] = [
     ],
     timeline: '5-7 days',
     seoKeywords: ['analytics dashboard Houston', 'business intelligence Texas', 'KPI tracking Conroe', 'custom dashboard development'],
-    metaTitle: 'Analytics Dashboard | $150 | Real-Time Business Intelligence',
+    metaTitle: 'Analytics Dashboard | $150',
     metaDescription: 'Custom analytics dashboard with real-time KPI tracking and data visualization. Make data-driven decisions. $150 flat rate. Houston & Conroe.',
   },
   {
@@ -1768,7 +1768,7 @@ export const advancedAddOns: Service[] = [
     ],
     timeline: '4-5 days',
     seoKeywords: ['user onboarding Houston', 'onboarding wizard Texas', 'customer setup Conroe', 'guided onboarding'],
-    metaTitle: 'Onboarding Wizard | $110 | Guided User Setup',
+    metaTitle: 'Onboarding Wizard | $110',
     metaDescription: 'Step-by-step onboarding wizard for new users. Improve activation and reduce churn with guided setup. $110 flat rate. Houston & Conroe.',
   },
   {
@@ -1842,7 +1842,7 @@ export const advancedAddOns: Service[] = [
     ],
     timeline: '5-7 days',
     seoKeywords: ['AI content writing Houston', 'content generation Texas', 'AI copywriting Conroe', 'automated content creation'],
-    metaTitle: 'AI Content Assistant | $175 | AI-Powered Content Creation',
+    metaTitle: 'AI Content Assistant | $175',
     metaDescription: 'AI-powered content assistant for blogs, products, and marketing. Create content 10x faster while maintaining quality. $175 flat rate. Houston & Conroe.',
   },
   {
@@ -1918,7 +1918,7 @@ export const advancedAddOns: Service[] = [
     ],
     timeline: '6-8 days',
     seoKeywords: ['membership site Houston', 'subscription portal Texas', 'member management Conroe', 'membership platform'],
-    metaTitle: 'Membership Portal | $200 | Subscription & Gated Content',
+    metaTitle: 'Membership Portal | $200',
     metaDescription: 'Complete membership portal with subscription billing and gated content. Build recurring revenue with memberships. $200 flat rate. Houston & Conroe.',
   },
   {
@@ -1994,7 +1994,7 @@ export const advancedAddOns: Service[] = [
     ],
     timeline: '8-10 days',
     seoKeywords: ['LMS development Houston', 'online course platform Texas', 'learning management system Conroe', 'course creation'],
-    metaTitle: 'Learning Management System | $250 | Online Course Platform',
+    metaTitle: 'Learning Management | $250',
     metaDescription: 'Complete LMS with courses, quizzes, certificates, and progress tracking. Build and monetize online education. $250 flat rate. Houston & Conroe.',
   },
   {
@@ -2074,7 +2074,7 @@ export const advancedAddOns: Service[] = [
     ],
     timeline: '6-8 days',
     seoKeywords: ['inventory management Houston', 'stock tracking system Texas', 'inventory software Conroe', 'warehouse management'],
-    metaTitle: 'Inventory Management System | $200 | Stock Tracking & Control',
+    metaTitle: 'Inventory Management | $200',
     metaDescription: 'Complete inventory management with real-time tracking, reorder alerts, and multi-location support. Optimize stock levels. $200 flat rate. Houston & Conroe.',
   },
   {
@@ -2152,7 +2152,7 @@ export const advancedAddOns: Service[] = [
     ],
     timeline: '6-8 days',
     seoKeywords: ['subscription billing Houston', 'recurring payments Texas', 'SaaS billing Conroe', 'subscription management'],
-    metaTitle: 'Subscription Billing System | $180 | Recurring Payment Automation',
+    metaTitle: 'Subscription Billing | $180',
     metaDescription: 'Complete subscription billing with recurring payments, plan management, and dunning. Build predictable revenue. $180 flat rate. Houston & Conroe.',
   },
   {
@@ -2230,7 +2230,7 @@ export const advancedAddOns: Service[] = [
     ],
     timeline: '8-10 days',
     seoKeywords: ['advanced eCommerce Houston', 'online store features Texas', 'eCommerce optimization Conroe', 'abandoned cart recovery'],
-    metaTitle: 'Advanced eCommerce Features | $250 | Variants, Reviews, Cart Recovery',
+    metaTitle: 'Advanced eCommerce | $250',
     metaDescription: 'Advanced eCommerce with product variants, wishlists, reviews, and abandoned cart recovery. Increase sales and conversions. $250 flat rate. Houston & Conroe.',
   },
   {
@@ -2308,7 +2308,7 @@ export const advancedAddOns: Service[] = [
     ],
     timeline: '5-7 days',
     seoKeywords: ['API integration Houston', 'integration management Texas', 'API hub Conroe', 'third-party integrations'],
-    metaTitle: 'API Integration Hub | $160 | Centralized Integration Management',
+    metaTitle: 'API Integration Hub | $160',
     metaDescription: 'Centralized API integration hub with monitoring, logging, and credential management. Connect all your business tools. $160 flat rate. Houston & Conroe.',
   },
   {
@@ -2388,7 +2388,7 @@ export const advancedAddOns: Service[] = [
     ],
     timeline: '5-7 days',
     seoKeywords: ['workflow automation Houston', 'business process automation Texas', 'automated workflows Conroe', 'task automation'],
-    metaTitle: 'Workflow Automation | $150 | Automate Repetitive Business Tasks',
+    metaTitle: 'Workflow Automation | $150',
     metaDescription: 'Workflow automation with triggers, conditions, and actions. Eliminate manual work and save time with automated processes. $150 flat rate. Houston & Conroe.',
   },
   {
@@ -2470,7 +2470,7 @@ export const advancedAddOns: Service[] = [
     ],
     timeline: '7-10 days',
     seoKeywords: ['CRM development Houston', 'custom CRM Texas', 'sales pipeline software Conroe', 'customer management system'],
-    metaTitle: 'Advanced CRM System | $210 | Custom Sales & Customer Management',
+    metaTitle: 'Advanced CRM | $210',
     metaDescription: 'Complete CRM with sales pipeline, contact management, and automation. Build stronger customer relationships. $210 flat rate. Houston & Conroe.',
   },
   {
@@ -2552,7 +2552,7 @@ export const advancedAddOns: Service[] = [
     ],
     timeline: '6-8 days',
     seoKeywords: ['employee scheduling Houston', 'shift management software Texas', 'staff scheduling Conroe', 'workforce management'],
-    metaTitle: 'Employee Scheduling System | $180 | Staff & Shift Management',
+    metaTitle: 'Employee Scheduling | $180',
     metaDescription: 'Complete employee scheduling with shift management, time tracking, and mobile access. Optimize labor costs and coverage. $180 flat rate. Houston & Conroe.',
   },
   {
@@ -2634,7 +2634,7 @@ export const advancedAddOns: Service[] = [
     ],
     timeline: '6-8 days',
     seoKeywords: ['secure document portal Houston', 'client portal Texas', 'document sharing Conroe', 'e-signature platform'],
-    metaTitle: 'Secure Document Portal | $190 | Client File Sharing & E-Signatures',
+    metaTitle: 'Document Portal | $190',
     metaDescription: 'Secure client document portal with file sharing, e-signatures, and access controls. Professional document management. $190 flat rate. Houston & Conroe.',
   },
   {
@@ -2698,7 +2698,7 @@ export const advancedAddOns: Service[] = [
     ],
     timeline: '1-2 days',
     seoKeywords: ['enterprise VPN Houston', 'business VPN Texas', 'secure VPN Conroe', 'SACVPN setup', 'corporate VPN solution'],
-    metaTitle: 'Enterprise VPN (SACVPN) | Business VPN Security | StephensCode',
+    metaTitle: 'Enterprise VPN (SACVPN)',
     metaDescription: 'Enterprise-grade VPN security for your business via SACVPN. Military-grade encryption, team management, compliance ready. Pricing varies by company size.',
   },
 ]
