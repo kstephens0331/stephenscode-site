@@ -254,6 +254,66 @@ export default function Work() {
       color: 'from-orange-500 to-amber-600'
     },
     {
+      name: 'Autopilot System',
+      url: null,
+      industry: 'Business Automation',
+      shortDesc: '24/7 autonomous web agency operations with AI-powered lead generation and client management.',
+      description: 'The Autopilot System is a comprehensive microservices architecture that automates web agency operations around the clock. It includes Prospector for lead generation, Sentinel for review monitoring, ChainLink for client outreach sequences, Pulse for ticket handling, Scribe for quote generation, Foundry for automated site building, and Dispatch for reporting. The Nexus orchestrator coordinates all services via cron scheduling and event routing.',
+      services: ['Microservices Architecture', 'AI Lead Generation', 'Automated Outreach', 'Quote Generation'],
+      icon: '🚀',
+      color: 'from-indigo-500 to-purple-600'
+    },
+    {
+      name: 'Lead Generation Engine',
+      url: null,
+      industry: 'Sales Automation',
+      shortDesc: 'AI-powered lead machine finding businesses with poor websites and nurturing them to close.',
+      description: 'An intelligent lead generation system that scrapes Google Maps daily for 20-30 businesses with website issues, analyzes and grades their sites, calculates fixed-price quotes from 50+ services, sends AI-written personalized outreach emails, manages 7-touch follow-up sequences over 90 days, analyzes reply sentiment, and alerts when leads are ready to close. Expected results: 500-700 leads/month with 3-10 hot leads monthly.',
+      services: ['Lead Scraping', 'AI Email Writing', 'Automated Follow-ups', 'Sentiment Analysis'],
+      icon: '📈',
+      color: 'from-green-500 to-teal-600'
+    },
+    {
+      name: 'GradeStack',
+      url: null,
+      industry: 'SEO / Analytics',
+      shortDesc: 'Self-hosted 125-point SEO audit platform with actionable fix instructions.',
+      description: 'GradeStack is a self-hosted SEO health check system that runs 125 meaningful checks on websites. Unlike competitors that show inflated issues to upsell services, GradeStack provides accurate, actionable analysis with step-by-step fix instructions, transparent documented scoring, and real data from Google APIs. Built for agencies and businesses who want honest SEO insights.',
+      services: ['SEO Auditing', 'Google API Integration', 'Automated Reporting', 'Fix Instructions'],
+      icon: '📊',
+      color: 'from-yellow-500 to-orange-500'
+    },
+    {
+      name: 'ThinkSync',
+      url: null,
+      industry: 'Family / Productivity',
+      shortDesc: 'Family command center app designed for neurodivergent families.',
+      description: 'ThinkSync is a custom-built family management application specifically designed for neurodivergent families. Features include task assignment and tracking, shared family calendars, a needs tracker for shopping items, and comprehensive kid profiles for tracking important information. Role-based dashboards provide different views for parents and children with a flexible family structure system.',
+      services: ['Custom App Development', 'Task Management', 'Family Scheduling', 'User Profiles'],
+      icon: '👨‍👩‍👧‍👦',
+      color: 'from-pink-500 to-rose-600'
+    },
+    {
+      name: 'Homeschool Management System',
+      url: null,
+      industry: 'Education',
+      shortDesc: 'Comprehensive homeschool platform with adaptive learning and OMR scanning.',
+      description: 'A full-featured homeschool management system with AI-powered adaptive learning that generates custom educational packets based on student mastery levels. Features include Optical Mark Recognition (OMR) scanning for answer sheets, multi-guardian support, parent-controlled online mode with travel overrides, automatic quarter coverage tracking, PDF report cards with mastery tracking, real-time notifications, and portfolio management for work exemplars.',
+      services: ['Adaptive Learning AI', 'OMR Scanning', 'Report Generation', 'Curriculum Tracking'],
+      icon: '📚',
+      color: 'from-blue-500 to-indigo-600'
+    },
+    {
+      name: 'MedSim',
+      url: null,
+      industry: 'Healthcare / Education',
+      shortDesc: 'Full-fidelity medical simulation platform for hands-on clinical training.',
+      description: 'MedSim is a web-based medical simulator that trains healthcare professionals through realistic hands-on interaction rather than menu clicks. Learners manipulate realistic tools with pressure, angle, and depth sensitivity, manage patient physiology, and administer medications with real pharmacokinetic and pharmacodynamic consequences. Built with a deterministic simulation engine running in Web Workers for consistent training scenarios.',
+      services: ['Medical Simulation', '3D Interaction', 'PK/PD Modeling', 'Training Platform'],
+      icon: '🏥',
+      color: 'from-red-500 to-pink-600'
+    },
+    {
       name: 'Terracotta Construction',
       url: 'https://terracottaconstruction.com',
       industry: 'Construction',
