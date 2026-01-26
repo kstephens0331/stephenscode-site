@@ -154,6 +154,56 @@ export default function Work() {
   // Live Portfolio - Actual client websites with SEO-rich descriptions
   const livePortfolio = [
     {
+      name: 'San Diego Incident Monitoring System',
+      url: null,
+      industry: 'Lead Generation / Automation',
+      shortDesc: 'Real-time emergency incident monitoring and property owner lead generation for restoration companies.',
+      description: 'Built for Clarketon Restoration, this automated system monitors 7 fire departments across San Diego County in real-time, tracking structure fires, water emergencies, and flooding incidents. The system automatically identifies affected properties, enriches data with property owner information, and delivers qualified leads directly to the restoration company via SMS and Google Sheets integration. This enables rapid dispatch of restoration crews before competitors even know about the incident.',
+      services: ['Real-time API Integration', 'Property Data Enrichment', 'SMS Notifications', 'Lead Generation Automation'],
+      icon: '🚒',
+      color: 'from-red-500 to-orange-600'
+    },
+    {
+      name: 'Stephen Long for Congress TX-8',
+      url: 'https://stephenlongforcongress.com',
+      industry: 'Political Campaign',
+      shortDesc: 'Congressional campaign website for Texas District 8 Republican primary.',
+      description: 'Stephen Long is running for U.S. Congress in Texas District 8 on a platform of fiscal responsibility and reducing the national debt. We built his complete campaign website featuring interactive district maps, detailed policy positions, volunteer signup forms, donation integration, and event calendars. The SEO-optimized site helps voters in Montgomery County and The Woodlands learn about his moderate conservative platform.',
+      services: ['Campaign Website', 'Interactive Maps', 'Donation Integration', 'SEO Optimization'],
+      icon: '🗳️',
+      color: 'from-red-600 to-blue-600'
+    },
+    {
+      name: 'Lefty Cartel',
+      url: 'https://leftycartel.net',
+      industry: 'E-Commerce / Membership',
+      shortDesc: 'Members-only baseball apparel with exclusive monthly perks and subscription billing.',
+      description: 'Lefty Cartel is a unique members-only baseball apparel brand built by a father-son duo and Air Force veteran. We developed their complete e-commerce platform featuring $50/month Stripe subscription billing, exclusive member benefits including a FREE item every month, full admin dashboard with analytics, and integrated USPS/UPS shipping. The custom-built system handles membership management, inventory tracking, and order fulfillment seamlessly.',
+      services: ['Membership Platform', 'Stripe Subscriptions', 'Admin Dashboard', 'Shipping Integration'],
+      icon: '⚾',
+      color: 'from-slate-700 to-slate-900'
+    },
+    {
+      name: 'JustWell Clinical Research',
+      url: null,
+      industry: 'Healthcare',
+      shortDesc: 'Professional website for Houston-based clinical research company.',
+      description: 'JustWell Clinical Research conducts medical research studies in the Houston area with their tagline "Research You Can Trust." We built their professional website featuring information about their therapeutic areas, company background, and contact capabilities. The clean, trustworthy design with their signature teal and gold branding helps patients and sponsors learn about their clinical trial services.',
+      services: ['Custom Website', 'Mobile Responsive', 'Contact Forms', 'SEO Optimization'],
+      icon: '🔬',
+      color: 'from-teal-500 to-emerald-600'
+    },
+    {
+      name: 'Benefits Builder Backoffice',
+      url: null,
+      industry: 'SaaS / Finance',
+      shortDesc: 'Section 125 Cafeteria Plan administration platform with QuickBooks integration.',
+      description: 'Benefits Builder helps companies save on FICA taxes through Section 125 Cafeteria Plans. We built their complete internal SaaS platform for managing pre-tax benefit deductions, featuring company and employee management, automated billing calculations across multiple billing models, tax savings tracking and reporting, QuickBooks Online integration for invoice syncing, and automated email notifications. The dashboard provides comprehensive analytics for their entire client portfolio.',
+      services: ['Full-Stack SaaS', 'QuickBooks Integration', 'Automated Billing', 'Analytics Dashboard'],
+      icon: '💼',
+      color: 'from-blue-600 to-indigo-700'
+    },
+    {
       name: 'Terracotta Construction',
       url: 'https://terracottaconstruction.com',
       industry: 'Construction',
@@ -365,7 +415,7 @@ export default function Work() {
               See Our Work Live
             </h2>
             <p className="mt-4 text-lg leading-8 text-gray-600">
-              Real websites we've built for real businesses. Click to visit each site.
+              Real projects we've built for real businesses. Live sites and custom solutions.
             </p>
           </div>
 
@@ -414,18 +464,27 @@ export default function Work() {
                       ))}
                     </div>
 
-                    {/* Visit link */}
-                    <a
-                      href={project.url}
-                      target="_blank"
-                      rel="noopener noreferrer"
-                      className="inline-flex items-center gap-2 px-6 py-3 bg-primary-600 text-white font-bold rounded-lg hover:bg-primary-700 transition-colors"
-                    >
-                      <span>Visit {project.name}</span>
-                      <svg className="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14" />
-                      </svg>
-                    </a>
+                    {/* Visit link or Internal Project badge */}
+                    {project.url ? (
+                      <a
+                        href={project.url}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className="inline-flex items-center gap-2 px-6 py-3 bg-primary-600 text-white font-bold rounded-lg hover:bg-primary-700 transition-colors"
+                      >
+                        <span>Visit {project.name}</span>
+                        <svg className="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                          <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14" />
+                        </svg>
+                      </a>
+                    ) : (
+                      <span className="inline-flex items-center gap-2 px-6 py-3 bg-gray-200 text-gray-700 font-bold rounded-lg">
+                        <svg className="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                          <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 15v2m-6 4h12a2 2 0 002-2v-6a2 2 0 00-2-2H6a2 2 0 00-2 2v6a2 2 0 002 2zm10-10V7a4 4 0 00-8 0v4h8z" />
+                        </svg>
+                        <span>Private / Internal Project</span>
+                      </span>
+                    )}
                   </div>
                 </div>
               </article>
