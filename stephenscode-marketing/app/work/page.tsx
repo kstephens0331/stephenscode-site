@@ -185,7 +185,7 @@ export default function Work() {
     },
     {
       name: 'JustWell Clinical Research',
-      url: null,
+      url: 'https://www.justwellclinical.org',
       industry: 'Healthcare',
       shortDesc: 'Professional website for Houston-based clinical research company.',
       description: 'JustWell Clinical Research conducts medical research studies in the Houston area with their tagline "Research You Can Trust." We built their professional website featuring information about their therapeutic areas, company background, and contact capabilities. The clean, trustworthy design with their signature teal and gold branding helps patients and sponsors learn about their clinical trial services.',
@@ -202,6 +202,56 @@ export default function Work() {
       services: ['Full-Stack SaaS', 'QuickBooks Integration', 'Automated Billing', 'Analytics Dashboard'],
       icon: '💼',
       color: 'from-blue-600 to-indigo-700'
+    },
+    {
+      name: 'CalenFlow',
+      url: null,
+      industry: 'SaaS / Scheduling',
+      shortDesc: 'Multi-tenant scheduling SaaS platform with payments and automated notifications.',
+      description: 'CalenFlow is a complete scheduling and workflow automation platform built for service businesses. The system features multi-tenant business management, Google OAuth authentication, customizable service catalogs, staff scheduling and availability management, branded booking widgets, Stripe payment processing, and automated email/SMS notifications. The admin dashboard provides full visibility into bookings, revenue, and client management.',
+      services: ['Full-Stack SaaS', 'Stripe Payments', 'Booking System', 'SMS/Email Automation'],
+      icon: '📅',
+      color: 'from-purple-500 to-violet-600'
+    },
+    {
+      name: 'SentinelForge',
+      url: null,
+      industry: 'Gaming / Security',
+      shortDesc: 'Online gaming safety platform protecting players from cheaters and toxic behavior.',
+      description: 'SentinelForge is a powerful online gaming safety platform designed to protect gaming communities. The system features automated player behavior monitoring, cheat detection algorithms, toxicity analysis, and community moderation tools. Built with a scalable architecture to handle high-volume gaming data, it helps game developers and server administrators maintain fair, enjoyable gaming environments.',
+      services: ['Platform Development', 'Data Analytics', 'Automation', 'Admin Dashboard'],
+      icon: '🛡️',
+      color: 'from-emerald-500 to-cyan-600'
+    },
+    {
+      name: 'Project Ironclad',
+      url: null,
+      industry: 'Cloud Infrastructure',
+      shortDesc: 'Custom cloud platform replacing GitHub, Vercel, Railway, and Supabase - built from scratch.',
+      description: 'Project Ironclad is an ambitious 100% custom cloud platform built entirely from scratch with no third-party frameworks. It replaces GitHub, Vercel, Railway, Supabase, and Cloudflare with custom implementations including AES-256-GCM encryption, custom database query builders, S3-compatible object storage, distributed ledger technology, and container orchestration. Currently at Phase 36 with complete cryptography, database, storage, and compute modules.',
+      services: ['Cloud Platform', 'Custom Infrastructure', 'Encryption', 'Container Orchestration'],
+      icon: '☁️',
+      color: 'from-slate-600 to-zinc-800'
+    },
+    {
+      name: 'AeonForge',
+      url: null,
+      industry: 'AI / Machine Learning',
+      shortDesc: 'Intelligent LLM routing system with multi-provider support and automatic failover.',
+      description: 'AeonForge is an intelligent AI routing system that manages multiple LLM providers including Anthropic Claude, Google Gemini, and Together.ai. The system automatically selects the best provider based on task type (general, coding, thinking, longform, multilingual), monitors provider availability, and implements automatic failover to ensure responses are always delivered. Built for reliability and cost optimization across AI workloads.',
+      services: ['AI Integration', 'Multi-Provider Routing', 'API Development', 'Failover Systems'],
+      icon: '🤖',
+      color: 'from-cyan-500 to-blue-600'
+    },
+    {
+      name: 'BotOpsHQ',
+      url: null,
+      industry: 'Automation / DevOps',
+      shortDesc: 'Bot operations platform for managing automated workflows and integrations.',
+      description: 'BotOpsHQ is a centralized platform for managing bots, automated workflows, and system integrations. The hub architecture allows teams to deploy, monitor, and maintain multiple automation bots from a single dashboard. Features include workflow templates, real-time monitoring, error handling, and integration management across various services and APIs.',
+      services: ['Automation Platform', 'Workflow Management', 'Bot Development', 'Integration Hub'],
+      icon: '🤖',
+      color: 'from-orange-500 to-amber-600'
     },
     {
       name: 'Terracotta Construction',
