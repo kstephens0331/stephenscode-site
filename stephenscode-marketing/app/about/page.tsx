@@ -2,16 +2,16 @@ import type { Metadata } from 'next'
 import Link from 'next/link'
 
 export const metadata: Metadata = {
-  title: 'About StephensCode | Veteran-Owned Web Development Company | Houston TX',
-  description: 'Meet the veteran-owned web development team behind StephensCode. 14+ years of experience, 200+ projects, 98% satisfaction. Based in Conroe, TX, serving Houston businesses with integrity, excellence, and transparent pricing since 2011.',
+  title: 'Veteran Owned Web Developer | About StephensCode | Houston TX',
+  description: 'Veteran owned web developer in Conroe TX. 14+ years Houston web development experience. Affordable web design, custom websites for small business. Call (936) 323-4527.',
   keywords: [
-    'veteran-owned web development Houston',
-    'about StephensCode',
-    'Houston web developer story',
-    'Conroe web development company',
-    'Texas veteran business',
-    'Kyle Stephens developer',
-    'military veteran web designer'
+    'veteran owned web developer',
+    'Conroe web developer',
+    'Houston web development',
+    'affordable web design Houston',
+    'The Woodlands web developer',
+    'small business website Texas',
+    'custom website Houston'
   ],
 }
 

@@ -2,19 +2,16 @@ import Link from 'next/link'
 import type { Metadata } from 'next'
 
 export const metadata: Metadata = {
-  title: 'Our Portfolio & Client Projects | Web Development Houston | StephensCode',
-  description: 'View our portfolio of completed web development projects for Houston-area businesses. HVAC websites, auto body shops, photography studios, and custom web applications built by StephensCode.',
+  title: 'Client Portfolio | Custom Websites Houston | Veteran Owned Developer',
+  description: 'Conroe web developer client portfolio. Small business website Texas projects. Custom website Houston, affordable web design. Veteran owned web developer.',
   keywords: [
-    'Houston web development portfolio',
-    'Texas business websites',
-    'custom website examples',
-    'HVAC website design',
-    'auto body shop website',
-    'photography website Houston',
-    'web development case studies',
-    'StephensCode clients',
-    'Conroe web design',
-    'The Woodlands website development'
+    'Conroe web developer',
+    'Houston web development',
+    'custom website Houston',
+    'small business website Texas',
+    'veteran owned web developer',
+    'affordable web design Houston',
+    'The Woodlands web developer'
   ],
   openGraph: {
     title: 'Our Portfolio & Client Projects | StephensCode',

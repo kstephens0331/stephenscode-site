@@ -2,16 +2,16 @@ import type { Metadata } from 'next'
 import Link from 'next/link'
 
 export const metadata: Metadata = {
-  title: 'Our Work | Portfolio & Case Studies | Real Results for Houston Businesses',
-  description: 'View our portfolio of 200+ successful projects. Real case studies, measurable results, and client testimonials from Houston businesses. See how we\'ve helped contractors, retailers, restaurants, and professional services grow with custom web solutions.',
+  title: 'Web Development Portfolio | Custom Websites Houston | Case Studies',
+  description: 'Conroe web developer portfolio. Custom website Houston examples, small business website Texas case studies. Veteran owned web developer with 200+ projects.',
   keywords: [
-    'web development portfolio Houston',
-    'case studies Texas',
-    'Houston website examples',
-    'client results web development',
-    'before and after websites',
-    'web design portfolio Conroe',
-    'real client testimonials'
+    'Conroe web developer portfolio',
+    'Houston web development',
+    'custom website Houston',
+    'small business website Texas',
+    'veteran owned web developer',
+    'affordable web design Houston',
+    'The Woodlands web developer'
   ],
 }
 

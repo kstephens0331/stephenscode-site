@@ -4,9 +4,9 @@ import { allDemos, demoCategories, demosByIndustry } from '@/lib/demos-data'
 import DemosClient from './DemosClient'
 
 export const metadata: Metadata = {
-  title: 'Live Demos - See Our Work in Action | StephensCode',
-  description: 'Explore 40+ fully interactive website demos showcasing our packages and features. Try admin dashboards, customer portals, and advanced functionality.',
-  keywords: ['website demos', 'interactive portfolio', 'web development examples', 'Houston web design showcase'],
+  title: 'Website Demos | Custom Website Houston Examples | Small Business',
+  description: 'Conroe web developer demos. Custom website Houston examples, small business website Texas showcases. 40+ live demos from veteran owned web developer.',
+  keywords: ['Conroe web developer', 'Houston web development', 'custom website Houston', 'small business website Texas', 'affordable web design Houston', 'veteran owned web developer'],
   openGraph: {
     title: 'Live Demos - See Our Work in Action | StephensCode',
     description: 'Explore 40+ fully interactive website demos. Try admin dashboards, customer portals, and advanced functionality.',
@@ -32,10 +32,10 @@ export default function DemosPage() {
               <span>40+ Live Interactive Demos</span>
             </div>
             <h1 className="text-4xl font-bold tracking-tight sm:text-6xl">
-              Experience Our Work
+              Custom Website Houston Examples
             </h1>
             <p className="mt-6 text-lg leading-8 text-gray-200">
-              Explore fully functional website demos across all industries and packages. Click around, test features, and see exactly what you'll get. No mockups—real, working sites.
+              Explore small business website demos from your Conroe web developer. 40+ affordable web design examples for Houston and The Woodlands businesses. Click around and test features.
             </p>
             <div className="mt-10 flex items-center justify-center gap-x-6">
               <a
