@@ -3,17 +3,17 @@ import type { Metadata } from 'next'
 import Breadcrumbs from '@/components/Breadcrumbs'
 
 export const metadata: Metadata = {
-  title: 'Conroe Web Developer | Custom Websites for Local Businesses',
-  description: 'Local Conroe web developer serving Montgomery County & Houston. Veteran-owned, 14+ years experience, 2,600+ projects. Custom websites, e-commerce, and SEO. Call (936) 323-4527.',
+  title: 'Conroe Web Developer | Small Business Websites from $250',
+  description: 'Conroe web developer serving Houston and The Woodlands. Veteran owned, affordable web design from $250. Custom websites for small business. Call (936) 323-4527.',
   keywords: [
     'Conroe web developer',
-    'web developer Conroe TX',
-    'Conroe website design',
-    'Montgomery County web development',
-    'veteran owned web developer Texas',
+    'Houston web development',
     'The Woodlands web developer',
-    'Houston web developer',
-    'local web developer near me'
+    'veteran owned web developer',
+    'small business website Texas',
+    'affordable web design Houston',
+    'custom website Houston',
+    'web developer near me'
   ],
   alternates: {
     canonical: '/services/conroe-web-development',

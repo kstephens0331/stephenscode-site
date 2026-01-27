@@ -3,17 +3,16 @@ import type { Metadata } from 'next'
 import Breadcrumbs from '@/components/Breadcrumbs'
 
 export const metadata: Metadata = {
-  title: 'Business Automation Services | Streamline Your Operations',
-  description: 'Business process automation services. Zapier, n8n, Make, Power Automate, and custom solutions. Stop wasting time on repetitive tasks. Call (936) 323-4527.',
+  title: 'Business Automation Houston | Workflow Automation Services',
+  description: 'Houston web development for business automation. Conroe web developer offering Zapier, n8n, custom solutions. Veteran owned. Call (936) 323-4527.',
   keywords: [
-    'business automation services',
-    'business process automation',
-    'workflow automation',
+    'business automation Houston',
+    'Conroe web developer',
+    'Houston web development',
+    'workflow automation Texas',
+    'veteran owned web developer',
     'Zapier integration',
-    'n8n automation',
-    'Make automation',
-    'business automation developer Houston',
-    'workflow automation services'
+    'small business automation'
   ],
   alternates: {
     canonical: '/services/business-automation',

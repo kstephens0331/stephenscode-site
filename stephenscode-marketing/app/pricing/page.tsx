@@ -4,16 +4,16 @@ import { corePackages, premiumBuilds } from '@/lib/services-data'
 import { basicAddOns, advancedAddOns } from '@/lib/addons-data'
 
 export const metadata: Metadata = {
-  title: 'Transparent Pricing | Web Development Packages $250+ | Houston TX',
-  description: 'Clear, flat-rate pricing for professional web development. Core packages starting at $250, premium builds from $2,500, enterprise custom quotes, and 40+ add-ons. No hidden fees, no hourly rates. Serving Houston, Conroe, The Woodlands, and surrounding Texas areas.',
+  title: 'Affordable Web Design Houston | Small Business Websites from $250',
+  description: 'Conroe web developer with affordable web design from $250. Small business website packages for Houston and The Woodlands. Veteran owned. No hidden fees.',
   keywords: [
-    'web development pricing Houston',
-    'website cost Conroe TX',
-    'transparent pricing web design',
-    'flat rate web development Texas',
-    'affordable website packages Houston',
-    'custom website pricing',
-    'no hidden fees web development'
+    'affordable web design Houston',
+    'Conroe web developer',
+    'small business website Texas',
+    'Houston web development',
+    'custom website Houston',
+    'veteran owned web developer',
+    'The Woodlands web developer'
   ],
 }
 

@@ -4,20 +4,20 @@ import { corePackages, premiumBuilds } from '@/lib/services-data'
 import { allAddOns } from '@/lib/addons-data'
 
 export const metadata: Metadata = {
-  title: 'Houston Web Design | Websites from $250 | Free Quote Today',
-  description: 'Get a custom website in 1-2 weeks. Flat-rate pricing from $250 with no hidden fees. Veteran-owned with 14+ years exp. Call (936) 323-4527 for your free quote.',
+  title: 'Houston Web Development | Affordable Web Design from $250',
+  description: 'Conroe web developer offering custom websites for small business. Affordable web design Houston from $250. Veteran owned, 14+ years exp. Free quote: (936) 323-4527.',
   alternates: {
     canonical: '/services',
   },
   keywords: [
-    'web development services Houston',
-    'Conroe web design',
-    'custom website development Conroe',
-    'e-commerce development Texas',
-    'web design The Woodlands',
-    'professional website Houston',
-    'veteran web developer Texas',
+    'Houston web development',
+    'Conroe web developer',
     'affordable web design Houston',
+    'custom website Houston',
+    'small business website Texas',
+    'The Woodlands web developer',
+    'veteran owned web developer',
+    'web developer near me',
   ],
   openGraph: {
     title: 'Houston Web Design | Custom Websites from $250',
@@ -207,12 +207,12 @@ export default function ServicesPage() {
             </div>
 
             <h1 className="text-5xl font-black tracking-tight sm:text-7xl mb-8">
-              Professional Web Development Services
-              <span className="block text-accent-400 mt-2">For Houston Businesses</span>
+              Houston Web Development & Affordable Web Design
+              <span className="block text-accent-400 mt-2">Custom Websites for Small Business</span>
             </h1>
 
             <p className="mt-8 text-xl leading-8 text-gray-100 max-w-3xl mx-auto">
-              From $250 starter websites to enterprise platforms with custom quotes. Custom development, e-commerce, business automation, and everything in between. <strong className="text-white">Based in Houston, serving clients nationwide through remote collaboration.</strong> Flat-rate pricing, no hourly billing, no surprises.
+              Conroe web developer offering small business websites from $250. Affordable web design for Houston, The Woodlands, and Montgomery County. <strong className="text-white">Veteran owned web developer</strong> with transparent pricing. No hourly rates, no surprises.
             </p>
 
             <div className="mt-12 flex flex-wrap items-center justify-center gap-4">
@@ -326,9 +326,9 @@ export default function ServicesPage() {
       <section className="bg-gradient-to-b from-primary-50 to-white py-24 sm:py-32">
         <div className="mx-auto max-w-7xl px-6 lg:px-8">
           <div className="mx-auto max-w-2xl text-center mb-16">
-            <h2 className="text-base font-semibold leading-7 text-primary-600">Why StephensCode?</h2>
+            <h2 className="text-base font-semibold leading-7 text-primary-600">Why Choose a Veteran Owned Web Developer?</h2>
             <p className="mt-2 text-4xl font-black tracking-tight text-gray-900 sm:text-5xl">
-              Built Different
+              Affordable Web Design You Can Trust
             </p>
           </div>
 

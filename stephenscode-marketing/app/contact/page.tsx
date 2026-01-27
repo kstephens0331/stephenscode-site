@@ -3,16 +3,16 @@ import Link from 'next/link'
 import ContactForm from '@/components/ContactForm'
 
 export const metadata: Metadata = {
-  title: 'Contact Us | Free Consultation & Quote | Houston Web Development',
-  description: 'Get your free consultation and custom quote for web development services. Fast response, no obligation. Call (936) 323-4527 or submit a form. Serving Houston, Conroe, The Woodlands, and all of Texas. Veteran-owned business.',
+  title: 'Contact Conroe Web Developer | Free Quote | Houston TX',
+  description: 'Contact veteran owned web developer for free quote. Affordable web design Houston from $250. Custom websites for small business. Call (936) 323-4527.',
   keywords: [
-    'contact web developer Houston',
-    'web development consultation Conroe TX',
-    'free website quote Texas',
-    'Houston web design contact',
-    'veteran web developer',
-    'local web development Houston',
-    'get quote web development'
+    'Conroe web developer',
+    'Houston web development',
+    'veteran owned web developer',
+    'affordable web design Houston',
+    'small business website Texas',
+    'free website quote',
+    'The Woodlands web developer'
   ],
 }
 

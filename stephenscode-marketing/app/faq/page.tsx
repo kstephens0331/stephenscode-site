@@ -2,17 +2,16 @@ import type { Metadata } from 'next'
 import Link from 'next/link'
 
 export const metadata: Metadata = {
-  title: 'FAQ | Frequently Asked Questions About Web Development',
-  description: 'Get answers to common questions about custom website development, pricing, timelines, SEO, hosting, and more. Serving Houston, Conroe, The Woodlands, and surrounding areas.',
+  title: 'FAQ | Conroe Web Developer Questions | Affordable Web Design',
+  description: 'FAQ about Conroe web developer services. Custom website Houston pricing, small business website Texas cost. Veteran owned, affordable web design from $250.',
   keywords: [
-    'web development FAQ',
-    'website cost Houston',
-    'how long to build website',
-    'custom website vs template',
-    'SEO questions',
-    'website maintenance',
-    'e-commerce development questions',
-    'Houston web developer FAQ'
+    'Conroe web developer',
+    'Houston web development',
+    'affordable web design Houston',
+    'small business website Texas',
+    'custom website Houston',
+    'veteran owned web developer',
+    'The Woodlands web developer'
   ],
 }
 

@@ -234,13 +234,13 @@ export default function Home() {
 
             {/* Main Headline - SEO Optimized */}
             <h1 className="text-5xl font-black tracking-tight sm:text-7xl mb-8 animate-fade-in-up animation-delay-200">
-              Conroe Web Developer & Software Solutions
-              <span className="block text-accent-400 mt-2">Built by Veterans, Trusted by Business</span>
+              Conroe Web Developer & Houston Web Development
+              <span className="block text-accent-400 mt-2">Veteran Owned | Custom Websites from $250</span>
             </h1>
 
             {/* SEO-Rich Subheadline */}
             <p className="mt-8 text-xl leading-8 text-gray-100 max-w-3xl mx-auto animate-fade-in-up animation-delay-400">
-              Custom websites, API integration, web scraping, and business automation for Houston, Conroe, and Montgomery County businesses. <strong className="text-white">Web development from $250.</strong> No hourly rates, no surprises. 14+ years of experience, 2,600+ completed projects.
+              Affordable web design for Houston and The Woodlands businesses. Small business websites starting at $250, custom website development, and business automation. <strong className="text-white">Veteran owned web developer</strong> with 14+ years experience. No hourly rates, no surprises.
             </p>
 
             {/* CTA Buttons */}
@@ -573,9 +573,9 @@ export default function Home() {
       <section className="bg-gradient-to-b from-primary-50 to-white py-24 sm:py-32">
         <div className="mx-auto max-w-7xl px-6 lg:px-8">
           <div className="mx-auto max-w-2xl text-center mb-16">
-            <h2 className="text-base font-semibold leading-7 text-primary-600">Client Success Stories</h2>
+            <h2 className="text-base font-semibold leading-7 text-primary-600">Small Business Website Success Stories</h2>
             <p className="mt-2 text-4xl font-black tracking-tight text-gray-900 sm:text-5xl">
-              Real Results for Houston Businesses
+              Custom Websites for Texas Businesses
             </p>
           </div>
 
@@ -622,12 +622,12 @@ export default function Home() {
       <section className="bg-white py-24 sm:py-32">
         <div className="mx-auto max-w-7xl px-6 lg:px-8">
           <div className="mx-auto max-w-2xl text-center mb-16">
-            <h2 className="text-base font-semibold leading-7 text-primary-600">Serving Greater Houston</h2>
+            <h2 className="text-base font-semibold leading-7 text-primary-600">Local Web Developer Near Me</h2>
             <p className="mt-2 text-4xl font-black tracking-tight text-gray-900 sm:text-5xl">
-              Web Development Near You
+              Houston Web Development Services
             </p>
             <p className="mt-6 text-lg leading-8 text-gray-600">
-              Proudly serving businesses throughout Houston, Conroe, The Woodlands, and surrounding areas. Local service you can trust.
+              Veteran owned web developer proudly serving businesses throughout Houston, Conroe, The Woodlands, and Montgomery County. Affordable web design you can trust.
             </p>
           </div>
 

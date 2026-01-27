@@ -3,15 +3,16 @@ import Link from 'next/link'
 import { serviceAreas } from '@/lib/service-areas-data'
 
 export const metadata: Metadata = {
-  title: 'Service Areas | Web Development Houston, Conroe, The Woodlands',
-  description: 'Web development services for Houston, Conroe, The Woodlands, Spring, Katy, Sugar Land, Pearland, Cypress, and surrounding Texas areas. Local, veteran-owned web developer.',
+  title: 'Service Areas | Conroe Web Developer | Houston Web Development',
+  description: 'Conroe web developer serving Houston and The Woodlands. Affordable web design, small business websites. Veteran owned web developer near you.',
   keywords: [
-    'web developer Houston',
-    'web design Conroe',
-    'website development The Woodlands',
+    'Conroe web developer',
+    'Houston web development',
+    'The Woodlands web developer',
     'web developer near me',
-    'Texas web development',
-    'Houston area web design',
+    'affordable web design Houston',
+    'small business website Texas',
+    'veteran owned web developer'
   ],
 }
 
@@ -28,11 +29,11 @@ export default function ServiceAreasPage() {
         <div className="mx-auto max-w-7xl px-6 py-16 sm:py-24 lg:px-8">
           <div className="mx-auto max-w-2xl text-center">
             <h1 className="text-4xl font-bold tracking-tight sm:text-5xl">
-              Service Areas
+              Houston Web Development Service Areas
             </h1>
             <p className="mt-6 text-lg leading-8 text-gray-200">
-              Professional web development serving Greater Houston and surrounding communities.
-              Based in Conroe, we build websites for businesses throughout Southeast Texas.
+              Conroe web developer serving Houston, The Woodlands, and Montgomery County.
+              Veteran owned web developer offering affordable web design for small business.
             </p>
           </div>
         </div>

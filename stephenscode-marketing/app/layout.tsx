@@ -16,19 +16,20 @@ export const metadata: Metadata = {
     canonical: '/',
   },
   title: {
-    default: 'Conroe Web Developer | API Integration & Automation | StephensCode',
+    default: 'Conroe Web Developer | Houston Web Development | StephensCode',
     template: '%s | StephensCode'
   },
-  description: 'Veteran-owned web development company in Conroe, TX. Custom websites, API integration, web scraping, and business automation. 14+ years experience, 2,600+ projects. Call (936) 323-4527.',
+  description: 'Veteran owned web developer in Conroe TX serving Houston. Custom websites from $250, small business websites, affordable web design. 14+ years experience. Call (936) 323-4527.',
   keywords: [
     'Conroe web developer',
-    'web developer Conroe TX',
-    'API integration developer',
-    'web scraping services',
-    'business automation Houston',
-    'veteran owned web developer Texas',
-    'custom website development Houston',
-    'Montgomery County web development'
+    'Houston web development',
+    'veteran owned web developer',
+    'custom website Houston',
+    'small business website Texas',
+    'affordable web design Houston',
+    'The Woodlands web developer',
+    'Montgomery County web development',
+    'web developer near me Texas'
   ],
   authors: [{ name: 'Kyle Stephens', url: 'https://www.stephenscode.dev/about' }],
   creator: 'StephensCode LLC',
@@ -43,13 +44,13 @@ export const metadata: Metadata = {
     locale: 'en_US',
     url: 'https://www.stephenscode.dev',
     siteName: 'StephensCode',
-    title: 'StephensCode | Veteran-Owned Web Development | Conroe TX',
-    description: 'Custom websites, dashboards, and automation by a veteran-owned company serving Houston and Conroe.',
+    title: 'Conroe Web Developer | Houston Web Development | Veteran Owned',
+    description: 'Affordable web design Houston from $250. Custom websites for small business. Veteran owned web developer serving The Woodlands and Montgomery County.',
   },
   twitter: {
     card: 'summary_large_image',
-    title: 'StephensCode | Veteran-Owned Web Development',
-    description: 'Custom websites and business solutions serving Houston and Conroe.',
+    title: 'Conroe Web Developer | Affordable Web Design Houston',
+    description: 'Veteran owned web developer. Small business websites from $250. Serving Houston and The Woodlands.',
     creator: '@stephenscode',
   },
   robots: {

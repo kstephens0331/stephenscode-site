@@ -3,17 +3,16 @@ import type { Metadata } from 'next'
 import Breadcrumbs from '@/components/Breadcrumbs'
 
 export const metadata: Metadata = {
-  title: 'API Integration Services | Connect Your Business Systems',
-  description: 'Expert API integration developer with 200+ projects completed. Connect CRM, payments, e-commerce, and accounting systems. REST, SOAP, GraphQL. Call (936) 323-4527.',
+  title: 'API Integration Services Houston | Connect Business Systems',
+  description: 'Houston web development for API integration. Conroe web developer connecting CRM, payments, e-commerce systems. Veteran owned. Call (936) 323-4527.',
   keywords: [
-    'API integration developer',
-    'API integration services',
+    'API integration Houston',
+    'Conroe web developer',
+    'Houston web development',
     'custom API development',
-    'third-party API integration',
-    'API integration freelancer',
-    'Salesforce API integration',
+    'veteran owned web developer',
     'Stripe integration developer',
-    'HubSpot API integration'
+    'business automation Houston'
   ],
   alternates: {
     canonical: '/services/api-integration',
