@@ -77,6 +77,8 @@ export default function RootLayout({
       <head>
         <TrustedTypesPolicy />
         <LocalBusinessSchema />
+        {/* Ahrefs Analytics */}
+        <script src="https://analytics.ahrefs.com/analytics.js" data-key="FWknMXQC00ZmslHU5xYYhQ" async></script>
       </head>
       <body className={inter.className}>
         <GoogleAnalytics />
