@@ -338,7 +338,7 @@ export default async function ServiceAreaPage({ params }: ServiceAreaPageProps) 
               <li>Google Analytics and Search Console setup</li>
               <li>Basic SEO optimization for {area.name} keywords</li>
               <li>SSL security certificate</li>
-              <li>30 days of post-launch support</li>
+              <li>90 days of post-launch support</li>
             </ul>
 
             <p className="text-gray-600 leading-8 mb-6">
@@ -592,7 +592,7 @@ export default async function ServiceAreaPage({ params }: ServiceAreaPageProps) 
               7. Ongoing Support
             </h3>
             <p className="text-gray-600 leading-8 mb-6">
-              You get 30 days of free support for questions and minor adjustments. After that, we're available for additional work or ongoing maintenance as needed.
+              You get 90 days of free support for questions and minor adjustments. After that, we're available for additional work or ongoing maintenance as needed.
             </p>
 
             <p className="text-gray-600 leading-8 mb-6">

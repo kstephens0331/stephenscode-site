@@ -162,7 +162,7 @@ export const corePackages: Service[] = [
       'Contact form with email notifications',
       'Google Analytics dashboard',
       'Source code and documentation',
-      '30 days of post-launch support',
+      '90 days of post-launch support',
     ],
     timeline: '3-4 weeks',
     seoKeywords: ['custom website development Houston', 'small business website Conroe', 'professional website design Texas', 'Next.js website development'],
