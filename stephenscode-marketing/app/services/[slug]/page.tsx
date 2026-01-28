@@ -98,7 +98,7 @@ export default async function ServicePage({ params }: Props) {
         name: 'What happens after the project is complete?',
         acceptedAnswer: {
           '@type': 'Answer',
-          text: 'You receive 30 days of free support after launch. We also offer ongoing maintenance plans starting at $50/month.',
+          text: 'You receive 90 days of free support after launch. We also offer ongoing maintenance plans starting at $50/month.',
         },
       },
     ],

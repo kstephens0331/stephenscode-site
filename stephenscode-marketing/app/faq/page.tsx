@@ -51,7 +51,7 @@ const faqs: FAQItem[] = [
   {
     category: 'Pricing & Costs',
     question: 'What\'s included in the price?',
-    answer: 'All packages include: custom design, mobile optimization, basic SEO setup, contact forms, Google Analytics integration, and 30 days of post-launch support. E-commerce packages also include payment processing setup and product management training.'
+    answer: 'All packages include: custom design, mobile optimization, basic SEO setup, contact forms, Google Analytics integration, and 90 days of post-launch support. E-commerce packages also include payment processing setup and product management training.'
   },
 
   // Timeline Questions
@@ -188,7 +188,7 @@ const faqs: FAQItem[] = [
   {
     category: 'Support & Maintenance',
     question: 'What happens after my website launches?',
-    answer: 'You get 30 days of free support for questions and minor tweaks. After that, you can handle it yourself, hire us for specific updates, or sign up for a monthly maintenance plan ($50-150/month depending on needs).'
+    answer: 'You get 90 days of free support for questions and minor tweaks. After that, you can handle it yourself, hire us for specific updates, or sign up for a monthly maintenance plan ($50-150/month depending on needs).'
   },
   {
     category: 'Support & Maintenance',
@@ -198,7 +198,7 @@ const faqs: FAQItem[] = [
   {
     category: 'Support & Maintenance',
     question: 'What if something breaks on my website?',
-    answer: 'During the 30-day support period, we fix issues at no charge. After that, bug fixes for code we wrote are typically free. New features or major changes are quoted separately.'
+    answer: 'During the 90-day support period, we fix issues at no charge. After that, bug fixes for code we wrote are typically free. New features or major changes are quoted separately.'
   },
   {
     category: 'Support & Maintenance',

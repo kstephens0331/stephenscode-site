@@ -575,7 +575,7 @@ export const cloudServices: MSPService[] = [
       'Cutover coordination',
       'Post-migration optimization',
       'Documentation and training',
-      '30 days post-migration support',
+      '90 days post-migration support',
     ],
     benefits: [
       'Eliminate aging server hardware',

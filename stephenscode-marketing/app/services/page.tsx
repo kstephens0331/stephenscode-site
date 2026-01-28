@@ -454,7 +454,7 @@ export default function ServicesPage() {
               },
               {
                 question: "What's included in the price?",
-                answer: "All packages include custom design, responsive development, basic SEO setup, contact forms, Google Analytics integration, and 30 days of post-launch support. E-commerce packages include payment processing setup. We don't nickel-and-dime—what we quote is what you pay."
+                answer: "All packages include custom design, responsive development, basic SEO setup, contact forms, Google Analytics integration, and 90 days of post-launch support. E-commerce packages include payment processing setup. We don't nickel-and-dime—what we quote is what you pay."
               },
               {
                 question: "Do I own my website after it's built?",

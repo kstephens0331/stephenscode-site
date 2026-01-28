@@ -1,7 +1,7 @@
 'use client'
 
 import Link from 'next/link'
-import { useState } from 'react'
+import { useState, useRef, useCallback } from 'react'
 import { Bars3Icon, XMarkIcon, ChevronDownIcon } from '@heroicons/react/24/outline'
 
 interface DropdownProps {
@@ -11,12 +11,28 @@ interface DropdownProps {
 
 function Dropdown({ label, items }: DropdownProps) {
   const [open, setOpen] = useState(false)
+  const timeoutRef = useRef<NodeJS.Timeout | null>(null)
+
+  const handleMouseEnter = useCallback(() => {
+    if (timeoutRef.current) {
+      clearTimeout(timeoutRef.current)
+      timeoutRef.current = null
+    }
+    setOpen(true)
+  }, [])
+
+  const handleMouseLeave = useCallback(() => {
+    // Delay closing by 150ms to allow moving to dropdown items
+    timeoutRef.current = setTimeout(() => {
+      setOpen(false)
+    }, 150)
+  }, [])
 
   return (
     <div
       className="relative"
-      onMouseEnter={() => setOpen(true)}
-      onMouseLeave={() => setOpen(false)}
+      onMouseEnter={handleMouseEnter}
+      onMouseLeave={handleMouseLeave}
     >
       <button
         className="flex items-center gap-1 text-base font-medium text-gray-700 hover:text-primary-600 transition-colors"
@@ -26,28 +42,30 @@ function Dropdown({ label, items }: DropdownProps) {
         <ChevronDownIcon className={`w-4 h-4 transition-transform ${open ? 'rotate-180' : ''}`} />
       </button>
       {open && (
-        <div className="absolute top-full left-0 mt-2 w-48 bg-white rounded-lg shadow-lg border border-gray-100 py-2 z-50">
-          {items.map((item) => (
-            item.external ? (
-              <a
-                key={item.name}
-                href={item.href}
-                target="_blank"
-                rel="noopener noreferrer"
-                className="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-50 hover:text-primary-600"
-              >
-                {item.name}
-              </a>
-            ) : (
-              <Link
-                key={item.name}
-                href={item.href}
-                className="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-50 hover:text-primary-600"
-              >
-                {item.name}
-              </Link>
-            )
-          ))}
+        <div className="absolute top-full left-0 pt-2 w-48 z-50">
+          <div className="bg-white rounded-lg shadow-lg border border-gray-100 py-2">
+            {items.map((item) => (
+              item.external ? (
+                <a
+                  key={item.name}
+                  href={item.href}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-50 hover:text-primary-600"
+                >
+                  {item.name}
+                </a>
+              ) : (
+                <Link
+                  key={item.name}
+                  href={item.href}
+                  className="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-50 hover:text-primary-600"
+                >
+                  {item.name}
+                </Link>
+              )
+            ))}
+          </div>
         </div>
       )}
     </div>
