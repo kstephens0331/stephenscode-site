@@ -6,7 +6,7 @@ import { getAllPosts } from '@/lib/blog'
 import { serviceAreas } from '@/lib/service-areas-data'
 
 export default function sitemap(): MetadataRoute.Sitemap {
-  const baseUrl = 'https://www.stephenscode.dev'
+  const baseUrl = 'https://stephenscode.dev'
   const currentDate = new Date()
 
   // High priority pages (1.0 - 0.9) - Core business pages

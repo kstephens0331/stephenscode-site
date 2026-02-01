@@ -11,7 +11,7 @@ import TrustedTypesPolicy from '@/components/TrustedTypesPolicy'
 const inter = Inter({ subsets: ['latin'] })
 
 export const metadata: Metadata = {
-  metadataBase: new URL('https://www.stephenscode.dev'),
+  metadataBase: new URL('https://stephenscode.dev'),
   title: {
     default: 'Conroe Web Developer | Houston Web Development | StephensCode',
     template: '%s | StephensCode'
