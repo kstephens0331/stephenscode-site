@@ -35,10 +35,9 @@ export default function robots(): MetadataRoute.Robots {
         allow: '/',
         disallow: ['/api/', '/admin/', '/private/'],
       },
-      // Block bad bots and scrapers
+      // Block bad bots and scrapers (allow AhrefsBot for SEO audits)
       {
         userAgent: [
-          'AhrefsBot',
           'SemrushBot',
           'DotBot',
           'MJ12bot',
@@ -47,7 +46,7 @@ export default function robots(): MetadataRoute.Robots {
         disallow: '/',
       },
     ],
-    sitemap: 'https://www.stephenscode.dev/sitemap.xml',
-    host: 'https://www.stephenscode.dev',
+    sitemap: 'https://stephenscode.dev/sitemap.xml',
+    host: 'https://stephenscode.dev',
   }
 }

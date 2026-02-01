@@ -38,11 +38,24 @@ interface DemoPageProps {
 }
 
 export async function generateStaticParams() {
-  // Generate params for base demo pages
-  // Sub-pages are handled dynamically via the catch-all route
-  return allDemos.map((demo) => ({
-    slug: [demo.slug],
-  }))
+  // Generate params for base demo pages and their sub-pages
+  const params: { slug: string[] }[] = []
+
+  allDemos.forEach((demo) => {
+    // Base demo page
+    params.push({ slug: [demo.slug] })
+
+    // Generate sub-pages based on features
+    const subPages = demo.features
+      .map(feature => feature.toLowerCase().replace(/[^a-z0-9]+/g, '-').replace(/-+$/, ''))
+      .filter(page => page && page !== 'home' && page !== 'contact')
+
+    subPages.forEach(subPage => {
+      params.push({ slug: [demo.slug, subPage] })
+    })
+  })
+
+  return params
 }
 
 export async function generateMetadata({ params }: DemoPageProps): Promise<Metadata> {
