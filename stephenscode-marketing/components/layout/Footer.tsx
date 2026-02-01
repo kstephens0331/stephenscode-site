@@ -29,6 +29,12 @@ export default function Footer() {
       { name: 'Blog', href: '/blog' },
       { name: 'Contact', href: '/contact' },
       { name: 'Pricing', href: '/pricing' },
+      { name: 'FAQ', href: '/faq' },
+    ],
+    products: [
+      { name: 'SACVPN', href: '/sacvpn' },
+      { name: 'Custom Solutions', href: '/custom-solutions' },
+      { name: 'Website Demos', href: '/demos' },
     ],
     serviceAreas: [
       'Conroe', 'The Woodlands', 'Houston', 'Spring', 'Tomball', 'Magnolia', 'Willis', 'Montgomery'
@@ -112,6 +118,16 @@ export default function Footer() {
                 <h3 className="text-sm font-semibold leading-6 text-white">Developer Services</h3>
                 <ul role="list" className="mt-6 space-y-4">
                   {navigation.developer.map((item) => (
+                    <li key={item.name}>
+                      <Link href={item.href} className="text-sm leading-6 text-gray-300 hover:text-white">
+                        {item.name}
+                      </Link>
+                    </li>
+                  ))}
+                </ul>
+                <h3 className="text-sm font-semibold leading-6 text-white mt-8">Products</h3>
+                <ul role="list" className="mt-4 space-y-4">
+                  {navigation.products.map((item) => (
                     <li key={item.name}>
                       <Link href={item.href} className="text-sm leading-6 text-gray-300 hover:text-white">
                         {item.name}
