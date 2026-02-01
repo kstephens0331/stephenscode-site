@@ -141,6 +141,34 @@ export default function Header() {
             >
               Get Started
             </Link>
+
+            {/* Login Dropdown */}
+            <div className="relative ml-2 group">
+              <button className="inline-flex items-center gap-1 px-3 py-2 text-sm font-medium text-gray-600 hover:text-primary-600 transition-colors">
+                Login
+                <ChevronDownIcon className="w-4 h-4" />
+              </button>
+              <div className="absolute right-0 top-full pt-2 w-40 opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all z-50">
+                <div className="bg-white rounded-lg shadow-lg border border-gray-100 py-2">
+                  <a
+                    href="https://customer.stephenscode.dev"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-50 hover:text-primary-600"
+                  >
+                    Customer Portal
+                  </a>
+                  <a
+                    href="https://admin.stephenscode.dev"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-50 hover:text-primary-600"
+                  >
+                    Admin Login
+                  </a>
+                </div>
+              </div>
+            </div>
           </div>
 
           {/* Mobile menu button */}
@@ -265,6 +293,29 @@ export default function Header() {
               >
                 Get Started
               </Link>
+
+              {/* Login Links */}
+              <div className="border-t border-gray-100 mt-3 pt-3">
+                <p className="px-3 py-1 text-xs font-semibold text-gray-400 uppercase">Login</p>
+                <a
+                  href="https://customer.stephenscode.dev"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="block px-3 py-2 text-base font-medium text-gray-700 hover:bg-gray-50 rounded-lg"
+                  onClick={() => setMobileMenuOpen(false)}
+                >
+                  Customer Portal
+                </a>
+                <a
+                  href="https://admin.stephenscode.dev"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="block px-3 py-2 text-base font-medium text-gray-700 hover:bg-gray-50 rounded-lg"
+                  onClick={() => setMobileMenuOpen(false)}
+                >
+                  Admin Login
+                </a>
+              </div>
             </div>
           </div>
         )}
