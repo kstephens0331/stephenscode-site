@@ -14,6 +14,10 @@ export interface Demo {
   layout: 'modern' | 'classic' | 'minimal' | 'bold' | 'elegant' | 'industrial'
   heroImage?: string
   mockupImage?: string
+  // For real client sites - link externally instead of internal demo
+  isRealClient?: boolean
+  externalUrl?: string
+  clientName?: string
 }
 
 export const allDemos: Demo[] = [
@@ -42,14 +46,17 @@ export const allDemos: Demo[] = [
   },
   {
     id: 'photography-plug',
-    name: 'Lens & Light Photography',
-    slug: 'lens-light-photography',
+    name: 'FC Photo Houston',
+    slug: 'fc-photo-houston',
     industry: 'Creative Services',
-    package: 'Plug and Play - $250',
-    description: 'Stunning photography portfolio website demo featuring responsive image galleries, package pricing, session booking, and elegant minimal design for creative professionals.',
-    features: ['Home', 'Portfolio', 'Packages', 'Contact'],
+    package: 'Standard Website - $850',
+    description: 'Real client website for FC Photo Houston - a professional photography studio in Houston specializing in portraits, events, and commercial photography with stunning portfolio galleries.',
+    features: ['Home', 'Portfolio', 'Portraits', 'Events', 'Commercial', 'Pricing', 'Booking', 'Contact'],
     colors: { primary: '#2d3142', secondary: '#4f5d75', accent: '#bfc0c0' },
     layout: 'minimal',
+    isRealClient: true,
+    externalUrl: 'https://www.fcphotohouston.com/',
+    clientName: 'FC Photo Houston',
   },
   {
     id: 'cleaning-plug',
@@ -123,14 +130,17 @@ export const allDemos: Demo[] = [
   // ========== STANDARD WEBSITE DEMOS (Professional 8-12 page sites) ==========
   {
     id: 'hvac-standard',
-    name: 'Cool Breeze HVAC',
-    slug: 'cool-breeze-hvac',
+    name: 'AMW Air Conditioning & Heating',
+    slug: 'amw-air-conditioning',
     industry: 'Home Services',
     package: 'Standard Website - $850',
-    description: 'Complete HVAC company website with service areas, emergency contact, and financing.',
-    features: ['Home', 'Services', 'Service Areas', 'Financing', 'Emergency Service', 'About', 'Testimonials', 'Blog', 'Contact'],
+    description: 'Real client website for AMW Air Conditioning & Heating - a full-service HVAC company serving the Greater Houston area with residential and commercial heating and cooling solutions.',
+    features: ['Home', 'Services', 'Service Areas', 'Emergency Service', 'About', 'Testimonials', 'Contact'],
     colors: { primary: '#003049', secondary: '#d62828', accent: '#f77f00' },
     layout: 'industrial',
+    isRealClient: true,
+    externalUrl: 'https://www.amwairconditioning.com/',
+    clientName: 'AMW Air Conditioning & Heating',
   },
   {
     id: 'law-firm-standard',
@@ -292,14 +302,17 @@ export const allDemos: Demo[] = [
   },
   {
     id: 'contractor-premium',
-    name: 'BuildRight Construction',
-    slug: 'buildright-construction',
+    name: 'Terracotta Construction',
+    slug: 'terracotta-construction',
     industry: 'Construction',
-    package: 'Premium Build - $2,000',
-    description: 'Construction company with project portfolio, quote builder, client portal, and project tracking.',
-    features: ['Home', 'Services', 'Portfolio', 'Quote Builder', 'Client Portal', 'Project Tracking', 'Testimonials', 'Resources', 'About', 'Contact'],
+    package: 'Standard Website - $850',
+    description: 'Real client website for Terracotta Construction - a Houston-area general contractor specializing in residential and commercial construction projects with gallery showcasing their craftsmanship.',
+    features: ['Home', 'Services', 'Residential', 'Commercial', 'Gallery', 'About', 'Contact'],
     colors: { primary: '#ff6700', secondary: '#ff8500', accent: '#ffa300' },
     layout: 'industrial',
+    isRealClient: true,
+    externalUrl: 'https://terracottaconstruction.com/',
+    clientName: 'Terracotta Construction',
   },
   {
     id: 'medical-premium',
@@ -314,14 +327,17 @@ export const allDemos: Demo[] = [
   },
   {
     id: 'autorepair-premium',
-    name: 'Precision Auto Repair',
-    slug: 'precision-auto-repair',
+    name: 'C.A.R.S Collision and Refinish Shop',
+    slug: 'cars-collision-refinish',
     industry: 'Automotive',
-    package: 'Premium Build - $2,000',
-    description: 'Auto shop with service scheduling, vehicle history, cost estimator, and customer accounts.',
-    features: ['Home', 'Services', 'Schedule Service', 'Cost Estimator', 'Customer Portal', 'Vehicle History', 'Coupons', 'Reviews', 'About', 'Contact'],
+    package: 'Standard Website - $850',
+    description: 'Real client website for C.A.R.S Collision and Refinish Shop - professional auto body repair and refinishing services with expert collision repair, paint matching, and restoration.',
+    features: ['Home', 'Services', 'Collision Repair', 'Paint', 'Gallery', 'Estimate', 'Contact'],
     colors: { primary: '#03071e', secondary: '#370617', accent: '#dc2f02' },
     layout: 'industrial',
+    isRealClient: true,
+    externalUrl: 'https://www.carscollisionandrefinishshop.com/',
+    clientName: 'C.A.R.S Collision and Refinish Shop',
   },
   {
     id: 'spa-premium',

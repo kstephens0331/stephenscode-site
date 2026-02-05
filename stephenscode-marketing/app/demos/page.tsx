@@ -10,7 +10,7 @@ export const metadata: Metadata = {
   openGraph: {
     title: 'Live Demos - See Our Work in Action | StephensCode',
     description: 'Explore 40+ fully interactive website demos. Try admin dashboards, customer portals, and advanced functionality.',
-    url: 'https://www.stephenscode.dev/demos',
+    url: 'https://stephenscode.dev/demos',
     type: 'website',
   },
   twitter: {

@@ -35,6 +35,8 @@ interface Client {
   industry: string
   location: string
   services: string[]
+  pageCount?: number // Total pages built
+  samplePages?: string[] // Example page paths to show scope of work
 }
 
 const partners: Partner[] = [
@@ -56,6 +58,8 @@ const clients: Client[] = [
     industry: 'Political Campaign',
     location: 'Montgomery County, TX',
     services: ['Campaign Website', 'Interactive Maps', 'Donation Integration', 'SEO Optimization'],
+    pageCount: 12,
+    samplePages: ['/about', '/issues', '/volunteer', '/donate', '/events', '/contact'],
   },
   {
     name: 'Lefty Cartel',
@@ -66,6 +70,8 @@ const clients: Client[] = [
     industry: 'E-Commerce / Membership',
     location: 'Nationwide',
     services: ['Membership Platform', 'Stripe Subscriptions', 'Admin Dashboard', 'Shipping Integration'],
+    pageCount: 35,
+    samplePages: ['/shop', '/membership', '/about', '/account', '/cart', '/checkout'],
   },
   {
     name: 'JustWell Clinical Research',
@@ -76,6 +82,8 @@ const clients: Client[] = [
     industry: 'Healthcare',
     location: 'Houston, TX',
     services: ['Custom Website', 'Mobile Responsive', 'Contact Forms', 'SEO Optimization'],
+    pageCount: 8,
+    samplePages: ['/about', '/therapeutic-areas', '/for-patients', '/for-sponsors', '/contact'],
   },
   {
     name: 'Terracotta Construction',
@@ -86,16 +94,20 @@ const clients: Client[] = [
     industry: 'Construction',
     location: 'Houston, TX',
     services: ['Custom Website', 'SEO Optimization', 'Contact Forms', 'Project Gallery'],
+    pageCount: 15,
+    samplePages: ['/services', '/residential', '/commercial', '/gallery', '/about', '/contact'],
   },
   {
     name: 'ColorFuse Prints',
     shortName: 'ColorFuse',
-    description: 'Custom printing and promotional products e-commerce with online product customization tools.',
-    longDescription: 'ColorFuse Prints offers custom printing services for businesses and individuals, from business cards to promotional materials. We built their complete e-commerce platform with product customization tools that let customers design their own products, a robust shopping cart system, secure payment processing, and order management backend.',
+    description: 'Custom printing and promotional products e-commerce with 400+ product pages and online customization tools.',
+    longDescription: 'ColorFuse Prints offers custom printing services for businesses and individuals, from business cards to promotional materials. We built their complete e-commerce platform with 400+ product pages, product customization tools that let customers design their own products, a robust shopping cart system, secure payment processing, and order management backend.',
     url: 'https://www.colorfuseprints.com',
     industry: 'E-Commerce / Print',
     location: 'Nationwide',
     services: ['E-Commerce', 'Product Customization', 'Order System', 'Payment Integration'],
+    pageCount: 400,
+    samplePages: ['/products', '/business-cards', '/banners', '/apparel', '/promotional', '/signs', '/stickers', '/flyers', '/brochures', '/postcards', '/cart', '/checkout', '/account', '/order-history'],
   },
   {
     name: 'SACVPN',
@@ -106,6 +118,8 @@ const clients: Client[] = [
     industry: 'Cybersecurity',
     location: 'Nationwide',
     services: ['Enterprise Platform', 'Payment Processing', 'User Management', 'Subscription System'],
+    pageCount: 25,
+    samplePages: ['/pricing', '/features', '/enterprise', '/download', '/servers', '/account', '/dashboard'],
   },
   {
     name: 'AMW Air Conditioning & Heating',
@@ -116,6 +130,8 @@ const clients: Client[] = [
     industry: 'HVAC & Home Services',
     location: 'Houston, TX',
     services: ['Custom Website', 'SEO Optimization', 'Mobile Responsive', 'Online Scheduling'],
+    pageCount: 18,
+    samplePages: ['/services', '/ac-repair', '/heating', '/installation', '/maintenance', '/service-areas', '/contact'],
   },
   {
     name: 'C.A.R.S Collision and Refinish Shop',
@@ -126,6 +142,8 @@ const clients: Client[] = [
     industry: 'Automotive Services',
     location: 'Texas',
     services: ['Custom Website', 'Photo Gallery', 'Contact Forms', 'Mobile Responsive'],
+    pageCount: 10,
+    samplePages: ['/services', '/collision-repair', '/paint', '/gallery', '/estimate', '/contact'],
   },
   {
     name: 'Benefit Builder LLC',
@@ -136,6 +154,8 @@ const clients: Client[] = [
     industry: 'Business Consulting',
     location: 'Texas',
     services: ['Custom Website', 'Lead Generation', 'Professional Design', 'SEO'],
+    pageCount: 8,
+    samplePages: ['/services', '/about', '/resources', '/contact'],
   },
   {
     name: 'FC Photo Houston',
@@ -146,6 +166,8 @@ const clients: Client[] = [
     industry: 'Photography & Creative',
     location: 'Houston, TX',
     services: ['Portfolio Website', 'Image Optimization', 'Booking System', 'Mobile Responsive'],
+    pageCount: 20,
+    samplePages: ['/portfolio', '/portraits', '/events', '/commercial', '/pricing', '/booking', '/contact'],
   },
   {
     name: 'Forge-X',
@@ -156,14 +178,19 @@ const clients: Client[] = [
     industry: 'Construction Technology',
     location: 'Nationwide',
     services: ['Custom SaaS Application', 'AI Integration', 'Mobile PWA', 'Real-time Collaboration'],
+    pageCount: 50,
+    samplePages: ['/dashboard', '/projects', '/daily-logs', '/photos', '/reports', '/team', '/settings'],
   },
 ]
+
+// Calculate total pages built across all clients
+const totalPagesBuilt = clients.reduce((sum, client) => sum + (client.pageCount || 0), 0)
 
 const portfolioSchema = {
   "@context": "https://schema.org",
   "@type": "ItemList",
   "name": "StephensCode Client Portfolio",
-  "description": "Websites and applications built by StephensCode for Houston-area businesses",
+  "description": `${totalPagesBuilt}+ web pages built by StephensCode for Houston-area businesses`,
   "numberOfItems": clients.length,
   "itemListElement": clients.map((client, index) => ({
     "@type": "ListItem",
@@ -172,13 +199,64 @@ const portfolioSchema = {
       "@type": "WebSite",
       "name": client.name,
       "url": client.url,
-      "description": client.description,
+      "description": client.pageCount
+        ? `${client.description} (${client.pageCount} pages built)`
+        : client.description,
       "creator": {
         "@type": "Organization",
         "name": "StephensCode LLC",
-        "url": "https://www.stephenscode.dev"
-      }
+        "url": "https://stephenscode.dev"
+      },
+      // Include sample pages as significant links for SEO
+      ...(client.samplePages && client.samplePages.length > 0 && {
+        "hasPart": client.samplePages.map(page => ({
+          "@type": "WebPage",
+          "url": `${client.url}${page}`,
+          "isPartOf": { "@id": client.url }
+        }))
+      })
     }
+  }))
+}
+
+// Additional CreativeWork schema showing the scope of development work
+const workExamplesSchema = {
+  "@context": "https://schema.org",
+  "@type": "Organization",
+  "@id": "https://stephenscode.dev/#organization",
+  "name": "StephensCode LLC",
+  "workExample": clients.map(client => ({
+    "@type": "WebSite",
+    "name": client.name,
+    "url": client.url,
+    "description": client.longDescription,
+    "genre": client.industry,
+    "locationCreated": {
+      "@type": "Place",
+      "name": client.location
+    },
+    "creator": {
+      "@type": "Organization",
+      "name": "StephensCode LLC"
+    },
+    // Show page count as part of the work scope
+    ...(client.pageCount && {
+      "hasPart": {
+        "@type": "ItemList",
+        "numberOfItems": client.pageCount,
+        "description": `${client.pageCount} pages developed`,
+        ...(client.samplePages && {
+          "itemListElement": client.samplePages.slice(0, 10).map((page, i) => ({
+            "@type": "ListItem",
+            "position": i + 1,
+            "item": {
+              "@type": "WebPage",
+              "url": `${client.url}${page}`
+            }
+          }))
+        })
+      }
+    })
   }))
 }
 
@@ -189,10 +267,15 @@ export default function PartnersPage() {
 
   return (
     <div className="bg-gray-50 min-h-screen">
-      {/* Schema.org JSON-LD */}
+      {/* Schema.org JSON-LD - Portfolio list */}
       <script
         type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: JSON.stringify(portfolioSchema) }}
+      />
+      {/* Schema.org JSON-LD - Work examples with page details */}
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(workExamplesSchema) }}
       />
 
       {/* Hero Section */}

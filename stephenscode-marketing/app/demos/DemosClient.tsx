@@ -129,9 +129,13 @@ export default function DemosClient({ demos, categories }: DemosClientProps) {
             <p className="text-sm font-semibold opacity-90">{demo.layout.toUpperCase()} LAYOUT</p>
           </div>
         </div>
-        {/* Interactive Badge */}
-        <div className="absolute top-4 right-4 bg-accent-500 text-white px-3 py-1 rounded-full text-xs font-bold shadow-lg">
-          INTERACTIVE
+        {/* Badge - Real Client or Interactive */}
+        <div className={`absolute top-4 right-4 px-3 py-1 rounded-full text-xs font-bold shadow-lg ${
+          demo.isRealClient
+            ? 'bg-green-500 text-white'
+            : 'bg-accent-500 text-white'
+        }`}>
+          {demo.isRealClient ? '✓ REAL CLIENT' : 'INTERACTIVE'}
         </div>
       </div>
 
@@ -172,13 +176,27 @@ export default function DemosClient({ demos, categories }: DemosClientProps) {
         <div className="mt-auto pt-4 border-t border-gray-200">
           <div className="flex items-center justify-between mb-3">
             <span className="text-xs font-semibold text-gray-500">{demo.package}</span>
+            {demo.isRealClient && (
+              <span className="text-xs font-semibold text-green-600">Live Client Site</span>
+            )}
           </div>
-          <Link
-            href={`/demos/${demo.slug}`}
-            className="block w-full text-center rounded-lg bg-primary-600 px-4 py-2.5 text-sm font-semibold text-white shadow-sm hover:bg-primary-700 transition-colors"
-          >
-            Launch Demo →
-          </Link>
+          {demo.isRealClient && demo.externalUrl ? (
+            <a
+              href={demo.externalUrl}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="block w-full text-center rounded-lg bg-green-600 px-4 py-2.5 text-sm font-semibold text-white shadow-sm hover:bg-green-700 transition-colors"
+            >
+              Visit Live Site →
+            </a>
+          ) : (
+            <Link
+              href={`/demos/${demo.slug}`}
+              className="block w-full text-center rounded-lg bg-primary-600 px-4 py-2.5 text-sm font-semibold text-white shadow-sm hover:bg-primary-700 transition-colors"
+            >
+              Launch Demo →
+            </Link>
+          )}
         </div>
       </div>
     </article>
