@@ -13,7 +13,16 @@ export const metadata: Metadata = {
     'Houston web development',
     'custom website Houston',
     'veteran owned web developer',
-    'The Woodlands web developer'
+    'The Woodlands web developer',
+    'website pricing Houston',
+    'web design packages Texas',
+    'flat rate website design',
+    'cheap website Houston',
+    'business website cost',
+    'website quote Houston',
+    'web developer pricing',
+    'e-commerce website cost',
+    'Montgomery County web design',
   ],
 }
 

@@ -183,7 +183,7 @@ export default function Footer() {
               &copy; {new Date().getFullYear()} StephensCode LLC. All rights reserved. Veteran-Owned Business.
             </p>
             <p className="text-xs leading-5 text-gray-500">
-              Conroe, Texas | <a href="https://www.stephenscode.dev" className="hover:text-gray-300">www.stephenscode.dev</a>
+              Conroe, Texas | <a href="https://stephenscode.dev" className="hover:text-gray-300">stephenscode.dev</a>
             </p>
           </div>
         </div>

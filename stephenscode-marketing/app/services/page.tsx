@@ -18,11 +18,19 @@ export const metadata: Metadata = {
     'The Woodlands web developer',
     'veteran owned web developer',
     'web developer near me',
+    'website design Conroe TX',
+    'professional website Houston',
+    'business website developer',
+    'responsive web design Texas',
+    'e-commerce website Houston',
+    'SEO web development',
+    'flat rate web design',
+    'Montgomery County web developer',
   ],
   openGraph: {
     title: 'Houston Web Design | Custom Websites from $250',
     description: 'Get a professional website built in 1-2 weeks. Flat-rate pricing, no hidden fees. Veteran-owned.',
-    url: 'https://www.stephenscode.dev/services',
+    url: 'https://stephenscode.dev/services',
   },
 }
 
@@ -34,7 +42,7 @@ const serviceSchema = {
   "provider": {
     "@type": "LocalBusiness",
     "name": "StephensCode LLC",
-    "image": "https://www.stephenscode.dev/logo.png",
+    "image": "https://stephenscode.dev/logo.png",
     "telephone": "+1-936-323-4527",
     "priceRange": "$250+",
     "address": {
