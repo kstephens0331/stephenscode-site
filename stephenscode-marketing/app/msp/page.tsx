@@ -17,11 +17,21 @@ export const metadata: Metadata = {
     'managed service provider Texas',
     'business IT support Houston',
     'IT company near me',
+    'IT services Montgomery County',
+    'network security Houston',
+    'cloud services Houston',
+    'Microsoft 365 support Texas',
+    'helpdesk support Conroe',
+    '24/7 IT monitoring',
+    'small business IT Houston',
+    'veteran owned MSP',
+    'IT security services Texas',
+    'backup disaster recovery Houston',
   ],
   openGraph: {
     title: 'Houston Managed IT Services | From $99/User/Month',
     description: '24/7 monitoring, cybersecurity, and helpdesk support. No long-term contracts. Veteran-owned MSP.',
-    url: 'https://www.stephenscode.dev/msp',
+    url: 'https://stephenscode.dev/msp',
   },
 }
 
@@ -32,7 +42,7 @@ const mspSchema = {
   "provider": {
     "@type": "LocalBusiness",
     "name": "StephensCode LLC",
-    "image": "https://www.stephenscode.dev/logo.png",
+    "image": "https://stephenscode.dev/logo.png",
     "telephone": "+1-936-323-4527",
     "priceRange": "$99+/user/mo",
     "address": {
