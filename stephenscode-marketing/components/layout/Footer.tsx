@@ -37,7 +37,16 @@ export default function Footer() {
       { name: 'Website Demos', href: '/demos' },
     ],
     serviceAreas: [
-      'Conroe', 'The Woodlands', 'Houston', 'Spring', 'Tomball', 'Magnolia', 'Willis', 'Montgomery'
+      { name: 'Conroe', href: '/service-areas/conroe' },
+      { name: 'The Woodlands', href: '/service-areas/the-woodlands' },
+      { name: 'Houston', href: '/service-areas/houston' },
+      { name: 'Midtown', href: '/service-areas/midtown-houston' },
+      { name: 'The Heights', href: '/service-areas/the-heights-houston' },
+      { name: 'Spring', href: '/service-areas/spring' },
+      { name: 'Katy', href: '/service-areas/katy' },
+      { name: 'Sugar Land', href: '/service-areas/sugar-land' },
+      { name: 'Pinehurst', href: '/service-areas/pinehurst' },
+      { name: 'Kingwood', href: '/service-areas/kingwood' },
     ],
   }
 
@@ -164,14 +173,16 @@ export default function Footer() {
                 <h3 className="text-sm font-semibold leading-6 text-white">Service Areas</h3>
                 <ul role="list" className="mt-6 space-y-2">
                   {navigation.serviceAreas.map((area) => (
-                    <li key={area} className="text-sm leading-6 text-gray-400">
-                      {area}
+                    <li key={area.name}>
+                      <Link href={area.href} className="text-sm leading-6 text-gray-400 hover:text-white">
+                        {area.name}
+                      </Link>
                     </li>
                   ))}
                 </ul>
-                <p className="mt-4 text-xs text-gray-500">
-                  Serving all of Montgomery County, Greater Houston, and clients nationwide.
-                </p>
+                <Link href="/service-areas" className="mt-4 block text-xs font-semibold text-primary-400 hover:text-primary-300">
+                  View all 35+ areas →
+                </Link>
               </div>
             </div>
           </div>
