@@ -1,26 +1,85 @@
 import type { Metadata } from 'next'
 import Link from 'next/link'
-import { serviceAreas } from '@/lib/service-areas-data'
+import { serviceAreas, getServiceAreasByRegion } from '@/lib/service-areas-data'
 
 export const metadata: Metadata = {
-  title: 'Service Areas | Conroe Web Developer | Houston Web Development',
-  description: 'Conroe web developer serving Houston and The Woodlands. Affordable web design, small business websites. Veteran owned web developer near you.',
+  title: 'Service Areas | Web Design Houston, Conroe, The Woodlands TX',
+  description: 'Web design and IT services across 35+ Houston-area communities. Conroe, The Woodlands, Midtown, Heights, Montrose, Katy, Sugar Land, and more. Veteran-owned.',
   keywords: [
     'Conroe web developer',
     'Houston web development',
     'The Woodlands web developer',
+    'Midtown Houston web design',
+    'Heights Houston web developer',
+    'Montrose web design',
+    'Katy web developer',
+    'Sugar Land web design',
+    'Pinehurst TX web developer',
     'web developer near me',
     'affordable web design Houston',
     'small business website Texas',
-    'veteran owned web developer'
+    'veteran owned web developer',
   ],
+  openGraph: {
+    title: 'Service Areas | 35+ Houston Communities Served',
+    description: 'Web development and IT services across Greater Houston. From Montgomery County to Galveston Bay.',
+    url: 'https://stephenscode.dev/service-areas',
+  },
 }
 
 export default function ServiceAreasPage() {
-  // Group areas by general region
-  const montgomeryCounty = serviceAreas.filter(a => a.county.includes('Montgomery'))
-  const harrisCounty = serviceAreas.filter(a => a.county.includes('Harris') && !a.county.includes('Fort Bend'))
-  const otherAreas = serviceAreas.filter(a => !a.county.includes('Montgomery') && !a.county.includes('Harris'))
+  const montgomeryCounty = getServiceAreasByRegion('montgomery')
+  const harrisNorth = getServiceAreasByRegion('harris-north')
+  const houstonNeighborhoods = getServiceAreasByRegion('houston-neighborhoods')
+  const fortBend = getServiceAreasByRegion('fort-bend')
+  const galvestonBay = getServiceAreasByRegion('galveston-bay')
+  const outlying = getServiceAreasByRegion('outlying')
+
+  const renderAreaCard = (area: typeof serviceAreas[0]) => (
+    <Link
+      key={area.slug}
+      href={`/service-areas/${area.slug}`}
+      className="group bg-gray-50 rounded-lg p-6 hover:bg-primary-50 hover:shadow-md transition-all"
+    >
+      <h4 className="text-lg font-semibold text-gray-900 group-hover:text-primary-700">
+        {area.name}
+        {area.slug === 'conroe' && (
+          <span className="ml-2 text-xs bg-primary-600 text-white px-2 py-0.5 rounded">
+            HQ
+          </span>
+        )}
+      </h4>
+      <p className="mt-2 text-sm text-gray-600">
+        Population: {area.population}
+      </p>
+      <p className="mt-1 text-sm text-gray-500">
+        {area.distanceFromConroe} from Conroe
+      </p>
+      <p className="mt-2 text-xs text-gray-500 line-clamp-2">
+        {area.businessTypes.slice(0, 4).join(' · ')}
+      </p>
+      <p className="mt-3 text-sm font-semibold text-primary-600 group-hover:text-primary-700">
+        View details →
+      </p>
+    </Link>
+  )
+
+  const renderSection = (title: string, areas: typeof serviceAreas, description?: string) => {
+    if (areas.length === 0) return null
+    return (
+      <div className="mb-16 last:mb-0">
+        <h3 className="text-xl font-bold text-gray-900 mb-2 pb-2 border-b">
+          {title}
+        </h3>
+        {description && (
+          <p className="text-sm text-gray-600 mb-6">{description}</p>
+        )}
+        <div className="grid grid-cols-1 gap-6 sm:grid-cols-2 lg:grid-cols-3">
+          {areas.map(renderAreaCard)}
+        </div>
+      </div>
+    )
+  }
 
   return (
     <>
@@ -29,120 +88,102 @@ export default function ServiceAreasPage() {
         <div className="mx-auto max-w-7xl px-6 py-16 sm:py-24 lg:px-8">
           <div className="mx-auto max-w-2xl text-center">
             <h1 className="text-4xl font-bold tracking-tight sm:text-5xl">
-              Houston Web Development Service Areas
+              Web Development Across Greater Houston
             </h1>
             <p className="mt-6 text-lg leading-8 text-gray-200">
-              Conroe web developer serving Houston, The Woodlands, and Montgomery County.
-              Veteran owned web developer offering affordable web design for small business.
+              Conroe-based web developer serving {serviceAreas.length}+ communities from Montgomery County to Galveston Bay.
+              Local knowledge, veteran-owned quality, and flat-rate pricing for every neighborhood.
             </p>
+            <div className="mt-8 flex items-center justify-center gap-x-6">
+              <Link
+                href="/contact"
+                className="rounded-md bg-accent-500 px-6 py-3 text-base font-semibold text-white shadow-sm hover:bg-accent-600"
+              >
+                Get Free Quote
+              </Link>
+              <a
+                href="tel:9363234527"
+                className="text-base font-semibold leading-7 text-white hover:text-gray-200"
+              >
+                Call (936) 323-4527 <span aria-hidden="true">→</span>
+              </a>
+            </div>
           </div>
         </div>
       </section>
 
-      {/* Map/Overview Section */}
+      {/* Stats Bar */}
+      <section className="bg-white py-8 border-b">
+        <div className="mx-auto max-w-7xl px-6 lg:px-8">
+          <dl className="grid grid-cols-2 gap-4 sm:grid-cols-4">
+            <div className="text-center">
+              <dd className="text-3xl font-bold text-primary-600">{serviceAreas.length}+</dd>
+              <dt className="text-sm text-gray-600">Communities Served</dt>
+            </div>
+            <div className="text-center">
+              <dd className="text-3xl font-bold text-primary-600">6</dd>
+              <dt className="text-sm text-gray-600">Counties Covered</dt>
+            </div>
+            <div className="text-center">
+              <dd className="text-3xl font-bold text-primary-600">14+</dd>
+              <dt className="text-sm text-gray-600">Years Experience</dt>
+            </div>
+            <div className="text-center">
+              <dd className="text-3xl font-bold text-primary-600">$250</dd>
+              <dt className="text-sm text-gray-600">Starting Price</dt>
+            </div>
+          </dl>
+        </div>
+      </section>
+
+      {/* All Service Areas */}
       <section className="bg-white py-16 sm:py-24">
         <div className="mx-auto max-w-7xl px-6 lg:px-8">
           <div className="mx-auto max-w-3xl text-center mb-12">
             <h2 className="text-3xl font-bold tracking-tight text-gray-900">
-              Serving {serviceAreas.length}+ Communities
+              All Service Areas
             </h2>
             <p className="mt-4 text-lg text-gray-600">
               From our home base in Conroe, we serve businesses throughout the Houston metropolitan area.
-              We're happy to meet in person locally or work remotely with clients anywhere.
+              Click any area to see how we can help your local business.
             </p>
           </div>
 
-          {/* Montgomery County */}
-          <div className="mb-12">
-            <h3 className="text-xl font-bold text-gray-900 mb-6 pb-2 border-b">
-              Montgomery County
-            </h3>
-            <div className="grid grid-cols-1 gap-6 sm:grid-cols-2 lg:grid-cols-3">
-              {montgomeryCounty.map((area) => (
-                <Link
-                  key={area.slug}
-                  href={`/service-areas/${area.slug}`}
-                  className="group bg-gray-50 rounded-lg p-6 hover:bg-primary-50 transition-colors"
-                >
-                  <h4 className="text-lg font-semibold text-gray-900 group-hover:text-primary-700">
-                    {area.name}
-                    {area.slug === 'conroe' && (
-                      <span className="ml-2 text-xs bg-primary-600 text-white px-2 py-0.5 rounded">
-                        HQ
-                      </span>
-                    )}
-                  </h4>
-                  <p className="mt-2 text-sm text-gray-600">
-                    Population: {area.population}
-                  </p>
-                  <p className="mt-1 text-sm text-gray-500">
-                    {area.distanceFromConroe} from Conroe
-                  </p>
-                  <p className="mt-3 text-sm font-semibold text-primary-600 group-hover:text-primary-700">
-                    View details →
-                  </p>
-                </Link>
-              ))}
-            </div>
-          </div>
+          {renderSection(
+            'Montgomery County — Our Home Turf',
+            montgomeryCounty,
+            'Based in Conroe, we know Montgomery County inside and out. From Lake Conroe to The Woodlands, we serve businesses across the entire county.'
+          )}
 
-          {/* Harris County */}
-          <div className="mb-12">
-            <h3 className="text-xl font-bold text-gray-900 mb-6 pb-2 border-b">
-              Harris County & North Houston
-            </h3>
-            <div className="grid grid-cols-1 gap-6 sm:grid-cols-2 lg:grid-cols-3">
-              {harrisCounty.map((area) => (
-                <Link
-                  key={area.slug}
-                  href={`/service-areas/${area.slug}`}
-                  className="group bg-gray-50 rounded-lg p-6 hover:bg-primary-50 transition-colors"
-                >
-                  <h4 className="text-lg font-semibold text-gray-900 group-hover:text-primary-700">
-                    {area.name}
-                  </h4>
-                  <p className="mt-2 text-sm text-gray-600">
-                    Population: {area.population}
-                  </p>
-                  <p className="mt-1 text-sm text-gray-500">
-                    {area.distanceFromConroe} from Conroe
-                  </p>
-                  <p className="mt-3 text-sm font-semibold text-primary-600 group-hover:text-primary-700">
-                    View details →
-                  </p>
-                </Link>
-              ))}
-            </div>
-          </div>
+          {renderSection(
+            'North Houston Suburbs',
+            harrisNorth,
+            'The fast-growing suburbs north of Houston — from Spring and Tomball to Kingwood and Atascocita.'
+          )}
 
-          {/* Other Areas */}
-          <div>
-            <h3 className="text-xl font-bold text-gray-900 mb-6 pb-2 border-b">
-              Other Service Areas
-            </h3>
-            <div className="grid grid-cols-1 gap-6 sm:grid-cols-2 lg:grid-cols-3">
-              {otherAreas.map((area) => (
-                <Link
-                  key={area.slug}
-                  href={`/service-areas/${area.slug}`}
-                  className="group bg-gray-50 rounded-lg p-6 hover:bg-primary-50 transition-colors"
-                >
-                  <h4 className="text-lg font-semibold text-gray-900 group-hover:text-primary-700">
-                    {area.name}
-                  </h4>
-                  <p className="mt-2 text-sm text-gray-600">
-                    {area.county}
-                  </p>
-                  <p className="mt-1 text-sm text-gray-500">
-                    {area.distanceFromConroe} from Conroe
-                  </p>
-                  <p className="mt-3 text-sm font-semibold text-primary-600 group-hover:text-primary-700">
-                    View details →
-                  </p>
-                </Link>
-              ))}
-            </div>
-          </div>
+          {renderSection(
+            'Houston Neighborhoods',
+            houstonNeighborhoods,
+            'Distinct Houston neighborhoods, each with their own character and business community.'
+          )}
+
+          {renderSection(
+            'Fort Bend County',
+            fortBend,
+            'One of the fastest-growing and most diverse counties in Texas — from Katy to Sugar Land to Richmond.'
+          )}
+
+          {renderSection(
+            'Galveston Bay & South Houston',
+            galvestonBay,
+            'The Clear Lake, NASA, and bay area communities south of Houston.'
+          )}
+
+          {renderSection(
+            'Outlying Areas',
+            outlying,
+            'Extended service area beyond the immediate Houston metro.'
+          )}
         </div>
       </section>
 
@@ -154,8 +195,8 @@ export default function ServiceAreasPage() {
               Don't See Your City?
             </h2>
             <p className="mt-4 text-lg text-gray-600">
-              We serve all of Greater Houston and can work with clients anywhere in Texas and beyond.
-              Contact us to discuss your project—we'd love to help.
+              We serve all of Greater Houston and work with clients anywhere in Texas and beyond.
+              Everything can be done remotely — contact us to discuss your project.
             </p>
             <div className="mt-8 flex items-center justify-center gap-x-6">
               <Link

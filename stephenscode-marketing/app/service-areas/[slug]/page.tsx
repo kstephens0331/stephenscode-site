@@ -50,7 +50,7 @@ export async function generateMetadata({ params }: ServiceAreaPageProps): Promis
     openGraph: {
       title: `${area.name} Web Design & SEO | Custom Websites from $250`,
       description: `Get a professional website for your ${area.name} business. Flat-rate pricing, fast turnaround, veteran-owned. Call for a free consultation.`,
-      url: `https://www.stephenscode.dev/service-areas/${slug}`,
+      url: `https://stephenscode.dev/service-areas/${slug}`,
     },
   }
 }
@@ -72,10 +72,10 @@ export default async function ServiceAreaPage({ params }: ServiceAreaPageProps) 
     '@type': 'WebPage',
     name: `Web Development Services in ${area.name}, TX`,
     description: `Professional web development, SEO, and e-commerce services for businesses in ${area.name}, Texas. Custom websites starting at $250.`,
-    url: `https://www.stephenscode.dev/service-areas/${slug}`,
+    url: `https://stephenscode.dev/service-areas/${slug}`,
     provider: {
       '@type': 'ProfessionalService',
-      '@id': 'https://www.stephenscode.dev/#organization',
+      '@id': 'https://stephenscode.dev/#organization',
       name: 'StephensCode',
       telephone: '+1-936-323-4527',
       email: 'kyle@stephenscode.dev',
