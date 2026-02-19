@@ -355,39 +355,39 @@ export const basicAddOns: Service[] = [
     name: 'SEO Boost',
     slug: 'seo-boost',
     category: 'addon-basic',
-    price: 120,
-    priceLabel: '$120',
-    shortDescription: 'Advanced SEO optimization and sitemap setup',
-    longDescription: `Improve your search engine rankings and get more organic traffic with our comprehensive SEO Boost service. We implement advanced SEO techniques that go beyond basic optimization, including schema markup, XML sitemaps, optimized meta tags, internal linking strategies, and technical SEO improvements that help Google understand and rank your website better. Perfect for businesses serious about ranking higher in local and organic search results.
+    price: 1000,
+    priceLabel: '$1,000',
+    shortDescription: 'Ongoing SEO optimization, backlink building, and website performance monitoring ($250/mo)',
+    longDescription: `SEO optimization and boost is not a one-time solution. This is an ongoing service that requires continuous monitoring, backlink creation, and SEO optimization of your current website to maintain and improve your search engine rankings over time.
 
-    Most websites have basic SEO at best - a few keywords in the title, maybe some meta descriptions. But modern SEO requires much more to compete effectively. Google's algorithms consider hundreds of ranking factors including structured data, site architecture, mobile performance, page speed, and more. Our SEO Boost service addresses these advanced factors to give you a real competitive advantage in search results.
+    At $250 per month, our SEO Boost service provides comprehensive, hands-on management of your website's search presence. Each month we actively build high-quality backlinks from authoritative domains, monitor your rankings and traffic patterns, optimize existing content for emerging search trends, and make technical improvements to keep your site performing at its best.
 
-    The SEO Boost service includes comprehensive schema markup implementation (Organization, LocalBusiness, Product, Service, etc.) to enhance how Google displays your site in search results, XML sitemap generation and submission to search engines, optimized meta titles and descriptions for every page, image optimization with descriptive alt text, internal linking structure optimization, robots.txt configuration, canonical URL setup to prevent duplicate content issues, Open Graph and Twitter Card tags for social sharing, Google Search Console and Google Analytics setup and configuration, local SEO optimization for Houston and Conroe searches, and Core Web Vitals optimization for better rankings.
+    The service includes comprehensive schema markup implementation (Organization, LocalBusiness, Product, Service, etc.) to enhance how Google displays your site in search results, XML sitemap generation and submission to search engines, optimized meta titles and descriptions for every page, image optimization with descriptive alt text, internal linking strategy, robots.txt configuration, canonical URL setup to prevent duplicate content issues, Open Graph and Twitter Card tags for social sharing, Google Search Console and Google Analytics setup and configuration, local SEO optimization for Houston and Conroe searches, and Core Web Vitals optimization for better rankings.
 
-    Schema markup is particularly powerful - it's structured data that tells Google exactly what your pages are about. With proper schema, your business can appear in rich snippets with star ratings, prices, availability, and more. Your local business can show up in Google Maps results with complete information. Your products can appear in Google Shopping results. This enhanced visibility drives significantly more traffic than plain search results.
+    Monthly backlink building is where the real competitive advantage comes in. We identify and secure quality backlinks from relevant, authoritative websites in your industry. These backlinks signal trust and authority to Google, directly improving your domain rating and search rankings. Without ongoing backlink work, your competitors will overtake you -- SEO is a long-term game that rewards consistent effort.
 
-    We also implement technical SEO improvements like ensuring your site is mobile-friendly (Google's mobile-first indexing), optimizing page speed (faster sites rank higher), fixing broken links that hurt rankings, implementing breadcrumb navigation, creating proper heading hierarchies, and ensuring clean URL structures. These technical factors make a significant difference in how well your site ranks.`,
+    Each month you receive a detailed performance report showing ranking changes, traffic growth, backlinks acquired, and technical health metrics. We continuously adapt our strategy based on what the data shows, ensuring your SEO investment delivers measurable results month after month.`,
     features: [
+      'Monthly backlink building',
+      'Ongoing ranking monitoring',
       'Comprehensive schema markup',
       'XML sitemap generation',
       'Meta tag optimization (all pages)',
       'Image alt text optimization',
       'Internal linking strategy',
-      'Robots.txt configuration',
-      'Canonical URL setup',
-      'Open Graph and Twitter Cards',
-      'Google Search Console setup',
-      'Google Analytics configuration',
-      'Local SEO optimization',
       'Core Web Vitals optimization',
+      'Google Search Console management',
+      'Google Analytics monitoring',
+      'Local SEO optimization',
+      'Monthly performance reports',
     ],
     benefits: [
-      'Higher Google rankings',
-      'More organic traffic',
+      'Sustained higher Google rankings',
+      'Growing organic traffic month over month',
+      'Stronger domain authority',
       'Better local visibility',
-      'Improved click-through rates',
-      'Rich snippet eligibility',
-      'Competitive advantage',
+      'Ongoing competitive advantage',
+      'Measurable ROI with monthly reports',
     ],
     useCases: [
       'Local businesses targeting Houston/Conroe',
@@ -398,16 +398,16 @@ export const basicAddOns: Service[] = [
       'Businesses investing in organic growth',
     ],
     deliverables: [
-      'Complete SEO optimization',
+      'Monthly backlink acquisition',
+      'Ongoing SEO optimization',
       'Schema markup implementation',
-      'XML sitemap',
-      'Google Search Console setup',
-      'SEO performance report',
+      'Monthly performance reports',
+      'Ranking and traffic analysis',
     ],
-    timeline: '3-5 days',
+    timeline: 'Monthly (ongoing)',
     seoKeywords: ['SEO optimization Houston', 'local SEO Conroe', 'search engine optimization Texas', 'schema markup Houston'],
-    metaTitle: 'SEO Boost Service | $120',
-    metaDescription: 'Advanced SEO optimization with schema markup, XML sitemaps, and local SEO. Boost Google rankings and organic traffic. $120 in Houston & Conroe.',
+    metaTitle: 'SEO Boost Service | $250/mo',
+    metaDescription: 'Ongoing SEO optimization with backlink building, ranking monitoring, and monthly performance reports. $250/mo in Houston & Conroe.',
   },
   {
     id: 'image-optimizer',
@@ -1566,7 +1566,7 @@ export const advancedAddOns: Service[] = [
     name: 'System Connector',
     slug: 'system-connector',
     category: 'addon-advanced',
-    price: 120,
+    price: 1000,
     priceLabel: '$120',
     shortDescription: 'Connect your website to accounting, CRM, or other business software',
     longDescription: `Break down data silos and automate workflows by connecting your website to your existing business systems. The System Connector add-on creates seamless integrations between your website and popular business software like QuickBooks, Salesforce, HubSpot, Mailchimp, Zapier, and hundreds of other platforms. Stop manually copying data between systems and let automation handle the tedious work while reducing errors and saving hours every week.

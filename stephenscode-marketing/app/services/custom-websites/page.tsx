@@ -55,7 +55,7 @@ export default function CustomWebsitesPage() {
   ]
 
   const addOns = [
-    { name: 'SEO Boost', price: '$120', description: 'Advanced SEO optimization and sitemap setup' },
+    { name: 'SEO Boost', price: '$1,000', description: 'Ongoing SEO optimization, backlink building, and monitoring ($250/mo)' },
     { name: 'Blog Module', price: '$110', description: 'Fully featured blog with categories and tags' },
     { name: 'Contact Forms', price: '$75', description: 'Custom contact forms with email notifications' },
     { name: 'Newsletter Signup', price: '$75', description: 'Email list building with integration' },
