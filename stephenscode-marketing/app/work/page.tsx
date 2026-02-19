@@ -42,7 +42,7 @@ export default function Work() {
         'Average 3-5 leads per week from website'
       ],
       package: 'Standard Website ($850)',
-      addOns: ['SEO Boost ($75)', 'Blog Module ($110)'],
+      addOns: ['SEO Boost ($250/mo)', 'Blog Module ($110)'],
       timeline: '2 weeks',
       testimonial: 'Kyle built us exactly what we needed. Our phone hasn\'t stopped ringing since the new site went live. Best investment we\'ve made.',
       author: 'John M., Owner',
