@@ -13,6 +13,15 @@ export const metadata: Metadata = {
     'affordable web design Houston',
     'The Woodlands web developer'
   ],
+  openGraph: {
+    title: 'Web Development Portfolio | Custom Websites Houston | Case Studies',
+    description: 'Conroe web developer portfolio. Custom website Houston examples, small business website Texas case studies. Veteran owned web developer with 200+ projects.',
+    url: 'https://stephenscode.dev/work',
+    type: 'website',
+  },
+  alternates: {
+    canonical: 'https://stephenscode.dev/work',
+  },
 }
 
 // CreativeWork schema for portfolio

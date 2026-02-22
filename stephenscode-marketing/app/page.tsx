@@ -8,17 +8,17 @@ const homepageSchemas = {
   localBusiness: {
     "@context": "https://schema.org",
     "@type": "LocalBusiness",
-    "@id": "https://www.stephenscode.dev/#business",
+    "@id": "https://stephenscode.dev/#business",
     "name": "StephensCode LLC",
-    "image": "https://www.stephenscode.dev/logo.png",
+    "image": "https://stephenscode.dev/logo.png",
     "telephone": "+1-936-323-4527",
-    "email": "info@stephenscode.dev",
+    "email": "kyle@stephenscode.dev",
     "address": {
       "@type": "PostalAddress",
-      "streetAddress": "Conroe",
+      "streetAddress": "2378 Strong Horse Dr",
       "addressLocality": "Conroe",
       "addressRegion": "TX",
-      "postalCode": "77304",
+      "postalCode": "77301",
       "addressCountry": "US"
     },
     "geo": {
@@ -26,7 +26,7 @@ const homepageSchemas = {
       "latitude": "30.3119",
       "longitude": "-95.4560"
     },
-    "url": "https://www.stephenscode.dev",
+    "url": "https://stephenscode.dev",
     "priceRange": "$250-$7500",
     "openingHoursSpecification": {
       "@type": "OpeningHoursSpecification",
@@ -90,7 +90,7 @@ const homepageSchemas = {
         "@type": "ListItem",
         "position": 1,
         "name": "Home",
-        "item": "https://www.stephenscode.dev"
+        "item": "https://stephenscode.dev"
       }
     ]
   }

@@ -8,7 +8,7 @@ export const metadata: Metadata = {
   openGraph: {
     title: 'Website Add-Ons | Flat-Rate Features | StephensCode',
     description: 'Enhance your website with powerful add-ons. Contact forms, SEO packages, e-commerce features, and more. All flat-rate pricing.',
-    url: 'https://www.stephenscode.dev/pricing/add-ons',
+    url: 'https://stephenscode.dev/pricing/add-ons',
     type: 'website',
   },
   twitter: {

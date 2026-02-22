@@ -13,7 +13,7 @@ interface BreadcrumbsProps {
 }
 
 export default function Breadcrumbs({ items }: BreadcrumbsProps) {
-  const baseUrl = 'https://www.stephenscode.dev'
+  const baseUrl = 'https://stephenscode.dev'
 
   // Build schema.org BreadcrumbList
   const schemaData = {

@@ -3,17 +3,19 @@ export const organizationSchema = {
   "@type": "ProfessionalService",
   "name": "StephensCode LLC",
   "description": "Veteran-owned web development serving Houston and Conroe",
-  "url": "https://www.stephenscode.dev",
-  "telephone": "+19363234527",
-  "email": "info@stephenscode.dev",
+  "url": "https://stephenscode.dev",
+  "telephone": "+1-936-323-4527",
+  "email": "kyle@stephenscode.dev",
   "founder": {
     "@type": "Person",
     "name": "Kyle Stephens"
   },
   "address": {
     "@type": "PostalAddress",
+    "streetAddress": "2378 Strong Horse Dr",
     "addressLocality": "Conroe",
     "addressRegion": "TX",
+    "postalCode": "77301",
     "addressCountry": "US"
   },
   "areaServed": [

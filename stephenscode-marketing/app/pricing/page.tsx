@@ -24,6 +24,15 @@ export const metadata: Metadata = {
     'e-commerce website cost',
     'Montgomery County web design',
   ],
+  openGraph: {
+    title: 'Affordable Web Design Houston | Small Business Websites from $250',
+    description: 'Conroe web developer with affordable web design from $250. Small business website packages for Houston and The Woodlands. Veteran owned. No hidden fees.',
+    url: 'https://stephenscode.dev/pricing',
+    type: 'website',
+  },
+  alternates: {
+    canonical: 'https://stephenscode.dev/pricing',
+  },
 }
 
 // Schema markup for pricing/offers

@@ -14,6 +14,15 @@ export const metadata: Metadata = {
     'free website quote',
     'The Woodlands web developer'
   ],
+  openGraph: {
+    title: 'Contact Conroe Web Developer | Free Quote | Houston TX',
+    description: 'Contact veteran owned web developer for free quote. Affordable web design Houston from $250. Custom websites for small business.',
+    url: 'https://stephenscode.dev/contact',
+    type: 'website',
+  },
+  alternates: {
+    canonical: 'https://stephenscode.dev/contact',
+  },
 }
 
 // LocalBusiness schema with complete contact information
@@ -25,13 +34,13 @@ const localBusinessSchema = {
   "description": "Professional web development and digital solutions for businesses in Houston, Conroe, and throughout Texas.",
   "url": "https://stephenscode.dev",
   "telephone": "+1-936-323-4527",
-  "email": "info@stephenscode.dev",
+  "email": "kyle@stephenscode.dev",
   "address": {
     "@type": "PostalAddress",
-    "streetAddress": "",
+    "streetAddress": "2378 Strong Horse Dr",
     "addressLocality": "Conroe",
     "addressRegion": "TX",
-    "postalCode": "77304",
+    "postalCode": "77301",
     "addressCountry": "US"
   },
   "geo": {

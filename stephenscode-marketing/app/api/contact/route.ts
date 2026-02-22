@@ -66,7 +66,7 @@ In the meantime, feel free to call us at (936) 323-4527 if you have any urgent q
 
 Best regards,
 StephensCode Team
-https://www.stephenscode.dev
+https://stephenscode.dev
 
 ---
 Your message:

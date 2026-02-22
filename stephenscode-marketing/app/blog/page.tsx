@@ -4,7 +4,7 @@ import { getAllPosts } from '@/lib/blog'
 
 export const metadata: Metadata = {
   title: 'Blog | Web Development Tips & Houston Business Growth | StephensCode',
-  description: 'Expert insights on web development, SEO, business automation, and digital marketing. Proven strategies and tips for Houston small businesses to grow online. Real-world advice from 14+ years of experience.',
+  description: 'Expert insights on web development, SEO, and business automation. Tips and strategies for Houston small businesses to grow online.',
   keywords: [
     'web development blog Houston',
     'SEO tips Texas',
@@ -14,6 +14,15 @@ export const metadata: Metadata = {
     'business automation tips',
     'web design best practices'
   ],
+  openGraph: {
+    title: 'Blog | Web Development Tips & Houston Business Growth | StephensCode',
+    description: 'Expert insights on web development, SEO, and business automation. Tips and strategies for Houston small businesses to grow online.',
+    url: 'https://stephenscode.dev/blog',
+    type: 'website',
+  },
+  alternates: {
+    canonical: 'https://stephenscode.dev/blog',
+  },
 }
 
 // Blog schema
