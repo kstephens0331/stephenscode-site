@@ -193,8 +193,8 @@ export default function Footer() {
             <p className="text-xs leading-5 text-gray-300">
               &copy; {new Date().getFullYear()} StephensCode LLC. All rights reserved. Veteran-Owned Business.
             </p>
-            <p className="text-xs leading-5 text-gray-500">
-              Conroe, Texas | <a href="https://stephenscode.dev" className="hover:text-gray-300">stephenscode.dev</a>
+            <p className="text-xs leading-5 text-gray-300">
+              Conroe, Texas | <a href="https://stephenscode.dev" className="hover:text-white">stephenscode.dev</a>
             </p>
           </div>
         </div>

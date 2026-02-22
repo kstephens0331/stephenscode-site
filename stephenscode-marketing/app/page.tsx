@@ -318,17 +318,17 @@ export default function Home() {
       {/* Stats Section */}
       <section className="bg-white py-16">
         <div className="mx-auto max-w-7xl px-6 lg:px-8">
-          <dl className="grid grid-cols-2 gap-8 lg:grid-cols-4">
+          <div className="grid grid-cols-2 gap-8 lg:grid-cols-4">
             {stats.map((stat, index) => (
               <div key={stat.label} className="flex flex-col items-center text-center group hover:scale-110 transition-transform duration-300" style={{ animationDelay: `${index * 100}ms` }}>
                 <div className="text-5xl mb-3 group-hover:scale-125 transition-transform">{stat.icon}</div>
-                <dt className="text-base leading-7 text-gray-600 font-semibold">{stat.label}</dt>
-                <dd className="order-first text-5xl font-black tracking-tight text-primary-600 mb-2">
+                <p className="text-base leading-7 text-gray-600 font-semibold">{stat.label}</p>
+                <p className="order-first text-5xl font-black tracking-tight text-primary-600 mb-2">
                   {stat.value}
-                </dd>
+                </p>
               </div>
             ))}
-          </dl>
+          </div>
         </div>
       </section>
 

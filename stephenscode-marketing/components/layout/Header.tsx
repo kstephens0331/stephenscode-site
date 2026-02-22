@@ -201,6 +201,7 @@ export default function Header() {
             </Link>
             <Link
               href="/contact"
+              aria-label="Get started - request a free quote"
               className="ml-4 inline-flex items-center rounded-md bg-accent-500 px-4 py-2 text-sm font-medium text-white hover:bg-accent-600 transition-colors"
             >
               Get Started
