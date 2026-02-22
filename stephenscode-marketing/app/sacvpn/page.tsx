@@ -3,7 +3,7 @@ import type { Metadata } from 'next'
 
 export const metadata: Metadata = {
   title: 'SACVPN | Enterprise-Grade VPN Security | StephensCode',
-  description: 'SACVPN provides enterprise-grade VPN security for businesses. Secure your remote workforce, protect sensitive data, and ensure privacy with military-grade encryption. Built by StephensCode.',
+  description: 'SACVPN provides enterprise-grade VPN security for businesses. Secure your remote workforce and protect sensitive data with military-grade encryption.',
   keywords: [
     'enterprise VPN',
     'business VPN solution',
@@ -13,6 +13,15 @@ export const metadata: Metadata = {
     'private network Texas',
     'secure business communications'
   ],
+  openGraph: {
+    title: 'SACVPN | Enterprise-Grade VPN Security | StephensCode',
+    description: 'SACVPN provides enterprise-grade VPN security for businesses. Secure your remote workforce and protect sensitive data with military-grade encryption.',
+    url: 'https://stephenscode.dev/sacvpn',
+    type: 'website',
+  },
+  alternates: {
+    canonical: 'https://stephenscode.dev/sacvpn',
+  },
 }
 
 export default function SACVPNPage() {

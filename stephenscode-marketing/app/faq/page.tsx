@@ -13,6 +13,15 @@ export const metadata: Metadata = {
     'veteran owned web developer',
     'The Woodlands web developer'
   ],
+  openGraph: {
+    title: 'FAQ | Conroe Web Developer Questions | Affordable Web Design',
+    description: 'FAQ about Conroe web developer services. Custom website Houston pricing, small business website Texas cost. Veteran owned, affordable web design from $250.',
+    url: 'https://stephenscode.dev/faq',
+    type: 'website',
+  },
+  alternates: {
+    canonical: 'https://stephenscode.dev/faq',
+  },
 }
 
 interface FAQItem {

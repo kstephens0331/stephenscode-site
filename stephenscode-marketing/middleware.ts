@@ -13,7 +13,7 @@ export function middleware(request: NextRequest) {
     style-src-elem 'self' 'unsafe-inline' https://fonts.googleapis.com;
     font-src 'self' https://fonts.gstatic.com data:;
     img-src 'self' https: data: blob:;
-    connect-src 'self' https://www.google-analytics.com https://analytics.google.com https://region1.google-analytics.com https://*.google-analytics.com https://analytics.ahrefs.com;
+    connect-src 'self' https://www.google-analytics.com https://analytics.google.com https://region1.google-analytics.com https://*.google-analytics.com https://stats.g.doubleclick.net https://analytics.ahrefs.com;
     frame-src 'self' https://www.google.com;
     frame-ancestors 'self';
     base-uri 'self';

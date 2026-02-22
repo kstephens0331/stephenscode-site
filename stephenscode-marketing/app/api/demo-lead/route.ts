@@ -102,7 +102,7 @@ StephensCode Team
 ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
 📞 (936) 323-4527
 📧 info@stephenscode.dev
-🌐 www.stephenscode.dev
+🌐 stephenscode.dev
       `.trim()
 
       await transporter.sendMail({

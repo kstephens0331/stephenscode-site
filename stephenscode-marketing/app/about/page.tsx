@@ -13,6 +13,15 @@ export const metadata: Metadata = {
     'small business website Texas',
     'custom website Houston'
   ],
+  openGraph: {
+    title: 'Veteran Owned Web Developer | About StephensCode | Houston TX',
+    description: 'Veteran owned web developer in Conroe TX. 14+ years Houston web development experience. Affordable web design, custom websites for small business.',
+    url: 'https://stephenscode.dev/about',
+    type: 'website',
+  },
+  alternates: {
+    canonical: 'https://stephenscode.dev/about',
+  },
 }
 
 // Person schema for Kyle Stephens
