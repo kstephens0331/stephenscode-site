@@ -1,7 +1,8 @@
 'use client'
 
 import Link from 'next/link'
-import { useState, useRef, useCallback } from 'react'
+import Image from 'next/image'
+import { useState, useRef, useCallback, useEffect } from 'react'
 import { Bars3Icon, XMarkIcon, ChevronDownIcon } from '@heroicons/react/24/outline'
 
 interface DropdownProps {
@@ -12,6 +13,8 @@ interface DropdownProps {
 function Dropdown({ label, items }: DropdownProps) {
   const [open, setOpen] = useState(false)
   const timeoutRef = useRef<NodeJS.Timeout | null>(null)
+  const containerRef = useRef<HTMLDivElement>(null)
+  const itemRefs = useRef<(HTMLAnchorElement | null)[]>([])
 
   const handleMouseEnter = useCallback(() => {
     if (timeoutRef.current) {
@@ -22,14 +25,57 @@ function Dropdown({ label, items }: DropdownProps) {
   }, [])
 
   const handleMouseLeave = useCallback(() => {
-    // Delay closing by 150ms to allow moving to dropdown items
     timeoutRef.current = setTimeout(() => {
       setOpen(false)
     }, 150)
   }, [])
 
+  const handleKeyDown = useCallback((e: React.KeyboardEvent) => {
+    switch (e.key) {
+      case 'Enter':
+      case ' ':
+        e.preventDefault()
+        setOpen(prev => !prev)
+        break
+      case 'Escape':
+        setOpen(false)
+        break
+      case 'ArrowDown':
+        e.preventDefault()
+        if (!open) {
+          setOpen(true)
+        } else {
+          itemRefs.current[0]?.focus()
+        }
+        break
+    }
+  }, [open])
+
+  const handleItemKeyDown = useCallback((e: React.KeyboardEvent, index: number) => {
+    switch (e.key) {
+      case 'ArrowDown':
+        e.preventDefault()
+        itemRefs.current[index + 1]?.focus()
+        break
+      case 'ArrowUp':
+        e.preventDefault()
+        if (index === 0) {
+          containerRef.current?.querySelector('button')?.focus()
+        } else {
+          itemRefs.current[index - 1]?.focus()
+        }
+        break
+      case 'Escape':
+        e.preventDefault()
+        setOpen(false)
+        containerRef.current?.querySelector('button')?.focus()
+        break
+    }
+  }, [])
+
   return (
     <div
+      ref={containerRef}
       className="relative"
       onMouseEnter={handleMouseEnter}
       onMouseLeave={handleMouseLeave}
@@ -37,29 +83,38 @@ function Dropdown({ label, items }: DropdownProps) {
       <button
         className="flex items-center gap-1 text-base font-medium text-gray-700 hover:text-primary-600 transition-colors"
         onClick={() => setOpen(!open)}
+        onKeyDown={handleKeyDown}
+        aria-expanded={open}
+        aria-haspopup="true"
       >
         {label}
-        <ChevronDownIcon className={`w-4 h-4 transition-transform ${open ? 'rotate-180' : ''}`} />
+        <ChevronDownIcon className={`w-4 h-4 transition-transform ${open ? 'rotate-180' : ''}`} aria-hidden="true" />
       </button>
       {open && (
-        <div className="absolute top-full left-0 pt-2 w-48 z-50">
+        <div className="absolute top-full left-0 pt-2 w-48 z-50" role="menu" aria-label={label}>
           <div className="bg-white rounded-lg shadow-lg border border-gray-100 py-2">
-            {items.map((item) => (
+            {items.map((item, index) => (
               item.external ? (
                 <a
                   key={item.name}
+                  ref={el => { itemRefs.current[index] = el }}
                   href={item.href}
                   target="_blank"
                   rel="noopener noreferrer"
+                  role="menuitem"
                   className="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-50 hover:text-primary-600"
+                  onKeyDown={(e) => handleItemKeyDown(e, index)}
                 >
                   {item.name}
                 </a>
               ) : (
                 <Link
                   key={item.name}
+                  ref={el => { itemRefs.current[index] = el as HTMLAnchorElement | null }}
                   href={item.href}
+                  role="menuitem"
                   className="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-50 hover:text-primary-600"
+                  onKeyDown={(e) => handleItemKeyDown(e, index)}
                 >
                   {item.name}
                 </Link>
@@ -76,6 +131,9 @@ export default function Header() {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false)
   const [servicesOpen, setServicesOpen] = useState(false)
   const [aboutOpen, setAboutOpen] = useState(false)
+  const [loginOpen, setLoginOpen] = useState(false)
+  const loginRef = useRef<HTMLDivElement>(null)
+  const loginTimeoutRef = useRef<NodeJS.Timeout | null>(null)
 
   const servicesItems = [
     { name: 'Web Development', href: '/services' },
@@ -89,27 +147,33 @@ export default function Header() {
     { name: 'Blog', href: '/blog' },
   ]
 
+  // Close login dropdown on outside click
+  useEffect(() => {
+    function handleClickOutside(e: MouseEvent) {
+      if (loginRef.current && !loginRef.current.contains(e.target as Node)) {
+        setLoginOpen(false)
+      }
+    }
+    if (loginOpen) {
+      document.addEventListener('mousedown', handleClickOutside)
+      return () => document.removeEventListener('mousedown', handleClickOutside)
+    }
+  }, [loginOpen])
+
   return (
     <header className="bg-white shadow-sm sticky top-0 z-50">
       <nav className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8" aria-label="Top">
         <div className="flex w-full items-center justify-between py-4">
           <div className="flex items-center">
             <Link href="/" className="flex items-center gap-2 text-2xl font-bold text-primary-900">
-              <div className="w-8 h-8 flex-shrink-0">
-                {/* eslint-disable-next-line @next/next/no-img-element */}
-                <img
-                  src="/images/favicon-512.png"
-                  alt="StephensCode Logo"
-                  width="32"
-                  height="32"
-                  className="w-full h-full object-contain"
-                  onError={(e) => {
-                    const target = e.target as HTMLImageElement;
-                    target.style.display = 'none';
-                    target.parentElement!.innerHTML = '<div class="w-full h-full bg-accent-500 rounded-lg flex items-center justify-center"><span class="text-white text-lg font-bold">S</span></div>';
-                  }}
-                />
-              </div>
+              <Image
+                src="/images/favicon-512.png"
+                alt="StephensCode Logo"
+                width={32}
+                height={32}
+                className="w-8 h-8 object-contain"
+                priority
+              />
               <span>StephensCode</span>
             </Link>
           </div>
@@ -143,31 +207,57 @@ export default function Header() {
             </Link>
 
             {/* Login Dropdown */}
-            <div className="relative ml-2 group">
-              <button className="inline-flex items-center gap-1 px-3 py-2 text-sm font-medium text-gray-600 hover:text-primary-600 transition-colors">
+            <div
+              ref={loginRef}
+              className="relative ml-2"
+              onMouseEnter={() => {
+                if (loginTimeoutRef.current) clearTimeout(loginTimeoutRef.current)
+                setLoginOpen(true)
+              }}
+              onMouseLeave={() => {
+                loginTimeoutRef.current = setTimeout(() => setLoginOpen(false), 150)
+              }}
+            >
+              <button
+                className="inline-flex items-center gap-1 px-3 py-2 text-sm font-medium text-gray-600 hover:text-primary-600 transition-colors"
+                onClick={() => setLoginOpen(!loginOpen)}
+                onKeyDown={(e) => {
+                  if (e.key === 'Enter' || e.key === ' ') { e.preventDefault(); setLoginOpen(prev => !prev) }
+                  if (e.key === 'Escape') setLoginOpen(false)
+                  if (e.key === 'ArrowDown') { e.preventDefault(); setLoginOpen(true) }
+                }}
+                aria-expanded={loginOpen}
+                aria-haspopup="true"
+              >
                 Login
-                <ChevronDownIcon className="w-4 h-4" />
+                <ChevronDownIcon className="w-4 h-4" aria-hidden="true" />
               </button>
-              <div className="absolute right-0 top-full pt-2 w-40 opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all z-50">
-                <div className="bg-white rounded-lg shadow-lg border border-gray-100 py-2">
-                  <a
-                    href="https://customer.stephenscode.dev"
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-50 hover:text-primary-600"
-                  >
-                    Customer Portal
-                  </a>
-                  <a
-                    href="https://admin.stephenscode.dev"
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-50 hover:text-primary-600"
-                  >
-                    Admin Login
-                  </a>
+              {loginOpen && (
+                <div className="absolute right-0 top-full pt-2 w-40 z-50" role="menu" aria-label="Login options">
+                  <div className="bg-white rounded-lg shadow-lg border border-gray-100 py-2">
+                    <a
+                      href="https://customer.stephenscode.dev"
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      role="menuitem"
+                      className="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-50 hover:text-primary-600"
+                      onKeyDown={(e) => { if (e.key === 'Escape') { setLoginOpen(false) } }}
+                    >
+                      Customer Portal
+                    </a>
+                    <a
+                      href="https://admin.stephenscode.dev"
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      role="menuitem"
+                      className="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-50 hover:text-primary-600"
+                      onKeyDown={(e) => { if (e.key === 'Escape') { setLoginOpen(false) } }}
+                    >
+                      Admin Login
+                    </a>
+                  </div>
                 </div>
-              </div>
+              )}
             </div>
           </div>
 
@@ -177,6 +267,7 @@ export default function Header() {
               type="button"
               className="-m-2.5 inline-flex items-center justify-center rounded-md p-2.5 text-gray-700"
               onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
+              aria-expanded={mobileMenuOpen}
             >
               <span className="sr-only">Open main menu</span>
               {mobileMenuOpen ? (
@@ -196,10 +287,11 @@ export default function Header() {
               <div>
                 <button
                   onClick={() => setServicesOpen(!servicesOpen)}
+                  aria-expanded={servicesOpen}
                   className="flex items-center justify-between w-full px-3 py-2 text-base font-medium text-gray-700 hover:bg-gray-50 rounded-lg"
                 >
                   Services
-                  <ChevronDownIcon className={`w-4 h-4 transition-transform ${servicesOpen ? 'rotate-180' : ''}`} />
+                  <ChevronDownIcon className={`w-4 h-4 transition-transform ${servicesOpen ? 'rotate-180' : ''}`} aria-hidden="true" />
                 </button>
                 {servicesOpen && (
                   <div className="pl-4 space-y-1">
@@ -258,10 +350,11 @@ export default function Header() {
               <div>
                 <button
                   onClick={() => setAboutOpen(!aboutOpen)}
+                  aria-expanded={aboutOpen}
                   className="flex items-center justify-between w-full px-3 py-2 text-base font-medium text-gray-700 hover:bg-gray-50 rounded-lg"
                 >
                   About
-                  <ChevronDownIcon className={`w-4 h-4 transition-transform ${aboutOpen ? 'rotate-180' : ''}`} />
+                  <ChevronDownIcon className={`w-4 h-4 transition-transform ${aboutOpen ? 'rotate-180' : ''}`} aria-hidden="true" />
                 </button>
                 {aboutOpen && (
                   <div className="pl-4 space-y-1">
@@ -296,7 +389,7 @@ export default function Header() {
 
               {/* Login Links */}
               <div className="border-t border-gray-100 mt-3 pt-3">
-                <p className="px-3 py-1 text-xs font-semibold text-gray-400 uppercase">Login</p>
+                <p className="px-3 py-1 text-xs font-semibold text-gray-500 uppercase">Login</p>
                 <a
                   href="https://customer.stephenscode.dev"
                   target="_blank"

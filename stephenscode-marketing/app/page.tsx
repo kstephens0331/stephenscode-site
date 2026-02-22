@@ -1,6 +1,5 @@
 import Link from 'next/link'
 import { organizationSchema } from '@/lib/schemas'
-import HomeClient from '@/components/HomeClient'
 
 // Advanced Schema Markup for Homepage
 const homepageSchemas = {
@@ -212,8 +211,6 @@ export default function Home() {
         type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: JSON.stringify(homepageSchemas.breadcrumb) }}
       />
-
-      <HomeClient />
 
       {/* Hero Section with Advanced Design */}
       <section className="relative overflow-hidden bg-gradient-to-br from-primary-900 via-primary-800 to-primary-700 text-white">
