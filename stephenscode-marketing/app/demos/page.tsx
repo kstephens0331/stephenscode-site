@@ -56,23 +56,23 @@ export default function DemosPage() {
       </section>
 
       {/* Stats */}
-      <section className="bg-white py-16">
+      <section className="bg-slate-900 py-16">
         <div className="mx-auto max-w-7xl px-6 lg:px-8">
           <dl className="grid grid-cols-1 gap-8 sm:grid-cols-2 lg:grid-cols-4">
             <div className="flex flex-col items-center border-l-4 border-accent-500 pl-6">
-              <dt className="text-base leading-7 text-gray-600">Total Demos</dt>
+              <dt className="text-base leading-7 text-gray-400">Total Demos</dt>
               <dd className="order-first text-4xl font-bold tracking-tight text-primary-600">{allDemos.length}</dd>
             </div>
             <div className="flex flex-col items-center border-l-4 border-accent-500 pl-6">
-              <dt className="text-base leading-7 text-gray-600">Industries</dt>
+              <dt className="text-base leading-7 text-gray-400">Industries</dt>
               <dd className="order-first text-4xl font-bold tracking-tight text-primary-600">{Object.keys(demosByIndustry).length}</dd>
             </div>
             <div className="flex flex-col items-center border-l-4 border-accent-500 pl-6">
-              <dt className="text-base leading-7 text-gray-600">Unique Layouts</dt>
+              <dt className="text-base leading-7 text-gray-400">Unique Layouts</dt>
               <dd className="order-first text-4xl font-bold tracking-tight text-primary-600">6</dd>
             </div>
             <div className="flex flex-col items-center border-l-4 border-accent-500 pl-6">
-              <dt className="text-base leading-7 text-gray-600">Fully Interactive</dt>
+              <dt className="text-base leading-7 text-gray-400">Fully Interactive</dt>
               <dd className="order-first text-4xl font-bold tracking-tight text-primary-600">100%</dd>
             </div>
           </dl>
@@ -85,45 +85,45 @@ export default function DemosPage() {
       </div>
 
       {/* Interactive Features Callout */}
-      <section className="bg-white py-24 sm:py-32">
+      <section className="bg-slate-900 py-24 sm:py-32">
         <div className="mx-auto max-w-7xl px-6 lg:px-8">
           <div className="mx-auto max-w-2xl text-center mb-16">
-            <h2 className="text-3xl font-bold tracking-tight text-gray-900 sm:text-4xl">
+            <h2 className="text-3xl font-bold tracking-tight text-white sm:text-4xl">
               Fully Interactive Demos
             </h2>
-            <p className="mt-4 text-lg leading-8 text-gray-600">
+            <p className="mt-4 text-lg leading-8 text-gray-400">
               These aren't screenshots—they're real, working websites you can interact with.
             </p>
           </div>
 
           <div className="grid grid-cols-1 gap-8 md:grid-cols-2 lg:grid-cols-4">
             <div className="text-center">
-              <div className="mx-auto h-16 w-16 rounded-full bg-primary-100 flex items-center justify-center text-3xl mb-4">
+              <div className="mx-auto h-16 w-16 rounded-full bg-primary-500/10 flex items-center justify-center text-3xl mb-4">
                 ✅
               </div>
-              <h3 className="text-lg font-semibold text-gray-900 mb-2">Click Around</h3>
-              <p className="text-sm text-gray-600">Navigate pages, open menus, test buttons—everything works.</p>
+              <h3 className="text-lg font-semibold text-white mb-2">Click Around</h3>
+              <p className="text-sm text-gray-400">Navigate pages, open menus, test buttons—everything works.</p>
             </div>
             <div className="text-center">
-              <div className="mx-auto h-16 w-16 rounded-full bg-primary-100 flex items-center justify-center text-3xl mb-4">
+              <div className="mx-auto h-16 w-16 rounded-full bg-primary-500/10 flex items-center justify-center text-3xl mb-4">
                 📝
               </div>
-              <h3 className="text-lg font-semibold text-gray-900 mb-2">Fill Out Forms</h3>
-              <p className="text-sm text-gray-600">Test contact forms, booking systems, and checkout flows.</p>
+              <h3 className="text-lg font-semibold text-white mb-2">Fill Out Forms</h3>
+              <p className="text-sm text-gray-400">Test contact forms, booking systems, and checkout flows.</p>
             </div>
             <div className="text-center">
-              <div className="mx-auto h-16 w-16 rounded-full bg-primary-100 flex items-center justify-center text-3xl mb-4">
+              <div className="mx-auto h-16 w-16 rounded-full bg-primary-500/10 flex items-center justify-center text-3xl mb-4">
                 🔐
               </div>
-              <h3 className="text-lg font-semibold text-gray-900 mb-2">Try Admin Panels</h3>
-              <p className="text-sm text-gray-600">Log into dashboards, see reports, manage content (demo mode).</p>
+              <h3 className="text-lg font-semibold text-white mb-2">Try Admin Panels</h3>
+              <p className="text-sm text-gray-400">Log into dashboards, see reports, manage content (demo mode).</p>
             </div>
             <div className="text-center">
-              <div className="mx-auto h-16 w-16 rounded-full bg-primary-100 flex items-center justify-center text-3xl mb-4">
+              <div className="mx-auto h-16 w-16 rounded-full bg-primary-500/10 flex items-center justify-center text-3xl mb-4">
                 📱
               </div>
-              <h3 className="text-lg font-semibold text-gray-900 mb-2">Test on Mobile</h3>
-              <p className="text-sm text-gray-600">Resize your browser—all demos are fully responsive.</p>
+              <h3 className="text-lg font-semibold text-white mb-2">Test on Mobile</h3>
+              <p className="text-sm text-gray-400">Resize your browser—all demos are fully responsive.</p>
             </div>
           </div>
         </div>

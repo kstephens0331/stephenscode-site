@@ -172,47 +172,47 @@ export default function PricingPage() {
 
         {/* Wave divider */}
         <div className="absolute bottom-0 left-0 right-0">
-          <svg className="w-full h-16 fill-white" viewBox="0 0 1200 120" preserveAspectRatio="none">
+          <svg className="w-full h-16 fill-slate-900" viewBox="0 0 1200 120" preserveAspectRatio="none">
             <path d="M321.39,56.44c58-10.79,114.16-30.13,172-41.86,82.39-16.72,168.19-17.73,250.45-.39C823.78,31,906.67,72,985.66,92.83c70.05,18.48,146.53,26.09,214.34,3V0H0V27.35A600.21,600.21,0,0,0,321.39,56.44Z" />
           </svg>
         </div>
       </section>
 
       {/* Quick Stats Section */}
-      <section className="bg-white py-16 border-b border-gray-200">
+      <section className="bg-slate-900 py-16 border-b border-slate-700">
         <div className="mx-auto max-w-7xl px-6 lg:px-8">
           <div className="grid grid-cols-2 md:grid-cols-4 gap-8 text-center">
             <div className="animate-fade-in-up">
-              <div className="text-4xl font-bold text-primary-900">$250</div>
-              <div className="text-sm text-gray-600 mt-2">Starting Price</div>
+              <div className="text-4xl font-bold text-primary-200">$250</div>
+              <div className="text-sm text-gray-400 mt-2">Starting Price</div>
             </div>
             <div className="animate-fade-in-up animation-delay-200">
-              <div className="text-4xl font-bold text-primary-900">40+</div>
-              <div className="text-sm text-gray-600 mt-2">Add-On Options</div>
+              <div className="text-4xl font-bold text-primary-200">40+</div>
+              <div className="text-sm text-gray-400 mt-2">Add-On Options</div>
             </div>
             <div className="animate-fade-in-up animation-delay-400">
-              <div className="text-4xl font-bold text-primary-900">0%</div>
-              <div className="text-sm text-gray-600 mt-2">Hidden Fees</div>
+              <div className="text-4xl font-bold text-primary-200">0%</div>
+              <div className="text-sm text-gray-400 mt-2">Hidden Fees</div>
             </div>
             <div className="animate-fade-in-up animation-delay-600">
-              <div className="text-4xl font-bold text-primary-900">8</div>
-              <div className="text-sm text-gray-600 mt-2">Package Options</div>
+              <div className="text-4xl font-bold text-primary-200">8</div>
+              <div className="text-sm text-gray-400 mt-2">Package Options</div>
             </div>
           </div>
         </div>
       </section>
 
       {/* Core Packages */}
-      <section className="bg-gradient-to-b from-white to-gray-50 py-24 sm:py-32">
+      <section className="bg-slate-900 py-24 sm:py-32">
         <div className="mx-auto max-w-7xl px-6 lg:px-8">
           <div className="mx-auto max-w-2xl text-center mb-16">
-            <div className="inline-flex items-center rounded-full bg-primary-100 px-4 py-2 text-sm font-semibold text-primary-900 mb-4">
+            <div className="inline-flex items-center rounded-full bg-primary-500/15 px-4 py-2 text-sm font-semibold text-primary-200 mb-4">
               🚀 Core Packages
             </div>
-            <h2 className="text-4xl font-bold tracking-tight text-gray-900 sm:text-5xl">
+            <h2 className="text-4xl font-bold tracking-tight text-white sm:text-5xl">
               Basic Website Packages
             </h2>
-            <p className="mt-4 text-lg leading-8 text-gray-600">
+            <p className="mt-4 text-lg leading-8 text-gray-400">
               Professional websites for businesses of all sizes. Perfect starting point from $250-$1,100.
             </p>
           </div>
@@ -223,8 +223,8 @@ export default function PricingPage() {
               return (
                 <div
                   key={pkg.id}
-                  className={`relative flex flex-col rounded-3xl bg-white p-8 shadow-lg hover:shadow-2xl transition-all hover:scale-105 ${
-                    isPopular ? 'border-2 border-accent-500 ring-4 ring-accent-500/20' : 'border border-gray-200'
+                  className={`relative flex flex-col rounded-3xl bg-slate-900 p-8 shadow-lg hover:shadow-2xl transition-all hover:scale-105 ${
+                    isPopular ? 'border-2 border-accent-500 ring-4 ring-accent-500/20' : 'border border-slate-700'
                   }`}
                 >
                   {isPopular && (
@@ -234,10 +234,10 @@ export default function PricingPage() {
                       </span>
                     </div>
                   )}
-                  <h3 className="text-2xl font-bold text-gray-900">{pkg.name}</h3>
-                  <p className="mt-4 text-sm text-gray-600 leading-relaxed">{pkg.shortDescription}</p>
+                  <h3 className="text-2xl font-bold text-white">{pkg.name}</h3>
+                  <p className="mt-4 text-sm text-gray-400 leading-relaxed">{pkg.shortDescription}</p>
                   <p className="mt-6 flex items-baseline gap-x-1">
-                    <span className="text-5xl font-bold tracking-tight bg-gradient-to-r from-primary-900 to-primary-600 bg-clip-text text-transparent">
+                    <span className="text-5xl font-bold tracking-tight bg-gradient-to-r from-primary-400 to-accent-400 bg-clip-text text-transparent">
                       {pkg.priceLabel}
                     </span>
                   </p>
@@ -245,9 +245,9 @@ export default function PricingPage() {
                     <svg className="w-4 h-4 text-gray-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                       <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z" />
                     </svg>
-                    <p className="text-sm text-gray-500">{pkg.timeline}</p>
+                    <p className="text-sm text-gray-400">{pkg.timeline}</p>
                   </div>
-                  <ul className="mt-8 space-y-3 text-sm leading-6 text-gray-600 flex-grow">
+                  <ul className="mt-8 space-y-3 text-sm leading-6 text-gray-400 flex-grow">
                     {pkg.features.slice(0, 6).map((feature) => (
                       <li key={feature} className="flex gap-x-3">
                         <svg
@@ -283,16 +283,16 @@ export default function PricingPage() {
       </section>
 
       {/* Premium Builds */}
-      <section className="bg-gradient-to-b from-gray-50 to-white py-24 sm:py-32">
+      <section className="bg-slate-900 py-24 sm:py-32">
         <div className="mx-auto max-w-7xl px-6 lg:px-8">
           <div className="mx-auto max-w-2xl text-center mb-16">
-            <div className="inline-flex items-center rounded-full bg-gradient-to-r from-purple-100 to-blue-100 px-4 py-2 text-sm font-semibold text-purple-900 mb-4">
+            <div className="inline-flex items-center rounded-full bg-gradient-to-r from-purple-500/15 to-blue-500/15 px-4 py-2 text-sm font-semibold text-purple-200 mb-4">
               ⚡ Premium Solutions
             </div>
-            <h2 className="text-4xl font-bold tracking-tight text-gray-900 sm:text-5xl">
+            <h2 className="text-4xl font-bold tracking-tight text-white sm:text-5xl">
               Advanced Full-Stack Platforms
             </h2>
-            <p className="mt-4 text-lg leading-8 text-gray-600">
+            <p className="mt-4 text-lg leading-8 text-gray-400">
               Custom features, admin systems, databases, and scalable infrastructure for serious businesses.
             </p>
           </div>
@@ -301,18 +301,18 @@ export default function PricingPage() {
             {premiumBuilds.map((pkg) => (
               <div
                 key={pkg.id}
-                className="relative flex flex-col rounded-3xl border-2 border-primary-600 bg-white p-8 shadow-2xl hover:shadow-3xl transition-all hover:scale-105"
+                className="relative flex flex-col rounded-3xl border-2 border-primary-600 bg-slate-900 p-8 shadow-2xl hover:shadow-3xl transition-all hover:scale-105"
                 style={{
-                  background: 'linear-gradient(135deg, #ffffff 0%, #f9fafb 100%)'
+                  background: 'linear-gradient(135deg, #0f172a 0%, #1e293b 100%)'
                 }}
               >
                 <div className="absolute -top-3 -right-3 w-16 h-16 bg-gradient-to-br from-accent-500 to-primary-600 rounded-full flex items-center justify-center text-2xl shadow-lg">
                   🏆
                 </div>
-                <h3 className="text-2xl font-bold text-gray-900">{pkg.name}</h3>
-                <p className="mt-4 text-sm text-gray-600 leading-relaxed">{pkg.shortDescription}</p>
+                <h3 className="text-2xl font-bold text-white">{pkg.name}</h3>
+                <p className="mt-4 text-sm text-gray-400 leading-relaxed">{pkg.shortDescription}</p>
                 <p className="mt-6 flex items-baseline gap-x-1">
-                  <span className="text-5xl font-bold tracking-tight bg-gradient-to-r from-primary-900 via-accent-600 to-primary-600 bg-clip-text text-transparent">
+                  <span className="text-5xl font-bold tracking-tight bg-gradient-to-r from-primary-400 via-accent-400 to-primary-400 bg-clip-text text-transparent">
                     {pkg.priceLabel}
                   </span>
                 </p>
@@ -320,9 +320,9 @@ export default function PricingPage() {
                   <svg className="w-4 h-4 text-gray-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                     <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z" />
                   </svg>
-                  <p className="text-sm text-gray-500">{pkg.timeline}</p>
+                  <p className="text-sm text-gray-400">{pkg.timeline}</p>
                 </div>
-                <ul className="mt-8 space-y-3 text-sm leading-6 text-gray-600 flex-grow">
+                <ul className="mt-8 space-y-3 text-sm leading-6 text-gray-400 flex-grow">
                   {pkg.features.slice(0, 7).map((feature) => (
                     <li key={feature} className="flex gap-x-3">
                       <svg
@@ -353,16 +353,16 @@ export default function PricingPage() {
       </section>
 
       {/* Add-Ons Overview */}
-      <section className="bg-gradient-to-br from-gray-50 via-white to-gray-50 py-24 sm:py-32">
+      <section className="bg-slate-900 py-24 sm:py-32">
         <div className="mx-auto max-w-7xl px-6 lg:px-8">
           <div className="mx-auto max-w-2xl text-center mb-16">
-            <div className="inline-flex items-center rounded-full bg-green-100 px-4 py-2 text-sm font-semibold text-green-900 mb-4">
+            <div className="inline-flex items-center rounded-full bg-green-500/15 px-4 py-2 text-sm font-semibold text-green-200 mb-4">
               🎯 40+ Add-Ons Available
             </div>
-            <h2 className="text-4xl font-bold tracking-tight text-gray-900 sm:text-5xl">
+            <h2 className="text-4xl font-bold tracking-tight text-white sm:text-5xl">
               Customize Your Website
             </h2>
-            <p className="mt-4 text-lg leading-8 text-gray-600">
+            <p className="mt-4 text-lg leading-8 text-gray-400">
               Enhance any package with powerful features. Mix and match to build your perfect website.
             </p>
           </div>
@@ -370,23 +370,23 @@ export default function PricingPage() {
           {/* Basic Add-Ons Preview */}
           <div className="mb-16">
             <div className="flex items-center justify-between mb-8">
-              <h3 className="text-2xl font-bold text-gray-900">Basic Add-Ons</h3>
-              <span className="text-sm text-gray-500">{basicAddOns.length} options</span>
+              <h3 className="text-2xl font-bold text-white">Basic Add-Ons</h3>
+              <span className="text-sm text-gray-400">{basicAddOns.length} options</span>
             </div>
             <div className="grid gap-6 sm:grid-cols-2 lg:grid-cols-2">
               {basicAddOns.slice(0, 4).map((addon) => (
                 <Link
                   key={addon.id}
                   href={`/services/${addon.slug}`}
-                  className="group rounded-xl border border-gray-200 bg-white p-6 hover:border-accent-500 hover:shadow-lg transition-all hover:scale-105"
+                  className="group rounded-xl border border-slate-700 bg-slate-900 p-6 hover:border-accent-500 hover:shadow-lg transition-all hover:scale-105"
                 >
                   <div className="flex items-center justify-between mb-3">
-                    <h4 className="text-lg font-semibold text-gray-900 group-hover:text-primary-600 transition-colors">
+                    <h4 className="text-lg font-semibold text-white group-hover:text-primary-600 transition-colors">
                       {addon.name}
                     </h4>
                     <p className="text-lg font-bold text-accent-600">{addon.priceLabel}</p>
                   </div>
-                  <p className="text-sm text-gray-600 leading-relaxed">{addon.shortDescription}</p>
+                  <p className="text-sm text-gray-400 leading-relaxed">{addon.shortDescription}</p>
                   <div className="mt-4 text-sm font-semibold text-accent-600 group-hover:text-primary-600 transition-colors">
                     Learn more <span aria-hidden="true" className="inline-block transition-transform group-hover:translate-x-1">→</span>
                   </div>
@@ -395,7 +395,7 @@ export default function PricingPage() {
             </div>
             {basicAddOns.length > 4 && (
               <div className="mt-8 text-center">
-                <p className="text-gray-600">+ {basicAddOns.length - 4} more basic add-ons available</p>
+                <p className="text-gray-400">+ {basicAddOns.length - 4} more basic add-ons available</p>
               </div>
             )}
           </div>
@@ -403,25 +403,25 @@ export default function PricingPage() {
           {/* Advanced Add-Ons Preview */}
           <div>
             <div className="flex items-center justify-between mb-8">
-              <h3 className="text-2xl font-bold text-gray-900">Advanced Add-Ons</h3>
-              <span className="text-sm text-gray-500">{advancedAddOns.length} options</span>
+              <h3 className="text-2xl font-bold text-white">Advanced Add-Ons</h3>
+              <span className="text-sm text-gray-400">{advancedAddOns.length} options</span>
             </div>
             <div className="grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
               {advancedAddOns.slice(0, 6).map((addon) => (
                 <Link
                   key={addon.id}
                   href={`/services/${addon.slug}`}
-                  className="group rounded-xl border-2 border-gray-200 bg-white p-6 hover:border-primary-500 hover:shadow-xl transition-all hover:scale-105"
+                  className="group rounded-xl border-2 border-slate-700 bg-slate-900 p-6 hover:border-primary-500 hover:shadow-xl transition-all hover:scale-105"
                 >
                   <div className="flex items-center justify-between mb-3">
-                    <h4 className="text-lg font-semibold text-gray-900 group-hover:text-primary-600 transition-colors">
+                    <h4 className="text-lg font-semibold text-white group-hover:text-primary-600 transition-colors">
                       {addon.name}
                     </h4>
                     <p className="text-xl font-bold text-primary-600">{addon.priceLabel}</p>
                   </div>
-                  <p className="text-sm text-gray-600 mb-4 leading-relaxed">{addon.shortDescription}</p>
+                  <p className="text-sm text-gray-400 mb-4 leading-relaxed">{addon.shortDescription}</p>
                   <div className="flex items-center justify-between text-sm">
-                    <span className="text-gray-500">⏱️ {addon.timeline}</span>
+                    <span className="text-gray-400">⏱️ {addon.timeline}</span>
                     <span className="font-semibold text-primary-600 group-hover:text-accent-600 transition-colors">
                       Details <span aria-hidden="true" className="inline-block transition-transform group-hover:translate-x-1">→</span>
                     </span>
@@ -431,7 +431,7 @@ export default function PricingPage() {
             </div>
             {advancedAddOns.length > 6 && (
               <div className="mt-8 text-center">
-                <p className="text-gray-600">+ {advancedAddOns.length - 6} more advanced add-ons available</p>
+                <p className="text-gray-400">+ {advancedAddOns.length - 6} more advanced add-ons available</p>
               </div>
             )}
           </div>
@@ -551,21 +551,21 @@ export default function PricingPage() {
 
           <div className="mx-auto max-w-5xl">
             <div className="grid grid-cols-1 gap-8 lg:grid-cols-3">
-              <div className="rounded-2xl bg-white/10 backdrop-blur-sm p-8 border border-white/20 hover:bg-white/15 transition-all">
+              <div className="rounded-2xl bg-slate-800/40 backdrop-blur-sm p-8 border border-slate-600 hover:bg-slate-700/40 transition-all">
                 <div className="text-4xl mb-4">🎯</div>
                 <h3 className="text-xl font-bold text-white mb-3">No Surprises</h3>
                 <p className="text-gray-200 leading-relaxed">
                   You know the exact cost upfront. No hourly billing that spirals out of control or unexpected charges at the end.
                 </p>
               </div>
-              <div className="rounded-2xl bg-white/10 backdrop-blur-sm p-8 border border-white/20 hover:bg-white/15 transition-all">
+              <div className="rounded-2xl bg-slate-800/40 backdrop-blur-sm p-8 border border-slate-600 hover:bg-slate-700/40 transition-all">
                 <div className="text-4xl mb-4">💰</div>
                 <h3 className="text-xl font-bold text-white mb-3">Budget-Friendly</h3>
                 <p className="text-gray-200 leading-relaxed">
                   Plan your budget accurately. Mix and match packages and add-ons to get exactly what you need within your budget.
                 </p>
               </div>
-              <div className="rounded-2xl bg-white/10 backdrop-blur-sm p-8 border border-white/20 hover:bg-white/15 transition-all">
+              <div className="rounded-2xl bg-slate-800/40 backdrop-blur-sm p-8 border border-slate-600 hover:bg-slate-700/40 transition-all">
                 <div className="text-4xl mb-4">⭐</div>
                 <h3 className="text-xl font-bold text-white mb-3">Quality Focus</h3>
                 <p className="text-gray-200 leading-relaxed">
@@ -610,13 +610,13 @@ export default function PricingPage() {
       </section>
 
       {/* FAQ Section */}
-      <section className="bg-white py-24 sm:py-32">
+      <section className="bg-slate-900 py-24 sm:py-32">
         <div className="mx-auto max-w-7xl px-6 lg:px-8">
           <div className="mx-auto max-w-2xl text-center mb-16">
-            <h2 className="text-4xl font-bold tracking-tight text-gray-900 sm:text-5xl">
+            <h2 className="text-4xl font-bold tracking-tight text-white sm:text-5xl">
               Pricing Questions?
             </h2>
-            <p className="mt-4 text-lg leading-8 text-gray-600">
+            <p className="mt-4 text-lg leading-8 text-gray-400">
               Get answers to common questions about our pricing and packages.
             </p>
           </div>
@@ -624,155 +624,155 @@ export default function PricingPage() {
           <div className="mx-auto max-w-3xl">
             <div className="space-y-6">
               {/* FAQ Items */}
-              <div className="rounded-2xl border border-gray-200 bg-gray-50 p-8 hover:border-primary-300 transition-colors">
-                <h3 className="text-lg font-bold text-gray-900 mb-3">
+              <div className="rounded-2xl border border-slate-700 bg-slate-800 p-8 hover:border-primary-300 transition-colors">
+                <h3 className="text-lg font-bold text-white mb-3">
                   Why do you use flat-rate pricing instead of hourly rates?
                 </h3>
-                <p className="text-gray-600 leading-relaxed">
+                <p className="text-gray-400 leading-relaxed">
                   Flat-rate pricing provides complete transparency and eliminates surprises. You know the exact cost upfront, can budget accurately, and we focus on delivering quality rather than padding hours. Our incentives are aligned - we succeed when you succeed.
                 </p>
               </div>
 
-              <div className="rounded-2xl border border-gray-200 bg-gray-50 p-8 hover:border-primary-300 transition-colors">
-                <h3 className="text-lg font-bold text-gray-900 mb-3">
+              <div className="rounded-2xl border border-slate-700 bg-slate-800 p-8 hover:border-primary-300 transition-colors">
+                <h3 className="text-lg font-bold text-white mb-3">
                   Can I combine packages with add-ons?
                 </h3>
-                <p className="text-gray-600 leading-relaxed">
+                <p className="text-gray-400 leading-relaxed">
                   Absolutely! Our pricing is modular - start with any core package or premium build, then add any combination of our 40+ add-ons to customize your website to your exact needs and budget.
                 </p>
               </div>
 
-              <div className="rounded-2xl border border-gray-200 bg-gray-50 p-8 hover:border-primary-300 transition-colors">
-                <h3 className="text-lg font-bold text-gray-900 mb-3">
+              <div className="rounded-2xl border border-slate-700 bg-slate-800 p-8 hover:border-primary-300 transition-colors">
+                <h3 className="text-lg font-bold text-white mb-3">
                   Are there any hidden fees or recurring costs?
                 </h3>
-                <p className="text-gray-600 leading-relaxed">
+                <p className="text-gray-400 leading-relaxed">
                   No hidden fees ever. The price you see is what you pay. Hosting and domain are separate ($120/year) and clearly stated. All maintenance and updates are included in your package.
                 </p>
               </div>
 
-              <div className="rounded-2xl border border-gray-200 bg-gray-50 p-8 hover:border-primary-300 transition-colors">
-                <h3 className="text-lg font-bold text-gray-900 mb-3">
+              <div className="rounded-2xl border border-slate-700 bg-slate-800 p-8 hover:border-primary-300 transition-colors">
+                <h3 className="text-lg font-bold text-white mb-3">
                   What is included in the timeline?
                 </h3>
-                <p className="text-gray-600 leading-relaxed">
+                <p className="text-gray-400 leading-relaxed">
                   Each package lists its timeline from project start to completion. This includes design, development, revisions, testing, and launch. We provide regular updates throughout and ensure you're 100% satisfied before going live.
                 </p>
               </div>
 
-              <div className="rounded-2xl border border-gray-200 bg-gray-50 p-8 hover:border-primary-300 transition-colors">
-                <h3 className="text-lg font-bold text-gray-900 mb-3">
+              <div className="rounded-2xl border border-slate-700 bg-slate-800 p-8 hover:border-primary-300 transition-colors">
+                <h3 className="text-lg font-bold text-white mb-3">
                   Do you require payment upfront?
                 </h3>
-                <p className="text-gray-600 leading-relaxed">
+                <p className="text-gray-400 leading-relaxed">
                   We typically split payments: 50% to start the project, and 50% upon completion before launch. For larger projects over $3,000, we can discuss milestone-based payments to make it more manageable for your cash flow.
                 </p>
               </div>
 
-              <div className="rounded-2xl border border-gray-200 bg-gray-50 p-8 hover:border-primary-300 transition-colors">
-                <h3 className="text-lg font-bold text-gray-900 mb-3">
+              <div className="rounded-2xl border border-slate-700 bg-slate-800 p-8 hover:border-primary-300 transition-colors">
+                <h3 className="text-lg font-bold text-white mb-3">
                   What technologies do you use?
                 </h3>
-                <p className="text-gray-600 leading-relaxed">
+                <p className="text-gray-400 leading-relaxed">
                   We use modern, industry-standard technologies: Next.js and React for frontend, Node.js and Python for backend, PostgreSQL and Firebase for databases, and deploy on reliable platforms like Vercel and Railway. All code is production-ready and follows best practices.
                 </p>
               </div>
 
-              <div className="rounded-2xl border border-gray-200 bg-gray-50 p-8 hover:border-primary-300 transition-colors">
-                <h3 className="text-lg font-bold text-gray-900 mb-3">
+              <div className="rounded-2xl border border-slate-700 bg-slate-800 p-8 hover:border-primary-300 transition-colors">
+                <h3 className="text-lg font-bold text-white mb-3">
                   How many revisions are included?
                 </h3>
-                <p className="text-gray-600 leading-relaxed">
+                <p className="text-gray-400 leading-relaxed">
                   Each package includes a specific number of revision rounds (listed in the package details). Typically 1-3 rounds depending on the package size. We want you 100% satisfied, so we'll work with you to get it right. Major scope changes may require additional fees.
                 </p>
               </div>
 
-              <div className="rounded-2xl border border-gray-200 bg-gray-50 p-8 hover:border-primary-300 transition-colors">
-                <h3 className="text-lg font-bold text-gray-900 mb-3">
+              <div className="rounded-2xl border border-slate-700 bg-slate-800 p-8 hover:border-primary-300 transition-colors">
+                <h3 className="text-lg font-bold text-white mb-3">
                   Do you offer ongoing maintenance and support?
                 </h3>
-                <p className="text-gray-600 leading-relaxed">
+                <p className="text-gray-400 leading-relaxed">
                   Yes! We offer optional maintenance plans starting at $50-75/month that include updates, security monitoring, backups, and minor content changes. We also provide hourly support for larger updates or changes outside the maintenance scope.
                 </p>
               </div>
 
-              <div className="rounded-2xl border border-gray-200 bg-gray-50 p-8 hover:border-primary-300 transition-colors">
-                <h3 className="text-lg font-bold text-gray-900 mb-3">
+              <div className="rounded-2xl border border-slate-700 bg-slate-800 p-8 hover:border-primary-300 transition-colors">
+                <h3 className="text-lg font-bold text-white mb-3">
                   What about hosting and domain costs?
                 </h3>
-                <p className="text-gray-600 leading-relaxed">
+                <p className="text-gray-400 leading-relaxed">
                   Hosting and domain registration are typically around $120/year total and are billed separately. We handle all setup and configuration. You own your domain and can transfer hosting if needed. We recommend reliable providers we've used for years.
                 </p>
               </div>
 
-              <div className="rounded-2xl border border-gray-200 bg-gray-50 p-8 hover:border-primary-300 transition-colors">
-                <h3 className="text-lg font-bold text-gray-900 mb-3">
+              <div className="rounded-2xl border border-slate-700 bg-slate-800 p-8 hover:border-primary-300 transition-colors">
+                <h3 className="text-lg font-bold text-white mb-3">
                   Can I see examples of your work before committing?
                 </h3>
-                <p className="text-gray-600 leading-relaxed">
+                <p className="text-gray-400 leading-relaxed">
                   Absolutely! Visit our <Link href="/demos" className="text-primary-600 font-semibold hover:text-primary-700">Demos page</Link> to explore 40+ fully interactive website examples across all our packages and industries. You can click around and test every feature.
                 </p>
               </div>
 
-              <div className="rounded-2xl border border-gray-200 bg-gray-50 p-8 hover:border-primary-300 transition-colors">
-                <h3 className="text-lg font-bold text-gray-900 mb-3">
+              <div className="rounded-2xl border border-slate-700 bg-slate-800 p-8 hover:border-primary-300 transition-colors">
+                <h3 className="text-lg font-bold text-white mb-3">
                   What if I need custom features not listed?
                 </h3>
-                <p className="text-gray-600 leading-relaxed">
+                <p className="text-gray-400 leading-relaxed">
                   No problem! We can build custom features tailored to your specific needs. Just let us know what you're looking for during the consultation, and we'll provide a clear quote for the additional functionality.
                 </p>
               </div>
 
-              <div className="rounded-2xl border border-gray-200 bg-gray-50 p-8 hover:border-primary-300 transition-colors">
-                <h3 className="text-lg font-bold text-gray-900 mb-3">
+              <div className="rounded-2xl border border-slate-700 bg-slate-800 p-8 hover:border-primary-300 transition-colors">
+                <h3 className="text-lg font-bold text-white mb-3">
                   Do you provide training on how to update my website?
                 </h3>
-                <p className="text-gray-600 leading-relaxed">
+                <p className="text-gray-400 leading-relaxed">
                   Yes! Every package includes training documentation and a walkthrough session so you can confidently update content, images, and other elements yourself. We'll teach you everything you need to know, and we're always available if you need help.
                 </p>
               </div>
 
-              <div className="rounded-2xl border border-gray-200 bg-gray-50 p-8 hover:border-primary-300 transition-colors">
-                <h3 className="text-lg font-bold text-gray-900 mb-3">
+              <div className="rounded-2xl border border-slate-700 bg-slate-800 p-8 hover:border-primary-300 transition-colors">
+                <h3 className="text-lg font-bold text-white mb-3">
                   What happens if I want to add features later?
                 </h3>
-                <p className="text-gray-600 leading-relaxed">
+                <p className="text-gray-400 leading-relaxed">
                   Your website is built to grow with your business. You can add any of our 40+ add-ons at any time, or request custom features. We'll provide clear pricing and can typically add new features within 1-2 weeks.
                 </p>
               </div>
 
-              <div className="rounded-2xl border border-gray-200 bg-gray-50 p-8 hover:border-primary-300 transition-colors">
-                <h3 className="text-lg font-bold text-gray-900 mb-3">
+              <div className="rounded-2xl border border-slate-700 bg-slate-800 p-8 hover:border-primary-300 transition-colors">
+                <h3 className="text-lg font-bold text-white mb-3">
                   Are your websites mobile-friendly and SEO-optimized?
                 </h3>
-                <p className="text-gray-600 leading-relaxed">
+                <p className="text-gray-400 leading-relaxed">
                   100% yes! Every website we build is fully responsive (works perfectly on phones, tablets, and desktops) and includes foundational SEO optimization: meta tags, structured data, sitemaps, fast load times, and clean URLs. This is standard in every package.
                 </p>
               </div>
 
-              <div className="rounded-2xl border border-gray-200 bg-gray-50 p-8 hover:border-primary-300 transition-colors">
-                <h3 className="text-lg font-bold text-gray-900 mb-3">
+              <div className="rounded-2xl border border-slate-700 bg-slate-800 p-8 hover:border-primary-300 transition-colors">
+                <h3 className="text-lg font-bold text-white mb-3">
                   Will I own the website and all the code?
                 </h3>
-                <p className="text-gray-600 leading-relaxed">
+                <p className="text-gray-400 leading-relaxed">
                   Yes! Once the project is completed and paid for, you own 100% of the website, domain, content, and code. We'll provide access to everything, and you're free to maintain it yourself or hire anyone else in the future.
                 </p>
               </div>
 
-              <div className="rounded-2xl border border-gray-200 bg-gray-50 p-8 hover:border-primary-300 transition-colors">
-                <h3 className="text-lg font-bold text-gray-900 mb-3">
+              <div className="rounded-2xl border border-slate-700 bg-slate-800 p-8 hover:border-primary-300 transition-colors">
+                <h3 className="text-lg font-bold text-white mb-3">
                   What if I'm not happy with the final result?
                 </h3>
-                <p className="text-gray-600 leading-relaxed">
+                <p className="text-gray-400 leading-relaxed">
                   We include multiple revision rounds to ensure you're satisfied. We won't launch until you approve everything. Our 98% client satisfaction rate shows we get it right, but if something isn't working for you, we'll make it right or discuss options.
                 </p>
               </div>
 
-              <div className="rounded-2xl border border-gray-200 bg-gray-50 p-8 hover:border-primary-300 transition-colors">
-                <h3 className="text-lg font-bold text-gray-900 mb-3">
+              <div className="rounded-2xl border border-slate-700 bg-slate-800 p-8 hover:border-primary-300 transition-colors">
+                <h3 className="text-lg font-bold text-white mb-3">
                   Do you work with clients outside Houston?
                 </h3>
-                <p className="text-gray-600 leading-relaxed">
+                <p className="text-gray-400 leading-relaxed">
                   Yes! While we're based in Houston and serve the local area, we work with clients nationwide through remote collaboration via video calls, screen sharing, and project management tools. Location is no barrier to great results.
                 </p>
               </div>
@@ -782,9 +782,9 @@ export default function PricingPage() {
       </section>
 
       {/* Testimonial */}
-      <section className="bg-gray-50 py-16">
+      <section className="bg-slate-800 py-16">
         <div className="mx-auto max-w-4xl px-6 lg:px-8">
-          <div className="rounded-3xl bg-white p-8 md:p-12 shadow-xl border border-gray-200">
+          <div className="rounded-3xl bg-slate-900 p-8 md:p-12 shadow-xl border border-slate-700">
             <div className="flex items-center gap-1 text-accent-500 mb-4">
               <svg className="w-5 h-5 fill-current" viewBox="0 0 20 20">
                 <path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z" />
@@ -802,7 +802,7 @@ export default function PricingPage() {
                 <path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z" />
               </svg>
             </div>
-            <p className="text-lg text-gray-900 leading-relaxed mb-6 italic">
+            <p className="text-lg text-white leading-relaxed mb-6 italic">
               "The flat-rate pricing made it so easy to plan our budget. We knew exactly what we were getting and what it would cost - no surprises. We started with the Standard package and added a few key features. The whole process was transparent and straightforward."
             </p>
             <div className="flex items-center gap-4">
@@ -810,8 +810,8 @@ export default function PricingPage() {
                 M
               </div>
               <div>
-                <div className="font-semibold text-gray-900">Michael Rodriguez</div>
-                <div className="text-sm text-gray-600">Owner, Rodriguez Construction</div>
+                <div className="font-semibold text-white">Michael Rodriguez</div>
+                <div className="text-sm text-gray-400">Owner, Rodriguez Construction</div>
               </div>
             </div>
           </div>
@@ -838,7 +838,7 @@ export default function PricingPage() {
             <div className="mt-10 flex flex-col sm:flex-row items-center justify-center gap-6">
               <Link
                 href="/contact"
-                className="group rounded-lg bg-white px-8 py-4 text-base font-semibold text-primary-900 shadow-2xl hover:bg-gray-100 transition-all hover:scale-105"
+                className="group rounded-lg bg-white px-8 py-4 text-base font-semibold text-primary-900 shadow-2xl hover:bg-slate-700 transition-all hover:scale-105"
               >
                 Get Your Free Quote
                 <span className="inline-block transition-transform group-hover:translate-x-1 ml-2">→</span>

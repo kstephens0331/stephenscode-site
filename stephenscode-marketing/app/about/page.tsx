@@ -177,7 +177,7 @@ export default function About() {
 
         <div className="relative mx-auto max-w-7xl px-6 py-24 sm:py-32 lg:px-8">
           <div className="mx-auto max-w-3xl text-center">
-            <div className="mb-8 inline-flex items-center gap-3 rounded-full bg-white/10 px-6 py-3 text-sm font-semibold backdrop-blur-sm border border-white/20 animate-fade-in-up">
+            <div className="mb-8 inline-flex items-center gap-3 rounded-full bg-slate-800/40 px-6 py-3 text-sm font-semibold backdrop-blur-sm border border-slate-600 animate-fade-in-up">
               <span className="text-3xl">🇺🇸</span>
               <span className="text-base">Veteran-Owned & Operated Since 2011</span>
             </div>
@@ -207,14 +207,14 @@ export default function About() {
 
         {/* Wave divider */}
         <div className="absolute bottom-0 left-0 right-0">
-          <svg className="w-full h-16 fill-white" viewBox="0 0 1200 120" preserveAspectRatio="none">
+          <svg className="w-full h-16 fill-slate-900" viewBox="0 0 1200 120" preserveAspectRatio="none">
             <path d="M321.39,56.44c58-10.79,114.16-30.13,172-41.86,82.39-16.72,168.19-17.73,250.45-.39C823.78,31,906.67,72,985.66,92.83c70.05,18.48,146.53,26.09,214.34,3V0H0V27.35A600.21,600.21,0,0,0,321.39,56.44Z" />
           </svg>
         </div>
       </section>
 
       {/* Stats Section */}
-      <section className="bg-white py-16 border-b border-gray-200">
+      <section className="bg-slate-900 py-16 border-b border-slate-700">
         <div className="mx-auto max-w-7xl px-6 lg:px-8">
           <div className="grid grid-cols-2 md:grid-cols-4 gap-8">
             {stats.map((stat, index) => (
@@ -227,7 +227,7 @@ export default function About() {
                 <div className="text-4xl font-bold bg-gradient-to-r from-primary-900 to-accent-600 bg-clip-text text-transparent">
                   {stat.value}
                 </div>
-                <div className="text-sm text-gray-600 mt-2">{stat.label}</div>
+                <div className="text-sm text-gray-400 mt-2">{stat.label}</div>
               </div>
             ))}
           </div>
@@ -235,40 +235,40 @@ export default function About() {
       </section>
 
       {/* Story Section */}
-      <section className="bg-gradient-to-b from-white to-gray-50 py-24 sm:py-32">
+      <section className="bg-slate-900 py-24 sm:py-32">
         <div className="mx-auto max-w-7xl px-6 lg:px-8">
           <div className="grid lg:grid-cols-2 gap-16 items-center">
             {/* Text Content */}
             <div>
-              <div className="inline-flex items-center rounded-full bg-primary-100 px-4 py-2 text-sm font-semibold text-primary-900 mb-6">
+              <div className="inline-flex items-center rounded-full bg-primary-500/15 px-4 py-2 text-sm font-semibold text-primary-300 mb-6">
                 📖 Our Story
               </div>
-              <h2 className="text-4xl font-bold tracking-tight text-gray-900 sm:text-5xl mb-8">
+              <h2 className="text-4xl font-bold tracking-tight text-white sm:text-5xl mb-8">
                 Built on Military Values, Driven by Results
               </h2>
 
-              <div className="space-y-6 text-lg text-gray-600 leading-relaxed">
+              <div className="space-y-6 text-lg text-gray-400 leading-relaxed">
                 <p>
-                  <span className="font-bold text-gray-900">StephensCode was founded in 2011</span> by Kyle Stephens, a U.S. military veteran with a passion for technology and service. After completing his military service and earning a B.S. in Information Technology, Kyle saw a gap in the market: small businesses in Houston needed professional websites but couldn't afford the $3,000-$5,000+ price tags that agencies were charging for basic sites.
+                  <span className="font-bold text-white">StephensCode was founded in 2011</span> by Kyle Stephens, a U.S. military veteran with a passion for technology and service. After completing his military service and earning a B.S. in Information Technology, Kyle saw a gap in the market: small businesses in Houston needed professional websites but couldn't afford the $3,000-$5,000+ price tags that agencies were charging for basic sites.
                 </p>
 
                 <p>
-                  The mission was simple: bring <span className="font-semibold text-primary-700">military values of integrity, discipline, and service</span> to web development. No sales pressure, no hidden fees, no cutting corners. Just honest work at fair prices.
+                  The mission was simple: bring <span className="font-semibold text-primary-400">military values of integrity, discipline, and service</span> to web development. No sales pressure, no hidden fees, no cutting corners. Just honest work at fair prices.
                 </p>
 
                 <p>
-                  What started as building simple websites for local contractors has grown into a full-service web development company serving <span className="font-bold text-gray-900">150+ businesses</span> across Houston, Conroe, The Woodlands, and surrounding areas. We've built everything from $250 starter sites to $7,500 enterprise platforms, always with the same commitment to quality and transparency.
+                  What started as building simple websites for local contractors has grown into a full-service web development company serving <span className="font-bold text-white">150+ businesses</span> across Houston, Conroe, The Woodlands, and surrounding areas. We've built everything from $250 starter sites to $7,500 enterprise platforms, always with the same commitment to quality and transparency.
                 </p>
 
                 <p>
-                  Today, StephensCode specializes in custom websites, e-commerce platforms, business automation, and admin dashboards. We use modern technologies like <span className="font-semibold text-primary-700">Next.js, React, and Firebase</span> to build fast, secure, and scalable solutions that help businesses grow.
+                  Today, StephensCode specializes in custom websites, e-commerce platforms, business automation, and admin dashboards. We use modern technologies like <span className="font-semibold text-primary-400">Next.js, React, and Firebase</span> to build fast, secure, and scalable solutions that help businesses grow.
                 </p>
 
-                <div className="p-6 bg-gradient-to-br from-primary-50 to-accent-50 rounded-2xl border-l-4 border-primary-600">
-                  <p className="text-primary-900 font-bold text-xl italic">
+                <div className="p-6 bg-gradient-to-br from-primary-500/10 to-accent-500/10 rounded-2xl border-l-4 border-primary-600">
+                  <p className="text-primary-300 font-bold text-xl italic">
                     "We're not the biggest agency in Houston, but we're proud to be the most honest."
                   </p>
-                  <p className="text-sm text-gray-700 mt-2">— Kyle Stephens, Founder</p>
+                  <p className="text-sm text-gray-300 mt-2">— Kyle Stephens, Founder</p>
                 </div>
               </div>
             </div>
@@ -280,31 +280,31 @@ export default function About() {
                   <div className="text-8xl mb-6">🎖️</div>
                   <h3 className="text-3xl font-bold mb-4">USMC Core Values</h3>
                   <div className="grid grid-cols-2 gap-6 mt-8">
-                    <div className="bg-white/10 backdrop-blur-sm rounded-xl p-4 border border-white/20">
+                    <div className="bg-slate-800/40 backdrop-blur-sm rounded-xl p-4 border border-slate-600">
                       <div className="text-3xl mb-2">🎖️</div>
                       <div className="text-sm font-semibold">Honor</div>
                     </div>
-                    <div className="bg-white/10 backdrop-blur-sm rounded-xl p-4 border border-white/20">
+                    <div className="bg-slate-800/40 backdrop-blur-sm rounded-xl p-4 border border-slate-600">
                       <div className="text-3xl mb-2">💪</div>
                       <div className="text-sm font-semibold">Courage</div>
                     </div>
-                    <div className="bg-white/10 backdrop-blur-sm rounded-xl p-4 border border-white/20">
+                    <div className="bg-slate-800/40 backdrop-blur-sm rounded-xl p-4 border border-slate-600">
                       <div className="text-3xl mb-2">🤝</div>
                       <div className="text-sm font-semibold">Commitment</div>
                     </div>
-                    <div className="bg-white/10 backdrop-blur-sm rounded-xl p-4 border border-white/20">
+                    <div className="bg-slate-800/40 backdrop-blur-sm rounded-xl p-4 border border-slate-600">
                       <div className="text-3xl mb-2">🎯</div>
                       <div className="text-sm font-semibold">Mission-Focused</div>
                     </div>
-                    <div className="bg-white/10 backdrop-blur-sm rounded-xl p-4 border border-white/20">
+                    <div className="bg-slate-800/40 backdrop-blur-sm rounded-xl p-4 border border-slate-600">
                       <div className="text-3xl mb-2">💎</div>
                       <div className="text-sm font-semibold">Integrity</div>
                     </div>
-                    <div className="bg-white/10 backdrop-blur-sm rounded-xl p-4 border border-white/20">
+                    <div className="bg-slate-800/40 backdrop-blur-sm rounded-xl p-4 border border-slate-600">
                       <div className="text-3xl mb-2">🛡️</div>
                       <div className="text-sm font-semibold">Service</div>
                     </div>
-                    <div className="bg-white/10 backdrop-blur-sm rounded-xl p-4 border border-white/20">
+                    <div className="bg-slate-800/40 backdrop-blur-sm rounded-xl p-4 border border-slate-600">
                       <div className="text-3xl mb-2">⚡</div>
                       <div className="text-sm font-semibold">Excellence</div>
                     </div>
@@ -320,16 +320,16 @@ export default function About() {
       </section>
 
       {/* Timeline Section */}
-      <section className="bg-white py-24 sm:py-32">
+      <section className="bg-slate-900 py-24 sm:py-32">
         <div className="mx-auto max-w-7xl px-6 lg:px-8">
           <div className="mx-auto max-w-2xl text-center mb-16">
-            <div className="inline-flex items-center rounded-full bg-accent-100 px-4 py-2 text-sm font-semibold text-accent-900 mb-4">
+            <div className="inline-flex items-center rounded-full bg-accent-500/15 px-4 py-2 text-sm font-semibold text-accent-300 mb-4">
               ⏰ Our Journey
             </div>
-            <h2 className="text-4xl font-bold tracking-tight text-gray-900 sm:text-5xl">
+            <h2 className="text-4xl font-bold tracking-tight text-white sm:text-5xl">
               14+ Years of Growth
             </h2>
-            <p className="mt-4 text-lg text-gray-600">
+            <p className="mt-4 text-lg text-gray-400">
               From humble beginnings to serving 150+ Houston businesses
             </p>
           </div>
@@ -350,10 +350,10 @@ export default function About() {
 
                   {/* Content */}
                   <div className="flex-grow pb-8">
-                    <div className="bg-gradient-to-br from-gray-50 to-white rounded-2xl p-8 shadow-lg border border-gray-200 group-hover:border-primary-300 group-hover:shadow-xl transition-all">
+                    <div className="bg-slate-800 rounded-2xl p-8 shadow-lg shadow-black/20 border border-slate-700 group-hover:border-primary-300 group-hover:shadow-xl transition-all">
                       <div className="text-sm font-semibold text-accent-600 mb-2">{item.year}</div>
-                      <h3 className="text-2xl font-bold text-gray-900 mb-3">{item.title}</h3>
-                      <p className="text-gray-600 leading-relaxed">{item.description}</p>
+                      <h3 className="text-2xl font-bold text-white mb-3">{item.title}</h3>
+                      <p className="text-gray-400 leading-relaxed">{item.description}</p>
                     </div>
                   </div>
                 </div>
@@ -364,16 +364,16 @@ export default function About() {
       </section>
 
       {/* Values Section */}
-      <section className="bg-gradient-to-b from-gray-50 to-white py-24 sm:py-32">
+      <section className="bg-slate-900 py-24 sm:py-32">
         <div className="mx-auto max-w-7xl px-6 lg:px-8">
           <div className="mx-auto max-w-2xl text-center mb-16">
-            <div className="inline-flex items-center rounded-full bg-primary-100 px-4 py-2 text-sm font-semibold text-primary-900 mb-4">
+            <div className="inline-flex items-center rounded-full bg-primary-500/15 px-4 py-2 text-sm font-semibold text-primary-300 mb-4">
               💎 Core Values
             </div>
-            <h2 className="text-4xl font-bold tracking-tight text-gray-900 sm:text-5xl">
+            <h2 className="text-4xl font-bold tracking-tight text-white sm:text-5xl">
               Our Guiding Principles
             </h2>
-            <p className="mt-4 text-lg leading-8 text-gray-600">
+            <p className="mt-4 text-lg leading-8 text-gray-400">
               Military service instilled values that guide everything we do.
             </p>
           </div>
@@ -382,17 +382,17 @@ export default function About() {
             {values.map((value, index) => (
               <div
                 key={value.name}
-                className="group relative rounded-3xl bg-white p-10 shadow-lg border-2 border-gray-200 hover:border-primary-300 hover:shadow-2xl transition-all hover:scale-105"
+                className="group relative rounded-3xl bg-slate-800 p-10 shadow-lg shadow-black/20 border-2 border-slate-700 hover:border-primary-300 hover:shadow-2xl transition-all hover:scale-105"
                 style={{ animationDelay: `${index * 100}ms` }}
               >
                 <div className={`absolute -top-6 -left-6 w-20 h-20 rounded-2xl bg-gradient-to-br ${value.color} flex items-center justify-center text-4xl shadow-xl transform group-hover:rotate-12 transition-transform`}>
                   {value.icon}
                 </div>
                 <div className="ml-16">
-                  <h3 className="text-2xl font-bold text-gray-900 mb-4">
+                  <h3 className="text-2xl font-bold text-white mb-4">
                     {value.name}
                   </h3>
-                  <p className="text-gray-600 leading-relaxed">
+                  <p className="text-gray-400 leading-relaxed">
                     {value.description}
                   </p>
                 </div>
@@ -403,22 +403,22 @@ export default function About() {
       </section>
 
       {/* Team Section */}
-      <section className="bg-white py-24 sm:py-32">
+      <section className="bg-slate-900 py-24 sm:py-32">
         <div className="mx-auto max-w-7xl px-6 lg:px-8">
           <div className="mx-auto max-w-2xl text-center mb-16">
-            <div className="inline-flex items-center rounded-full bg-green-100 px-4 py-2 text-sm font-semibold text-green-900 mb-4">
+            <div className="inline-flex items-center rounded-full bg-green-500/15 px-4 py-2 text-sm font-semibold text-green-300 mb-4">
               👥 Meet the Team
             </div>
-            <h2 className="text-4xl font-bold tracking-tight text-gray-900 sm:text-5xl">
+            <h2 className="text-4xl font-bold tracking-tight text-white sm:text-5xl">
               Veteran-Led Excellence
             </h2>
-            <p className="mt-4 text-lg leading-8 text-gray-600">
+            <p className="mt-4 text-lg leading-8 text-gray-400">
               Locally based, veteran-led, and committed to your success.
             </p>
           </div>
 
           <div className="mx-auto max-w-4xl">
-            <div className="relative rounded-3xl bg-gradient-to-br from-primary-50 via-white to-accent-50 p-12 shadow-2xl border-2 border-primary-200">
+            <div className="relative rounded-3xl bg-gradient-to-br from-primary-500/10 via-slate-800 to-accent-500/10 p-12 shadow-2xl shadow-black/20 border-2 border-slate-700">
               <div className="flex flex-col lg:flex-row items-center gap-12">
                 {/* Profile Image Placeholder */}
                 <div className="flex-shrink-0">
@@ -426,7 +426,7 @@ export default function About() {
                     <div className="h-48 w-48 rounded-3xl bg-gradient-to-br from-primary-600 to-accent-600 flex items-center justify-center text-white text-7xl shadow-2xl">
                       🎖️
                     </div>
-                    <div className="absolute -bottom-4 -right-4 bg-white rounded-2xl px-6 py-3 shadow-xl border-2 border-accent-500">
+                    <div className="absolute -bottom-4 -right-4 bg-slate-800 rounded-2xl px-6 py-3 shadow-xl shadow-black/20 border-2 border-accent-500">
                       <div className="text-sm font-bold text-accent-600">U.S. Veteran</div>
                     </div>
                   </div>
@@ -434,20 +434,20 @@ export default function About() {
 
                 {/* Bio */}
                 <div className="flex-grow text-center lg:text-left">
-                  <h3 className="text-3xl font-bold text-gray-900 mb-2">Kyle Stephens</h3>
+                  <h3 className="text-3xl font-bold text-white mb-2">Kyle Stephens</h3>
                   <p className="text-xl font-semibold text-primary-600 mb-6">Founder & Lead Developer</p>
 
-                  <p className="text-lg text-gray-600 leading-relaxed mb-6">
+                  <p className="text-lg text-gray-400 leading-relaxed mb-6">
                     U.S. military veteran with 14+ years of web development experience. B.S. in Information Technology. Passionate about helping Houston small businesses succeed online with transparent pricing and quality work.
                   </p>
 
                   <div className="flex flex-wrap gap-3 justify-center lg:justify-start">
-                    <span className="px-4 py-2 bg-primary-100 text-primary-800 rounded-full text-sm font-semibold">Next.js</span>
-                    <span className="px-4 py-2 bg-accent-100 text-accent-800 rounded-full text-sm font-semibold">React</span>
-                    <span className="px-4 py-2 bg-blue-100 text-blue-800 rounded-full text-sm font-semibold">TypeScript</span>
-                    <span className="px-4 py-2 bg-green-100 text-green-800 rounded-full text-sm font-semibold">Firebase</span>
-                    <span className="px-4 py-2 bg-purple-100 text-purple-800 rounded-full text-sm font-semibold">E-commerce</span>
-                    <span className="px-4 py-2 bg-orange-100 text-orange-800 rounded-full text-sm font-semibold">Automation</span>
+                    <span className="px-4 py-2 bg-primary-500/15 text-primary-300 rounded-full text-sm font-semibold">Next.js</span>
+                    <span className="px-4 py-2 bg-accent-500/15 text-accent-300 rounded-full text-sm font-semibold">React</span>
+                    <span className="px-4 py-2 bg-blue-500/15 text-blue-300 rounded-full text-sm font-semibold">TypeScript</span>
+                    <span className="px-4 py-2 bg-green-500/15 text-green-300 rounded-full text-sm font-semibold">Firebase</span>
+                    <span className="px-4 py-2 bg-purple-500/15 text-purple-300 rounded-full text-sm font-semibold">E-commerce</span>
+                    <span className="px-4 py-2 bg-orange-500/15 text-orange-300 rounded-full text-sm font-semibold">Automation</span>
                   </div>
                 </div>
               </div>
@@ -457,44 +457,44 @@ export default function About() {
       </section>
 
       {/* Why Choose Us Section */}
-      <section className="bg-gradient-to-br from-gray-50 via-white to-gray-50 py-24 sm:py-32">
+      <section className="bg-slate-800 py-24 sm:py-32">
         <div className="mx-auto max-w-7xl px-6 lg:px-8">
           <div className="mx-auto max-w-2xl text-center mb-16">
-            <h2 className="text-4xl font-bold tracking-tight text-gray-900 sm:text-5xl">
+            <h2 className="text-4xl font-bold tracking-tight text-white sm:text-5xl">
               Why Choose StephensCode?
             </h2>
-            <p className="mt-4 text-lg text-gray-600">
+            <p className="mt-4 text-lg text-gray-400">
               What sets us apart from other web development companies
             </p>
           </div>
 
           <div className="grid gap-8 lg:grid-cols-3">
-            <div className="group rounded-3xl bg-white p-8 shadow-lg border border-gray-200 hover:border-accent-500 hover:shadow-2xl transition-all hover:scale-105">
+            <div className="group rounded-3xl bg-slate-900 p-8 shadow-lg shadow-black/20 border border-slate-700 hover:border-accent-500 hover:shadow-2xl transition-all hover:scale-105">
               <div className="text-5xl mb-6 group-hover:scale-110 transition-transform">💰</div>
-              <h3 className="text-2xl font-bold text-gray-900 mb-4">
+              <h3 className="text-2xl font-bold text-white mb-4">
                 Transparent Flat-Rate Pricing
               </h3>
-              <p className="text-gray-600 leading-relaxed">
+              <p className="text-gray-400 leading-relaxed">
                 Know exactly what you're paying before we start. No hourly rates, no surprise bills. Core packages from $250, premium builds up to $7,500.
               </p>
             </div>
 
-            <div className="group rounded-3xl bg-white p-8 shadow-lg border border-gray-200 hover:border-accent-500 hover:shadow-2xl transition-all hover:scale-105">
+            <div className="group rounded-3xl bg-slate-900 p-8 shadow-lg shadow-black/20 border border-slate-700 hover:border-accent-500 hover:shadow-2xl transition-all hover:scale-105">
               <div className="text-5xl mb-6 group-hover:scale-110 transition-transform">⚡</div>
-              <h3 className="text-2xl font-bold text-gray-900 mb-4">
+              <h3 className="text-2xl font-bold text-white mb-4">
                 Fast Turnaround
               </h3>
-              <p className="text-gray-600 leading-relaxed">
+              <p className="text-gray-400 leading-relaxed">
                 Most projects completed in 1-4 weeks. We respect your time and move quickly without sacrificing quality. Clear timelines from day one.
               </p>
             </div>
 
-            <div className="group rounded-3xl bg-white p-8 shadow-lg border border-gray-200 hover:border-accent-500 hover:shadow-2xl transition-all hover:scale-105">
+            <div className="group rounded-3xl bg-slate-900 p-8 shadow-lg shadow-black/20 border border-slate-700 hover:border-accent-500 hover:shadow-2xl transition-all hover:scale-105">
               <div className="text-5xl mb-6 group-hover:scale-110 transition-transform">📍</div>
-              <h3 className="text-2xl font-bold text-gray-900 mb-4">
+              <h3 className="text-2xl font-bold text-white mb-4">
                 Local Houston Support
               </h3>
-              <p className="text-gray-600 leading-relaxed">
+              <p className="text-gray-400 leading-relaxed">
                 Based in Conroe, serving Houston, The Woodlands, Spring, Tomball, and surrounding areas. Local service you can trust.
               </p>
             </div>
@@ -516,7 +516,7 @@ export default function About() {
             ].map((city, index) => (
               <div
                 key={city}
-                className="bg-white/10 backdrop-blur-sm rounded-lg px-4 py-3 text-white font-semibold border border-white/20 hover:bg-white/20 transition-all"
+                className="bg-slate-800/40 backdrop-blur-sm rounded-lg px-4 py-3 text-white font-semibold border border-slate-600 hover:bg-slate-700/60 transition-all"
                 style={{ animationDelay: `${index * 50}ms` }}
               >
                 {city}
@@ -530,7 +530,7 @@ export default function About() {
       </section>
 
       {/* CTA Section */}
-      <section className="relative bg-white py-24 sm:py-32 overflow-hidden">
+      <section className="relative bg-slate-900 py-24 sm:py-32 overflow-hidden">
         <div className="absolute inset-0 opacity-5">
           <div className="absolute inset-0" style={{
             backgroundImage: 'radial-gradient(circle at 2px 2px, #1e40af 1px, transparent 0)',
@@ -540,10 +540,10 @@ export default function About() {
 
         <div className="relative mx-auto max-w-7xl px-6 lg:px-8">
           <div className="mx-auto max-w-2xl text-center">
-            <h2 className="text-4xl font-bold tracking-tight text-gray-900 sm:text-5xl">
+            <h2 className="text-4xl font-bold tracking-tight text-white sm:text-5xl">
               Ready to Work Together?
             </h2>
-            <p className="mx-auto mt-6 max-w-xl text-lg leading-8 text-gray-600">
+            <p className="mx-auto mt-6 max-w-xl text-lg leading-8 text-gray-400">
               Let's discuss your project. Free consultation, no obligation, no sales pressure. Experience the StephensCode difference.
             </p>
             <div className="mt-10 flex flex-col sm:flex-row items-center justify-center gap-6">
@@ -556,7 +556,7 @@ export default function About() {
               </Link>
               <a
                 href="tel:+19363234527"
-                className="flex items-center gap-2 text-base font-semibold leading-7 text-gray-900 hover:text-primary-600 transition-colors"
+                className="flex items-center gap-2 text-base font-semibold leading-7 text-white hover:text-primary-400 transition-colors"
               >
                 <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                   <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z" />

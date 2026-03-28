@@ -250,21 +250,21 @@ export default function WebScraping() {
         </div>
 
         <div className="absolute bottom-0 left-0 right-0">
-          <svg className="w-full h-16 fill-white" viewBox="0 0 1200 120" preserveAspectRatio="none">
+          <svg className="w-full h-16 fill-slate-900" viewBox="0 0 1200 120" preserveAspectRatio="none">
             <path d="M321.39,56.44c58-10.79,114.16-30.13,172-41.86,82.39-16.72,168.19-17.73,250.45-.39C823.78,31,906.67,72,985.66,92.83c70.05,18.48,146.53,26.09,214.34,3V0H0V27.35A600.21,600.21,0,0,0,321.39,56.44Z" />
           </svg>
         </div>
       </section>
 
       {/* What Can Web Scraping Do Section */}
-      <section className="bg-white py-24">
+      <section className="bg-slate-900 py-24">
         <div className="mx-auto max-w-7xl px-6 lg:px-8">
           <div className="mx-auto max-w-3xl">
-            <h2 className="text-4xl font-bold tracking-tight text-gray-900 mb-8">
+            <h2 className="text-4xl font-bold tracking-tight text-white mb-8">
               What Can Web Scraping Do for Your Business
             </h2>
 
-            <div className="prose prose-lg max-w-none text-gray-700">
+            <div className="prose prose-lg prose-invert max-w-none text-gray-300">
               <p className="mb-6">
                 Data is everywhere on the web, but it's often trapped in formats that aren't useful. Hundreds of pages of search results. Thousands of product listings. Endless directories without export buttons. Web scraping extracts that data and delivers it in formats you can actually use.
               </p>
@@ -282,13 +282,13 @@ export default function WebScraping() {
       </section>
 
       {/* Use Cases Section */}
-      <section className="bg-gray-50 py-24">
+      <section className="bg-slate-800 py-24">
         <div className="mx-auto max-w-7xl px-6 lg:px-8">
           <div className="mx-auto max-w-2xl text-center mb-16">
-            <h2 className="text-4xl font-bold tracking-tight text-gray-900 mb-4">
+            <h2 className="text-4xl font-bold tracking-tight text-white mb-4">
               Web Scraping Use Cases
             </h2>
-            <p className="text-lg text-gray-600">
+            <p className="text-lg text-gray-400">
               Common projects I've completed for clients across industries.
             </p>
           </div>
@@ -297,14 +297,14 @@ export default function WebScraping() {
             {useCases.map((useCase) => (
               <div
                 key={useCase.name}
-                className="bg-white rounded-2xl p-8 shadow-md border-2 border-gray-200 hover:border-primary-300 transition-all"
+                className="bg-slate-900 rounded-2xl p-8 shadow-md border-2 border-slate-700 hover:border-primary-300 transition-all"
               >
                 <div className="text-4xl mb-4">{useCase.icon}</div>
-                <h3 className="text-xl font-bold text-gray-900 mb-2">{useCase.name}</h3>
-                <p className="text-gray-600 mb-4">{useCase.description}</p>
+                <h3 className="text-xl font-bold text-white mb-2">{useCase.name}</h3>
+                <p className="text-gray-400 mb-4">{useCase.description}</p>
                 <div className="space-y-1">
                   {useCase.examples.map((example) => (
-                    <div key={example} className="flex items-center gap-2 text-sm text-gray-500">
+                    <div key={example} className="flex items-center gap-2 text-sm text-gray-400">
                       <span className="text-green-500">✓</span>
                       <span>{example}</span>
                     </div>
@@ -317,32 +317,32 @@ export default function WebScraping() {
       </section>
 
       {/* Experience Section */}
-      <section className="bg-white py-24">
+      <section className="bg-slate-900 py-24">
         <div className="mx-auto max-w-7xl px-6 lg:px-8">
           <div className="mx-auto max-w-3xl">
-            <h2 className="text-4xl font-bold tracking-tight text-gray-900 mb-8">
+            <h2 className="text-4xl font-bold tracking-tight text-white mb-8">
               Web Scraping Experience & Technologies
             </h2>
 
-            <div className="prose prose-lg max-w-none text-gray-700">
+            <div className="prose prose-lg prose-invert max-w-none text-gray-300">
               <p className="mb-6">
                 With <strong>500+ web scraping projects</strong> completed, I've developed scrapers for every imaginable scenario. Simple static sites, complex JavaScript-rendered applications, sites with anti-bot measures—each presents unique challenges I've learned to overcome.
               </p>
 
-              <div className="bg-gray-50 rounded-2xl p-8 my-8">
-                <h3 className="text-2xl font-bold text-gray-900 mb-6">Technologies & Tools</h3>
+              <div className="bg-slate-800 rounded-2xl p-8 my-8">
+                <h3 className="text-2xl font-bold text-white mb-6">Technologies & Tools</h3>
                 <div className="grid md:grid-cols-2 gap-4">
                   <div>
-                    <h4 className="font-bold text-gray-900 mb-2">Languages</h4>
-                    <ul className="space-y-1 text-gray-600">
+                    <h4 className="font-bold text-white mb-2">Languages</h4>
+                    <ul className="space-y-1 text-gray-400">
                       <li>• Python (primary)</li>
                       <li>• Node.js</li>
                       <li>• TypeScript</li>
                     </ul>
                   </div>
                   <div>
-                    <h4 className="font-bold text-gray-900 mb-2">Frameworks</h4>
-                    <ul className="space-y-1 text-gray-600">
+                    <h4 className="font-bold text-white mb-2">Frameworks</h4>
+                    <ul className="space-y-1 text-gray-400">
                       <li>• Scrapy (large-scale)</li>
                       <li>• BeautifulSoup (parsing)</li>
                       <li>• Playwright (JavaScript sites)</li>
@@ -350,16 +350,16 @@ export default function WebScraping() {
                     </ul>
                   </div>
                   <div>
-                    <h4 className="font-bold text-gray-900 mb-2">Infrastructure</h4>
-                    <ul className="space-y-1 text-gray-600">
+                    <h4 className="font-bold text-white mb-2">Infrastructure</h4>
+                    <ul className="space-y-1 text-gray-400">
                       <li>• Rotating proxies</li>
                       <li>• Distributed scraping</li>
                       <li>• Cloud deployment</li>
                     </ul>
                   </div>
                   <div>
-                    <h4 className="font-bold text-gray-900 mb-2">Capabilities</h4>
-                    <ul className="space-y-1 text-gray-600">
+                    <h4 className="font-bold text-white mb-2">Capabilities</h4>
+                    <ul className="space-y-1 text-gray-400">
                       <li>• JavaScript rendering</li>
                       <li>• Anti-bot bypass (ethical)</li>
                       <li>• Data cleaning & validation</li>
@@ -373,23 +373,23 @@ export default function WebScraping() {
       </section>
 
       {/* Ethical Approach Section */}
-      <section className="bg-gray-50 py-24">
+      <section className="bg-slate-800 py-24">
         <div className="mx-auto max-w-7xl px-6 lg:px-8">
           <div className="mx-auto max-w-3xl">
-            <h2 className="text-4xl font-bold tracking-tight text-gray-900 mb-8">
+            <h2 className="text-4xl font-bold tracking-tight text-white mb-8">
               Our Approach to Ethical Web Scraping
             </h2>
 
-            <div className="prose prose-lg max-w-none text-gray-700">
+            <div className="prose prose-lg prose-invert max-w-none text-gray-300">
               <p className="mb-8">
                 Web scraping is powerful, but it comes with responsibility. I follow ethical practices that respect website owners while still getting you the data you need.
               </p>
 
               <div className="space-y-6">
                 {ethicalPractices.map((item) => (
-                  <div key={item.practice} className="bg-white rounded-xl p-6 shadow-md">
-                    <h3 className="text-lg font-bold text-gray-900 mb-2">{item.practice}</h3>
-                    <p className="text-gray-600">{item.description}</p>
+                  <div key={item.practice} className="bg-slate-900 rounded-xl p-6 shadow-md">
+                    <h3 className="text-lg font-bold text-white mb-2">{item.practice}</h3>
+                    <p className="text-gray-400">{item.description}</p>
                   </div>
                 ))}
               </div>
@@ -399,13 +399,13 @@ export default function WebScraping() {
       </section>
 
       {/* Deliverables Section */}
-      <section className="bg-white py-24">
+      <section className="bg-slate-900 py-24">
         <div className="mx-auto max-w-7xl px-6 lg:px-8">
           <div className="mx-auto max-w-2xl text-center mb-16">
-            <h2 className="text-4xl font-bold tracking-tight text-gray-900 mb-4">
+            <h2 className="text-4xl font-bold tracking-tight text-white mb-4">
               Deliverables & Data Formats
             </h2>
-            <p className="text-lg text-gray-600">
+            <p className="text-lg text-gray-400">
               Your data, delivered in the format that works best for you.
             </p>
           </div>
@@ -414,11 +414,11 @@ export default function WebScraping() {
             {deliverables.map((item) => (
               <div
                 key={item.format}
-                className="bg-gray-50 rounded-2xl p-6 text-center border-2 border-gray-200 hover:border-primary-300 transition-all"
+                className="bg-slate-800 rounded-2xl p-6 text-center border-2 border-slate-700 hover:border-primary-300 transition-all"
               >
                 <div className="text-4xl mb-3">{item.icon}</div>
-                <h3 className="text-lg font-bold text-gray-900 mb-2">{item.format}</h3>
-                <p className="text-sm text-gray-600">{item.description}</p>
+                <h3 className="text-lg font-bold text-white mb-2">{item.format}</h3>
+                <p className="text-sm text-gray-400">{item.description}</p>
               </div>
             ))}
           </div>
@@ -426,37 +426,37 @@ export default function WebScraping() {
       </section>
 
       {/* Pricing Section */}
-      <section className="bg-gray-50 py-24">
+      <section className="bg-slate-800 py-24">
         <div className="mx-auto max-w-7xl px-6 lg:px-8">
           <div className="mx-auto max-w-3xl">
-            <h2 className="text-4xl font-bold tracking-tight text-gray-900 mb-8">
+            <h2 className="text-4xl font-bold tracking-tight text-white mb-8">
               Pricing Models
             </h2>
 
-            <div className="prose prose-lg max-w-none text-gray-700">
+            <div className="prose prose-lg prose-invert max-w-none text-gray-300">
               <p className="mb-8">
                 Web scraping projects vary widely in complexity. Here's how I typically structure pricing:
               </p>
 
               <div className="grid md:grid-cols-2 gap-6">
-                <div className="bg-white rounded-xl p-6 shadow-md">
-                  <h3 className="text-xl font-bold text-gray-900 mb-2">One-Time Scrape</h3>
-                  <p className="text-gray-600 mb-4">Single extraction of data from one or more sources. You receive the data file(s).</p>
+                <div className="bg-slate-900 rounded-xl p-6 shadow-md">
+                  <h3 className="text-xl font-bold text-white mb-2">One-Time Scrape</h3>
+                  <p className="text-gray-400 mb-4">Single extraction of data from one or more sources. You receive the data file(s).</p>
                   <p className="text-primary-600 font-bold">From $200</p>
                 </div>
-                <div className="bg-white rounded-xl p-6 shadow-md">
-                  <h3 className="text-xl font-bold text-gray-900 mb-2">Recurring Scrapes</h3>
-                  <p className="text-gray-600 mb-4">Scheduled extractions (hourly, daily, weekly) with automated delivery.</p>
+                <div className="bg-slate-900 rounded-xl p-6 shadow-md">
+                  <h3 className="text-xl font-bold text-white mb-2">Recurring Scrapes</h3>
+                  <p className="text-gray-400 mb-4">Scheduled extractions (hourly, daily, weekly) with automated delivery.</p>
                   <p className="text-primary-600 font-bold">From $150/month</p>
                 </div>
-                <div className="bg-white rounded-xl p-6 shadow-md">
-                  <h3 className="text-xl font-bold text-gray-900 mb-2">Scraper Development + Handoff</h3>
-                  <p className="text-gray-600 mb-4">I build the scraper, you run it on your infrastructure. Full documentation included.</p>
+                <div className="bg-slate-900 rounded-xl p-6 shadow-md">
+                  <h3 className="text-xl font-bold text-white mb-2">Scraper Development + Handoff</h3>
+                  <p className="text-gray-400 mb-4">I build the scraper, you run it on your infrastructure. Full documentation included.</p>
                   <p className="text-primary-600 font-bold">From $500</p>
                 </div>
-                <div className="bg-white rounded-xl p-6 shadow-md">
-                  <h3 className="text-xl font-bold text-gray-900 mb-2">Maintenance Retainer</h3>
-                  <p className="text-gray-600 mb-4">Ongoing maintenance when sites change. Priority support and updates.</p>
+                <div className="bg-slate-900 rounded-xl p-6 shadow-md">
+                  <h3 className="text-xl font-bold text-white mb-2">Maintenance Retainer</h3>
+                  <p className="text-gray-400 mb-4">Ongoing maintenance when sites change. Priority support and updates.</p>
                   <p className="text-primary-600 font-bold">From $100/month</p>
                 </div>
               </div>
@@ -466,18 +466,18 @@ export default function WebScraping() {
       </section>
 
       {/* FAQ Section */}
-      <section className="bg-white py-24">
+      <section className="bg-slate-900 py-24">
         <div className="mx-auto max-w-7xl px-6 lg:px-8">
           <div className="mx-auto max-w-3xl">
-            <h2 className="text-4xl font-bold tracking-tight text-gray-900 mb-12">
+            <h2 className="text-4xl font-bold tracking-tight text-white mb-12">
               Frequently Asked Questions
             </h2>
 
             <div className="space-y-8">
               {pageSchemas.faq.mainEntity.map((faq, index) => (
-                <div key={index} className="bg-gray-50 rounded-xl p-6 shadow-md">
-                  <h3 className="text-lg font-bold text-gray-900 mb-3">{faq.name}</h3>
-                  <p className="text-gray-600">{faq.acceptedAnswer.text}</p>
+                <div key={index} className="bg-slate-800 rounded-xl p-6 shadow-md">
+                  <h3 className="text-lg font-bold text-white mb-3">{faq.name}</h3>
+                  <p className="text-gray-400">{faq.acceptedAnswer.text}</p>
                 </div>
               ))}
             </div>
@@ -520,10 +520,10 @@ export default function WebScraping() {
       </section>
 
       {/* Related Services */}
-      <section className="bg-white py-24">
+      <section className="bg-slate-900 py-24">
         <div className="mx-auto max-w-7xl px-6 lg:px-8">
           <div className="mx-auto max-w-2xl text-center mb-12">
-            <h2 className="text-3xl font-bold tracking-tight text-gray-900 mb-4">
+            <h2 className="text-3xl font-bold tracking-tight text-white mb-4">
               Related Services
             </h2>
           </div>
@@ -531,27 +531,27 @@ export default function WebScraping() {
           <div className="grid md:grid-cols-3 gap-8">
             <Link
               href="/services/conroe-web-development"
-              className="group bg-gray-50 rounded-2xl p-8 border-2 border-gray-200 hover:border-primary-300 hover:shadow-xl transition-all"
+              className="group bg-slate-800 rounded-2xl p-8 border-2 border-slate-700 hover:border-primary-300 hover:shadow-xl transition-all"
             >
               <div className="text-3xl mb-4">🌐</div>
-              <h3 className="text-xl font-bold text-gray-900 mb-2 group-hover:text-primary-600">Web Development</h3>
-              <p className="text-gray-600">Need a website to display or manage your scraped data?</p>
+              <h3 className="text-xl font-bold text-white mb-2 group-hover:text-primary-600">Web Development</h3>
+              <p className="text-gray-400">Need a website to display or manage your scraped data?</p>
             </Link>
             <Link
               href="/services/api-integration"
-              className="group bg-gray-50 rounded-2xl p-8 border-2 border-gray-200 hover:border-primary-300 hover:shadow-xl transition-all"
+              className="group bg-slate-800 rounded-2xl p-8 border-2 border-slate-700 hover:border-primary-300 hover:shadow-xl transition-all"
             >
               <div className="text-3xl mb-4">🔗</div>
-              <h3 className="text-xl font-bold text-gray-900 mb-2 group-hover:text-primary-600">API Integration</h3>
-              <p className="text-gray-600">When APIs exist, we use them. Scraping is for when they don't.</p>
+              <h3 className="text-xl font-bold text-white mb-2 group-hover:text-primary-600">API Integration</h3>
+              <p className="text-gray-400">When APIs exist, we use them. Scraping is for when they don't.</p>
             </Link>
             <Link
               href="/services/business-automation"
-              className="group bg-gray-50 rounded-2xl p-8 border-2 border-gray-200 hover:border-primary-300 hover:shadow-xl transition-all"
+              className="group bg-slate-800 rounded-2xl p-8 border-2 border-slate-700 hover:border-primary-300 hover:shadow-xl transition-all"
             >
               <div className="text-3xl mb-4">⚡</div>
-              <h3 className="text-xl font-bold text-gray-900 mb-2 group-hover:text-primary-600">Business Automation</h3>
-              <p className="text-gray-600">Automate what happens with your data after extraction.</p>
+              <h3 className="text-xl font-bold text-white mb-2 group-hover:text-primary-600">Business Automation</h3>
+              <p className="text-gray-400">Automate what happens with your data after extraction.</p>
             </Link>
           </div>
         </div>

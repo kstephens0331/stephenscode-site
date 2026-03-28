@@ -35,6 +35,13 @@ export default {
           900: '#7c2d12',
           950: '#431407',
         },
+        surface: {
+          DEFAULT: '#0f172a',
+          light: '#1e293b',
+          lighter: '#334155',
+          border: '#334155',
+          card: '#1e293b',
+        },
       },
     },
   },

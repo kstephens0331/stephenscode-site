@@ -78,12 +78,39 @@ export default function DemoFrame({ demo }: DemoFrameProps) {
 
   // Render the appropriate demo template based on demo slug
   const renderDemo = () => {
+    // Handle real client sites - show redirect card
+    if (demo.isRealClient && demo.externalUrl) {
+      return (
+        <div className="min-h-screen flex items-center justify-center bg-slate-900">
+          <div className="text-center p-8 max-w-lg">
+            <div className="text-6xl mb-6">🌐</div>
+            <h2 className="text-2xl font-bold text-white mb-4">{demo.clientName || demo.name}</h2>
+            <p className="text-gray-300 mb-2">This is a real client website built by StephensCode.</p>
+            <p className="text-gray-400 mb-8 text-sm">Visit the live production site to see our work in action.</p>
+            <a
+              href={demo.externalUrl}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="inline-flex items-center gap-2 bg-accent-500 hover:bg-accent-600 text-white px-8 py-4 rounded-lg font-bold text-lg transition-colors"
+            >
+              Visit Live Site →
+            </a>
+            <div className="mt-6">
+              <Link href="/demos" className="text-sm text-gray-400 hover:text-primary-400 transition-colors">
+                ← Back to All Demos
+              </Link>
+            </div>
+          </div>
+        </div>
+      )
+    }
+
     // Plug & Play demos (1-5)
     if (demo.slug === 'classic-cuts-barbershop') {
       return <BarbershopDemo demo={demo} viewMode={viewMode} />
     } else if (demo.slug === 'fixit-fast-handyman') {
       return <HandymanDemo demo={demo} viewMode={viewMode} />
-    } else if (demo.slug === 'lens-light-photography') {
+    } else if (demo.slug === 'fc-photo-houston' || demo.slug === 'lens-light-photography') {
       return <PhotographyDemo demo={demo} viewMode={viewMode} />
     } else if (demo.slug === 'sparkle-clean-services') {
       return <CleaningDemo demo={demo} viewMode={viewMode} />
@@ -101,7 +128,7 @@ export default function DemoFrame({ demo }: DemoFrameProps) {
       return <SalonDemo demo={demo} viewMode={viewMode} />
 
     // Standard Website demos (10-15)
-    } else if (demo.slug === 'cool-breeze-hvac') {
+    } else if (demo.slug === 'amw-air-conditioning' || demo.slug === 'cool-breeze-hvac') {
       return <HvacDemo demo={demo} viewMode={viewMode} />
     } else if (demo.slug === 'justice-associates-law') {
       return <LawFirmDemo demo={demo} viewMode={viewMode} />
@@ -135,11 +162,11 @@ export default function DemoFrame({ demo }: DemoFrameProps) {
     // Premium Build demos (24-29)
     } else if (demo.slug === 'gourmet-kitchen-restaurant') {
       return <RestaurantDemo demo={demo} viewMode={viewMode} />
-    } else if (demo.slug === 'buildright-construction') {
+    } else if (demo.slug === 'cars-collision-refinish' || demo.slug === 'buildright-construction') {
       return <ConstructionDemo demo={demo} viewMode={viewMode} />
     } else if (demo.slug === 'healthfirst-medical-group') {
       return <MedicalDemo demo={demo} viewMode={viewMode} />
-    } else if (demo.slug === 'precision-auto-repair') {
+    } else if (demo.slug === 'terracotta-construction' || demo.slug === 'precision-auto-repair') {
       return <AutoRepairDemo demo={demo} viewMode={viewMode} />
     } else if (demo.slug === 'serenity-spa-wellness') {
       return <SpaDemo demo={demo} viewMode={viewMode} />
@@ -181,7 +208,7 @@ export default function DemoFrame({ demo }: DemoFrameProps) {
   }
 
   return (
-    <div className="min-h-screen bg-gray-100">
+    <div className="min-h-screen bg-slate-900">
       {/* Demo Controls Bar */}
       <div className="bg-gray-900 text-white sticky top-0 z-50 shadow-lg">
         <div className="max-w-7xl mx-auto px-4 py-3">
@@ -246,13 +273,13 @@ export default function DemoFrame({ demo }: DemoFrameProps) {
 
       {/* Instructions Banner */}
       {showInstructions && (
-        <div className="bg-blue-50 border-b border-blue-200">
+        <div className="bg-primary-950/50 border-b border-primary-800/30">
           <div className="max-w-7xl mx-auto px-4 py-4">
             <div className="flex items-start gap-4">
               <div className="text-3xl">💡</div>
               <div className="flex-1">
-                <h3 className="font-bold text-blue-900 mb-2">This is a Fully Interactive Demo</h3>
-                <ul className="text-sm text-blue-800 space-y-1">
+                <h3 className="font-bold text-primary-300 mb-2">This is a Fully Interactive Demo</h3>
+                <ul className="text-sm text-gray-300 space-y-1">
                   <li>• Click around, fill out forms, and test all features—everything works!</li>
                   <li>• Switch between <strong>Customer View</strong> (what your clients see) and <strong>Admin Dashboard</strong> (your control panel)</li>
                   <li>• All data is stored locally and will be cleared when you close this tab</li>
@@ -261,7 +288,7 @@ export default function DemoFrame({ demo }: DemoFrameProps) {
               </div>
               <button
                 onClick={() => setShowInstructions(false)}
-                className="text-blue-600 hover:text-blue-800 text-xl"
+                className="text-gray-400 hover:text-white text-xl"
               >
                 ✕
               </button>

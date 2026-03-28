@@ -115,30 +115,30 @@ export default async function BlogPostPage({ params }: BlogPostPageProps) {
       </section>
 
       {/* Blog Content */}
-      <article className="bg-white py-16 sm:py-24">
+      <article className="bg-slate-900 py-16 sm:py-24">
         <div className="mx-auto max-w-3xl px-6 lg:px-8">
           <div
-            className="prose prose-lg prose-primary max-w-none
-              prose-headings:font-bold prose-headings:text-gray-900
+            className="prose prose-lg prose-primary prose-invert max-w-none
+              prose-headings:font-bold prose-headings:text-white
               prose-h2:text-3xl prose-h2:mt-12 prose-h2:mb-6
               prose-h3:text-2xl prose-h3:mt-8 prose-h3:mb-4
-              prose-p:text-gray-600 prose-p:leading-8 prose-p:mb-6
+              prose-p:text-gray-400 prose-p:leading-8 prose-p:mb-6
               prose-a:text-primary-600 prose-a:no-underline hover:prose-a:text-primary-700
-              prose-strong:text-gray-900 prose-strong:font-semibold
+              prose-strong:text-white prose-strong:font-semibold
               prose-ul:my-6 prose-ul:list-disc prose-ul:pl-6
               prose-ol:my-6 prose-ol:list-decimal prose-ol:pl-6
-              prose-li:text-gray-600 prose-li:my-2
+              prose-li:text-gray-400 prose-li:my-2
               prose-blockquote:border-l-4 prose-blockquote:border-primary-500
-              prose-blockquote:pl-6 prose-blockquote:italic prose-blockquote:text-gray-700
-              prose-code:text-primary-600 prose-code:bg-gray-100 prose-code:px-1 prose-code:py-0.5 prose-code:rounded
+              prose-blockquote:pl-6 prose-blockquote:italic prose-blockquote:text-gray-300
+              prose-code:text-primary-600 prose-code:bg-slate-800 prose-code:px-1 prose-code:py-0.5 prose-code:rounded
               prose-pre:bg-gray-900 prose-pre:text-gray-100"
             dangerouslySetInnerHTML={{ __html: post.content }}
           />
 
           {/* Tags */}
           {post.tags && post.tags.length > 0 && (
-            <div className="mt-12 pt-8 border-t border-gray-200">
-              <h3 className="text-sm font-semibold text-gray-900 mb-4">Tags</h3>
+            <div className="mt-12 pt-8 border-t border-slate-700">
+              <h3 className="text-sm font-semibold text-white mb-4">Tags</h3>
               <div className="flex flex-wrap gap-2">
                 {post.tags.map((tag) => (
                   <span
@@ -153,14 +153,14 @@ export default async function BlogPostPage({ params }: BlogPostPageProps) {
           )}
 
           {/* Share Section */}
-          <div className="mt-12 pt-8 border-t border-gray-200">
-            <h3 className="text-sm font-semibold text-gray-900 mb-4">Share this article</h3>
+          <div className="mt-12 pt-8 border-t border-slate-700">
+            <h3 className="text-sm font-semibold text-white mb-4">Share this article</h3>
             <div className="flex gap-4">
               <a
                 href={`https://twitter.com/intent/tweet?text=${encodeURIComponent(post.title)}&url=${encodeURIComponent(`https://stephenscode.dev/blog/${post.slug}`)}`}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="inline-flex items-center justify-center h-10 w-10 rounded-full bg-gray-100 text-gray-700 hover:bg-primary-100 hover:text-primary-700 transition-colors"
+                className="inline-flex items-center justify-center h-10 w-10 rounded-full bg-slate-800 text-gray-300 hover:bg-primary-500/10 hover:text-primary-700 transition-colors"
               >
                 𝕏
               </a>
@@ -168,7 +168,7 @@ export default async function BlogPostPage({ params }: BlogPostPageProps) {
                 href={`https://www.facebook.com/sharer/sharer.php?u=${encodeURIComponent(`https://stephenscode.dev/blog/${post.slug}`)}`}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="inline-flex items-center justify-center h-10 w-10 rounded-full bg-gray-100 text-gray-700 hover:bg-primary-100 hover:text-primary-700 transition-colors"
+                className="inline-flex items-center justify-center h-10 w-10 rounded-full bg-slate-800 text-gray-300 hover:bg-primary-500/10 hover:text-primary-700 transition-colors"
               >
                 f
               </a>
@@ -176,7 +176,7 @@ export default async function BlogPostPage({ params }: BlogPostPageProps) {
                 href={`https://www.linkedin.com/shareArticle?mini=true&url=${encodeURIComponent(`https://stephenscode.dev/blog/${post.slug}`)}&title=${encodeURIComponent(post.title)}`}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="inline-flex items-center justify-center h-10 w-10 rounded-full bg-gray-100 text-gray-700 hover:bg-primary-100 hover:text-primary-700 transition-colors"
+                className="inline-flex items-center justify-center h-10 w-10 rounded-full bg-slate-800 text-gray-300 hover:bg-primary-500/10 hover:text-primary-700 transition-colors"
               >
                 in
               </a>
@@ -184,15 +184,15 @@ export default async function BlogPostPage({ params }: BlogPostPageProps) {
           </div>
 
           {/* Author Bio */}
-          <div className="mt-12 pt-8 border-t border-gray-200">
+          <div className="mt-12 pt-8 border-t border-slate-700">
             <div className="flex items-start gap-4 sm:gap-6">
-              <div className="h-16 w-16 sm:h-20 sm:w-20 rounded-full bg-primary-100 flex items-center justify-center text-3xl sm:text-4xl flex-shrink-0">
+              <div className="h-16 w-16 sm:h-20 sm:w-20 rounded-full bg-primary-500/10 flex items-center justify-center text-3xl sm:text-4xl flex-shrink-0">
                 🎖️
               </div>
               <div className="flex-1">
-                <h3 className="text-lg font-semibold text-gray-900">About the Author</h3>
+                <h3 className="text-lg font-semibold text-white">About the Author</h3>
                 <p className="text-sm font-medium text-primary-600 mb-2">{post.author}</p>
-                <p className="text-gray-600 text-sm leading-6">
+                <p className="text-gray-400 text-sm leading-6">
                   Kyle Stephens is a Marine Corps veteran and founder of StephensCode, a web development company
                   serving small businesses in the Greater Houston area. With 14+ years of experience building
                   custom websites, he helps local businesses compete online through fast, SEO-optimized websites
@@ -220,16 +220,16 @@ export default async function BlogPostPage({ params }: BlogPostPageProps) {
 
       {/* Related Posts */}
       {relatedPosts.length > 0 && (
-        <section className="bg-gray-50 py-16 sm:py-24">
+        <section className="bg-slate-800 py-16 sm:py-24">
           <div className="mx-auto max-w-7xl px-6 lg:px-8">
-            <h2 className="text-3xl font-bold tracking-tight text-gray-900 mb-12">
+            <h2 className="text-3xl font-bold tracking-tight text-white mb-12">
               Related Articles
             </h2>
             <div className="grid grid-cols-1 gap-8 md:grid-cols-3">
               {relatedPosts.map((relatedPost) => (
                 <article
                   key={relatedPost.slug}
-                  className="flex flex-col bg-white rounded-2xl shadow-lg overflow-hidden hover:shadow-xl transition-shadow"
+                  className="flex flex-col bg-slate-900 rounded-2xl shadow-lg shadow-black/20 overflow-hidden hover:shadow-xl transition-shadow"
                 >
                   <div className="flex flex-1 flex-col p-6">
                     <div className="flex items-center gap-x-4 text-xs mb-4">
@@ -242,12 +242,12 @@ export default async function BlogPostPage({ params }: BlogPostPageProps) {
                       </time>
                     </div>
                     <div className="flex-1">
-                      <h3 className="text-lg font-semibold leading-7 text-gray-900 mb-2">
+                      <h3 className="text-lg font-semibold leading-7 text-white mb-2">
                         <Link href={`/blog/${relatedPost.slug}`} className="hover:text-primary-600">
                           {relatedPost.title}
                         </Link>
                       </h3>
-                      <p className="text-sm leading-6 text-gray-600 line-clamp-3">
+                      <p className="text-sm leading-6 text-gray-400 line-clamp-3">
                         {relatedPost.excerpt}
                       </p>
                     </div>

@@ -153,7 +153,7 @@ export default async function MSPServicePage({ params }: PageProps) {
 
           <div className="grid lg:grid-cols-2 gap-12 items-center">
             <div>
-              <div className="mb-6 inline-flex items-center gap-3 rounded-full bg-white/10 px-6 py-3 text-sm font-semibold backdrop-blur-lg border border-white/20">
+              <div className="mb-6 inline-flex items-center gap-3 rounded-full bg-slate-800/40 px-6 py-3 text-sm font-semibold backdrop-blur-lg border border-slate-600">
                 <span className="text-2xl">{getCategoryIcon(service.category)}</span>
                 <span className="capitalize">{service.category.replace('-', ' ')}</span>
               </div>
@@ -167,11 +167,11 @@ export default async function MSPServicePage({ params }: PageProps) {
               </p>
 
               <div className="flex flex-wrap items-center gap-6 mb-8">
-                <div className="rounded-xl bg-white/10 backdrop-blur-lg border border-white/20 px-6 py-4">
+                <div className="rounded-xl bg-slate-800/40 backdrop-blur-lg border border-slate-600 px-6 py-4">
                   <p className="text-sm text-white/70">Starting at</p>
                   <p className="text-3xl font-black">{service.priceLabel}</p>
                 </div>
-                <div className="rounded-xl bg-white/10 backdrop-blur-lg border border-white/20 px-6 py-4">
+                <div className="rounded-xl bg-slate-800/40 backdrop-blur-lg border border-slate-600 px-6 py-4">
                   <p className="text-sm text-white/70">Timeline</p>
                   <p className="text-xl font-bold">{service.timeline}</p>
                 </div>
@@ -180,7 +180,7 @@ export default async function MSPServicePage({ params }: PageProps) {
               <div className="flex flex-wrap gap-4">
                 <Link
                   href="/contact"
-                  className="group inline-flex items-center gap-2 rounded-lg bg-white px-8 py-4 text-lg font-bold text-gray-900 shadow-2xl hover:bg-gray-100 transition-all hover:scale-105"
+                  className="group inline-flex items-center gap-2 rounded-lg bg-slate-800 px-8 py-4 text-lg font-bold text-white shadow-2xl hover:bg-slate-700 transition-all hover:scale-105"
                 >
                   <span>Get Started</span>
                   <svg className="w-5 h-5 group-hover:translate-x-1 transition-transform" fill="none" viewBox="0 0 24 24" stroke="currentColor">
@@ -189,7 +189,7 @@ export default async function MSPServicePage({ params }: PageProps) {
                 </Link>
                 <a
                   href="tel:+19363234527"
-                  className="inline-flex items-center gap-2 rounded-lg bg-white/10 px-8 py-4 text-lg font-bold text-white backdrop-blur-lg border-2 border-white/30 hover:bg-white/20 transition-all"
+                  className="inline-flex items-center gap-2 rounded-lg bg-slate-800/40 px-8 py-4 text-lg font-bold text-white backdrop-blur-lg border-2 border-slate-600 hover:bg-slate-700/60 transition-all"
                 >
                   <span>📞 (936) 323-4527</span>
                 </a>
@@ -197,7 +197,7 @@ export default async function MSPServicePage({ params }: PageProps) {
             </div>
 
             {/* Quick Features */}
-            <div className="rounded-2xl bg-white/10 backdrop-blur-lg border border-white/20 p-8">
+            <div className="rounded-2xl bg-slate-800/40 backdrop-blur-lg border border-slate-600 p-8">
               <h2 className="text-2xl font-bold mb-6">What&apos;s Included</h2>
               <ul className="space-y-4">
                 {service.features.slice(0, 8).map((feature, i) => (
@@ -215,25 +215,25 @@ export default async function MSPServicePage({ params }: PageProps) {
       </section>
 
       {/* Description Section */}
-      <section className="bg-white py-24 sm:py-32">
+      <section className="bg-slate-900 py-24 sm:py-32">
         <div className="mx-auto max-w-7xl px-6 lg:px-8">
           <div className="grid lg:grid-cols-3 gap-12">
             <div className="lg:col-span-2">
-              <h2 className="text-3xl font-bold text-gray-900 mb-6">About This Service</h2>
-              <div className="prose prose-lg max-w-none text-gray-600">
+              <h2 className="text-3xl font-bold text-white mb-6">About This Service</h2>
+              <div className="prose prose-lg max-w-none text-gray-400">
                 <p>{service.longDescription}</p>
               </div>
 
               {/* All Features */}
               <div className="mt-12">
-                <h3 className="text-2xl font-bold text-gray-900 mb-6">Complete Feature List</h3>
+                <h3 className="text-2xl font-bold text-white mb-6">Complete Feature List</h3>
                 <div className="grid md:grid-cols-2 gap-4">
                   {service.features.map((feature, i) => (
-                    <div key={i} className="flex items-start gap-3 p-4 rounded-lg bg-gray-50">
+                    <div key={i} className="flex items-start gap-3 p-4 rounded-lg bg-slate-800">
                       <svg className="h-6 w-6 text-green-600 flex-shrink-0 mt-0.5" fill="currentColor" viewBox="0 0 20 20">
                         <path fillRule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.857-9.809a.75.75 0 00-1.214-.882l-3.483 4.79-1.88-1.88a.75.75 0 10-1.06 1.061l2.5 2.5a.75.75 0 001.137-.089l4-5.5z" clipRule="evenodd" />
                       </svg>
-                      <span className="text-gray-700">{feature}</span>
+                      <span className="text-gray-300">{feature}</span>
                     </div>
                   ))}
                 </div>
@@ -241,14 +241,14 @@ export default async function MSPServicePage({ params }: PageProps) {
 
               {/* Benefits */}
               <div className="mt-12">
-                <h3 className="text-2xl font-bold text-gray-900 mb-6">Key Benefits</h3>
+                <h3 className="text-2xl font-bold text-white mb-6">Key Benefits</h3>
                 <div className="grid md:grid-cols-2 gap-6">
                   {service.benefits.map((benefit, i) => (
-                    <div key={i} className="flex items-start gap-4 p-6 rounded-xl bg-primary-50 border border-primary-100">
+                    <div key={i} className="flex items-start gap-4 p-6 rounded-xl bg-primary-500/10 border border-slate-700">
                       <div className="flex h-10 w-10 flex-shrink-0 items-center justify-center rounded-lg bg-primary-600 text-white font-bold">
                         {i + 1}
                       </div>
-                      <p className="text-gray-700">{benefit}</p>
+                      <p className="text-gray-300">{benefit}</p>
                     </div>
                   ))}
                 </div>
@@ -258,28 +258,28 @@ export default async function MSPServicePage({ params }: PageProps) {
             {/* Sidebar */}
             <div className="lg:col-span-1">
               {/* Ideal For */}
-              <div className="rounded-2xl bg-gray-50 p-8 mb-8">
-                <h3 className="text-xl font-bold text-gray-900 mb-4">Perfect For</h3>
+              <div className="rounded-2xl bg-slate-800 p-8 mb-8">
+                <h3 className="text-xl font-bold text-white mb-4">Perfect For</h3>
                 <ul className="space-y-3">
                   {service.useCases.map((useCase, i) => (
                     <li key={i} className="flex items-start gap-3">
-                      <span className="text-primary-600">→</span>
-                      <span className="text-gray-600">{useCase}</span>
+                      <span className="text-primary-400">→</span>
+                      <span className="text-gray-400">{useCase}</span>
                     </li>
                   ))}
                 </ul>
               </div>
 
               {/* Deliverables */}
-              <div className="rounded-2xl bg-gray-50 p-8 mb-8">
-                <h3 className="text-xl font-bold text-gray-900 mb-4">What You Get</h3>
+              <div className="rounded-2xl bg-slate-800 p-8 mb-8">
+                <h3 className="text-xl font-bold text-white mb-4">What You Get</h3>
                 <ul className="space-y-3">
                   {service.deliverables.map((deliverable, i) => (
                     <li key={i} className="flex items-start gap-3">
                       <svg className="h-5 w-5 text-primary-600 flex-shrink-0 mt-0.5" fill="currentColor" viewBox="0 0 20 20">
                         <path fillRule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clipRule="evenodd" />
                       </svg>
-                      <span className="text-gray-600">{deliverable}</span>
+                      <span className="text-gray-400">{deliverable}</span>
                     </li>
                   ))}
                 </ul>
@@ -293,7 +293,7 @@ export default async function MSPServicePage({ params }: PageProps) {
                 </p>
                 <Link
                   href="/contact"
-                  className="block w-full rounded-lg bg-white px-6 py-3 text-center font-bold text-primary-600 hover:bg-gray-100 transition-colors"
+                  className="block w-full rounded-lg bg-slate-800 px-6 py-3 text-center font-bold text-primary-400 hover:bg-slate-700 transition-colors"
                 >
                   Contact Us Today
                 </Link>
@@ -307,25 +307,25 @@ export default async function MSPServicePage({ params }: PageProps) {
       </section>
 
       {/* FAQ Section */}
-      <section className="bg-gray-50 py-24 sm:py-32">
+      <section className="bg-slate-800 py-24 sm:py-32">
         <div className="mx-auto max-w-3xl px-6 lg:px-8">
-          <h2 className="text-3xl font-bold text-gray-900 mb-12 text-center">Frequently Asked Questions</h2>
+          <h2 className="text-3xl font-bold text-white mb-12 text-center">Frequently Asked Questions</h2>
           <div className="space-y-8">
-            <div className="rounded-xl bg-white p-6 shadow-lg">
-              <h3 className="text-lg font-bold text-gray-900 mb-2">What is included in {service.name}?</h3>
-              <p className="text-gray-600">{service.features.slice(0, 5).join('. ')}.</p>
+            <div className="rounded-xl bg-slate-900 p-6 shadow-lg">
+              <h3 className="text-lg font-bold text-white mb-2">What is included in {service.name}?</h3>
+              <p className="text-gray-400">{service.features.slice(0, 5).join('. ')}.</p>
             </div>
-            <div className="rounded-xl bg-white p-6 shadow-lg">
-              <h3 className="text-lg font-bold text-gray-900 mb-2">How much does {service.name} cost?</h3>
-              <p className="text-gray-600">{service.name} is priced at {service.priceLabel}. Contact us for a detailed quote based on your specific needs.</p>
+            <div className="rounded-xl bg-slate-900 p-6 shadow-lg">
+              <h3 className="text-lg font-bold text-white mb-2">How much does {service.name} cost?</h3>
+              <p className="text-gray-400">{service.name} is priced at {service.priceLabel}. Contact us for a detailed quote based on your specific needs.</p>
             </div>
-            <div className="rounded-xl bg-white p-6 shadow-lg">
-              <h3 className="text-lg font-bold text-gray-900 mb-2">Who is {service.name} best for?</h3>
-              <p className="text-gray-600">{service.useCases.slice(0, 3).join('. ')}.</p>
+            <div className="rounded-xl bg-slate-900 p-6 shadow-lg">
+              <h3 className="text-lg font-bold text-white mb-2">Who is {service.name} best for?</h3>
+              <p className="text-gray-400">{service.useCases.slice(0, 3).join('. ')}.</p>
             </div>
-            <div className="rounded-xl bg-white p-6 shadow-lg">
-              <h3 className="text-lg font-bold text-gray-900 mb-2">How quickly can I get started?</h3>
-              <p className="text-gray-600">Our typical timeline for {service.name} is {service.timeline}. Contact us to discuss your specific timeline requirements.</p>
+            <div className="rounded-xl bg-slate-900 p-6 shadow-lg">
+              <h3 className="text-lg font-bold text-white mb-2">How quickly can I get started?</h3>
+              <p className="text-gray-400">Our typical timeline for {service.name} is {service.timeline}. Contact us to discuss your specific timeline requirements.</p>
             </div>
           </div>
         </div>
@@ -344,7 +344,7 @@ export default async function MSPServicePage({ params }: PageProps) {
             <div className="flex flex-wrap items-center justify-center gap-4">
               <Link
                 href="/contact"
-                className="group inline-flex items-center gap-2 rounded-lg bg-white px-10 py-5 text-xl font-bold text-gray-900 shadow-2xl hover:bg-gray-100 transition-all hover:scale-105"
+                className="group inline-flex items-center gap-2 rounded-lg bg-slate-800 px-10 py-5 text-xl font-bold text-white shadow-2xl hover:bg-slate-700 transition-all hover:scale-105"
               >
                 <span>Get Free Quote</span>
                 <svg className="w-6 h-6 group-hover:translate-x-1 transition-transform" fill="none" viewBox="0 0 24 24" stroke="currentColor">
@@ -353,7 +353,7 @@ export default async function MSPServicePage({ params }: PageProps) {
               </Link>
               <Link
                 href="/msp"
-                className="inline-flex items-center gap-2 rounded-lg bg-white/10 px-10 py-5 text-xl font-bold text-white backdrop-blur-lg border-2 border-white/30 hover:bg-white/20 transition-all"
+                className="inline-flex items-center gap-2 rounded-lg bg-slate-800/40 px-10 py-5 text-xl font-bold text-white backdrop-blur-lg border-2 border-slate-600 hover:bg-slate-700/60 transition-all"
               >
                 <span>View All IT Services</span>
               </Link>

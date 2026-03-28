@@ -94,7 +94,7 @@ export default function DemosClient({ demos, categories }: DemosClientProps) {
   const renderDemoCard = (demo: Demo, index: number) => (
     <article
       key={demo.id}
-      className="flex flex-col bg-white rounded-2xl shadow-lg overflow-hidden hover:shadow-2xl transition-shadow group"
+      className="flex flex-col bg-slate-800 rounded-2xl shadow-lg overflow-hidden hover:shadow-2xl transition-shadow group"
       style={{ animationDelay: `${index * 100}ms` }}
     >
       {/* Demo Preview */}
@@ -143,14 +143,14 @@ export default function DemosClient({ demos, categories }: DemosClientProps) {
       <div className="flex flex-1 flex-col p-6">
         <div className="flex items-start justify-between mb-3">
           <div className="flex-1">
-            <h3 className="text-xl font-bold text-gray-900 group-hover:text-primary-600 transition-colors">
+            <h3 className="text-xl font-bold text-white group-hover:text-primary-400 transition-colors">
               {demo.name}
             </h3>
-            <p className="text-sm text-gray-600 mt-1">{demo.industry}</p>
+            <p className="text-sm text-gray-400 mt-1">{demo.industry}</p>
           </div>
         </div>
 
-        <p className="text-sm text-gray-600 mb-4 line-clamp-2">
+        <p className="text-sm text-gray-400 mb-4 line-clamp-2">
           {demo.description}
         </p>
 
@@ -160,22 +160,22 @@ export default function DemosClient({ demos, categories }: DemosClientProps) {
             {demo.features.slice(0, 4).map((feature, index) => (
               <span
                 key={index}
-                className="text-xs bg-gray-100 text-gray-700 px-2 py-1 rounded"
+                className="text-xs bg-slate-700 text-gray-300 px-2 py-1 rounded"
               >
                 {feature}
               </span>
             ))}
             {demo.features.length > 4 && (
-              <span className="text-xs bg-primary-100 text-primary-700 px-2 py-1 rounded font-semibold">
+              <span className="text-xs bg-primary-500/10 text-primary-400 px-2 py-1 rounded font-semibold">
                 +{demo.features.length - 4} more
               </span>
             )}
           </div>
         </div>
 
-        <div className="mt-auto pt-4 border-t border-gray-200">
+        <div className="mt-auto pt-4 border-t border-slate-700">
           <div className="flex items-center justify-between mb-3">
-            <span className="text-xs font-semibold text-gray-500">{demo.package}</span>
+            <span className="text-xs font-semibold text-gray-400">{demo.package}</span>
             {demo.isRealClient && (
               <span className="text-xs font-semibold text-green-600">Live Client Site</span>
             )}
@@ -205,11 +205,11 @@ export default function DemosClient({ demos, categories }: DemosClientProps) {
   return (
     <>
       {/* Categories Filter */}
-      <section className="bg-gray-50 py-12 border-b border-gray-200">
+      <section className="bg-slate-800 py-12 border-b border-slate-700">
         <div className="mx-auto max-w-7xl px-6 lg:px-8">
           <div className="text-center mb-8">
-            <h2 className="text-2xl font-bold text-gray-900 mb-2">Browse by Package Type</h2>
-            <p className="text-gray-600">Filter demos by service package or explore all</p>
+            <h2 className="text-2xl font-bold text-white mb-2">Browse by Package Type</h2>
+            <p className="text-gray-400">Filter demos by service package or explore all</p>
           </div>
           <div className="flex flex-wrap justify-center gap-3">
             {categories.map((category, index) => (
@@ -219,11 +219,11 @@ export default function DemosClient({ demos, categories }: DemosClientProps) {
                 className={`rounded-full px-5 py-2.5 text-sm font-semibold shadow-sm ring-1 ring-inset transition-all ${
                   selectedFilter === category.slug
                     ? 'bg-primary-600 text-white ring-primary-600'
-                    : 'bg-white text-gray-700 ring-gray-300 hover:bg-primary-50 hover:text-primary-700 hover:ring-primary-300'
+                    : 'bg-slate-900 text-gray-300 ring-slate-600 hover:bg-slate-700 hover:text-primary-400 hover:ring-primary-500'
                 }`}
                 style={{ animationDelay: `${index * 50}ms` }}
               >
-                {category.name} <span className={selectedFilter === category.slug ? 'text-primary-200' : 'text-gray-500'}>({category.count})</span>
+                {category.name} <span className={selectedFilter === category.slug ? 'text-primary-200' : 'text-gray-400'}>({category.count})</span>
               </button>
             ))}
           </div>
@@ -231,7 +231,7 @@ export default function DemosClient({ demos, categories }: DemosClientProps) {
       </section>
 
       {/* Demos Grid with Section Headers */}
-      <section className="bg-gray-50 py-24 sm:py-32">
+      <section className="bg-slate-800 py-24 sm:py-32">
         <div className="mx-auto max-w-7xl px-6 lg:px-8">
           {selectedFilter === 'all' ? (
             // Show grouped demos with section headers
@@ -244,10 +244,10 @@ export default function DemosClient({ demos, categories }: DemosClientProps) {
                   <div key={groupKey} className="mb-16 last:mb-0">
                     {/* Section Header */}
                     <div className="text-center mb-12">
-                      <h2 className="text-3xl font-bold text-gray-900 mb-2">
+                      <h2 className="text-3xl font-bold text-white mb-2">
                         {description.title}
                       </h2>
-                      <p className="text-lg text-gray-600">
+                      <p className="text-lg text-gray-400">
                         {description.subtitle}
                       </p>
                     </div>
@@ -266,10 +266,10 @@ export default function DemosClient({ demos, categories }: DemosClientProps) {
               {filteredDemos.length > 0 ? (
                 <>
                   <div className="text-center mb-12">
-                    <h2 className="text-3xl font-bold text-gray-900 mb-2">
+                    <h2 className="text-3xl font-bold text-white mb-2">
                       {packageDescriptions[selectedFilter]?.title || 'Filtered Demos'}
                     </h2>
-                    <p className="text-lg text-gray-600">
+                    <p className="text-lg text-gray-400">
                       {packageDescriptions[selectedFilter]?.subtitle || `Showing ${filteredDemos.length} demos`}
                     </p>
                   </div>
@@ -280,8 +280,8 @@ export default function DemosClient({ demos, categories }: DemosClientProps) {
               ) : (
                 <div className="text-center py-16">
                   <div className="text-6xl mb-4">🔍</div>
-                  <h3 className="text-2xl font-bold text-gray-900 mb-2">No demos found</h3>
-                  <p className="text-gray-600 mb-6">Try selecting a different category</p>
+                  <h3 className="text-2xl font-bold text-white mb-2">No demos found</h3>
+                  <p className="text-gray-400 mb-6">Try selecting a different category</p>
                   <button
                     onClick={() => setSelectedFilter('all')}
                     className="rounded-lg bg-primary-600 px-6 py-3 text-base font-semibold text-white hover:bg-primary-700 transition-colors"

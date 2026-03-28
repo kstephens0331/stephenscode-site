@@ -167,7 +167,7 @@ export default function MSPServicesPage() {
             {/* Stats Bar */}
             <div className="mt-12 grid grid-cols-2 md:grid-cols-4 gap-6">
               {stats.map((stat) => (
-                <div key={stat.label} className="rounded-xl bg-white/10 backdrop-blur-lg border border-white/20 p-4">
+                <div key={stat.label} className="rounded-xl bg-slate-800/40 backdrop-blur-lg border border-slate-600 p-4">
                   <div className="text-3xl font-black text-red-400">{stat.value}</div>
                   <div className="text-sm text-gray-300">{stat.label}</div>
                 </div>
@@ -186,7 +186,7 @@ export default function MSPServicesPage() {
               </Link>
               <a
                 href="tel:+19363234527"
-                className="inline-flex items-center gap-2 rounded-lg bg-white/10 px-8 py-4 text-lg font-bold text-white backdrop-blur-lg border-2 border-white/30 hover:bg-white/20 transition-all"
+                className="inline-flex items-center gap-2 rounded-lg bg-slate-800/40 px-8 py-4 text-lg font-bold text-white backdrop-blur-lg border-2 border-slate-600 hover:bg-slate-700/60 transition-all"
               >
                 <span>📞 (936) 323-4527</span>
               </a>
@@ -196,24 +196,24 @@ export default function MSPServicesPage() {
 
         <div className="absolute bottom-0 left-0 right-0">
           <svg viewBox="0 0 1440 120" fill="none" xmlns="http://www.w3.org/2000/svg" className="w-full">
-            <path d="M0 120L60 105C120 90 240 60 360 45C480 30 600 30 720 37.5C840 45 960 60 1080 67.5C1200 75 1320 75 1380 75L1440 75V120H1380C1320 120 1200 120 1080 120C960 120 840 120 720 120C600 120 480 120 360 120C240 120 120 120 60 120H0Z" fill="white"/>
+            <path d="M0 120L60 105C120 90 240 60 360 45C480 30 600 30 720 37.5C840 45 960 60 1080 67.5C1200 75 1320 75 1380 75L1440 75V120H1380C1320 120 1200 120 1080 120C960 120 840 120 720 120C600 120 480 120 360 120C240 120 120 120 60 120H0Z" fill="#0f172a"/>
           </svg>
         </div>
       </section>
 
       {/* Service Categories */}
       {serviceCategories.map((category, catIndex) => (
-        <section key={category.title} className={catIndex % 2 === 0 ? 'bg-white py-24 sm:py-32' : 'bg-gray-50 py-24 sm:py-32'}>
+        <section key={category.title} className={catIndex % 2 === 0 ? 'bg-slate-900 py-24 sm:py-32' : 'bg-slate-800 py-24 sm:py-32'}>
           <div className="mx-auto max-w-7xl px-6 lg:px-8">
             <div className="mx-auto max-w-2xl text-center mb-16">
               <div className={`inline-flex items-center gap-3 rounded-full bg-gradient-to-r ${category.gradient} px-6 py-3 text-white shadow-xl mb-6`}>
                 <span className="text-3xl">{category.icon}</span>
                 <span className="font-bold">{category.subtitle}</span>
               </div>
-              <h2 className="text-4xl font-black tracking-tight text-gray-900 sm:text-5xl mb-6">
+              <h2 className="text-4xl font-black tracking-tight text-white sm:text-5xl mb-6">
                 {category.title}
               </h2>
-              <p className="text-lg leading-8 text-gray-600">
+              <p className="text-lg leading-8 text-gray-400">
                 {category.description}
               </p>
             </div>
@@ -222,16 +222,16 @@ export default function MSPServicesPage() {
               {category.services.map((service) => (
                 <article
                   key={service.id}
-                  className="group relative flex flex-col rounded-2xl bg-white border-2 border-gray-200 p-8 shadow-lg hover:border-primary-500 hover:shadow-2xl transition-all hover:scale-105"
+                  className="group relative flex flex-col rounded-2xl bg-slate-800 border-2 border-slate-700 p-8 shadow-lg hover:border-primary-500 hover:shadow-2xl transition-all hover:scale-105"
                 >
                   <div className="mb-4">
-                    <h3 className="text-2xl font-bold text-gray-900 group-hover:text-primary-600 transition-colors">
+                    <h3 className="text-2xl font-bold text-white group-hover:text-primary-400 transition-colors">
                       {service.name}
                     </h3>
-                    <p className="mt-2 text-sm text-gray-500 capitalize">{service.category.replace('-', ' ')}</p>
+                    <p className="mt-2 text-sm text-gray-400 capitalize">{service.category.replace('-', ' ')}</p>
                   </div>
 
-                  <p className="text-gray-600 mb-6 line-clamp-3">
+                  <p className="text-gray-400 mb-6 line-clamp-3">
                     {service.shortDescription}
                   </p>
 
@@ -239,14 +239,14 @@ export default function MSPServicesPage() {
                     <p className="text-3xl font-black text-primary-600">
                       {service.priceLabel}
                     </p>
-                    <p className="text-sm text-gray-500 mt-1">{service.timeline}</p>
+                    <p className="text-sm text-gray-400 mt-1">{service.timeline}</p>
                   </div>
 
                   <div className="mb-6 flex-1">
-                    <p className="text-sm font-semibold text-gray-700 mb-3">Includes:</p>
+                    <p className="text-sm font-semibold text-gray-300 mb-3">Includes:</p>
                     <ul className="space-y-2">
                       {service.features.slice(0, 4).map((feature, i) => (
-                        <li key={i} className="flex items-start gap-2 text-sm text-gray-600">
+                        <li key={i} className="flex items-start gap-2 text-sm text-gray-400">
                           <svg className="h-5 w-5 text-green-600 flex-shrink-0 mt-0.5" fill="currentColor" viewBox="0 0 20 20">
                             <path fillRule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.857-9.809a.75.75 0 00-1.214-.882l-3.483 4.79-1.88-1.88a.75.75 0 10-1.06 1.061l2.5 2.5a.75.75 0 001.137-.089l4-5.5z" clipRule="evenodd" />
                           </svg>
@@ -281,7 +281,7 @@ export default function MSPServicesPage() {
 
           <div className="grid grid-cols-1 gap-8 lg:grid-cols-2">
             {whyChooseMSP.map((item, index) => (
-              <div key={index} className="relative group overflow-hidden rounded-2xl bg-white/10 backdrop-blur-lg border border-white/20 p-8 hover:bg-white/20 transition-all hover:scale-105">
+              <div key={index} className="relative group overflow-hidden rounded-2xl bg-slate-800/40 backdrop-blur-lg border border-slate-600 p-8 hover:bg-slate-700/60 transition-all hover:scale-105">
                 <div className="flex items-start gap-6">
                   <div className="flex h-16 w-16 flex-shrink-0 items-center justify-center rounded-xl bg-red-500 text-4xl shadow-lg group-hover:scale-110 transition-transform">
                     {item.icon}
@@ -304,11 +304,11 @@ export default function MSPServicesPage() {
       </section>
 
       {/* FAQ Section */}
-      <section className="bg-white py-24 sm:py-32">
+      <section className="bg-slate-900 py-24 sm:py-32">
         <div className="mx-auto max-w-4xl px-6 lg:px-8">
           <div className="mx-auto max-w-2xl text-center mb-16">
-            <h2 className="text-base font-semibold leading-7 text-red-600">Frequently Asked Questions</h2>
-            <p className="mt-2 text-4xl font-black tracking-tight text-gray-900 sm:text-5xl">
+            <h2 className="text-base font-semibold leading-7 text-red-400">Frequently Asked Questions</h2>
+            <p className="mt-2 text-4xl font-black tracking-tight text-white sm:text-5xl">
               Managed IT Services FAQ
             </p>
           </div>
@@ -350,9 +350,9 @@ export default function MSPServicesPage() {
             ].map((faq, index) => (
               <details
                 key={index}
-                className="group rounded-2xl border-2 border-gray-200 bg-gray-50 hover:border-red-300 transition-colors"
+                className="group rounded-2xl border-2 border-slate-700 bg-slate-800 hover:border-red-300 transition-colors"
               >
-                <summary className="flex cursor-pointer items-center justify-between p-6 text-lg font-bold text-gray-900">
+                <summary className="flex cursor-pointer items-center justify-between p-6 text-lg font-bold text-white">
                   <span>{faq.question}</span>
                   <span className="ml-4 flex-shrink-0 text-red-600 group-open:rotate-180 transition-transform">
                     <svg className="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
@@ -361,14 +361,14 @@ export default function MSPServicesPage() {
                   </span>
                 </summary>
                 <div className="px-6 pb-6">
-                  <p className="text-gray-600 leading-relaxed">{faq.answer}</p>
+                  <p className="text-gray-400 leading-relaxed">{faq.answer}</p>
                 </div>
               </details>
             ))}
           </div>
 
           <div className="mt-12 text-center">
-            <p className="text-gray-600 mb-4">Ready to improve your IT?</p>
+            <p className="text-gray-400 mb-4">Ready to improve your IT?</p>
             <Link
               href="/contact"
               className="inline-flex items-center gap-2 text-red-600 font-bold hover:text-red-700"
@@ -399,7 +399,7 @@ export default function MSPServicesPage() {
             <div className="flex flex-wrap items-center justify-center gap-4">
               <Link
                 href="/contact"
-                className="group inline-flex items-center gap-2 rounded-lg bg-white px-10 py-5 text-xl font-bold text-red-600 shadow-2xl hover:bg-gray-100 transition-all hover:scale-110"
+                className="group inline-flex items-center gap-2 rounded-lg bg-slate-800 px-10 py-5 text-xl font-bold text-red-400 shadow-2xl hover:bg-slate-700 transition-all hover:scale-110"
               >
                 <span>Schedule Free Assessment</span>
                 <svg className="w-6 h-6 group-hover:translate-x-1 transition-transform" fill="none" viewBox="0 0 24 24" stroke="currentColor">
@@ -408,7 +408,7 @@ export default function MSPServicesPage() {
               </Link>
               <a
                 href="tel:+19363234527"
-                className="inline-flex items-center gap-2 rounded-lg bg-white/10 px-10 py-5 text-xl font-bold text-white backdrop-blur-lg border-2 border-white/30 hover:bg-white/20 transition-all"
+                className="inline-flex items-center gap-2 rounded-lg bg-slate-800/40 px-10 py-5 text-xl font-bold text-white backdrop-blur-lg border-2 border-slate-600 hover:bg-slate-700/60 transition-all"
               >
                 <span>📞 Call (936) 323-4527</span>
               </a>

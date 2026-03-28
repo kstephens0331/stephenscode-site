@@ -224,7 +224,7 @@ export default function Home() {
         <div className="relative mx-auto max-w-7xl px-6 py-32 sm:py-40 lg:px-8">
           <div className="mx-auto max-w-4xl text-center">
             {/* Veteran Badge with Animation */}
-            <div className="mb-8 inline-flex items-center gap-3 rounded-full bg-white/10 px-6 py-3 text-sm font-semibold backdrop-blur-lg border border-white/20 shadow-2xl animate-fade-in-up">
+            <div className="mb-8 inline-flex items-center gap-3 rounded-full bg-slate-800/40 px-6 py-3 text-sm font-semibold backdrop-blur-lg border border-slate-600 shadow-2xl animate-fade-in-up">
               <span className="text-3xl">🇺🇸</span>
               <span className="text-white">Veteran-Owned | Founded 2011 | Full Platform 2025</span>
             </div>
@@ -253,14 +253,14 @@ export default function Home() {
               </Link>
               <Link
                 href="/demos"
-                className="inline-flex items-center gap-2 rounded-lg bg-white/10 px-8 py-4 text-lg font-bold text-white backdrop-blur-lg border-2 border-white/30 hover:bg-white/20 transition-all"
+                className="inline-flex items-center gap-2 rounded-lg bg-slate-800/40 px-8 py-4 text-lg font-bold text-white backdrop-blur-lg border-2 border-slate-600 hover:bg-slate-700/60 transition-all"
               >
                 <span>View 40 Live Demos</span>
                 <span>→</span>
               </Link>
               <a
                 href="tel:+19363234527"
-                className="inline-flex items-center gap-2 rounded-lg border-2 border-white px-8 py-4 text-lg font-bold text-white hover:bg-white/10 transition-all"
+                className="inline-flex items-center gap-2 rounded-lg border-2 border-slate-500 px-8 py-4 text-lg font-bold text-white hover:bg-slate-800/40 transition-all"
               >
                 <span>📞</span>
                 <span>(936) 323-4527</span>
@@ -271,7 +271,7 @@ export default function Home() {
             <div className="mt-16 animate-fade-in-up animation-delay-800">
               <div className="flex flex-wrap items-center justify-center gap-4">
                 {/* Marine Corps Veteran Badge */}
-                <div className="flex items-center gap-3 rounded-xl bg-white/10 backdrop-blur-sm px-5 py-3 border border-white/20">
+                <div className="flex items-center gap-3 rounded-xl bg-slate-800/40 backdrop-blur-sm px-5 py-3 border border-slate-600">
                   <span className="text-2xl">🎖️</span>
                   <div className="text-left">
                     <span className="block text-xs text-gray-300 uppercase tracking-wide">USMC Veteran</span>
@@ -279,7 +279,7 @@ export default function Home() {
                   </div>
                 </div>
                 {/* Experience Badge */}
-                <div className="flex items-center gap-3 rounded-xl bg-white/10 backdrop-blur-sm px-5 py-3 border border-white/20">
+                <div className="flex items-center gap-3 rounded-xl bg-slate-800/40 backdrop-blur-sm px-5 py-3 border border-slate-600">
                   <span className="text-2xl">⭐</span>
                   <div className="text-left">
                     <span className="block text-xs text-gray-300 uppercase tracking-wide">Since 2011</span>
@@ -287,7 +287,7 @@ export default function Home() {
                   </div>
                 </div>
                 {/* Projects Badge */}
-                <div className="flex items-center gap-3 rounded-xl bg-white/10 backdrop-blur-sm px-5 py-3 border border-white/20">
+                <div className="flex items-center gap-3 rounded-xl bg-slate-800/40 backdrop-blur-sm px-5 py-3 border border-slate-600">
                   <span className="text-2xl">🚀</span>
                   <div className="text-left">
                     <span className="block text-xs text-gray-300 uppercase tracking-wide">Track Record</span>
@@ -295,7 +295,7 @@ export default function Home() {
                   </div>
                 </div>
                 {/* Local Badge */}
-                <div className="flex items-center gap-3 rounded-xl bg-white/10 backdrop-blur-sm px-5 py-3 border border-white/20">
+                <div className="flex items-center gap-3 rounded-xl bg-slate-800/40 backdrop-blur-sm px-5 py-3 border border-slate-600">
                   <span className="text-2xl">📍</span>
                   <div className="text-left">
                     <span className="block text-xs text-gray-300 uppercase tracking-wide">Based In</span>
@@ -310,19 +310,19 @@ export default function Home() {
         {/* Wave Divider */}
         <div className="absolute bottom-0 left-0 right-0">
           <svg viewBox="0 0 1440 120" fill="none" xmlns="http://www.w3.org/2000/svg" className="w-full">
-            <path d="M0 120L60 105C120 90 240 60 360 45C480 30 600 30 720 37.5C840 45 960 60 1080 67.5C1200 75 1320 75 1380 75L1440 75V120H1380C1320 120 1200 120 1080 120C960 120 840 120 720 120C600 120 480 120 360 120C240 120 120 120 60 120H0Z" fill="white"/>
+            <path d="M0 120L60 105C120 90 240 60 360 45C480 30 600 30 720 37.5C840 45 960 60 1080 67.5C1200 75 1320 75 1380 75L1440 75V120H1380C1320 120 1200 120 1080 120C960 120 840 120 720 120C600 120 480 120 360 120C240 120 120 120 60 120H0Z" fill="#0f172a"/>
           </svg>
         </div>
       </section>
 
       {/* Stats Section */}
-      <section className="bg-white py-16">
+      <section className="bg-slate-900 py-16">
         <div className="mx-auto max-w-7xl px-6 lg:px-8">
           <div className="grid grid-cols-2 gap-8 lg:grid-cols-4">
             {stats.map((stat, index) => (
               <div key={stat.label} className="flex flex-col items-center text-center group hover:scale-110 transition-transform duration-300" style={{ animationDelay: `${index * 100}ms` }}>
                 <div className="text-5xl mb-3 group-hover:scale-125 transition-transform">{stat.icon}</div>
-                <p className="text-base leading-7 text-gray-600 font-semibold">{stat.label}</p>
+                <p className="text-base leading-7 text-gray-400 font-semibold">{stat.label}</p>
                 <p className="order-first text-5xl font-black tracking-tight text-primary-600 mb-2">
                   {stat.value}
                 </p>
@@ -333,14 +333,14 @@ export default function Home() {
       </section>
 
       {/* Packages Section - SEO Rich Content */}
-      <section className="bg-gradient-to-b from-gray-50 to-white py-24 sm:py-32" id="packages">
+      <section className="bg-slate-900 py-24 sm:py-32" id="packages">
         <div className="mx-auto max-w-7xl px-6 lg:px-8">
           <div className="mx-auto max-w-2xl text-center mb-16">
             <h2 className="text-base font-semibold leading-7 text-primary-600">Transparent Pricing</h2>
-            <p className="mt-2 text-4xl font-black tracking-tight text-gray-900 sm:text-5xl">
+            <p className="mt-2 text-4xl font-black tracking-tight text-white sm:text-5xl">
               Website Packages That Fit Your Budget
             </p>
-            <p className="mt-6 text-lg leading-8 text-gray-600">
+            <p className="mt-6 text-lg leading-8 text-gray-400">
               Flat-rate pricing with no hourly rates or hidden fees. Choose the package that fits your needs, from simple starter sites to complex e-commerce and business platforms.
             </p>
           </div>
@@ -352,7 +352,7 @@ export default function Home() {
                 className={`relative flex flex-col rounded-3xl p-8 shadow-xl ring-1 transition-all hover:scale-105 hover:shadow-2xl ${
                   pkg.popular
                     ? 'bg-primary-600 text-white ring-primary-600 lg:scale-105'
-                    : 'bg-white ring-gray-200 hover:ring-primary-500'
+                    : 'bg-slate-800 ring-slate-700 hover:ring-primary-500 shadow-lg shadow-black/20'
                 }`}
               >
                 {pkg.popular && (
@@ -363,26 +363,26 @@ export default function Home() {
                   </div>
                 )}
 
-                <h3 className={`text-2xl font-bold ${pkg.popular ? 'text-white' : 'text-gray-900'}`}>
+                <h3 className={`text-2xl font-bold ${pkg.popular ? 'text-white' : 'text-white'}`}>
                   {pkg.name}
                 </h3>
 
-                <p className={`mt-4 text-sm leading-6 ${pkg.popular ? 'text-gray-100' : 'text-gray-600'}`}>
+                <p className={`mt-4 text-sm leading-6 ${pkg.popular ? 'text-gray-100' : 'text-gray-400'}`}>
                   {pkg.description}
                 </p>
 
                 <p className="mt-6 flex items-baseline gap-x-1">
-                  <span className={`text-5xl font-black tracking-tight ${pkg.popular ? 'text-white' : 'text-gray-900'}`}>
+                  <span className={`text-5xl font-black tracking-tight ${pkg.popular ? 'text-white' : 'text-white'}`}>
                     {pkg.price}
                   </span>
                   {!pkg.price.includes('+') && (
-                    <span className={`text-sm font-semibold leading-6 ${pkg.popular ? 'text-gray-100' : 'text-gray-600'}`}>
+                    <span className={`text-sm font-semibold leading-6 ${pkg.popular ? 'text-gray-100' : 'text-gray-400'}`}>
                       flat rate
                     </span>
                   )}
                 </p>
 
-                <ul role="list" className={`mt-8 space-y-3 text-sm leading-6 flex-1 ${pkg.popular ? 'text-gray-100' : 'text-gray-600'}`}>
+                <ul role="list" className={`mt-8 space-y-3 text-sm leading-6 flex-1 ${pkg.popular ? 'text-gray-100' : 'text-gray-400'}`}>
                   {pkg.features.map((feature) => (
                     <li key={feature} className="flex gap-x-3">
                       <svg className={`h-6 w-5 flex-none ${pkg.popular ? 'text-white' : 'text-primary-600'}`} viewBox="0 0 20 20" fill="currentColor">
@@ -397,7 +397,7 @@ export default function Home() {
                   href={pkg.href}
                   className={`mt-8 block rounded-lg px-6 py-4 text-center text-sm font-bold transition-all ${
                     pkg.popular
-                      ? 'bg-white text-primary-600 hover:bg-gray-100'
+                      ? 'bg-slate-800 text-primary-400 hover:bg-slate-700'
                       : 'bg-primary-600 text-white hover:bg-primary-700'
                   }`}
                 >
@@ -487,7 +487,7 @@ export default function Home() {
                   href={service.href}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="group relative rounded-2xl bg-white/10 backdrop-blur-lg border border-white/20 p-8 hover:bg-white/20 transition-all hover:scale-105"
+                  className="group relative rounded-2xl bg-slate-800/40 backdrop-blur-lg border border-slate-600 p-8 hover:bg-slate-700/60 transition-all hover:scale-105"
                 >
                   <div className="text-4xl mb-4">{service.icon}</div>
                   <h3 className="text-xl font-bold text-white mb-2">{service.name}</h3>
@@ -503,7 +503,7 @@ export default function Home() {
                 <Link
                   key={service.name}
                   href={service.href}
-                  className="group relative rounded-2xl bg-white/10 backdrop-blur-lg border border-white/20 p-8 hover:bg-white/20 transition-all hover:scale-105"
+                  className="group relative rounded-2xl bg-slate-800/40 backdrop-blur-lg border border-slate-600 p-8 hover:bg-slate-700/60 transition-all hover:scale-105"
                 >
                   <div className="text-4xl mb-4">{service.icon}</div>
                   <h3 className="text-xl font-bold text-white mb-2">{service.name}</h3>
@@ -532,14 +532,14 @@ export default function Home() {
       </section>
 
       {/* Process Section */}
-      <section className="bg-white py-24 sm:py-32">
+      <section className="bg-slate-800 py-24 sm:py-32">
         <div className="mx-auto max-w-7xl px-6 lg:px-8">
           <div className="mx-auto max-w-2xl text-center mb-16">
             <h2 className="text-base font-semibold leading-7 text-primary-600">Simple Process</h2>
-            <p className="mt-2 text-4xl font-black tracking-tight text-gray-900 sm:text-5xl">
+            <p className="mt-2 text-4xl font-black tracking-tight text-white sm:text-5xl">
               How We Work Together
             </p>
-            <p className="mt-6 text-lg leading-8 text-gray-600">
+            <p className="mt-6 text-lg leading-8 text-gray-400">
               Transparent, efficient, and collaborative. From consultation to launch in 4 simple steps.
             </p>
           </div>
@@ -557,8 +557,8 @@ export default function Home() {
                   <div className="absolute top-0 -right-2 flex h-8 w-8 items-center justify-center rounded-full bg-accent-500 text-white text-sm font-bold shadow-lg">
                     {step.number}
                   </div>
-                  <h3 className="text-xl font-bold text-gray-900 mb-3">{step.title}</h3>
-                  <p className="text-gray-600">{step.description}</p>
+                  <h3 className="text-xl font-bold text-white mb-3">{step.title}</h3>
+                  <p className="text-gray-400">{step.description}</p>
                 </div>
               </div>
             ))}
@@ -567,18 +567,18 @@ export default function Home() {
       </section>
 
       {/* Testimonials */}
-      <section className="bg-gradient-to-b from-primary-50 to-white py-24 sm:py-32">
+      <section className="bg-slate-900 py-24 sm:py-32">
         <div className="mx-auto max-w-7xl px-6 lg:px-8">
           <div className="mx-auto max-w-2xl text-center mb-16">
             <h2 className="text-base font-semibold leading-7 text-primary-600">Small Business Website Success Stories</h2>
-            <p className="mt-2 text-4xl font-black tracking-tight text-gray-900 sm:text-5xl">
+            <p className="mt-2 text-4xl font-black tracking-tight text-white sm:text-5xl">
               Custom Websites for Texas Businesses
             </p>
           </div>
 
           <div className="grid grid-cols-1 gap-8 lg:grid-cols-3">
             {testimonials.map((testimonial, index) => (
-              <article key={index} className="bg-white rounded-2xl shadow-xl p-8 hover:shadow-2xl transition-all hover:scale-105">
+              <article key={index} className="bg-slate-800 rounded-2xl shadow-lg shadow-black/20 p-8 hover:shadow-2xl transition-all hover:scale-105">
                 <div className="flex gap-1 mb-4">
                   {[...Array(5)].map((_, i) => (
                     <svg key={i} className="h-5 w-5 text-accent-500" fill="currentColor" viewBox="0 0 20 20">
@@ -586,13 +586,13 @@ export default function Home() {
                     </svg>
                   ))}
                 </div>
-                <blockquote className="text-gray-700 italic mb-6 text-lg">
+                <blockquote className="text-gray-300 italic mb-6 text-lg">
                   "{testimonial.quote}"
                 </blockquote>
-                <div className="border-t pt-4">
-                  <p className="font-bold text-gray-900">{testimonial.author}</p>
-                  <p className="text-sm text-gray-600 mb-2">{testimonial.company}</p>
-                  <div className="inline-flex items-center gap-2 rounded-full bg-green-100 px-3 py-1 text-xs font-bold text-green-700">
+                <div className="border-t border-slate-700 pt-4">
+                  <p className="font-bold text-white">{testimonial.author}</p>
+                  <p className="text-sm text-gray-400 mb-2">{testimonial.company}</p>
+                  <div className="inline-flex items-center gap-2 rounded-full bg-green-500/15 px-3 py-1 text-xs font-bold text-green-400">
                     <svg className="h-4 w-4" fill="currentColor" viewBox="0 0 20 20">
                       <path fillRule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.857-9.809a.75.75 0 00-1.214-.882l-3.483 4.79-1.88-1.88a.75.75 0 10-1.06 1.061l2.5 2.5a.75.75 0 001.137-.089l4-5.5z" clipRule="evenodd" />
                     </svg>
@@ -616,14 +616,14 @@ export default function Home() {
       </section>
 
       {/* Service Areas - SEO Gold */}
-      <section className="bg-white py-24 sm:py-32">
+      <section className="bg-slate-800 py-24 sm:py-32">
         <div className="mx-auto max-w-7xl px-6 lg:px-8">
           <div className="mx-auto max-w-2xl text-center mb-16">
             <h2 className="text-base font-semibold leading-7 text-primary-600">Local Web Developer Near Me</h2>
-            <p className="mt-2 text-4xl font-black tracking-tight text-gray-900 sm:text-5xl">
+            <p className="mt-2 text-4xl font-black tracking-tight text-white sm:text-5xl">
               Houston Web Development Services
             </p>
-            <p className="mt-6 text-lg leading-8 text-gray-600">
+            <p className="mt-6 text-lg leading-8 text-gray-400">
               Veteran owned web developer proudly serving businesses throughout Houston, Conroe, The Woodlands, and Montgomery County. Affordable web design you can trust.
             </p>
           </div>
@@ -639,8 +639,8 @@ export default function Home() {
           </div>
 
           <div className="mt-12 text-center">
-            <p className="text-gray-600">
-              <strong className="text-gray-900">Not in your area?</strong> We work with clients nationwide through remote collaboration.
+            <p className="text-gray-400">
+              <strong className="text-white">Not in your area?</strong> We work with clients nationwide through remote collaboration.
             </p>
           </div>
         </div>
@@ -674,7 +674,7 @@ export default function Home() {
               </Link>
               <a
                 href="tel:+19363234527"
-                className="inline-flex items-center gap-3 rounded-lg bg-white/10 px-10 py-5 text-xl font-bold text-white backdrop-blur-lg border-2 border-white/30 hover:bg-white/20 transition-all"
+                className="inline-flex items-center gap-3 rounded-lg bg-slate-800/40 px-10 py-5 text-xl font-bold text-white backdrop-blur-lg border-2 border-slate-600 hover:bg-slate-700/60 transition-all"
               >
                 <span>📞</span>
                 <span>(936) 323-4527</span>

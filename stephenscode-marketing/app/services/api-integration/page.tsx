@@ -225,21 +225,21 @@ export default function APIIntegration() {
         </div>
 
         <div className="absolute bottom-0 left-0 right-0">
-          <svg className="w-full h-16 fill-white" viewBox="0 0 1200 120" preserveAspectRatio="none">
+          <svg className="w-full h-16 fill-slate-900" viewBox="0 0 1200 120" preserveAspectRatio="none">
             <path d="M321.39,56.44c58-10.79,114.16-30.13,172-41.86,82.39-16.72,168.19-17.73,250.45-.39C823.78,31,906.67,72,985.66,92.83c70.05,18.48,146.53,26.09,214.34,3V0H0V27.35A600.21,600.21,0,0,0,321.39,56.44Z" />
           </svg>
         </div>
       </section>
 
       {/* What is API Integration Section */}
-      <section className="bg-white py-24">
+      <section className="bg-slate-900 py-24">
         <div className="mx-auto max-w-7xl px-6 lg:px-8">
           <div className="mx-auto max-w-3xl">
-            <h2 className="text-4xl font-bold tracking-tight text-gray-900 mb-8">
+            <h2 className="text-4xl font-bold tracking-tight text-white mb-8">
               What is API Integration & Why Your Business Needs It
             </h2>
 
-            <div className="prose prose-lg max-w-none text-gray-700">
+            <div className="prose prose-lg prose-invert max-w-none text-gray-300">
               <p className="mb-6">
                 An API (Application Programming Interface) is how software systems talk to each other. Think of it as a translator that lets your CRM understand your email marketing platform, or your e-commerce store sync with your inventory system.
               </p>
@@ -252,8 +252,8 @@ export default function APIIntegration() {
                 <strong>With API integration:</strong> Data flows automatically between systems in real-time. New customer in your CRM? They're automatically added to your email list. Sale on your website? Inventory updates instantly and an invoice appears in QuickBooks.
               </p>
 
-              <div className="bg-gray-50 rounded-2xl p-8 my-8">
-                <h3 className="text-2xl font-bold text-gray-900 mb-4">Real Examples</h3>
+              <div className="bg-slate-800 rounded-2xl p-8 my-8">
+                <h3 className="text-2xl font-bold text-white mb-4">Real Examples</h3>
                 <ul className="space-y-4">
                   <li className="flex items-start gap-3">
                     <span className="text-green-500 font-bold">→</span>
@@ -279,30 +279,30 @@ export default function APIIntegration() {
       </section>
 
       {/* Experience Section */}
-      <section className="bg-gray-50 py-24">
+      <section className="bg-slate-800 py-24">
         <div className="mx-auto max-w-7xl px-6 lg:px-8">
           <div className="mx-auto max-w-3xl">
-            <h2 className="text-4xl font-bold tracking-tight text-gray-900 mb-8">
+            <h2 className="text-4xl font-bold tracking-tight text-white mb-8">
               My API Integration Experience
             </h2>
 
-            <div className="prose prose-lg max-w-none text-gray-700">
+            <div className="prose prose-lg prose-invert max-w-none text-gray-300">
               <p className="mb-6">
                 With <strong>200+ API integration projects</strong> completed, I've worked with nearly every type of API you can imagine. From simple REST APIs to complex SOAP integrations, from well-documented platforms to completely undocumented legacy systems.
               </p>
 
               <div className="grid md:grid-cols-3 gap-6 my-8">
-                <div className="bg-white rounded-xl p-6 text-center">
+                <div className="bg-slate-900 rounded-xl p-6 text-center">
                   <div className="text-4xl font-bold text-primary-600 mb-2">REST</div>
-                  <p className="text-gray-600">Modern, most common API type. Clean, predictable, well-documented.</p>
+                  <p className="text-gray-400">Modern, most common API type. Clean, predictable, well-documented.</p>
                 </div>
-                <div className="bg-white rounded-xl p-6 text-center">
+                <div className="bg-slate-900 rounded-xl p-6 text-center">
                   <div className="text-4xl font-bold text-primary-600 mb-2">SOAP</div>
-                  <p className="text-gray-600">Enterprise, legacy systems. More complex but highly reliable.</p>
+                  <p className="text-gray-400">Enterprise, legacy systems. More complex but highly reliable.</p>
                 </div>
-                <div className="bg-white rounded-xl p-6 text-center">
+                <div className="bg-slate-900 rounded-xl p-6 text-center">
                   <div className="text-4xl font-bold text-primary-600 mb-2">GraphQL</div>
-                  <p className="text-gray-600">Modern, flexible queries. Get exactly the data you need.</p>
+                  <p className="text-gray-400">Modern, flexible queries. Get exactly the data you need.</p>
                 </div>
               </div>
 
@@ -315,13 +315,13 @@ export default function APIIntegration() {
       </section>
 
       {/* Common Integrations Section */}
-      <section className="bg-white py-24">
+      <section className="bg-slate-900 py-24">
         <div className="mx-auto max-w-7xl px-6 lg:px-8">
           <div className="mx-auto max-w-2xl text-center mb-16">
-            <h2 className="text-4xl font-bold tracking-tight text-gray-900 mb-4">
+            <h2 className="text-4xl font-bold tracking-tight text-white mb-4">
               Common API Integration Solutions
             </h2>
-            <p className="text-lg text-gray-600">
+            <p className="text-lg text-gray-400">
               Platforms I've integrated hundreds of times.
             </p>
           </div>
@@ -330,15 +330,15 @@ export default function APIIntegration() {
             {commonIntegrations.map((category) => (
               <div
                 key={category.category}
-                className="bg-gradient-to-br from-gray-50 to-white rounded-2xl p-8 border-2 border-gray-200 hover:border-primary-300 transition-all"
+                className="bg-slate-800 rounded-2xl p-8 border-2 border-slate-700 hover:border-primary-300 transition-all"
               >
-                <h3 className="text-xl font-bold text-gray-900 mb-2">{category.category}</h3>
-                <p className="text-gray-600 mb-4">{category.description}</p>
+                <h3 className="text-xl font-bold text-white mb-2">{category.category}</h3>
+                <p className="text-gray-400 mb-4">{category.description}</p>
                 <div className="flex flex-wrap gap-2">
                   {category.platforms.map((platform) => (
                     <span
                       key={platform}
-                      className="px-3 py-1 bg-primary-100 text-primary-700 text-sm font-medium rounded-full"
+                      className="px-3 py-1 bg-primary-500/15 text-primary-400 text-sm font-medium rounded-full"
                     >
                       {platform}
                     </span>
@@ -351,13 +351,13 @@ export default function APIIntegration() {
       </section>
 
       {/* Process Section */}
-      <section className="bg-gray-50 py-24">
+      <section className="bg-slate-800 py-24">
         <div className="mx-auto max-w-7xl px-6 lg:px-8">
           <div className="mx-auto max-w-2xl text-center mb-16">
-            <h2 className="text-4xl font-bold tracking-tight text-gray-900 mb-4">
+            <h2 className="text-4xl font-bold tracking-tight text-white mb-4">
               API Integration Process
             </h2>
-            <p className="text-lg text-gray-600">
+            <p className="text-lg text-gray-400">
               A systematic approach that ensures reliable, maintainable integrations.
             </p>
           </div>
@@ -365,12 +365,12 @@ export default function APIIntegration() {
           <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
             {processSteps.map((step) => (
               <div key={step.number} className="relative">
-                <div className="bg-white rounded-2xl p-8 shadow-md border-2 border-gray-200 h-full">
+                <div className="bg-slate-900 rounded-2xl p-8 shadow-md border-2 border-slate-700 h-full">
                   <div className="absolute -top-4 -left-4 w-10 h-10 rounded-full bg-primary-600 text-white flex items-center justify-center font-bold text-lg">
                     {step.number}
                   </div>
-                  <h3 className="text-xl font-bold text-gray-900 mb-3 mt-2">{step.title}</h3>
-                  <p className="text-gray-600">{step.description}</p>
+                  <h3 className="text-xl font-bold text-white mb-3 mt-2">{step.title}</h3>
+                  <p className="text-gray-400">{step.description}</p>
                 </div>
               </div>
             ))}
@@ -379,30 +379,30 @@ export default function APIIntegration() {
       </section>
 
       {/* Why Freelance Section */}
-      <section className="bg-white py-24">
+      <section className="bg-slate-900 py-24">
         <div className="mx-auto max-w-7xl px-6 lg:px-8">
           <div className="mx-auto max-w-3xl">
-            <h2 className="text-4xl font-bold tracking-tight text-gray-900 mb-8">
+            <h2 className="text-4xl font-bold tracking-tight text-white mb-8">
               Why Work with a Freelance API Developer
             </h2>
 
-            <div className="prose prose-lg max-w-none text-gray-700">
+            <div className="prose prose-lg prose-invert max-w-none text-gray-300">
               <div className="grid md:grid-cols-2 gap-6 my-8">
-                <div className="bg-gray-50 rounded-xl p-6">
-                  <h3 className="text-lg font-bold text-gray-900 mb-2">Direct Communication</h3>
-                  <p className="text-gray-600">No account managers or project coordinators in between. You talk directly to the person doing the work.</p>
+                <div className="bg-slate-800 rounded-xl p-6">
+                  <h3 className="text-lg font-bold text-white mb-2">Direct Communication</h3>
+                  <p className="text-gray-400">No account managers or project coordinators in between. You talk directly to the person doing the work.</p>
                 </div>
-                <div className="bg-gray-50 rounded-xl p-6">
-                  <h3 className="text-lg font-bold text-gray-900 mb-2">Cost-Effective</h3>
-                  <p className="text-gray-600">Agency overhead means agency prices. Working with me, you pay for expertise—not fancy offices.</p>
+                <div className="bg-slate-800 rounded-xl p-6">
+                  <h3 className="text-lg font-bold text-white mb-2">Cost-Effective</h3>
+                  <p className="text-gray-400">Agency overhead means agency prices. Working with me, you pay for expertise—not fancy offices.</p>
                 </div>
-                <div className="bg-gray-50 rounded-xl p-6">
-                  <h3 className="text-lg font-bold text-gray-900 mb-2">Flexible Engagement</h3>
-                  <p className="text-gray-600">One-time project? Ongoing support? Retainer? We structure the engagement to match your needs.</p>
+                <div className="bg-slate-800 rounded-xl p-6">
+                  <h3 className="text-lg font-bold text-white mb-2">Flexible Engagement</h3>
+                  <p className="text-gray-400">One-time project? Ongoing support? Retainer? We structure the engagement to match your needs.</p>
                 </div>
-                <div className="bg-gray-50 rounded-xl p-6">
-                  <h3 className="text-lg font-bold text-gray-900 mb-2">Long-term Partnership</h3>
-                  <p className="text-gray-600">Many clients have worked with me for years. I know their systems, their business, and can respond quickly.</p>
+                <div className="bg-slate-800 rounded-xl p-6">
+                  <h3 className="text-lg font-bold text-white mb-2">Long-term Partnership</h3>
+                  <p className="text-gray-400">Many clients have worked with me for years. I know their systems, their business, and can respond quickly.</p>
                 </div>
               </div>
             </div>
@@ -411,18 +411,18 @@ export default function APIIntegration() {
       </section>
 
       {/* FAQ Section */}
-      <section className="bg-gray-50 py-24">
+      <section className="bg-slate-800 py-24">
         <div className="mx-auto max-w-7xl px-6 lg:px-8">
           <div className="mx-auto max-w-3xl">
-            <h2 className="text-4xl font-bold tracking-tight text-gray-900 mb-12">
+            <h2 className="text-4xl font-bold tracking-tight text-white mb-12">
               Frequently Asked Questions
             </h2>
 
             <div className="space-y-8">
               {pageSchemas.faq.mainEntity.map((faq, index) => (
-                <div key={index} className="bg-white rounded-xl p-6 shadow-md">
-                  <h3 className="text-lg font-bold text-gray-900 mb-3">{faq.name}</h3>
-                  <p className="text-gray-600">{faq.acceptedAnswer.text}</p>
+                <div key={index} className="bg-slate-900 rounded-xl p-6 shadow-md">
+                  <h3 className="text-lg font-bold text-white mb-3">{faq.name}</h3>
+                  <p className="text-gray-400">{faq.acceptedAnswer.text}</p>
                 </div>
               ))}
             </div>
@@ -465,10 +465,10 @@ export default function APIIntegration() {
       </section>
 
       {/* Related Services */}
-      <section className="bg-white py-24">
+      <section className="bg-slate-900 py-24">
         <div className="mx-auto max-w-7xl px-6 lg:px-8">
           <div className="mx-auto max-w-2xl text-center mb-12">
-            <h2 className="text-3xl font-bold tracking-tight text-gray-900 mb-4">
+            <h2 className="text-3xl font-bold tracking-tight text-white mb-4">
               Related Services
             </h2>
           </div>
@@ -476,27 +476,27 @@ export default function APIIntegration() {
           <div className="grid md:grid-cols-3 gap-8">
             <Link
               href="/services/conroe-web-development"
-              className="group bg-gray-50 rounded-2xl p-8 border-2 border-gray-200 hover:border-primary-300 hover:shadow-xl transition-all"
+              className="group bg-slate-800 rounded-2xl p-8 border-2 border-slate-700 hover:border-primary-300 hover:shadow-xl transition-all"
             >
               <div className="text-3xl mb-4">🌐</div>
-              <h3 className="text-xl font-bold text-gray-900 mb-2 group-hover:text-primary-600">Web Development</h3>
-              <p className="text-gray-600">Custom websites with built-in API integrations from the start.</p>
+              <h3 className="text-xl font-bold text-white mb-2 group-hover:text-primary-600">Web Development</h3>
+              <p className="text-gray-400">Custom websites with built-in API integrations from the start.</p>
             </Link>
             <Link
               href="/services/web-scraping"
-              className="group bg-gray-50 rounded-2xl p-8 border-2 border-gray-200 hover:border-primary-300 hover:shadow-xl transition-all"
+              className="group bg-slate-800 rounded-2xl p-8 border-2 border-slate-700 hover:border-primary-300 hover:shadow-xl transition-all"
             >
               <div className="text-3xl mb-4">📊</div>
-              <h3 className="text-xl font-bold text-gray-900 mb-2 group-hover:text-primary-600">Web Scraping</h3>
-              <p className="text-gray-600">When there's no API, we can still get your data.</p>
+              <h3 className="text-xl font-bold text-white mb-2 group-hover:text-primary-600">Web Scraping</h3>
+              <p className="text-gray-400">When there's no API, we can still get your data.</p>
             </Link>
             <Link
               href="/services/business-automation"
-              className="group bg-gray-50 rounded-2xl p-8 border-2 border-gray-200 hover:border-primary-300 hover:shadow-xl transition-all"
+              className="group bg-slate-800 rounded-2xl p-8 border-2 border-slate-700 hover:border-primary-300 hover:shadow-xl transition-all"
             >
               <div className="text-3xl mb-4">⚡</div>
-              <h3 className="text-xl font-bold text-gray-900 mb-2 group-hover:text-primary-600">Business Automation</h3>
-              <p className="text-gray-600">API integrations are often the foundation of powerful automations.</p>
+              <h3 className="text-xl font-bold text-white mb-2 group-hover:text-primary-600">Business Automation</h3>
+              <p className="text-gray-400">API integrations are often the foundation of powerful automations.</p>
             </Link>
           </div>
         </div>

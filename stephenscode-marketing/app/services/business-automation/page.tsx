@@ -258,31 +258,31 @@ export default function BusinessAutomation() {
         </div>
 
         <div className="absolute bottom-0 left-0 right-0">
-          <svg className="w-full h-16 fill-white" viewBox="0 0 1200 120" preserveAspectRatio="none">
+          <svg className="w-full h-16 fill-slate-900" viewBox="0 0 1200 120" preserveAspectRatio="none">
             <path d="M321.39,56.44c58-10.79,114.16-30.13,172-41.86,82.39-16.72,168.19-17.73,250.45-.39C823.78,31,906.67,72,985.66,92.83c70.05,18.48,146.53,26.09,214.34,3V0H0V27.35A600.21,600.21,0,0,0,321.39,56.44Z" />
           </svg>
         </div>
       </section>
 
       {/* Time Wasters Section */}
-      <section className="bg-white py-24">
+      <section className="bg-slate-900 py-24">
         <div className="mx-auto max-w-7xl px-6 lg:px-8">
           <div className="mx-auto max-w-3xl">
-            <h2 className="text-4xl font-bold tracking-tight text-gray-900 mb-8">
+            <h2 className="text-4xl font-bold tracking-tight text-white mb-8">
               Stop Wasting Time on Repetitive Tasks
             </h2>
 
-            <div className="prose prose-lg max-w-none text-gray-700">
+            <div className="prose prose-lg prose-invert max-w-none text-gray-300">
               <p className="mb-6">
                 Think about your week. How many hours do you spend on tasks that follow the same pattern every time? Copying data from one system to another. Sending the same follow-up emails. Creating the same reports. These tasks are necessary, but they don't require human creativity—they require a computer.
               </p>
 
-              <div className="bg-red-50 border-l-4 border-red-500 p-6 my-8">
-                <h3 className="text-lg font-bold text-red-900 mb-2">The Cost of Manual Work</h3>
-                <p className="text-red-800 mb-4">
+              <div className="bg-red-500/10 border-l-4 border-red-400 p-6 my-8">
+                <h3 className="text-lg font-bold text-red-200 mb-2">The Cost of Manual Work</h3>
+                <p className="text-red-300 mb-4">
                   If you spend just 2 hours per day on repetitive tasks at $50/hour effective rate:
                 </p>
-                <ul className="space-y-1 text-red-800">
+                <ul className="space-y-1 text-red-300">
                   <li>• <strong>Per week:</strong> 10 hours = $500 lost value</li>
                   <li>• <strong>Per month:</strong> 40 hours = $2,000 lost value</li>
                   <li>• <strong>Per year:</strong> 480 hours = $24,000 lost value</li>
@@ -298,13 +298,13 @@ export default function BusinessAutomation() {
       </section>
 
       {/* Platforms Section */}
-      <section className="bg-gray-50 py-24">
+      <section className="bg-slate-800 py-24">
         <div className="mx-auto max-w-7xl px-6 lg:px-8">
           <div className="mx-auto max-w-2xl text-center mb-16">
-            <h2 className="text-4xl font-bold tracking-tight text-gray-900 mb-4">
+            <h2 className="text-4xl font-bold tracking-tight text-white mb-4">
               Automation Platforms We Work With
             </h2>
-            <p className="text-lg text-gray-600">
+            <p className="text-lg text-gray-400">
               The right tool for your specific needs and budget.
             </p>
           </div>
@@ -313,11 +313,11 @@ export default function BusinessAutomation() {
             {platforms.map((platform) => (
               <div
                 key={platform.name}
-                className="bg-white rounded-2xl p-8 shadow-md border-2 border-gray-200 hover:border-primary-300 transition-all"
+                className="bg-slate-900 rounded-2xl p-8 shadow-md border-2 border-slate-700 hover:border-primary-300 transition-all"
               >
                 <div className="text-4xl mb-4">{platform.icon}</div>
-                <h3 className="text-xl font-bold text-gray-900 mb-2">{platform.name}</h3>
-                <p className="text-gray-600 mb-4">{platform.description}</p>
+                <h3 className="text-xl font-bold text-white mb-2">{platform.name}</h3>
+                <p className="text-gray-400 mb-4">{platform.description}</p>
                 <p className="text-sm text-primary-600 font-medium">
                   <strong>Best for:</strong> {platform.bestFor}
                 </p>
@@ -328,13 +328,13 @@ export default function BusinessAutomation() {
       </section>
 
       {/* Solutions Section */}
-      <section className="bg-white py-24">
+      <section className="bg-slate-900 py-24">
         <div className="mx-auto max-w-7xl px-6 lg:px-8">
           <div className="mx-auto max-w-2xl text-center mb-16">
-            <h2 className="text-4xl font-bold tracking-tight text-gray-900 mb-4">
+            <h2 className="text-4xl font-bold tracking-tight text-white mb-4">
               Automation Solutions for Small Business
             </h2>
-            <p className="text-lg text-gray-600">
+            <p className="text-lg text-gray-400">
               Common workflows I automate for clients.
             </p>
           </div>
@@ -343,11 +343,11 @@ export default function BusinessAutomation() {
             {automationSolutions.map((solution) => (
               <div
                 key={solution.name}
-                className="bg-gradient-to-br from-gray-50 to-white rounded-2xl p-8 border-2 border-gray-200 hover:border-primary-300 transition-all"
+                className="bg-slate-800 rounded-2xl p-8 border-2 border-slate-700 hover:border-primary-300 transition-all"
               >
-                <h3 className="text-lg font-bold text-gray-900 mb-2">{solution.name}</h3>
-                <p className="text-gray-600 mb-4">{solution.description}</p>
-                <div className="inline-flex items-center gap-2 bg-green-100 text-green-700 px-3 py-1 rounded-full text-sm font-semibold">
+                <h3 className="text-lg font-bold text-white mb-2">{solution.name}</h3>
+                <p className="text-gray-400 mb-4">{solution.description}</p>
+                <div className="inline-flex items-center gap-2 bg-green-500/15 text-green-400 px-3 py-1 rounded-full text-sm font-semibold">
                   <span>⏱️</span>
                   <span>Saves {solution.timeSaved}</span>
                 </div>
@@ -358,14 +358,14 @@ export default function BusinessAutomation() {
       </section>
 
       {/* Custom Automation Section */}
-      <section className="bg-gray-50 py-24">
+      <section className="bg-slate-800 py-24">
         <div className="mx-auto max-w-7xl px-6 lg:px-8">
           <div className="mx-auto max-w-3xl">
-            <h2 className="text-4xl font-bold tracking-tight text-gray-900 mb-8">
+            <h2 className="text-4xl font-bold tracking-tight text-white mb-8">
               Custom Automation Development
             </h2>
 
-            <div className="prose prose-lg max-w-none text-gray-700">
+            <div className="prose prose-lg prose-invert max-w-none text-gray-300">
               <p className="mb-6">
                 Sometimes off-the-shelf tools don't fit. Maybe you have a unique workflow, need to connect to a system without an existing integration, or require complex logic that visual builders can't handle.
               </p>
@@ -375,21 +375,21 @@ export default function BusinessAutomation() {
               </p>
 
               <div className="grid md:grid-cols-2 gap-6 my-8">
-                <div className="bg-white rounded-xl p-6">
-                  <h3 className="text-lg font-bold text-gray-900 mb-2">Handle Complex Logic</h3>
-                  <p className="text-gray-600">Conditional workflows, multi-step decisions, and complex data transformations.</p>
+                <div className="bg-slate-900 rounded-xl p-6">
+                  <h3 className="text-lg font-bold text-white mb-2">Handle Complex Logic</h3>
+                  <p className="text-gray-400">Conditional workflows, multi-step decisions, and complex data transformations.</p>
                 </div>
-                <div className="bg-white rounded-xl p-6">
-                  <h3 className="text-lg font-bold text-gray-900 mb-2">Connect Any System</h3>
-                  <p className="text-gray-600">Even systems without official integrations—if there's an API, we can connect it.</p>
+                <div className="bg-slate-900 rounded-xl p-6">
+                  <h3 className="text-lg font-bold text-white mb-2">Connect Any System</h3>
+                  <p className="text-gray-400">Even systems without official integrations—if there's an API, we can connect it.</p>
                 </div>
-                <div className="bg-white rounded-xl p-6">
-                  <h3 className="text-lg font-bold text-gray-900 mb-2">Scale Without Limits</h3>
-                  <p className="text-gray-600">No per-task pricing. Process thousands of items without cost concerns.</p>
+                <div className="bg-slate-900 rounded-xl p-6">
+                  <h3 className="text-lg font-bold text-white mb-2">Scale Without Limits</h3>
+                  <p className="text-gray-400">No per-task pricing. Process thousands of items without cost concerns.</p>
                 </div>
-                <div className="bg-white rounded-xl p-6">
-                  <h3 className="text-lg font-bold text-gray-900 mb-2">Run On Your Infrastructure</h3>
-                  <p className="text-gray-600">Self-hosted solutions for data privacy and complete control.</p>
+                <div className="bg-slate-900 rounded-xl p-6">
+                  <h3 className="text-lg font-bold text-white mb-2">Run On Your Infrastructure</h3>
+                  <p className="text-gray-400">Self-hosted solutions for data privacy and complete control.</p>
                 </div>
               </div>
             </div>
@@ -398,13 +398,13 @@ export default function BusinessAutomation() {
       </section>
 
       {/* Process Section */}
-      <section className="bg-white py-24">
+      <section className="bg-slate-900 py-24">
         <div className="mx-auto max-w-7xl px-6 lg:px-8">
           <div className="mx-auto max-w-2xl text-center mb-16">
-            <h2 className="text-4xl font-bold tracking-tight text-gray-900 mb-4">
+            <h2 className="text-4xl font-bold tracking-tight text-white mb-4">
               Implementation Process
             </h2>
-            <p className="text-lg text-gray-600">
+            <p className="text-lg text-gray-400">
               A systematic approach to automating your business.
             </p>
           </div>
@@ -412,12 +412,12 @@ export default function BusinessAutomation() {
           <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
             {processSteps.map((step) => (
               <div key={step.number} className="relative">
-                <div className="bg-gray-50 rounded-2xl p-8 shadow-md border-2 border-gray-200 h-full">
+                <div className="bg-slate-800 rounded-2xl p-8 shadow-md border-2 border-slate-700 h-full">
                   <div className="absolute -top-4 -left-4 w-10 h-10 rounded-full bg-primary-600 text-white flex items-center justify-center font-bold text-lg">
                     {step.number}
                   </div>
-                  <h3 className="text-xl font-bold text-gray-900 mb-3 mt-2">{step.title}</h3>
-                  <p className="text-gray-600">{step.description}</p>
+                  <h3 className="text-xl font-bold text-white mb-3 mt-2">{step.title}</h3>
+                  <p className="text-gray-400">{step.description}</p>
                 </div>
               </div>
             ))}
@@ -426,18 +426,18 @@ export default function BusinessAutomation() {
       </section>
 
       {/* FAQ Section */}
-      <section className="bg-gray-50 py-24">
+      <section className="bg-slate-800 py-24">
         <div className="mx-auto max-w-7xl px-6 lg:px-8">
           <div className="mx-auto max-w-3xl">
-            <h2 className="text-4xl font-bold tracking-tight text-gray-900 mb-12">
+            <h2 className="text-4xl font-bold tracking-tight text-white mb-12">
               Frequently Asked Questions
             </h2>
 
             <div className="space-y-8">
               {pageSchemas.faq.mainEntity.map((faq, index) => (
-                <div key={index} className="bg-white rounded-xl p-6 shadow-md">
-                  <h3 className="text-lg font-bold text-gray-900 mb-3">{faq.name}</h3>
-                  <p className="text-gray-600">{faq.acceptedAnswer.text}</p>
+                <div key={index} className="bg-slate-900 rounded-xl p-6 shadow-md">
+                  <h3 className="text-lg font-bold text-white mb-3">{faq.name}</h3>
+                  <p className="text-gray-400">{faq.acceptedAnswer.text}</p>
                 </div>
               ))}
             </div>
@@ -480,10 +480,10 @@ export default function BusinessAutomation() {
       </section>
 
       {/* Related Services */}
-      <section className="bg-white py-24">
+      <section className="bg-slate-900 py-24">
         <div className="mx-auto max-w-7xl px-6 lg:px-8">
           <div className="mx-auto max-w-2xl text-center mb-12">
-            <h2 className="text-3xl font-bold tracking-tight text-gray-900 mb-4">
+            <h2 className="text-3xl font-bold tracking-tight text-white mb-4">
               Related Services
             </h2>
           </div>
@@ -491,27 +491,27 @@ export default function BusinessAutomation() {
           <div className="grid md:grid-cols-3 gap-8">
             <Link
               href="/services/conroe-web-development"
-              className="group bg-gray-50 rounded-2xl p-8 border-2 border-gray-200 hover:border-primary-300 hover:shadow-xl transition-all"
+              className="group bg-slate-800 rounded-2xl p-8 border-2 border-slate-700 hover:border-primary-300 hover:shadow-xl transition-all"
             >
               <div className="text-3xl mb-4">🌐</div>
-              <h3 className="text-xl font-bold text-gray-900 mb-2 group-hover:text-primary-600">Web Development</h3>
-              <p className="text-gray-600">Custom websites with built-in automation from the start.</p>
+              <h3 className="text-xl font-bold text-white mb-2 group-hover:text-primary-600">Web Development</h3>
+              <p className="text-gray-400">Custom websites with built-in automation from the start.</p>
             </Link>
             <Link
               href="/services/api-integration"
-              className="group bg-gray-50 rounded-2xl p-8 border-2 border-gray-200 hover:border-primary-300 hover:shadow-xl transition-all"
+              className="group bg-slate-800 rounded-2xl p-8 border-2 border-slate-700 hover:border-primary-300 hover:shadow-xl transition-all"
             >
               <div className="text-3xl mb-4">🔗</div>
-              <h3 className="text-xl font-bold text-gray-900 mb-2 group-hover:text-primary-600">API Integration</h3>
-              <p className="text-gray-600">Connect your systems for seamless data flow.</p>
+              <h3 className="text-xl font-bold text-white mb-2 group-hover:text-primary-600">API Integration</h3>
+              <p className="text-gray-400">Connect your systems for seamless data flow.</p>
             </Link>
             <Link
               href="/services/web-scraping"
-              className="group bg-gray-50 rounded-2xl p-8 border-2 border-gray-200 hover:border-primary-300 hover:shadow-xl transition-all"
+              className="group bg-slate-800 rounded-2xl p-8 border-2 border-slate-700 hover:border-primary-300 hover:shadow-xl transition-all"
             >
               <div className="text-3xl mb-4">📊</div>
-              <h3 className="text-xl font-bold text-gray-900 mb-2 group-hover:text-primary-600">Web Scraping</h3>
-              <p className="text-gray-600">Automate data collection from websites.</p>
+              <h3 className="text-xl font-bold text-white mb-2 group-hover:text-primary-600">Web Scraping</h3>
+              <p className="text-gray-400">Automate data collection from websites.</p>
             </Link>
           </div>
         </div>

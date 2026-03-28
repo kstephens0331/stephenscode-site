@@ -148,21 +148,21 @@ export default function SACVPNPage() {
 
         {/* Wave divider */}
         <div className="absolute bottom-0 left-0 right-0">
-          <svg className="w-full h-16 fill-white" viewBox="0 0 1200 120" preserveAspectRatio="none">
+          <svg className="w-full h-16 fill-slate-900" viewBox="0 0 1200 120" preserveAspectRatio="none">
             <path d="M321.39,56.44c58-10.79,114.16-30.13,172-41.86,82.39-16.72,168.19-17.73,250.45-.39C823.78,31,906.67,72,985.66,92.83c70.05,18.48,146.53,26.09,214.34,3V0H0V27.35A600.21,600.21,0,0,0,321.39,56.44Z" />
           </svg>
         </div>
       </section>
 
       {/* Features Grid */}
-      <section className="bg-white py-24 sm:py-32">
+      <section className="bg-slate-900 py-24 sm:py-32">
         <div className="mx-auto max-w-7xl px-6 lg:px-8">
           <div className="mx-auto max-w-2xl text-center mb-16">
-            <h2 className="text-base font-semibold leading-7 text-blue-600">Why SACVPN?</h2>
-            <p className="mt-2 text-4xl font-black tracking-tight text-gray-900 sm:text-5xl">
+            <h2 className="text-base font-semibold leading-7 text-blue-400">Why SACVPN?</h2>
+            <p className="mt-2 text-4xl font-black tracking-tight text-white sm:text-5xl">
               Enterprise Security Made Simple
             </p>
-            <p className="mt-6 text-lg leading-8 text-gray-600">
+            <p className="mt-6 text-lg leading-8 text-gray-400">
               All the security features your business needs, without the complexity of enterprise solutions.
             </p>
           </div>
@@ -171,13 +171,13 @@ export default function SACVPNPage() {
             {features.map((feature, index) => (
               <div
                 key={index}
-                className="group relative rounded-2xl bg-gray-50 p-8 hover:bg-gradient-to-br hover:from-blue-50 hover:to-cyan-50 transition-all hover:shadow-xl border border-gray-100 hover:border-blue-200"
+                className="group relative rounded-2xl bg-slate-800 p-8 hover:bg-gradient-to-br hover:from-blue-900/30 hover:to-cyan-900/30 transition-all hover:shadow-xl border border-slate-700 hover:border-blue-500/50"
               >
                 <div className="text-4xl mb-4">{feature.icon}</div>
-                <h3 className="text-xl font-bold text-gray-900 mb-3 group-hover:text-blue-900">
+                <h3 className="text-xl font-bold text-white mb-3 group-hover:text-blue-300">
                   {feature.title}
                 </h3>
-                <p className="text-gray-600 leading-relaxed">
+                <p className="text-gray-400 leading-relaxed">
                   {feature.description}
                 </p>
               </div>
@@ -187,11 +187,11 @@ export default function SACVPNPage() {
       </section>
 
       {/* Use Cases */}
-      <section className="bg-gray-50 py-24 sm:py-32">
+      <section className="bg-slate-800 py-24 sm:py-32">
         <div className="mx-auto max-w-7xl px-6 lg:px-8">
           <div className="mx-auto max-w-2xl text-center mb-16">
-            <h2 className="text-base font-semibold leading-7 text-blue-600">Use Cases</h2>
-            <p className="mt-2 text-4xl font-black tracking-tight text-gray-900 sm:text-5xl">
+            <h2 className="text-base font-semibold leading-7 text-blue-400">Use Cases</h2>
+            <p className="mt-2 text-4xl font-black tracking-tight text-white sm:text-5xl">
               Built for Business
             </p>
           </div>
@@ -200,12 +200,12 @@ export default function SACVPNPage() {
             {useCases.map((useCase, index) => (
               <div
                 key={index}
-                className="flex items-start gap-6 rounded-2xl bg-white p-8 shadow-lg hover:shadow-xl transition-shadow"
+                className="flex items-start gap-6 rounded-2xl bg-slate-900 p-8 shadow-lg hover:shadow-xl transition-shadow"
               >
                 <div className="flex-shrink-0 text-5xl">{useCase.icon}</div>
                 <div>
-                  <h3 className="text-xl font-bold text-gray-900 mb-2">{useCase.title}</h3>
-                  <p className="text-gray-600 leading-relaxed">{useCase.description}</p>
+                  <h3 className="text-xl font-bold text-white mb-2">{useCase.title}</h3>
+                  <p className="text-gray-400 leading-relaxed">{useCase.description}</p>
                 </div>
               </div>
             ))}
@@ -214,40 +214,40 @@ export default function SACVPNPage() {
       </section>
 
       {/* How It Works */}
-      <section className="bg-white py-24 sm:py-32">
+      <section className="bg-slate-900 py-24 sm:py-32">
         <div className="mx-auto max-w-7xl px-6 lg:px-8">
           <div className="mx-auto max-w-2xl text-center mb-16">
-            <h2 className="text-base font-semibold leading-7 text-blue-600">Simple Setup</h2>
-            <p className="mt-2 text-4xl font-black tracking-tight text-gray-900 sm:text-5xl">
+            <h2 className="text-base font-semibold leading-7 text-blue-400">Simple Setup</h2>
+            <p className="mt-2 text-4xl font-black tracking-tight text-white sm:text-5xl">
               Get Protected in Minutes
             </p>
           </div>
 
           <div className="grid grid-cols-1 gap-8 md:grid-cols-3">
             <div className="text-center">
-              <div className="mx-auto w-16 h-16 rounded-full bg-blue-100 flex items-center justify-center text-2xl font-bold text-blue-600 mb-6">
+              <div className="mx-auto w-16 h-16 rounded-full bg-blue-500/10 flex items-center justify-center text-2xl font-bold text-blue-400 mb-6">
                 1
               </div>
-              <h3 className="text-xl font-bold text-gray-900 mb-3">Subscribe</h3>
-              <p className="text-gray-600">
+              <h3 className="text-xl font-bold text-white mb-3">Subscribe</h3>
+              <p className="text-gray-400">
                 Choose your plan based on team size and needs. No long-term contracts required.
               </p>
             </div>
             <div className="text-center">
-              <div className="mx-auto w-16 h-16 rounded-full bg-blue-100 flex items-center justify-center text-2xl font-bold text-blue-600 mb-6">
+              <div className="mx-auto w-16 h-16 rounded-full bg-blue-500/10 flex items-center justify-center text-2xl font-bold text-blue-400 mb-6">
                 2
               </div>
-              <h3 className="text-xl font-bold text-gray-900 mb-3">Install</h3>
-              <p className="text-gray-600">
+              <h3 className="text-xl font-bold text-white mb-3">Install</h3>
+              <p className="text-gray-400">
                 Download the app on any device. Simple one-click installation with no technical expertise needed.
               </p>
             </div>
             <div className="text-center">
-              <div className="mx-auto w-16 h-16 rounded-full bg-blue-100 flex items-center justify-center text-2xl font-bold text-blue-600 mb-6">
+              <div className="mx-auto w-16 h-16 rounded-full bg-blue-500/10 flex items-center justify-center text-2xl font-bold text-blue-400 mb-6">
                 3
               </div>
-              <h3 className="text-xl font-bold text-gray-900 mb-3">Connect</h3>
-              <p className="text-gray-600">
+              <h3 className="text-xl font-bold text-white mb-3">Connect</h3>
+              <p className="text-gray-400">
                 One click to connect. Your entire team is now protected with enterprise-grade encryption.
               </p>
             </div>

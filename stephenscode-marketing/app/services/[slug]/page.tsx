@@ -184,19 +184,19 @@ export default async function ServicePage({ params }: Props) {
 
         {/* Wave divider */}
         <div className="absolute bottom-0 left-0 right-0">
-          <svg className="w-full h-16 fill-white" viewBox="0 0 1200 120" preserveAspectRatio="none">
+          <svg className="w-full h-16 fill-slate-900" viewBox="0 0 1200 120" preserveAspectRatio="none">
             <path d="M321.39,56.44c58-10.79,114.16-30.13,172-41.86,82.39-16.72,168.19-17.73,250.45-.39C823.78,31,906.67,72,985.66,92.83c70.05,18.48,146.53,26.09,214.34,3V0H0V27.35A600.21,600.21,0,0,0,321.39,56.44Z" />
           </svg>
         </div>
       </section>
 
       {/* Long Description Section */}
-      <section className="bg-white py-24 sm:py-32 border-b border-gray-200">
+      <section className="bg-slate-900 py-24 sm:py-32 border-b border-slate-700">
         <div className="mx-auto max-w-7xl px-6 lg:px-8">
           <div className="mx-auto max-w-4xl">
-            <div className="prose prose-lg prose-gray max-w-none">
+            <div className="prose prose-lg prose-invert max-w-none">
               {service.longDescription.split('\n\n').map((paragraph, index) => (
-                <p key={index} className="mb-6 text-lg text-gray-700 leading-relaxed">
+                <p key={index} className="mb-6 text-lg text-gray-300 leading-relaxed">
                   {paragraph.trim()}
                 </p>
               ))}
@@ -206,16 +206,16 @@ export default async function ServicePage({ params }: Props) {
       </section>
 
       {/* Features Section */}
-      <section className="bg-gradient-to-b from-gray-50 to-white py-24 sm:py-32">
+      <section className="bg-slate-900 py-24 sm:py-32">
         <div className="mx-auto max-w-7xl px-6 lg:px-8">
           <div className="mx-auto max-w-2xl text-center mb-16">
-            <div className="inline-flex items-center rounded-full bg-primary-100 px-4 py-2 text-sm font-semibold text-primary-900 mb-4">
+            <div className="inline-flex items-center rounded-full bg-primary-500/15 px-4 py-2 text-sm font-semibold text-primary-200 mb-4">
               ✨ What's Included
             </div>
-            <h2 className="text-4xl font-bold tracking-tight text-gray-900 sm:text-5xl">
+            <h2 className="text-4xl font-bold tracking-tight text-white sm:text-5xl">
               Complete Package Features
             </h2>
-            <p className="mt-4 text-lg leading-8 text-gray-600">
+            <p className="mt-4 text-lg leading-8 text-gray-400">
               Everything you need in the {service.name} package.
             </p>
           </div>
@@ -225,7 +225,7 @@ export default async function ServicePage({ params }: Props) {
               {service.features.map((feature, index) => (
                 <div
                   key={feature}
-                  className="group relative flex gap-4 rounded-2xl bg-white p-6 shadow-md border-2 border-gray-200 hover:border-primary-300 hover:shadow-xl transition-all hover:scale-105"
+                  className="group relative flex gap-4 rounded-2xl bg-slate-900 p-6 shadow-md border-2 border-slate-700 hover:border-primary-300 hover:shadow-xl transition-all hover:scale-105"
                   style={{ animationDelay: `${index * 50}ms` }}
                 >
                   <div className="flex-shrink-0">
@@ -243,7 +243,7 @@ export default async function ServicePage({ params }: Props) {
                       </svg>
                     </div>
                   </div>
-                  <p className="text-base leading-7 text-gray-900 font-medium">{feature}</p>
+                  <p className="text-base leading-7 text-white font-medium">{feature}</p>
                 </div>
               ))}
             </div>
@@ -252,16 +252,16 @@ export default async function ServicePage({ params }: Props) {
       </section>
 
       {/* Benefits Section */}
-      <section className="bg-white py-24 sm:py-32">
+      <section className="bg-slate-900 py-24 sm:py-32">
         <div className="mx-auto max-w-7xl px-6 lg:px-8">
           <div className="mx-auto max-w-2xl text-center mb-16">
-            <div className="inline-flex items-center rounded-full bg-green-100 px-4 py-2 text-sm font-semibold text-green-900 mb-4">
+            <div className="inline-flex items-center rounded-full bg-green-500/15 px-4 py-2 text-sm font-semibold text-green-200 mb-4">
               🎯 Key Benefits
             </div>
-            <h2 className="text-4xl font-bold tracking-tight text-gray-900 sm:text-5xl">
+            <h2 className="text-4xl font-bold tracking-tight text-white sm:text-5xl">
               Why Choose This Service
             </h2>
-            <p className="mt-4 text-lg leading-8 text-gray-600">
+            <p className="mt-4 text-lg leading-8 text-gray-400">
               How {service.name} drives real business results.
             </p>
           </div>
@@ -270,13 +270,13 @@ export default async function ServicePage({ params }: Props) {
             {service.benefits.map((benefit, index) => (
               <div
                 key={benefit}
-                className="group relative rounded-3xl bg-gradient-to-br from-gray-50 to-white p-8 shadow-lg border-2 border-gray-200 hover:border-accent-300 hover:shadow-2xl transition-all hover:scale-105"
+                className="group relative rounded-3xl bg-slate-800 p-8 shadow-lg border-2 border-slate-700 hover:border-accent-300 hover:shadow-2xl transition-all hover:scale-105"
                 style={{ animationDelay: `${index * 100}ms` }}
               >
                 <div className="absolute -top-4 -left-4 w-12 h-12 rounded-full bg-gradient-to-br from-accent-500 to-primary-600 flex items-center justify-center text-white font-bold text-lg shadow-xl">
                   ✓
                 </div>
-                <p className="text-lg font-bold text-gray-900 leading-relaxed mt-2">{benefit}</p>
+                <p className="text-lg font-bold text-white leading-relaxed mt-2">{benefit}</p>
               </div>
             ))}
           </div>
@@ -284,16 +284,16 @@ export default async function ServicePage({ params }: Props) {
       </section>
 
       {/* Use Cases Section */}
-      <section className="bg-gradient-to-b from-gray-50 to-white py-24 sm:py-32">
+      <section className="bg-slate-900 py-24 sm:py-32">
         <div className="mx-auto max-w-7xl px-6 lg:px-8">
           <div className="mx-auto max-w-2xl text-center mb-16">
-            <div className="inline-flex items-center rounded-full bg-blue-100 px-4 py-2 text-sm font-semibold text-blue-900 mb-4">
+            <div className="inline-flex items-center rounded-full bg-blue-500/15 px-4 py-2 text-sm font-semibold text-blue-200 mb-4">
               🏢 Perfect For
             </div>
-            <h2 className="text-4xl font-bold tracking-tight text-gray-900 sm:text-5xl">
+            <h2 className="text-4xl font-bold tracking-tight text-white sm:text-5xl">
               Ideal Use Cases
             </h2>
-            <p className="mt-4 text-lg leading-8 text-gray-600">
+            <p className="mt-4 text-lg leading-8 text-gray-400">
               Who benefits most from {service.name}.
             </p>
           </div>
@@ -303,11 +303,11 @@ export default async function ServicePage({ params }: Props) {
               {service.useCases.map((useCase, index) => (
                 <div
                   key={useCase}
-                  className="group rounded-xl bg-white p-6 shadow-md border-2 border-gray-200 hover:border-primary-300 hover:shadow-lg transition-all hover:scale-105"
+                  className="group rounded-xl bg-slate-900 p-6 shadow-md border-2 border-slate-700 hover:border-primary-300 hover:shadow-lg transition-all hover:scale-105"
                   style={{ animationDelay: `${index * 50}ms` }}
                 >
                   <div className="flex items-start gap-3">
-                    <div className="flex-shrink-0 w-6 h-6 rounded-full bg-primary-100 flex items-center justify-center mt-0.5">
+                    <div className="flex-shrink-0 w-6 h-6 rounded-full bg-primary-500/15 flex items-center justify-center mt-0.5">
                       <svg
                         className="h-4 w-4 text-primary-600"
                         fill="currentColor"
@@ -320,7 +320,7 @@ export default async function ServicePage({ params }: Props) {
                         />
                       </svg>
                     </div>
-                    <p className="text-base leading-6 text-gray-700 font-medium">{useCase}</p>
+                    <p className="text-base leading-6 text-gray-300 font-medium">{useCase}</p>
                   </div>
                 </div>
               ))}
@@ -330,16 +330,16 @@ export default async function ServicePage({ params }: Props) {
       </section>
 
       {/* Deliverables Section */}
-      <section className="bg-white py-24 sm:py-32">
+      <section className="bg-slate-900 py-24 sm:py-32">
         <div className="mx-auto max-w-7xl px-6 lg:px-8">
           <div className="mx-auto max-w-2xl text-center mb-16">
-            <div className="inline-flex items-center rounded-full bg-purple-100 px-4 py-2 text-sm font-semibold text-purple-900 mb-4">
+            <div className="inline-flex items-center rounded-full bg-purple-500/15 px-4 py-2 text-sm font-semibold text-purple-200 mb-4">
               📦 Deliverables
             </div>
-            <h2 className="text-4xl font-bold tracking-tight text-gray-900 sm:text-5xl">
+            <h2 className="text-4xl font-bold tracking-tight text-white sm:text-5xl">
               What You'll Receive
             </h2>
-            <p className="mt-4 text-lg leading-8 text-gray-600">
+            <p className="mt-4 text-lg leading-8 text-gray-400">
               Complete deliverables included with {service.name}.
             </p>
           </div>
@@ -349,13 +349,13 @@ export default async function ServicePage({ params }: Props) {
               {service.deliverables.map((deliverable, index) => (
                 <div
                   key={deliverable}
-                  className="group flex items-start gap-6 rounded-2xl bg-gradient-to-r from-gray-50 to-white p-8 shadow-md border-2 border-gray-200 hover:border-primary-300 hover:shadow-xl transition-all hover:scale-105"
+                  className="group flex items-start gap-6 rounded-2xl bg-slate-800 p-8 shadow-md border-2 border-slate-700 hover:border-primary-300 hover:shadow-xl transition-all hover:scale-105"
                   style={{ animationDelay: `${index * 75}ms` }}
                 >
                   <div className="flex-shrink-0 w-12 h-12 rounded-full bg-gradient-to-br from-primary-600 to-accent-600 text-white flex items-center justify-center font-bold text-lg shadow-lg">
                     {index + 1}
                   </div>
-                  <p className="text-lg leading-7 text-gray-900 font-semibold mt-2">{deliverable}</p>
+                  <p className="text-lg leading-7 text-white font-semibold mt-2">{deliverable}</p>
                 </div>
               ))}
             </div>
@@ -365,16 +365,16 @@ export default async function ServicePage({ params }: Props) {
 
       {/* Related Services */}
       {relatedServices.length > 0 && (
-        <section className="bg-gradient-to-b from-gray-50 to-white py-24 sm:py-32">
+        <section className="bg-slate-900 py-24 sm:py-32">
           <div className="mx-auto max-w-7xl px-6 lg:px-8">
             <div className="mx-auto max-w-2xl text-center mb-16">
-              <div className="inline-flex items-center rounded-full bg-orange-100 px-4 py-2 text-sm font-semibold text-orange-900 mb-4">
+              <div className="inline-flex items-center rounded-full bg-orange-500/15 px-4 py-2 text-sm font-semibold text-orange-200 mb-4">
                 🔗 Related Services
               </div>
-              <h2 className="text-4xl font-bold tracking-tight text-gray-900 sm:text-5xl">
+              <h2 className="text-4xl font-bold tracking-tight text-white sm:text-5xl">
                 You Might Also Like
               </h2>
-              <p className="mt-4 text-lg leading-8 text-gray-600">
+              <p className="mt-4 text-lg leading-8 text-gray-400">
                 Other services that complement {service.name}.
               </p>
             </div>
@@ -384,19 +384,19 @@ export default async function ServicePage({ params }: Props) {
                 <Link
                   key={relatedService.id}
                   href={`/services/${relatedService.slug}`}
-                  className="group rounded-3xl border-2 border-gray-200 bg-white p-8 hover:border-primary-300 hover:shadow-2xl transition-all hover:scale-105"
+                  className="group rounded-3xl border-2 border-slate-700 bg-slate-900 p-8 hover:border-primary-300 hover:shadow-2xl transition-all hover:scale-105"
                   style={{ animationDelay: `${index * 100}ms` }}
                 >
-                  <h3 className="text-2xl font-bold text-gray-900 mb-3 group-hover:text-primary-600 transition-colors">
+                  <h3 className="text-2xl font-bold text-white mb-3 group-hover:text-primary-600 transition-colors">
                     {relatedService.name}
                   </h3>
-                  <p className="text-base text-gray-600 mb-6 leading-relaxed">
+                  <p className="text-base text-gray-400 mb-6 leading-relaxed">
                     {relatedService.shortDescription}
                   </p>
                   <div className="flex items-baseline gap-2 mb-2">
                     <span className="text-3xl font-bold text-primary-600">{relatedService.priceLabel}</span>
                   </div>
-                  <div className="flex items-center gap-2 text-sm text-gray-500 mb-6">
+                  <div className="flex items-center gap-2 text-sm text-gray-400 mb-6">
                     <svg className="w-4 h-4" fill="currentColor" viewBox="0 0 20 20">
                       <path fillRule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm1-12a1 1 0 10-2 0v4a1 1 0 00.293.707l2.828 2.829a1 1 0 101.415-1.415L11 9.586V6z" clipRule="evenodd" />
                     </svg>
@@ -433,7 +433,7 @@ export default async function ServicePage({ params }: Props) {
             <div className="mt-10 flex flex-col sm:flex-row items-center justify-center gap-6">
               <Link
                 href="/contact"
-                className="group w-full sm:w-auto rounded-lg bg-white px-8 py-4 text-base font-semibold text-primary-900 shadow-2xl hover:bg-gray-100 transition-all hover:scale-105"
+                className="group w-full sm:w-auto rounded-lg bg-white px-8 py-4 text-base font-semibold text-primary-900 shadow-2xl hover:bg-slate-700 transition-all hover:scale-105"
               >
                 Get Your Free Quote
                 <span className="inline-block transition-transform group-hover:translate-x-1 ml-2">→</span>

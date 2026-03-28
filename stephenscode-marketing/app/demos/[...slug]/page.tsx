@@ -1,5 +1,5 @@
 import type { Metadata } from 'next'
-import { notFound } from 'next/navigation'
+import { notFound, redirect } from 'next/navigation'
 import { allDemos, Demo } from '@/lib/demos-data'
 import DemoFrame from '@/components/demos/DemoFrame'
 
@@ -84,6 +84,11 @@ export default async function DemoPage({ params }: DemoPageProps) {
 
   if (!demo) {
     notFound()
+  }
+
+  // Redirect real client sites to their live external URL
+  if (demo.isRealClient && demo.externalUrl) {
+    redirect(demo.externalUrl)
   }
 
   return (

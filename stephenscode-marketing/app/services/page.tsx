@@ -245,24 +245,24 @@ export default function ServicesPage() {
 
         <div className="absolute bottom-0 left-0 right-0">
           <svg viewBox="0 0 1440 120" fill="none" xmlns="http://www.w3.org/2000/svg" className="w-full">
-            <path d="M0 120L60 105C120 90 240 60 360 45C480 30 600 30 720 37.5C840 45 960 60 1080 67.5C1200 75 1320 75 1380 75L1440 75V120H1380C1320 120 1200 120 1080 120C960 120 840 120 720 120C600 120 480 120 360 120C240 120 120 120 60 120H0Z" fill="white"/>
+            <path d="M0 120L60 105C120 90 240 60 360 45C480 30 600 30 720 37.5C840 45 960 60 1080 67.5C1200 75 1320 75 1380 75L1440 75V120H1380C1320 120 1200 120 1080 120C960 120 840 120 720 120C600 120 480 120 360 120C240 120 120 120 60 120H0Z" fill="#0f172a"/>
           </svg>
         </div>
       </section>
 
       {/* Service Categories */}
       {serviceCategories.map((category, catIndex) => (
-        <section key={category.title} className={catIndex % 2 === 0 ? 'bg-white py-24 sm:py-32' : 'bg-gray-50 py-24 sm:py-32'}>
+        <section key={category.title} className={catIndex % 2 === 0 ? 'bg-slate-900 py-24 sm:py-32' : 'bg-slate-800 py-24 sm:py-32'}>
           <div className="mx-auto max-w-7xl px-6 lg:px-8">
             <div className="mx-auto max-w-2xl text-center mb-16">
               <div className={`inline-flex items-center gap-3 rounded-full bg-gradient-to-r ${category.gradient} px-6 py-3 text-white shadow-xl mb-6`}>
                 <span className="text-3xl">{category.icon}</span>
                 <span className="font-bold">{category.subtitle}</span>
               </div>
-              <h2 className="text-4xl font-black tracking-tight text-gray-900 sm:text-5xl mb-6">
+              <h2 className="text-4xl font-black tracking-tight text-white sm:text-5xl mb-6">
                 {category.title}
               </h2>
-              <p className="text-lg leading-8 text-gray-600">
+              <p className="text-lg leading-8 text-gray-400">
                 {category.description}
               </p>
             </div>
@@ -271,16 +271,16 @@ export default function ServicesPage() {
               {category.services.map((service, index) => (
                 <article
                   key={service.id}
-                  className="group relative flex flex-col rounded-2xl bg-white border-2 border-gray-200 p-8 shadow-lg hover:border-primary-500 hover:shadow-2xl transition-all hover:scale-105"
+                  className="group relative flex flex-col rounded-2xl bg-slate-900 border-2 border-slate-700 p-8 shadow-lg hover:border-primary-500 hover:shadow-2xl transition-all hover:scale-105"
                 >
                   <div className="mb-4">
-                    <h3 className="text-2xl font-bold text-gray-900 group-hover:text-primary-600 transition-colors">
+                    <h3 className="text-2xl font-bold text-white group-hover:text-primary-600 transition-colors">
                       {service.name}
                     </h3>
-                    <p className="mt-2 text-sm text-gray-500">{service.category}</p>
+                    <p className="mt-2 text-sm text-gray-400">{service.category}</p>
                   </div>
 
-                  <p className="text-gray-600 mb-6 line-clamp-3">
+                  <p className="text-gray-400 mb-6 line-clamp-3">
                     {service.shortDescription}
                   </p>
 
@@ -288,14 +288,14 @@ export default function ServicesPage() {
                     <p className="text-3xl font-black text-primary-600">
                       {service.priceLabel}
                     </p>
-                    <p className="text-sm text-gray-500 mt-1">{service.timeline}</p>
+                    <p className="text-sm text-gray-400 mt-1">{service.timeline}</p>
                   </div>
 
                   <div className="mb-6 flex-1">
-                    <p className="text-sm font-semibold text-gray-700 mb-3">Key Features:</p>
+                    <p className="text-sm font-semibold text-gray-300 mb-3">Key Features:</p>
                     <ul className="space-y-2">
                       {service.features.slice(0, 4).map((feature, i) => (
-                        <li key={i} className="flex items-start gap-2 text-sm text-gray-600">
+                        <li key={i} className="flex items-start gap-2 text-sm text-gray-400">
                           <svg className="h-5 w-5 text-primary-600 flex-shrink-0 mt-0.5" fill="currentColor" viewBox="0 0 20 20">
                             <path fillRule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.857-9.809a.75.75 0 00-1.214-.882l-3.483 4.79-1.88-1.88a.75.75 0 10-1.06 1.061l2.5 2.5a.75.75 0 001.137-.089l4-5.5z" clipRule="evenodd" />
                           </svg>
@@ -331,26 +331,26 @@ export default function ServicesPage() {
       ))}
 
       {/* Why Choose Us */}
-      <section className="bg-gradient-to-b from-primary-50 to-white py-24 sm:py-32">
+      <section className="bg-slate-900 py-24 sm:py-32">
         <div className="mx-auto max-w-7xl px-6 lg:px-8">
           <div className="mx-auto max-w-2xl text-center mb-16">
             <h2 className="text-base font-semibold leading-7 text-primary-600">Why Choose a Veteran Owned Web Developer?</h2>
-            <p className="mt-2 text-4xl font-black tracking-tight text-gray-900 sm:text-5xl">
+            <p className="mt-2 text-4xl font-black tracking-tight text-white sm:text-5xl">
               Affordable Web Design You Can Trust
             </p>
           </div>
 
           <div className="grid grid-cols-1 gap-8 lg:grid-cols-2">
             {whyChoose.map((item, index) => (
-              <div key={index} className="relative group overflow-hidden rounded-2xl bg-white p-8 shadow-xl hover:shadow-2xl transition-all hover:scale-105">
+              <div key={index} className="relative group overflow-hidden rounded-2xl bg-slate-900 p-8 shadow-xl hover:shadow-2xl transition-all hover:scale-105">
                 <div className="flex items-start gap-6">
                   <div className="flex h-16 w-16 flex-shrink-0 items-center justify-center rounded-xl bg-primary-600 text-4xl shadow-lg group-hover:scale-110 transition-transform">
                     {item.icon}
                   </div>
                   <div className="flex-1">
-                    <h3 className="text-xl font-bold text-gray-900 mb-2">{item.title}</h3>
-                    <p className="text-gray-600 mb-4">{item.description}</p>
-                    <div className="inline-flex items-center gap-2 rounded-full bg-primary-100 px-4 py-2 text-sm font-bold text-primary-700">
+                    <h3 className="text-xl font-bold text-white mb-2">{item.title}</h3>
+                    <p className="text-gray-400 mb-4">{item.description}</p>
+                    <div className="inline-flex items-center gap-2 rounded-full bg-primary-500/15 px-4 py-2 text-sm font-bold text-primary-400">
                       <svg className="h-4 w-4" fill="currentColor" viewBox="0 0 20 20">
                         <path fillRule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.857-9.809a.75.75 0 00-1.214-.882l-3.483 4.79-1.88-1.88a.75.75 0 10-1.06 1.061l2.5 2.5a.75.75 0 001.137-.089l4-5.5z" clipRule="evenodd" />
                       </svg>
@@ -365,14 +365,14 @@ export default function ServicesPage() {
       </section>
 
       {/* Process Section */}
-      <section className="bg-white py-24 sm:py-32">
+      <section className="bg-slate-900 py-24 sm:py-32">
         <div className="mx-auto max-w-7xl px-6 lg:px-8">
           <div className="mx-auto max-w-2xl text-center mb-16">
             <h2 className="text-base font-semibold leading-7 text-primary-600">Our Process</h2>
-            <p className="mt-2 text-4xl font-black tracking-tight text-gray-900 sm:text-5xl">
+            <p className="mt-2 text-4xl font-black tracking-tight text-white sm:text-5xl">
               From Idea to Launch
             </p>
-            <p className="mt-6 text-lg leading-8 text-gray-600">
+            <p className="mt-6 text-lg leading-8 text-gray-400">
               Transparent, efficient, and collaborative. Here's exactly how we work together.
             </p>
           </div>
@@ -387,8 +387,8 @@ export default function ServicesPage() {
                   <div className="flex h-24 w-24 items-center justify-center rounded-full bg-primary-600 text-white text-5xl mb-6 group-hover:scale-110 transition-transform shadow-2xl">
                     {step.number}
                   </div>
-                  <h3 className="text-xl font-bold text-gray-900 mb-3">{step.title}</h3>
-                  <p className="text-gray-600 mb-4">{step.description}</p>
+                  <h3 className="text-xl font-bold text-white mb-3">{step.title}</h3>
+                  <p className="text-gray-400 mb-4">{step.description}</p>
                   <div className="space-y-2 text-sm">
                     <div className="inline-flex items-center gap-2 text-primary-600 font-semibold">
                       <svg className="h-4 w-4" fill="currentColor" viewBox="0 0 20 20">
@@ -396,7 +396,7 @@ export default function ServicesPage() {
                       </svg>
                       <span>{step.timeline}</span>
                     </div>
-                    <p className="text-gray-500">→ {step.deliverable}</p>
+                    <p className="text-gray-400">→ {step.deliverable}</p>
                   </div>
                 </div>
               </div>
@@ -433,11 +433,11 @@ export default function ServicesPage() {
       </section>
 
       {/* FAQ Section */}
-      <section className="bg-white py-24 sm:py-32">
+      <section className="bg-slate-900 py-24 sm:py-32">
         <div className="mx-auto max-w-4xl px-6 lg:px-8">
           <div className="mx-auto max-w-2xl text-center mb-16">
             <h2 className="text-base font-semibold leading-7 text-primary-600">Frequently Asked Questions</h2>
-            <p className="mt-2 text-4xl font-black tracking-tight text-gray-900 sm:text-5xl">
+            <p className="mt-2 text-4xl font-black tracking-tight text-white sm:text-5xl">
               Web Development FAQ
             </p>
           </div>
@@ -479,9 +479,9 @@ export default function ServicesPage() {
             ].map((faq, index) => (
               <details
                 key={index}
-                className="group rounded-2xl border-2 border-gray-200 bg-gray-50 hover:border-primary-300 transition-colors"
+                className="group rounded-2xl border-2 border-slate-700 bg-slate-800 hover:border-primary-300 transition-colors"
               >
-                <summary className="flex cursor-pointer items-center justify-between p-6 text-lg font-bold text-gray-900">
+                <summary className="flex cursor-pointer items-center justify-between p-6 text-lg font-bold text-white">
                   <span>{faq.question}</span>
                   <span className="ml-4 flex-shrink-0 text-primary-600 group-open:rotate-180 transition-transform">
                     <svg className="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
@@ -490,14 +490,14 @@ export default function ServicesPage() {
                   </span>
                 </summary>
                 <div className="px-6 pb-6">
-                  <p className="text-gray-600 leading-relaxed">{faq.answer}</p>
+                  <p className="text-gray-400 leading-relaxed">{faq.answer}</p>
                 </div>
               </details>
             ))}
           </div>
 
           <div className="mt-12 text-center">
-            <p className="text-gray-600 mb-4">Still have questions?</p>
+            <p className="text-gray-400 mb-4">Still have questions?</p>
             <Link
               href="/contact"
               className="inline-flex items-center gap-2 text-primary-600 font-bold hover:text-primary-700"
