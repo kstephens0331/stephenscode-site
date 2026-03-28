@@ -425,7 +425,7 @@ export default function ContactPage() {
             ].map((city, index) => (
               <div
                 key={city}
-                className="bg-white/10 backdrop-blur-sm rounded-lg px-4 py-3 text-white font-semibold border border-white/20 hover:bg-white/20 transition-all"
+                className="bg-slate-800/40 backdrop-blur-sm rounded-lg px-4 py-3 text-white font-semibold border border-slate-600 hover:bg-slate-700/60 transition-all"
                 style={{ animationDelay: `${index * 50}ms` }}
               >
                 {city}

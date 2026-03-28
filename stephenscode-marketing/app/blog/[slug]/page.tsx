@@ -85,7 +85,7 @@ export default async function BlogPostPage({ params }: BlogPostPageProps) {
                   day: 'numeric',
                 })}
               </time>
-              <span className="rounded-full bg-white/20 px-3 py-1.5 font-medium backdrop-blur">
+              <span className="rounded-full bg-slate-800/40 px-3 py-1.5 font-medium backdrop-blur">
                 {post.category}
               </span>
               <span className="flex items-center gap-1">
@@ -102,7 +102,7 @@ export default async function BlogPostPage({ params }: BlogPostPageProps) {
               {post.excerpt}
             </p>
             <div className="mt-6 flex items-center gap-3">
-              <div className="h-12 w-12 rounded-full bg-white/20 flex items-center justify-center text-2xl">
+              <div className="h-12 w-12 rounded-full bg-slate-800/40 flex items-center justify-center text-2xl">
                 🎖️
               </div>
               <div>

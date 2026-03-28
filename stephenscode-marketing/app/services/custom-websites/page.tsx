@@ -202,7 +202,7 @@ export default function CustomWebsitesPage() {
                   href="/contact"
                   className={`mt-8 block rounded-md px-3.5 py-2.5 text-center text-sm font-semibold focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 ${
                     pkg.popular
-                      ? 'bg-white text-primary-600 hover:bg-slate-700'
+                      ? 'bg-slate-800 text-primary-400 hover:bg-slate-700'
                       : 'bg-primary-600 text-white hover:bg-primary-700'
                   }`}
                 >

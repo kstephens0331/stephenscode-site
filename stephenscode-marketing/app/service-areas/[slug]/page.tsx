@@ -221,7 +221,7 @@ export default async function ServiceAreaPage({ params }: ServiceAreaPageProps) 
               </Link>
               <a
                 href="tel:9363234527"
-                className="rounded-md bg-white/10 px-6 py-3 text-base font-semibold text-white backdrop-blur hover:bg-white/20"
+                className="rounded-md bg-slate-800/40 px-6 py-3 text-base font-semibold text-white backdrop-blur hover:bg-slate-700/60"
               >
                 Call (936) 323-4527
               </a>

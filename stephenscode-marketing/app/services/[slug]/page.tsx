@@ -158,7 +158,7 @@ export default async function ServicePage({ params }: Props) {
                 <span className="block text-sm text-white/90 font-semibold mb-1">Investment</span>
                 <p className="text-4xl font-bold text-white">{service.priceLabel}</p>
               </div>
-              <div className="rounded-2xl bg-white/10 backdrop-blur-sm px-8 py-5 border border-white/20">
+              <div className="rounded-2xl bg-slate-800/40 backdrop-blur-sm px-8 py-5 border border-slate-600">
                 <span className="block text-sm text-gray-200 font-semibold mb-1">Timeline</span>
                 <p className="text-3xl font-bold text-white">{service.timeline}</p>
               </div>
@@ -433,7 +433,7 @@ export default async function ServicePage({ params }: Props) {
             <div className="mt-10 flex flex-col sm:flex-row items-center justify-center gap-6">
               <Link
                 href="/contact"
-                className="group w-full sm:w-auto rounded-lg bg-white px-8 py-4 text-base font-semibold text-primary-900 shadow-2xl hover:bg-slate-700 transition-all hover:scale-105"
+                className="group w-full sm:w-auto rounded-lg bg-slate-800 px-8 py-4 text-base font-semibold text-white shadow-2xl hover:bg-slate-700 transition-all hover:scale-105"
               >
                 Get Your Free Quote
                 <span className="inline-block transition-transform group-hover:translate-x-1 ml-2">→</span>

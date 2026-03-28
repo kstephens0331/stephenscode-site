@@ -206,7 +206,7 @@ export default function WebScraping() {
 
         <div className="relative mx-auto max-w-7xl px-6 py-24 sm:py-32 lg:px-8">
           <div className="mx-auto max-w-4xl">
-            <div className="inline-flex items-center gap-3 rounded-full bg-white/10 px-6 py-3 text-sm font-semibold backdrop-blur-lg border border-white/20 mb-8">
+            <div className="inline-flex items-center gap-3 rounded-full bg-slate-800/40 px-6 py-3 text-sm font-semibold backdrop-blur-lg border border-slate-600 mb-8">
               <span className="text-2xl">📊</span>
               <span>500+ Web Scraping Projects Completed</span>
             </div>
@@ -225,7 +225,7 @@ export default function WebScraping() {
                 <span className="block text-sm text-gray-200">Projects Completed</span>
                 <span className="text-3xl font-bold text-white">500+</span>
               </div>
-              <div className="rounded-2xl bg-white/10 px-6 py-4 border border-white/20">
+              <div className="rounded-2xl bg-slate-800/40 px-6 py-4 border border-slate-600">
                 <span className="block text-sm text-gray-200">Technologies</span>
                 <span className="text-3xl font-bold text-white">Python, Scrapy, Playwright</span>
               </div>
@@ -240,7 +240,7 @@ export default function WebScraping() {
               </Link>
               <a
                 href="tel:+19363234527"
-                className="w-full sm:w-auto flex items-center justify-center gap-2 rounded-lg border-2 border-white px-8 py-4 text-lg font-bold text-white hover:bg-white/10 transition-all"
+                className="w-full sm:w-auto flex items-center justify-center gap-2 rounded-lg border-2 border-slate-500 px-8 py-4 text-lg font-bold text-white hover:bg-slate-800/40 transition-all"
               >
                 <span>📞</span>
                 <span>(936) 323-4527</span>
@@ -505,7 +505,7 @@ export default function WebScraping() {
               </Link>
               <a
                 href="tel:+19363234527"
-                className="w-full sm:w-auto flex items-center justify-center gap-2 rounded-lg bg-white/10 px-10 py-5 text-xl font-bold text-white border-2 border-white/30 hover:bg-white/20 transition-all"
+                className="w-full sm:w-auto flex items-center justify-center gap-2 rounded-lg bg-slate-800/40 px-10 py-5 text-xl font-bold text-white border-2 border-slate-600 hover:bg-slate-700/60 transition-all"
               >
                 <span>📞</span>
                 <span>(936) 323-4527</span>

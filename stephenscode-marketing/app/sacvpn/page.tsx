@@ -134,7 +134,7 @@ export default function SACVPNPage() {
               </a>
               <Link
                 href="/contact"
-                className="inline-flex items-center gap-2 rounded-xl bg-white/10 px-8 py-4 text-lg font-bold text-white backdrop-blur-lg border border-white/20 hover:bg-white/20 transition-all"
+                className="inline-flex items-center gap-2 rounded-xl bg-slate-800/40 px-8 py-4 text-lg font-bold text-white backdrop-blur-lg border border-slate-600 hover:bg-slate-700/60 transition-all"
               >
                 <span>Contact Sales</span>
               </Link>
@@ -287,7 +287,7 @@ export default function SACVPNPage() {
             </a>
             <Link
               href="/services/enterprise-vpn"
-              className="inline-flex items-center gap-2 rounded-xl bg-white/10 px-10 py-5 text-xl font-bold text-white backdrop-blur-lg border border-white/20 hover:bg-white/20 transition-all"
+              className="inline-flex items-center gap-2 rounded-xl bg-slate-800/40 px-10 py-5 text-xl font-bold text-white backdrop-blur-lg border border-slate-600 hover:bg-slate-700/60 transition-all"
             >
               <span>View Add-On Details</span>
             </Link>

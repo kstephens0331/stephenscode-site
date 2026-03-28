@@ -198,7 +198,7 @@ export default function BlogPage() {
                           className="h-full w-full object-cover group-hover:scale-110 transition-transform duration-300"
                         />
                         <div className="absolute top-4 right-4">
-                          <span className="px-4 py-2 rounded-full bg-white/90 backdrop-blur-sm text-sm font-bold text-primary-600 shadow-lg">
+                          <span className="px-4 py-2 rounded-full bg-slate-800/90 backdrop-blur-sm text-sm font-bold text-primary-400 shadow-lg">
                             {post.category}
                           </span>
                         </div>
@@ -272,7 +272,7 @@ export default function BlogPage() {
             <div className="mt-10 flex flex-col sm:flex-row items-center justify-center gap-6">
               <Link
                 href="/contact"
-                className="group rounded-lg bg-white px-8 py-4 text-base font-semibold text-primary-900 shadow-2xl hover:bg-gray-200 transition-all hover:scale-105"
+                className="group rounded-lg bg-slate-800 px-8 py-4 text-base font-semibold text-white shadow-2xl hover:bg-slate-700 transition-all hover:scale-105"
               >
                 Subscribe for Updates
                 <span className="inline-block transition-transform group-hover:translate-x-1 ml-2">→</span>
