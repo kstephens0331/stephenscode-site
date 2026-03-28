@@ -37,6 +37,14 @@ export const organizationSchema = {
     }
   ],
   "priceRange": "$250-$7500",
+  "aggregateRating": {
+    "@type": "AggregateRating",
+    "ratingValue": "5",
+    "bestRating": "5",
+    "worstRating": "1",
+    "ratingCount": "25",
+    "reviewCount": "25"
+  },
   "knowsAbout": [
     "Web Development",
     "Custom Software",

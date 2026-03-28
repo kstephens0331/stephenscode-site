@@ -35,7 +35,7 @@ export default function AddOnsClient() {
   ]
 
   return (
-    <div className="bg-gray-50 min-h-screen">
+    <div className="bg-slate-800 min-h-screen">
       {/* Hero Section */}
       <section className="bg-gradient-to-br from-slate-900 via-blue-900 to-slate-900 py-16 sm:py-20">
         <div className="mx-auto max-w-7xl px-6 lg:px-8">
@@ -51,7 +51,7 @@ export default function AddOnsClient() {
       </section>
 
       {/* Sticky Filter Bar */}
-      <div className="sticky top-0 z-40 bg-white border-b border-gray-200 shadow-sm">
+      <div className="sticky top-0 z-40 bg-slate-900 border-b border-slate-700 shadow-sm">
         <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
           <div className="py-4 flex flex-col sm:flex-row gap-4 items-center justify-between">
             {/* Category Filter Tabs */}
@@ -63,14 +63,14 @@ export default function AddOnsClient() {
                   className={`px-4 py-2 rounded-full text-sm font-medium whitespace-nowrap transition-all ${
                     activeFilter === filter.key
                       ? 'bg-primary-600 text-white shadow-md'
-                      : 'bg-gray-100 text-gray-700 hover:bg-gray-200'
+                      : 'bg-slate-700 text-gray-400 hover:bg-slate-600'
                   }`}
                 >
                   {filter.label}
                   <span className={`ml-2 px-2 py-0.5 rounded-full text-xs ${
                     activeFilter === filter.key
                       ? 'bg-white/20 text-white'
-                      : 'bg-gray-200 text-gray-600'
+                      : 'bg-slate-600 text-gray-400'
                   }`}>
                     {filter.count}
                   </span>
@@ -85,7 +85,7 @@ export default function AddOnsClient() {
                 placeholder="Search add-ons..."
                 value={searchQuery}
                 onChange={(e) => setSearchQuery(e.target.value)}
-                className="w-full px-4 py-2 pl-10 rounded-lg border border-gray-300 focus:border-primary-500 focus:ring-2 focus:ring-primary-500/20 outline-none transition-all text-sm"
+                className="w-full px-4 py-2 pl-10 rounded-lg border border-slate-600 bg-slate-800 text-white focus:border-primary-500 focus:ring-2 focus:ring-primary-500/20 outline-none transition-all text-sm"
               />
               <svg
                 className="absolute left-3 top-1/2 -translate-y-1/2 w-4 h-4 text-gray-400"
@@ -98,7 +98,7 @@ export default function AddOnsClient() {
               {searchQuery && (
                 <button
                   onClick={() => setSearchQuery('')}
-                  className="absolute right-3 top-1/2 -translate-y-1/2 text-gray-400 hover:text-gray-600"
+                  className="absolute right-3 top-1/2 -translate-y-1/2 text-gray-400 hover:text-gray-400"
                 >
                   <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                     <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M6 18L18 6M6 6l12 12" />
@@ -112,7 +112,7 @@ export default function AddOnsClient() {
 
       {/* Results Count */}
       <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 py-4">
-        <p className="text-sm text-gray-600">
+        <p className="text-sm text-gray-400">
           Showing <span className="font-semibold">{filteredAddOns.length}</span> add-on{filteredAddOns.length !== 1 ? 's' : ''}
           {searchQuery && <span> for &ldquo;{searchQuery}&rdquo;</span>}
         </p>
@@ -126,27 +126,27 @@ export default function AddOnsClient() {
               <Link
                 key={addon.id}
                 href={`/services/${addon.slug}`}
-                className={`group rounded-xl border-2 bg-white p-6 hover:shadow-xl transition-all hover:scale-[1.02] ${
+                className={`group rounded-xl border-2 bg-slate-900 p-6 hover:shadow-xl transition-all hover:scale-[1.02] ${
                   addon.category === 'addon-advanced'
-                    ? 'border-gray-200 hover:border-primary-500'
-                    : 'border-gray-200 hover:border-accent-500'
+                    ? 'border-slate-700 hover:border-primary-500'
+                    : 'border-slate-700 hover:border-accent-500'
                 }`}
               >
                 {/* Category Badge */}
                 <div className="flex items-center justify-between mb-3">
                   <span className={`px-2 py-1 rounded-full text-xs font-medium ${
                     addon.category === 'addon-advanced'
-                      ? 'bg-primary-100 text-primary-700'
-                      : 'bg-accent-100 text-accent-700'
+                      ? 'bg-primary-500/15 text-primary-700'
+                      : 'bg-accent-500/15 text-accent-700'
                   }`}>
                     {addon.category === 'addon-advanced' ? 'Advanced' : 'Basic'}
                   </span>
-                  <span className="text-sm text-gray-500">{addon.timeline}</span>
+                  <span className="text-sm text-gray-400">{addon.timeline}</span>
                 </div>
 
                 {/* Name and Price */}
                 <div className="flex items-start justify-between gap-3 mb-3">
-                  <h3 className="text-lg font-semibold text-gray-900 group-hover:text-primary-600 transition-colors">
+                  <h3 className="text-lg font-semibold text-white group-hover:text-primary-600 transition-colors">
                     {addon.name}
                   </h3>
                   <p className={`text-lg font-bold whitespace-nowrap ${
@@ -157,7 +157,7 @@ export default function AddOnsClient() {
                 </div>
 
                 {/* Description */}
-                <p className="text-sm text-gray-600 mb-4 leading-relaxed line-clamp-2">
+                <p className="text-sm text-gray-400 mb-4 leading-relaxed line-clamp-2">
                   {addon.shortDescription}
                 </p>
 
@@ -175,11 +175,11 @@ export default function AddOnsClient() {
           </div>
         ) : (
           <div className="text-center py-16">
-            <svg className="w-16 h-16 text-gray-300 mx-auto mb-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <svg className="w-16 h-16 text-gray-400 mx-auto mb-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
               <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M9.172 16.172a4 4 0 015.656 0M9 10h.01M15 10h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
             </svg>
-            <h3 className="text-lg font-semibold text-gray-900 mb-2">No add-ons found</h3>
-            <p className="text-gray-600 mb-4">Try adjusting your search or filter</p>
+            <h3 className="text-lg font-semibold text-white mb-2">No add-ons found</h3>
+            <p className="text-gray-400 mb-4">Try adjusting your search or filter</p>
             <button
               onClick={() => {
                 setSearchQuery('')

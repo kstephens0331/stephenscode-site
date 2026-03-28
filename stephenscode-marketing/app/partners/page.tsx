@@ -302,7 +302,7 @@ export default function PartnersPage() {
   const partnersList = partners.filter(p => p.category === 'partner')
 
   return (
-    <div className="bg-gray-50 min-h-screen">
+    <div className="bg-slate-900 min-h-screen">
       {/* Schema.org JSON-LD - Portfolio list */}
       <script
         type="application/ld+json"
@@ -332,7 +332,7 @@ export default function PartnersPage() {
       {directories.length > 0 && (
         <section className="py-16">
           <div className="mx-auto max-w-7xl px-6 lg:px-8">
-            <h2 className="text-2xl font-bold text-gray-900 mb-8">Featured On</h2>
+            <h2 className="text-2xl font-bold text-white mb-8">Featured On</h2>
             <div className="grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
               {directories.map((partner) => (
                 <a
@@ -340,12 +340,12 @@ export default function PartnersPage() {
                   href={partner.url}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="group rounded-xl border-2 border-gray-200 bg-white p-6 hover:border-primary-500 hover:shadow-xl transition-all"
+                  className="group rounded-xl border-2 border-slate-700 bg-slate-800 p-6 hover:border-primary-500 hover:shadow-xl transition-all"
                 >
-                  <h3 className="text-xl font-semibold text-gray-900 group-hover:text-primary-600 transition-colors mb-2">
+                  <h3 className="text-xl font-semibold text-white group-hover:text-primary-400 transition-colors mb-2">
                     {partner.name}
                   </h3>
-                  <p className="text-gray-600 mb-4">
+                  <p className="text-gray-400 mb-4">
                     {partner.description}
                   </p>
                   <span className="text-primary-600 font-medium group-hover:text-primary-700 transition-colors">
@@ -361,9 +361,9 @@ export default function PartnersPage() {
 
       {/* Certifications */}
       {certifications.length > 0 && (
-        <section className="py-16 bg-white">
+        <section className="py-16 bg-slate-800">
           <div className="mx-auto max-w-7xl px-6 lg:px-8">
-            <h2 className="text-2xl font-bold text-gray-900 mb-8">Certifications</h2>
+            <h2 className="text-2xl font-bold text-white mb-8">Certifications</h2>
             <div className="grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
               {certifications.map((partner) => (
                 <a
@@ -371,12 +371,12 @@ export default function PartnersPage() {
                   href={partner.url}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="group rounded-xl border-2 border-gray-200 bg-gray-50 p-6 hover:border-accent-500 hover:shadow-xl transition-all"
+                  className="group rounded-xl border-2 border-slate-700 bg-slate-900 p-6 hover:border-accent-500 hover:shadow-xl transition-all"
                 >
-                  <h3 className="text-xl font-semibold text-gray-900 group-hover:text-accent-600 transition-colors mb-2">
+                  <h3 className="text-xl font-semibold text-white group-hover:text-accent-400 transition-colors mb-2">
                     {partner.name}
                   </h3>
-                  <p className="text-gray-600 mb-4">
+                  <p className="text-gray-400 mb-4">
                     {partner.description}
                   </p>
                   <span className="text-accent-600 font-medium group-hover:text-accent-700 transition-colors">
@@ -394,7 +394,7 @@ export default function PartnersPage() {
       {partnersList.length > 0 && (
         <section className="py-16">
           <div className="mx-auto max-w-7xl px-6 lg:px-8">
-            <h2 className="text-2xl font-bold text-gray-900 mb-8">Partners</h2>
+            <h2 className="text-2xl font-bold text-white mb-8">Partners</h2>
             <div className="grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
               {partnersList.map((partner) => (
                 <a
@@ -402,12 +402,12 @@ export default function PartnersPage() {
                   href={partner.url}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="group rounded-xl border-2 border-gray-200 bg-white p-6 hover:border-primary-500 hover:shadow-xl transition-all"
+                  className="group rounded-xl border-2 border-slate-700 bg-slate-800 p-6 hover:border-primary-500 hover:shadow-xl transition-all"
                 >
-                  <h3 className="text-xl font-semibold text-gray-900 group-hover:text-primary-600 transition-colors mb-2">
+                  <h3 className="text-xl font-semibold text-white group-hover:text-primary-400 transition-colors mb-2">
                     {partner.name}
                   </h3>
-                  <p className="text-gray-600 mb-4">
+                  <p className="text-gray-400 mb-4">
                     {partner.description}
                   </p>
                   <span className="text-primary-600 font-medium group-hover:text-primary-700 transition-colors">
@@ -423,35 +423,35 @@ export default function PartnersPage() {
 
       {/* Client Websites - Portfolio Section */}
       {clients.length > 0 && (
-        <section className="py-16 bg-white">
+        <section className="py-16 bg-slate-800">
           <div className="mx-auto max-w-7xl px-6 lg:px-8">
-            <h2 className="text-3xl font-bold text-gray-900 mb-2">Web Development Portfolio</h2>
-            <p className="text-gray-600 mb-8 text-lg">Custom websites and applications built for Texas businesses</p>
+            <h2 className="text-3xl font-bold text-white mb-2">Web Development Portfolio</h2>
+            <p className="text-gray-400 mb-8 text-lg">Custom websites and applications built for Texas businesses</p>
             <div className="grid gap-8 lg:grid-cols-2">
               {clients.map((client) => (
                 <article
                   key={client.name}
-                  className="group rounded-2xl border-2 border-gray-200 bg-gray-50 p-8 hover:border-accent-500 hover:shadow-xl transition-all"
+                  className="group rounded-2xl border-2 border-slate-700 bg-slate-900 p-8 hover:border-accent-500 hover:shadow-xl transition-all"
                 >
                   <div className="flex flex-wrap items-center gap-2 mb-4">
-                    <span className="inline-flex items-center rounded-full bg-primary-100 px-3 py-1 text-xs font-medium text-primary-700">
+                    <span className="inline-flex items-center rounded-full bg-primary-500/10 px-3 py-1 text-xs font-medium text-primary-400">
                       {client.industry}
                     </span>
-                    <span className="inline-flex items-center rounded-full bg-gray-200 px-3 py-1 text-xs font-medium text-gray-600">
+                    <span className="inline-flex items-center rounded-full bg-slate-700 px-3 py-1 text-xs font-medium text-gray-400">
                       {client.location}
                     </span>
                   </div>
-                  <h3 className="text-2xl font-bold text-gray-900 group-hover:text-accent-600 transition-colors mb-3">
+                  <h3 className="text-2xl font-bold text-white group-hover:text-accent-400 transition-colors mb-3">
                     {client.name}
                   </h3>
-                  <p className="text-gray-700 mb-4 leading-relaxed">
+                  <p className="text-gray-300 mb-4 leading-relaxed">
                     {client.longDescription}
                   </p>
                   <div className="flex flex-wrap gap-2 mb-6">
                     {client.services.map((service) => (
                       <span
                         key={service}
-                        className="inline-flex items-center rounded-md bg-accent-50 px-2.5 py-1 text-xs font-medium text-accent-700 ring-1 ring-inset ring-accent-600/20"
+                        className="inline-flex items-center rounded-md bg-accent-500/10 px-2.5 py-1 text-xs font-medium text-accent-400 ring-1 ring-inset ring-accent-600/20"
                       >
                         {service}
                       </span>

@@ -100,13 +100,13 @@ export default function CustomWebsitesPage() {
       </section>
 
       {/* What We Build */}
-      <section className="bg-white py-24 sm:py-32">
+      <section className="bg-slate-900 py-24 sm:py-32">
         <div className="mx-auto max-w-7xl px-6 lg:px-8">
           <div className="mx-auto max-w-2xl lg:text-center">
-            <h2 className="text-3xl font-bold tracking-tight text-gray-900 sm:text-4xl">
+            <h2 className="text-3xl font-bold tracking-tight text-white sm:text-4xl">
               What We Build
             </h2>
-            <p className="mt-6 text-lg leading-8 text-gray-600">
+            <p className="mt-6 text-lg leading-8 text-gray-400">
               Custom websites tailored to your business needs and goals.
             </p>
           </div>
@@ -114,30 +114,30 @@ export default function CustomWebsitesPage() {
           <div className="mx-auto mt-16 max-w-2xl sm:mt-20 lg:mt-24 lg:max-w-none">
             <dl className="grid max-w-xl grid-cols-1 gap-x-8 gap-y-16 lg:max-w-none lg:grid-cols-3">
               <div className="flex flex-col">
-                <dt className="text-xl font-semibold leading-7 text-gray-900">
+                <dt className="text-xl font-semibold leading-7 text-white">
                   Business Websites
                 </dt>
-                <dd className="mt-4 flex flex-auto flex-col text-base leading-7 text-gray-600">
+                <dd className="mt-4 flex flex-auto flex-col text-base leading-7 text-gray-400">
                   <p className="flex-auto">
                     Professional websites for local businesses. Showcase your services, build trust, and generate leads.
                   </p>
                 </dd>
               </div>
               <div className="flex flex-col">
-                <dt className="text-xl font-semibold leading-7 text-gray-900">
+                <dt className="text-xl font-semibold leading-7 text-white">
                   Landing Pages
                 </dt>
-                <dd className="mt-4 flex flex-auto flex-col text-base leading-7 text-gray-600">
+                <dd className="mt-4 flex flex-auto flex-col text-base leading-7 text-gray-400">
                   <p className="flex-auto">
                     High-converting landing pages for campaigns, products, or services. Optimized for conversions.
                   </p>
                 </dd>
               </div>
               <div className="flex flex-col">
-                <dt className="text-xl font-semibold leading-7 text-gray-900">
+                <dt className="text-xl font-semibold leading-7 text-white">
                   Portfolio Sites
                 </dt>
-                <dd className="mt-4 flex flex-auto flex-col text-base leading-7 text-gray-600">
+                <dd className="mt-4 flex flex-auto flex-col text-base leading-7 text-gray-400">
                   <p className="flex-auto">
                     Showcase your work with beautiful portfolio sites. Perfect for photographers, designers, and artists.
                   </p>
@@ -149,13 +149,13 @@ export default function CustomWebsitesPage() {
       </section>
 
       {/* Pricing Packages */}
-      <section className="bg-gray-50 py-24 sm:py-32">
+      <section className="bg-slate-800 py-24 sm:py-32">
         <div className="mx-auto max-w-7xl px-6 lg:px-8">
           <div className="mx-auto max-w-2xl text-center mb-16">
-            <h2 className="text-3xl font-bold tracking-tight text-gray-900 sm:text-4xl">
+            <h2 className="text-3xl font-bold tracking-tight text-white sm:text-4xl">
               Website Packages
             </h2>
-            <p className="mt-4 text-lg leading-8 text-gray-600">
+            <p className="mt-4 text-lg leading-8 text-gray-400">
               Choose the package that fits your needs and budget.
             </p>
           </div>
@@ -167,14 +167,14 @@ export default function CustomWebsitesPage() {
                 className={`flex flex-col rounded-3xl p-8 ${
                   pkg.popular
                     ? 'bg-primary-600 text-white ring-2 ring-primary-600'
-                    : 'bg-white text-gray-900 ring-1 ring-gray-200'
+                    : 'bg-slate-900 text-white ring-1 ring-slate-700'
                 }`}
               >
                 {pkg.popular && (
                   <p className="mb-4 text-sm font-semibold uppercase tracking-wide">Most Popular</p>
                 )}
                 <h3 className="text-2xl font-bold">{pkg.name}</h3>
-                <p className={`mt-4 text-sm ${pkg.popular ? 'text-gray-100' : 'text-gray-600'}`}>
+                <p className={`mt-4 text-sm ${pkg.popular ? 'text-gray-100' : 'text-gray-400'}`}>
                   {pkg.description}
                 </p>
                 <p className="mt-6 flex items-baseline gap-x-1">
@@ -202,7 +202,7 @@ export default function CustomWebsitesPage() {
                   href="/contact"
                   className={`mt-8 block rounded-md px-3.5 py-2.5 text-center text-sm font-semibold focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 ${
                     pkg.popular
-                      ? 'bg-white text-primary-600 hover:bg-gray-100'
+                      ? 'bg-white text-primary-600 hover:bg-slate-700'
                       : 'bg-primary-600 text-white hover:bg-primary-700'
                   }`}
                 >
@@ -215,13 +215,13 @@ export default function CustomWebsitesPage() {
       </section>
 
       {/* Add-Ons */}
-      <section className="bg-white py-24 sm:py-32">
+      <section className="bg-slate-900 py-24 sm:py-32">
         <div className="mx-auto max-w-7xl px-6 lg:px-8">
           <div className="mx-auto max-w-2xl text-center mb-16">
-            <h2 className="text-3xl font-bold tracking-tight text-gray-900 sm:text-4xl">
+            <h2 className="text-3xl font-bold tracking-tight text-white sm:text-4xl">
               Available Add-Ons
             </h2>
-            <p className="mt-4 text-lg leading-8 text-gray-600">
+            <p className="mt-4 text-lg leading-8 text-gray-400">
               Enhance your website with additional features.
             </p>
           </div>
@@ -230,13 +230,13 @@ export default function CustomWebsitesPage() {
             {addOns.map((addon) => (
               <div
                 key={addon.name}
-                className="rounded-lg border border-gray-200 p-6 hover:border-primary-500 hover:shadow-md transition-all"
+                className="rounded-lg border border-slate-700 p-6 hover:border-primary-500 hover:shadow-md transition-all"
               >
                 <div className="flex items-center justify-between">
-                  <h3 className="text-lg font-semibold text-gray-900">{addon.name}</h3>
+                  <h3 className="text-lg font-semibold text-white">{addon.name}</h3>
                   <p className="text-lg font-bold text-primary-600">{addon.price}</p>
                 </div>
-                <p className="mt-2 text-sm text-gray-600">{addon.description}</p>
+                <p className="mt-2 text-sm text-gray-400">{addon.description}</p>
               </div>
             ))}
           </div>
@@ -253,10 +253,10 @@ export default function CustomWebsitesPage() {
       </section>
 
       {/* Why Custom vs Template */}
-      <section className="bg-gray-50 py-24 sm:py-32">
+      <section className="bg-slate-800 py-24 sm:py-32">
         <div className="mx-auto max-w-7xl px-6 lg:px-8">
           <div className="mx-auto max-w-2xl lg:text-center">
-            <h2 className="text-3xl font-bold tracking-tight text-gray-900 sm:text-4xl">
+            <h2 className="text-3xl font-bold tracking-tight text-white sm:text-4xl">
               Why Custom vs Template?
             </h2>
           </div>
@@ -264,26 +264,26 @@ export default function CustomWebsitesPage() {
           <div className="mx-auto mt-16 max-w-2xl sm:mt-20 lg:mt-24 lg:max-w-none">
             <dl className="grid max-w-xl grid-cols-1 gap-x-8 gap-y-16 lg:max-w-none lg:grid-cols-3">
               <div className="flex flex-col">
-                <dt className="text-xl font-semibold leading-7 text-gray-900">
+                <dt className="text-xl font-semibold leading-7 text-white">
                   Better Performance
                 </dt>
-                <dd className="mt-4 text-base leading-7 text-gray-600">
+                <dd className="mt-4 text-base leading-7 text-gray-400">
                   Custom sites load faster and rank higher in Google. No bloated templates or unnecessary code.
                 </dd>
               </div>
               <div className="flex flex-col">
-                <dt className="text-xl font-semibold leading-7 text-gray-900">
+                <dt className="text-xl font-semibold leading-7 text-white">
                   Complete Flexibility
                 </dt>
-                <dd className="mt-4 text-base leading-7 text-gray-600">
+                <dd className="mt-4 text-base leading-7 text-gray-400">
                   Build exactly what you need. No limitations from template constraints or page builders.
                 </dd>
               </div>
               <div className="flex flex-col">
-                <dt className="text-xl font-semibold leading-7 text-gray-900">
+                <dt className="text-xl font-semibold leading-7 text-white">
                   SEO Optimized
                 </dt>
-                <dd className="mt-4 text-base leading-7 text-gray-600">
+                <dd className="mt-4 text-base leading-7 text-gray-400">
                   Built with SEO best practices from the ground up. Clean code that search engines love.
                 </dd>
               </div>

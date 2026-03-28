@@ -39,9 +39,9 @@ export default function ServiceAreasPage() {
     <Link
       key={area.slug}
       href={`/service-areas/${area.slug}`}
-      className="group bg-gray-50 rounded-lg p-6 hover:bg-primary-50 hover:shadow-md transition-all"
+      className="group bg-slate-800 rounded-lg p-6 hover:bg-primary-500/10 hover:shadow-md hover:shadow-black/20 transition-all"
     >
-      <h4 className="text-lg font-semibold text-gray-900 group-hover:text-primary-700">
+      <h4 className="text-lg font-semibold text-white group-hover:text-primary-700">
         {area.name}
         {area.slug === 'conroe' && (
           <span className="ml-2 text-xs bg-primary-600 text-white px-2 py-0.5 rounded">
@@ -49,7 +49,7 @@ export default function ServiceAreasPage() {
           </span>
         )}
       </h4>
-      <p className="mt-2 text-sm text-gray-600">
+      <p className="mt-2 text-sm text-gray-400">
         Population: {area.population}
       </p>
       <p className="mt-1 text-sm text-gray-500">
@@ -68,11 +68,11 @@ export default function ServiceAreasPage() {
     if (areas.length === 0) return null
     return (
       <div className="mb-16 last:mb-0">
-        <h3 className="text-xl font-bold text-gray-900 mb-2 pb-2 border-b">
+        <h3 className="text-xl font-bold text-white mb-2 pb-2 border-b border-slate-700">
           {title}
         </h3>
         {description && (
-          <p className="text-sm text-gray-600 mb-6">{description}</p>
+          <p className="text-sm text-gray-400 mb-6">{description}</p>
         )}
         <div className="grid grid-cols-1 gap-6 sm:grid-cols-2 lg:grid-cols-3">
           {areas.map(renderAreaCard)}
@@ -113,37 +113,37 @@ export default function ServiceAreasPage() {
       </section>
 
       {/* Stats Bar */}
-      <section className="bg-white py-8 border-b">
+      <section className="bg-slate-900 py-8 border-b border-slate-700">
         <div className="mx-auto max-w-7xl px-6 lg:px-8">
           <dl className="grid grid-cols-2 gap-4 sm:grid-cols-4">
             <div className="text-center">
               <dd className="text-3xl font-bold text-primary-600">{serviceAreas.length}+</dd>
-              <dt className="text-sm text-gray-600">Communities Served</dt>
+              <dt className="text-sm text-gray-400">Communities Served</dt>
             </div>
             <div className="text-center">
               <dd className="text-3xl font-bold text-primary-600">6</dd>
-              <dt className="text-sm text-gray-600">Counties Covered</dt>
+              <dt className="text-sm text-gray-400">Counties Covered</dt>
             </div>
             <div className="text-center">
               <dd className="text-3xl font-bold text-primary-600">14+</dd>
-              <dt className="text-sm text-gray-600">Years Experience</dt>
+              <dt className="text-sm text-gray-400">Years Experience</dt>
             </div>
             <div className="text-center">
               <dd className="text-3xl font-bold text-primary-600">$250</dd>
-              <dt className="text-sm text-gray-600">Starting Price</dt>
+              <dt className="text-sm text-gray-400">Starting Price</dt>
             </div>
           </dl>
         </div>
       </section>
 
       {/* All Service Areas */}
-      <section className="bg-white py-16 sm:py-24">
+      <section className="bg-slate-900 py-16 sm:py-24">
         <div className="mx-auto max-w-7xl px-6 lg:px-8">
           <div className="mx-auto max-w-3xl text-center mb-12">
-            <h2 className="text-3xl font-bold tracking-tight text-gray-900">
+            <h2 className="text-3xl font-bold tracking-tight text-white">
               All Service Areas
             </h2>
-            <p className="mt-4 text-lg text-gray-600">
+            <p className="mt-4 text-lg text-gray-400">
               From our home base in Conroe, we serve businesses throughout the Houston metropolitan area.
               Click any area to see how we can help your local business.
             </p>
@@ -187,27 +187,49 @@ export default function ServiceAreasPage() {
         </div>
       </section>
 
-      {/* Not Listed Section */}
-      <section className="bg-gray-50 py-16 sm:py-24">
+      {/* Not in Your Area Section */}
+      <section className="bg-slate-800 py-16 sm:py-24">
         <div className="mx-auto max-w-7xl px-6 lg:px-8">
-          <div className="mx-auto max-w-2xl text-center">
-            <h2 className="text-3xl font-bold tracking-tight text-gray-900">
-              Don't See Your City?
+          <div className="mx-auto max-w-3xl text-center">
+            <h2 className="text-3xl font-bold tracking-tight text-white sm:text-4xl">
+              Not in Your Area? We Work Nationwide.
             </h2>
-            <p className="mt-4 text-lg text-gray-600">
-              We serve all of Greater Houston and work with clients anywhere in Texas and beyond.
-              Everything can be done remotely — contact us to discuss your project.
+            <p className="mt-4 text-lg text-gray-300">
+              While we're based in Conroe, Texas, we build websites for businesses across the entire United States through remote collaboration.
             </p>
-            <div className="mt-8 flex items-center justify-center gap-x-6">
+            <div className="mt-10 grid grid-cols-1 gap-8 sm:grid-cols-3">
+              <div className="rounded-lg bg-slate-700/50 p-6 border border-slate-600">
+                <div className="text-3xl mb-3">📹</div>
+                <h3 className="text-lg font-semibold text-white">Video Consultations</h3>
+                <p className="mt-2 text-sm text-gray-400">
+                  Face-to-face meetings via Zoom or Google Meet. Screen sharing for real-time design reviews and feedback sessions.
+                </p>
+              </div>
+              <div className="rounded-lg bg-slate-700/50 p-6 border border-slate-600">
+                <div className="text-3xl mb-3">💬</div>
+                <h3 className="text-lg font-semibold text-white">Real-Time Communication</h3>
+                <p className="mt-2 text-sm text-gray-400">
+                  Dedicated Slack channels, email, and phone support. You'll never wonder about your project's status.
+                </p>
+              </div>
+              <div className="rounded-lg bg-slate-700/50 p-6 border border-slate-600">
+                <div className="text-3xl mb-3">🚀</div>
+                <h3 className="text-lg font-semibold text-white">Same Quality, Any Distance</h3>
+                <p className="mt-2 text-sm text-gray-400">
+                  Same transparent pricing, same timeline guarantees, same veteran-owned quality — regardless of where you're located.
+                </p>
+              </div>
+            </div>
+            <div className="mt-10 flex items-center justify-center gap-x-6">
               <Link
                 href="/contact"
                 className="rounded-md bg-primary-600 px-6 py-3 text-base font-semibold text-white shadow-sm hover:bg-primary-700"
               >
-                Contact Us
+                Start Your Project
               </Link>
               <a
                 href="tel:9363234527"
-                className="text-base font-semibold text-gray-900 hover:text-primary-600"
+                className="text-base font-semibold text-gray-300 hover:text-primary-400"
               >
                 Call (936) 323-4527 <span aria-hidden="true">→</span>
               </a>

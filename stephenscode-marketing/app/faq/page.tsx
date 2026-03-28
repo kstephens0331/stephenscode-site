@@ -301,7 +301,7 @@ export default function FAQPage() {
       </section>
 
       {/* Quick Navigation */}
-      <section className="bg-gray-50 py-8 border-b">
+      <section className="bg-slate-800 py-8 border-b border-slate-700">
         <div className="mx-auto max-w-7xl px-6 lg:px-8">
           <nav className="flex flex-wrap justify-center gap-4">
             {Object.keys(groupedFaqs).map((category) => (
@@ -318,20 +318,20 @@ export default function FAQPage() {
       </section>
 
       {/* FAQ Content */}
-      <section className="bg-white py-16 sm:py-24">
+      <section className="bg-slate-900 py-16 sm:py-24">
         <div className="mx-auto max-w-4xl px-6 lg:px-8">
           {Object.entries(groupedFaqs).map(([category, categoryFaqs]) => (
             <div key={category} id={category.toLowerCase().replace(/\s+/g, '-')} className="mb-16 scroll-mt-24">
-              <h2 className="text-2xl font-bold text-gray-900 mb-8 pb-4 border-b border-gray-200">
+              <h2 className="text-2xl font-bold text-white mb-8 pb-4 border-b border-slate-700">
                 {category}
               </h2>
               <dl className="space-y-8">
                 {categoryFaqs.map((faq, index) => (
-                  <div key={index} className="bg-gray-50 rounded-lg p-6">
-                    <dt className="text-lg font-semibold text-gray-900 mb-3">
+                  <div key={index} className="bg-slate-800 rounded-lg p-6">
+                    <dt className="text-lg font-semibold text-white mb-3">
                       {faq.question}
                     </dt>
-                    <dd className="text-gray-600 leading-7">
+                    <dd className="text-gray-400 leading-7">
                       {faq.answer}
                     </dd>
                   </div>
@@ -343,13 +343,13 @@ export default function FAQPage() {
       </section>
 
       {/* Still Have Questions CTA */}
-      <section className="bg-gray-50 py-16 sm:py-24">
+      <section className="bg-slate-800 py-16 sm:py-24">
         <div className="mx-auto max-w-7xl px-6 lg:px-8">
           <div className="mx-auto max-w-2xl text-center">
-            <h2 className="text-3xl font-bold tracking-tight text-gray-900 sm:text-4xl">
+            <h2 className="text-3xl font-bold tracking-tight text-white sm:text-4xl">
               Still Have Questions?
             </h2>
-            <p className="mt-6 text-lg leading-8 text-gray-600">
+            <p className="mt-6 text-lg leading-8 text-gray-400">
               We're here to help. Get in touch for a free consultation and honest answers about your project.
             </p>
             <div className="mt-10 flex items-center justify-center gap-x-6">
@@ -361,7 +361,7 @@ export default function FAQPage() {
               </Link>
               <a
                 href="tel:9363234527"
-                className="text-base font-semibold leading-7 text-gray-900 hover:text-primary-600"
+                className="text-base font-semibold leading-7 text-white hover:text-primary-400"
               >
                 Call (936) 323-4527 <span aria-hidden="true">→</span>
               </a>
@@ -371,42 +371,42 @@ export default function FAQPage() {
       </section>
 
       {/* Related Resources */}
-      <section className="bg-white py-16 sm:py-24 border-t">
+      <section className="bg-slate-900 py-16 sm:py-24 border-t border-slate-700">
         <div className="mx-auto max-w-7xl px-6 lg:px-8">
-          <h2 className="text-2xl font-bold text-gray-900 mb-8 text-center">
+          <h2 className="text-2xl font-bold text-white mb-8 text-center">
             Helpful Resources
           </h2>
           <div className="grid grid-cols-1 gap-8 md:grid-cols-3">
             <Link
               href="/blog/why-houston-businesses-need-custom-websites-2025"
-              className="bg-gray-50 rounded-lg p-6 hover:bg-gray-100 transition-colors"
+              className="bg-slate-800 rounded-lg p-6 hover:bg-slate-700 transition-colors"
             >
-              <h3 className="font-semibold text-gray-900 mb-2">
+              <h3 className="font-semibold text-white mb-2">
                 Why Custom Websites Matter
               </h3>
-              <p className="text-sm text-gray-600">
+              <p className="text-sm text-gray-400">
                 Learn why template sites are holding your business back and how custom development drives growth.
               </p>
             </Link>
             <Link
               href="/blog/website-speed-conversion-rates-guide"
-              className="bg-gray-50 rounded-lg p-6 hover:bg-gray-100 transition-colors"
+              className="bg-slate-800 rounded-lg p-6 hover:bg-slate-700 transition-colors"
             >
-              <h3 className="font-semibold text-gray-900 mb-2">
+              <h3 className="font-semibold text-white mb-2">
                 Website Speed Guide
               </h3>
-              <p className="text-sm text-gray-600">
+              <p className="text-sm text-gray-400">
                 Understand how website speed impacts conversions and what you can do to improve it.
               </p>
             </Link>
             <Link
               href="/blog/local-seo-guide-houston-businesses"
-              className="bg-gray-50 rounded-lg p-6 hover:bg-gray-100 transition-colors"
+              className="bg-slate-800 rounded-lg p-6 hover:bg-slate-700 transition-colors"
             >
-              <h3 className="font-semibold text-gray-900 mb-2">
+              <h3 className="font-semibold text-white mb-2">
                 Local SEO Guide
               </h3>
-              <p className="text-sm text-gray-600">
+              <p className="text-sm text-gray-400">
                 Complete guide to dominating local search results in Houston and surrounding areas.
               </p>
             </Link>

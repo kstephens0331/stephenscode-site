@@ -205,45 +205,45 @@ export default function ContactPage() {
 
         {/* Wave divider */}
         <div className="absolute bottom-0 left-0 right-0">
-          <svg className="w-full h-16 fill-white" viewBox="0 0 1200 120" preserveAspectRatio="none">
+          <svg className="w-full h-16 fill-slate-900" viewBox="0 0 1200 120" preserveAspectRatio="none">
             <path d="M321.39,56.44c58-10.79,114.16-30.13,172-41.86,82.39-16.72,168.19-17.73,250.45-.39C823.78,31,906.67,72,985.66,92.83c70.05,18.48,146.53,26.09,214.34,3V0H0V27.35A600.21,600.21,0,0,0,321.39,56.44Z" />
           </svg>
         </div>
       </section>
 
       {/* Quick Response Section */}
-      <section className="bg-white py-16 border-b border-gray-200">
+      <section className="bg-slate-900 py-16 border-b border-slate-700">
         <div className="mx-auto max-w-7xl px-6 lg:px-8">
           <div className="grid grid-cols-1 md:grid-cols-3 gap-8 text-center">
             <div className="animate-fade-in-up">
               <div className="text-4xl mb-3">⚡</div>
-              <div className="text-2xl font-bold text-primary-900">24 Hours</div>
-              <div className="text-sm text-gray-600 mt-2">Average Response Time</div>
+              <div className="text-2xl font-bold text-primary-300">24 Hours</div>
+              <div className="text-sm text-gray-400 mt-2">Average Response Time</div>
             </div>
             <div className="animate-fade-in-up animation-delay-200">
               <div className="text-4xl mb-3">🎯</div>
-              <div className="text-2xl font-bold text-primary-900">100% Free</div>
-              <div className="text-sm text-gray-600 mt-2">Consultation & Quote</div>
+              <div className="text-2xl font-bold text-primary-300">100% Free</div>
+              <div className="text-sm text-gray-400 mt-2">Consultation & Quote</div>
             </div>
             <div className="animate-fade-in-up animation-delay-400">
               <div className="text-4xl mb-3">🤝</div>
-              <div className="text-2xl font-bold text-primary-900">No Pressure</div>
-              <div className="text-sm text-gray-600 mt-2">Zero Obligation</div>
+              <div className="text-2xl font-bold text-primary-300">No Pressure</div>
+              <div className="text-sm text-gray-400 mt-2">Zero Obligation</div>
             </div>
           </div>
         </div>
       </section>
 
       {/* Contact Form & Info */}
-      <section className="bg-gradient-to-b from-white to-gray-50 py-24 sm:py-32">
+      <section className="bg-slate-900 py-24 sm:py-32">
         <div className="mx-auto max-w-7xl px-6 lg:px-8">
           <div className="grid gap-12 lg:grid-cols-2 lg:gap-16">
             {/* Contact Info */}
             <div>
-              <h2 className="text-4xl font-bold tracking-tight text-gray-900 mb-4">
+              <h2 className="text-4xl font-bold tracking-tight text-white mb-4">
                 Get in Touch
               </h2>
-              <p className="text-lg leading-8 text-gray-600 mb-10">
+              <p className="text-lg leading-8 text-gray-400 mb-10">
                 Ready to start your project or have questions? We're here to help. Choose your preferred way to connect.
               </p>
 
@@ -251,7 +251,7 @@ export default function ContactPage() {
               <div className="space-y-6 mb-10">
                 <a
                   href="tel:+19363234527"
-                  className="group flex items-start gap-4 p-6 rounded-2xl bg-white border-2 border-gray-200 hover:border-primary-500 hover:shadow-lg transition-all"
+                  className="group flex items-start gap-4 p-6 rounded-2xl bg-slate-800 border-2 border-slate-700 hover:border-primary-500 hover:shadow-lg transition-all"
                 >
                   <div className="flex-shrink-0 w-12 h-12 rounded-full bg-gradient-to-br from-primary-500 to-accent-500 flex items-center justify-center text-white">
                     <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -259,20 +259,20 @@ export default function ContactPage() {
                     </svg>
                   </div>
                   <div className="flex-grow">
-                    <div className="font-semibold text-gray-900 mb-1">Phone</div>
-                    <div className="text-2xl font-bold text-primary-600 group-hover:text-accent-600 transition-colors">
+                    <div className="font-semibold text-white mb-1">Phone</div>
+                    <div className="text-2xl font-bold text-primary-400 group-hover:text-accent-400 transition-colors">
                       (936) 323-4527
                     </div>
-                    <div className="text-sm text-gray-600 mt-1">Mon-Fri, 9am-6pm CST</div>
+                    <div className="text-sm text-gray-400 mt-1">Mon-Fri, 9am-6pm CST</div>
                   </div>
-                  <svg className="w-5 h-5 text-gray-400 group-hover:text-primary-600 transition-colors" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <svg className="w-5 h-5 text-gray-500 group-hover:text-primary-400 transition-colors" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                     <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
                   </svg>
                 </a>
 
                 <a
                   href="mailto:info@stephenscode.dev"
-                  className="group flex items-start gap-4 p-6 rounded-2xl bg-white border-2 border-gray-200 hover:border-primary-500 hover:shadow-lg transition-all"
+                  className="group flex items-start gap-4 p-6 rounded-2xl bg-slate-800 border-2 border-slate-700 hover:border-primary-500 hover:shadow-lg transition-all"
                 >
                   <div className="flex-shrink-0 w-12 h-12 rounded-full bg-gradient-to-br from-blue-500 to-purple-500 flex items-center justify-center text-white">
                     <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -280,18 +280,18 @@ export default function ContactPage() {
                     </svg>
                   </div>
                   <div className="flex-grow">
-                    <div className="font-semibold text-gray-900 mb-1">Email</div>
-                    <div className="text-lg font-bold text-primary-600 group-hover:text-accent-600 transition-colors break-all">
+                    <div className="font-semibold text-white mb-1">Email</div>
+                    <div className="text-lg font-bold text-primary-400 group-hover:text-accent-400 transition-colors break-all">
                       info@stephenscode.dev
                     </div>
-                    <div className="text-sm text-gray-600 mt-1">We respond within 24 hours</div>
+                    <div className="text-sm text-gray-400 mt-1">We respond within 24 hours</div>
                   </div>
-                  <svg className="w-5 h-5 text-gray-400 group-hover:text-primary-600 transition-colors" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <svg className="w-5 h-5 text-gray-500 group-hover:text-primary-400 transition-colors" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                     <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
                   </svg>
                 </a>
 
-                <div className="flex items-start gap-4 p-6 rounded-2xl bg-gradient-to-br from-gray-50 to-white border-2 border-gray-200">
+                <div className="flex items-start gap-4 p-6 rounded-2xl bg-slate-800 border-2 border-slate-700">
                   <div className="flex-shrink-0 w-12 h-12 rounded-full bg-gradient-to-br from-green-500 to-teal-500 flex items-center justify-center text-white">
                     <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                       <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z" />
@@ -299,9 +299,9 @@ export default function ContactPage() {
                     </svg>
                   </div>
                   <div className="flex-grow">
-                    <div className="font-semibold text-gray-900 mb-1">Location</div>
-                    <div className="text-lg font-bold text-gray-900">Conroe, TX 77304</div>
-                    <div className="text-sm text-gray-600 mt-1">
+                    <div className="font-semibold text-white mb-1">Location</div>
+                    <div className="text-lg font-bold text-white">Conroe, TX 77304</div>
+                    <div className="text-sm text-gray-400 mt-1">
                       Serving Houston, Conroe, The Woodlands & all of Texas
                     </div>
                     <a
@@ -320,7 +320,7 @@ export default function ContactPage() {
               </div>
 
               {/* Google Maps */}
-              <div className="mt-8 rounded-2xl overflow-hidden border-2 border-gray-200 shadow-lg">
+              <div className="mt-8 rounded-2xl overflow-hidden border-2 border-slate-700 shadow-lg shadow-black/20">
                 <iframe
                   src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d110684.96908!2d-95.5560!3d30.3119!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x864731e2f73c2a15%3A0xc6e5b1e2d9e8c!2sConroe%2C%20TX%2077304!5e0!3m2!1sen!2sus!4v1234567890"
                   width="100%"
@@ -335,64 +335,64 @@ export default function ContactPage() {
 
               {/* Trust Badges */}
               <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
-                <div className="p-6 bg-gradient-to-br from-blue-50 to-primary-50 rounded-2xl border border-primary-200">
+                <div className="p-6 bg-gradient-to-br from-blue-500/10 to-primary-500/10 rounded-2xl border border-slate-700">
                   <div className="text-3xl mb-3">🇺🇸</div>
-                  <h3 className="font-bold text-gray-900 mb-2">Veteran-Owned</h3>
-                  <p className="text-sm text-gray-600 leading-relaxed">
+                  <h3 className="font-bold text-white mb-2">Veteran-Owned</h3>
+                  <p className="text-sm text-gray-400 leading-relaxed">
                     Proudly serving businesses with military values: integrity, dedication, and excellence.
                   </p>
                 </div>
 
-                <div className="p-6 bg-gradient-to-br from-green-50 to-teal-50 rounded-2xl border border-green-200">
+                <div className="p-6 bg-gradient-to-br from-green-500/10 to-teal-500/10 rounded-2xl border border-slate-700">
                   <div className="text-3xl mb-3">⭐</div>
-                  <h3 className="font-bold text-gray-900 mb-2">14+ Years Experience</h3>
-                  <p className="text-sm text-gray-600 leading-relaxed">
+                  <h3 className="font-bold text-white mb-2">14+ Years Experience</h3>
+                  <p className="text-sm text-gray-400 leading-relaxed">
                     Proven track record with 200+ successful projects and 98% client satisfaction.
                   </p>
                 </div>
               </div>
 
               {/* What to Expect */}
-              <div className="mt-8 p-8 bg-white rounded-2xl border-2 border-gray-200 shadow-lg">
-                <h3 className="font-bold text-gray-900 mb-4 text-lg flex items-center gap-2">
+              <div className="mt-8 p-8 bg-slate-800 rounded-2xl border-2 border-slate-700 shadow-lg shadow-black/20">
+                <h3 className="font-bold text-white mb-4 text-lg flex items-center gap-2">
                   <span className="text-2xl">✓</span>
                   What to Expect
                 </h3>
                 <ul className="space-y-3">
                   <li className="flex items-start gap-3">
-                    <div className="flex-shrink-0 w-6 h-6 rounded-full bg-accent-100 flex items-center justify-center mt-0.5">
+                    <div className="flex-shrink-0 w-6 h-6 rounded-full bg-accent-500/15 flex items-center justify-center mt-0.5">
                       <span className="text-accent-600 text-sm font-bold">1</span>
                     </div>
                     <div>
-                      <div className="font-semibold text-gray-900">Quick Response</div>
-                      <div className="text-sm text-gray-600">We'll get back to you within 24 hours</div>
+                      <div className="font-semibold text-white">Quick Response</div>
+                      <div className="text-sm text-gray-400">We'll get back to you within 24 hours</div>
                     </div>
                   </li>
                   <li className="flex items-start gap-3">
-                    <div className="flex-shrink-0 w-6 h-6 rounded-full bg-accent-100 flex items-center justify-center mt-0.5">
+                    <div className="flex-shrink-0 w-6 h-6 rounded-full bg-accent-500/15 flex items-center justify-center mt-0.5">
                       <span className="text-accent-600 text-sm font-bold">2</span>
                     </div>
                     <div>
-                      <div className="font-semibold text-gray-900">Free Consultation</div>
-                      <div className="text-sm text-gray-600">30-45 minute call to discuss your needs</div>
+                      <div className="font-semibold text-white">Free Consultation</div>
+                      <div className="text-sm text-gray-400">30-45 minute call to discuss your needs</div>
                     </div>
                   </li>
                   <li className="flex items-start gap-3">
-                    <div className="flex-shrink-0 w-6 h-6 rounded-full bg-accent-100 flex items-center justify-center mt-0.5">
+                    <div className="flex-shrink-0 w-6 h-6 rounded-full bg-accent-500/15 flex items-center justify-center mt-0.5">
                       <span className="text-accent-600 text-sm font-bold">3</span>
                     </div>
                     <div>
-                      <div className="font-semibold text-gray-900">Custom Quote</div>
-                      <div className="text-sm text-gray-600">Detailed pricing based on your requirements</div>
+                      <div className="font-semibold text-white">Custom Quote</div>
+                      <div className="text-sm text-gray-400">Detailed pricing based on your requirements</div>
                     </div>
                   </li>
                   <li className="flex items-start gap-3">
-                    <div className="flex-shrink-0 w-6 h-6 rounded-full bg-accent-100 flex items-center justify-center mt-0.5">
+                    <div className="flex-shrink-0 w-6 h-6 rounded-full bg-accent-500/15 flex items-center justify-center mt-0.5">
                       <span className="text-accent-600 text-sm font-bold">4</span>
                     </div>
                     <div>
-                      <div className="font-semibold text-gray-900">Zero Pressure</div>
-                      <div className="text-sm text-gray-600">No obligation - take your time to decide</div>
+                      <div className="font-semibold text-white">Zero Pressure</div>
+                      <div className="text-sm text-gray-400">No obligation - take your time to decide</div>
                     </div>
                   </li>
                 </ul>
@@ -400,10 +400,10 @@ export default function ContactPage() {
             </div>
 
             {/* Contact Form */}
-            <div className="rounded-3xl bg-white p-8 lg:p-12 shadow-2xl border border-gray-200">
+            <div className="rounded-3xl bg-slate-800 p-8 lg:p-12 shadow-2xl shadow-black/20 border border-slate-700">
               <div className="mb-8">
-                <h3 className="text-2xl font-bold text-gray-900 mb-2">Send Us a Message</h3>
-                <p className="text-gray-600">Fill out the form below and we'll get back to you within 24 hours.</p>
+                <h3 className="text-2xl font-bold text-white mb-2">Send Us a Message</h3>
+                <p className="text-gray-400">Fill out the form below and we'll get back to you within 24 hours.</p>
               </div>
               <ContactForm />
             </div>
@@ -439,147 +439,147 @@ export default function ContactPage() {
       </section>
 
       {/* FAQ Section */}
-      <section className="bg-white py-24 sm:py-32">
+      <section className="bg-slate-900 py-24 sm:py-32">
         <div className="mx-auto max-w-7xl px-6 lg:px-8">
           <div className="mx-auto max-w-2xl text-center mb-16">
-            <h2 className="text-4xl font-bold tracking-tight text-gray-900 sm:text-5xl">
+            <h2 className="text-4xl font-bold tracking-tight text-white sm:text-5xl">
               Common Questions
             </h2>
-            <p className="mt-4 text-lg text-gray-600">
+            <p className="mt-4 text-lg text-gray-400">
               Get answers before reaching out
             </p>
           </div>
 
           <div className="mx-auto max-w-3xl space-y-6">
-            <div className="rounded-2xl border border-gray-200 bg-gray-50 p-8 hover:border-primary-300 transition-colors">
-              <h3 className="text-lg font-bold text-gray-900 mb-3">
+            <div className="rounded-2xl border border-slate-700 bg-slate-800 p-8 hover:border-primary-300 transition-colors">
+              <h3 className="text-lg font-bold text-white mb-3">
                 How long does a typical project take?
               </h3>
-              <p className="text-gray-600 leading-relaxed">
+              <p className="text-gray-400 leading-relaxed">
                 Simple websites (Plug and Play, Website Rebuild) take 1-2 weeks. Standard custom websites take 3-4 weeks. E-commerce sites take 4-6 weeks. Premium builds range from 6-16 weeks depending on complexity. Each service page shows the estimated timeline.
               </p>
             </div>
 
-            <div className="rounded-2xl border border-gray-200 bg-gray-50 p-8 hover:border-primary-300 transition-colors">
-              <h3 className="text-lg font-bold text-gray-900 mb-3">
+            <div className="rounded-2xl border border-slate-700 bg-slate-800 p-8 hover:border-primary-300 transition-colors">
+              <h3 className="text-lg font-bold text-white mb-3">
                 Do you require payment upfront?
               </h3>
-              <p className="text-gray-600 leading-relaxed">
+              <p className="text-gray-400 leading-relaxed">
                 We typically split payments: 50% to start, 50% on completion. For larger projects, we can discuss milestone-based payments. We're flexible and want to work within your budget and cash flow.
               </p>
             </div>
 
-            <div className="rounded-2xl border border-gray-200 bg-gray-50 p-8 hover:border-primary-300 transition-colors">
-              <h3 className="text-lg font-bold text-gray-900 mb-3">
+            <div className="rounded-2xl border border-slate-700 bg-slate-800 p-8 hover:border-primary-300 transition-colors">
+              <h3 className="text-lg font-bold text-white mb-3">
                 Do you offer ongoing maintenance?
               </h3>
-              <p className="text-gray-600 leading-relaxed">
+              <p className="text-gray-400 leading-relaxed">
                 Yes! Our Maintenance Plan add-on ($50-75/mo) includes updates, security monitoring, backups, and minor changes. We also offer hourly support for larger updates or changes outside the maintenance scope.
               </p>
             </div>
 
-            <div className="rounded-2xl border border-gray-200 bg-gray-50 p-8 hover:border-primary-300 transition-colors">
-              <h3 className="text-lg font-bold text-gray-900 mb-3">
+            <div className="rounded-2xl border border-slate-700 bg-slate-800 p-8 hover:border-primary-300 transition-colors">
+              <h3 className="text-lg font-bold text-white mb-3">
                 Can you work with my existing website?
               </h3>
-              <p className="text-gray-600 leading-relaxed">
+              <p className="text-gray-400 leading-relaxed">
                 Absolutely! Our Website Rebuild package ($350) is perfect for refreshing existing sites. We can also add features to existing sites or migrate you to a better platform if needed.
               </p>
             </div>
 
-            <div className="rounded-2xl border border-gray-200 bg-gray-50 p-8 hover:border-primary-300 transition-colors">
-              <h3 className="text-lg font-bold text-gray-900 mb-3">
+            <div className="rounded-2xl border border-slate-700 bg-slate-800 p-8 hover:border-primary-300 transition-colors">
+              <h3 className="text-lg font-bold text-white mb-3">
                 Do you only work with local businesses?
               </h3>
-              <p className="text-gray-600 leading-relaxed">
+              <p className="text-gray-400 leading-relaxed">
                 While we're based in Conroe and love working with Houston-area businesses, we work with clients anywhere in the US. All communication can happen via phone, video call, and email.
               </p>
             </div>
 
-            <div className="rounded-2xl border border-gray-200 bg-gray-50 p-8 hover:border-primary-300 transition-colors">
-              <h3 className="text-lg font-bold text-gray-900 mb-3">
+            <div className="rounded-2xl border border-slate-700 bg-slate-800 p-8 hover:border-primary-300 transition-colors">
+              <h3 className="text-lg font-bold text-white mb-3">
                 What information should I have ready for the consultation?
               </h3>
-              <p className="text-gray-600 leading-relaxed">
+              <p className="text-gray-400 leading-relaxed">
                 It helps to have an idea of your business goals, target audience, desired features, and budget range. But don't worry if you're not sure yet - we'll guide you through the process and help you figure out exactly what you need.
               </p>
             </div>
 
-            <div className="rounded-2xl border border-gray-200 bg-gray-50 p-8 hover:border-primary-300 transition-colors">
-              <h3 className="text-lg font-bold text-gray-900 mb-3">
+            <div className="rounded-2xl border border-slate-700 bg-slate-800 p-8 hover:border-primary-300 transition-colors">
+              <h3 className="text-lg font-bold text-white mb-3">
                 How quickly can we get started?
               </h3>
-              <p className="text-gray-600 leading-relaxed">
+              <p className="text-gray-400 leading-relaxed">
                 Once we agree on the scope and you've made the initial payment, we can typically start within 1-3 business days. Rush projects may be available for an additional fee if our schedule permits.
               </p>
             </div>
 
-            <div className="rounded-2xl border border-gray-200 bg-gray-50 p-8 hover:border-primary-300 transition-colors">
-              <h3 className="text-lg font-bold text-gray-900 mb-3">
+            <div className="rounded-2xl border border-slate-700 bg-slate-800 p-8 hover:border-primary-300 transition-colors">
+              <h3 className="text-lg font-bold text-white mb-3">
                 What happens after I submit the contact form?
               </h3>
-              <p className="text-gray-600 leading-relaxed">
+              <p className="text-gray-400 leading-relaxed">
                 We'll respond within 24 hours (usually much faster). We'll schedule a free consultation call to discuss your project, answer questions, and provide a custom quote if needed. No pressure, no obligation.
               </p>
             </div>
 
-            <div className="rounded-2xl border border-gray-200 bg-gray-50 p-8 hover:border-primary-300 transition-colors">
-              <h3 className="text-lg font-bold text-gray-900 mb-3">
+            <div className="rounded-2xl border border-slate-700 bg-slate-800 p-8 hover:border-primary-300 transition-colors">
+              <h3 className="text-lg font-bold text-white mb-3">
                 Do you offer free consultations?
               </h3>
-              <p className="text-gray-600 leading-relaxed">
+              <p className="text-gray-400 leading-relaxed">
                 Yes! Every initial consultation is 100% free with zero obligation. We'll discuss your needs, explain your options, and provide honest advice - even if we're not the right fit for your project.
               </p>
             </div>
 
-            <div className="rounded-2xl border border-gray-200 bg-gray-50 p-8 hover:border-primary-300 transition-colors">
-              <h3 className="text-lg font-bold text-gray-900 mb-3">
+            <div className="rounded-2xl border border-slate-700 bg-slate-800 p-8 hover:border-primary-300 transition-colors">
+              <h3 className="text-lg font-bold text-white mb-3">
                 Can I see examples of similar projects you've built?
               </h3>
-              <p className="text-gray-600 leading-relaxed">
+              <p className="text-gray-400 leading-relaxed">
                 Absolutely! Check out our <Link href="/demos" className="text-primary-600 font-semibold hover:text-primary-700">Demos page</Link> with 40+ live examples, or visit our <Link href="/work" className="text-primary-600 font-semibold hover:text-primary-700">Work page</Link> to see real client projects with testimonials.
               </p>
             </div>
 
-            <div className="rounded-2xl border border-gray-200 bg-gray-50 p-8 hover:border-primary-300 transition-colors">
-              <h3 className="text-lg font-bold text-gray-900 mb-3">
+            <div className="rounded-2xl border border-slate-700 bg-slate-800 p-8 hover:border-primary-300 transition-colors">
+              <h3 className="text-lg font-bold text-white mb-3">
                 What if I'm not sure what package I need?
               </h3>
-              <p className="text-gray-600 leading-relaxed">
+              <p className="text-gray-400 leading-relaxed">
                 That's perfectly fine! During the free consultation, we'll discuss your business needs and recommend the package and add-ons that best fit your goals and budget. We'll explain all your options clearly.
               </p>
             </div>
 
-            <div className="rounded-2xl border border-gray-200 bg-gray-50 p-8 hover:border-primary-300 transition-colors">
-              <h3 className="text-lg font-bold text-gray-900 mb-3">
+            <div className="rounded-2xl border border-slate-700 bg-slate-800 p-8 hover:border-primary-300 transition-colors">
+              <h3 className="text-lg font-bold text-white mb-3">
                 Do you provide hosting and domain registration?
               </h3>
-              <p className="text-gray-600 leading-relaxed">
+              <p className="text-gray-400 leading-relaxed">
                 Yes! We can handle domain registration and hosting setup for you (approximately $120/year total). We'll recommend reliable providers and handle all technical configuration so you don't have to worry about it.
               </p>
             </div>
 
-            <div className="rounded-2xl border border-gray-200 bg-gray-50 p-8 hover:border-primary-300 transition-colors">
-              <h3 className="text-lg font-bold text-gray-900 mb-3">
+            <div className="rounded-2xl border border-slate-700 bg-slate-800 p-8 hover:border-primary-300 transition-colors">
+              <h3 className="text-lg font-bold text-white mb-3">
                 Will I be able to update the website myself?
               </h3>
-              <p className="text-gray-600 leading-relaxed">
+              <p className="text-gray-400 leading-relaxed">
                 Yes! We build websites that you can easily update yourself. We provide training and documentation, and we're always here if you need help. Or you can use our maintenance plans and we'll handle updates for you.
               </p>
             </div>
 
-            <div className="rounded-2xl border border-gray-200 bg-gray-50 p-8 hover:border-primary-300 transition-colors">
-              <h3 className="text-lg font-bold text-gray-900 mb-3">
+            <div className="rounded-2xl border border-slate-700 bg-slate-800 p-8 hover:border-primary-300 transition-colors">
+              <h3 className="text-lg font-bold text-white mb-3">
                 What makes StephensCode different from other web developers?
               </h3>
-              <p className="text-gray-600 leading-relaxed">
+              <p className="text-gray-400 leading-relaxed">
                 We combine military discipline with transparent flat-rate pricing, fast turnaround, and 14+ years of experience. No sales pressure, no hidden fees, just honest work delivered on time. Our 98% client satisfaction rate speaks for itself.
               </p>
             </div>
           </div>
 
           <div className="mt-12 text-center">
-            <p className="text-gray-600 mb-4">Still have questions?</p>
+            <p className="text-gray-400 mb-4">Still have questions?</p>
             <a
               href="tel:+19363234527"
               className="inline-flex items-center gap-2 rounded-lg bg-primary-600 px-6 py-3 text-base font-semibold text-white shadow-lg hover:bg-primary-700 transition-all hover:scale-105"

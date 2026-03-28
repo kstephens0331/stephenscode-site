@@ -60,8 +60,8 @@ export default function ContactForm() {
 
   if (submitSuccess) {
     return (
-      <div className="rounded-lg bg-green-50 p-8 text-center border border-green-200">
-        <div className="mx-auto flex h-12 w-12 items-center justify-center rounded-full bg-green-100 mb-4">
+      <div className="rounded-lg bg-green-500/10 p-8 text-center border border-green-500/30">
+        <div className="mx-auto flex h-12 w-12 items-center justify-center rounded-full bg-green-500/20 mb-4">
           <svg
             className="h-6 w-6 text-green-600"
             fill="none"
@@ -72,8 +72,8 @@ export default function ContactForm() {
             <path strokeLinecap="round" strokeLinejoin="round" d="M4.5 12.75l6 6 9-13.5" />
           </svg>
         </div>
-        <h3 className="text-lg font-semibold text-gray-900 mb-2">Message Sent!</h3>
-        <p className="text-gray-600">
+        <h3 className="text-lg font-semibold text-white mb-2">Message Sent!</h3>
+        <p className="text-gray-400">
           Thank you for reaching out. We'll get back to you within 24 hours.
         </p>
         <button
@@ -88,17 +88,17 @@ export default function ContactForm() {
 
   return (
     <form onSubmit={handleSubmit(onSubmit)} className="space-y-6">
-      <h2 className="text-2xl font-bold text-gray-900">Send Us a Message</h2>
+      <h2 className="text-2xl font-bold text-white">Send Us a Message</h2>
 
       {submitError && (
-        <div className="rounded-lg bg-red-50 p-4 border border-red-200">
+        <div className="rounded-lg bg-red-500/10 p-4 border border-red-500/30">
           <p className="text-sm text-red-600">{submitError}</p>
         </div>
       )}
 
       {/* Name */}
       <div>
-        <label htmlFor="name" className="block text-sm font-semibold leading-6 text-gray-900">
+        <label htmlFor="name" className="block text-sm font-semibold leading-6 text-white">
           Name *
         </label>
         <div className="mt-2">
@@ -106,7 +106,7 @@ export default function ContactForm() {
             type="text"
             id="name"
             {...register('name', { required: 'Name is required' })}
-            className="block w-full rounded-md border-0 px-3.5 py-2 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-primary-600 sm:text-sm sm:leading-6"
+            className="block w-full rounded-md border-0 px-3.5 py-2 text-white bg-slate-800 shadow-sm ring-1 ring-inset ring-slate-600 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-primary-600 sm:text-sm sm:leading-6"
           />
           {errors.name && (
             <p className="mt-1 text-sm text-red-600">{errors.name.message}</p>
@@ -116,7 +116,7 @@ export default function ContactForm() {
 
       {/* Email */}
       <div>
-        <label htmlFor="email" className="block text-sm font-semibold leading-6 text-gray-900">
+        <label htmlFor="email" className="block text-sm font-semibold leading-6 text-white">
           Email *
         </label>
         <div className="mt-2">
@@ -130,7 +130,7 @@ export default function ContactForm() {
                 message: 'Invalid email address',
               },
             })}
-            className="block w-full rounded-md border-0 px-3.5 py-2 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-primary-600 sm:text-sm sm:leading-6"
+            className="block w-full rounded-md border-0 px-3.5 py-2 text-white bg-slate-800 shadow-sm ring-1 ring-inset ring-slate-600 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-primary-600 sm:text-sm sm:leading-6"
           />
           {errors.email && (
             <p className="mt-1 text-sm text-red-600">{errors.email.message}</p>
@@ -140,7 +140,7 @@ export default function ContactForm() {
 
       {/* Phone */}
       <div>
-        <label htmlFor="phone" className="block text-sm font-semibold leading-6 text-gray-900">
+        <label htmlFor="phone" className="block text-sm font-semibold leading-6 text-white">
           Phone *
         </label>
         <div className="mt-2">
@@ -148,7 +148,7 @@ export default function ContactForm() {
             type="tel"
             id="phone"
             {...register('phone', { required: 'Phone is required' })}
-            className="block w-full rounded-md border-0 px-3.5 py-2 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-primary-600 sm:text-sm sm:leading-6"
+            className="block w-full rounded-md border-0 px-3.5 py-2 text-white bg-slate-800 shadow-sm ring-1 ring-inset ring-slate-600 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-primary-600 sm:text-sm sm:leading-6"
           />
           {errors.phone && (
             <p className="mt-1 text-sm text-red-600">{errors.phone.message}</p>
@@ -158,7 +158,7 @@ export default function ContactForm() {
 
       {/* Company */}
       <div>
-        <label htmlFor="company" className="block text-sm font-semibold leading-6 text-gray-900">
+        <label htmlFor="company" className="block text-sm font-semibold leading-6 text-white">
           Company (optional)
         </label>
         <div className="mt-2">
@@ -166,21 +166,21 @@ export default function ContactForm() {
             type="text"
             id="company"
             {...register('company')}
-            className="block w-full rounded-md border-0 px-3.5 py-2 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-primary-600 sm:text-sm sm:leading-6"
+            className="block w-full rounded-md border-0 px-3.5 py-2 text-white bg-slate-800 shadow-sm ring-1 ring-inset ring-slate-600 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-primary-600 sm:text-sm sm:leading-6"
           />
         </div>
       </div>
 
       {/* Service Interest */}
       <div>
-        <label htmlFor="service" className="block text-sm font-semibold leading-6 text-gray-900">
+        <label htmlFor="service" className="block text-sm font-semibold leading-6 text-white">
           What are you interested in? *
         </label>
         <div className="mt-2">
           <select
             id="service"
             {...register('service', { required: 'Please select a service' })}
-            className="block w-full rounded-md border-0 px-3.5 py-2 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 focus:ring-2 focus:ring-inset focus:ring-primary-600 sm:text-sm sm:leading-6"
+            className="block w-full rounded-md border-0 px-3.5 py-2 text-white bg-slate-800 shadow-sm ring-1 ring-inset ring-slate-600 focus:ring-2 focus:ring-inset focus:ring-primary-600 sm:text-sm sm:leading-6"
           >
             <option value="">Select a service...</option>
             <option value="new-website">New Website</option>
@@ -199,14 +199,14 @@ export default function ContactForm() {
 
       {/* Budget */}
       <div>
-        <label htmlFor="budget" className="block text-sm font-semibold leading-6 text-gray-900">
+        <label htmlFor="budget" className="block text-sm font-semibold leading-6 text-white">
           Budget Range
         </label>
         <div className="mt-2">
           <select
             id="budget"
             {...register('budget')}
-            className="block w-full rounded-md border-0 px-3.5 py-2 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 focus:ring-2 focus:ring-inset focus:ring-primary-600 sm:text-sm sm:leading-6"
+            className="block w-full rounded-md border-0 px-3.5 py-2 text-white bg-slate-800 shadow-sm ring-1 ring-inset ring-slate-600 focus:ring-2 focus:ring-inset focus:ring-primary-600 sm:text-sm sm:leading-6"
           >
             <option value="">Select budget...</option>
             <option value="under-500">Under $500</option>
@@ -221,7 +221,7 @@ export default function ContactForm() {
 
       {/* Message */}
       <div>
-        <label htmlFor="message" className="block text-sm font-semibold leading-6 text-gray-900">
+        <label htmlFor="message" className="block text-sm font-semibold leading-6 text-white">
           Project Details *
         </label>
         <div className="mt-2">
@@ -229,7 +229,7 @@ export default function ContactForm() {
             id="message"
             rows={4}
             {...register('message', { required: 'Please provide some details about your project' })}
-            className="block w-full rounded-md border-0 px-3.5 py-2 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-primary-600 sm:text-sm sm:leading-6"
+            className="block w-full rounded-md border-0 px-3.5 py-2 text-white bg-slate-800 shadow-sm ring-1 ring-inset ring-slate-600 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-primary-600 sm:text-sm sm:leading-6"
             placeholder="Tell us about your project, timeline, specific features you need, etc."
           />
           {errors.message && (

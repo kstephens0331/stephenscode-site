@@ -489,51 +489,51 @@ export default function Work() {
 
         {/* Wave divider */}
         <div className="absolute bottom-0 left-0 right-0">
-          <svg className="w-full h-16 fill-white" viewBox="0 0 1200 120" preserveAspectRatio="none">
+          <svg className="w-full h-16 fill-slate-900" viewBox="0 0 1200 120" preserveAspectRatio="none">
             <path d="M321.39,56.44c58-10.79,114.16-30.13,172-41.86,82.39-16.72,168.19-17.73,250.45-.39C823.78,31,906.67,72,985.66,92.83c70.05,18.48,146.53,26.09,214.34,3V0H0V27.35A600.21,600.21,0,0,0,321.39,56.44Z" />
           </svg>
         </div>
       </section>
 
       {/* Stats Section */}
-      <section className="bg-white py-16 border-b border-gray-200">
+      <section className="bg-slate-900 py-16 border-b border-slate-700">
         <div className="mx-auto max-w-7xl px-6 lg:px-8">
           <div className="grid grid-cols-2 md:grid-cols-4 gap-8 text-center">
             <div className="animate-fade-in-up">
               <div className="text-5xl mb-3">📊</div>
               <div className="text-4xl font-bold bg-gradient-to-r from-primary-900 to-accent-600 bg-clip-text text-transparent">2,600+</div>
-              <div className="text-sm text-gray-600 mt-2">Projects Completed</div>
+              <div className="text-sm text-gray-400 mt-2">Projects Completed</div>
             </div>
             <div className="animate-fade-in-up animation-delay-200">
               <div className="text-5xl mb-3">😊</div>
               <div className="text-4xl font-bold bg-gradient-to-r from-primary-900 to-accent-600 bg-clip-text text-transparent">14+</div>
-              <div className="text-sm text-gray-600 mt-2">Years Experience</div>
+              <div className="text-sm text-gray-400 mt-2">Years Experience</div>
             </div>
             <div className="animate-fade-in-up animation-delay-400">
               <div className="text-5xl mb-3">⚡</div>
               <div className="text-4xl font-bold bg-gradient-to-r from-primary-900 to-accent-600 bg-clip-text text-transparent">2 Weeks</div>
-              <div className="text-sm text-gray-600 mt-2">Average Project Time</div>
+              <div className="text-sm text-gray-400 mt-2">Average Project Time</div>
             </div>
             <div className="animate-fade-in-up animation-delay-600">
               <div className="text-5xl mb-3">⭐</div>
               <div className="text-4xl font-bold bg-gradient-to-r from-primary-900 to-accent-600 bg-clip-text text-transparent">98%</div>
-              <div className="text-sm text-gray-600 mt-2">Client Satisfaction</div>
+              <div className="text-sm text-gray-400 mt-2">Client Satisfaction</div>
             </div>
           </div>
         </div>
       </section>
 
       {/* Live Portfolio Section */}
-      <section className="bg-gradient-to-b from-white to-gray-50 py-24 sm:py-32">
+      <section className="bg-slate-900 py-24 sm:py-32">
         <div className="mx-auto max-w-7xl px-6 lg:px-8">
           <div className="mx-auto max-w-2xl text-center mb-16">
-            <div className="inline-flex items-center rounded-full bg-green-100 px-4 py-2 text-sm font-semibold text-green-900 mb-4">
+            <div className="inline-flex items-center rounded-full bg-green-500/10 px-4 py-2 text-sm font-semibold text-green-400 mb-4">
               🌐 Live Portfolio
             </div>
-            <h2 className="text-4xl font-bold tracking-tight text-gray-900 sm:text-5xl">
+            <h2 className="text-4xl font-bold tracking-tight text-white sm:text-5xl">
               See Our Work Live
             </h2>
-            <p className="mt-4 text-lg leading-8 text-gray-600">
+            <p className="mt-4 text-lg leading-8 text-gray-400">
               Real projects we've built for real businesses. Live sites and custom solutions.
             </p>
           </div>
@@ -542,7 +542,7 @@ export default function Work() {
             {livePortfolio.map((project, index) => (
               <article
                 key={project.name}
-                className="group relative bg-white rounded-3xl shadow-xl overflow-hidden border-2 border-gray-200 hover:border-primary-300 hover:shadow-2xl transition-all"
+                className="group relative bg-slate-800 rounded-3xl shadow-xl shadow-black/20 overflow-hidden border-2 border-slate-700 hover:border-primary-300 hover:shadow-2xl transition-all"
                 style={{ animationDelay: `${index * 100}ms` }}
               >
                 <div className="md:flex">
@@ -555,11 +555,11 @@ export default function Work() {
 
                   <div className="p-6 md:p-8 flex-1">
                     {/* Industry badge */}
-                    <div className="inline-flex items-center rounded-full bg-gray-100 px-3 py-1 text-xs font-semibold text-gray-700 mb-3">
+                    <div className="inline-flex items-center rounded-full bg-slate-700 px-3 py-1 text-xs font-semibold text-gray-300 mb-3">
                       {project.industry}
                     </div>
 
-                    <h3 className="text-2xl font-bold text-gray-900 mb-2 group-hover:text-primary-600 transition-colors">
+                    <h3 className="text-2xl font-bold text-white mb-2 group-hover:text-primary-600 transition-colors">
                       {project.name}
                     </h3>
 
@@ -567,7 +567,7 @@ export default function Work() {
                       {project.shortDesc}
                     </p>
 
-                    <p className="text-gray-700 mb-6 leading-relaxed">
+                    <p className="text-gray-300 mb-6 leading-relaxed">
                       {project.description}
                     </p>
 
@@ -576,7 +576,7 @@ export default function Work() {
                       {project.services.map((service) => (
                         <span
                           key={service}
-                          className="px-3 py-1 bg-primary-50 text-primary-700 text-sm font-medium rounded-full"
+                          className="px-3 py-1 bg-primary-500/10 text-primary-400 text-sm font-medium rounded-full"
                         >
                           {service}
                         </span>
@@ -597,7 +597,7 @@ export default function Work() {
                         </svg>
                       </a>
                     ) : (
-                      <span className="inline-flex items-center gap-2 px-6 py-3 bg-gray-200 text-gray-700 font-bold rounded-lg">
+                      <span className="inline-flex items-center gap-2 px-6 py-3 bg-slate-700 text-gray-300 font-bold rounded-lg">
                         <svg className="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                           <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 15v2m-6 4h12a2 2 0 002-2v-6a2 2 0 00-2-2H6a2 2 0 00-2 2v6a2 2 0 002 2zm10-10V7a4 4 0 00-8 0v4h8z" />
                         </svg>
@@ -611,7 +611,7 @@ export default function Work() {
           </div>
 
           <div className="mt-12 text-center">
-            <p className="text-gray-600 mb-6">
+            <p className="text-gray-400 mb-6">
               Want your business featured here?
             </p>
             <Link
@@ -626,16 +626,16 @@ export default function Work() {
       </section>
 
       {/* Case Studies Section */}
-      <section className="bg-gradient-to-b from-white to-gray-50 py-24 sm:py-32">
+      <section className="bg-slate-900 py-24 sm:py-32">
         <div className="mx-auto max-w-7xl px-6 lg:px-8">
           <div className="mx-auto max-w-2xl text-center mb-16">
-            <div className="inline-flex items-center rounded-full bg-primary-100 px-4 py-2 text-sm font-semibold text-primary-900 mb-4">
+            <div className="inline-flex items-center rounded-full bg-primary-500/10 px-4 py-2 text-sm font-semibold text-primary-400 mb-4">
               📈 Case Studies
             </div>
-            <h2 className="text-4xl font-bold tracking-tight text-gray-900 sm:text-5xl">
+            <h2 className="text-4xl font-bold tracking-tight text-white sm:text-5xl">
               Success Stories
             </h2>
-            <p className="mt-4 text-lg leading-8 text-gray-600">
+            <p className="mt-4 text-lg leading-8 text-gray-400">
               Deep dives into how we've solved real business problems with measurable results.
             </p>
           </div>
@@ -644,7 +644,7 @@ export default function Work() {
             {caseStudies.map((study, index) => (
               <article
                 key={index}
-                className="group relative bg-white rounded-3xl shadow-xl overflow-hidden border-2 border-gray-200 hover:border-primary-300 hover:shadow-2xl transition-all"
+                className="group relative bg-slate-800 rounded-3xl shadow-xl shadow-black/20 overflow-hidden border-2 border-slate-700 hover:border-primary-300 hover:shadow-2xl transition-all"
               >
                 {/* Industry badge */}
                 <div className="absolute top-6 right-6 z-10">
@@ -656,9 +656,9 @@ export default function Work() {
                 <div className="p-8 lg:p-12">
                   {/* Header */}
                   <div className="mb-8">
-                    <h3 className="text-3xl font-bold text-gray-900 mb-3">{study.client}</h3>
+                    <h3 className="text-3xl font-bold text-white mb-3">{study.client}</h3>
                     <p className="text-lg text-primary-600 font-semibold mb-4">{study.project}</p>
-                    <div className="flex items-center gap-2 text-sm text-gray-600">
+                    <div className="flex items-center gap-2 text-sm text-gray-400">
                       <svg className="h-5 w-5 text-accent-500" fill="currentColor" viewBox="0 0 20 20">
                         <path fillRule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm1-12a1 1 0 10-2 0v4a1 1 0 00.293.707l2.828 2.829a1 1 0 101.415-1.415L11 9.586V6z" clipRule="evenodd" />
                       </svg>
@@ -668,19 +668,19 @@ export default function Work() {
 
                   {/* Challenge & Solution */}
                   <div className="grid lg:grid-cols-2 gap-8 mb-10">
-                    <div className="rounded-2xl bg-gradient-to-br from-red-50 to-orange-50 p-8 border-l-4 border-red-500">
+                    <div className="rounded-2xl bg-red-500/10 p-8 border-l-4 border-red-500">
                       <div className="flex items-center gap-3 mb-4">
                         <div className="text-3xl">🎯</div>
-                        <h4 className="text-xl font-bold text-gray-900">The Challenge</h4>
+                        <h4 className="text-xl font-bold text-white">The Challenge</h4>
                       </div>
-                      <p className="text-gray-700 leading-relaxed">{study.challenge}</p>
+                      <p className="text-gray-300 leading-relaxed">{study.challenge}</p>
                     </div>
-                    <div className="rounded-2xl bg-gradient-to-br from-blue-50 to-cyan-50 p-8 border-l-4 border-blue-500">
+                    <div className="rounded-2xl bg-blue-500/10 p-8 border-l-4 border-blue-500">
                       <div className="flex items-center gap-3 mb-4">
                         <div className="text-3xl">💡</div>
-                        <h4 className="text-xl font-bold text-gray-900">Our Solution</h4>
+                        <h4 className="text-xl font-bold text-white">Our Solution</h4>
                       </div>
-                      <p className="text-gray-700 leading-relaxed">{study.solution}</p>
+                      <p className="text-gray-300 leading-relaxed">{study.solution}</p>
                     </div>
                   </div>
 
@@ -688,47 +688,47 @@ export default function Work() {
                   <div className="mb-10">
                     <div className="flex items-center gap-3 mb-6">
                       <div className="text-4xl">📊</div>
-                      <h4 className="text-2xl font-bold text-gray-900">Results Achieved</h4>
+                      <h4 className="text-2xl font-bold text-white">Results Achieved</h4>
                     </div>
                     <div className="grid sm:grid-cols-2 gap-4">
                       {study.results.map((result, i) => (
-                        <div key={i} className="flex items-start gap-4 bg-gradient-to-br from-green-50 to-emerald-50 rounded-xl p-6 border border-green-200">
+                        <div key={i} className="flex items-start gap-4 bg-green-500/10 rounded-xl p-6 border border-slate-700">
                           <div className="flex-shrink-0 w-8 h-8 rounded-full bg-gradient-to-br from-accent-500 to-green-500 flex items-center justify-center text-white font-bold shadow-lg">
                             ✓
                           </div>
-                          <span className="text-gray-900 font-semibold leading-relaxed">{result}</span>
+                          <span className="text-white font-semibold leading-relaxed">{result}</span>
                         </div>
                       ))}
                     </div>
                   </div>
 
                   {/* Package Info */}
-                  <div className="bg-gradient-to-br from-gray-50 to-white rounded-2xl p-8 mb-8 border-2 border-gray-200">
-                    <h4 className="text-lg font-bold text-gray-900 mb-4 flex items-center gap-2">
+                  <div className="bg-slate-700/50 rounded-2xl p-8 mb-8 border-2 border-slate-700">
+                    <h4 className="text-lg font-bold text-white mb-4 flex items-center gap-2">
                       <span className="text-2xl">💼</span>
                       Services Provided
                     </h4>
                     <div className="space-y-3">
                       <div className="flex items-center gap-3">
-                        <span className="px-4 py-2 bg-primary-100 text-primary-800 rounded-full text-sm font-bold">Core Package</span>
-                        <span className="text-gray-900 font-semibold">{study.package}</span>
+                        <span className="px-4 py-2 bg-primary-500/10 text-primary-400 rounded-full text-sm font-bold">Core Package</span>
+                        <span className="text-white font-semibold">{study.package}</span>
                       </div>
                       {study.addOns && study.addOns.length > 0 && (
                         <div className="flex items-start gap-3">
-                          <span className="px-4 py-2 bg-accent-100 text-accent-800 rounded-full text-sm font-bold">Add-Ons</span>
-                          <span className="text-gray-900">{study.addOns.join(', ')}</span>
+                          <span className="px-4 py-2 bg-accent-500/10 text-accent-400 rounded-full text-sm font-bold">Add-Ons</span>
+                          <span className="text-white">{study.addOns.join(', ')}</span>
                         </div>
                       )}
                     </div>
                   </div>
 
                   {/* Testimonial */}
-                  <div className="relative rounded-2xl bg-gradient-to-br from-primary-50 via-white to-accent-50 p-8 border-l-4 border-accent-500">
+                  <div className="relative rounded-2xl bg-slate-700/50 p-8 border-l-4 border-accent-500">
                     <div className="text-5xl text-accent-500 mb-4 opacity-30">"</div>
-                    <p className="text-xl text-gray-900 italic mb-4 leading-relaxed">
+                    <p className="text-xl text-white italic mb-4 leading-relaxed">
                       {study.testimonial}
                     </p>
-                    <p className="text-base font-bold text-gray-900">— {study.author}</p>
+                    <p className="text-base font-bold text-gray-300">-- {study.author}</p>
                   </div>
                 </div>
               </article>
@@ -738,16 +738,16 @@ export default function Work() {
       </section>
 
       {/* Testimonials Grid */}
-      <section className="bg-white py-24 sm:py-32">
+      <section className="bg-slate-900 py-24 sm:py-32">
         <div className="mx-auto max-w-7xl px-6 lg:px-8">
           <div className="mx-auto max-w-2xl text-center mb-16">
-            <div className="inline-flex items-center rounded-full bg-accent-100 px-4 py-2 text-sm font-semibold text-accent-900 mb-4">
+            <div className="inline-flex items-center rounded-full bg-accent-500/10 px-4 py-2 text-sm font-semibold text-accent-400 mb-4">
               💬 Client Testimonials
             </div>
-            <h2 className="text-4xl font-bold tracking-tight text-gray-900 sm:text-5xl">
+            <h2 className="text-4xl font-bold tracking-tight text-white sm:text-5xl">
               What Our Clients Say
             </h2>
-            <p className="mt-4 text-lg text-gray-600">
+            <p className="mt-4 text-lg text-gray-400">
               Real feedback from real businesses we've helped grow
             </p>
           </div>
@@ -756,7 +756,7 @@ export default function Work() {
             {testimonials.map((testimonial, index) => (
               <div
                 key={index}
-                className="group rounded-3xl bg-gradient-to-br from-gray-50 to-white p-10 shadow-lg border-2 border-gray-200 hover:border-primary-300 hover:shadow-2xl transition-all hover:scale-105"
+                className="group rounded-3xl bg-slate-800 p-10 shadow-lg shadow-black/20 border-2 border-slate-700 hover:border-primary-300 hover:shadow-2xl transition-all hover:scale-105"
               >
                 <div className="flex gap-1 mb-6">
                   {[...Array(testimonial.rating)].map((_, i) => (
@@ -765,7 +765,7 @@ export default function Work() {
                     </svg>
                   ))}
                 </div>
-                <p className="text-lg text-gray-900 italic mb-6 leading-relaxed">
+                <p className="text-lg text-white italic mb-6 leading-relaxed">
                   "{testimonial.quote}"
                 </p>
                 <div className="flex items-center gap-4">
@@ -773,8 +773,8 @@ export default function Work() {
                     {testimonial.author.charAt(0)}
                   </div>
                   <div>
-                    <p className="font-bold text-gray-900">{testimonial.author}</p>
-                    <p className="text-sm text-gray-600">{testimonial.company}</p>
+                    <p className="font-bold text-white">{testimonial.author}</p>
+                    <p className="text-sm text-gray-400">{testimonial.company}</p>
                   </div>
                 </div>
               </div>
@@ -784,16 +784,16 @@ export default function Work() {
       </section>
 
       {/* Industries Section */}
-      <section className="bg-gradient-to-b from-gray-50 to-white py-24 sm:py-32">
+      <section className="bg-slate-800 py-24 sm:py-32">
         <div className="mx-auto max-w-7xl px-6 lg:px-8">
           <div className="mx-auto max-w-2xl text-center mb-16">
-            <div className="inline-flex items-center rounded-full bg-green-100 px-4 py-2 text-sm font-semibold text-green-900 mb-4">
+            <div className="inline-flex items-center rounded-full bg-green-500/10 px-4 py-2 text-sm font-semibold text-green-400 mb-4">
               🏢 Industries We Serve
             </div>
-            <h2 className="text-4xl font-bold tracking-tight text-gray-900 sm:text-5xl">
+            <h2 className="text-4xl font-bold tracking-tight text-white sm:text-5xl">
               Diverse Experience
             </h2>
-            <p className="mt-4 text-lg leading-8 text-gray-600">
+            <p className="mt-4 text-lg leading-8 text-gray-400">
               Proven success across 12+ industries in the Houston area
             </p>
           </div>
@@ -802,11 +802,11 @@ export default function Work() {
             {industries.map((industry, index) => (
               <div
                 key={industry.name}
-                className="group relative rounded-2xl bg-white p-8 shadow-lg border-2 border-gray-200 hover:border-primary-300 hover:shadow-2xl transition-all hover:scale-105 text-center"
+                className="group relative rounded-2xl bg-slate-900 p-8 shadow-lg shadow-black/20 border-2 border-slate-700 hover:border-primary-300 hover:shadow-2xl transition-all hover:scale-105 text-center"
                 style={{ animationDelay: `${index * 50}ms` }}
               >
                 <div className="text-5xl mb-4 group-hover:scale-110 transition-transform">{industry.icon}</div>
-                <p className="font-bold text-gray-900 mb-2 text-lg">{industry.name}</p>
+                <p className="font-bold text-white mb-2 text-lg">{industry.name}</p>
                 <p className="text-sm text-primary-600 font-semibold">{industry.count} projects</p>
               </div>
             ))}

@@ -44,7 +44,7 @@ export default function Breadcrumbs({ items }: BreadcrumbsProps) {
       />
 
       {/* Visual breadcrumb navigation */}
-      <nav aria-label="Breadcrumb" className="bg-gray-50 border-b border-gray-200">
+      <nav aria-label="Breadcrumb" className="bg-slate-800 border-b border-slate-700">
         <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
           <ol className="flex items-center space-x-2 py-3 text-sm">
             <li>
@@ -64,7 +64,7 @@ export default function Breadcrumbs({ items }: BreadcrumbsProps) {
                 />
                 {index === items.length - 1 ? (
                   <span
-                    className="ml-2 text-gray-700 font-medium truncate max-w-[200px] sm:max-w-none"
+                    className="ml-2 text-gray-300 font-medium truncate max-w-[200px] sm:max-w-none"
                     aria-current="page"
                   >
                     {item.name}
