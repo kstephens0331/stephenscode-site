@@ -69,7 +69,7 @@ export default function AddOnsClient() {
                   {filter.label}
                   <span className={`ml-2 px-2 py-0.5 rounded-full text-xs ${
                     activeFilter === filter.key
-                      ? 'bg-white/20 text-white'
+                      ? 'bg-slate-700/40 text-white'
                       : 'bg-slate-600 text-gray-400'
                   }`}>
                     {filter.count}

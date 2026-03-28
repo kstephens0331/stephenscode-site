@@ -209,7 +209,7 @@ export default function ServicesPage() {
 
         <div className="relative mx-auto max-w-7xl px-6 py-32 sm:py-40 lg:px-8">
           <div className="mx-auto max-w-4xl text-center">
-            <div className="mb-8 inline-flex items-center gap-3 rounded-full bg-white/10 px-6 py-3 text-sm font-semibold backdrop-blur-lg border border-white/20 shadow-2xl">
+            <div className="mb-8 inline-flex items-center gap-3 rounded-full bg-slate-800/40 px-6 py-3 text-sm font-semibold backdrop-blur-lg border border-slate-600 shadow-2xl">
               <span className="text-2xl">🌐</span>
               <span>47 Service Packages & Add-Ons</span>
             </div>
@@ -235,7 +235,7 @@ export default function ServicesPage() {
               </Link>
               <Link
                 href="/demos"
-                className="inline-flex items-center gap-2 rounded-lg bg-white/10 px-8 py-4 text-lg font-bold text-white backdrop-blur-lg border-2 border-white/30 hover:bg-white/20 transition-all"
+                className="inline-flex items-center gap-2 rounded-lg bg-slate-800/40 px-8 py-4 text-lg font-bold text-white backdrop-blur-lg border-2 border-slate-600 hover:bg-slate-700/60 transition-all"
               >
                 <span>View Live Demos</span>
               </Link>
@@ -422,7 +422,7 @@ export default function ServicesPage() {
             {technologies.map((tech) => (
               <div
                 key={tech.name}
-                className="group relative overflow-hidden rounded-xl bg-white/10 backdrop-blur-lg border border-white/20 p-6 text-center hover:bg-white/20 transition-all hover:scale-105 shadow-xl"
+                className="group relative overflow-hidden rounded-xl bg-slate-800/40 backdrop-blur-lg border border-slate-600 p-6 text-center hover:bg-slate-700/60 transition-all hover:scale-105 shadow-xl"
               >
                 <p className="text-lg font-bold text-white mb-1">{tech.name}</p>
                 <p className="text-xs text-gray-300">{tech.category}</p>
@@ -537,7 +537,7 @@ export default function ServicesPage() {
               </Link>
               <Link
                 href="/pricing"
-                className="inline-flex items-center gap-2 rounded-lg bg-white/10 px-10 py-5 text-xl font-bold text-white backdrop-blur-lg border-2 border-white/30 hover:bg-white/20 transition-all"
+                className="inline-flex items-center gap-2 rounded-lg bg-slate-800/40 px-10 py-5 text-xl font-bold text-white backdrop-blur-lg border-2 border-slate-600 hover:bg-slate-700/60 transition-all"
               >
                 <span>View All Pricing</span>
               </Link>

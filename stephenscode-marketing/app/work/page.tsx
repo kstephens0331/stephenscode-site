@@ -834,7 +834,7 @@ export default function Work() {
             <div className="mt-10 flex flex-col sm:flex-row items-center justify-center gap-6">
               <Link
                 href="/contact"
-                className="group rounded-lg bg-white px-8 py-4 text-base font-semibold text-primary-900 shadow-2xl hover:bg-gray-100 transition-all hover:scale-105"
+                className="group rounded-lg bg-slate-800 px-8 py-4 text-base font-semibold text-white shadow-2xl hover:bg-slate-700 transition-all hover:scale-105"
               >
                 Start Your Project
                 <span className="inline-block transition-transform group-hover:translate-x-1 ml-2">→</span>

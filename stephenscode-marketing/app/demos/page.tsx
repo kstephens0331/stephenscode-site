@@ -27,7 +27,7 @@ export default function DemosPage() {
       <section className="relative bg-gradient-to-br from-primary-900 via-primary-800 to-primary-700 text-white">
         <div className="mx-auto max-w-7xl px-6 py-24 sm:py-32 lg:px-8">
           <div className="mx-auto max-w-2xl text-center">
-            <div className="mb-8 inline-flex items-center gap-2 rounded-full bg-white/10 px-4 py-2 text-sm font-medium backdrop-blur">
+            <div className="mb-8 inline-flex items-center gap-2 rounded-full bg-slate-800/40 px-4 py-2 text-sm font-medium backdrop-blur">
               <span className="text-2xl">🎨</span>
               <span>40+ Live Interactive Demos</span>
             </div>
