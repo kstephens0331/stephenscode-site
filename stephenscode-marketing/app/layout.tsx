@@ -1,4 +1,4 @@
-import type { Metadata } from 'next'
+import type { Metadata, Viewport } from 'next'
 import { Inter } from 'next/font/google'
 import './globals.css'
 import Header from '@/components/layout/Header'
@@ -66,11 +66,11 @@ export const metadata: Metadata = {
   authors: [{ name: 'Kyle Stephens', url: 'https://stephenscode.dev/about' }],
   creator: 'StephensCode LLC',
   publisher: 'StephensCode LLC',
-  icons: {
-    icon: '/images/favicon-512.png',
-    shortcut: '/images/favicon-512.png',
-    apple: '/images/favicon-512.png',
+  alternates: {
+    canonical: '/',
   },
+  // Icons (favicon.ico, icon.svg, apple-icon.png) are auto-detected from /app
+  // and emitted with correct sizes. apple-icon.png is now 180x180.
   openGraph: {
     type: 'website',
     locale: 'en_US',
@@ -97,6 +97,13 @@ export const metadata: Metadata = {
     },
   },
   // Google Search Console verified via DNS TXT record
+}
+
+export const viewport: Viewport = {
+  themeColor: [
+    { media: '(prefers-color-scheme: light)', color: '#ffffff' },
+    { media: '(prefers-color-scheme: dark)', color: '#0f172a' },
+  ],
 }
 
 export default function RootLayout({

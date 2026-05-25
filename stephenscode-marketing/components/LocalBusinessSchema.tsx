@@ -1,4 +1,43 @@
 export default function LocalBusinessSchema() {
+  // Person schema for founder (referenced by @id from Organization.founder)
+  const founderPersonSchema = {
+    '@context': 'https://schema.org',
+    '@type': 'Person',
+    '@id': 'https://stephenscode.dev/#kyle-stephens',
+    name: 'Kyle Stephens',
+    jobTitle: 'Founder & CTO',
+    description: 'Marine Corps veteran with 14+ years of IT and web development experience',
+    url: 'https://stephenscode.dev/about',
+    worksFor: { '@id': 'https://stephenscode.dev/#organization' },
+    knowsAbout: [
+      'Web Development',
+      'Managed IT Services',
+      'Cybersecurity',
+      'Enterprise VPN',
+      'Business Automation',
+    ],
+  }
+
+  // WebSite schema (enables sitelinks search box, ties site identity to Organization)
+  const webSiteSchema = {
+    '@context': 'https://schema.org',
+    '@type': 'WebSite',
+    '@id': 'https://stephenscode.dev/#website',
+    url: 'https://stephenscode.dev',
+    name: 'StephensCode',
+    description: 'Veteran-owned web development, managed IT services, and enterprise VPN solutions based in Conroe, TX.',
+    publisher: { '@id': 'https://stephenscode.dev/#organization' },
+    inLanguage: 'en-US',
+    potentialAction: {
+      '@type': 'SearchAction',
+      target: {
+        '@type': 'EntryPoint',
+        urlTemplate: 'https://stephenscode.dev/blog?q={search_term_string}',
+      },
+      'query-input': 'required name=search_term_string',
+    },
+  }
+
   // Main Organization Schema
   const organizationSchema = {
     '@context': 'https://schema.org',
@@ -11,12 +50,7 @@ export default function LocalBusinessSchema() {
     logo: 'https://stephenscode.dev/images/logo.png',
     telephone: '+1-936-323-4527',
     email: 'kyle@stephenscode.dev',
-    founder: {
-      '@type': 'Person',
-      name: 'Kyle Stephens',
-      jobTitle: 'Founder & CTO',
-      description: 'Marine Corps veteran with 14+ years of IT and web development experience',
-    },
+    founder: { '@id': 'https://stephenscode.dev/#kyle-stephens' },
     foundingDate: '2011',
     additionalType: 'https://schema.org/VeteranOwned',
     numberOfEmployees: {
@@ -278,7 +312,7 @@ export default function LocalBusinessSchema() {
     ],
   }
 
-  const schemas = [organizationSchema, localBusinessSchema, webDevServiceSchema, mspServiceSchema, vpnServiceSchema, faqSchema]
+  const schemas = [webSiteSchema, organizationSchema, founderPersonSchema, localBusinessSchema, webDevServiceSchema, mspServiceSchema, vpnServiceSchema, faqSchema]
 
   return (
     <>
