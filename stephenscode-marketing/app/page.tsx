@@ -1,5 +1,12 @@
 import Link from 'next/link'
+import type { Metadata } from 'next'
 import { organizationSchema } from '@/lib/schemas'
+
+export const metadata: Metadata = {
+  alternates: {
+    canonical: 'https://stephenscode.dev/',
+  },
+}
 
 // Advanced Schema Markup for Homepage
 const homepageSchemas = {

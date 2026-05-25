@@ -66,9 +66,11 @@ export const metadata: Metadata = {
   authors: [{ name: 'Kyle Stephens', url: 'https://stephenscode.dev/about' }],
   creator: 'StephensCode LLC',
   publisher: 'StephensCode LLC',
-  alternates: {
-    canonical: '/',
-  },
+  // NOTE: Do NOT set alternates.canonical here. Next App Router inherits root
+  // canonical to every child route which causes all pages to canonicalize to /
+  // (see commit 389e7bc fix). Per-page canonicals are set in each page's own
+  // metadata export. The home page canonical lives in app/page.tsx via the
+  // generateMetadata helper below.
   // Icons (favicon.ico, icon.svg, apple-icon.png) are auto-detected from /app
   // and emitted with correct sizes. apple-icon.png is now 180x180.
   openGraph: {
