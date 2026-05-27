@@ -17,11 +17,11 @@ export const metadata: Metadata = {
   openGraph: {
     title: 'Contact Conroe Web Developer | Free Quote | Houston TX',
     description: 'Contact veteran owned web developer for free quote. Affordable web design Houston from $250. Custom websites for small business.',
-    url: 'https://stephenscode.dev/contact',
+    url: 'https://www.stephenscode.dev/contact',
     type: 'website',
   },
   alternates: {
-    canonical: 'https://stephenscode.dev/contact',
+    canonical: 'https://www.stephenscode.dev/contact',
   },
 }
 
@@ -29,10 +29,10 @@ export const metadata: Metadata = {
 const localBusinessSchema = {
   "@context": "https://schema.org",
   "@type": "LocalBusiness",
-  "@id": "https://stephenscode.dev/#organization",
+  "@id": "https://www.stephenscode.dev/#organization",
   "name": "StephensCode LLC",
   "description": "Professional web development and digital solutions for businesses in Houston, Conroe, and throughout Texas.",
-  "url": "https://stephenscode.dev",
+  "url": "https://www.stephenscode.dev",
   "telephone": "+1-936-323-4527",
   "email": "kyle@stephenscode.dev",
   "address": {

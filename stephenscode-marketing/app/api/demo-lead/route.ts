@@ -44,7 +44,7 @@ A potential client just interacted with your "${demoName}" demo and is intereste
 📋 DEMO DETAILS:
    • Demo Name: ${demoName}
    • Package: ${demoPackage}
-   • Demo URL: https://stephenscode.dev/demos/${demoSlug}
+   • Demo URL: https://www.stephenscode.dev/demos/${demoSlug}
 
 👤 CLIENT INFORMATION:
    • Name: ${clientName}
@@ -94,7 +94,7 @@ Thank you for your interest in our services! We received your request through ou
 We'll reach out to you within 24 hours to discuss how we can create something similar for your business.
 
 In the meantime, feel free to explore more of our demos at:
-https://stephenscode.dev/demos
+https://www.stephenscode.dev/demos
 
 Best regards,
 StephensCode Team

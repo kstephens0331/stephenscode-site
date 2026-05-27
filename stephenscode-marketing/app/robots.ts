@@ -46,7 +46,7 @@ export default function robots(): MetadataRoute.Robots {
         disallow: '/',
       },
     ],
-    sitemap: 'https://stephenscode.dev/sitemap.xml',
-    host: 'https://stephenscode.dev',
+    sitemap: 'https://www.stephenscode.dev/sitemap.xml',
+    host: 'https://www.stephenscode.dev',
   }
 }

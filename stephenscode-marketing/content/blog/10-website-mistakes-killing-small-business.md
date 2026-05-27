@@ -480,7 +480,7 @@ Your future customers are out there right now, searching for businesses like you
 
 Not sure which mistakes are hurting you most? I'll audit your site for free and show you exactly what to fix.
 
-**Call (936) 323-4527 or visit [stephenscode.dev/contact](https://stephenscode.dev/contact) for a free website review.**
+**Call (936) 323-4527 or visit [stephenscode.dev/contact](https://www.stephenscode.dev/contact) for a free website review.**
 
 No sales pitch—just honest feedback on what's working and what isn't.
 

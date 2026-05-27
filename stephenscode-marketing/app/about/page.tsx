@@ -16,11 +16,11 @@ export const metadata: Metadata = {
   openGraph: {
     title: 'Veteran Owned Web Developer | About StephensCode | Houston TX',
     description: 'Veteran owned web developer in Conroe TX. 14+ years Houston web development experience. Affordable web design, custom websites for small business.',
-    url: 'https://stephenscode.dev/about',
+    url: 'https://www.stephenscode.dev/about',
     type: 'website',
   },
   alternates: {
-    canonical: 'https://stephenscode.dev/about',
+    canonical: 'https://www.stephenscode.dev/about',
   },
 }
 

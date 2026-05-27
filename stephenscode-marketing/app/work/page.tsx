@@ -16,11 +16,11 @@ export const metadata: Metadata = {
   openGraph: {
     title: 'Web Development Portfolio | Custom Websites Houston | Case Studies',
     description: 'Conroe web developer portfolio. Custom website Houston examples, small business website Texas case studies. Veteran owned web developer with 200+ projects.',
-    url: 'https://stephenscode.dev/work',
+    url: 'https://www.stephenscode.dev/work',
     type: 'website',
   },
   alternates: {
-    canonical: 'https://stephenscode.dev/work',
+    canonical: 'https://www.stephenscode.dev/work',
   },
 }
 

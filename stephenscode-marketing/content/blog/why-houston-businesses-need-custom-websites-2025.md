@@ -347,7 +347,7 @@ Let's discuss what a custom website could do for your Houston business:
 
 5. **Veteran-owned** - Supporting a local veteran-owned business
 
-**Call (936) 323-4527 or visit [stephenscode.dev/contact](https://stephenscode.dev/contact) to get started.**
+**Call (936) 323-4527 or visit [stephenscode.dev/contact](https://www.stephenscode.dev/contact) to get started.**
 
 ---
 

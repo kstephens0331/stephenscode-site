@@ -357,7 +357,7 @@ At StephensCode, we build websites that:
 
 No monthly platform fees. No lock-in. No surprises.
 
-**Call (936) 323-4527 or visit [stephenscode.dev/contact](https://stephenscode.dev/contact) to get a quote.**
+**Call (936) 323-4527 or visit [stephenscode.dev/contact](https://www.stephenscode.dev/contact) to get a quote.**
 
 We'll also give you an honest assessment of whether professional development makes sense for your specific situation.
 

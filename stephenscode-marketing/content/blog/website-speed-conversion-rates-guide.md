@@ -515,7 +515,7 @@ Your competitors' websites are probably slow. This is an opportunity. Be the fas
 
 I offer free website speed audits for Houston small businesses. I'll test your site, identify the biggest problems, and give you a specific action plan.
 
-**Call (936) 323-4527 or visit [stephenscode.dev/contact](https://stephenscode.dev/contact) to schedule your free audit.**
+**Call (936) 323-4527 or visit [stephenscode.dev/contact](https://www.stephenscode.dev/contact) to schedule your free audit.**
 
 For sites that need more than quick fixes, I build custom websites optimized for speed from the ground up—typically loading in under 2 seconds.
 

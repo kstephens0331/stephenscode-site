@@ -241,7 +241,7 @@ const portfolioSchema = {
       "creator": {
         "@type": "Organization",
         "name": "StephensCode LLC",
-        "url": "https://stephenscode.dev"
+        "url": "https://www.stephenscode.dev"
       },
       // Include sample pages as significant links for SEO
       ...(client.samplePages && client.samplePages.length > 0 && {
@@ -259,7 +259,7 @@ const portfolioSchema = {
 const workExamplesSchema = {
   "@context": "https://schema.org",
   "@type": "Organization",
-  "@id": "https://stephenscode.dev/#organization",
+  "@id": "https://www.stephenscode.dev/#organization",
   "name": "StephensCode LLC",
   "workExample": clients.map(client => ({
     "@type": "WebSite",
