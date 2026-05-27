@@ -667,7 +667,7 @@ I build websites specifically optimized for local search. Every site includes:
 
 For existing sites, I offer local SEO audits and implementation.
 
-**Call (936) 323-4527 or visit [stephenscode.dev/contact](https://stephenscode.dev/contact) to discuss your local SEO strategy.**
+**Call (936) 323-4527 or visit [stephenscode.dev/contact](https://www.stephenscode.dev/contact) to discuss your local SEO strategy.**
 
 ---
 

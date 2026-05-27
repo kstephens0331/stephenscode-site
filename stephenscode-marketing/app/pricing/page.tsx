@@ -27,11 +27,11 @@ export const metadata: Metadata = {
   openGraph: {
     title: 'Affordable Web Design Houston | Small Business Websites from $250',
     description: 'Conroe web developer with affordable web design from $250. Small business website packages for Houston and The Woodlands. Veteran owned. No hidden fees.',
-    url: 'https://stephenscode.dev/pricing',
+    url: 'https://www.stephenscode.dev/pricing',
     type: 'website',
   },
   alternates: {
-    canonical: 'https://stephenscode.dev/pricing',
+    canonical: 'https://www.stephenscode.dev/pricing',
   },
 }
 

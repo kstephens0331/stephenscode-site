@@ -30,7 +30,7 @@ export const metadata: Metadata = {
   openGraph: {
     title: 'Houston Web Design | Custom Websites from $250',
     description: 'Get a professional website built in 1-2 weeks. Flat-rate pricing, no hidden fees. Veteran-owned.',
-    url: 'https://stephenscode.dev/services',
+    url: 'https://www.stephenscode.dev/services',
   },
 }
 
@@ -42,7 +42,7 @@ const serviceSchema = {
   "provider": {
     "@type": "LocalBusiness",
     "name": "StephensCode LLC",
-    "image": "https://stephenscode.dev/logo.png",
+    "image": "https://www.stephenscode.dev/logo.png",
     "telephone": "+1-936-323-4527",
     "priceRange": "$250+",
     "address": {

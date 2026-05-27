@@ -143,7 +143,7 @@ If you value:
 
 Then working with a veteran-owned business is a smart choice.
 
-**Contact StephensCode at (936) 323-4527 or visit [stephenscode.dev/contact](https://stephenscode.dev/contact) to discuss your project.**
+**Contact StephensCode at (936) 323-4527 or visit [stephenscode.dev/contact](https://www.stephenscode.dev/contact) to discuss your project.**
 
 We don't just build websites—we build them right.
 

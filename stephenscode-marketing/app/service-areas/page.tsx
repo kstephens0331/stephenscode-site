@@ -23,7 +23,7 @@ export const metadata: Metadata = {
   openGraph: {
     title: 'Service Areas | 35+ Houston Communities Served',
     description: 'Web development and IT services across Greater Houston. From Montgomery County to Galveston Bay.',
-    url: 'https://stephenscode.dev/service-areas',
+    url: 'https://www.stephenscode.dev/service-areas',
   },
 }
 

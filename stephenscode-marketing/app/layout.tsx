@@ -11,7 +11,7 @@ import TrustedTypesPolicy from '@/components/TrustedTypesPolicy'
 const inter = Inter({ subsets: ['latin'] })
 
 export const metadata: Metadata = {
-  metadataBase: new URL('https://stephenscode.dev'),
+  metadataBase: new URL('https://www.stephenscode.dev'),
   title: {
     default: 'Conroe Web Developer | Houston Web Development | StephensCode',
     template: '%s | StephensCode'
@@ -63,7 +63,7 @@ export const metadata: Metadata = {
     'Texas web development company',
     'Houston area IT services',
   ],
-  authors: [{ name: 'Kyle Stephens', url: 'https://stephenscode.dev/about' }],
+  authors: [{ name: 'Kyle Stephens', url: 'https://www.stephenscode.dev/about' }],
   creator: 'StephensCode LLC',
   publisher: 'StephensCode LLC',
   // NOTE: Do NOT set alternates.canonical here. Next App Router inherits root
@@ -76,7 +76,7 @@ export const metadata: Metadata = {
   openGraph: {
     type: 'website',
     locale: 'en_US',
-    url: 'https://stephenscode.dev',
+    url: 'https://www.stephenscode.dev',
     siteName: 'StephensCode',
     title: 'Conroe Web Developer | Houston Web Development | Veteran Owned',
     description: 'Affordable web design Houston from $250. Custom websites for small business. Veteran owned web developer serving The Woodlands and Montgomery County.',

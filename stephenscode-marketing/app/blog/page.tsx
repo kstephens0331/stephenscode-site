@@ -17,11 +17,11 @@ export const metadata: Metadata = {
   openGraph: {
     title: 'Blog | Web Development Tips & Houston Business Growth | StephensCode',
     description: 'Expert insights on web development, SEO, and business automation. Tips and strategies for Houston small businesses to grow online.',
-    url: 'https://stephenscode.dev/blog',
+    url: 'https://www.stephenscode.dev/blog',
     type: 'website',
   },
   alternates: {
-    canonical: 'https://stephenscode.dev/blog',
+    canonical: 'https://www.stephenscode.dev/blog',
   },
 }
 

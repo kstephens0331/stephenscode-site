@@ -31,7 +31,7 @@ export const metadata: Metadata = {
   openGraph: {
     title: 'Houston Managed IT Services | From $99/User/Month',
     description: '24/7 monitoring, cybersecurity, and helpdesk support. No long-term contracts. Veteran-owned MSP.',
-    url: 'https://stephenscode.dev/msp',
+    url: 'https://www.stephenscode.dev/msp',
   },
 }
 
@@ -42,7 +42,7 @@ const mspSchema = {
   "provider": {
     "@type": "LocalBusiness",
     "name": "StephensCode LLC",
-    "image": "https://stephenscode.dev/logo.png",
+    "image": "https://www.stephenscode.dev/logo.png",
     "telephone": "+1-936-323-4527",
     "priceRange": "$99+/user/mo",
     "address": {

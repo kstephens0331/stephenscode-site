@@ -3,7 +3,7 @@ export const organizationSchema = {
   "@type": "ProfessionalService",
   "name": "StephensCode LLC",
   "description": "Veteran-owned web development serving Houston and Conroe",
-  "url": "https://stephenscode.dev",
+  "url": "https://www.stephenscode.dev",
   "telephone": "+1-936-323-4527",
   "email": "kyle@stephenscode.dev",
   "founder": {

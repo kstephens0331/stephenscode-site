@@ -16,11 +16,11 @@ export const metadata: Metadata = {
   openGraph: {
     title: 'SACVPN | Enterprise-Grade VPN Security | StephensCode',
     description: 'SACVPN provides enterprise-grade VPN security for businesses. Secure your remote workforce and protect sensitive data with military-grade encryption.',
-    url: 'https://stephenscode.dev/sacvpn',
+    url: 'https://www.stephenscode.dev/sacvpn',
     type: 'website',
   },
   alternates: {
-    canonical: 'https://stephenscode.dev/sacvpn',
+    canonical: 'https://www.stephenscode.dev/sacvpn',
   },
 }
 

@@ -13,19 +13,19 @@ function getBreadcrumbSchema(demo: Demo) {
         '@type': 'ListItem',
         position: 1,
         name: 'Home',
-        item: 'https://stephenscode.dev',
+        item: 'https://www.stephenscode.dev',
       },
       {
         '@type': 'ListItem',
         position: 2,
         name: 'Demos',
-        item: 'https://stephenscode.dev/demos',
+        item: 'https://www.stephenscode.dev/demos',
       },
       {
         '@type': 'ListItem',
         position: 3,
         name: demo.name,
-        item: `https://stephenscode.dev/demos/${demo.slug}`,
+        item: `https://www.stephenscode.dev/demos/${demo.slug}`,
       },
     ],
   }
