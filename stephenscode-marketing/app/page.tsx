@@ -219,10 +219,15 @@ export default function Home() {
         dangerouslySetInnerHTML={{ __html: JSON.stringify(homepageSchemas.breadcrumb) }}
       />
 
-      {/* Hero Section with Advanced Design */}
-      <section className="relative overflow-hidden bg-gradient-to-br from-primary-900 via-primary-800 to-primary-700 text-white">
-        {/* Animated Background Pattern */}
-        <div className="absolute inset-0 opacity-10">
+      {/* Hero Section — near-black canvas with orange glow accents + grain texture */}
+      <section className="relative overflow-hidden bg-gradient-to-br from-black via-surface to-black text-white grain-overlay">
+        {/* Soft orange glow centered behind the headline */}
+        <div className="pointer-events-none absolute inset-0">
+          <div className="absolute left-1/2 top-1/3 -translate-x-1/2 -translate-y-1/2 h-[600px] w-[900px] rounded-full bg-primary-600/20 blur-3xl" />
+        </div>
+
+        {/* Subtle dotted grid pattern */}
+        <div className="absolute inset-0 opacity-[0.04]">
           <div className="absolute inset-0" style={{
             backgroundImage: `url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%23ffffff' fill-opacity='1'%3E%3Cpath d='M36 34v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4zm0-30V0h-2v4h-4v2h4v4h2V6h4V4h-4zM6 34v-4H4v4H0v2h4v4h2v-4h4v-2H6zM6 4V0H4v4H0v2h4v4h2V6h4V4H6z'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E")`
           }}></div>
@@ -230,20 +235,19 @@ export default function Home() {
 
         <div className="relative mx-auto max-w-7xl px-6 py-32 sm:py-40 lg:px-8">
           <div className="mx-auto max-w-4xl text-center">
-            {/* Veteran Badge with Animation */}
-            <div className="mb-8 inline-flex items-center gap-3 rounded-full bg-slate-800/40 px-6 py-3 text-sm font-semibold backdrop-blur-lg border border-slate-600 shadow-2xl animate-fade-in-up">
+            {/* Veteran Badge */}
+            <div className="mb-8 inline-flex items-center gap-3 rounded-full bg-surface-elevated/60 px-6 py-3 text-sm font-semibold backdrop-blur-lg border border-surface-border shadow-xl animate-fade-in-up">
               <span className="text-3xl">🇺🇸</span>
               <span className="text-white">Veteran-Owned | Founded 2011 | Full Platform 2025</span>
             </div>
 
-            {/* Main Headline - SEO Optimized */}
+            {/* Main Headline */}
             <h1 className="text-5xl font-black tracking-tight sm:text-7xl mb-8 animate-fade-in-up animation-delay-200">
-              Conroe Web Developer & Houston Web Development
-              <span className="block text-accent-400 mt-2">Veteran Owned | Custom Websites from $250</span>
+              Conroe Web Developer &amp; Houston Web Development
+              <span className="block text-primary-400 mt-2">Veteran Owned | Custom Websites from $250</span>
             </h1>
 
-            {/* SEO-Rich Subheadline */}
-            <p className="mt-8 text-xl leading-8 text-gray-100 max-w-3xl mx-auto animate-fade-in-up animation-delay-400">
+            <p className="mt-8 text-xl leading-8 text-gray-200 max-w-3xl mx-auto animate-fade-in-up animation-delay-400">
               Affordable web design for Houston and The Woodlands businesses. Small business websites starting at $250, custom website development, and business automation. <strong className="text-white">Veteran owned web developer</strong> with 14+ years experience. No hourly rates, no surprises.
             </p>
 
@@ -251,7 +255,7 @@ export default function Home() {
             <div className="mt-12 flex flex-wrap items-center justify-center gap-4 animate-fade-in-up animation-delay-600">
               <Link
                 href="/contact"
-                className="group relative inline-flex items-center gap-2 rounded-lg bg-accent-500 px-8 py-4 text-lg font-bold text-white shadow-2xl hover:bg-accent-600 transition-all hover:scale-105 hover:shadow-accent-500/50"
+                className="group relative inline-flex items-center gap-2 rounded-lg bg-primary-500 px-8 py-4 text-lg font-bold text-white shadow-glow hover:bg-primary-600 hover:shadow-glow-lg transition-all hover:scale-[1.02]"
               >
                 <span>Get Free Quote</span>
                 <svg className="w-5 h-5 group-hover:translate-x-1 transition-transform" fill="none" viewBox="0 0 24 24" stroke="currentColor">
@@ -260,14 +264,14 @@ export default function Home() {
               </Link>
               <Link
                 href="/demos"
-                className="inline-flex items-center gap-2 rounded-lg bg-slate-800/40 px-8 py-4 text-lg font-bold text-white backdrop-blur-lg border-2 border-slate-600 hover:bg-slate-700/60 transition-all"
+                className="inline-flex items-center gap-2 rounded-lg bg-surface-elevated/60 px-8 py-4 text-lg font-bold text-white backdrop-blur-lg border border-surface-border hover:border-primary-500/60 hover:bg-surface-elevated transition-all"
               >
                 <span>View 40 Live Demos</span>
                 <span>→</span>
               </Link>
               <a
                 href="tel:+19363234527"
-                className="inline-flex items-center gap-2 rounded-lg border-2 border-slate-500 px-8 py-4 text-lg font-bold text-white hover:bg-slate-800/40 transition-all"
+                className="inline-flex items-center gap-2 rounded-lg border border-surface-border px-8 py-4 text-lg font-bold text-white hover:border-primary-500/60 hover:bg-surface-elevated/60 transition-all"
               >
                 <span>📞</span>
                 <span>(936) 323-4527</span>
@@ -277,35 +281,31 @@ export default function Home() {
             {/* Trust Badges */}
             <div className="mt-16 animate-fade-in-up animation-delay-800">
               <div className="flex flex-wrap items-center justify-center gap-4">
-                {/* Marine Corps Veteran Badge */}
-                <div className="flex items-center gap-3 rounded-xl bg-slate-800/40 backdrop-blur-sm px-5 py-3 border border-slate-600">
+                <div className="flex items-center gap-3 rounded-xl bg-surface-elevated/60 backdrop-blur-sm px-5 py-3 border border-surface-border">
                   <span className="text-2xl">🎖️</span>
                   <div className="text-left">
-                    <span className="block text-xs text-gray-300 uppercase tracking-wide">USMC Veteran</span>
+                    <span className="block text-xs text-gray-400 uppercase tracking-wide">USMC Veteran</span>
                     <span className="block text-sm font-bold text-white">Marine Corps Owned</span>
                   </div>
                 </div>
-                {/* Experience Badge */}
-                <div className="flex items-center gap-3 rounded-xl bg-slate-800/40 backdrop-blur-sm px-5 py-3 border border-slate-600">
+                <div className="flex items-center gap-3 rounded-xl bg-surface-elevated/60 backdrop-blur-sm px-5 py-3 border border-surface-border">
                   <span className="text-2xl">⭐</span>
                   <div className="text-left">
-                    <span className="block text-xs text-gray-300 uppercase tracking-wide">Since 2011</span>
+                    <span className="block text-xs text-gray-400 uppercase tracking-wide">Since 2011</span>
                     <span className="block text-sm font-bold text-white">14+ Years Experience</span>
                   </div>
                 </div>
-                {/* Projects Badge */}
-                <div className="flex items-center gap-3 rounded-xl bg-slate-800/40 backdrop-blur-sm px-5 py-3 border border-slate-600">
+                <div className="flex items-center gap-3 rounded-xl bg-surface-elevated/60 backdrop-blur-sm px-5 py-3 border border-surface-border">
                   <span className="text-2xl">🚀</span>
                   <div className="text-left">
-                    <span className="block text-xs text-gray-300 uppercase tracking-wide">Track Record</span>
+                    <span className="block text-xs text-gray-400 uppercase tracking-wide">Track Record</span>
                     <span className="block text-sm font-bold text-white">200+ Projects Delivered</span>
                   </div>
                 </div>
-                {/* Local Badge */}
-                <div className="flex items-center gap-3 rounded-xl bg-slate-800/40 backdrop-blur-sm px-5 py-3 border border-slate-600">
+                <div className="flex items-center gap-3 rounded-xl bg-surface-elevated/60 backdrop-blur-sm px-5 py-3 border border-surface-border">
                   <span className="text-2xl">📍</span>
                   <div className="text-left">
-                    <span className="block text-xs text-gray-300 uppercase tracking-wide">Based In</span>
+                    <span className="block text-xs text-gray-400 uppercase tracking-wide">Based In</span>
                     <span className="block text-sm font-bold text-white">Conroe, Texas</span>
                   </div>
                 </div>
@@ -314,10 +314,10 @@ export default function Home() {
           </div>
         </div>
 
-        {/* Wave Divider */}
-        <div className="absolute bottom-0 left-0 right-0">
+        {/* Wave Divider (fill matches the next section's bg) */}
+        <div className="absolute bottom-0 left-0 right-0 pointer-events-none">
           <svg viewBox="0 0 1440 120" fill="none" xmlns="http://www.w3.org/2000/svg" className="w-full">
-            <path d="M0 120L60 105C120 90 240 60 360 45C480 30 600 30 720 37.5C840 45 960 60 1080 67.5C1200 75 1320 75 1380 75L1440 75V120H1380C1320 120 1200 120 1080 120C960 120 840 120 720 120C600 120 480 120 360 120C240 120 120 120 60 120H0Z" fill="#0f172a"/>
+            <path d="M0 120L60 105C120 90 240 60 360 45C480 30 600 30 720 37.5C840 45 960 60 1080 67.5C1200 75 1320 75 1380 75L1440 75V120H1380C1320 120 1200 120 1080 120C960 120 840 120 720 120C600 120 480 120 360 120C240 120 120 120 60 120H0Z" fill="#0a0a0a"/>
           </svg>
         </div>
       </section>
@@ -653,26 +653,29 @@ export default function Home() {
         </div>
       </section>
 
-      {/* Final CTA */}
-      <section className="relative overflow-hidden bg-gradient-to-br from-primary-900 via-primary-800 to-primary-700 text-white">
-        <div className="absolute inset-0 opacity-10">
+      {/* Final CTA — the brand moment: solid orange band on near-black canvas */}
+      <section className="relative overflow-hidden bg-primary-600 text-white">
+        {/* Subtle texture so the solid orange has depth, not flat */}
+        <div className="absolute inset-0 opacity-[0.08]">
           <div className="absolute inset-0" style={{
-            backgroundImage: `url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%23ffffff' fill-opacity='1'%3E%3Cpath d='M36 34v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4zm0-30V0h-2v4h-4v2h4v4h2V6h4V4h-4zM6 34v-4H4v4H0v2h4v4h2v-4h4v-2H6zM6 4V0H4v4H0v2h4v4h2V6h4V4H6z'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E")`
+            backgroundImage: `url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%23000000' fill-opacity='1'%3E%3Cpath d='M36 34v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4zm0-30V0h-2v4h-4v2h4v4h2V6h4V4h-4zM6 34v-4H4v4H0v2h4v4h2v-4h4v-2H6zM6 4V0H4v4H0v2h4v4h2V6h4V4H6z'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E")`
           }}></div>
         </div>
+        {/* Subtle dark glow at the bottom to anchor visually */}
+        <div className="pointer-events-none absolute -bottom-32 left-1/2 -translate-x-1/2 h-64 w-[120%] rounded-[100%] bg-black/30 blur-3xl" />
 
         <div className="relative px-6 py-24 sm:px-6 sm:py-32 lg:px-8">
           <div className="mx-auto max-w-3xl text-center">
             <h2 className="text-4xl font-black tracking-tight sm:text-6xl mb-8">
               Ready to Grow Your Business Online?
             </h2>
-            <p className="mx-auto max-w-2xl text-xl leading-8 text-gray-200 mb-12">
+            <p className="mx-auto max-w-2xl text-xl leading-8 text-white/90 mb-12">
               Join 150+ Houston businesses who trust StephensCode for their web development needs. Free consultation, transparent pricing, fast delivery.
             </p>
             <div className="flex flex-wrap items-center justify-center gap-4">
               <Link
                 href="/contact"
-                className="group relative inline-flex items-center gap-2 rounded-lg bg-accent-500 px-10 py-5 text-xl font-bold text-white shadow-2xl hover:bg-accent-600 transition-all hover:scale-110 hover:shadow-accent-500/50"
+                className="group relative inline-flex items-center gap-2 rounded-lg bg-black px-10 py-5 text-xl font-bold text-white hover:bg-surface-elevated transition-all hover:scale-[1.02]"
               >
                 <span>Start Your Project</span>
                 <svg className="w-6 h-6 group-hover:translate-x-1 transition-transform" fill="none" viewBox="0 0 24 24" stroke="currentColor">
@@ -681,13 +684,13 @@ export default function Home() {
               </Link>
               <a
                 href="tel:+19363234527"
-                className="inline-flex items-center gap-3 rounded-lg bg-slate-800/40 px-10 py-5 text-xl font-bold text-white backdrop-blur-lg border-2 border-slate-600 hover:bg-slate-700/60 transition-all"
+                className="inline-flex items-center gap-3 rounded-lg border-2 border-white/30 px-10 py-5 text-xl font-bold text-white backdrop-blur-sm hover:bg-white/10 hover:border-white/60 transition-all"
               >
                 <span>📞</span>
                 <span>(936) 323-4527</span>
               </a>
             </div>
-            <p className="mt-8 text-sm text-gray-300">
+            <p className="mt-8 text-sm text-white/80">
               No pressure sales calls. Just honest advice and transparent pricing.
             </p>
           </div>
