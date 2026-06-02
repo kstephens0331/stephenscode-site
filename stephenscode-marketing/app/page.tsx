@@ -323,14 +323,14 @@ export default function Home() {
       </section>
 
       {/* Stats Section */}
-      <section className="bg-slate-900 py-16">
+      <section className="bg-surface py-16">
         <div className="mx-auto max-w-7xl px-6 lg:px-8">
           <div className="grid grid-cols-2 gap-8 lg:grid-cols-4">
             {stats.map((stat, index) => (
               <div key={stat.label} className="flex flex-col items-center text-center group hover:scale-110 transition-transform duration-300" style={{ animationDelay: `${index * 100}ms` }}>
                 <div className="text-5xl mb-3 group-hover:scale-125 transition-transform">{stat.icon}</div>
                 <p className="text-base leading-7 text-gray-400 font-semibold">{stat.label}</p>
-                <p className="order-first text-5xl font-black tracking-tight text-primary-600 mb-2">
+                <p className="order-first text-5xl font-black tracking-tight text-accent-400 mb-2">
                   {stat.value}
                 </p>
               </div>
@@ -340,7 +340,7 @@ export default function Home() {
       </section>
 
       {/* Packages Section - SEO Rich Content */}
-      <section className="bg-slate-900 py-24 sm:py-32" id="packages">
+      <section className="bg-surface py-24 sm:py-32" id="packages">
         <div className="mx-auto max-w-7xl px-6 lg:px-8">
           <div className="mx-auto max-w-2xl text-center mb-16">
             <h2 className="text-base font-semibold leading-7 text-primary-600">Transparent Pricing</h2>
@@ -356,15 +356,15 @@ export default function Home() {
             {packages.map((pkg, index) => (
               <article
                 key={pkg.name}
-                className={`relative flex flex-col rounded-3xl p-8 shadow-xl ring-1 transition-all hover:scale-105 hover:shadow-2xl ${
+                className={`relative flex flex-col rounded-3xl p-8 transition-all hover:-translate-y-1 ${
                   pkg.popular
-                    ? 'bg-primary-600 text-white ring-primary-600 lg:scale-105'
-                    : 'bg-slate-800 ring-slate-700 hover:ring-primary-500 shadow-lg shadow-black/20'
+                    ? 'bg-primary-600 text-white ring-2 ring-primary-400 shadow-glow-lg lg:scale-105'
+                    : 'bg-surface-card ring-1 ring-surface-border hover:ring-primary-500/60 shadow-xl shadow-black/40'
                 }`}
               >
                 {pkg.popular && (
                   <div className="absolute -top-5 left-0 right-0 mx-auto w-32">
-                    <div className="rounded-full bg-accent-500 px-4 py-1 text-center text-sm font-bold text-white">
+                    <div className="rounded-full bg-accent-400 px-4 py-1 text-center text-sm font-bold text-black shadow-lg">
                       Most Popular
                     </div>
                   </div>
@@ -389,10 +389,10 @@ export default function Home() {
                   )}
                 </p>
 
-                <ul role="list" className={`mt-8 space-y-3 text-sm leading-6 flex-1 ${pkg.popular ? 'text-gray-100' : 'text-gray-400'}`}>
+                <ul role="list" className={`mt-8 space-y-3 text-sm leading-6 flex-1 ${pkg.popular ? 'text-gray-100' : 'text-gray-300'}`}>
                   {pkg.features.map((feature) => (
                     <li key={feature} className="flex gap-x-3">
-                      <svg className={`h-6 w-5 flex-none ${pkg.popular ? 'text-white' : 'text-primary-600'}`} viewBox="0 0 20 20" fill="currentColor">
+                      <svg className={`h-6 w-5 flex-none ${pkg.popular ? 'text-white' : 'text-primary-500'}`} viewBox="0 0 20 20" fill="currentColor">
                         <path fillRule="evenodd" d="M16.704 4.153a.75.75 0 01.143 1.052l-8 10.5a.75.75 0 01-1.127.075l-4.5-4.5a.75.75 0 011.06-1.06l3.894 3.893 7.48-9.817a.75.75 0 011.05-.143z" clipRule="evenodd" />
                       </svg>
                       <span className="font-semibold">{feature}</span>
@@ -404,8 +404,8 @@ export default function Home() {
                   href={pkg.href}
                   className={`mt-8 block rounded-lg px-6 py-4 text-center text-sm font-bold transition-all ${
                     pkg.popular
-                      ? 'bg-slate-800 text-primary-400 hover:bg-slate-700'
-                      : 'bg-primary-600 text-white hover:bg-primary-700'
+                      ? 'bg-black text-primary-300 hover:bg-surface-elevated'
+                      : 'bg-primary-600 text-white hover:bg-primary-500 hover:shadow-glow'
                   }`}
                 >
                   Learn More →
@@ -429,12 +429,12 @@ export default function Home() {
       </section>
 
       {/* IT Services Section */}
-      <section className="bg-gray-900 text-white py-24 sm:py-32">
+      <section className="bg-surface-card text-white py-24 sm:py-32">
         <div className="mx-auto max-w-7xl px-6 lg:px-8">
           <div className="mx-auto max-w-2xl text-center mb-16">
-            <div className="inline-flex items-center gap-3 rounded-full bg-red-500/20 px-6 py-3 text-sm font-semibold backdrop-blur-lg border border-red-500/30 mb-6">
+            <div className="inline-flex items-center gap-3 rounded-full bg-primary-500/15 px-6 py-3 text-sm font-semibold backdrop-blur-lg border border-primary-500/30 text-primary-300 mb-6">
               <span className="text-2xl">🔒</span>
-              <span>Managed IT & Cybersecurity</span>
+              <span>Managed IT &amp; Cybersecurity</span>
             </div>
             <h2 className="text-4xl font-black tracking-tight sm:text-5xl mb-6">
               IT Services That Protect Your Business
@@ -494,14 +494,14 @@ export default function Home() {
                   href={service.href}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="group relative rounded-2xl bg-slate-800/40 backdrop-blur-lg border border-slate-600 p-8 hover:bg-slate-700/60 transition-all hover:scale-105"
+                  className="group relative rounded-2xl bg-surface-elevated/60 backdrop-blur-lg border border-surface-border p-8 hover:border-primary-500/60 hover:-translate-y-1 transition-all"
                 >
                   <div className="text-4xl mb-4">{service.icon}</div>
                   <h3 className="text-xl font-bold text-white mb-2">{service.name}</h3>
-                  <p className="text-red-400 font-bold">{service.price}</p>
-                  <p className="text-green-400 text-xs font-semibold mb-4">{service.value}</p>
+                  <p className="text-primary-400 font-bold">{service.price}</p>
+                  <p className="text-accent-400 text-xs font-semibold mb-4">{service.value}</p>
                   <p className="text-gray-300 text-sm">{service.description}</p>
-                  <div className="mt-6 inline-flex items-center gap-2 text-sm font-bold text-white group-hover:text-red-400 transition-colors">
+                  <div className="mt-6 inline-flex items-center gap-2 text-sm font-bold text-white group-hover:text-primary-400 transition-colors">
                     <span>Visit Site</span>
                     <span className="group-hover:translate-x-1 transition-transform">→</span>
                   </div>
@@ -510,14 +510,14 @@ export default function Home() {
                 <Link
                   key={service.name}
                   href={service.href}
-                  className="group relative rounded-2xl bg-slate-800/40 backdrop-blur-lg border border-slate-600 p-8 hover:bg-slate-700/60 transition-all hover:scale-105"
+                  className="group relative rounded-2xl bg-surface-elevated/60 backdrop-blur-lg border border-surface-border p-8 hover:border-primary-500/60 hover:-translate-y-1 transition-all"
                 >
                   <div className="text-4xl mb-4">{service.icon}</div>
                   <h3 className="text-xl font-bold text-white mb-2">{service.name}</h3>
-                  <p className="text-red-400 font-bold">{service.price}</p>
-                  <p className="text-green-400 text-xs font-semibold mb-4">{service.value}</p>
+                  <p className="text-primary-400 font-bold">{service.price}</p>
+                  <p className="text-accent-400 text-xs font-semibold mb-4">{service.value}</p>
                   <p className="text-gray-300 text-sm">{service.description}</p>
-                  <div className="mt-6 inline-flex items-center gap-2 text-sm font-bold text-white group-hover:text-red-400 transition-colors">
+                  <div className="mt-6 inline-flex items-center gap-2 text-sm font-bold text-white group-hover:text-primary-400 transition-colors">
                     <span>Learn More</span>
                     <span className="group-hover:translate-x-1 transition-transform">→</span>
                   </div>
@@ -529,7 +529,7 @@ export default function Home() {
           <div className="mt-12 text-center">
             <Link
               href="/msp"
-              className="inline-flex items-center gap-2 rounded-lg bg-red-500 px-8 py-4 text-lg font-bold text-white shadow-lg hover:bg-red-600 transition-all hover:scale-105"
+              className="inline-flex items-center gap-2 rounded-lg bg-primary-500 px-8 py-4 text-lg font-bold text-white shadow-glow hover:bg-primary-600 hover:shadow-glow-lg transition-all"
             >
               <span>View All IT Services</span>
               <span>→</span>
@@ -539,7 +539,7 @@ export default function Home() {
       </section>
 
       {/* Process Section */}
-      <section className="bg-slate-800 py-24 sm:py-32">
+      <section className="bg-surface py-24 sm:py-32">
         <div className="mx-auto max-w-7xl px-6 lg:px-8">
           <div className="mx-auto max-w-2xl text-center mb-16">
             <h2 className="text-base font-semibold leading-7 text-primary-600">Simple Process</h2>
@@ -555,13 +555,13 @@ export default function Home() {
             {processSteps.map((step, index) => (
               <div key={step.number} className="relative group">
                 {index < processSteps.length - 1 && (
-                  <div className="hidden lg:block absolute top-20 left-full w-full h-0.5 bg-gradient-to-r from-primary-600 to-primary-200 -translate-x-1/2"></div>
+                  <div className="hidden lg:block absolute top-20 left-full w-full h-0.5 bg-gradient-to-r from-primary-500 to-primary-500/10 -translate-x-1/2"></div>
                 )}
                 <div className="relative flex flex-col items-center text-center">
-                  <div className="flex h-20 w-20 items-center justify-center rounded-full bg-primary-600 text-white text-4xl mb-6 group-hover:scale-110 transition-transform shadow-xl">
+                  <div className="flex h-20 w-20 items-center justify-center rounded-full bg-primary-500 text-white text-4xl mb-6 group-hover:scale-110 group-hover:shadow-glow transition-all shadow-xl">
                     {step.icon}
                   </div>
-                  <div className="absolute top-0 -right-2 flex h-8 w-8 items-center justify-center rounded-full bg-accent-500 text-white text-sm font-bold shadow-lg">
+                  <div className="absolute top-0 -right-2 flex h-8 w-8 items-center justify-center rounded-full bg-accent-400 text-black text-sm font-bold shadow-lg">
                     {step.number}
                   </div>
                   <h3 className="text-xl font-bold text-white mb-3">{step.title}</h3>
@@ -574,7 +574,7 @@ export default function Home() {
       </section>
 
       {/* Testimonials */}
-      <section className="bg-slate-900 py-24 sm:py-32">
+      <section className="bg-surface-card py-24 sm:py-32">
         <div className="mx-auto max-w-7xl px-6 lg:px-8">
           <div className="mx-auto max-w-2xl text-center mb-16">
             <h2 className="text-base font-semibold leading-7 text-primary-600">Small Business Website Success Stories</h2>
@@ -585,10 +585,10 @@ export default function Home() {
 
           <div className="grid grid-cols-1 gap-8 lg:grid-cols-3">
             {testimonials.map((testimonial, index) => (
-              <article key={index} className="bg-slate-800 rounded-2xl shadow-lg shadow-black/20 p-8 hover:shadow-2xl transition-all hover:scale-105">
+              <article key={index} className="bg-surface-elevated rounded-2xl ring-1 ring-surface-border shadow-xl shadow-black/40 p-8 hover:ring-primary-500/50 hover:-translate-y-1 transition-all">
                 <div className="flex gap-1 mb-4">
                   {[...Array(5)].map((_, i) => (
-                    <svg key={i} className="h-5 w-5 text-accent-500" fill="currentColor" viewBox="0 0 20 20">
+                    <svg key={i} className="h-5 w-5 text-accent-400" fill="currentColor" viewBox="0 0 20 20">
                       <path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z" />
                     </svg>
                   ))}
@@ -596,10 +596,10 @@ export default function Home() {
                 <blockquote className="text-gray-300 italic mb-6 text-lg">
                   "{testimonial.quote}"
                 </blockquote>
-                <div className="border-t border-slate-700 pt-4">
+                <div className="border-t border-surface-border pt-4">
                   <p className="font-bold text-white">{testimonial.author}</p>
                   <p className="text-sm text-gray-400 mb-2">{testimonial.company}</p>
-                  <div className="inline-flex items-center gap-2 rounded-full bg-green-500/15 px-3 py-1 text-xs font-bold text-green-400">
+                  <div className="inline-flex items-center gap-2 rounded-full bg-emerald-500/15 px-3 py-1 text-xs font-bold text-emerald-400">
                     <svg className="h-4 w-4" fill="currentColor" viewBox="0 0 20 20">
                       <path fillRule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.857-9.809a.75.75 0 00-1.214-.882l-3.483 4.79-1.88-1.88a.75.75 0 10-1.06 1.061l2.5 2.5a.75.75 0 001.137-.089l4-5.5z" clipRule="evenodd" />
                     </svg>
@@ -613,7 +613,7 @@ export default function Home() {
           <div className="mt-12 text-center">
             <Link
               href="/work"
-              className="inline-flex items-center gap-2 rounded-lg bg-primary-600 px-8 py-4 text-lg font-bold text-white shadow-lg hover:bg-primary-700 transition-all hover:scale-105"
+              className="inline-flex items-center gap-2 rounded-lg bg-primary-500 px-8 py-4 text-lg font-bold text-white shadow-glow hover:bg-primary-600 hover:shadow-glow-lg transition-all"
             >
               <span>View All Case Studies</span>
               <span>→</span>
@@ -623,7 +623,7 @@ export default function Home() {
       </section>
 
       {/* Service Areas - SEO Gold */}
-      <section className="bg-slate-800 py-24 sm:py-32">
+      <section className="bg-surface py-24 sm:py-32">
         <div className="mx-auto max-w-7xl px-6 lg:px-8">
           <div className="mx-auto max-w-2xl text-center mb-16">
             <h2 className="text-base font-semibold leading-7 text-primary-600">Local Web Developer Near Me</h2>
@@ -637,10 +637,9 @@ export default function Home() {
 
           <div className="grid grid-cols-2 gap-4 sm:grid-cols-3 lg:grid-cols-4">
             {serviceAreas.map((city) => (
-              <div key={city} className="group relative overflow-hidden rounded-xl bg-gradient-to-br from-primary-600 to-primary-700 p-6 text-center shadow-lg hover:shadow-2xl transition-all hover:scale-105">
-                <div className="absolute inset-0 bg-black/20 group-hover:bg-black/10 transition-colors"></div>
-                <p className="relative text-lg font-bold text-white">{city}</p>
-                <p className="relative text-xs text-gray-200">Web Development</p>
+              <div key={city} className="group relative overflow-hidden rounded-xl bg-surface-card ring-1 ring-surface-border p-6 text-center hover:ring-primary-500/60 hover:bg-surface-elevated transition-all hover:-translate-y-1">
+                <p className="relative text-lg font-bold text-white group-hover:text-primary-300 transition-colors">{city}</p>
+                <p className="relative text-xs text-gray-400">Web Development</p>
               </div>
             ))}
           </div>
