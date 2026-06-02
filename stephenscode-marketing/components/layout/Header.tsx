@@ -92,7 +92,7 @@ function Dropdown({ label, items }: DropdownProps) {
       </button>
       {open && (
         <div className="absolute top-full left-0 pt-2 w-48 z-50" role="menu" aria-label={label}>
-          <div className="bg-slate-800 rounded-lg shadow-lg border border-slate-700 py-2">
+          <div className="bg-surface-elevated rounded-lg shadow-xl border border-surface-border py-2">
             {items.map((item, index) => (
               item.external ? (
                 <a
@@ -102,7 +102,7 @@ function Dropdown({ label, items }: DropdownProps) {
                   target="_blank"
                   rel="noopener noreferrer"
                   role="menuitem"
-                  className="block px-4 py-2 text-sm text-gray-300 hover:bg-slate-700 hover:text-primary-400"
+                  className="block px-4 py-2 text-sm text-gray-300 hover:bg-surface-border hover:text-primary-400"
                   onKeyDown={(e) => handleItemKeyDown(e, index)}
                 >
                   {item.name}
@@ -113,7 +113,7 @@ function Dropdown({ label, items }: DropdownProps) {
                   ref={el => { itemRefs.current[index] = el as HTMLAnchorElement | null }}
                   href={item.href}
                   role="menuitem"
-                  className="block px-4 py-2 text-sm text-gray-300 hover:bg-slate-700 hover:text-primary-400"
+                  className="block px-4 py-2 text-sm text-gray-300 hover:bg-surface-border hover:text-primary-400"
                   onKeyDown={(e) => handleItemKeyDown(e, index)}
                 >
                   {item.name}
@@ -161,7 +161,7 @@ export default function Header() {
   }, [loginOpen])
 
   return (
-    <header className="bg-slate-900/95 backdrop-blur-sm border-b border-slate-800 sticky top-0 z-50">
+    <header className="bg-surface/85 backdrop-blur-xl border-b border-surface-border/60 sticky top-0 z-50">
       <nav className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8" aria-label="Top">
         <div className="flex w-full items-center justify-between py-4">
           <div className="flex items-center">
@@ -202,7 +202,7 @@ export default function Header() {
             <Link
               href="/contact"
               aria-label="Get started - request a free quote"
-              className="ml-4 inline-flex items-center rounded-md bg-accent-500 px-4 py-2 text-sm font-medium text-white hover:bg-accent-600 transition-colors"
+              className="ml-4 inline-flex items-center rounded-md bg-primary-500 px-4 py-2 text-sm font-semibold text-white shadow-glow hover:bg-primary-600 hover:shadow-glow-lg transition-all"
             >
               Get Started
             </Link>
@@ -235,13 +235,13 @@ export default function Header() {
               </button>
               {loginOpen && (
                 <div className="absolute right-0 top-full pt-2 w-40 z-50" role="menu" aria-label="Login options">
-                  <div className="bg-slate-800 rounded-lg shadow-lg border border-slate-700 py-2">
+                  <div className="bg-surface-elevated rounded-lg shadow-xl border border-surface-border py-2">
                     <a
                       href="https://customer.stephenscode.dev"
                       target="_blank"
                       rel="noopener noreferrer"
                       role="menuitem"
-                      className="block px-4 py-2 text-sm text-gray-300 hover:bg-slate-700 hover:text-primary-400"
+                      className="block px-4 py-2 text-sm text-gray-300 hover:bg-surface-border hover:text-primary-400"
                       onKeyDown={(e) => { if (e.key === 'Escape') { setLoginOpen(false) } }}
                     >
                       Customer Portal
@@ -251,7 +251,7 @@ export default function Header() {
                       target="_blank"
                       rel="noopener noreferrer"
                       role="menuitem"
-                      className="block px-4 py-2 text-sm text-gray-300 hover:bg-slate-700 hover:text-primary-400"
+                      className="block px-4 py-2 text-sm text-gray-300 hover:bg-surface-border hover:text-primary-400"
                       onKeyDown={(e) => { if (e.key === 'Escape') { setLoginOpen(false) } }}
                     >
                       Admin Login
@@ -289,7 +289,7 @@ export default function Header() {
                 <button
                   onClick={() => setServicesOpen(!servicesOpen)}
                   aria-expanded={servicesOpen}
-                  className="flex items-center justify-between w-full px-3 py-2 text-base font-medium text-gray-300 hover:bg-slate-800 rounded-lg"
+                  className="flex items-center justify-between w-full px-3 py-2 text-base font-medium text-gray-300 hover:bg-surface-card rounded-lg"
                 >
                   Services
                   <ChevronDownIcon className={`w-4 h-4 transition-transform ${servicesOpen ? 'rotate-180' : ''}`} aria-hidden="true" />
@@ -303,7 +303,7 @@ export default function Header() {
                           href={item.href}
                           target="_blank"
                           rel="noopener noreferrer"
-                          className="block px-3 py-2 text-sm text-gray-400 hover:bg-slate-800 rounded-lg"
+                          className="block px-3 py-2 text-sm text-gray-400 hover:bg-surface-card rounded-lg"
                           onClick={() => setMobileMenuOpen(false)}
                         >
                           {item.name}
@@ -312,7 +312,7 @@ export default function Header() {
                         <Link
                           key={item.name}
                           href={item.href}
-                          className="block px-3 py-2 text-sm text-gray-400 hover:bg-slate-800 rounded-lg"
+                          className="block px-3 py-2 text-sm text-gray-400 hover:bg-surface-card rounded-lg"
                           onClick={() => setMobileMenuOpen(false)}
                         >
                           {item.name}
@@ -327,21 +327,21 @@ export default function Header() {
                 href="https://sacvpn.com"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="block px-3 py-2 text-base font-medium text-gray-300 hover:bg-slate-800 rounded-lg"
+                className="block px-3 py-2 text-base font-medium text-gray-300 hover:bg-surface-card rounded-lg"
                 onClick={() => setMobileMenuOpen(false)}
               >
                 SACVPN
               </a>
               <Link
                 href="/pricing"
-                className="block px-3 py-2 text-base font-medium text-gray-300 hover:bg-slate-800 rounded-lg"
+                className="block px-3 py-2 text-base font-medium text-gray-300 hover:bg-surface-card rounded-lg"
                 onClick={() => setMobileMenuOpen(false)}
               >
                 Pricing
               </Link>
               <Link
                 href="/demos"
-                className="block px-3 py-2 text-base font-medium text-gray-300 hover:bg-slate-800 rounded-lg"
+                className="block px-3 py-2 text-base font-medium text-gray-300 hover:bg-surface-card rounded-lg"
                 onClick={() => setMobileMenuOpen(false)}
               >
                 Demos
@@ -352,7 +352,7 @@ export default function Header() {
                 <button
                   onClick={() => setAboutOpen(!aboutOpen)}
                   aria-expanded={aboutOpen}
-                  className="flex items-center justify-between w-full px-3 py-2 text-base font-medium text-gray-300 hover:bg-slate-800 rounded-lg"
+                  className="flex items-center justify-between w-full px-3 py-2 text-base font-medium text-gray-300 hover:bg-surface-card rounded-lg"
                 >
                   About
                   <ChevronDownIcon className={`w-4 h-4 transition-transform ${aboutOpen ? 'rotate-180' : ''}`} aria-hidden="true" />
@@ -363,7 +363,7 @@ export default function Header() {
                       <Link
                         key={item.name}
                         href={item.href}
-                        className="block px-3 py-2 text-sm text-gray-400 hover:bg-slate-800 rounded-lg"
+                        className="block px-3 py-2 text-sm text-gray-400 hover:bg-surface-card rounded-lg"
                         onClick={() => setMobileMenuOpen(false)}
                       >
                         {item.name}
@@ -375,27 +375,27 @@ export default function Header() {
 
               <Link
                 href="/contact"
-                className="block px-3 py-2 text-base font-medium text-gray-300 hover:bg-slate-800 rounded-lg"
+                className="block px-3 py-2 text-base font-medium text-gray-300 hover:bg-surface-card rounded-lg"
                 onClick={() => setMobileMenuOpen(false)}
               >
                 Contact
               </Link>
               <Link
                 href="/contact"
-                className="block rounded-lg bg-accent-500 px-3 py-2 text-base font-medium text-white hover:bg-accent-600 mt-2"
+                className="block rounded-lg bg-primary-500 px-3 py-2 text-base font-semibold text-white shadow-glow hover:bg-primary-600 mt-2 transition-all"
                 onClick={() => setMobileMenuOpen(false)}
               >
                 Get Started
               </Link>
 
               {/* Login Links */}
-              <div className="border-t border-slate-700 mt-3 pt-3">
+              <div className="border-t border-surface-border mt-3 pt-3">
                 <p className="px-3 py-1 text-xs font-semibold text-gray-500 uppercase">Login</p>
                 <a
                   href="https://customer.stephenscode.dev"
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="block px-3 py-2 text-base font-medium text-gray-300 hover:bg-slate-800 rounded-lg"
+                  className="block px-3 py-2 text-base font-medium text-gray-300 hover:bg-surface-card rounded-lg"
                   onClick={() => setMobileMenuOpen(false)}
                 >
                   Customer Portal
@@ -404,7 +404,7 @@ export default function Header() {
                   href="https://admin.stephenscode.dev"
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="block px-3 py-2 text-base font-medium text-gray-300 hover:bg-slate-800 rounded-lg"
+                  className="block px-3 py-2 text-base font-medium text-gray-300 hover:bg-surface-card rounded-lg"
                   onClick={() => setMobileMenuOpen(false)}
                 >
                   Admin Login
