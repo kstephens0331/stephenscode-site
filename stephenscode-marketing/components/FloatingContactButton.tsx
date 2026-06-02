@@ -36,7 +36,7 @@ export default function FloatingContactButton() {
           {/* Contact Form Button */}
           <Link
             href="/contact"
-            className="flex items-center gap-3 rounded-full bg-primary-600 pl-4 pr-6 py-3 text-white shadow-lg hover:bg-primary-700 transition-all hover:scale-105"
+            className="flex items-center gap-3 rounded-full bg-primary-500 pl-4 pr-6 py-3 text-white shadow-glow hover:bg-primary-600 hover:shadow-glow-lg transition-all hover:scale-105"
           >
             <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
               <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M8 12h.01M12 12h.01M16 12h.01M21 12c0 4.418-4.03 8-9 8a9.863 9.863 0 01-4.255-.949L3 20l1.395-3.72C3.512 15.042 3 13.574 3 12c0-4.418 4.03-8 9-8s9 3.582 9 8z" />
@@ -49,10 +49,10 @@ export default function FloatingContactButton() {
       {/* Main Toggle Button */}
       <button
         onClick={() => setIsOpen(!isOpen)}
-        className={`flex items-center justify-center w-14 h-14 rounded-full shadow-2xl transition-all hover:scale-110 ${
+        className={`flex items-center justify-center w-14 h-14 rounded-full transition-all hover:scale-110 ${
           isOpen
-            ? 'bg-gray-700 hover:bg-gray-800'
-            : 'bg-accent-500 hover:bg-accent-600'
+            ? 'bg-surface-elevated hover:bg-surface-border ring-1 ring-surface-border shadow-xl'
+            : 'bg-primary-500 hover:bg-primary-600 shadow-glow-lg'
         }`}
         aria-label={isOpen ? 'Close contact options' : 'Open contact options'}
       >
@@ -70,8 +70,8 @@ export default function FloatingContactButton() {
       {/* Pulse animation when closed */}
       {!isOpen && (
         <span className="absolute -top-1 -right-1 flex h-4 w-4">
-          <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-accent-400 opacity-75"></span>
-          <span className="relative inline-flex rounded-full h-4 w-4 bg-accent-500"></span>
+          <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-accent-400 opacity-80"></span>
+          <span className="relative inline-flex rounded-full h-4 w-4 bg-accent-400 ring-2 ring-surface"></span>
         </span>
       )}
 
