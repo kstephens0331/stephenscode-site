@@ -60,10 +60,10 @@ export default function ContactForm() {
 
   if (submitSuccess) {
     return (
-      <div className="rounded-lg bg-green-500/10 p-8 text-center border border-green-500/30">
-        <div className="mx-auto flex h-12 w-12 items-center justify-center rounded-full bg-green-500/20 mb-4">
+      <div className="rounded-lg bg-emerald-500/10 p-8 text-center border border-emerald-500/30">
+        <div className="mx-auto flex h-12 w-12 items-center justify-center rounded-full bg-emerald-500/20 mb-4">
           <svg
-            className="h-6 w-6 text-green-600"
+            className="h-6 w-6 text-emerald-400"
             fill="none"
             viewBox="0 0 24 24"
             strokeWidth="1.5"
@@ -78,7 +78,7 @@ export default function ContactForm() {
         </p>
         <button
           onClick={() => setSubmitSuccess(false)}
-          className="mt-6 text-sm font-semibold text-primary-600 hover:text-primary-700"
+          className="mt-6 text-sm font-semibold text-primary-400 hover:text-primary-300"
         >
           Send another message
         </button>
@@ -92,7 +92,7 @@ export default function ContactForm() {
 
       {submitError && (
         <div className="rounded-lg bg-red-500/10 p-4 border border-red-500/30">
-          <p className="text-sm text-red-600">{submitError}</p>
+          <p className="text-sm text-red-400">{submitError}</p>
         </div>
       )}
 
@@ -106,10 +106,10 @@ export default function ContactForm() {
             type="text"
             id="name"
             {...register('name', { required: 'Name is required' })}
-            className="block w-full rounded-md border-0 px-3.5 py-2 text-white bg-slate-800 shadow-sm ring-1 ring-inset ring-slate-600 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-primary-600 sm:text-sm sm:leading-6"
+            className="block w-full rounded-md border-0 px-3.5 py-2 text-white bg-surface-elevated shadow-sm ring-1 ring-inset ring-surface-border placeholder:text-gray-500 focus:ring-2 focus:ring-inset focus:ring-primary-500 sm:text-sm sm:leading-6"
           />
           {errors.name && (
-            <p className="mt-1 text-sm text-red-600">{errors.name.message}</p>
+            <p className="mt-1 text-sm text-red-400">{errors.name.message}</p>
           )}
         </div>
       </div>
@@ -130,10 +130,10 @@ export default function ContactForm() {
                 message: 'Invalid email address',
               },
             })}
-            className="block w-full rounded-md border-0 px-3.5 py-2 text-white bg-slate-800 shadow-sm ring-1 ring-inset ring-slate-600 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-primary-600 sm:text-sm sm:leading-6"
+            className="block w-full rounded-md border-0 px-3.5 py-2 text-white bg-surface-elevated shadow-sm ring-1 ring-inset ring-surface-border placeholder:text-gray-500 focus:ring-2 focus:ring-inset focus:ring-primary-500 sm:text-sm sm:leading-6"
           />
           {errors.email && (
-            <p className="mt-1 text-sm text-red-600">{errors.email.message}</p>
+            <p className="mt-1 text-sm text-red-400">{errors.email.message}</p>
           )}
         </div>
       </div>
@@ -148,10 +148,10 @@ export default function ContactForm() {
             type="tel"
             id="phone"
             {...register('phone', { required: 'Phone is required' })}
-            className="block w-full rounded-md border-0 px-3.5 py-2 text-white bg-slate-800 shadow-sm ring-1 ring-inset ring-slate-600 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-primary-600 sm:text-sm sm:leading-6"
+            className="block w-full rounded-md border-0 px-3.5 py-2 text-white bg-surface-elevated shadow-sm ring-1 ring-inset ring-surface-border placeholder:text-gray-500 focus:ring-2 focus:ring-inset focus:ring-primary-500 sm:text-sm sm:leading-6"
           />
           {errors.phone && (
-            <p className="mt-1 text-sm text-red-600">{errors.phone.message}</p>
+            <p className="mt-1 text-sm text-red-400">{errors.phone.message}</p>
           )}
         </div>
       </div>
@@ -166,7 +166,7 @@ export default function ContactForm() {
             type="text"
             id="company"
             {...register('company')}
-            className="block w-full rounded-md border-0 px-3.5 py-2 text-white bg-slate-800 shadow-sm ring-1 ring-inset ring-slate-600 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-primary-600 sm:text-sm sm:leading-6"
+            className="block w-full rounded-md border-0 px-3.5 py-2 text-white bg-surface-elevated shadow-sm ring-1 ring-inset ring-surface-border placeholder:text-gray-500 focus:ring-2 focus:ring-inset focus:ring-primary-500 sm:text-sm sm:leading-6"
           />
         </div>
       </div>
@@ -180,7 +180,7 @@ export default function ContactForm() {
           <select
             id="service"
             {...register('service', { required: 'Please select a service' })}
-            className="block w-full rounded-md border-0 px-3.5 py-2 text-white bg-slate-800 shadow-sm ring-1 ring-inset ring-slate-600 focus:ring-2 focus:ring-inset focus:ring-primary-600 sm:text-sm sm:leading-6"
+            className="block w-full rounded-md border-0 px-3.5 py-2 text-white bg-surface-elevated shadow-sm ring-1 ring-inset ring-surface-border focus:ring-2 focus:ring-inset focus:ring-primary-500 sm:text-sm sm:leading-6"
           >
             <option value="">Select a service...</option>
             <option value="new-website">New Website</option>
@@ -192,7 +192,7 @@ export default function ContactForm() {
             <option value="not-sure">Not Sure / Need Consultation</option>
           </select>
           {errors.service && (
-            <p className="mt-1 text-sm text-red-600">{errors.service.message}</p>
+            <p className="mt-1 text-sm text-red-400">{errors.service.message}</p>
           )}
         </div>
       </div>
@@ -206,7 +206,7 @@ export default function ContactForm() {
           <select
             id="budget"
             {...register('budget')}
-            className="block w-full rounded-md border-0 px-3.5 py-2 text-white bg-slate-800 shadow-sm ring-1 ring-inset ring-slate-600 focus:ring-2 focus:ring-inset focus:ring-primary-600 sm:text-sm sm:leading-6"
+            className="block w-full rounded-md border-0 px-3.5 py-2 text-white bg-surface-elevated shadow-sm ring-1 ring-inset ring-surface-border focus:ring-2 focus:ring-inset focus:ring-primary-500 sm:text-sm sm:leading-6"
           >
             <option value="">Select budget...</option>
             <option value="under-500">Under $500</option>
@@ -229,11 +229,11 @@ export default function ContactForm() {
             id="message"
             rows={4}
             {...register('message', { required: 'Please provide some details about your project' })}
-            className="block w-full rounded-md border-0 px-3.5 py-2 text-white bg-slate-800 shadow-sm ring-1 ring-inset ring-slate-600 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-primary-600 sm:text-sm sm:leading-6"
+            className="block w-full rounded-md border-0 px-3.5 py-2 text-white bg-surface-elevated shadow-sm ring-1 ring-inset ring-surface-border placeholder:text-gray-500 focus:ring-2 focus:ring-inset focus:ring-primary-500 sm:text-sm sm:leading-6"
             placeholder="Tell us about your project, timeline, specific features you need, etc."
           />
           {errors.message && (
-            <p className="mt-1 text-sm text-red-600">{errors.message.message}</p>
+            <p className="mt-1 text-sm text-red-400">{errors.message.message}</p>
           )}
         </div>
       </div>
@@ -243,7 +243,7 @@ export default function ContactForm() {
         <button
           type="submit"
           disabled={isSubmitting}
-          className="w-full rounded-md bg-primary-600 px-3.5 py-2.5 text-center text-sm font-semibold text-white shadow-sm hover:bg-primary-700 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-primary-600 disabled:opacity-50 disabled:cursor-not-allowed"
+          className="w-full rounded-md bg-primary-500 px-3.5 py-2.5 text-center text-sm font-semibold text-white shadow-glow hover:bg-primary-600 hover:shadow-glow-lg transition-all focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-primary-500 disabled:opacity-50 disabled:cursor-not-allowed disabled:hover:shadow-glow"
         >
           {isSubmitting ? 'Sending...' : 'Send Message'}
         </button>

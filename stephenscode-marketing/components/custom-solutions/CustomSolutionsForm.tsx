@@ -70,10 +70,10 @@ export default function CustomSolutionsForm() {
           viewport={{ once: true }}
           className="text-center mb-12"
         >
-          <h2 className="text-4xl md:text-5xl font-bold mb-4 bg-gradient-to-r from-blue-400 to-cyan-400 bg-clip-text text-transparent">
+          <h2 className="text-4xl md:text-5xl font-black mb-4 bg-gradient-to-r from-primary-400 to-accent-400 bg-clip-text text-transparent">
             Get Your Free Quote
           </h2>
-          <p className="text-xl text-slate-300 max-w-2xl mx-auto">
+          <p className="text-xl text-gray-400 max-w-2xl mx-auto">
             Tell us about your project and we'll provide a detailed flat-rate quote within 24 hours
           </p>
         </motion.div>
@@ -82,22 +82,22 @@ export default function CustomSolutionsForm() {
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
-          className="bg-gradient-to-br from-slate-800/80 to-slate-700/80 rounded-3xl p-8 md:p-12 border border-slate-600/50"
+          className="bg-surface-card rounded-3xl p-8 md:p-12 border border-surface-border shadow-xl shadow-black/40"
         >
           {status === 'success' ? (
             <div className="text-center py-12">
-              <div className="w-20 h-20 rounded-full bg-gradient-to-br from-green-500 to-emerald-600 flex items-center justify-center mx-auto mb-6">
+              <div className="w-20 h-20 rounded-full bg-emerald-500 flex items-center justify-center mx-auto mb-6 shadow-lg shadow-emerald-500/30">
                 <svg className="w-10 h-10 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                   <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 13l4 4L19 7" />
                 </svg>
               </div>
               <h3 className="text-3xl font-bold text-white mb-4">Request Received!</h3>
-              <p className="text-lg text-slate-300 mb-8">
+              <p className="text-lg text-gray-300 mb-8">
                 Thank you for your interest. We'll review your project details and send you a detailed quote within 24 hours.
               </p>
               <button
                 onClick={() => setStatus('idle')}
-                className="px-6 py-3 bg-gradient-to-r from-blue-500 to-cyan-500 text-white font-semibold rounded-xl hover:from-blue-600 hover:to-cyan-600 transition-all duration-300"
+                className="px-6 py-3 bg-primary-500 text-white font-semibold rounded-xl shadow-glow hover:bg-primary-600 hover:shadow-glow-lg transition-all duration-300"
               >
                 Submit Another Request
               </button>
@@ -107,7 +107,7 @@ export default function CustomSolutionsForm() {
               {/* Name and Email */}
               <div className="grid md:grid-cols-2 gap-6">
                 <div>
-                  <label htmlFor="name" className="block text-sm font-semibold text-slate-300 mb-2">
+                  <label htmlFor="name" className="block text-sm font-semibold text-gray-200 mb-2">
                     Full Name *
                   </label>
                   <input
@@ -117,12 +117,12 @@ export default function CustomSolutionsForm() {
                     value={formData.name}
                     onChange={handleChange}
                     required
-                    className="w-full bg-slate-900/50 border border-slate-600/50 rounded-xl p-4 text-white placeholder-slate-500 focus:outline-none focus:ring-2 focus:ring-blue-500/50 focus:border-blue-500/50 transition-all"
+                    className="w-full bg-surface-elevated border border-surface-border rounded-xl p-4 text-white placeholder-gray-500 focus:outline-none focus:ring-2 focus:ring-primary-500/60 focus:border-primary-500/60 transition-all"
                     placeholder="John Doe"
                   />
                 </div>
                 <div>
-                  <label htmlFor="email" className="block text-sm font-semibold text-slate-300 mb-2">
+                  <label htmlFor="email" className="block text-sm font-semibold text-gray-200 mb-2">
                     Email Address *
                   </label>
                   <input
@@ -132,7 +132,7 @@ export default function CustomSolutionsForm() {
                     value={formData.email}
                     onChange={handleChange}
                     required
-                    className="w-full bg-slate-900/50 border border-slate-600/50 rounded-xl p-4 text-white placeholder-slate-500 focus:outline-none focus:ring-2 focus:ring-blue-500/50 focus:border-blue-500/50 transition-all"
+                    className="w-full bg-surface-elevated border border-surface-border rounded-xl p-4 text-white placeholder-gray-500 focus:outline-none focus:ring-2 focus:ring-primary-500/60 focus:border-primary-500/60 transition-all"
                     placeholder="john@example.com"
                   />
                 </div>
@@ -141,7 +141,7 @@ export default function CustomSolutionsForm() {
               {/* Phone and Company */}
               <div className="grid md:grid-cols-2 gap-6">
                 <div>
-                  <label htmlFor="phone" className="block text-sm font-semibold text-slate-300 mb-2">
+                  <label htmlFor="phone" className="block text-sm font-semibold text-gray-200 mb-2">
                     Phone Number
                   </label>
                   <input
@@ -150,12 +150,12 @@ export default function CustomSolutionsForm() {
                     name="phone"
                     value={formData.phone}
                     onChange={handleChange}
-                    className="w-full bg-slate-900/50 border border-slate-600/50 rounded-xl p-4 text-white placeholder-slate-500 focus:outline-none focus:ring-2 focus:ring-blue-500/50 focus:border-blue-500/50 transition-all"
+                    className="w-full bg-surface-elevated border border-surface-border rounded-xl p-4 text-white placeholder-gray-500 focus:outline-none focus:ring-2 focus:ring-primary-500/60 focus:border-primary-500/60 transition-all"
                     placeholder="(555) 123-4567"
                   />
                 </div>
                 <div>
-                  <label htmlFor="company" className="block text-sm font-semibold text-slate-300 mb-2">
+                  <label htmlFor="company" className="block text-sm font-semibold text-gray-200 mb-2">
                     Company Name
                   </label>
                   <input
@@ -164,7 +164,7 @@ export default function CustomSolutionsForm() {
                     name="company"
                     value={formData.company}
                     onChange={handleChange}
-                    className="w-full bg-slate-900/50 border border-slate-600/50 rounded-xl p-4 text-white placeholder-slate-500 focus:outline-none focus:ring-2 focus:ring-blue-500/50 focus:border-blue-500/50 transition-all"
+                    className="w-full bg-surface-elevated border border-surface-border rounded-xl p-4 text-white placeholder-gray-500 focus:outline-none focus:ring-2 focus:ring-primary-500/60 focus:border-primary-500/60 transition-all"
                     placeholder="Your Company LLC"
                   />
                 </div>
@@ -172,7 +172,7 @@ export default function CustomSolutionsForm() {
 
               {/* Project Type */}
               <div>
-                <label htmlFor="projectType" className="block text-sm font-semibold text-slate-300 mb-2">
+                <label htmlFor="projectType" className="block text-sm font-semibold text-gray-200 mb-2">
                   Project Type *
                 </label>
                 <select
@@ -181,7 +181,7 @@ export default function CustomSolutionsForm() {
                   value={formData.projectType}
                   onChange={handleChange}
                   required
-                  className="w-full bg-slate-900/50 border border-slate-600/50 rounded-xl p-4 text-white focus:outline-none focus:ring-2 focus:ring-blue-500/50 focus:border-blue-500/50 transition-all"
+                  className="w-full bg-surface-elevated border border-surface-border rounded-xl p-4 text-white focus:outline-none focus:ring-2 focus:ring-primary-500/60 focus:border-primary-500/60 transition-all"
                 >
                   <option value="">Select a project type...</option>
                   <option value="SaaS Platform">SaaS Platform</option>
@@ -197,7 +197,7 @@ export default function CustomSolutionsForm() {
               {/* Timeline and Budget */}
               <div className="grid md:grid-cols-2 gap-6">
                 <div>
-                  <label htmlFor="timeline" className="block text-sm font-semibold text-slate-300 mb-2">
+                  <label htmlFor="timeline" className="block text-sm font-semibold text-gray-200 mb-2">
                     Desired Timeline
                   </label>
                   <select
@@ -205,7 +205,7 @@ export default function CustomSolutionsForm() {
                     name="timeline"
                     value={formData.timeline}
                     onChange={handleChange}
-                    className="w-full bg-slate-900/50 border border-slate-600/50 rounded-xl p-4 text-white focus:outline-none focus:ring-2 focus:ring-blue-500/50 focus:border-blue-500/50 transition-all"
+                    className="w-full bg-surface-elevated border border-surface-border rounded-xl p-4 text-white focus:outline-none focus:ring-2 focus:ring-primary-500/60 focus:border-primary-500/60 transition-all"
                   >
                     <option value="">Select timeline...</option>
                     <option value="1-2 weeks">1-2 weeks</option>
@@ -217,7 +217,7 @@ export default function CustomSolutionsForm() {
                   </select>
                 </div>
                 <div>
-                  <label htmlFor="budget" className="block text-sm font-semibold text-slate-300 mb-2">
+                  <label htmlFor="budget" className="block text-sm font-semibold text-gray-200 mb-2">
                     Estimated Budget Range
                   </label>
                   <select
@@ -225,7 +225,7 @@ export default function CustomSolutionsForm() {
                     name="budget"
                     value={formData.budget}
                     onChange={handleChange}
-                    className="w-full bg-slate-900/50 border border-slate-600/50 rounded-xl p-4 text-white focus:outline-none focus:ring-2 focus:ring-blue-500/50 focus:border-blue-500/50 transition-all"
+                    className="w-full bg-surface-elevated border border-surface-border rounded-xl p-4 text-white focus:outline-none focus:ring-2 focus:ring-primary-500/60 focus:border-primary-500/60 transition-all"
                   >
                     <option value="">Select budget range...</option>
                     <option value="Under $5,000">Under $5,000</option>
@@ -240,7 +240,7 @@ export default function CustomSolutionsForm() {
 
               {/* Project Description */}
               <div>
-                <label htmlFor="description" className="block text-sm font-semibold text-slate-300 mb-2">
+                <label htmlFor="description" className="block text-sm font-semibold text-gray-200 mb-2">
                   Project Description *
                 </label>
                 <textarea
@@ -250,7 +250,7 @@ export default function CustomSolutionsForm() {
                   onChange={handleChange}
                   required
                   rows={6}
-                  className="w-full bg-slate-900/50 border border-slate-600/50 rounded-xl p-4 text-white placeholder-slate-500 focus:outline-none focus:ring-2 focus:ring-blue-500/50 focus:border-blue-500/50 transition-all resize-none"
+                  className="w-full bg-surface-elevated border border-surface-border rounded-xl p-4 text-white placeholder-gray-500 focus:outline-none focus:ring-2 focus:ring-primary-500/60 focus:border-primary-500/60 transition-all resize-none"
                   placeholder="Tell us about your project. What problem are you trying to solve? What features do you need? The more detail you provide, the more accurate our quote will be."
                 ></textarea>
               </div>
@@ -261,7 +261,7 @@ export default function CustomSolutionsForm() {
                 disabled={status === 'submitting'}
                 whileHover={{ scale: status === 'submitting' ? 1 : 1.02 }}
                 whileTap={{ scale: status === 'submitting' ? 1 : 0.98 }}
-                className="w-full bg-gradient-to-r from-blue-500 to-cyan-500 text-white font-bold py-4 px-6 rounded-xl hover:from-blue-600 hover:to-cyan-600 transition-all duration-300 shadow-lg shadow-blue-500/25 disabled:opacity-50 disabled:cursor-not-allowed flex items-center justify-center gap-2"
+                className="w-full bg-primary-500 text-white font-bold py-4 px-6 rounded-xl hover:bg-primary-600 transition-all duration-300 shadow-glow hover:shadow-glow-lg disabled:opacity-50 disabled:cursor-not-allowed disabled:hover:shadow-glow flex items-center justify-center gap-2"
               >
                 {status === 'submitting' ? (
                   <>
@@ -289,7 +289,7 @@ export default function CustomSolutionsForm() {
                 </div>
               )}
 
-              <p className="text-slate-400 text-sm text-center">
+              <p className="text-gray-500 text-sm text-center">
                 We'll respond within 24 hours with a detailed quote. No obligation, no pressure.
               </p>
             </form>
@@ -301,10 +301,10 @@ export default function CustomSolutionsForm() {
           initial={{ opacity: 0 }}
           whileInView={{ opacity: 1 }}
           viewport={{ once: true }}
-          className="mt-8 p-6 bg-slate-800/30 border border-slate-700/50 rounded-xl"
+          className="mt-8 p-6 bg-surface-card border border-surface-border rounded-xl"
         >
-          <p className="text-sm text-slate-400 leading-relaxed text-center">
-            <strong className="text-slate-300">Pricing Transparency:</strong> Our quotes are based on an hourly rate of $50/hour, but you'll receive a flat-rate price for your entire project. Once approved, that's your final cost—no hourly billing, no surprise charges, no matter how long it takes us to complete.
+          <p className="text-sm text-gray-400 leading-relaxed text-center">
+            <strong className="text-gray-200">Pricing Transparency:</strong> Our quotes are based on an hourly rate of $50/hour, but you'll receive a flat-rate price for your entire project. Once approved, that's your final cost. No hourly billing, no surprise charges, no matter how long it takes us to complete.
           </p>
         </motion.div>
       </div>
