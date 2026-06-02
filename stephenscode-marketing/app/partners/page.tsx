@@ -217,6 +217,18 @@ const clients: Client[] = [
     pageCount: 30,
     samplePages: ['/dashboard', '/flashcards', '/practice', '/videos', '/progress', '/settings'],
   },
+  {
+    name: 'The Scattered Stethoscope',
+    shortName: 'Scattered Stethoscope',
+    description: 'Podcast website with episode archive, audio player, series browsing, and email newsletter for a neurodivergent med student community.',
+    longDescription: 'The Scattered Stethoscope is a podcast platform we built for a host sharing her journey through medical school and USMLE preparation as a neurodivergent student. The site features an embedded audio player, full episode archive with show notes, series-based browsing, health awareness collections, and email newsletter signup so listeners get notified when new episodes drop. Built on our self-hosted infrastructure so the host owns her audience and keeps operating costs flat as the show grows.',
+    url: 'https://scatteredstethoscope.com',
+    industry: 'Podcast and Media',
+    location: 'Nationwide',
+    services: ['Custom Website', 'Audio Player', 'Newsletter Integration', 'Episode Archive'],
+    pageCount: 12,
+    samplePages: ['/', '/episodes', '/series', '/about', '/subscribe'],
+  },
 ]
 
 // Calculate total pages built across all clients
