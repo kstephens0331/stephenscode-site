@@ -1,5 +1,9 @@
 import Link from 'next/link'
 import type { Metadata } from 'next'
+import {
+  Clock, Rocket, Link2, BarChart3,
+  MessageSquare, DollarSign, Zap, Target,
+} from 'lucide-react'
 import { organizationSchema } from '@/lib/schemas'
 
 export const metadata: Metadata = {
@@ -139,10 +143,10 @@ export default function Home() {
   ]
 
   const stats = [
-    { label: 'Years Experience', value: '14+', icon: '⏱️' },
-    { label: 'Projects Delivered', value: '2,600+', icon: '🚀' },
-    { label: 'API Integrations', value: '200+', icon: '🔗' },
-    { label: 'Web Scraping Jobs', value: '500+', icon: '📊' }
+    { label: 'Years Experience', value: '14+', Icon: Clock },
+    { label: 'Projects Delivered', value: '2,600+', Icon: Rocket },
+    { label: 'API Integrations', value: '200+', Icon: Link2 },
+    { label: 'Web Scraping Jobs', value: '500+', Icon: BarChart3 },
   ]
 
   const processSteps = [
@@ -150,26 +154,26 @@ export default function Home() {
       number: '01',
       title: 'Free Consultation',
       description: 'We discuss your business, goals, and requirements. No sales pressure, just honest advice.',
-      icon: '💬'
+      Icon: MessageSquare,
     },
     {
       number: '02',
       title: 'Transparent Quote',
       description: 'You get a clear, flat-rate price before we start. No hourly rates, no surprise bills.',
-      icon: '💰'
+      Icon: DollarSign,
     },
     {
       number: '03',
       title: 'Fast Development',
       description: 'Most sites completed in 1-2 weeks. We keep you updated throughout the process.',
-      icon: '⚡'
+      Icon: Zap,
     },
     {
       number: '04',
       title: 'Launch & Support',
       description: 'Your site goes live with training and documentation. Post-launch support included.',
-      icon: '🎯'
-    }
+      Icon: Target,
+    },
   ]
 
   const testimonials = [
@@ -326,15 +330,20 @@ export default function Home() {
       <section className="bg-surface py-16">
         <div className="mx-auto max-w-7xl px-6 lg:px-8">
           <div className="grid grid-cols-2 gap-8 lg:grid-cols-4">
-            {stats.map((stat, index) => (
-              <div key={stat.label} className="flex flex-col items-center text-center group hover:scale-110 transition-transform duration-300" style={{ animationDelay: `${index * 100}ms` }}>
-                <div className="text-5xl mb-3 group-hover:scale-125 transition-transform">{stat.icon}</div>
-                <p className="text-base leading-7 text-gray-400 font-semibold">{stat.label}</p>
-                <p className="order-first text-5xl font-black tracking-tight text-accent-400 mb-2">
-                  {stat.value}
-                </p>
-              </div>
-            ))}
+            {stats.map((stat, index) => {
+              const Icon = stat.Icon
+              return (
+                <div key={stat.label} className="flex flex-col items-center text-center group" style={{ animationDelay: `${index * 100}ms` }}>
+                  <div className="mb-4 flex h-14 w-14 items-center justify-center rounded-full bg-primary-500/10 ring-1 ring-primary-500/30 text-primary-400 group-hover:bg-primary-500/20 group-hover:ring-primary-500/60 group-hover:text-primary-300 transition-all">
+                    <Icon className="h-7 w-7" strokeWidth={1.75} />
+                  </div>
+                  <p className="text-base leading-7 text-gray-400 font-semibold">{stat.label}</p>
+                  <p className="order-first text-5xl font-black tracking-tight text-accent-400 mb-2">
+                    {stat.value}
+                  </p>
+                </div>
+              )
+            })}
           </div>
         </div>
       </section>
@@ -552,23 +561,26 @@ export default function Home() {
           </div>
 
           <div className="grid grid-cols-1 gap-12 lg:grid-cols-4">
-            {processSteps.map((step, index) => (
-              <div key={step.number} className="relative group">
-                {index < processSteps.length - 1 && (
-                  <div className="hidden lg:block absolute top-20 left-full w-full h-0.5 bg-gradient-to-r from-primary-500 to-primary-500/10 -translate-x-1/2"></div>
-                )}
-                <div className="relative flex flex-col items-center text-center">
-                  <div className="flex h-20 w-20 items-center justify-center rounded-full bg-primary-500 text-white text-4xl mb-6 group-hover:scale-110 group-hover:shadow-glow transition-all shadow-xl">
-                    {step.icon}
+            {processSteps.map((step, index) => {
+              const Icon = step.Icon
+              return (
+                <div key={step.number} className="relative group">
+                  {index < processSteps.length - 1 && (
+                    <div className="hidden lg:block absolute top-20 left-full w-full h-0.5 bg-gradient-to-r from-primary-500 to-primary-500/10 -translate-x-1/2"></div>
+                  )}
+                  <div className="relative flex flex-col items-center text-center">
+                    <div className="flex h-20 w-20 items-center justify-center rounded-full bg-primary-500 text-white mb-6 group-hover:scale-110 group-hover:shadow-glow transition-all shadow-xl">
+                      <Icon className="h-9 w-9" strokeWidth={2} />
+                    </div>
+                    <div className="absolute top-0 -right-2 flex h-8 w-8 items-center justify-center rounded-full bg-accent-400 text-black text-sm font-bold shadow-lg ring-2 ring-surface">
+                      {step.number}
+                    </div>
+                    <h3 className="text-xl font-bold text-white mb-3">{step.title}</h3>
+                    <p className="text-gray-400">{step.description}</p>
                   </div>
-                  <div className="absolute top-0 -right-2 flex h-8 w-8 items-center justify-center rounded-full bg-accent-400 text-black text-sm font-bold shadow-lg">
-                    {step.number}
-                  </div>
-                  <h3 className="text-xl font-bold text-white mb-3">{step.title}</h3>
-                  <p className="text-gray-400">{step.description}</p>
                 </div>
-              </div>
-            ))}
+              )
+            })}
           </div>
         </div>
       </section>
