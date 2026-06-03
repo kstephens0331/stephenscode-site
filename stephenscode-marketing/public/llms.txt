@@ -17,12 +17,12 @@
 ### 1. Web Development
 Custom website development for small businesses with flat-rate, transparent pricing.
 
-**Packages:**
-- Plug and Play Website: $250 (4-page professional site)
-- Standard Website: $850 (8-12 page custom site)
-- Website Rebuild: $600 (complete redesign)
+**Packages (real starting point for most small businesses is the Standard Website at $850):**
+- Standard Website: $850 (8-12 page custom site — typical small business entry)
+- Website Rebuild: $600 (complete redesign of an existing site)
 - E-Commerce Store: $1,100 (full online store)
 - Custom Solutions: Starting at $2,500
+- Plug and Play Website: $250 (3-4 page flyer site — only for brand-new businesses that just need an online presence to start)
 
 **Specialties:**
 - Small business websites
@@ -99,7 +99,7 @@ Remote services available nationwide.
 ## Frequently Asked Questions
 
 **Q: How much does a custom website cost?**
-A: Flat-rate pricing starting at $250 for a 4-page site. Standard custom websites are $850, e-commerce stores start at $1,100.
+A: Standard small business websites are $850 (flat rate). E-commerce stores start at $1,100, premium custom builds start at $2,000. A simple 3-4 page Plug-and-Play flyer site is available from $250 for brand-new businesses that just need an online presence to start.
 
 **Q: Do you provide IT support in Houston?**
 A: Yes, we provide on-site and remote IT support throughout the Houston area with same-day response for critical issues.

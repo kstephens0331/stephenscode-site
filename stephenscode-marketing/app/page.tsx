@@ -39,7 +39,7 @@ const homepageSchemas = {
       "longitude": "-95.4560"
     },
     "url": "https://www.stephenscode.dev",
-    "priceRange": "$250-$7500",
+    "priceRange": "$850-$7500",
     "openingHoursSpecification": {
       "@type": "OpeningHoursSpecification",
       "dayOfWeek": ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday"],
@@ -73,7 +73,7 @@ const homepageSchemas = {
         "name": "How much does a custom website cost?",
         "acceptedAnswer": {
           "@type": "Answer",
-          "text": "Our custom websites start at $250 for a Plug and Play 4-page site. Standard professional websites are $850, e-commerce sites are $1,100, and premium builds start at $2,000. All pricing is flat-rate with no hidden fees."
+          "text": "Standard professional websites are $850, e-commerce sites are $1,100, and premium custom builds start at $2,000. A simple Plug and Play 3-4 page site is available from $250 for brand-new businesses that just need an online presence to start. All pricing is flat-rate with no hidden fees."
         }
       },
       {
@@ -113,15 +113,15 @@ export default function Home() {
     {
       name: 'Plug and Play',
       price: '$250',
-      description: 'Perfect starter website for new businesses. Get online fast with a professional 4-page site.',
-      features: ['4 Pages', 'Mobile Responsive', 'Contact Form', '1 Week Delivery'],
+      description: 'For a brand-new business that just needs an online presence to start. A clean 3-4 page flyer site, online in a week.',
+      features: ['3-4 Pages', 'Mobile Responsive', 'Contact Form', '1 Week Delivery'],
       href: '/services/plug-and-play',
       popular: false
     },
     {
       name: 'Standard Website',
       price: '$850',
-      description: 'Most popular choice for established businesses. Comprehensive 8-12 page professional website.',
+      description: 'The real starting point for most small businesses. A full 8-12 page site built to work for you, not just to exist.',
       features: ['8-12 Pages', 'SEO Optimized', 'Blog Setup', 'Google Analytics'],
       href: '/services/standard-website',
       popular: true
@@ -283,8 +283,8 @@ export default function Home() {
                 <dd className="mt-1.5 text-3xl font-semibold text-white tracking-tight">2,600+</dd>
               </div>
               <div className="border-l border-primary-500/40 pl-4">
-                <dt className="text-[10px] uppercase tracking-[0.18em] text-gray-500">Starting at</dt>
-                <dd className="mt-1.5 text-3xl font-semibold text-white tracking-tight">$250</dd>
+                <dt className="text-[10px] uppercase tracking-[0.18em] text-gray-500">Standard site</dt>
+                <dd className="mt-1.5 text-3xl font-semibold text-white tracking-tight">$850</dd>
               </div>
               <div className="border-l border-primary-500/40 pl-4">
                 <dt className="text-[10px] uppercase tracking-[0.18em] text-gray-500">Based in</dt>

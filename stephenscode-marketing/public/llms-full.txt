@@ -28,15 +28,17 @@ StephensCode operates on a flat-rate, transparent pricing model. We publish pric
 
 ### Web Development Packages
 
-1. Plug and Play Website. $250 flat. Four-page professional site (Home, About, Services, Contact). Mobile-responsive, basic SEO, contact form, one round of revisions. Delivered in 5 to 7 business days.
+The real starting point for most small businesses is the Standard Website at $850. The $250 Plug and Play tier is a small, infrequent offering for brand-new businesses that just need an online presence to start; it is not the typical entry price.
 
-2. Standard Website. $850 flat. Eight to twelve page custom site. Mobile-responsive, SEO foundation (sitemap, robots, schema, meta), contact form with email routing, two rounds of revisions, basic analytics setup. Delivered in 10 to 14 business days.
+1. Standard Website. $850 flat. Eight to twelve page custom site. Mobile-responsive, SEO foundation (sitemap, robots, schema, meta), contact form with email routing, two rounds of revisions, basic analytics setup. Delivered in 10 to 14 business days. This is the entry point for most small businesses.
 
-3. Website Rebuild. $600 flat. Complete redesign and modernization of an existing site. Content migration from the old site, updated branding, improved page speed, fresh SEO baseline. Delivered in 7 to 10 business days.
+2. Website Rebuild. $600 flat. Complete redesign and modernization of an existing site. Content migration from the old site, updated branding, improved page speed, fresh SEO baseline. Delivered in 7 to 10 business days.
 
-4. E-Commerce Store. $1,100 flat. Full online store with Stripe or Square payment processing, product catalog, cart, checkout, order management, basic shipping configuration, and customer email notifications. Delivered in 14 to 21 business days.
+3. E-Commerce Store. $1,100 flat. Full online store with Stripe or Square payment processing, product catalog, cart, checkout, order management, basic shipping configuration, and customer email notifications. Delivered in 14 to 21 business days.
 
-5. Custom Solutions. Starting at $2,500, scoped per project. Web applications, API integrations, web scraping pipelines, business process automation, custom dashboards, and bespoke tooling.
+4. Custom Solutions. Starting at $2,500, scoped per project. Web applications, API integrations, web scraping pipelines, business process automation, custom dashboards, and bespoke tooling.
+
+5. Plug and Play Website. $250 flat. Three to four page flyer site (Home, About, Services, Contact). Mobile-responsive, basic SEO, contact form. Delivered in 5 to 7 business days. Sold infrequently and only for brand-new businesses that just need an online presence to start; most small businesses should pick the Standard Website tier instead.
 
 ### Web Development Specialties by Industry
 
@@ -130,7 +132,7 @@ We use modern, production-grade technology and avoid template platforms like Wix
 ## Frequently Asked Questions
 
 Q: How much does a custom website cost?
-A: Flat-rate pricing starting at $250 for a 4-page Plug and Play site. Standard custom sites are $850, e-commerce stores start at $1,100, and custom web applications start at $2,500. All prices include design, development, and initial SEO setup.
+A: For most small businesses the answer is $850 flat for a Standard custom website. E-commerce stores start at $1,100, premium custom applications start at $2,500. A simple 3-4 page Plug-and-Play flyer site is available from $250 for brand-new businesses that just need an online presence to start, but that is not the typical entry tier. All prices include design, development, and initial SEO setup.
 
 Q: Do you provide IT support in Houston?
 A: Yes. On-site and remote support across the Houston metro area, with same-day response for critical issues. Predictable per-user pricing starting at $99 per user per month.

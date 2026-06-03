@@ -4,7 +4,7 @@ import ContactForm from '@/components/ContactForm'
 
 export const metadata: Metadata = {
   title: 'Contact Conroe Web Developer | Free Quote | Houston TX',
-  description: 'Contact veteran owned web developer for free quote. Affordable web design Houston from $250. Custom websites for small business. Call (936) 323-4527.',
+  description: 'Contact veteran owned web developer for free quote. Flat-rate small business websites from $850. Custom websites for small business. Call (936) 323-4527.',
   keywords: [
     'Conroe web developer',
     'Houston web development',
@@ -16,7 +16,7 @@ export const metadata: Metadata = {
   ],
   openGraph: {
     title: 'Contact Conroe Web Developer | Free Quote | Houston TX',
-    description: 'Contact veteran owned web developer for free quote. Affordable web design Houston from $250. Custom websites for small business.',
+    description: 'Contact veteran owned web developer for free quote. Flat-rate small business websites from $850. Custom websites for small business.',
     url: 'https://www.stephenscode.dev/contact',
     type: 'website',
   },

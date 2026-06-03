@@ -4,8 +4,8 @@ import { corePackages, premiumBuilds } from '@/lib/services-data'
 import { allAddOns } from '@/lib/addons-data'
 
 export const metadata: Metadata = {
-  title: 'Houston Web Development | Affordable Web Design from $250',
-  description: 'Conroe web developer offering custom websites for small business. Affordable web design Houston from $250. Veteran owned, 14+ years exp. Free quote: (936) 323-4527.',
+  title: 'Houston Web Development | Flat-Rate Web Design from $850',
+  description: 'Conroe web developer offering custom websites for small business. Flat-rate small business websites from $850. Veteran owned, 14+ years exp. Free quote: (936) 323-4527.',
   alternates: {
     canonical: '/services',
   },
@@ -28,7 +28,7 @@ export const metadata: Metadata = {
     'Montgomery County web developer',
   ],
   openGraph: {
-    title: 'Houston Web Design | Custom Websites from $250',
+    title: 'Houston Web Design | Flat-Rate Custom Websites from $850',
     description: 'Get a professional website built in 1-2 weeks. Flat-rate pricing, no hidden fees. Veteran-owned.',
     url: 'https://www.stephenscode.dev/services',
   },
@@ -123,7 +123,7 @@ export default function ServicesPage() {
       title: 'Transparent Flat-Rate Pricing',
       description: 'Know exactly what you\'ll pay before we start. No hourly rates, no surprise bills, no hidden fees.',
       icon: '💰',
-      stats: 'Packages from $250+'
+      stats: 'Sites from $850+'
     },
     {
       title: 'Fast Turnaround Time',
@@ -220,7 +220,7 @@ export default function ServicesPage() {
             </h1>
 
             <p className="mt-8 text-xl leading-8 text-gray-100 max-w-3xl mx-auto">
-              Conroe web developer offering small business websites from $250. Affordable web design for Houston, The Woodlands, and Montgomery County. <strong className="text-white">Veteran owned web developer</strong> with transparent pricing. No hourly rates, no surprises.
+              Conroe web developer offering flat-rate small business websites from $850. Affordable web design for Houston, The Woodlands, and Montgomery County. <strong className="text-white">Veteran owned web developer</strong> with transparent pricing. No hourly rates, no surprises.
             </p>
 
             <div className="mt-12 flex flex-wrap items-center justify-center gap-4">
@@ -446,7 +446,7 @@ export default function ServicesPage() {
             {[
               {
                 question: "How much does a custom website cost?",
-                answer: "Our flat-rate pricing starts at $250 for a 4-page Plug and Play website. Standard custom websites are $850, website rebuilds are $600, and e-commerce stores start at $1,100. Premium enterprise solutions range from $2,500-$10,000+ depending on complexity. All prices are transparent with no hidden fees."
+                answer: "Standard small business websites are $850 (the typical entry point), website rebuilds are $600, and e-commerce stores start at $1,100. Premium enterprise solutions range from $2,500-$10,000+ depending on complexity. A simple 3-4 page Plug-and-Play flyer site is available from $250 for brand-new businesses that just need an online presence to start. All prices are flat-rate with no hidden fees."
               },
               {
                 question: "How long does it take to build a website?",

@@ -36,7 +36,7 @@ export const organizationSchema = {
       "name": "Montgomery County"
     }
   ],
-  "priceRange": "$250-$7500",
+  "priceRange": "$850-$7500",
   "aggregateRating": {
     "@type": "AggregateRating",
     "ratingValue": "5",

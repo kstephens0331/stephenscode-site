@@ -3,7 +3,7 @@ import Link from 'next/link'
 
 export const metadata: Metadata = {
   title: 'FAQ | Conroe Web Developer Questions | Affordable Web Design',
-  description: 'FAQ about Conroe web developer services. Custom website Houston pricing, small business website Texas cost. Veteran owned, affordable web design from $250.',
+  description: 'FAQ about Conroe web developer services. Custom website Houston pricing, small business website Texas cost. Veteran owned, flat-rate small business websites from $850.',
   keywords: [
     'Conroe web developer',
     'Houston web development',
@@ -15,7 +15,7 @@ export const metadata: Metadata = {
   ],
   openGraph: {
     title: 'FAQ | Conroe Web Developer Questions | Affordable Web Design',
-    description: 'FAQ about Conroe web developer services. Custom website Houston pricing, small business website Texas cost. Veteran owned, affordable web design from $250.',
+    description: 'FAQ about Conroe web developer services. Custom website Houston pricing, small business website Texas cost. Veteran owned, flat-rate small business websites from $850.',
     url: 'https://www.stephenscode.dev/faq',
     type: 'website',
   },

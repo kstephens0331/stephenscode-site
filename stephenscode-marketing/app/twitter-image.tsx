@@ -120,7 +120,7 @@ export default async function Image() {
               fontWeight: 600,
             }}
           >
-            Flat-Rate Pricing Starting at $250
+            Flat-Rate Websites From $850
           </div>
         </div>
       </div>

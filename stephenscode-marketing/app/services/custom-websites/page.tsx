@@ -4,7 +4,7 @@ import { serviceSchema } from '@/lib/schemas'
 
 export const metadata: Metadata = {
   title: 'Custom Website Development | From $250 | Houston & Conroe',
-  description: 'Professional custom website development for Houston businesses. Responsive design, SEO-optimized, mobile-friendly. Flat-rate pricing from $250. Free consultation.',
+  description: 'Professional custom website development for Houston businesses. Responsive design, SEO-optimized, mobile-friendly. Flat-rate pricing from $850. Free consultation.',
   keywords: ['custom website development Houston', 'small business website Conroe TX', 'responsive web design Texas'],
 }
 
