@@ -190,21 +190,21 @@ export default function Layout({ currentPage, onNavigate, children }: LayoutProp
               <div className="flex space-x-3">
                 <a
                   href="#"
-                  className="bg-white/10 backdrop-blur-md p-2.5 rounded-lg hover:bg-white/20 transition-all duration-200 hover:scale-110"
+                  className="bg-white/10 backdrop-blur-md p-2.5 rounded-lg hover:bg-white/20 transition-all duration-200"
                   aria-label="Facebook"
                 >
                   <Facebook className="h-5 w-5" />
                 </a>
                 <a
                   href="#"
-                  className="bg-white/10 backdrop-blur-md p-2.5 rounded-lg hover:bg-white/20 transition-all duration-200 hover:scale-110"
+                  className="bg-white/10 backdrop-blur-md p-2.5 rounded-lg hover:bg-white/20 transition-all duration-200"
                   aria-label="Instagram"
                 >
                   <Instagram className="h-5 w-5" />
                 </a>
                 <a
                   href="#"
-                  className="bg-white/10 backdrop-blur-md p-2.5 rounded-lg hover:bg-white/20 transition-all duration-200 hover:scale-110"
+                  className="bg-white/10 backdrop-blur-md p-2.5 rounded-lg hover:bg-white/20 transition-all duration-200"
                   aria-label="LinkedIn"
                 >
                   <Linkedin className="h-5 w-5" />

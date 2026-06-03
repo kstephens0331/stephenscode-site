@@ -63,7 +63,7 @@ export default function Layout({ children, currentPage, onNavigate }: LayoutProp
               onClick={() => onNavigate('home')}
               className="flex items-center gap-3 group"
             >
-              <div className="w-14 h-14 bg-gradient-to-br from-[#386641] to-[#6a994e] rounded-lg flex items-center justify-center transform group-hover:scale-105 transition-transform">
+              <div className="w-14 h-14 bg-gradient-to-br from-[#386641] to-[#6a994e] rounded-lg flex items-center justify-center transform group- transition-transform">
                 <svg className="w-8 h-8 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                   <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M20 7l-8-4-8 4m16 0l-8 4m8-4v10l-8 4m0-10L4 7m8 4v10M4 7v10l8 4" />
                 </svg>
@@ -131,7 +131,7 @@ export default function Layout({ children, currentPage, onNavigate }: LayoutProp
             <div className="hidden lg:flex items-center gap-4">
               <button
                 onClick={() => onNavigate('contact')}
-                className="bg-[#a7c957] text-[#386641] px-6 py-3 rounded-lg font-semibold hover:bg-[#6a994e] hover:text-white transition-all transform hover:scale-105 shadow-md"
+                className="bg-[#a7c957] text-[#386641] px-6 py-3 rounded-lg font-semibold hover:bg-[#6a994e] hover:text-white transition-all transform shadow-md"
               >
                 Free Estimate
               </button>

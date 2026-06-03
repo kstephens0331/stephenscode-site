@@ -94,7 +94,7 @@ export default function About() {
       name: 'Integrity',
       description: 'We do what we say we\'ll do. No hidden fees, no surprises, no empty promises. Military values guide everything we do.',
       icon: '🎖️',
-      color: 'from-blue-500 to-blue-600'
+      color: 'from-primary-500 to-primary-600'
     },
     {
       name: 'Excellence',
@@ -162,7 +162,7 @@ export default function About() {
       />
 
       {/* Hero Section */}
-      <section className="relative bg-gradient-to-br from-primary-900 via-primary-800 to-primary-700 text-white overflow-hidden">
+      <section className="relative bg-gradient-to-br from-black via-surface to-surface-card text-white overflow-hidden">
         {/* Pattern overlay */}
         <div className="absolute inset-0 opacity-10">
           <svg className="absolute w-full h-full" xmlns="http://www.w3.org/2000/svg">
@@ -177,7 +177,7 @@ export default function About() {
 
         <div className="relative mx-auto max-w-7xl px-6 py-24 sm:py-32 lg:px-8">
           <div className="mx-auto max-w-3xl text-center">
-            <div className="mb-8 inline-flex items-center gap-3 rounded-full bg-slate-800/40 px-6 py-3 text-sm font-semibold backdrop-blur-sm border border-slate-600 animate-fade-in-up">
+            <div className="mb-8 inline-flex items-center gap-3 rounded-full bg-surface-card/60 px-6 py-3 text-sm font-semibold backdrop-blur-sm border border-surface-border animate-fade-in-up">
               <span className="text-3xl">🇺🇸</span>
               <span className="text-base">Veteran-Owned & Operated Since 2011</span>
             </div>
@@ -190,7 +190,7 @@ export default function About() {
             <div className="mt-10 flex flex-col sm:flex-row items-center justify-center gap-6 animate-fade-in-up animation-delay-600">
               <Link
                 href="/contact"
-                className="group rounded-lg bg-accent-500 px-8 py-4 text-base font-semibold text-white shadow-lg hover:bg-accent-600 transition-all hover:scale-105"
+                className="group rounded-lg bg-accent-500 px-8 py-4 text-base font-semibold text-white shadow-lg hover:bg-accent-600 transition-all"
               >
                 Work With Us
                 <span className="inline-block transition-transform group-hover:translate-x-1 ml-2">→</span>
@@ -207,14 +207,14 @@ export default function About() {
 
         {/* Wave divider */}
         <div className="absolute bottom-0 left-0 right-0">
-          <svg className="w-full h-16 fill-slate-900" viewBox="0 0 1200 120" preserveAspectRatio="none">
+          <svg className="w-full h-16 fill-surface" viewBox="0 0 1200 120" preserveAspectRatio="none">
             <path d="M321.39,56.44c58-10.79,114.16-30.13,172-41.86,82.39-16.72,168.19-17.73,250.45-.39C823.78,31,906.67,72,985.66,92.83c70.05,18.48,146.53,26.09,214.34,3V0H0V27.35A600.21,600.21,0,0,0,321.39,56.44Z" />
           </svg>
         </div>
       </section>
 
       {/* Stats Section */}
-      <section className="bg-slate-900 py-16 border-b border-slate-700">
+      <section className="bg-surface py-16 border-b border-surface-border">
         <div className="mx-auto max-w-7xl px-6 lg:px-8">
           <div className="grid grid-cols-2 md:grid-cols-4 gap-8">
             {stats.map((stat, index) => (
@@ -223,8 +223,8 @@ export default function About() {
                 className="text-center group animate-fade-in-up"
                 style={{ animationDelay: `${index * 100}ms` }}
               >
-                <div className="text-5xl mb-3 group-hover:scale-110 transition-transform">{stat.icon}</div>
-                <div className="text-4xl font-bold bg-gradient-to-r from-primary-900 to-accent-600 bg-clip-text text-transparent">
+                <div className="text-5xl mb-3 group- transition-transform">{stat.icon}</div>
+                <div className="text-4xl font-bold bg-gradient-to-r from-primary-400 to-accent-400 bg-clip-text text-transparent">
                   {stat.value}
                 </div>
                 <div className="text-sm text-gray-400 mt-2">{stat.label}</div>
@@ -235,7 +235,7 @@ export default function About() {
       </section>
 
       {/* Story Section */}
-      <section className="bg-slate-900 py-24 sm:py-32">
+      <section className="bg-surface py-24 sm:py-32">
         <div className="mx-auto max-w-7xl px-6 lg:px-8">
           <div className="grid lg:grid-cols-2 gap-16 items-center">
             {/* Text Content */}
@@ -275,36 +275,36 @@ export default function About() {
 
             {/* Visual Element */}
             <div className="relative">
-              <div className="rounded-3xl bg-gradient-to-br from-primary-900 via-primary-800 to-accent-600 p-12 shadow-2xl">
+              <div className="rounded-3xl bg-gradient-to-br from-primary-700 via-primary-600 to-accent-500 p-12 shadow-2xl">
                 <div className="text-center text-white">
                   <div className="text-8xl mb-6">🎖️</div>
                   <h3 className="text-3xl font-bold mb-4">USMC Core Values</h3>
                   <div className="grid grid-cols-2 gap-6 mt-8">
-                    <div className="bg-slate-800/40 backdrop-blur-sm rounded-xl p-4 border border-slate-600">
+                    <div className="bg-surface-card/60 backdrop-blur-sm rounded-xl p-4 border border-surface-border">
                       <div className="text-3xl mb-2">🎖️</div>
                       <div className="text-sm font-semibold">Honor</div>
                     </div>
-                    <div className="bg-slate-800/40 backdrop-blur-sm rounded-xl p-4 border border-slate-600">
+                    <div className="bg-surface-card/60 backdrop-blur-sm rounded-xl p-4 border border-surface-border">
                       <div className="text-3xl mb-2">💪</div>
                       <div className="text-sm font-semibold">Courage</div>
                     </div>
-                    <div className="bg-slate-800/40 backdrop-blur-sm rounded-xl p-4 border border-slate-600">
+                    <div className="bg-surface-card/60 backdrop-blur-sm rounded-xl p-4 border border-surface-border">
                       <div className="text-3xl mb-2">🤝</div>
                       <div className="text-sm font-semibold">Commitment</div>
                     </div>
-                    <div className="bg-slate-800/40 backdrop-blur-sm rounded-xl p-4 border border-slate-600">
+                    <div className="bg-surface-card/60 backdrop-blur-sm rounded-xl p-4 border border-surface-border">
                       <div className="text-3xl mb-2">🎯</div>
                       <div className="text-sm font-semibold">Mission-Focused</div>
                     </div>
-                    <div className="bg-slate-800/40 backdrop-blur-sm rounded-xl p-4 border border-slate-600">
+                    <div className="bg-surface-card/60 backdrop-blur-sm rounded-xl p-4 border border-surface-border">
                       <div className="text-3xl mb-2">💎</div>
                       <div className="text-sm font-semibold">Integrity</div>
                     </div>
-                    <div className="bg-slate-800/40 backdrop-blur-sm rounded-xl p-4 border border-slate-600">
+                    <div className="bg-surface-card/60 backdrop-blur-sm rounded-xl p-4 border border-surface-border">
                       <div className="text-3xl mb-2">🛡️</div>
                       <div className="text-sm font-semibold">Service</div>
                     </div>
-                    <div className="bg-slate-800/40 backdrop-blur-sm rounded-xl p-4 border border-slate-600">
+                    <div className="bg-surface-card/60 backdrop-blur-sm rounded-xl p-4 border border-surface-border">
                       <div className="text-3xl mb-2">⚡</div>
                       <div className="text-sm font-semibold">Excellence</div>
                     </div>
@@ -320,7 +320,7 @@ export default function About() {
       </section>
 
       {/* Timeline Section */}
-      <section className="bg-slate-900 py-24 sm:py-32">
+      <section className="bg-surface py-24 sm:py-32">
         <div className="mx-auto max-w-7xl px-6 lg:px-8">
           <div className="mx-auto max-w-2xl text-center mb-16">
             <div className="inline-flex items-center rounded-full bg-accent-500/15 px-4 py-2 text-sm font-semibold text-accent-300 mb-4">
@@ -344,13 +344,13 @@ export default function About() {
 
                 <div className="relative flex gap-6 group">
                   {/* Year badge */}
-                  <div className="flex-shrink-0 w-16 h-16 rounded-full bg-gradient-to-br from-primary-600 to-accent-600 flex items-center justify-center text-white font-bold shadow-lg group-hover:scale-110 transition-transform z-10">
+                  <div className="flex-shrink-0 w-16 h-16 rounded-full bg-gradient-to-br from-primary-600 to-accent-600 flex items-center justify-center text-white font-bold shadow-lg group- transition-transform z-10">
                     {item.year.slice(2)}
                   </div>
 
                   {/* Content */}
                   <div className="flex-grow pb-8">
-                    <div className="bg-slate-800 rounded-2xl p-8 shadow-lg shadow-black/20 border border-slate-700 group-hover:border-primary-300 group-hover:shadow-xl transition-all">
+                    <div className="bg-surface-card rounded-2xl p-8 shadow-lg shadow-black/20 border border-surface-border group-hover:border-primary-300 group-hover:shadow-xl transition-all">
                       <div className="text-sm font-semibold text-accent-600 mb-2">{item.year}</div>
                       <h3 className="text-2xl font-bold text-white mb-3">{item.title}</h3>
                       <p className="text-gray-400 leading-relaxed">{item.description}</p>
@@ -364,7 +364,7 @@ export default function About() {
       </section>
 
       {/* Values Section */}
-      <section className="bg-slate-900 py-24 sm:py-32">
+      <section className="bg-surface py-24 sm:py-32">
         <div className="mx-auto max-w-7xl px-6 lg:px-8">
           <div className="mx-auto max-w-2xl text-center mb-16">
             <div className="inline-flex items-center rounded-full bg-primary-500/15 px-4 py-2 text-sm font-semibold text-primary-300 mb-4">
@@ -382,7 +382,7 @@ export default function About() {
             {values.map((value, index) => (
               <div
                 key={value.name}
-                className="group relative rounded-3xl bg-slate-800 p-10 shadow-lg shadow-black/20 border-2 border-slate-700 hover:border-primary-300 hover:shadow-2xl transition-all hover:scale-105"
+                className="group relative rounded-3xl bg-surface-card p-10 shadow-lg shadow-black/20 border-2 border-surface-border hover:border-primary-300 transition-all"
                 style={{ animationDelay: `${index * 100}ms` }}
               >
                 <div className={`absolute -top-6 -left-6 w-20 h-20 rounded-2xl bg-gradient-to-br ${value.color} flex items-center justify-center text-4xl shadow-xl transform group-hover:rotate-12 transition-transform`}>
@@ -403,7 +403,7 @@ export default function About() {
       </section>
 
       {/* Team Section */}
-      <section className="bg-slate-900 py-24 sm:py-32">
+      <section className="bg-surface py-24 sm:py-32">
         <div className="mx-auto max-w-7xl px-6 lg:px-8">
           <div className="mx-auto max-w-2xl text-center mb-16">
             <div className="inline-flex items-center rounded-full bg-green-500/15 px-4 py-2 text-sm font-semibold text-green-300 mb-4">
@@ -418,7 +418,7 @@ export default function About() {
           </div>
 
           <div className="mx-auto max-w-4xl">
-            <div className="relative rounded-3xl bg-gradient-to-br from-primary-500/10 via-slate-800 to-accent-500/10 p-12 shadow-2xl shadow-black/20 border-2 border-slate-700">
+            <div className="relative rounded-3xl bg-gradient-to-br from-primary-500/10 via-surface-card to-accent-500/10 p-12 shadow-2xl shadow-black/20 border-2 border-surface-border">
               <div className="flex flex-col lg:flex-row items-center gap-12">
                 {/* Profile Image Placeholder */}
                 <div className="flex-shrink-0">
@@ -426,7 +426,7 @@ export default function About() {
                     <div className="h-48 w-48 rounded-3xl bg-gradient-to-br from-primary-600 to-accent-600 flex items-center justify-center text-white text-7xl shadow-2xl">
                       🎖️
                     </div>
-                    <div className="absolute -bottom-4 -right-4 bg-slate-800 rounded-2xl px-6 py-3 shadow-xl shadow-black/20 border-2 border-accent-500">
+                    <div className="absolute -bottom-4 -right-4 bg-surface-card rounded-2xl px-6 py-3 shadow-xl shadow-black/20 border-2 border-accent-500">
                       <div className="text-sm font-bold text-accent-600">U.S. Veteran</div>
                     </div>
                   </div>
@@ -457,7 +457,7 @@ export default function About() {
       </section>
 
       {/* Why Choose Us Section */}
-      <section className="bg-slate-800 py-24 sm:py-32">
+      <section className="bg-surface-card py-24 sm:py-32">
         <div className="mx-auto max-w-7xl px-6 lg:px-8">
           <div className="mx-auto max-w-2xl text-center mb-16">
             <h2 className="text-4xl font-bold tracking-tight text-white sm:text-5xl">
@@ -469,8 +469,8 @@ export default function About() {
           </div>
 
           <div className="grid gap-8 lg:grid-cols-3">
-            <div className="group rounded-3xl bg-slate-900 p-8 shadow-lg shadow-black/20 border border-slate-700 hover:border-accent-500 hover:shadow-2xl transition-all hover:scale-105">
-              <div className="text-5xl mb-6 group-hover:scale-110 transition-transform">💰</div>
+            <div className="group rounded-3xl bg-surface p-8 shadow-lg shadow-black/20 border border-surface-border hover:border-accent-500 transition-all">
+              <div className="text-5xl mb-6 group- transition-transform">💰</div>
               <h3 className="text-2xl font-bold text-white mb-4">
                 Transparent Flat-Rate Pricing
               </h3>
@@ -479,8 +479,8 @@ export default function About() {
               </p>
             </div>
 
-            <div className="group rounded-3xl bg-slate-900 p-8 shadow-lg shadow-black/20 border border-slate-700 hover:border-accent-500 hover:shadow-2xl transition-all hover:scale-105">
-              <div className="text-5xl mb-6 group-hover:scale-110 transition-transform">⚡</div>
+            <div className="group rounded-3xl bg-surface p-8 shadow-lg shadow-black/20 border border-surface-border hover:border-accent-500 transition-all">
+              <div className="text-5xl mb-6 group- transition-transform">⚡</div>
               <h3 className="text-2xl font-bold text-white mb-4">
                 Fast Turnaround
               </h3>
@@ -489,8 +489,8 @@ export default function About() {
               </p>
             </div>
 
-            <div className="group rounded-3xl bg-slate-900 p-8 shadow-lg shadow-black/20 border border-slate-700 hover:border-accent-500 hover:shadow-2xl transition-all hover:scale-105">
-              <div className="text-5xl mb-6 group-hover:scale-110 transition-transform">📍</div>
+            <div className="group rounded-3xl bg-surface p-8 shadow-lg shadow-black/20 border border-surface-border hover:border-accent-500 transition-all">
+              <div className="text-5xl mb-6 group- transition-transform">📍</div>
               <h3 className="text-2xl font-bold text-white mb-4">
                 Local Houston Support
               </h3>
@@ -503,7 +503,7 @@ export default function About() {
       </section>
 
       {/* Service Area Section */}
-      <section className="bg-gradient-to-br from-primary-900 via-primary-800 to-primary-700 py-16">
+      <section className="bg-gradient-to-br from-black via-surface to-surface-card py-16">
         <div className="mx-auto max-w-7xl px-6 lg:px-8">
           <div className="text-center mb-12">
             <h2 className="text-3xl font-bold text-white mb-3">Serving the Greater Houston Area</h2>
@@ -516,7 +516,7 @@ export default function About() {
             ].map((city, index) => (
               <div
                 key={city}
-                className="bg-slate-800/40 backdrop-blur-sm rounded-lg px-4 py-3 text-white font-semibold border border-slate-600 hover:bg-slate-700/60 transition-all"
+                className="bg-surface-card/60 backdrop-blur-sm rounded-lg px-4 py-3 text-white font-semibold border border-surface-border hover:bg-surface-elevated/80 transition-all"
                 style={{ animationDelay: `${index * 50}ms` }}
               >
                 {city}
@@ -530,7 +530,7 @@ export default function About() {
       </section>
 
       {/* CTA Section */}
-      <section className="relative bg-slate-900 py-24 sm:py-32 overflow-hidden">
+      <section className="relative bg-surface py-24 sm:py-32 overflow-hidden">
         <div className="absolute inset-0 opacity-5">
           <div className="absolute inset-0" style={{
             backgroundImage: 'radial-gradient(circle at 2px 2px, #1e40af 1px, transparent 0)',
@@ -549,7 +549,7 @@ export default function About() {
             <div className="mt-10 flex flex-col sm:flex-row items-center justify-center gap-6">
               <Link
                 href="/contact"
-                className="group rounded-lg bg-gradient-to-r from-primary-600 to-accent-600 px-8 py-4 text-base font-semibold text-white shadow-lg hover:shadow-xl transition-all hover:scale-105"
+                className="group rounded-lg bg-gradient-to-r from-primary-600 to-accent-600 px-8 py-4 text-base font-semibold text-white shadow-lg hover:shadow-xl transition-all"
               >
                 Get in Touch
                 <span className="inline-block transition-transform group-hover:translate-x-1 ml-2">→</span>

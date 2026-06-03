@@ -27,7 +27,7 @@ export default function CustomerView({ demo, colors }: CustomerViewProps) {
                 <div style={{ color: '#0353a4' }} className="text-sm font-bold uppercase tracking-widest mb-4">
                   Trusted Healthcare Provider Since 1985
                 </div>
-                <h1 style={{ color: '#0353a4' }} className="text-6xl md:text-7xl font-black leading-tight mb-6">
+                <h1 style={{ color: '#0353a4' }} className="text-6xl md:text-7xl font-bold leading-tight mb-6">
                   Your Health,<br />Our Priority
                 </h1>
                 <p style={{ color: '#006ba6' }} className="text-xl leading-relaxed mb-10">
@@ -58,7 +58,7 @@ export default function CustomerView({ demo, colors }: CustomerViewProps) {
           <section className="py-24" style={{ backgroundColor: '#ffffff' }}>
             <div className="max-w-7xl mx-auto px-4">
               <div className="text-center mb-16">
-                <h2 style={{ color: '#0353a4' }} className="text-5xl font-black mb-4">Our Services</h2>
+                <h2 style={{ color: '#0353a4' }} className="text-5xl font-bold mb-4">Our Services</h2>
               </div>
               <div className="grid md:grid-cols-4 gap-8">
                 {[
@@ -73,7 +73,7 @@ export default function CustomerView({ demo, colors }: CustomerViewProps) {
                 ].map((service) => (
                   <div key={service.title} style={{ backgroundColor: '#f5f5f5' }} className="p-6 text-center hover:shadow-xl transition">
                     <div className="text-5xl mb-3">{service.icon}</div>
-                    <h3 style={{ color: '#0353a4' }} className="text-xl font-black mb-2">{service.title}</h3>
+                    <h3 style={{ color: '#0353a4' }} className="text-xl font-bold mb-2">{service.title}</h3>
                     <p style={{ color: '#666666' }} className="text-sm">{service.desc}</p>
                   </div>
                 ))}
@@ -85,15 +85,15 @@ export default function CustomerView({ demo, colors }: CustomerViewProps) {
             <div className="max-w-7xl mx-auto px-4">
               <div className="grid md:grid-cols-3 gap-8 text-center">
                 <div>
-                  <div style={{ color: '#0496ff' }} className="text-5xl font-black mb-2">35+</div>
+                  <div style={{ color: '#0496ff' }} className="text-5xl font-bold mb-2">35+</div>
                   <div style={{ color: '#ffffff' }} className="font-bold">Years of Excellence</div>
                 </div>
                 <div>
-                  <div style={{ color: '#0496ff' }} className="text-5xl font-black mb-2">25</div>
+                  <div style={{ color: '#0496ff' }} className="text-5xl font-bold mb-2">25</div>
                   <div style={{ color: '#ffffff' }} className="font-bold">Board-Certified Physicians</div>
                 </div>
                 <div>
-                  <div style={{ color: '#0496ff' }} className="text-5xl font-black mb-2">50K+</div>
+                  <div style={{ color: '#0496ff' }} className="text-5xl font-bold mb-2">50K+</div>
                   <div style={{ color: '#ffffff' }} className="font-bold">Patients Served Annually</div>
                 </div>
               </div>
@@ -131,7 +131,7 @@ export default function CustomerView({ demo, colors }: CustomerViewProps) {
         <div>
           <section style={{ backgroundColor: '#0353a4' }} className="py-20">
             <div className="max-w-4xl mx-auto px-4 text-center">
-              <h1 style={{ color: '#ffffff' }} className="text-6xl font-black mb-6">Medical Services</h1>
+              <h1 style={{ color: '#ffffff' }} className="text-6xl font-bold mb-6">Medical Services</h1>
               <p style={{ color: '#0496ff' }} className="text-xl font-bold">
                 Comprehensive healthcare solutions for the entire family
               </p>
@@ -143,7 +143,7 @@ export default function CustomerView({ demo, colors }: CustomerViewProps) {
               <div className="space-y-8">
                 {services.map((service) => (
                   <div key={service.name} style={{ backgroundColor: '#f5f5f5', border: '3px solid #0496ff' }} className="p-8">
-                    <h3 style={{ color: '#0353a4' }} className="text-3xl font-black mb-3">{service.name}</h3>
+                    <h3 style={{ color: '#0353a4' }} className="text-3xl font-bold mb-3">{service.name}</h3>
                     <p style={{ color: '#666666' }} className="text-lg mb-6">{service.description}</p>
                     <div className="grid md:grid-cols-2 gap-3 mb-6">
                       {service.features.map((feature) => (
@@ -183,7 +183,7 @@ export default function CustomerView({ demo, colors }: CustomerViewProps) {
         <div>
           <section style={{ backgroundColor: '#0353a4' }} className="py-20">
             <div className="max-w-4xl mx-auto px-4 text-center">
-              <h1 style={{ color: '#ffffff' }} className="text-6xl font-black mb-6">Our Physicians</h1>
+              <h1 style={{ color: '#ffffff' }} className="text-6xl font-bold mb-6">Our Physicians</h1>
               <p style={{ color: '#0496ff' }} className="text-xl font-bold">
                 Board-certified doctors dedicated to your health and wellness
               </p>
@@ -199,7 +199,7 @@ export default function CustomerView({ demo, colors }: CustomerViewProps) {
                       {doctor.image}
                     </div>
                     <div className="p-6">
-                      <h3 style={{ color: '#0353a4' }} className="text-xl font-black mb-2">{doctor.name}</h3>
+                      <h3 style={{ color: '#0353a4' }} className="text-xl font-bold mb-2">{doctor.name}</h3>
                       <div style={{ backgroundColor: '#0496ff', color: '#ffffff' }} className="inline-block px-3 py-1 text-xs font-bold uppercase mb-3">
                         {doctor.specialty}
                       </div>
@@ -229,7 +229,7 @@ export default function CustomerView({ demo, colors }: CustomerViewProps) {
         <div>
           <section style={{ backgroundColor: '#0353a4' }} className="py-20">
             <div className="max-w-4xl mx-auto px-4 text-center">
-              <h1 style={{ color: '#ffffff' }} className="text-6xl font-black mb-6">Patient Portal</h1>
+              <h1 style={{ color: '#ffffff' }} className="text-6xl font-bold mb-6">Patient Portal</h1>
               <p style={{ color: '#0496ff' }} className="text-xl font-bold">
                 Access your health records and manage your care 24/7
               </p>
@@ -239,7 +239,7 @@ export default function CustomerView({ demo, colors }: CustomerViewProps) {
           <section className="py-16" style={{ backgroundColor: '#ffffff' }}>
             <div className="max-w-4xl mx-auto px-4">
               <div style={{ backgroundColor: '#f5f5f5' }} className="p-12">
-                <h2 style={{ color: '#0353a4' }} className="text-3xl font-black text-center mb-8">
+                <h2 style={{ color: '#0353a4' }} className="text-3xl font-bold text-center mb-8">
                   Portal Login
                 </h2>
                 <form className="space-y-6 max-w-md mx-auto">
@@ -279,7 +279,7 @@ export default function CustomerView({ demo, colors }: CustomerViewProps) {
                 </form>
 
                 <div style={{ backgroundColor: '#ffffff', border: '3px solid #0496ff' }} className="p-8 mt-12">
-                  <h3 style={{ color: '#0353a4' }} className="text-2xl font-black mb-4">Portal Features:</h3>
+                  <h3 style={{ color: '#0353a4' }} className="text-2xl font-bold mb-4">Portal Features:</h3>
                   <div className="grid md:grid-cols-2 gap-4">
                     {[
                       'View test results & medical records',
@@ -310,7 +310,7 @@ export default function CustomerView({ demo, colors }: CustomerViewProps) {
         <div>
           <section style={{ backgroundColor: '#0353a4' }} className="py-20">
             <div className="max-w-4xl mx-auto px-4 text-center">
-              <h1 style={{ color: '#ffffff' }} className="text-6xl font-black mb-6">Telehealth Services</h1>
+              <h1 style={{ color: '#ffffff' }} className="text-6xl font-bold mb-6">Telehealth Services</h1>
               <p style={{ color: '#0496ff' }} className="text-xl font-bold">
                 Connect with your doctor from anywhere via secure video chat
               </p>
@@ -321,7 +321,7 @@ export default function CustomerView({ demo, colors }: CustomerViewProps) {
             <div className="max-w-5xl mx-auto px-4">
               <div className="grid md:grid-cols-2 gap-12 mb-12">
                 <div>
-                  <h2 style={{ color: '#0353a4' }} className="text-3xl font-black mb-6">How It Works</h2>
+                  <h2 style={{ color: '#0353a4' }} className="text-3xl font-bold mb-6">How It Works</h2>
                   <div className="space-y-6">
                     {[
                       { step: '1', title: 'Book Your Visit', desc: 'Schedule a telehealth appointment online or by phone' },
@@ -330,11 +330,11 @@ export default function CustomerView({ demo, colors }: CustomerViewProps) {
                       { step: '4', title: 'Receive Care', desc: 'Discuss symptoms, get diagnosis, and receive e-prescriptions' }
                     ].map((item) => (
                       <div key={item.step} className="flex gap-4">
-                        <div style={{ backgroundColor: '#0353a4', color: '#ffffff' }} className="w-12 h-12 rounded-full flex items-center justify-center font-black text-xl flex-shrink-0">
+                        <div style={{ backgroundColor: '#0353a4', color: '#ffffff' }} className="w-12 h-12 rounded-full flex items-center justify-center font-bold text-xl flex-shrink-0">
                           {item.step}
                         </div>
                         <div>
-                          <h3 style={{ color: '#0353a4' }} className="font-black text-lg mb-1">{item.title}</h3>
+                          <h3 style={{ color: '#0353a4' }} className="font-bold text-lg mb-1">{item.title}</h3>
                           <p style={{ color: '#666666' }} className="text-sm">{item.desc}</p>
                         </div>
                       </div>
@@ -343,13 +343,13 @@ export default function CustomerView({ demo, colors }: CustomerViewProps) {
                 </div>
 
                 <div style={{ backgroundColor: '#f5f5f5' }} className="p-8">
-                  <h3 style={{ color: '#0353a4' }} className="text-2xl font-black mb-6">
+                  <h3 style={{ color: '#0353a4' }} className="text-2xl font-bold mb-6">
                     Start Telehealth Visit
                   </h3>
                   <div style={{ backgroundColor: '#0353a4', height: '300px' }} className="flex flex-col items-center justify-center mb-6">
                     <div className="text-9xl mb-4">💻</div>
                     <div style={{ color: '#ffffff' }} className="text-center">
-                      <div className="font-black text-xl mb-2">Video Interface</div>
+                      <div className="font-bold text-xl mb-2">Video Interface</div>
                       <div style={{ color: '#0496ff' }}>HIPAA-compliant platform</div>
                     </div>
                   </div>
@@ -371,7 +371,7 @@ export default function CustomerView({ demo, colors }: CustomerViewProps) {
               </div>
 
               <div style={{ backgroundColor: '#e3f2fd' }} className="p-8">
-                <h3 style={{ color: '#0353a4' }} className="text-2xl font-black mb-6 text-center">
+                <h3 style={{ color: '#0353a4' }} className="text-2xl font-bold mb-6 text-center">
                   What Can Be Treated via Telehealth?
                 </h3>
                 <div className="grid md:grid-cols-3 gap-6">
@@ -382,7 +382,7 @@ export default function CustomerView({ demo, colors }: CustomerViewProps) {
                   ].map((category) => (
                     <div key={category.title} style={{ backgroundColor: '#ffffff' }} className="p-6">
                       <div className="text-5xl mb-3 text-center">{category.icon}</div>
-                      <h4 style={{ color: '#0353a4' }} className="font-black text-center mb-3">{category.title}</h4>
+                      <h4 style={{ color: '#0353a4' }} className="font-bold text-center mb-3">{category.title}</h4>
                       <ul style={{ color: '#666666' }} className="text-sm space-y-1">
                         {category.items.map((item) => (
                           <li key={item} className="flex items-center gap-2">
@@ -406,7 +406,7 @@ export default function CustomerView({ demo, colors }: CustomerViewProps) {
       <div>
         <section style={{ backgroundColor: '#0353a4' }} className="py-20">
           <div className="max-w-4xl mx-auto px-4 text-center">
-            <h1 style={{ color: '#ffffff' }} className="text-6xl font-black mb-6">
+            <h1 style={{ color: '#ffffff' }} className="text-6xl font-bold mb-6">
               {currentPage.charAt(0).toUpperCase() + currentPage.slice(1).replace('-', ' ')}
             </h1>
           </div>
@@ -434,12 +434,12 @@ export default function CustomerView({ demo, colors }: CustomerViewProps) {
         <div className="fixed inset-0 bg-black bg-opacity-70 flex items-center justify-center z-50 p-4">
           <div style={{ backgroundColor: '#ffffff' }} className="max-w-4xl w-full max-h-[90vh] overflow-y-auto">
             <div style={{ backgroundColor: '#0353a4', color: '#ffffff' }} className="p-6 flex justify-between items-center sticky top-0">
-              <h3 className="text-2xl font-black">Book Your Appointment</h3>
+              <h3 className="text-2xl font-bold">Book Your Appointment</h3>
               <button onClick={() => setShowAppointmentBooking(false)} className="text-3xl hover:opacity-70">&times;</button>
             </div>
             <div className="p-8">
               <div style={{ backgroundColor: '#e3f2fd' }} className="p-6 mb-8">
-                <h4 style={{ color: '#0353a4' }} className="text-2xl font-black mb-2">Smart Scheduling System</h4>
+                <h4 style={{ color: '#0353a4' }} className="text-2xl font-bold mb-2">Smart Scheduling System</h4>
                 <p style={{ color: '#006ba6' }} className="font-bold">
                   Same-day appointments available • Insurance verification • Automated reminders
                 </p>
@@ -574,7 +574,7 @@ export default function CustomerView({ demo, colors }: CustomerViewProps) {
         <div className="fixed inset-0 bg-black bg-opacity-70 flex items-center justify-center z-50 p-4">
           <div style={{ backgroundColor: '#ffffff' }} className="max-w-6xl w-full max-h-[90vh] overflow-y-auto">
             <div style={{ backgroundColor: '#0353a4', color: '#ffffff' }} className="p-6 flex justify-between items-center sticky top-0">
-              <h3 className="text-2xl font-black">My Health Dashboard</h3>
+              <h3 className="text-2xl font-bold">My Health Dashboard</h3>
               <button onClick={() => setShowPatientPortal(false)} className="text-3xl hover:opacity-70">&times;</button>
             </div>
             <div className="p-8">
@@ -587,7 +587,7 @@ export default function CustomerView({ demo, colors }: CustomerViewProps) {
                 ].map((item) => (
                   <div key={item.label} style={{ backgroundColor: '#f5f5f5' }} className="p-6">
                     <div style={{ color: '#666666' }} className="text-sm font-bold mb-2">{item.label}</div>
-                    <div style={{ color: '#0353a4' }} className="text-3xl font-black mb-1">{item.value}</div>
+                    <div style={{ color: '#0353a4' }} className="text-3xl font-bold mb-1">{item.value}</div>
                     <div style={{ color: '#666666' }} className="text-sm">{item.sub}</div>
                   </div>
                 ))}
@@ -595,7 +595,7 @@ export default function CustomerView({ demo, colors }: CustomerViewProps) {
 
               <div className="grid md:grid-cols-2 gap-8">
                 <div style={{ backgroundColor: '#f5f5f5' }} className="p-8">
-                  <h3 style={{ color: '#0353a4' }} className="text-2xl font-black mb-6">Recent Lab Results</h3>
+                  <h3 style={{ color: '#0353a4' }} className="text-2xl font-bold mb-6">Recent Lab Results</h3>
                   <div className="space-y-4">
                     {[
                       { test: 'Complete Blood Count', date: '3 days ago', status: 'Normal' },
@@ -621,7 +621,7 @@ export default function CustomerView({ demo, colors }: CustomerViewProps) {
                 </div>
 
                 <div style={{ backgroundColor: '#f5f5f5' }} className="p-8">
-                  <h3 style={{ color: '#0353a4' }} className="text-2xl font-black mb-6">Active Prescriptions</h3>
+                  <h3 style={{ color: '#0353a4' }} className="text-2xl font-bold mb-6">Active Prescriptions</h3>
                   <div className="space-y-4">
                     {[
                       { medication: 'Lisinopril 10mg', refills: '2 left', pharmacy: 'CVS Pharmacy' },
@@ -655,14 +655,14 @@ export default function CustomerView({ demo, colors }: CustomerViewProps) {
         <div className="fixed inset-0 bg-black bg-opacity-70 flex items-center justify-center z-50 p-4">
           <div style={{ backgroundColor: '#ffffff' }} className="max-w-5xl w-full">
             <div style={{ backgroundColor: '#0353a4', color: '#ffffff' }} className="p-6 flex justify-between items-center">
-              <h3 className="text-2xl font-black">Telehealth Video Consultation</h3>
+              <h3 className="text-2xl font-bold">Telehealth Video Consultation</h3>
               <button onClick={() => setShowTelehealth(false)} className="text-3xl hover:opacity-70">&times;</button>
             </div>
             <div className="p-8">
               <div style={{ backgroundColor: '#1a1a1a', height: '400px' }} className="flex flex-col items-center justify-center mb-6">
                 <div className="text-9xl mb-4">📹</div>
                 <div style={{ color: '#ffffff' }} className="text-center">
-                  <div className="font-black text-2xl mb-2">Video Call Interface</div>
+                  <div className="font-bold text-2xl mb-2">Video Call Interface</div>
                   <div style={{ color: '#0496ff' }} className="mb-4">HIPAA-compliant secure connection</div>
                   <button
                     style={{ backgroundColor: '#22c55e', color: '#ffffff' }}
@@ -693,12 +693,12 @@ export default function CustomerView({ demo, colors }: CustomerViewProps) {
         <div className="fixed inset-0 bg-black bg-opacity-70 flex items-center justify-center z-50 p-4">
           <div style={{ backgroundColor: '#ffffff' }} className="max-w-2xl w-full">
             <div style={{ backgroundColor: '#0353a4', color: '#ffffff' }} className="p-6 flex justify-between items-center">
-              <h3 className="text-2xl font-black">Prescription Refill System</h3>
+              <h3 className="text-2xl font-bold">Prescription Refill System</h3>
               <button onClick={() => setShowPrescriptions(false)} className="text-3xl hover:opacity-70">&times;</button>
             </div>
             <div className="p-8">
               <div style={{ backgroundColor: '#e3f2fd' }} className="p-6 mb-6">
-                <h4 style={{ color: '#0353a4' }} className="text-xl font-black mb-2">Online Prescription Management</h4>
+                <h4 style={{ color: '#0353a4' }} className="text-xl font-bold mb-2">Online Prescription Management</h4>
                 <p style={{ color: '#006ba6' }}>Request refills, transfer prescriptions, and track pharmacy status all in one place</p>
               </div>
               <div className="space-y-4">

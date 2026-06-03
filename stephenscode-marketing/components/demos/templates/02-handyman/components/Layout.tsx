@@ -86,7 +86,7 @@ export default function Layout({ children, currentPage, onNavigate, colors }: La
                 </button>
               ))}
               <button
-                className="px-6 py-3 rounded-lg text-white font-bold shadow-lg hover:shadow-xl transition-all transform hover:scale-105"
+                className="px-6 py-3 rounded-lg text-white font-bold shadow-lg hover:shadow-xl transition-all transform"
                 style={{ backgroundColor: colors.accent }}
                 onClick={() => onNavigate('contact')}
               >

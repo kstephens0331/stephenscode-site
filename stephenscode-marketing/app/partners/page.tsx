@@ -314,7 +314,7 @@ export default function PartnersPage() {
   const partnersList = partners.filter(p => p.category === 'partner')
 
   return (
-    <div className="bg-slate-900 min-h-screen">
+    <div className="bg-surface min-h-screen">
       {/* Schema.org JSON-LD - Portfolio list */}
       <script
         type="application/ld+json"
@@ -327,7 +327,7 @@ export default function PartnersPage() {
       />
 
       {/* Hero Section */}
-      <section className="bg-gradient-to-br from-slate-900 via-blue-900 to-slate-900 py-16 sm:py-20">
+      <section className="bg-gradient-to-br from-surface via-surface-card to-surface py-16 sm:py-20">
         <div className="mx-auto max-w-7xl px-6 lg:px-8">
           <div className="text-center">
             <h1 className="text-4xl font-bold tracking-tight text-white sm:text-5xl">
@@ -352,7 +352,7 @@ export default function PartnersPage() {
                   href={partner.url}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="group rounded-xl border-2 border-slate-700 bg-slate-800 p-6 hover:border-primary-500 hover:shadow-xl transition-all"
+                  className="group rounded-xl border-2 border-surface-border bg-surface-card p-6 hover:border-primary-500 hover:shadow-xl transition-all"
                 >
                   <h3 className="text-xl font-semibold text-white group-hover:text-primary-400 transition-colors mb-2">
                     {partner.name}
@@ -360,7 +360,7 @@ export default function PartnersPage() {
                   <p className="text-gray-400 mb-4">
                     {partner.description}
                   </p>
-                  <span className="text-primary-600 font-medium group-hover:text-primary-700 transition-colors">
+                  <span className="text-primary-600 font-medium group-hover:text-primary-400 transition-colors">
                     View Listing
                     <span aria-hidden="true" className="inline-block ml-1 transition-transform group-hover:translate-x-1">→</span>
                   </span>
@@ -373,7 +373,7 @@ export default function PartnersPage() {
 
       {/* Certifications */}
       {certifications.length > 0 && (
-        <section className="py-16 bg-slate-800">
+        <section className="py-16 bg-surface-card">
           <div className="mx-auto max-w-7xl px-6 lg:px-8">
             <h2 className="text-2xl font-bold text-white mb-8">Certifications</h2>
             <div className="grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
@@ -383,7 +383,7 @@ export default function PartnersPage() {
                   href={partner.url}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="group rounded-xl border-2 border-slate-700 bg-slate-900 p-6 hover:border-accent-500 hover:shadow-xl transition-all"
+                  className="group rounded-xl border-2 border-surface-border bg-surface p-6 hover:border-accent-500 hover:shadow-xl transition-all"
                 >
                   <h3 className="text-xl font-semibold text-white group-hover:text-accent-400 transition-colors mb-2">
                     {partner.name}
@@ -414,7 +414,7 @@ export default function PartnersPage() {
                   href={partner.url}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="group rounded-xl border-2 border-slate-700 bg-slate-800 p-6 hover:border-primary-500 hover:shadow-xl transition-all"
+                  className="group rounded-xl border-2 border-surface-border bg-surface-card p-6 hover:border-primary-500 hover:shadow-xl transition-all"
                 >
                   <h3 className="text-xl font-semibold text-white group-hover:text-primary-400 transition-colors mb-2">
                     {partner.name}
@@ -422,7 +422,7 @@ export default function PartnersPage() {
                   <p className="text-gray-400 mb-4">
                     {partner.description}
                   </p>
-                  <span className="text-primary-600 font-medium group-hover:text-primary-700 transition-colors">
+                  <span className="text-primary-600 font-medium group-hover:text-primary-400 transition-colors">
                     Visit Partner
                     <span aria-hidden="true" className="inline-block ml-1 transition-transform group-hover:translate-x-1">→</span>
                   </span>
@@ -435,7 +435,7 @@ export default function PartnersPage() {
 
       {/* Client Websites - Portfolio Section */}
       {clients.length > 0 && (
-        <section className="py-16 bg-slate-800">
+        <section className="py-16 bg-surface-card">
           <div className="mx-auto max-w-7xl px-6 lg:px-8">
             <h2 className="text-3xl font-bold text-white mb-2">Web Development Portfolio</h2>
             <p className="text-gray-400 mb-8 text-lg">Custom websites and applications built for Texas businesses</p>
@@ -443,13 +443,13 @@ export default function PartnersPage() {
               {clients.map((client) => (
                 <article
                   key={client.name}
-                  className="group rounded-2xl border-2 border-slate-700 bg-slate-900 p-8 hover:border-accent-500 hover:shadow-xl transition-all"
+                  className="group rounded-2xl border-2 border-surface-border bg-surface p-8 hover:border-accent-500 hover:shadow-xl transition-all"
                 >
                   <div className="flex flex-wrap items-center gap-2 mb-4">
                     <span className="inline-flex items-center rounded-full bg-primary-500/10 px-3 py-1 text-xs font-medium text-primary-400">
                       {client.industry}
                     </span>
-                    <span className="inline-flex items-center rounded-full bg-slate-700 px-3 py-1 text-xs font-medium text-gray-400">
+                    <span className="inline-flex items-center rounded-full bg-surface-elevated px-3 py-1 text-xs font-medium text-gray-400">
                       {client.location}
                     </span>
                   </div>
@@ -486,7 +486,7 @@ export default function PartnersPage() {
       )}
 
       {/* CTA Section */}
-      <section className="bg-gradient-to-br from-slate-900 via-blue-900 to-slate-900 py-16">
+      <section className="bg-gradient-to-br from-surface via-surface-card to-surface py-16">
         <div className="mx-auto max-w-4xl px-6 lg:px-8 text-center">
           <h2 className="text-2xl font-bold text-white mb-4">
             Ready to Work With Us?
@@ -496,7 +496,7 @@ export default function PartnersPage() {
           </p>
           <Link
             href="/contact"
-            className="inline-flex items-center gap-2 rounded-lg bg-accent-500 px-6 py-3 text-base font-semibold text-white shadow-lg hover:bg-accent-600 transition-all hover:scale-105"
+            className="inline-flex items-center gap-2 rounded-lg bg-accent-500 px-6 py-3 text-base font-semibold text-white shadow-lg hover:bg-accent-600 transition-all"
           >
             Get Started
             <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">

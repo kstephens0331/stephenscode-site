@@ -1,106 +1,76 @@
-import type { Metadata } from 'next'
-import { notFound, redirect } from 'next/navigation'
-import { allDemos, Demo } from '@/lib/demos-data'
-import DemoFrame from '@/components/demos/DemoFrame'
+import { Metadata } from 'next';
+import Link from 'next/link';
+import CustomSolutionsHero from '@/components/custom-solutions/CustomSolutionsHero';
+import SolutionsGrid from '@/components/custom-solutions/SolutionsGrid';
+import ProcessTimeline from '@/components/custom-solutions/ProcessTimeline';
+import PricingApproach from '@/components/custom-solutions/PricingApproach';
+import CustomSolutionsForm from '@/components/custom-solutions/CustomSolutionsForm';
+import SuccessStories from '@/components/custom-solutions/SuccessStories';
 
-// Breadcrumb schema for SEO (visual breadcrumbs handled in DemoFrame controls bar)
-function getBreadcrumbSchema(demo: Demo) {
-  return {
-    '@context': 'https://schema.org',
-    '@type': 'BreadcrumbList',
-    itemListElement: [
+export const metadata: Metadata = {
+  title: 'Custom Solutions - SaaS, Web Apps, Scrapers & More | StephensCode',
+  description: 'Need a custom software solution? We build SaaS platforms, web applications, data scrapers, and bespoke tools tailored to your business. Flat-rate pricing based on $50/hour estimates.',
+  openGraph: {
+    title: 'Custom Solutions - SaaS, Web Apps, Scrapers & More',
+    description: 'We build SaaS platforms, web applications, data scrapers, and bespoke tools tailored to your business. Flat-rate pricing based on $50/hour estimates.',
+    type: 'website',
+    url: 'https://www.stephenscode.dev/custom-solutions',
+    siteName: 'StephensCode',
+    images: [
       {
-        '@type': 'ListItem',
-        position: 1,
-        name: 'Home',
-        item: 'https://www.stephenscode.dev',
-      },
-      {
-        '@type': 'ListItem',
-        position: 2,
-        name: 'Demos',
-        item: 'https://www.stephenscode.dev/demos',
-      },
-      {
-        '@type': 'ListItem',
-        position: 3,
-        name: demo.name,
-        item: `https://www.stephenscode.dev/demos/${demo.slug}`,
-      },
+        url: 'https://www.stephenscode.dev/og-image.svg',
+        width: 1200,
+        height: 630,
+        alt: 'StephensCode Custom Solutions - SaaS, Web Apps, Automation',
+        type: 'image/svg+xml',
+      }
     ],
-  }
-}
+  },
+  twitter: {
+    card: 'summary_large_image',
+    title: 'Custom Solutions - SaaS, Web Apps, Scrapers & More',
+    description: 'We build SaaS platforms, web applications, data scrapers, and bespoke tools. Flat-rate pricing based on $50/hour estimates.',
+    images: ['https://www.stephenscode.dev/og-image.svg'],
+  },
+};
 
-interface DemoPageProps {
-  params: Promise<{
-    slug: string[]
-  }>
-}
-
-export async function generateStaticParams() {
-  // Generate params for base demo pages and their sub-pages
-  const params: { slug: string[] }[] = []
-
-  allDemos.forEach((demo) => {
-    // Base demo page
-    params.push({ slug: [demo.slug] })
-
-    // Generate sub-pages based on features
-    const subPages = demo.features
-      .map(feature => feature.toLowerCase().replace(/[^a-z0-9]+/g, '-').replace(/-+$/, ''))
-      .filter(page => page && page !== 'home' && page !== 'contact')
-
-    subPages.forEach(subPage => {
-      params.push({ slug: [demo.slug, subPage] })
-    })
-  })
-
-  return params
-}
-
-export async function generateMetadata({ params }: DemoPageProps): Promise<Metadata> {
-  const { slug } = await params
-  // First segment is the demo slug, rest are sub-pages
-  const demoSlug = slug[0]
-  const demo = allDemos.find(d => d.slug === demoSlug)
-
-  if (!demo) {
-    return {
-      title: 'Demo Not Found',
-    }
-  }
-
-  return {
-    title: `${demo.name} - Live Demo | StephensCode`,
-    description: demo.description,
-  }
-}
-
-export default async function DemoPage({ params }: DemoPageProps) {
-  const { slug } = await params
-  // First segment is the demo slug, rest are sub-pages handled by client-side routing
-  const demoSlug = slug[0]
-  const demo = allDemos.find(d => d.slug === demoSlug)
-
-  if (!demo) {
-    notFound()
-  }
-
-  // Redirect real client sites to their live external URL
-  if (demo.isRealClient && demo.externalUrl) {
-    redirect(demo.externalUrl)
-  }
-
+export default function CustomSolutionsPage() {
   return (
-    <>
-      {/* Breadcrumb Schema for SEO */}
-      <script
-        type="application/ld+json"
-        dangerouslySetInnerHTML={{ __html: JSON.stringify(getBreadcrumbSchema(demo)) }}
-      />
-      {/* Visually hidden H1 for SEO/accessibility */}
-      <h1 className="sr-only">{demo.name} - Interactive Website Demo by StephensCode</h1>
-      <DemoFrame demo={demo} />
-    </>
-  )
+    <main className="min-h-screen bg-gradient-to-b from-black via-surface to-black">
+      <CustomSolutionsHero />
+      <SolutionsGrid />
+      <ProcessTimeline />
+      <PricingApproach />
+      <SuccessStories />
+      <CustomSolutionsForm />
+
+      {/* CTA Section */}
+      <section className="py-20 px-4">
+        <div className="max-w-4xl mx-auto text-center">
+          <div className="bg-gradient-to-br from-surface-card to-surface-elevated rounded-3xl p-12 border border-surface-border/30">
+            <h2 className="text-3xl md:text-4xl font-bold mb-4 bg-gradient-to-r from-primary-400 to-accent-400 bg-clip-text text-transparent">
+              Ready to Build Something Amazing?
+            </h2>
+            <p className="text-gray-300 text-lg mb-8">
+              Whether you need a SaaS platform, custom web app, or specialized tool, we're here to bring your vision to life.
+            </p>
+            <div className="flex flex-col sm:flex-row gap-4 justify-center">
+              <a
+                href="#contact-form"
+                className="px-8 py-4 bg-gradient-to-r from-primary-500 to-accent-500 hover:from-primary-600 hover:to-accent-600 text-white font-semibold rounded-xl shadow-lg hover:shadow-primary-500/30 transition-all"
+              >
+                Request a Quote
+              </a>
+              <Link
+                href="/pricing"
+                className="px-8 py-4 bg-surface-elevated/70 hover:bg-surface-elevated/70 text-white font-semibold rounded-xl border border-surface-border hover:border-surface-border transition-all"
+              >
+                View Standard Pricing
+              </Link>
+            </div>
+          </div>
+        </div>
+      </section>
+    </main>
+  );
 }

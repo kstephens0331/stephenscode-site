@@ -32,7 +32,7 @@ export default function Layout({ children, colors, currentPage, onNavigate, onQu
             <div className="flex items-center gap-3 cursor-pointer" onClick={() => onNavigate('home')}>
               <div className="text-4xl">🏗️</div>
               <div>
-                <div style={{ color: '#ffffff' }} className="text-2xl font-black">BuildRight Construction</div>
+                <div style={{ color: '#ffffff' }} className="text-2xl font-bold">BuildRight Construction</div>
                 <div style={{ color: '#1a1a1a' }} className="text-xs font-bold uppercase tracking-wide">Building Excellence Since 1998</div>
               </div>
             </div>
@@ -70,7 +70,7 @@ export default function Layout({ children, colors, currentPage, onNavigate, onQu
             <div>
               <div className="flex items-center gap-2 mb-4">
                 <div className="text-3xl">🏗️</div>
-                <div style={{ color: '#ff6700' }} className="text-xl font-black">BuildRight</div>
+                <div style={{ color: '#ff6700' }} className="text-xl font-bold">BuildRight</div>
               </div>
               <p style={{ color: '#999999' }} className="text-sm">
                 Licensed, bonded, and insured construction services. Your vision, our expertise.

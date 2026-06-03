@@ -222,7 +222,7 @@ export default function GalleryPage({ onNavigate }: GalleryPageProps) {
               return (
                 <div
                   key={project.id}
-                  className="bg-white rounded-2xl shadow-xl overflow-hidden hover:shadow-2xl transition-all transform hover:-translate-y-2"
+                  className="bg-white rounded-2xl shadow-xl overflow-hidden transition-all transform hover:-translate-y-2"
                 >
                   {/* Before/After Image with Slider */}
                   <div className="relative aspect-[4/3] bg-gray-200 overflow-hidden group">
@@ -358,7 +358,7 @@ export default function GalleryPage({ onNavigate }: GalleryPageProps) {
           </p>
           <button
             onClick={() => onNavigate('contact')}
-            className="bg-[#a7c957] text-[#386641] px-10 py-5 rounded-lg font-bold text-xl hover:bg-white transition-all transform hover:scale-105 shadow-2xl inline-flex items-center gap-2"
+            className="bg-[#a7c957] text-[#386641] px-10 py-5 rounded-lg font-bold text-xl hover:bg-white transition-all transform shadow-2xl inline-flex items-center gap-2"
           >
             Get Free Estimate
           </button>

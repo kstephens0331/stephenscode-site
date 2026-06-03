@@ -3,6 +3,8 @@ import type { Metadata } from 'next'
 import {
   Clock, Rocket, Link2, BarChart3,
   MessageSquare, DollarSign, Zap, Target,
+  Shield, Phone, ArrowRight, Check,
+  Monitor, ShieldCheck, Lock, KeyRound, Building2,
 } from 'lucide-react'
 import { organizationSchema } from '@/lib/schemas'
 
@@ -223,124 +225,101 @@ export default function Home() {
         dangerouslySetInnerHTML={{ __html: JSON.stringify(homepageSchemas.breadcrumb) }}
       />
 
-      {/* Hero Section — near-black canvas with orange glow accents + grain texture */}
-      <section className="relative overflow-hidden bg-gradient-to-br from-black via-surface to-black text-white grain-overlay">
-        {/* Soft orange glow centered behind the headline */}
-        <div className="pointer-events-none absolute inset-0">
-          <div className="absolute left-1/2 top-1/3 -translate-x-1/2 -translate-y-1/2 h-[600px] w-[900px] rounded-full bg-primary-600/20 blur-3xl" />
-        </div>
+      {/* Hero — clean professional dark with the bracket motif from the logo */}
+      <section className="relative bg-black border-b border-surface-border overflow-hidden">
+        {/* Soft vertical sheen — barely there, gives the canvas depth without halo */}
+        <div className="pointer-events-none absolute inset-0 bg-gradient-to-b from-surface-card/60 via-black to-black" />
 
-        {/* Subtle dotted grid pattern */}
-        <div className="absolute inset-0 opacity-[0.04]">
-          <div className="absolute inset-0" style={{
-            backgroundImage: `url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%23ffffff' fill-opacity='1'%3E%3Cpath d='M36 34v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4zm0-30V0h-2v4h-4v2h4v4h2V6h4V4h-4zM6 34v-4H4v4H0v2h4v4h2v-4h4v-2H6zM6 4V0H4v4H0v2h4v4h2V6h4V4H6z'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E")`
-          }}></div>
-        </div>
-
-        <div className="relative mx-auto max-w-7xl px-6 py-32 sm:py-40 lg:px-8">
-          <div className="mx-auto max-w-4xl text-center">
-            {/* Veteran Badge */}
-            <div className="mb-8 inline-flex items-center gap-3 rounded-full bg-surface-elevated/60 px-6 py-3 text-sm font-semibold backdrop-blur-lg border border-surface-border shadow-xl animate-fade-in-up">
-              <span className="text-3xl">🇺🇸</span>
-              <span className="text-white">Veteran-Owned | Founded 2011 | Full Platform 2025</span>
+        <div className="relative mx-auto max-w-7xl px-6 py-28 sm:py-32 lg:px-8">
+          <div className="mx-auto max-w-4xl">
+            {/* Brand tagline eyebrow — bracket motif lifted from the logo */}
+            <div className="mb-10 inline-flex items-center gap-3 text-[11px] font-semibold uppercase tracking-[0.22em] text-primary-500 animate-fade-in-up">
+              <span aria-hidden="true" className="font-mono text-primary-500/80">&lt;</span>
+              <span>Custom-Built &middot; Fully Yours &middot; Veteran Owned</span>
+              <span aria-hidden="true" className="font-mono text-primary-500/80">/&gt;</span>
             </div>
 
-            {/* Main Headline */}
-            <h1 className="text-5xl font-black tracking-tight sm:text-7xl mb-8 animate-fade-in-up animation-delay-200">
-              Conroe Web Developer &amp; Houston Web Development
-              <span className="block text-primary-400 mt-2">Veteran Owned | Custom Websites from $250</span>
+            <h1 className="text-5xl font-bold tracking-tight text-white sm:text-7xl leading-[1.02] animate-fade-in-up animation-delay-200">
+              Flat-rate websites.
+              <span className="block text-primary-500 mt-2">No hourly games.</span>
+              <span className="block text-gray-500 mt-2">No surprise bills.</span>
             </h1>
 
-            <p className="mt-8 text-xl leading-8 text-gray-200 max-w-3xl mx-auto animate-fade-in-up animation-delay-400">
-              Affordable web design for Houston and The Woodlands businesses. Small business websites starting at $250, custom website development, and business automation. <strong className="text-white">Veteran owned web developer</strong> with 14+ years experience. No hourly rates, no surprises.
+            <p className="mt-10 max-w-2xl text-lg leading-8 text-gray-300 animate-fade-in-up animation-delay-400">
+              I&apos;m Kyle. I&apos;ve been building websites and custom software for small businesses out of Conroe, Texas for 14 years. You get a flat quote up front, you get the site you paid for, and you get my cell number if anything breaks. That&apos;s it. No retainer games, no agency layers.
             </p>
 
-            {/* CTA Buttons */}
-            <div className="mt-12 flex flex-wrap items-center justify-center gap-4 animate-fade-in-up animation-delay-600">
+            <div className="mt-12 flex flex-wrap items-center gap-3 animate-fade-in-up animation-delay-600">
               <Link
                 href="/contact"
-                className="group relative inline-flex items-center gap-2 rounded-lg bg-primary-500 px-8 py-4 text-lg font-bold text-white shadow-glow hover:bg-primary-600 hover:shadow-glow-lg transition-all hover:scale-[1.02]"
+                className="group inline-flex items-center gap-2 rounded-md bg-primary-500 px-6 py-3 text-base font-semibold text-white hover:bg-primary-600 transition-colors"
               >
-                <span>Get Free Quote</span>
-                <svg className="w-5 h-5 group-hover:translate-x-1 transition-transform" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M13 7l5 5m0 0l-5 5m5-5H6" />
-                </svg>
+                Get a Flat Quote
+                <ArrowRight className="h-4 w-4 transition-transform group-hover:translate-x-0.5" />
               </Link>
               <Link
-                href="/demos"
-                className="inline-flex items-center gap-2 rounded-lg bg-surface-elevated/60 px-8 py-4 text-lg font-bold text-white backdrop-blur-lg border border-surface-border hover:border-primary-500/60 hover:bg-surface-elevated transition-all"
+                href="/pricing"
+                className="inline-flex items-center gap-2 rounded-md border border-surface-border px-6 py-3 text-base font-semibold text-white hover:border-primary-500/60 hover:bg-surface-card transition-colors"
               >
-                <span>View 40 Live Demos</span>
-                <span>→</span>
+                See What It Costs
               </Link>
               <a
                 href="tel:+19363234527"
-                className="inline-flex items-center gap-2 rounded-lg border border-surface-border px-8 py-4 text-lg font-bold text-white hover:border-primary-500/60 hover:bg-surface-elevated/60 transition-all"
+                className="inline-flex items-center gap-2 rounded-md px-6 py-3 text-base font-semibold text-gray-400 hover:text-primary-400 transition-colors"
               >
-                <span>📞</span>
-                <span>(936) 323-4527</span>
+                <Phone className="h-4 w-4" />
+                (936) 323-4527
               </a>
             </div>
 
-            {/* Trust Badges */}
-            <div className="mt-16 animate-fade-in-up animation-delay-800">
-              <div className="flex flex-wrap items-center justify-center gap-4">
-                <div className="flex items-center gap-3 rounded-xl bg-surface-elevated/60 backdrop-blur-sm px-5 py-3 border border-surface-border">
-                  <span className="text-2xl">🎖️</span>
-                  <div className="text-left">
-                    <span className="block text-xs text-gray-400 uppercase tracking-wide">USMC Veteran</span>
-                    <span className="block text-sm font-bold text-white">Marine Corps Owned</span>
-                  </div>
-                </div>
-                <div className="flex items-center gap-3 rounded-xl bg-surface-elevated/60 backdrop-blur-sm px-5 py-3 border border-surface-border">
-                  <span className="text-2xl">⭐</span>
-                  <div className="text-left">
-                    <span className="block text-xs text-gray-400 uppercase tracking-wide">Since 2011</span>
-                    <span className="block text-sm font-bold text-white">14+ Years Experience</span>
-                  </div>
-                </div>
-                <div className="flex items-center gap-3 rounded-xl bg-surface-elevated/60 backdrop-blur-sm px-5 py-3 border border-surface-border">
-                  <span className="text-2xl">🚀</span>
-                  <div className="text-left">
-                    <span className="block text-xs text-gray-400 uppercase tracking-wide">Track Record</span>
-                    <span className="block text-sm font-bold text-white">200+ Projects Delivered</span>
-                  </div>
-                </div>
-                <div className="flex items-center gap-3 rounded-xl bg-surface-elevated/60 backdrop-blur-sm px-5 py-3 border border-surface-border">
-                  <span className="text-2xl">📍</span>
-                  <div className="text-left">
-                    <span className="block text-xs text-gray-400 uppercase tracking-wide">Based In</span>
-                    <span className="block text-sm font-bold text-white">Conroe, Texas</span>
-                  </div>
-                </div>
+            {/* Trust row — facts, plainly stated, separated by hairlines */}
+            <dl className="mt-20 grid grid-cols-2 gap-x-8 gap-y-8 sm:grid-cols-4 animate-fade-in-up animation-delay-800">
+              <div className="border-l border-primary-500/40 pl-4">
+                <dt className="text-[10px] uppercase tracking-[0.18em] text-gray-500">Built since</dt>
+                <dd className="mt-1.5 text-3xl font-semibold text-white tracking-tight">2011</dd>
               </div>
-            </div>
+              <div className="border-l border-primary-500/40 pl-4">
+                <dt className="text-[10px] uppercase tracking-[0.18em] text-gray-500">Projects shipped</dt>
+                <dd className="mt-1.5 text-3xl font-semibold text-white tracking-tight">2,600+</dd>
+              </div>
+              <div className="border-l border-primary-500/40 pl-4">
+                <dt className="text-[10px] uppercase tracking-[0.18em] text-gray-500">Starting at</dt>
+                <dd className="mt-1.5 text-3xl font-semibold text-white tracking-tight">$250</dd>
+              </div>
+              <div className="border-l border-primary-500/40 pl-4">
+                <dt className="text-[10px] uppercase tracking-[0.18em] text-gray-500">Based in</dt>
+                <dd className="mt-1.5 text-3xl font-semibold text-white tracking-tight">Conroe, TX</dd>
+              </div>
+            </dl>
           </div>
-        </div>
-
-        {/* Wave Divider (fill matches the next section's bg) */}
-        <div className="absolute bottom-0 left-0 right-0 pointer-events-none">
-          <svg viewBox="0 0 1440 120" fill="none" xmlns="http://www.w3.org/2000/svg" className="w-full">
-            <path d="M0 120L60 105C120 90 240 60 360 45C480 30 600 30 720 37.5C840 45 960 60 1080 67.5C1200 75 1320 75 1380 75L1440 75V120H1380C1320 120 1200 120 1080 120C960 120 840 120 720 120C600 120 480 120 360 120C240 120 120 120 60 120H0Z" fill="#0a0a0a"/>
-          </svg>
         </div>
       </section>
 
       {/* Stats Section */}
-      <section className="bg-surface py-16">
+      <section className="bg-black border-y border-surface-border py-20">
         <div className="mx-auto max-w-7xl px-6 lg:px-8">
+          <div className="mx-auto max-w-3xl text-center mb-14">
+            <div className="inline-flex items-center gap-3 text-[11px] font-semibold uppercase tracking-[0.22em] text-primary-500 mb-4">
+              <span aria-hidden="true" className="font-mono text-primary-500/80">&lt;</span>
+              <span>Track Record</span>
+              <span aria-hidden="true" className="font-mono text-primary-500/80">/&gt;</span>
+            </div>
+            <h2 className="text-3xl font-bold tracking-tight text-white sm:text-4xl">
+              Fourteen years. Twenty-six hundred sites.
+            </h2>
+          </div>
           <div className="grid grid-cols-2 gap-8 lg:grid-cols-4">
-            {stats.map((stat, index) => {
+            {stats.map((stat) => {
               const Icon = stat.Icon
               return (
-                <div key={stat.label} className="flex flex-col items-center text-center group" style={{ animationDelay: `${index * 100}ms` }}>
-                  <div className="mb-4 flex h-14 w-14 items-center justify-center rounded-full bg-primary-500/10 ring-1 ring-primary-500/30 text-primary-400 group-hover:bg-primary-500/20 group-hover:ring-primary-500/60 group-hover:text-primary-300 transition-all">
-                    <Icon className="h-7 w-7" strokeWidth={1.75} />
+                <div key={stat.label} className="flex flex-col items-center text-center group">
+                  <div className="mb-4 flex h-12 w-12 items-center justify-center rounded-md border border-primary-500/40 text-primary-500 group-hover:border-primary-500 group-hover:text-primary-400 transition-colors">
+                    <Icon className="h-5 w-5" strokeWidth={1.75} />
                   </div>
-                  <p className="text-base leading-7 text-gray-400 font-semibold">{stat.label}</p>
-                  <p className="order-first text-5xl font-black tracking-tight text-accent-400 mb-2">
+                  <p className="order-first text-4xl font-bold tracking-tight text-white mb-2">
                     {stat.value}
                   </p>
+                  <p className="text-sm leading-7 text-gray-400">{stat.label}</p>
                 </div>
               )
             })}
@@ -348,16 +327,20 @@ export default function Home() {
         </div>
       </section>
 
-      {/* Packages Section - SEO Rich Content */}
-      <section className="bg-surface py-24 sm:py-32" id="packages">
+      {/* Packages Section */}
+      <section className="bg-surface py-24 sm:py-28 border-b border-surface-border" id="packages">
         <div className="mx-auto max-w-7xl px-6 lg:px-8">
           <div className="mx-auto max-w-2xl text-center mb-16">
-            <h2 className="text-base font-semibold leading-7 text-primary-600">Transparent Pricing</h2>
-            <p className="mt-2 text-4xl font-black tracking-tight text-white sm:text-5xl">
-              Website Packages That Fit Your Budget
-            </p>
-            <p className="mt-6 text-lg leading-8 text-gray-400">
-              Flat-rate pricing with no hourly rates or hidden fees. Choose the package that fits your needs, from simple starter sites to complex e-commerce and business platforms.
+            <div className="inline-flex items-center gap-3 text-[11px] font-semibold uppercase tracking-[0.22em] text-primary-500 mb-4">
+              <span aria-hidden="true" className="font-mono text-primary-500/80">&lt;</span>
+              <span>Flat-Rate Pricing</span>
+              <span aria-hidden="true" className="font-mono text-primary-500/80">/&gt;</span>
+            </div>
+            <h2 className="text-3xl font-bold tracking-tight text-white sm:text-4xl">
+              Pick a tier. That&apos;s the price.
+            </h2>
+            <p className="mt-4 text-lg leading-8 text-gray-400">
+              Every package is one number, paid up front (or split). No hourly billing, no scope-creep invoices, no retainer required.
             </p>
           </div>
 
@@ -365,10 +348,10 @@ export default function Home() {
             {packages.map((pkg, index) => (
               <article
                 key={pkg.name}
-                className={`relative flex flex-col rounded-3xl p-8 transition-all hover:-translate-y-1 ${
+                className={`relative flex flex-col rounded-2xl p-8 card-lift ${
                   pkg.popular
-                    ? 'bg-primary-600 text-white ring-2 ring-primary-400 shadow-glow-lg lg:scale-105'
-                    : 'bg-surface-card ring-1 ring-surface-border hover:ring-primary-500/60 shadow-xl shadow-black/40'
+                    ? 'bg-surface-card ring-1 ring-primary-500'
+                    : 'bg-surface-card ring-1 ring-surface-border'
                 }`}
               >
                 {pkg.popular && (
@@ -388,7 +371,7 @@ export default function Home() {
                 </p>
 
                 <p className="mt-6 flex items-baseline gap-x-1">
-                  <span className={`text-5xl font-black tracking-tight ${pkg.popular ? 'text-white' : 'text-white'}`}>
+                  <span className={`text-5xl font-bold tracking-tight ${pkg.popular ? 'text-white' : 'text-white'}`}>
                     {pkg.price}
                   </span>
                   {!pkg.price.includes('+') && (
@@ -414,7 +397,7 @@ export default function Home() {
                   className={`mt-8 block rounded-lg px-6 py-4 text-center text-sm font-bold transition-all ${
                     pkg.popular
                       ? 'bg-black text-primary-300 hover:bg-surface-elevated'
-                      : 'bg-primary-600 text-white hover:bg-primary-500 hover:shadow-glow'
+                      : 'bg-primary-600 text-white hover:bg-primary-500 hover:'
                   }`}
                 >
                   Learn More →
@@ -426,137 +409,95 @@ export default function Home() {
           <div className="mt-12 text-center">
             <Link
               href="/pricing"
-              className="inline-flex items-center gap-2 text-lg font-bold text-primary-600 hover:text-primary-700"
+              className="inline-flex items-center gap-2 text-base font-semibold text-primary-400 hover:text-primary-300 transition-colors"
             >
-              <span>View Complete Pricing & Add-Ons</span>
-              <svg className="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M13 7l5 5m0 0l-5 5m5-5H6" />
-              </svg>
+              View complete pricing &amp; add-ons
+              <ArrowRight className="h-4 w-4" />
             </Link>
           </div>
         </div>
       </section>
 
-      {/* IT Services Section */}
-      <section className="bg-surface-card text-white py-24 sm:py-32">
+      {/* IT Services */}
+      <section className="bg-surface-card border-y border-surface-border text-white py-20 sm:py-24">
         <div className="mx-auto max-w-7xl px-6 lg:px-8">
-          <div className="mx-auto max-w-2xl text-center mb-16">
-            <div className="inline-flex items-center gap-3 rounded-full bg-primary-500/15 px-6 py-3 text-sm font-semibold backdrop-blur-lg border border-primary-500/30 text-primary-300 mb-6">
-              <span className="text-2xl">🔒</span>
-              <span>Managed IT &amp; Cybersecurity</span>
+          <div className="mx-auto max-w-3xl text-center mb-14">
+            <div className="text-xs font-semibold uppercase tracking-[0.18em] text-primary-500 mb-3">
+              Managed IT &amp; Cybersecurity
             </div>
-            <h2 className="text-4xl font-black tracking-tight sm:text-5xl mb-6">
-              IT Services That Protect Your Business
+            <h2 className="text-3xl font-bold tracking-tight sm:text-4xl">
+              IT support that protects your business
             </h2>
-            <p className="text-lg leading-8 text-gray-300">
-              Complete managed IT services and cybersecurity solutions. 24/7 monitoring, helpdesk support, and enterprise-grade protection.
+            <p className="mt-4 text-lg leading-8 text-gray-300">
+              Helpdesk, monitoring, backup, EDR, training. Per-user pricing, month-to-month, no surprise charges.
             </p>
           </div>
 
-          <div className="grid grid-cols-1 gap-6 sm:grid-cols-2 lg:grid-cols-5">
-            {[
-              {
-                name: 'Essential IT',
-                price: '$99/user/mo',
-                description: 'Helpdesk, monitoring, email security & password manager.',
-                icon: '🖥️',
-                href: '/msp/essential-it',
-                value: '$125+ value'
-              },
-              {
-                name: 'Business Pro',
-                price: '$129/user/mo',
-                description: 'Full IT + backup, dark web monitoring & MFA.',
-                icon: '🛡️',
-                href: '/msp/business-pro',
-                value: '$175+ value'
-              },
-              {
-                name: 'Complete IT',
-                price: '$179/user/mo',
-                description: 'IT + Security with EDR, SIEM & training.',
-                icon: '🔒',
-                href: '/msp/complete-it',
-                value: '$230+ value'
-              },
-              {
-                name: 'SACVPN',
-                price: 'Per User',
-                description: 'Enterprise VPN with military-grade encryption.',
-                icon: '🔐',
-                href: 'https://sacvpn.com',
-                value: 'Zero-Log Policy',
-                external: true
-              },
-              {
-                name: 'Enterprise',
-                price: 'Custom',
-                description: '24/7 support, dedicated team, full compliance.',
-                icon: '🏢',
-                href: '/msp/enterprise-it-solutions',
-                value: '50+ users'
-              }
-            ].map((service) => (
-              service.external ? (
-                <a
-                  key={service.name}
-                  href={service.href}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="group relative rounded-2xl bg-surface-elevated/60 backdrop-blur-lg border border-surface-border p-8 hover:border-primary-500/60 hover:-translate-y-1 transition-all"
-                >
-                  <div className="text-4xl mb-4">{service.icon}</div>
-                  <h3 className="text-xl font-bold text-white mb-2">{service.name}</h3>
-                  <p className="text-primary-400 font-bold">{service.price}</p>
-                  <p className="text-accent-400 text-xs font-semibold mb-4">{service.value}</p>
-                  <p className="text-gray-300 text-sm">{service.description}</p>
-                  <div className="mt-6 inline-flex items-center gap-2 text-sm font-bold text-white group-hover:text-primary-400 transition-colors">
-                    <span>Visit Site</span>
-                    <span className="group-hover:translate-x-1 transition-transform">→</span>
-                  </div>
-                </a>
-              ) : (
-                <Link
-                  key={service.name}
-                  href={service.href}
-                  className="group relative rounded-2xl bg-surface-elevated/60 backdrop-blur-lg border border-surface-border p-8 hover:border-primary-500/60 hover:-translate-y-1 transition-all"
-                >
-                  <div className="text-4xl mb-4">{service.icon}</div>
-                  <h3 className="text-xl font-bold text-white mb-2">{service.name}</h3>
-                  <p className="text-primary-400 font-bold">{service.price}</p>
-                  <p className="text-accent-400 text-xs font-semibold mb-4">{service.value}</p>
-                  <p className="text-gray-300 text-sm">{service.description}</p>
-                  <div className="mt-6 inline-flex items-center gap-2 text-sm font-bold text-white group-hover:text-primary-400 transition-colors">
-                    <span>Learn More</span>
-                    <span className="group-hover:translate-x-1 transition-transform">→</span>
-                  </div>
-                </Link>
-              )
-            ))}
-          </div>
+          {(() => {
+            const itServices: ReadonlyArray<{
+              name: string; price: string; description: string;
+              Icon: typeof Monitor; href: string; value: string; external?: boolean;
+            }> = [
+              { name: 'Essential IT', price: '$99/user/mo', description: 'Helpdesk, monitoring, email security and password manager.', Icon: Monitor, href: '/msp/essential-it', value: '$125+ value' },
+              { name: 'Business Pro', price: '$129/user/mo', description: 'Full IT plus backup, dark web monitoring and MFA.', Icon: ShieldCheck, href: '/msp/business-pro', value: '$175+ value' },
+              { name: 'Complete IT', price: '$179/user/mo', description: 'IT and security with EDR, SIEM and training.', Icon: Lock, href: '/msp/complete-it', value: '$230+ value' },
+              { name: 'SACVPN', price: 'Per User', description: 'Enterprise VPN with military-grade encryption.', Icon: KeyRound, href: 'https://sacvpn.com', value: 'Zero-Log Policy', external: true },
+              { name: 'Enterprise', price: 'Custom', description: '24/7 support, dedicated team, full compliance.', Icon: Building2, href: '/msp/enterprise-it-solutions', value: '50+ users' },
+            ]
+            return (
+              <div className="grid grid-cols-1 gap-4 sm:grid-cols-2 lg:grid-cols-5">
+                {itServices.map((s) => {
+                  const Icon = s.Icon
+                  const inner = (
+                    <>
+                      <Icon className="h-6 w-6 text-primary-500 mb-4" strokeWidth={1.75} />
+                      <h3 className="text-lg font-semibold text-white">{s.name}</h3>
+                      <p className="mt-1 text-sm text-primary-400 font-semibold">{s.price}</p>
+                      <p className="text-xs text-gray-500 mb-3">{s.value}</p>
+                      <p className="text-sm leading-6 text-gray-400">{s.description}</p>
+                      <div className="mt-5 inline-flex items-center gap-1 text-sm font-semibold text-gray-300 group-hover:text-primary-400 transition-colors">
+                        {s.external ? 'Visit site' : 'Learn more'}
+                        <ArrowRight className="h-3.5 w-3.5" />
+                      </div>
+                    </>
+                  )
+                  const className = 'group block rounded-lg bg-surface border border-surface-border p-6 hover:border-primary-500/60 transition-colors'
+                  return s.external ? (
+                    <a key={s.name} href={s.href} target="_blank" rel="noopener noreferrer" className={className}>{inner}</a>
+                  ) : (
+                    <Link key={s.name} href={s.href} className={className}>{inner}</Link>
+                  )
+                })}
+              </div>
+            )
+          })()}
 
           <div className="mt-12 text-center">
             <Link
               href="/msp"
-              className="inline-flex items-center gap-2 rounded-lg bg-primary-500 px-8 py-4 text-lg font-bold text-white shadow-glow hover:bg-primary-600 hover:shadow-glow-lg transition-all"
+              className="inline-flex items-center gap-2 rounded-md border border-surface-border px-6 py-3 text-base font-semibold text-white hover:bg-surface transition-colors"
             >
-              <span>View All IT Services</span>
-              <span>→</span>
+              View all IT services
+              <ArrowRight className="h-4 w-4" />
             </Link>
           </div>
         </div>
       </section>
 
       {/* Process Section */}
-      <section className="bg-surface py-24 sm:py-32">
+      <section className="bg-surface py-24 sm:py-28 border-b border-surface-border">
         <div className="mx-auto max-w-7xl px-6 lg:px-8">
           <div className="mx-auto max-w-2xl text-center mb-16">
-            <h2 className="text-base font-semibold leading-7 text-primary-600">Simple Process</h2>
-            <p className="mt-2 text-4xl font-black tracking-tight text-white sm:text-5xl">
-              How We Work Together
-            </p>
-            <p className="mt-6 text-lg leading-8 text-gray-400">
-              Transparent, efficient, and collaborative. From consultation to launch in 4 simple steps.
+            <div className="inline-flex items-center gap-3 text-[11px] font-semibold uppercase tracking-[0.22em] text-primary-500 mb-4">
+              <span aria-hidden="true" className="font-mono text-primary-500/80">&lt;</span>
+              <span>How It Works</span>
+              <span aria-hidden="true" className="font-mono text-primary-500/80">/&gt;</span>
+            </div>
+            <h2 className="text-3xl font-bold tracking-tight text-white sm:text-4xl">
+              Four steps from call to launch.
+            </h2>
+            <p className="mt-4 text-lg leading-8 text-gray-400">
+              Consultation, flat quote, build, hand-off. No status meetings. No retainer.
             </p>
           </div>
 
@@ -569,8 +510,8 @@ export default function Home() {
                     <div className="hidden lg:block absolute top-20 left-full w-full h-0.5 bg-gradient-to-r from-primary-500 to-primary-500/10 -translate-x-1/2"></div>
                   )}
                   <div className="relative flex flex-col items-center text-center">
-                    <div className="flex h-20 w-20 items-center justify-center rounded-full bg-primary-500 text-white mb-6 group-hover:scale-110 group-hover:shadow-glow transition-all shadow-xl">
-                      <Icon className="h-9 w-9" strokeWidth={2} />
+                    <div className="flex h-16 w-16 items-center justify-center rounded-md border-2 border-primary-500 bg-black text-primary-500 mb-6 group-hover:bg-primary-500 group-hover:text-white transition-colors">
+                      <Icon className="h-7 w-7" strokeWidth={2} />
                     </div>
                     <div className="absolute top-0 -right-2 flex h-8 w-8 items-center justify-center rounded-full bg-accent-400 text-black text-sm font-bold shadow-lg ring-2 ring-surface">
                       {step.number}
@@ -586,18 +527,22 @@ export default function Home() {
       </section>
 
       {/* Testimonials */}
-      <section className="bg-surface-card py-24 sm:py-32">
+      <section className="bg-surface-card border-b border-surface-border py-24 sm:py-28">
         <div className="mx-auto max-w-7xl px-6 lg:px-8">
           <div className="mx-auto max-w-2xl text-center mb-16">
-            <h2 className="text-base font-semibold leading-7 text-primary-600">Small Business Website Success Stories</h2>
-            <p className="mt-2 text-4xl font-black tracking-tight text-white sm:text-5xl">
-              Custom Websites for Texas Businesses
-            </p>
+            <div className="inline-flex items-center gap-3 text-[11px] font-semibold uppercase tracking-[0.22em] text-primary-500 mb-4">
+              <span aria-hidden="true" className="font-mono text-primary-500/80">&lt;</span>
+              <span>Built For Real Businesses</span>
+              <span aria-hidden="true" className="font-mono text-primary-500/80">/&gt;</span>
+            </div>
+            <h2 className="text-3xl font-bold tracking-tight text-white sm:text-4xl">
+              A few of the platforms I&apos;ve shipped.
+            </h2>
           </div>
 
           <div className="grid grid-cols-1 gap-8 lg:grid-cols-3">
             {testimonials.map((testimonial, index) => (
-              <article key={index} className="bg-surface-elevated rounded-2xl ring-1 ring-surface-border shadow-xl shadow-black/40 p-8 hover:ring-primary-500/50 hover:-translate-y-1 transition-all">
+              <article key={index} className="bg-surface-elevated rounded-2xl ring-1 ring-surface-border shadow-xl shadow-black/40 p-8 hover:ring-primary-500/50 transition-all">
                 <div className="flex gap-1 mb-4">
                   {[...Array(5)].map((_, i) => (
                     <svg key={i} className="h-5 w-5 text-accent-400" fill="currentColor" viewBox="0 0 20 20">
@@ -625,33 +570,37 @@ export default function Home() {
           <div className="mt-12 text-center">
             <Link
               href="/work"
-              className="inline-flex items-center gap-2 rounded-lg bg-primary-500 px-8 py-4 text-lg font-bold text-white shadow-glow hover:bg-primary-600 hover:shadow-glow-lg transition-all"
+              className="inline-flex items-center gap-2 rounded-md border border-surface-border px-6 py-3 text-base font-semibold text-white hover:border-primary-500/60 hover:bg-surface transition-colors"
             >
-              <span>View All Case Studies</span>
-              <span>→</span>
+              View all case studies
+              <ArrowRight className="h-4 w-4" />
             </Link>
           </div>
         </div>
       </section>
 
-      {/* Service Areas - SEO Gold */}
-      <section className="bg-surface py-24 sm:py-32">
+      {/* Service Areas */}
+      <section className="bg-surface py-24 sm:py-28 border-b border-surface-border">
         <div className="mx-auto max-w-7xl px-6 lg:px-8">
           <div className="mx-auto max-w-2xl text-center mb-16">
-            <h2 className="text-base font-semibold leading-7 text-primary-600">Local Web Developer Near Me</h2>
-            <p className="mt-2 text-4xl font-black tracking-tight text-white sm:text-5xl">
-              Houston Web Development Services
-            </p>
-            <p className="mt-6 text-lg leading-8 text-gray-400">
-              Veteran owned web developer proudly serving businesses throughout Houston, Conroe, The Woodlands, and Montgomery County. Affordable web design you can trust.
+            <div className="inline-flex items-center gap-3 text-[11px] font-semibold uppercase tracking-[0.22em] text-primary-500 mb-4">
+              <span aria-hidden="true" className="font-mono text-primary-500/80">&lt;</span>
+              <span>Greater Houston</span>
+              <span aria-hidden="true" className="font-mono text-primary-500/80">/&gt;</span>
+            </div>
+            <h2 className="text-3xl font-bold tracking-tight text-white sm:text-4xl">
+              I work with businesses across Texas.
+            </h2>
+            <p className="mt-4 text-lg leading-8 text-gray-400">
+              Based in Conroe. On-site when it matters. Remote when it doesn&apos;t.
             </p>
           </div>
 
           <div className="grid grid-cols-2 gap-4 sm:grid-cols-3 lg:grid-cols-4">
             {serviceAreas.map((city) => (
-              <div key={city} className="group relative overflow-hidden rounded-xl bg-surface-card ring-1 ring-surface-border p-6 text-center hover:ring-primary-500/60 hover:bg-surface-elevated transition-all hover:-translate-y-1">
-                <p className="relative text-lg font-bold text-white group-hover:text-primary-300 transition-colors">{city}</p>
-                <p className="relative text-xs text-gray-400">Web Development</p>
+              <div key={city} className="group relative rounded-md bg-surface-card ring-1 ring-surface-border p-5 text-center card-lift">
+                <p className="relative text-base font-semibold text-white group-hover:text-primary-400 transition-colors">{city}</p>
+                <p className="relative text-xs text-gray-500 mt-0.5">Web development</p>
               </div>
             ))}
           </div>
@@ -664,46 +613,30 @@ export default function Home() {
         </div>
       </section>
 
-      {/* Final CTA — the brand moment: solid orange band on near-black canvas */}
-      <section className="relative overflow-hidden bg-primary-600 text-white">
-        {/* Subtle texture so the solid orange has depth, not flat */}
-        <div className="absolute inset-0 opacity-[0.08]">
-          <div className="absolute inset-0" style={{
-            backgroundImage: `url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%23000000' fill-opacity='1'%3E%3Cpath d='M36 34v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4zm0-30V0h-2v4h-4v2h4v4h2V6h4V4h-4zM6 34v-4H4v4H0v2h4v4h2v-4h4v-2H6zM6 4V0H4v4H0v2h4v4h2V6h4V4H6z'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E")`
-          }}></div>
-        </div>
-        {/* Subtle dark glow at the bottom to anchor visually */}
-        <div className="pointer-events-none absolute -bottom-32 left-1/2 -translate-x-1/2 h-64 w-[120%] rounded-[100%] bg-black/30 blur-3xl" />
-
-        <div className="relative px-6 py-24 sm:px-6 sm:py-32 lg:px-8">
-          <div className="mx-auto max-w-3xl text-center">
-            <h2 className="text-4xl font-black tracking-tight sm:text-6xl mb-8">
-              Ready to Grow Your Business Online?
-            </h2>
-            <p className="mx-auto max-w-2xl text-xl leading-8 text-white/90 mb-12">
-              Join 150+ Houston businesses who trust StephensCode for their web development needs. Free consultation, transparent pricing, fast delivery.
-            </p>
-            <div className="flex flex-wrap items-center justify-center gap-4">
-              <Link
-                href="/contact"
-                className="group relative inline-flex items-center gap-2 rounded-lg bg-black px-10 py-5 text-xl font-bold text-white hover:bg-surface-elevated transition-all hover:scale-[1.02]"
-              >
-                <span>Start Your Project</span>
-                <svg className="w-6 h-6 group-hover:translate-x-1 transition-transform" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M13 7l5 5m0 0l-5 5m5-5H6" />
-                </svg>
-              </Link>
-              <a
-                href="tel:+19363234527"
-                className="inline-flex items-center gap-3 rounded-lg border-2 border-white/30 px-10 py-5 text-xl font-bold text-white backdrop-blur-sm hover:bg-white/10 hover:border-white/60 transition-all"
-              >
-                <span>📞</span>
-                <span>(936) 323-4527</span>
-              </a>
-            </div>
-            <p className="mt-8 text-sm text-white/80">
-              No pressure sales calls. Just honest advice and transparent pricing.
-            </p>
+      {/* Final CTA — plain, sober, no brand moment */}
+      <section className="bg-surface border-t border-surface-border">
+        <div className="mx-auto max-w-4xl px-6 py-20 sm:py-24 lg:px-8 text-center">
+          <h2 className="text-3xl font-bold tracking-tight text-white sm:text-4xl">
+            Ready to talk?
+          </h2>
+          <p className="mx-auto mt-4 max-w-2xl text-lg text-gray-300">
+            Send me a few details about what you need and I&apos;ll get back to you with a flat quote. No sales calls, no pressure.
+          </p>
+          <div className="mt-10 flex flex-wrap items-center justify-center gap-3">
+            <Link
+              href="/contact"
+              className="inline-flex items-center gap-2 rounded-md bg-primary-500 px-6 py-3 text-base font-semibold text-white hover:bg-primary-600 transition-colors"
+            >
+              Get a Flat Quote
+              <ArrowRight className="h-4 w-4" />
+            </Link>
+            <a
+              href="tel:+19363234527"
+              className="inline-flex items-center gap-2 rounded-md border border-surface-border px-6 py-3 text-base font-semibold text-white hover:bg-surface-card transition-colors"
+            >
+              <Phone className="h-4 w-4" />
+              (936) 323-4527
+            </a>
           </div>
         </div>
       </section>

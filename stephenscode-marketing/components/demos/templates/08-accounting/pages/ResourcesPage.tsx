@@ -241,7 +241,7 @@ export default function ResourcesPage({ onNavigate }: ResourcesPageProps) {
               return (
                 <div
                   key={index}
-                  className="bg-gradient-to-br from-[#14213d] to-[#1a2a4d] text-white rounded-xl p-6 hover:scale-105 transition-transform cursor-pointer"
+                  className="bg-gradient-to-br from-[#14213d] to-[#1a2a4d] text-white rounded-xl p-6 transition-transform cursor-pointer"
                 >
                   <div className="w-14 h-14 bg-[#fca311] rounded-lg flex items-center justify-center mb-4">
                     <Icon className="text-[#14213d]" size={28} />

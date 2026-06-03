@@ -171,7 +171,7 @@ export default function TestimonialsPage({ onNavigate, colors }: TestimonialsPag
             {testimonials.map((testimonial, index) => (
               <div
                 key={index}
-                className="bg-white rounded-2xl shadow-lg hover:shadow-2xl transition-all overflow-hidden flex flex-col"
+                className="bg-white rounded-2xl shadow-lg transition-all overflow-hidden flex flex-col"
               >
                 {/* Header */}
                 <div className="p-6 border-b-4" style={{ borderBottomColor: colors.accent }}>

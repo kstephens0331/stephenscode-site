@@ -100,7 +100,7 @@ export default async function CategoryPage({ params }: Props) {
           <div className="mx-auto max-w-3xl text-center">
             <Link
               href="/blog"
-              className="inline-flex items-center gap-2 rounded-full bg-slate-800/40 px-4 py-2 text-sm font-semibold text-white ring-1 ring-inset ring-slate-600 mb-8 hover:bg-slate-700/60 transition-all"
+              className="inline-flex items-center gap-2 rounded-full bg-surface-card/60 px-4 py-2 text-sm font-semibold text-white ring-1 ring-inset ring-surface-border mb-8 hover:bg-surface-elevated/60 transition-all"
             >
               ← Back to All Posts
             </Link>
@@ -116,14 +116,14 @@ export default async function CategoryPage({ params }: Props) {
 
         {/* Wave divider */}
         <div className="absolute bottom-0 left-0 right-0">
-          <svg className="w-full h-16 fill-slate-900" viewBox="0 0 1200 120" preserveAspectRatio="none">
+          <svg className="w-full h-16 fill-surface" viewBox="0 0 1200 120" preserveAspectRatio="none">
             <path d="M321.39,56.44c58-10.79,114.16-30.13,172-41.86,82.39-16.72,168.19-17.73,250.45-.39C823.78,31,906.67,72,985.66,92.83c70.05,18.48,146.53,26.09,214.34,3V0H0V27.35A600.21,600.21,0,0,0,321.39,56.44Z" />
           </svg>
         </div>
       </section>
 
       {/* Categories Filter */}
-      <section className="bg-slate-900 border-b border-slate-700 py-8">
+      <section className="bg-surface border-b border-surface-border py-8">
         <div className="mx-auto max-w-7xl px-6 lg:px-8">
           <div className="flex flex-wrap justify-center gap-4">
             {categories.map((category, index) => {
@@ -132,15 +132,15 @@ export default async function CategoryPage({ params }: Props) {
                 <Link
                   key={category.slug}
                   href={category.slug === 'all' ? '/blog' : `/blog/category/${category.slug}`}
-                  className={`group relative rounded-2xl px-6 py-4 shadow-md border-2 transition-all hover:scale-105 ${
+                  className={`group relative rounded-2xl px-6 py-4 shadow-md border-2 transition-all  ${
                     isActive
                       ? 'bg-gradient-to-br ' + category.color + ' text-white border-transparent shadow-lg'
-                      : 'bg-gradient-to-br from-slate-800 to-slate-900 text-white border-slate-700 hover:border-primary-300 hover:shadow-lg'
+                      : 'bg-gradient-to-br from-slate-800 to-slate-900 text-white border-surface-border hover:border-primary-300 hover:shadow-lg'
                   }`}
                   style={{ animationDelay: `${index * 100}ms` }}
                 >
                   <div className="flex items-center gap-3">
-                    <span className={`text-2xl group-hover:scale-110 transition-transform ${isActive ? 'filter brightness-0 invert' : ''}`}>
+                    <span className={`text-2xl group- transition-transform ${isActive ? 'filter brightness-0 invert' : ''}`}>
                       {category.icon}
                     </span>
                     <span className={`font-semibold transition-colors ${isActive ? 'text-white' : 'group-hover:text-primary-600'}`}>
@@ -160,7 +160,7 @@ export default async function CategoryPage({ params }: Props) {
           {categoryPosts.length === 0 ? (
             <div className="text-center">
               <div className="mx-auto max-w-3xl">
-                <div className="relative rounded-3xl bg-slate-800 p-16 shadow-2xl shadow-black/20 border-2 border-slate-700">
+                <div className="relative rounded-3xl bg-surface-card p-16 shadow-2xl shadow-black/20 border-2 border-surface-border">
                   <div className="absolute -top-8 left-1/2 -translate-x-1/2">
                     <div className={`w-16 h-16 rounded-full bg-gradient-to-br ${config.color} flex items-center justify-center text-3xl shadow-xl`}>
                       {config.icon}
@@ -177,14 +177,14 @@ export default async function CategoryPage({ params }: Props) {
                   <div className="flex flex-col sm:flex-row gap-4 justify-center">
                     <Link
                       href="/blog"
-                      className="group rounded-lg bg-gradient-to-r from-primary-600 to-accent-600 px-8 py-4 text-base font-semibold text-white shadow-lg hover:shadow-xl transition-all hover:scale-105"
+                      className="group rounded-lg bg-gradient-to-r from-primary-600 to-accent-600 px-8 py-4 text-base font-semibold text-white shadow-lg hover:shadow-xl transition-all"
                     >
                       View All Articles
                       <span className="inline-block transition-transform group-hover:translate-x-1 ml-2">→</span>
                     </Link>
                     <Link
                       href="/contact"
-                      className="rounded-lg bg-slate-900 px-8 py-4 text-base font-semibold text-primary-400 ring-2 ring-inset ring-primary-600 hover:bg-slate-800 transition-all hover:scale-105"
+                      className="rounded-lg bg-surface px-8 py-4 text-base font-semibold text-primary-400 ring-2 ring-inset ring-primary-600 hover:bg-surface-card transition-all"
                     >
                       Get Expert Help
                     </Link>
@@ -207,7 +207,7 @@ export default async function CategoryPage({ params }: Props) {
                 {categoryPosts.map((post, index) => (
                   <article
                     key={post.slug}
-                    className="group flex flex-col bg-slate-800 rounded-3xl shadow-lg shadow-black/20 overflow-hidden border-2 border-slate-700 hover:border-primary-300 hover:shadow-2xl transition-all hover:scale-105"
+                    className="group flex flex-col bg-surface-card rounded-3xl shadow-lg shadow-black/20 overflow-hidden border-2 border-surface-border hover:border-primary-300 transition-all"
                     style={{ animationDelay: `${index * 100}ms` }}
                   >
                     {post.image && (
@@ -215,10 +215,10 @@ export default async function CategoryPage({ params }: Props) {
                         <img
                           src={post.image}
                           alt={post.title}
-                          className="h-full w-full object-cover group-hover:scale-110 transition-transform duration-300"
+                          className="h-full w-full object-cover group- transition-transform duration-300"
                         />
                         <div className="absolute top-4 right-4">
-                          <span className="px-4 py-2 rounded-full bg-slate-800/90 backdrop-blur-sm text-sm font-bold text-primary-400 shadow-lg">
+                          <span className="px-4 py-2 rounded-full bg-surface-card/90 backdrop-blur-sm text-sm font-bold text-primary-400 shadow-lg">
                             {post.category}
                           </span>
                         </div>
@@ -247,7 +247,7 @@ export default async function CategoryPage({ params }: Props) {
                           {post.excerpt}
                         </p>
                       </div>
-                      <div className="mt-6 flex items-center justify-between border-t border-slate-700 pt-6">
+                      <div className="mt-6 flex items-center justify-between border-t border-surface-border pt-6">
                         <div className="flex items-center gap-2 text-sm text-gray-500">
                           <svg className="h-5 w-5 text-primary-500" fill="currentColor" viewBox="0 0 20 20">
                             <path fillRule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm1-12a1 1 0 10-2 0v4a1 1 0 00.293.707l2.828 2.829a1 1 0 101.415-1.415L11 9.586V6z" clipRule="evenodd" />
@@ -292,7 +292,7 @@ export default async function CategoryPage({ params }: Props) {
             <div className="mt-10 flex flex-col sm:flex-row items-center justify-center gap-6">
               <Link
                 href="/contact"
-                className="group rounded-lg bg-slate-800 px-8 py-4 text-base font-semibold text-white shadow-2xl hover:bg-slate-700 transition-all hover:scale-105"
+                className="group rounded-lg bg-surface-card px-8 py-4 text-base font-semibold text-white shadow-2xl hover:bg-surface-elevated transition-all"
               >
                 Get Started Today
                 <span className="inline-block transition-transform group-hover:translate-x-1 ml-2">→</span>

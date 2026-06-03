@@ -70,7 +70,7 @@ export default function CustomSolutionsForm() {
           viewport={{ once: true }}
           className="text-center mb-12"
         >
-          <h2 className="text-4xl md:text-5xl font-black mb-4 bg-gradient-to-r from-primary-400 to-accent-400 bg-clip-text text-transparent">
+          <h2 className="text-4xl md:text-5xl font-bold mb-4 bg-gradient-to-r from-primary-400 to-accent-400 bg-clip-text text-transparent">
             Get Your Free Quote
           </h2>
           <p className="text-xl text-gray-400 max-w-2xl mx-auto">
@@ -97,7 +97,7 @@ export default function CustomSolutionsForm() {
               </p>
               <button
                 onClick={() => setStatus('idle')}
-                className="px-6 py-3 bg-primary-500 text-white font-semibold rounded-xl shadow-glow hover:bg-primary-600 hover:shadow-glow-lg transition-all duration-300"
+                className="px-6 py-3 bg-primary-500 text-white font-semibold rounded-xl hover:bg-primary-600 transition-all duration-300"
               >
                 Submit Another Request
               </button>
@@ -261,7 +261,7 @@ export default function CustomSolutionsForm() {
                 disabled={status === 'submitting'}
                 whileHover={{ scale: status === 'submitting' ? 1 : 1.02 }}
                 whileTap={{ scale: status === 'submitting' ? 1 : 0.98 }}
-                className="w-full bg-primary-500 text-white font-bold py-4 px-6 rounded-xl hover:bg-primary-600 transition-all duration-300 shadow-glow hover:shadow-glow-lg disabled:opacity-50 disabled:cursor-not-allowed disabled:hover:shadow-glow flex items-center justify-center gap-2"
+                className="w-full bg-primary-500 text-white font-bold py-4 px-6 rounded-xl hover:bg-primary-600 transition-all duration-300 disabled:opacity-50 disabled:cursor-not-allowed disabled:flex items-center justify-center gap-2"
               >
                 {status === 'submitting' ? (
                   <>

@@ -35,9 +35,9 @@ export default function AddOnsClient() {
   ]
 
   return (
-    <div className="bg-slate-800 min-h-screen">
+    <div className="bg-surface-card min-h-screen">
       {/* Hero Section */}
-      <section className="bg-gradient-to-br from-slate-900 via-blue-900 to-slate-900 py-16 sm:py-20">
+      <section className="bg-gradient-to-br from-surface via-surface-card to-surface py-16 sm:py-20">
         <div className="mx-auto max-w-7xl px-6 lg:px-8">
           <div className="text-center">
             <h1 className="text-4xl font-bold tracking-tight text-white sm:text-5xl">
@@ -51,7 +51,7 @@ export default function AddOnsClient() {
       </section>
 
       {/* Sticky Filter Bar */}
-      <div className="sticky top-0 z-40 bg-slate-900 border-b border-slate-700 shadow-sm">
+      <div className="sticky top-0 z-40 bg-surface border-b border-surface-border shadow-sm">
         <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
           <div className="py-4 flex flex-col sm:flex-row gap-4 items-center justify-between">
             {/* Category Filter Tabs */}
@@ -63,13 +63,13 @@ export default function AddOnsClient() {
                   className={`px-4 py-2 rounded-full text-sm font-medium whitespace-nowrap transition-all ${
                     activeFilter === filter.key
                       ? 'bg-primary-600 text-white shadow-md'
-                      : 'bg-slate-700 text-gray-400 hover:bg-slate-600'
+                      : 'bg-surface-elevated text-gray-400 hover:bg-slate-600'
                   }`}
                 >
                   {filter.label}
                   <span className={`ml-2 px-2 py-0.5 rounded-full text-xs ${
                     activeFilter === filter.key
-                      ? 'bg-slate-700/40 text-white'
+                      ? 'bg-surface-elevated/40 text-white'
                       : 'bg-slate-600 text-gray-400'
                   }`}>
                     {filter.count}
@@ -85,7 +85,7 @@ export default function AddOnsClient() {
                 placeholder="Search add-ons..."
                 value={searchQuery}
                 onChange={(e) => setSearchQuery(e.target.value)}
-                className="w-full px-4 py-2 pl-10 rounded-lg border border-slate-600 bg-slate-800 text-white focus:border-primary-500 focus:ring-2 focus:ring-primary-500/20 outline-none transition-all text-sm"
+                className="w-full px-4 py-2 pl-10 rounded-lg border border-surface-border bg-surface-card text-white focus:border-primary-500 focus:ring-2 focus:ring-primary-500/20 outline-none transition-all text-sm"
               />
               <svg
                 className="absolute left-3 top-1/2 -translate-y-1/2 w-4 h-4 text-gray-400"
@@ -126,10 +126,10 @@ export default function AddOnsClient() {
               <Link
                 key={addon.id}
                 href={`/services/${addon.slug}`}
-                className={`group rounded-xl border-2 bg-slate-900 p-6 hover:shadow-xl transition-all hover:scale-[1.02] ${
+                className={`group rounded-xl border-2 bg-surface p-6 hover:shadow-xl transition-all  ${
                   addon.category === 'addon-advanced'
-                    ? 'border-slate-700 hover:border-primary-500'
-                    : 'border-slate-700 hover:border-accent-500'
+                    ? 'border-surface-border hover:border-primary-500'
+                    : 'border-surface-border hover:border-accent-500'
                 }`}
               >
                 {/* Category Badge */}
@@ -164,7 +164,7 @@ export default function AddOnsClient() {
                 {/* CTA */}
                 <div className={`text-sm font-semibold transition-colors ${
                   addon.category === 'addon-advanced'
-                    ? 'text-primary-600 group-hover:text-primary-700'
+                    ? 'text-primary-600 group-hover:text-primary-400'
                     : 'text-accent-600 group-hover:text-accent-700'
                 }`}>
                   View Details
@@ -185,7 +185,7 @@ export default function AddOnsClient() {
                 setSearchQuery('')
                 setActiveFilter('all')
               }}
-              className="text-primary-600 font-medium hover:text-primary-700"
+              className="text-primary-600 font-medium hover:text-primary-400"
             >
               Clear filters
             </button>
@@ -194,7 +194,7 @@ export default function AddOnsClient() {
       </section>
 
       {/* CTA Section */}
-      <section className="bg-gradient-to-br from-slate-900 via-blue-900 to-slate-900 py-16">
+      <section className="bg-gradient-to-br from-surface via-surface-card to-surface py-16">
         <div className="mx-auto max-w-4xl px-6 lg:px-8 text-center">
           <h2 className="text-2xl font-bold text-white mb-4">
             Need Help Choosing?
@@ -204,7 +204,7 @@ export default function AddOnsClient() {
           </p>
           <Link
             href="/contact"
-            className="inline-flex items-center gap-2 rounded-lg bg-accent-500 px-6 py-3 text-base font-semibold text-white shadow-lg hover:bg-accent-600 transition-all hover:scale-105"
+            className="inline-flex items-center gap-2 rounded-lg bg-accent-500 px-6 py-3 text-base font-semibold text-white shadow-lg hover:bg-accent-600 transition-all"
           >
             Get a Free Quote
             <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">

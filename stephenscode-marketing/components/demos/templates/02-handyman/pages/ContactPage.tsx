@@ -336,7 +336,7 @@ export default function ContactPage({ onNavigate, colors }: ContactPageProps) {
                     <button
                       type="submit"
                       disabled={submitStatus === 'submitting'}
-                      className="w-full px-6 py-4 rounded-lg text-white font-bold text-lg shadow-lg hover:shadow-xl transition-all transform hover:scale-105 disabled:opacity-50 disabled:cursor-not-allowed disabled:transform-none flex items-center justify-center gap-2"
+                      className="w-full px-6 py-4 rounded-lg text-white font-bold text-lg shadow-lg hover:shadow-xl transition-all transform disabled:opacity-50 disabled:cursor-not-allowed disabled:transform-none flex items-center justify-center gap-2"
                       style={{ backgroundColor: colors.accent }}
                     >
                       {submitStatus === 'submitting' ? (

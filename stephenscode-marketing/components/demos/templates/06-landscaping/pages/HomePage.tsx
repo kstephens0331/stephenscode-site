@@ -108,7 +108,7 @@ export default function HomePage({ onNavigate }: HomePageProps) {
               <div className="flex flex-wrap gap-4 pt-4">
                 <button
                   onClick={() => onNavigate('contact')}
-                  className="bg-[#a7c957] text-[#386641] px-8 py-4 rounded-lg font-bold text-lg hover:bg-white transition-all transform hover:scale-105 shadow-xl flex items-center gap-2"
+                  className="bg-[#a7c957] text-[#386641] px-8 py-4 rounded-lg font-bold text-lg hover:bg-white transition-all transform shadow-xl flex items-center gap-2"
                 >
                   Get Free Estimate
                   <ArrowRight className="h-5 w-5" />
@@ -197,7 +197,7 @@ export default function HomePage({ onNavigate }: HomePageProps) {
             {services.map((service, index) => (
               <div
                 key={index}
-                className="bg-white rounded-2xl p-6 shadow-lg hover:shadow-2xl transition-all transform hover:-translate-y-2 border-2 border-transparent hover:border-[#a7c957] relative overflow-hidden group"
+                className="bg-white rounded-2xl p-6 shadow-lg transition-all transform hover:-translate-y-2 border-2 border-transparent hover:border-[#a7c957] relative overflow-hidden group"
               >
                 {service.badge && (
                   <div className="absolute top-4 right-4 bg-[#a7c957] text-[#386641] px-3 py-1 rounded-full text-xs font-bold">
@@ -205,7 +205,7 @@ export default function HomePage({ onNavigate }: HomePageProps) {
                   </div>
                 )}
 
-                <div className="w-16 h-16 bg-gradient-to-br from-[#386641] to-[#6a994e] rounded-xl flex items-center justify-center text-white mb-4 group-hover:scale-110 transition-transform">
+                <div className="w-16 h-16 bg-gradient-to-br from-[#386641] to-[#6a994e] rounded-xl flex items-center justify-center text-white mb-4 group- transition-transform">
                   {service.icon}
                 </div>
 
@@ -223,7 +223,7 @@ export default function HomePage({ onNavigate }: HomePageProps) {
           <div className="text-center">
             <button
               onClick={() => onNavigate('services')}
-              className="bg-[#386641] text-white px-8 py-4 rounded-lg font-bold text-lg hover:bg-[#6a994e] transition-all transform hover:scale-105 shadow-lg inline-flex items-center gap-2"
+              className="bg-[#386641] text-white px-8 py-4 rounded-lg font-bold text-lg hover:bg-[#6a994e] transition-all transform shadow-lg inline-flex items-center gap-2"
             >
               View All Services
               <ArrowRight className="h-5 w-5" />
@@ -305,7 +305,7 @@ export default function HomePage({ onNavigate }: HomePageProps) {
 
               <button
                 onClick={() => onNavigate('services')}
-                className="bg-[#a7c957] text-[#386641] px-8 py-4 rounded-lg font-bold text-lg hover:bg-white transition-all transform hover:scale-105 shadow-xl inline-flex items-center gap-2"
+                className="bg-[#a7c957] text-[#386641] px-8 py-4 rounded-lg font-bold text-lg hover:bg-white transition-all transform shadow-xl inline-flex items-center gap-2"
               >
                 View Seasonal Packages
                 <ArrowRight className="h-5 w-5" />
@@ -367,7 +367,7 @@ export default function HomePage({ onNavigate }: HomePageProps) {
 
                 <button
                   onClick={() => onNavigate('testimonials')}
-                  className="mt-8 bg-[#386641] text-white px-8 py-4 rounded-lg font-bold text-lg hover:bg-[#6a994e] transition-all transform hover:scale-105 shadow-lg inline-flex items-center gap-2"
+                  className="mt-8 bg-[#386641] text-white px-8 py-4 rounded-lg font-bold text-lg hover:bg-[#6a994e] transition-all transform shadow-lg inline-flex items-center gap-2"
                 >
                   Read Customer Reviews
                   <Star className="h-5 w-5" />
@@ -414,14 +414,14 @@ export default function HomePage({ onNavigate }: HomePageProps) {
           <div className="flex flex-wrap justify-center gap-4">
             <button
               onClick={() => onNavigate('contact')}
-              className="bg-[#386641] text-white px-10 py-5 rounded-lg font-bold text-xl hover:bg-white hover:text-[#386641] transition-all transform hover:scale-105 shadow-2xl inline-flex items-center gap-2"
+              className="bg-[#386641] text-white px-10 py-5 rounded-lg font-bold text-xl hover:bg-white hover:text-[#386641] transition-all transform shadow-2xl inline-flex items-center gap-2"
             >
               Get Free Estimate
               <ArrowRight className="h-6 w-6" />
             </button>
             <a
               href="tel:555-0123"
-              className="bg-white text-[#386641] px-10 py-5 rounded-lg font-bold text-xl hover:bg-[#386641] hover:text-white transition-all transform hover:scale-105 shadow-2xl inline-flex items-center gap-2"
+              className="bg-white text-[#386641] px-10 py-5 rounded-lg font-bold text-xl hover:bg-[#386641] hover:text-white transition-all transform shadow-2xl inline-flex items-center gap-2"
             >
               Call (555) 012-3456
             </a>

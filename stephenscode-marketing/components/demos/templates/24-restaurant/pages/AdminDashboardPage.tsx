@@ -36,7 +36,7 @@ export default function AdminDashboardPage({ colors }: AdminDashboardPageProps) 
       {/* Dashboard Header */}
       <div style={{ backgroundColor: '#9b2226' }} className="py-8">
         <div className="max-w-7xl mx-auto px-4">
-          <h1 style={{ color: '#ffffff' }} className="text-4xl font-black mb-2">
+          <h1 style={{ color: '#ffffff' }} className="text-4xl font-bold mb-2">
             Restaurant Dashboard
           </h1>
           <p style={{ color: '#ee9b00' }} className="text-lg">
@@ -50,22 +50,22 @@ export default function AdminDashboardPage({ colors }: AdminDashboardPageProps) 
         <div className="grid md:grid-cols-4 gap-6">
           <div style={{ backgroundColor: '#ffffff' }} className="p-6 shadow-lg">
             <div style={{ color: '#666666' }} className="text-sm font-bold uppercase mb-2">Today's Orders</div>
-            <div style={{ color: '#1a1a1a' }} className="text-4xl font-black mb-1">127</div>
+            <div style={{ color: '#1a1a1a' }} className="text-4xl font-bold mb-1">127</div>
             <div style={{ color: '#22c55e' }} className="text-sm font-bold">↑ 12% from yesterday</div>
           </div>
           <div style={{ backgroundColor: '#ffffff' }} className="p-6 shadow-lg">
             <div style={{ color: '#666666' }} className="text-sm font-bold uppercase mb-2">Revenue Today</div>
-            <div style={{ color: '#1a1a1a' }} className="text-4xl font-black mb-1">$5,847</div>
+            <div style={{ color: '#1a1a1a' }} className="text-4xl font-bold mb-1">$5,847</div>
             <div style={{ color: '#22c55e' }} className="text-sm font-bold">↑ 8% from yesterday</div>
           </div>
           <div style={{ backgroundColor: '#ffffff' }} className="p-6 shadow-lg">
             <div style={{ color: '#666666' }} className="text-sm font-bold uppercase mb-2">Active Reservations</div>
-            <div style={{ color: '#1a1a1a' }} className="text-4xl font-black mb-1">18</div>
+            <div style={{ color: '#1a1a1a' }} className="text-4xl font-bold mb-1">18</div>
             <div style={{ color: '#666666' }} className="text-sm font-bold">For tonight</div>
           </div>
           <div style={{ backgroundColor: '#ffffff' }} className="p-6 shadow-lg">
             <div style={{ color: '#666666' }} className="text-sm font-bold uppercase mb-2">Loyalty Members</div>
-            <div style={{ color: '#1a1a1a' }} className="text-4xl font-black mb-1">1,243</div>
+            <div style={{ color: '#1a1a1a' }} className="text-4xl font-bold mb-1">1,243</div>
             <div style={{ color: '#22c55e' }} className="text-sm font-bold">↑ 23 new this week</div>
           </div>
         </div>
@@ -98,7 +98,7 @@ export default function AdminDashboardPage({ colors }: AdminDashboardPageProps) 
         {activeTab === 'orders' && (
           <div style={{ backgroundColor: '#ffffff' }} className="p-8 shadow-lg">
             <div className="flex justify-between items-center mb-6">
-              <h2 style={{ color: '#1a1a1a' }} className="text-2xl font-black">Live Orders</h2>
+              <h2 style={{ color: '#1a1a1a' }} className="text-2xl font-bold">Live Orders</h2>
               <div className="flex gap-3">
                 <button style={{ backgroundColor: '#f5f5f5', color: '#1a1a1a' }} className="px-4 py-2 font-bold text-sm">
                   All Orders
@@ -120,7 +120,7 @@ export default function AdminDashboardPage({ colors }: AdminDashboardPageProps) 
                   <div className="flex justify-between items-start mb-3">
                     <div>
                       <div className="flex items-center gap-3 mb-2">
-                        <span style={{ color: '#1a1a1a' }} className="text-xl font-black">{order.id}</span>
+                        <span style={{ color: '#1a1a1a' }} className="text-xl font-bold">{order.id}</span>
                         <span style={{
                           backgroundColor: order.status === 'Preparing' ? '#fbbf24' :
                                         order.status === 'Ready' ? '#22c55e' :
@@ -137,7 +137,7 @@ export default function AdminDashboardPage({ colors }: AdminDashboardPageProps) 
                       <div style={{ color: '#666666' }} className="text-sm">{order.items}</div>
                     </div>
                     <div className="text-right">
-                      <div style={{ color: '#9b2226' }} className="text-2xl font-black mb-1">{order.total}</div>
+                      <div style={{ color: '#9b2226' }} className="text-2xl font-bold mb-1">{order.total}</div>
                       <div style={{ color: '#999999' }} className="text-sm">{order.time}</div>
                     </div>
                   </div>
@@ -164,7 +164,7 @@ export default function AdminDashboardPage({ colors }: AdminDashboardPageProps) 
         {activeTab === 'reservations' && (
           <div style={{ backgroundColor: '#ffffff' }} className="p-8 shadow-lg">
             <div className="flex justify-between items-center mb-6">
-              <h2 style={{ color: '#1a1a1a' }} className="text-2xl font-black">Today's Reservations</h2>
+              <h2 style={{ color: '#1a1a1a' }} className="text-2xl font-bold">Today's Reservations</h2>
               <button style={{ backgroundColor: '#9b2226', color: '#ffffff' }} className="px-6 py-3 font-bold hover:opacity-90">
                 + New Reservation
               </button>
@@ -175,7 +175,7 @@ export default function AdminDashboardPage({ colors }: AdminDashboardPageProps) 
                   <div className="flex justify-between items-start">
                     <div>
                       <div className="flex items-center gap-3 mb-2">
-                        <span style={{ color: '#9b2226' }} className="text-2xl font-black">{res.time}</span>
+                        <span style={{ color: '#9b2226' }} className="text-2xl font-bold">{res.time}</span>
                         <span style={{
                           backgroundColor: res.status === 'Confirmed' ? '#22c55e' : '#fbbf24',
                           color: '#ffffff'
@@ -208,14 +208,14 @@ export default function AdminDashboardPage({ colors }: AdminDashboardPageProps) 
         {/* Loyalty Tab */}
         {activeTab === 'loyalty' && (
           <div style={{ backgroundColor: '#ffffff' }} className="p-8 shadow-lg">
-            <h2 style={{ color: '#1a1a1a' }} className="text-2xl font-black mb-6">Top Loyalty Members</h2>
+            <h2 style={{ color: '#1a1a1a' }} className="text-2xl font-bold mb-6">Top Loyalty Members</h2>
             <div className="space-y-4">
               {loyaltyMembers.map((member, idx) => (
                 <div key={idx} style={{ backgroundColor: '#f8f8f8', border: '2px solid #e5e5e5' }} className="p-6">
                   <div className="flex justify-between items-center">
                     <div>
                       <div className="flex items-center gap-3 mb-2">
-                        <span style={{ color: '#1a1a1a' }} className="text-lg font-black">{member.name}</span>
+                        <span style={{ color: '#1a1a1a' }} className="text-lg font-bold">{member.name}</span>
                         <span style={{
                           backgroundColor: member.tier === 'Gold' ? '#fbbf24' :
                                         member.tier === 'Silver' ? '#9ca3af' : '#cd7f32',
@@ -229,7 +229,7 @@ export default function AdminDashboardPage({ colors }: AdminDashboardPageProps) 
                       </div>
                     </div>
                     <div className="text-right">
-                      <div style={{ color: '#9b2226' }} className="text-xl font-black">{member.points} pts</div>
+                      <div style={{ color: '#9b2226' }} className="text-xl font-bold">{member.points} pts</div>
                       <div style={{ color: '#666666' }} className="text-sm">Lifetime: {member.spend}</div>
                     </div>
                   </div>
@@ -242,7 +242,7 @@ export default function AdminDashboardPage({ colors }: AdminDashboardPageProps) 
         {/* Analytics Tab */}
         {activeTab === 'analytics' && (
           <div style={{ backgroundColor: '#ffffff' }} className="p-8 shadow-lg">
-            <h2 style={{ color: '#1a1a1a' }} className="text-2xl font-black mb-8">Performance Analytics</h2>
+            <h2 style={{ color: '#1a1a1a' }} className="text-2xl font-bold mb-8">Performance Analytics</h2>
             <div className="grid md:grid-cols-2 gap-8">
               <div>
                 <h3 style={{ color: '#9b2226' }} className="text-xl font-bold mb-4">Top Selling Items</h3>
@@ -258,7 +258,7 @@ export default function AdminDashboardPage({ colors }: AdminDashboardPageProps) 
                         <div style={{ color: '#1a1a1a' }} className="font-bold">{item.name}</div>
                         <div style={{ color: '#666666' }} className="text-sm">{item.orders} orders</div>
                       </div>
-                      <div style={{ color: '#9b2226' }} className="text-xl font-black">{item.revenue}</div>
+                      <div style={{ color: '#9b2226' }} className="text-xl font-bold">{item.revenue}</div>
                     </div>
                   ))}
                 </div>
@@ -268,19 +268,19 @@ export default function AdminDashboardPage({ colors }: AdminDashboardPageProps) 
                 <div className="space-y-4">
                   <div style={{ backgroundColor: '#f8f8f8' }} className="p-4">
                     <div style={{ color: '#666666' }} className="text-sm mb-1">Total Orders</div>
-                    <div style={{ color: '#1a1a1a' }} className="text-3xl font-black">687</div>
+                    <div style={{ color: '#1a1a1a' }} className="text-3xl font-bold">687</div>
                   </div>
                   <div style={{ backgroundColor: '#f8f8f8' }} className="p-4">
                     <div style={{ color: '#666666' }} className="text-sm mb-1">Total Revenue</div>
-                    <div style={{ color: '#1a1a1a' }} className="text-3xl font-black">$31,245</div>
+                    <div style={{ color: '#1a1a1a' }} className="text-3xl font-bold">$31,245</div>
                   </div>
                   <div style={{ backgroundColor: '#f8f8f8' }} className="p-4">
                     <div style={{ color: '#666666' }} className="text-sm mb-1">Average Order Value</div>
-                    <div style={{ color: '#1a1a1a' }} className="text-3xl font-black">$45.47</div>
+                    <div style={{ color: '#1a1a1a' }} className="text-3xl font-bold">$45.47</div>
                   </div>
                   <div style={{ backgroundColor: '#f8f8f8' }} className="p-4">
                     <div style={{ color: '#666666' }} className="text-sm mb-1">Customer Satisfaction</div>
-                    <div style={{ color: '#1a1a1a' }} className="text-3xl font-black">4.8/5.0</div>
+                    <div style={{ color: '#1a1a1a' }} className="text-3xl font-bold">4.8/5.0</div>
                   </div>
                 </div>
               </div>

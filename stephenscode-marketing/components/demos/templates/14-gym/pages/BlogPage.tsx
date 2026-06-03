@@ -123,7 +123,7 @@ export default function BlogPage({ basePath }: BlogPageProps) {
               <span className="text-sm font-medium text-[#c1121f]">Fitness Knowledge Hub</span>
             </div>
 
-            <h1 className="text-5xl sm:text-6xl font-black text-zinc-50 mb-6">
+            <h1 className="text-5xl sm:text-6xl font-bold text-zinc-50 mb-6">
               Fitness Blog &
               <span className="block text-transparent bg-clip-text bg-gradient-to-r from-[#c1121f] to-[#fdf0d5]">
                 Expert Tips
@@ -161,7 +161,7 @@ export default function BlogPage({ basePath }: BlogPageProps) {
                   {featuredPost.category}
                 </div>
 
-                <h2 className="text-3xl lg:text-4xl font-black text-zinc-50 mb-4 leading-tight">
+                <h2 className="text-3xl lg:text-4xl font-bold text-zinc-50 mb-4 leading-tight">
                   {featuredPost.title}
                 </h2>
 
@@ -217,7 +217,7 @@ export default function BlogPage({ basePath }: BlogPageProps) {
             {/* Posts Grid */}
             <div className="flex-1">
               <div className="mb-8">
-                <h2 className="text-3xl font-black text-zinc-50 mb-2">Latest Articles</h2>
+                <h2 className="text-3xl font-bold text-zinc-50 mb-2">Latest Articles</h2>
                 <p className="text-zinc-400">Stay informed with our latest fitness insights</p>
               </div>
 
@@ -285,7 +285,7 @@ export default function BlogPage({ basePath }: BlogPageProps) {
         <div className="mx-auto max-w-4xl px-4 sm:px-6 lg:px-8">
           <div className="bg-gradient-to-br from-zinc-950 to-[#780000]/10 border border-zinc-800 rounded-2xl p-12 text-center">
             <BookOpen className="h-12 w-12 text-[#c1121f] mx-auto mb-4" />
-            <h2 className="text-3xl font-black text-zinc-50 mb-4">
+            <h2 className="text-3xl font-bold text-zinc-50 mb-4">
               Get Fitness Tips Delivered Weekly
             </h2>
             <p className="text-zinc-400 mb-8 max-w-2xl mx-auto">
@@ -314,7 +314,7 @@ export default function BlogPage({ basePath }: BlogPageProps) {
       {/* CTA Section */}
       <section className="py-20 bg-gradient-to-br from-zinc-950 via-[#780000]/20 to-zinc-950">
         <div className="mx-auto max-w-4xl px-4 sm:px-6 lg:px-8 text-center">
-          <h2 className="text-4xl font-black text-zinc-50 mb-6">
+          <h2 className="text-4xl font-bold text-zinc-50 mb-6">
             Ready to Put Knowledge Into Action?
           </h2>
           <p className="text-xl text-zinc-300 mb-8">
@@ -322,7 +322,7 @@ export default function BlogPage({ basePath }: BlogPageProps) {
           </p>
           <Link
             href={`${basePath}/join`}
-            className="inline-flex items-center px-8 py-4 bg-gradient-to-r from-[#c1121f] to-[#780000] text-zinc-50 rounded-lg font-bold text-lg hover:shadow-xl hover:shadow-[#c1121f]/30 transition-all hover:scale-105"
+            className="inline-flex items-center px-8 py-4 bg-gradient-to-r from-[#c1121f] to-[#780000] text-zinc-50 rounded-lg font-bold text-lg hover:shadow-xl hover:shadow-[#c1121f]/30 transition-all"
           >
             Start Free Trial
           </Link>

@@ -25,7 +25,7 @@ export default function HomePage({ colors, onNavigate, onOrderOpen }: HomePagePr
             <div style={{ color: '#ee9b00' }} className="text-sm font-bold uppercase tracking-widest mb-4">
               Authentic Italian Cuisine Since 2008
             </div>
-            <h1 style={{ color: '#ffffff' }} className="text-6xl md:text-7xl font-black leading-tight mb-6">
+            <h1 style={{ color: '#ffffff' }} className="text-6xl md:text-7xl font-bold leading-tight mb-6">
               Where Every Meal<br />Is a Celebration
             </h1>
             <p style={{ color: '#f5f5f5' }} className="text-xl leading-relaxed mb-10">
@@ -60,7 +60,7 @@ export default function HomePage({ colors, onNavigate, onOrderOpen }: HomePagePr
             <div style={{ color: '#9b2226' }} className="text-sm font-bold uppercase tracking-widest mb-3">
               Signature Dishes
             </div>
-            <h2 style={{ color: '#1a1a1a' }} className="text-5xl font-black mb-4">
+            <h2 style={{ color: '#1a1a1a' }} className="text-5xl font-bold mb-4">
               Chef's Specialties
             </h2>
             <p style={{ color: '#666666' }} className="text-lg max-w-2xl mx-auto">
@@ -75,7 +75,7 @@ export default function HomePage({ colors, onNavigate, onOrderOpen }: HomePagePr
               </div>
               <div className="p-6">
                 <div className="flex justify-between items-start mb-3">
-                  <h3 style={{ color: '#1a1a1a' }} className="text-2xl font-black">Truffle Carbonara</h3>
+                  <h3 style={{ color: '#1a1a1a' }} className="text-2xl font-bold">Truffle Carbonara</h3>
                   <div style={{ color: '#9b2226' }} className="text-2xl font-bold">$32</div>
                 </div>
                 <p style={{ color: '#666666' }} className="leading-relaxed mb-4">
@@ -98,7 +98,7 @@ export default function HomePage({ colors, onNavigate, onOrderOpen }: HomePagePr
               </div>
               <div className="p-6">
                 <div className="flex justify-between items-start mb-3">
-                  <h3 style={{ color: '#1a1a1a' }} className="text-2xl font-black">Osso Buco Milanese</h3>
+                  <h3 style={{ color: '#1a1a1a' }} className="text-2xl font-bold">Osso Buco Milanese</h3>
                   <div style={{ color: '#9b2226' }} className="text-2xl font-bold">$48</div>
                 </div>
                 <p style={{ color: '#666666' }} className="leading-relaxed mb-4">
@@ -121,7 +121,7 @@ export default function HomePage({ colors, onNavigate, onOrderOpen }: HomePagePr
               </div>
               <div className="p-6">
                 <div className="flex justify-between items-start mb-3">
-                  <h3 style={{ color: '#1a1a1a' }} className="text-2xl font-black">Tiramisu Classico</h3>
+                  <h3 style={{ color: '#1a1a1a' }} className="text-2xl font-bold">Tiramisu Classico</h3>
                   <div style={{ color: '#9b2226' }} className="text-2xl font-bold">$12</div>
                 </div>
                 <p style={{ color: '#666666' }} className="leading-relaxed mb-4">
@@ -158,7 +158,7 @@ export default function HomePage({ colors, onNavigate, onOrderOpen }: HomePagePr
             <div style={{ color: '#9b2226' }} className="text-sm font-bold uppercase tracking-widest mb-3">
               The Gourmet Kitchen Difference
             </div>
-            <h2 style={{ color: '#1a1a1a' }} className="text-5xl font-black mb-4">
+            <h2 style={{ color: '#1a1a1a' }} className="text-5xl font-bold mb-4">
               Why Diners Love Us
             </h2>
           </div>
@@ -203,7 +203,7 @@ export default function HomePage({ colors, onNavigate, onOrderOpen }: HomePagePr
             <div style={{ color: '#9b2226' }} className="text-sm font-bold uppercase tracking-widest mb-3">
               Guest Reviews
             </div>
-            <h2 style={{ color: '#1a1a1a' }} className="text-5xl font-black mb-4">
+            <h2 style={{ color: '#1a1a1a' }} className="text-5xl font-bold mb-4">
               What Our Guests Say
             </h2>
           </div>
@@ -263,7 +263,7 @@ export default function HomePage({ colors, onNavigate, onOrderOpen }: HomePagePr
       {/* CTA Section */}
       <section className="py-24" style={{ backgroundColor: '#9b2226' }}>
         <div className="max-w-4xl mx-auto px-4 text-center">
-          <h2 style={{ color: '#ffffff' }} className="text-5xl font-black mb-6">
+          <h2 style={{ color: '#ffffff' }} className="text-5xl font-bold mb-6">
             Experience Fine Dining Tonight
           </h2>
           <p style={{ color: '#f5f5f5' }} className="text-xl mb-10">

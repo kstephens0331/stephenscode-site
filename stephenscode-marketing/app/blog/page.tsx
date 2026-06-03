@@ -41,7 +41,7 @@ export default function BlogPage() {
   const posts = getAllPosts()
 
   const categories = [
-    { name: 'All Posts', slug: 'all', icon: '📚', color: 'from-blue-500 to-cyan-500' },
+    { name: 'All Posts', slug: 'all', icon: '📚', color: 'from-primary-500 to-accent-500' },
     { name: 'Web Development', slug: 'web-development', icon: '💻', color: 'from-purple-500 to-blue-500' },
     { name: 'SEO', slug: 'seo', icon: '🔍', color: 'from-green-500 to-teal-500' },
     { name: 'Business', slug: 'business', icon: '💼', color: 'from-orange-500 to-red-500' },
@@ -57,7 +57,7 @@ export default function BlogPage() {
       />
 
       {/* Hero Section */}
-      <section className="relative bg-gradient-to-br from-primary-900 via-primary-800 to-primary-700 text-white overflow-hidden">
+      <section className="relative bg-gradient-to-br from-black via-surface to-surface-card text-white overflow-hidden">
         {/* Pattern overlay */}
         <div className="absolute inset-0 opacity-10">
           <svg className="absolute w-full h-full" xmlns="http://www.w3.org/2000/svg">
@@ -86,25 +86,25 @@ export default function BlogPage() {
 
         {/* Wave divider */}
         <div className="absolute bottom-0 left-0 right-0">
-          <svg className="w-full h-16 fill-slate-900" viewBox="0 0 1200 120" preserveAspectRatio="none">
+          <svg className="w-full h-16 fill-surface" viewBox="0 0 1200 120" preserveAspectRatio="none">
             <path d="M321.39,56.44c58-10.79,114.16-30.13,172-41.86,82.39-16.72,168.19-17.73,250.45-.39C823.78,31,906.67,72,985.66,92.83c70.05,18.48,146.53,26.09,214.34,3V0H0V27.35A600.21,600.21,0,0,0,321.39,56.44Z" />
           </svg>
         </div>
       </section>
 
       {/* Categories */}
-      <section className="bg-slate-900 border-b border-slate-700 py-8">
+      <section className="bg-surface border-b border-surface-border py-8">
         <div className="mx-auto max-w-7xl px-6 lg:px-8">
           <div className="flex flex-wrap justify-center gap-4">
             {categories.map((category, index) => (
               <Link
                 key={category.slug}
                 href={category.slug === 'all' ? '/blog' : `/blog/category/${category.slug}`}
-                className="group relative rounded-2xl bg-slate-800 px-6 py-4 shadow-md shadow-black/20 border-2 border-slate-700 hover:border-primary-300 hover:shadow-lg transition-all hover:scale-105"
+                className="group relative rounded-2xl bg-surface-card px-6 py-4 shadow-md shadow-black/20 border-2 border-surface-border hover:border-primary-300 hover:shadow-lg transition-all"
                 style={{ animationDelay: `${index * 100}ms` }}
               >
                 <div className="flex items-center gap-3">
-                  <span className="text-2xl group-hover:scale-110 transition-transform">{category.icon}</span>
+                  <span className="text-2xl group- transition-transform">{category.icon}</span>
                   <span className="font-semibold text-white group-hover:text-primary-600 transition-colors">
                     {category.name}
                   </span>
@@ -116,12 +116,12 @@ export default function BlogPage() {
       </section>
 
       {/* Blog Posts */}
-      <section className="bg-slate-900 py-24 sm:py-32">
+      <section className="bg-surface py-24 sm:py-32">
         <div className="mx-auto max-w-7xl px-6 lg:px-8">
           {posts.length === 0 ? (
             <div className="text-center">
               <div className="mx-auto max-w-3xl">
-                <div className="relative rounded-3xl bg-slate-800 p-16 shadow-2xl shadow-black/20 border-2 border-slate-700">
+                <div className="relative rounded-3xl bg-surface-card p-16 shadow-2xl shadow-black/20 border-2 border-surface-border">
                   <div className="absolute -top-8 left-1/2 -translate-x-1/2">
                     <div className="w-16 h-16 rounded-full bg-gradient-to-br from-primary-500 to-accent-500 flex items-center justify-center text-3xl shadow-xl">
                       📝
@@ -137,17 +137,17 @@ export default function BlogPage() {
 
                   {/* Featured Topics Preview */}
                   <div className="grid md:grid-cols-3 gap-6 mb-10">
-                    <div className="rounded-xl bg-blue-500/10 p-6 border border-slate-700">
+                    <div className="rounded-xl bg-blue-500/10 p-6 border border-surface-border">
                       <div className="text-3xl mb-3">💻</div>
                       <h3 className="font-bold text-white mb-2">Web Development</h3>
                       <p className="text-sm text-gray-400">Modern frameworks, best practices, and performance optimization</p>
                     </div>
-                    <div className="rounded-xl bg-green-500/10 p-6 border border-slate-700">
+                    <div className="rounded-xl bg-green-500/10 p-6 border border-surface-border">
                       <div className="text-3xl mb-3">🔍</div>
                       <h3 className="font-bold text-white mb-2">SEO Strategies</h3>
                       <p className="text-sm text-gray-400">Local SEO, keyword research, and ranking techniques</p>
                     </div>
-                    <div className="rounded-xl bg-orange-500/10 p-6 border border-slate-700">
+                    <div className="rounded-xl bg-orange-500/10 p-6 border border-surface-border">
                       <div className="text-3xl mb-3">💼</div>
                       <h3 className="font-bold text-white mb-2">Business Growth</h3>
                       <p className="text-sm text-gray-400">Automation, conversion optimization, and scaling tips</p>
@@ -157,14 +157,14 @@ export default function BlogPage() {
                   <div className="flex flex-col sm:flex-row gap-4 justify-center">
                     <Link
                       href="/contact"
-                      className="group rounded-lg bg-gradient-to-r from-primary-600 to-accent-600 px-8 py-4 text-base font-semibold text-white shadow-lg hover:shadow-xl transition-all hover:scale-105"
+                      className="group rounded-lg bg-gradient-to-r from-primary-600 to-accent-600 px-8 py-4 text-base font-semibold text-white shadow-lg hover:shadow-xl transition-all"
                     >
                       Get Expert Help Now
                       <span className="inline-block transition-transform group-hover:translate-x-1 ml-2">→</span>
                     </Link>
                     <Link
                       href="/services"
-                      className="rounded-lg bg-slate-900 px-8 py-4 text-base font-semibold text-primary-600 ring-2 ring-inset ring-primary-600 hover:bg-slate-800 transition-all hover:scale-105"
+                      className="rounded-lg bg-surface px-8 py-4 text-base font-semibold text-primary-600 ring-2 ring-inset ring-primary-600 hover:bg-surface-card transition-all"
                     >
                       View Our Services
                     </Link>
@@ -187,7 +187,7 @@ export default function BlogPage() {
                 {posts.map((post, index) => (
                   <article
                     key={post.slug}
-                    className="group flex flex-col bg-slate-800 rounded-3xl shadow-lg shadow-black/20 overflow-hidden border-2 border-slate-700 hover:border-primary-300 hover:shadow-2xl transition-all hover:scale-105"
+                    className="group flex flex-col bg-surface-card rounded-3xl shadow-lg shadow-black/20 overflow-hidden border-2 border-surface-border hover:border-primary-300 transition-all"
                     style={{ animationDelay: `${index * 100}ms` }}
                   >
                     {post.image && (
@@ -195,10 +195,10 @@ export default function BlogPage() {
                         <img
                           src={post.image}
                           alt={post.title}
-                          className="h-full w-full object-cover group-hover:scale-110 transition-transform duration-300"
+                          className="h-full w-full object-cover group- transition-transform duration-300"
                         />
                         <div className="absolute top-4 right-4">
-                          <span className="px-4 py-2 rounded-full bg-slate-800/90 backdrop-blur-sm text-sm font-bold text-primary-400 shadow-lg">
+                          <span className="px-4 py-2 rounded-full bg-surface-card/90 backdrop-blur-sm text-sm font-bold text-primary-400 shadow-lg">
                             {post.category}
                           </span>
                         </div>
@@ -227,7 +227,7 @@ export default function BlogPage() {
                           {post.excerpt}
                         </p>
                       </div>
-                      <div className="mt-6 flex items-center justify-between border-t border-slate-700 pt-6">
+                      <div className="mt-6 flex items-center justify-between border-t border-surface-border pt-6">
                         <div className="flex items-center gap-2 text-sm text-gray-500">
                           <svg className="h-5 w-5 text-primary-500" fill="currentColor" viewBox="0 0 20 20">
                             <path fillRule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm1-12a1 1 0 10-2 0v4a1 1 0 00.293.707l2.828 2.829a1 1 0 101.415-1.415L11 9.586V6z" clipRule="evenodd" />
@@ -252,7 +252,7 @@ export default function BlogPage() {
       </section>
 
       {/* Newsletter CTA */}
-      <section className="relative bg-gradient-to-r from-primary-900 via-accent-600 to-primary-900 text-white overflow-hidden">
+      <section className="relative bg-gradient-to-r from-primary-600 via-accent-500 to-primary-600 text-white overflow-hidden">
         <div className="absolute inset-0 opacity-20">
           <div className="absolute inset-0" style={{
             backgroundImage: 'linear-gradient(45deg, transparent 45%, rgba(255,255,255,0.1) 50%, transparent 55%)',
@@ -272,7 +272,7 @@ export default function BlogPage() {
             <div className="mt-10 flex flex-col sm:flex-row items-center justify-center gap-6">
               <Link
                 href="/contact"
-                className="group rounded-lg bg-slate-800 px-8 py-4 text-base font-semibold text-white shadow-2xl hover:bg-slate-700 transition-all hover:scale-105"
+                className="group rounded-lg bg-surface-card px-8 py-4 text-base font-semibold text-white shadow-2xl hover:bg-surface-elevated transition-all"
               >
                 Subscribe for Updates
                 <span className="inline-block transition-transform group-hover:translate-x-1 ml-2">→</span>

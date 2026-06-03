@@ -151,11 +151,11 @@ export default function ContactPage({ onNavigate }: ContactPageProps) {
                 <a
                   key={index}
                   href={info.link}
-                  className="bg-white rounded-2xl p-6 shadow-xl hover:shadow-2xl transition-all duration-300 border border-gray-100 group"
+                  className="bg-white rounded-2xl p-6 shadow-xl transition-all duration-300 border border-gray-100 group"
                 >
                   <div className="flex items-start space-x-4">
                     <div className="flex-shrink-0">
-                      <div className="w-12 h-12 bg-gradient-to-br from-[#5f0f40] to-[#9a031e] rounded-xl flex items-center justify-center group-hover:scale-110 transition-transform">
+                      <div className="w-12 h-12 bg-gradient-to-br from-[#5f0f40] to-[#9a031e] rounded-xl flex items-center justify-center group- transition-transform">
                         <Icon className="h-6 w-6 text-white" />
                       </div>
                     </div>

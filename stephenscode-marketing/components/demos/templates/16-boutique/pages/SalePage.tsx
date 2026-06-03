@@ -72,12 +72,12 @@ export default function SalePage({ addToCart, addToWishlist }: any) {
         {/* Products Grid */}
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
           {saleProducts.map((product) => (
-            <div key={product.id} className="group bg-white rounded-xl overflow-hidden shadow-md hover:shadow-2xl transition-all duration-300">
+            <div key={product.id} className="group bg-white rounded-xl overflow-hidden shadow-md transition-all duration-300">
               <div className="relative overflow-hidden">
                 <img
                   src={product.image}
                   alt={product.name}
-                  className="w-full h-96 object-cover group-hover:scale-110 transition-transform duration-500"
+                  className="w-full h-96 object-cover group- transition-transform duration-500"
                 />
                 <div className="absolute top-4 left-4 bg-red-600 text-white px-3 py-1 rounded-full text-sm font-bold">
                   -{product.discount}%

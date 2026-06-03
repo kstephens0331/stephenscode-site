@@ -111,7 +111,7 @@ export default function ClassesPage({ basePath }: ClassesPageProps) {
               <span className="text-sm font-medium text-[#c1121f]">100+ Weekly Classes</span>
             </div>
 
-            <h1 className="text-5xl sm:text-6xl font-black text-zinc-50 mb-6">
+            <h1 className="text-5xl sm:text-6xl font-bold text-zinc-50 mb-6">
               Fitness Classes &
               <span className="block text-transparent bg-clip-text bg-gradient-to-r from-[#c1121f] to-[#fdf0d5]">
                 Group Training
@@ -125,7 +125,7 @@ export default function ClassesPage({ basePath }: ClassesPageProps) {
 
             <Link
               href={`${basePath}/schedule`}
-              className="inline-flex items-center px-8 py-4 bg-gradient-to-r from-[#c1121f] to-[#780000] text-zinc-50 rounded-lg font-bold text-lg hover:shadow-xl hover:shadow-[#c1121f]/30 transition-all hover:scale-105"
+              className="inline-flex items-center px-8 py-4 bg-gradient-to-r from-[#c1121f] to-[#780000] text-zinc-50 rounded-lg font-bold text-lg hover:shadow-xl hover:shadow-[#c1121f]/30 transition-all"
             >
               View Full Schedule
             </Link>
@@ -157,7 +157,7 @@ export default function ClassesPage({ basePath }: ClassesPageProps) {
       <section className="py-20 bg-zinc-950">
         <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-12">
-            <h2 className="text-4xl font-black text-zinc-50 mb-4">Our Class Offerings</h2>
+            <h2 className="text-4xl font-bold text-zinc-50 mb-4">Our Class Offerings</h2>
             <p className="text-xl text-zinc-400">Find your perfect workout</p>
           </div>
 
@@ -169,7 +169,7 @@ export default function ClassesPage({ basePath }: ClassesPageProps) {
                   {/* Header */}
                   <div className={`bg-gradient-to-br ${classItem.color} p-6`}>
                     <Icon className="h-10 w-10 text-white mb-3" strokeWidth={2} />
-                    <h3 className="text-2xl font-black text-white mb-1">{classItem.name}</h3>
+                    <h3 className="text-2xl font-bold text-white mb-1">{classItem.name}</h3>
                     <div className="flex items-center space-x-2 text-white/90 text-sm">
                       <Clock className="h-4 w-4" />
                       <span>{classItem.duration}</span>
@@ -227,7 +227,7 @@ export default function ClassesPage({ basePath }: ClassesPageProps) {
       <section className="py-20 bg-zinc-900">
         <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-12">
-            <h2 className="text-4xl font-black text-zinc-50 mb-4">What to Expect</h2>
+            <h2 className="text-4xl font-bold text-zinc-50 mb-4">What to Expect</h2>
             <p className="text-xl text-zinc-400">Your first class experience</p>
           </div>
 
@@ -256,7 +256,7 @@ export default function ClassesPage({ basePath }: ClassesPageProps) {
               return (
                 <div key={index} className="text-center">
                   <div className="inline-flex items-center justify-center w-16 h-16 bg-gradient-to-br from-[#c1121f] to-[#780000] rounded-full mb-4">
-                    <span className="text-2xl font-black text-[#fdf0d5]">{item.step}</span>
+                    <span className="text-2xl font-bold text-[#fdf0d5]">{item.step}</span>
                   </div>
                   <Icon className="h-8 w-8 text-[#c1121f] mx-auto mb-3" />
                   <h3 className="text-xl font-bold text-zinc-50 mb-2">{item.title}</h3>
@@ -271,7 +271,7 @@ export default function ClassesPage({ basePath }: ClassesPageProps) {
       {/* CTA Section */}
       <section className="py-20 bg-gradient-to-br from-zinc-950 via-[#780000]/20 to-zinc-950">
         <div className="mx-auto max-w-4xl px-4 sm:px-6 lg:px-8 text-center">
-          <h2 className="text-4xl font-black text-zinc-50 mb-6">
+          <h2 className="text-4xl font-bold text-zinc-50 mb-6">
             Ready to Join a Class?
           </h2>
           <p className="text-xl text-zinc-300 mb-8">
@@ -280,7 +280,7 @@ export default function ClassesPage({ basePath }: ClassesPageProps) {
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
             <Link
               href={`${basePath}/join`}
-              className="inline-flex items-center justify-center px-8 py-4 bg-gradient-to-r from-[#c1121f] to-[#780000] text-zinc-50 rounded-lg font-bold text-lg hover:shadow-xl hover:shadow-[#c1121f]/30 transition-all hover:scale-105"
+              className="inline-flex items-center justify-center px-8 py-4 bg-gradient-to-r from-[#c1121f] to-[#780000] text-zinc-50 rounded-lg font-bold text-lg hover:shadow-xl hover:shadow-[#c1121f]/30 transition-all"
             >
               Start Free Trial
             </Link>

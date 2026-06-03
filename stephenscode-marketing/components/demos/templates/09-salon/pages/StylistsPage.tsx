@@ -99,7 +99,7 @@ export default function StylistsPage({ onNavigate }: StylistsPageProps) {
             {stylists.map((stylist, index) => (
               <div
                 key={index}
-                className="bg-white rounded-2xl shadow-lg overflow-hidden hover:shadow-2xl transition-shadow duration-300"
+                className="bg-white rounded-2xl shadow-lg overflow-hidden transition-shadow duration-300"
               >
                 {/* Stylist Header */}
                 <div className="bg-gradient-to-r from-[#d00000] to-[#e85d04] text-white p-6">

@@ -112,7 +112,7 @@ export default function HomePage({ onNavigate, colors }: HomePageProps) {
               <div className="flex flex-col sm:flex-row gap-4">
                 <button
                   onClick={() => onNavigate('contact')}
-                  className="px-8 py-4 rounded-lg text-white font-bold text-lg shadow-2xl hover:shadow-3xl transition-all transform hover:scale-105 flex items-center justify-center gap-2"
+                  className="px-8 py-4 rounded-lg text-white font-bold text-lg shadow-2xl hover:shadow-3xl transition-all transform flex items-center justify-center gap-2"
                   style={{ backgroundColor: colors.accent }}
                 >
                   <Phone className="h-5 w-5" />
@@ -177,7 +177,7 @@ export default function HomePage({ onNavigate, colors }: HomePageProps) {
             {services.map((service, index) => (
               <div
                 key={index}
-                className="bg-white rounded-xl shadow-lg hover:shadow-2xl transition-all p-8 border-2 border-gray-100 hover:border-current transform hover:-translate-y-1"
+                className="bg-white rounded-xl shadow-lg transition-all p-8 border-2 border-gray-100 hover:border-current transform"
                 style={{ '--hover-color': colors.secondary } as React.CSSProperties}
               >
                 <div
@@ -204,7 +204,7 @@ export default function HomePage({ onNavigate, colors }: HomePageProps) {
           <div className="text-center mt-12">
             <button
               onClick={() => onNavigate('services')}
-              className="px-8 py-4 rounded-lg text-white font-bold text-lg shadow-lg hover:shadow-xl transition-all transform hover:scale-105"
+              className="px-8 py-4 rounded-lg text-white font-bold text-lg shadow-lg hover:shadow-xl transition-all transform"
               style={{ backgroundColor: colors.primary }}
             >
               View All Services
@@ -228,7 +228,7 @@ export default function HomePage({ onNavigate, colors }: HomePageProps) {
             {whyChooseUs.map((item, index) => (
               <div
                 key={index}
-                className="bg-white rounded-xl p-8 text-center shadow-lg hover:shadow-xl transition-all transform hover:-translate-y-1"
+                className="bg-white rounded-xl p-8 text-center shadow-lg hover:shadow-xl transition-all transform"
               >
                 <div className="inline-flex items-center justify-center w-20 h-20 rounded-full mb-4" style={{ backgroundColor: colors.accent + '20' }}>
                   <item.icon className="h-10 w-10" style={{ color: colors.accent }} />
@@ -293,7 +293,7 @@ export default function HomePage({ onNavigate, colors }: HomePageProps) {
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
             <button
               onClick={() => onNavigate('contact')}
-              className="px-8 py-4 rounded-lg font-bold text-lg shadow-xl hover:shadow-2xl transition-all transform hover:scale-105 flex items-center justify-center gap-2"
+              className="px-8 py-4 rounded-lg font-bold text-lg shadow-xl transition-all transform flex items-center justify-center gap-2"
               style={{ backgroundColor: colors.accent, color: 'white' }}
             >
               <Phone className="h-5 w-5" />

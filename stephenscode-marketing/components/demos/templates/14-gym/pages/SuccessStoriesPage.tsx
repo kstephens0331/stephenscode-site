@@ -120,7 +120,7 @@ export default function SuccessStoriesPage({ basePath }: SuccessStoriesPageProps
               <span className="text-sm font-medium text-[#c1121f]">Real Results, Real People</span>
             </div>
 
-            <h1 className="text-5xl sm:text-6xl font-black text-zinc-50 mb-6">
+            <h1 className="text-5xl sm:text-6xl font-bold text-zinc-50 mb-6">
               Success Stories &
               <span className="block text-transparent bg-clip-text bg-gradient-to-r from-[#c1121f] to-[#fdf0d5]">
                 Transformations
@@ -146,7 +146,7 @@ export default function SuccessStoriesPage({ basePath }: SuccessStoriesPageProps
               { number: '4.9/5', label: 'Average Rating' },
             ].map((stat, index) => (
               <div key={index}>
-                <div className="text-4xl sm:text-5xl font-black text-[#fdf0d5] mb-2">
+                <div className="text-4xl sm:text-5xl font-bold text-[#fdf0d5] mb-2">
                   {stat.number}
                 </div>
                 <div className="text-zinc-100 font-medium">{stat.label}</div>
@@ -160,7 +160,7 @@ export default function SuccessStoriesPage({ basePath }: SuccessStoriesPageProps
       <section className="py-20 bg-zinc-950">
         <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-12">
-            <h2 className="text-4xl font-black text-zinc-50 mb-4">Incredible Transformations</h2>
+            <h2 className="text-4xl font-bold text-zinc-50 mb-4">Incredible Transformations</h2>
             <p className="text-xl text-zinc-400">These members prove that anything is possible with the right support</p>
           </div>
 
@@ -174,7 +174,7 @@ export default function SuccessStoriesPage({ basePath }: SuccessStoriesPageProps
                       <div className="w-32 h-32 bg-gradient-to-br from-[#c1121f] to-[#780000] rounded-full mx-auto mb-4 flex items-center justify-center">
                         <Award className="h-16 w-16 text-[#fdf0d5]" />
                       </div>
-                      <div className="text-6xl font-black text-transparent bg-clip-text bg-gradient-to-r from-[#c1121f] to-[#fdf0d5] mb-2">
+                      <div className="text-6xl font-bold text-transparent bg-clip-text bg-gradient-to-r from-[#c1121f] to-[#fdf0d5] mb-2">
                         -{story.weightLost}
                       </div>
                       <div className="text-zinc-400 font-semibold">pounds lost</div>
@@ -185,7 +185,7 @@ export default function SuccessStoriesPage({ basePath }: SuccessStoriesPageProps
                   <div className="lg:col-span-2 p-8 lg:p-12">
                     <div className="flex items-start justify-between mb-4">
                       <div>
-                        <h3 className="text-3xl font-black text-zinc-50 mb-2">{story.name}</h3>
+                        <h3 className="text-3xl font-bold text-zinc-50 mb-2">{story.name}</h3>
                         <div className="flex items-center space-x-4 text-sm text-zinc-400">
                           <span>Age {story.age}</span>
                           <span>•</span>
@@ -214,7 +214,7 @@ export default function SuccessStoriesPage({ basePath }: SuccessStoriesPageProps
                         return (
                           <div key={idx} className="text-center">
                             <Icon className="h-5 w-5 text-[#c1121f] mx-auto mb-2" />
-                            <div className="text-2xl font-black text-zinc-50 mb-1">{stat.value}</div>
+                            <div className="text-2xl font-bold text-zinc-50 mb-1">{stat.value}</div>
                             <div className="text-xs text-zinc-500">{stat.label}</div>
                           </div>
                         );
@@ -232,7 +232,7 @@ export default function SuccessStoriesPage({ basePath }: SuccessStoriesPageProps
       <section className="py-20 bg-zinc-900">
         <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-12">
-            <h2 className="text-4xl font-black text-zinc-50 mb-4">What Our Members Say</h2>
+            <h2 className="text-4xl font-bold text-zinc-50 mb-4">What Our Members Say</h2>
             <p className="text-xl text-zinc-400">Join thousands of satisfied members</p>
           </div>
 
@@ -255,7 +255,7 @@ export default function SuccessStoriesPage({ basePath }: SuccessStoriesPageProps
       <section className="py-20 bg-zinc-950">
         <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-12">
-            <h2 className="text-4xl font-black text-zinc-50 mb-4">Common Success Stories</h2>
+            <h2 className="text-4xl font-bold text-zinc-50 mb-4">Common Success Stories</h2>
             <p className="text-xl text-zinc-400">Whatever your goal, we've helped members achieve it</p>
           </div>
 
@@ -270,7 +270,7 @@ export default function SuccessStoriesPage({ basePath }: SuccessStoriesPageProps
             ].map((item, index) => (
               <div key={index} className="bg-zinc-900 border border-zinc-800 rounded-xl p-6 text-center hover:border-[#c1121f]/50 transition-all">
                 <h3 className="text-xl font-bold text-zinc-50 mb-3">{item.goal}</h3>
-                <div className="text-3xl font-black text-[#c1121f] mb-2">{item.members}</div>
+                <div className="text-3xl font-bold text-[#c1121f] mb-2">{item.members}</div>
                 <div className="text-sm text-zinc-400">members transformed</div>
                 <div className="mt-4 pt-4 border-t border-zinc-800">
                   <div className="text-sm text-zinc-500">Average Result</div>
@@ -285,7 +285,7 @@ export default function SuccessStoriesPage({ basePath }: SuccessStoriesPageProps
       {/* CTA Section */}
       <section className="py-20 bg-gradient-to-br from-zinc-900 via-[#780000]/20 to-zinc-900">
         <div className="mx-auto max-w-4xl px-4 sm:px-6 lg:px-8 text-center">
-          <h2 className="text-4xl font-black text-zinc-50 mb-6">
+          <h2 className="text-4xl font-bold text-zinc-50 mb-6">
             Ready to Write Your Success Story?
           </h2>
           <p className="text-xl text-zinc-300 mb-8">
@@ -294,7 +294,7 @@ export default function SuccessStoriesPage({ basePath }: SuccessStoriesPageProps
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
             <Link
               href={`${basePath}/join`}
-              className="inline-flex items-center justify-center px-8 py-4 bg-gradient-to-r from-[#c1121f] to-[#780000] text-zinc-50 rounded-lg font-bold text-lg hover:shadow-xl hover:shadow-[#c1121f]/30 transition-all hover:scale-105"
+              className="inline-flex items-center justify-center px-8 py-4 bg-gradient-to-r from-[#c1121f] to-[#780000] text-zinc-50 rounded-lg font-bold text-lg hover:shadow-xl hover:shadow-[#c1121f]/30 transition-all"
             >
               Start Your Journey
             </Link>

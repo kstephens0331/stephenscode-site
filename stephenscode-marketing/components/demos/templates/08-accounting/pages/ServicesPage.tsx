@@ -255,7 +255,7 @@ export default function ServicesPage({ onNavigate }: ServicesPageProps) {
           </p>
           <button
             onClick={() => onNavigate('contact')}
-            className="bg-[#fca311] text-[#14213d] px-10 py-4 rounded-lg font-semibold text-lg hover:bg-[#e59400] transition-all hover:scale-105 inline-flex items-center gap-2"
+            className="bg-[#fca311] text-[#14213d] px-10 py-4 rounded-lg font-semibold text-lg hover:bg-[#e59400] transition-all inline-flex items-center gap-2"
           >
             Schedule Free Consultation <ArrowRight size={24} />
           </button>

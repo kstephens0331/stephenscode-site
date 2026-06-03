@@ -73,14 +73,14 @@ export default function HomePage({ onNavigate, colors }: HomePageProps) {
               <div className="flex flex-wrap gap-4">
                 <button
                   onClick={() => onNavigate('contact')}
-                  className="px-8 py-4 rounded-full font-semibold text-gray-800 hover:opacity-90 transition-all shadow-xl hover:shadow-2xl transform hover:-translate-y-1"
+                  className="px-8 py-4 rounded-full font-semibold text-gray-800 hover:opacity-90 transition-all shadow-xl transform"
                   style={{ backgroundColor: colors.accent }}
                 >
                   Book Appointment
                 </button>
                 <button
                   onClick={() => onNavigate('emergency')}
-                  className="px-8 py-4 bg-red-600 rounded-full text-white font-semibold hover:bg-red-700 transition-all shadow-xl hover:shadow-2xl transform hover:-translate-y-1"
+                  className="px-8 py-4 bg-red-600 rounded-full text-white font-semibold hover:bg-red-700 transition-all shadow-xl transform"
                 >
                   Emergency Care
                 </button>
@@ -159,7 +159,7 @@ export default function HomePage({ onNavigate, colors }: HomePageProps) {
             {services.map((service, index) => (
               <div
                 key={index}
-                className="bg-white p-6 rounded-2xl shadow-md hover:shadow-2xl transition-all transform hover:-translate-y-2 border-l-4"
+                className="bg-white p-6 rounded-2xl shadow-md transition-all transform hover:-translate-y-2 border-l-4"
                 style={{ borderLeftColor: colors.primary }}
               >
                 <service.icon className="w-12 h-12 mb-4" style={{ color: colors.secondary }} />
@@ -205,7 +205,7 @@ export default function HomePage({ onNavigate, colors }: HomePageProps) {
             <div className="flex flex-col gap-4">
               <a
                 href="tel:555-123-4567"
-                className="px-8 py-4 bg-white text-red-600 rounded-full font-bold text-xl hover:bg-red-50 transition-all shadow-xl hover:shadow-2xl flex items-center gap-3 justify-center"
+                className="px-8 py-4 bg-white text-red-600 rounded-full font-bold text-xl hover:bg-red-50 transition-all shadow-xl flex items-center gap-3 justify-center"
               >
                 <Phone className="w-6 h-6" />
                 Call (555) 123-4567
@@ -282,7 +282,7 @@ export default function HomePage({ onNavigate, colors }: HomePageProps) {
           <div className="flex flex-wrap gap-4 justify-center">
             <button
               onClick={() => onNavigate('new-patients')}
-              className="px-8 py-4 rounded-full font-semibold text-gray-800 hover:opacity-90 transition-all shadow-xl hover:shadow-2xl"
+              className="px-8 py-4 rounded-full font-semibold text-gray-800 hover:opacity-90 transition-all shadow-xl"
               style={{ backgroundColor: colors.accent }}
             >
               New Patient Info

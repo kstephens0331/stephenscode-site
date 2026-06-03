@@ -138,14 +138,14 @@ const AgentsPage: React.FC = () => {
           {agents.map((agent) => (
             <div
               key={agent.id}
-              className="bg-white rounded-xl shadow-lg overflow-hidden hover:shadow-2xl transition-all group"
+              className="bg-white rounded-xl shadow-lg overflow-hidden transition-all group"
             >
               {/* Agent Photo */}
               <div className="relative overflow-hidden h-80">
                 <img
                   src={agent.image}
                   alt={agent.name}
-                  className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
+                  className="w-full h-full object-cover group- transition-transform duration-500"
                 />
                 <div className="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent"></div>
                 <div className="absolute bottom-4 left-4 right-4">

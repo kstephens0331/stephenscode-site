@@ -73,7 +73,7 @@ export default function HomePage({ basePath }: HomePageProps) {
                 <span className="text-sm font-medium text-[#c1121f]">Transform Your Body & Mind</span>
               </div>
 
-              <h1 className="text-5xl sm:text-6xl lg:text-7xl font-black text-zinc-50 mb-6 leading-tight">
+              <h1 className="text-5xl sm:text-6xl lg:text-7xl font-bold text-zinc-50 mb-6 leading-tight">
                 FORGE YOUR
                 <span className="block text-transparent bg-clip-text bg-gradient-to-r from-[#c1121f] to-[#fdf0d5]">
                   STRONGEST SELF
@@ -88,7 +88,7 @@ export default function HomePage({ basePath }: HomePageProps) {
               <div className="flex flex-col sm:flex-row gap-4">
                 <Link
                   href={`${basePath}/join`}
-                  className="inline-flex items-center justify-center px-8 py-4 bg-gradient-to-r from-[#c1121f] to-[#780000] text-zinc-50 rounded-lg font-bold text-lg hover:shadow-xl hover:shadow-[#c1121f]/30 transition-all hover:scale-105"
+                  className="inline-flex items-center justify-center px-8 py-4 bg-gradient-to-r from-[#c1121f] to-[#780000] text-zinc-50 rounded-lg font-bold text-lg hover:shadow-xl hover:shadow-[#c1121f]/30 transition-all"
                 >
                   Start Free Trial
                   <ArrowRight className="ml-2 h-5 w-5" />
@@ -146,7 +146,7 @@ export default function HomePage({ basePath }: HomePageProps) {
           <div className="grid grid-cols-2 lg:grid-cols-4 gap-8">
             {stats.map((stat, index) => (
               <div key={index} className="text-center">
-                <div className="text-4xl sm:text-5xl font-black text-[#fdf0d5] mb-2">
+                <div className="text-4xl sm:text-5xl font-bold text-[#fdf0d5] mb-2">
                   {stat.number}
                 </div>
                 <div className="text-zinc-100 font-medium">{stat.label}</div>
@@ -160,7 +160,7 @@ export default function HomePage({ basePath }: HomePageProps) {
       <section className="py-20 bg-zinc-950">
         <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-16">
-            <h2 className="text-4xl sm:text-5xl font-black text-zinc-50 mb-4">
+            <h2 className="text-4xl sm:text-5xl font-bold text-zinc-50 mb-4">
               Why Iron Temple Fitness?
             </h2>
             <p className="text-xl text-zinc-400 max-w-3xl mx-auto">
@@ -220,7 +220,7 @@ export default function HomePage({ basePath }: HomePageProps) {
       <section className="py-20 bg-zinc-900">
         <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-16">
-            <h2 className="text-4xl sm:text-5xl font-black text-zinc-50 mb-4">
+            <h2 className="text-4xl sm:text-5xl font-bold text-zinc-50 mb-4">
               Member Success Stories
             </h2>
             <p className="text-xl text-zinc-400">
@@ -252,7 +252,7 @@ export default function HomePage({ basePath }: HomePageProps) {
         <div className="absolute inset-0 bg-[url('data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iNjAiIGhlaWdodD0iNjAiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyI+PGRlZnM+PHBhdHRlcm4gaWQ9ImdyaWQiIHdpZHRoPSI2MCIgaGVpZ2h0PSI2MCIgcGF0dGVyblVuaXRzPSJ1c2VyU3BhY2VPblVzZSI+PHBhdGggZD0iTSAxMCAwIEwgMCAwIDAgMTAiIGZpbGw9Im5vbmUiIHN0cm9rZT0icmdiYSgyNTUsMjU1LDI1NSwwLjAzKSIgc3Ryb2tlLXdpZHRoPSIxIi8+PC9wYXR0ZXJuPjwvZGVmcz48cmVjdCB3aWR0aD0iMTAwJSIgaGVpZ2h0PSIxMDAlIiBmaWxsPSJ1cmwoI2dyaWQpIi8+PC9zdmc+')] opacity-40"></div>
 
         <div className="relative mx-auto max-w-4xl px-4 sm:px-6 lg:px-8 text-center">
-          <h2 className="text-4xl sm:text-5xl font-black text-zinc-50 mb-6">
+          <h2 className="text-4xl sm:text-5xl font-bold text-zinc-50 mb-6">
             Ready to Start Your Transformation?
           </h2>
           <p className="text-xl text-zinc-300 mb-8">
@@ -262,7 +262,7 @@ export default function HomePage({ basePath }: HomePageProps) {
           <div className="flex flex-col sm:flex-row gap-4 justify-center mb-8">
             <Link
               href={`${basePath}/join`}
-              className="inline-flex items-center justify-center px-8 py-4 bg-gradient-to-r from-[#c1121f] to-[#780000] text-zinc-50 rounded-lg font-bold text-lg hover:shadow-xl hover:shadow-[#c1121f]/30 transition-all hover:scale-105"
+              className="inline-flex items-center justify-center px-8 py-4 bg-gradient-to-r from-[#c1121f] to-[#780000] text-zinc-50 rounded-lg font-bold text-lg hover:shadow-xl hover:shadow-[#c1121f]/30 transition-all"
             >
               Claim Your Free Trial
               <ArrowRight className="ml-2 h-5 w-5" />

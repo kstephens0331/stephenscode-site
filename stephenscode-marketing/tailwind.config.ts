@@ -9,23 +9,22 @@ export default {
   theme: {
     extend: {
       colors: {
-        // Brand primary = Tailwind orange family. This is the new "voice" of
-        // the site — every CTA, link hover, focus ring, and key accent.
+        // Brand primary = the red-orange from Kyle's logo (#ef4e22 anchor).
+        // Used sparingly: CTAs, link hover, key accents only.
         primary: {
-          50: '#fff7ed',
-          100: '#ffedd5',
-          200: '#fed7aa',
-          300: '#fdba74',
-          400: '#fb923c',
-          500: '#f97316',
-          600: '#ea580c',
-          700: '#c2410c',
-          800: '#9a3412',
-          900: '#7c2d12',
-          950: '#431407',
+          50: '#fff5f0',
+          100: '#ffe6d9',
+          200: '#ffc4a8',
+          300: '#ffa07a',
+          400: '#ff7547',
+          500: '#ef4e22',
+          600: '#d63912',
+          700: '#b32a0a',
+          800: '#8c2008',
+          900: '#6b1a07',
+          950: '#3d0e03',
         },
-        // Accent = amber (warmth highlight for stat values, badges, glow
-        // edges). Pairs with primary without competing for the action role.
+        // Accent: amber kept for stat values / small warmth highlights.
         accent: {
           50: '#fffbeb',
           100: '#fef3c7',
@@ -39,26 +38,16 @@ export default {
           900: '#78350f',
           950: '#451a03',
         },
-        // Surface layering — four shades of near-black for visual depth.
-        // canvas = page bg; card = default tile bg; elevated = modals,
-        // dropdowns, popovers; border = subtle dividers.
+        // Surface layering — anchored on pure black to match the logo bg.
         surface: {
-          DEFAULT: '#0a0a0a',
-          canvas: '#0a0a0a',
-          card: '#141414',
-          elevated: '#1a1a1a',
+          DEFAULT: '#000000',
+          canvas: '#000000',
+          card: '#0d0d0d',
+          elevated: '#161616',
           border: '#262626',
-          // legacy aliases kept so any unmigrated `bg-surface-light` etc.
-          // still renders (they were slate-800/-700 before; map to elevated).
-          light: '#1a1a1a',
+          light: '#161616',
           lighter: '#262626',
         },
-      },
-      boxShadow: {
-        // Signature orange glow on primary CTAs.
-        glow: '0 0 30px rgba(249, 115, 22, 0.35)',
-        'glow-lg': '0 0 60px rgba(249, 115, 22, 0.45)',
-        'glow-amber': '0 0 30px rgba(251, 191, 36, 0.35)',
       },
     },
   },

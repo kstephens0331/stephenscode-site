@@ -14,7 +14,7 @@ export default function PrivateEventsPage({ colors }: PrivateEventsPageProps) {
           <div style={{ color: '#ee9b00' }} className="text-sm font-bold uppercase tracking-widest mb-3">
             Private Events & Celebrations
           </div>
-          <h1 style={{ color: '#ffffff' }} className="text-6xl font-black mb-6">
+          <h1 style={{ color: '#ffffff' }} className="text-6xl font-bold mb-6">
             Host Your Special Event
           </h1>
           <p style={{ color: '#f5f5f5' }} className="text-xl">
@@ -28,7 +28,7 @@ export default function PrivateEventsPage({ colors }: PrivateEventsPageProps) {
           <div className="grid md:grid-cols-3 gap-8 mb-16">
             <div style={{ backgroundColor: '#f8f8f8' }} className="p-8 text-center">
               <div className="text-6xl mb-4">🎉</div>
-              <h3 style={{ color: '#1a1a1a' }} className="text-2xl font-black mb-3">Social Events</h3>
+              <h3 style={{ color: '#1a1a1a' }} className="text-2xl font-bold mb-3">Social Events</h3>
               <p style={{ color: '#666666' }}>
                 Birthdays, anniversaries, graduations, and family celebrations. Make your milestone
                 memorable with exceptional food and service.
@@ -36,7 +36,7 @@ export default function PrivateEventsPage({ colors }: PrivateEventsPageProps) {
             </div>
             <div style={{ backgroundColor: '#f8f8f8' }} className="p-8 text-center">
               <div className="text-6xl mb-4">💼</div>
-              <h3 style={{ color: '#1a1a1a' }} className="text-2xl font-black mb-3">Corporate Events</h3>
+              <h3 style={{ color: '#1a1a1a' }} className="text-2xl font-bold mb-3">Corporate Events</h3>
               <p style={{ color: '#666666' }}>
                 Business dinners, client entertainment, team building, and holiday parties. Professional
                 service for your corporate needs.
@@ -44,7 +44,7 @@ export default function PrivateEventsPage({ colors }: PrivateEventsPageProps) {
             </div>
             <div style={{ backgroundColor: '#f8f8f8' }} className="p-8 text-center">
               <div className="text-6xl mb-4">💒</div>
-              <h3 style={{ color: '#1a1a1a' }} className="text-2xl font-black mb-3">Wedding Events</h3>
+              <h3 style={{ color: '#1a1a1a' }} className="text-2xl font-bold mb-3">Wedding Events</h3>
               <p style={{ color: '#666666' }}>
                 Rehearsal dinners, bridal showers, and intimate wedding receptions. Create a romantic
                 atmosphere for your special day.
@@ -53,7 +53,7 @@ export default function PrivateEventsPage({ colors }: PrivateEventsPageProps) {
           </div>
 
           <div className="mb-16">
-            <h2 style={{ color: '#9b2226' }} className="text-4xl font-black text-center mb-12">
+            <h2 style={{ color: '#9b2226' }} className="text-4xl font-bold text-center mb-12">
               Our Private Spaces
             </h2>
             <div className="space-y-8">
@@ -62,7 +62,7 @@ export default function PrivateEventsPage({ colors }: PrivateEventsPageProps) {
                   🏛️
                 </div>
                 <div>
-                  <h3 style={{ color: '#1a1a1a' }} className="text-3xl font-black mb-4">The Tuscan Room</h3>
+                  <h3 style={{ color: '#1a1a1a' }} className="text-3xl font-bold mb-4">The Tuscan Room</h3>
                   <div style={{ color: '#9b2226' }} className="text-lg font-bold mb-4">
                     Capacity: 20-40 guests
                   </div>
@@ -81,7 +81,7 @@ export default function PrivateEventsPage({ colors }: PrivateEventsPageProps) {
 
               <div className="grid md:grid-cols-2 gap-8 items-center">
                 <div className="order-2 md:order-1">
-                  <h3 style={{ color: '#1a1a1a' }} className="text-3xl font-black mb-4">The Wine Cellar</h3>
+                  <h3 style={{ color: '#1a1a1a' }} className="text-3xl font-bold mb-4">The Wine Cellar</h3>
                   <div style={{ color: '#9b2226' }} className="text-lg font-bold mb-4">
                     Capacity: 10-16 guests
                   </div>
@@ -106,7 +106,7 @@ export default function PrivateEventsPage({ colors }: PrivateEventsPageProps) {
                   👥
                 </div>
                 <div>
-                  <h3 style={{ color: '#1a1a1a' }} className="text-3xl font-black mb-4">Full Restaurant Buyout</h3>
+                  <h3 style={{ color: '#1a1a1a' }} className="text-3xl font-bold mb-4">Full Restaurant Buyout</h3>
                   <div style={{ color: '#9b2226' }} className="text-lg font-bold mb-4">
                     Capacity: 80-120 guests
                   </div>
@@ -126,7 +126,7 @@ export default function PrivateEventsPage({ colors }: PrivateEventsPageProps) {
           </div>
 
           <div style={{ backgroundColor: '#f8f8f8' }} className="p-12">
-            <h2 style={{ color: '#1a1a1a' }} className="text-3xl font-black text-center mb-8">
+            <h2 style={{ color: '#1a1a1a' }} className="text-3xl font-bold text-center mb-8">
               Request Event Information
             </h2>
             <form className="max-w-3xl mx-auto space-y-6">

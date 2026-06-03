@@ -37,7 +37,7 @@ export default function CustomerView({ demo, colors }: CustomerViewProps) {
                 <div style={{ color: '#ffa300' }} className="text-sm font-bold uppercase tracking-widest mb-4">
                   Licensed & Insured • 25+ Years Experience
                 </div>
-                <h1 style={{ color: '#ffffff' }} className="text-6xl md:text-7xl font-black leading-tight mb-6">
+                <h1 style={{ color: '#ffffff' }} className="text-6xl md:text-7xl font-bold leading-tight mb-6">
                   Building Dreams<br />Into Reality
                 </h1>
                 <p style={{ color: '#cccccc' }} className="text-xl leading-relaxed mb-10">
@@ -67,7 +67,7 @@ export default function CustomerView({ demo, colors }: CustomerViewProps) {
           <section className="py-24" style={{ backgroundColor: '#ffffff' }}>
             <div className="max-w-7xl mx-auto px-4">
               <div className="text-center mb-16">
-                <h2 style={{ color: '#1a1a1a' }} className="text-5xl font-black mb-4">Our Services</h2>
+                <h2 style={{ color: '#1a1a1a' }} className="text-5xl font-bold mb-4">Our Services</h2>
               </div>
               <div className="grid md:grid-cols-4 gap-8">
                 {[
@@ -78,7 +78,7 @@ export default function CustomerView({ demo, colors }: CustomerViewProps) {
                 ].map((service) => (
                   <div key={service.title} style={{ backgroundColor: '#f8f8f8' }} className="p-8 text-center hover:shadow-xl transition">
                     <div className="text-6xl mb-4">{service.icon}</div>
-                    <h3 style={{ color: '#1a1a1a' }} className="text-2xl font-black mb-3">{service.title}</h3>
+                    <h3 style={{ color: '#1a1a1a' }} className="text-2xl font-bold mb-3">{service.title}</h3>
                     <p style={{ color: '#666666' }}>{service.desc}</p>
                   </div>
                 ))}
@@ -88,7 +88,7 @@ export default function CustomerView({ demo, colors }: CustomerViewProps) {
 
           <section className="py-24" style={{ backgroundColor: '#ff6700' }}>
             <div className="max-w-4xl mx-auto px-4 text-center">
-              <h2 style={{ color: '#ffffff' }} className="text-5xl font-black mb-6">
+              <h2 style={{ color: '#ffffff' }} className="text-5xl font-bold mb-6">
                 Ready to Start Your Project?
               </h2>
               <p style={{ color: '#1a1a1a' }} className="text-xl font-bold mb-10">
@@ -135,7 +135,7 @@ export default function CustomerView({ demo, colors }: CustomerViewProps) {
         <div>
           <section style={{ backgroundColor: '#ff6700' }} className="py-20">
             <div className="max-w-4xl mx-auto px-4 text-center">
-              <h1 style={{ color: '#ffffff' }} className="text-6xl font-black mb-6">Our Services</h1>
+              <h1 style={{ color: '#ffffff' }} className="text-6xl font-bold mb-6">Our Services</h1>
               <p style={{ color: '#1a1a1a' }} className="text-xl font-bold">
                 Comprehensive construction solutions for residential and commercial projects
               </p>
@@ -148,8 +148,8 @@ export default function CustomerView({ demo, colors }: CustomerViewProps) {
                 {services.map((service) => (
                   <div key={service.name} style={{ backgroundColor: '#f8f8f8', border: '3px solid #ff6700' }} className="p-8">
                     <div className="flex justify-between items-start mb-4">
-                      <h3 style={{ color: '#1a1a1a' }} className="text-3xl font-black">{service.name}</h3>
-                      <div style={{ color: '#ff6700' }} className="text-2xl font-black">{service.price}</div>
+                      <h3 style={{ color: '#1a1a1a' }} className="text-3xl font-bold">{service.name}</h3>
+                      <div style={{ color: '#ff6700' }} className="text-2xl font-bold">{service.price}</div>
                     </div>
                     <div className="grid md:grid-cols-2 gap-3 mb-6">
                       {service.features.map((feature) => (
@@ -189,7 +189,7 @@ export default function CustomerView({ demo, colors }: CustomerViewProps) {
         <div>
           <section style={{ backgroundColor: '#ff6700' }} className="py-20">
             <div className="max-w-4xl mx-auto px-4 text-center">
-              <h1 style={{ color: '#ffffff' }} className="text-6xl font-black mb-6">Our Portfolio</h1>
+              <h1 style={{ color: '#ffffff' }} className="text-6xl font-bold mb-6">Our Portfolio</h1>
               <p style={{ color: '#1a1a1a' }} className="text-xl font-bold">
                 Explore our completed projects and see the BuildRight difference
               </p>
@@ -208,7 +208,7 @@ export default function CustomerView({ demo, colors }: CustomerViewProps) {
                       <div style={{ backgroundColor: '#1a1a1a', color: '#ffffff' }} className="inline-block px-3 py-1 text-xs font-bold uppercase mb-3">
                         {project.type}
                       </div>
-                      <h3 style={{ color: '#1a1a1a' }} className="text-xl font-black mb-3">{project.title}</h3>
+                      <h3 style={{ color: '#1a1a1a' }} className="text-xl font-bold mb-3">{project.title}</h3>
                       <div style={{ color: '#666666' }} className="text-sm space-y-1">
                         <div>📏 {project.sqft}</div>
                         <div>💰 Project Value: {project.value}</div>
@@ -228,7 +228,7 @@ export default function CustomerView({ demo, colors }: CustomerViewProps) {
         <div>
           <section style={{ backgroundColor: '#ff6700' }} className="py-20">
             <div className="max-w-4xl mx-auto px-4 text-center">
-              <h1 style={{ color: '#ffffff' }} className="text-6xl font-black mb-6">Client Portal</h1>
+              <h1 style={{ color: '#ffffff' }} className="text-6xl font-bold mb-6">Client Portal</h1>
               <p style={{ color: '#1a1a1a' }} className="text-xl font-bold">
                 Access your project documents, photos, and timeline 24/7
               </p>
@@ -238,7 +238,7 @@ export default function CustomerView({ demo, colors }: CustomerViewProps) {
           <section className="py-16" style={{ backgroundColor: '#ffffff' }}>
             <div className="max-w-4xl mx-auto px-4">
               <div style={{ backgroundColor: '#f8f8f8' }} className="p-12">
-                <h2 style={{ color: '#1a1a1a' }} className="text-3xl font-black text-center mb-8">
+                <h2 style={{ color: '#1a1a1a' }} className="text-3xl font-bold text-center mb-8">
                   Client Portal Login
                 </h2>
                 <form className="space-y-6 max-w-md mx-auto">
@@ -269,7 +269,7 @@ export default function CustomerView({ demo, colors }: CustomerViewProps) {
                 </form>
 
                 <div style={{ backgroundColor: '#ffffff', border: '3px solid #ff6700' }} className="p-8 mt-12">
-                  <h3 style={{ color: '#1a1a1a' }} className="text-2xl font-black mb-4">Portal Features:</h3>
+                  <h3 style={{ color: '#1a1a1a' }} className="text-2xl font-bold mb-4">Portal Features:</h3>
                   <div className="grid md:grid-cols-2 gap-4">
                     {[
                       'View project photos & updates',
@@ -300,7 +300,7 @@ export default function CustomerView({ demo, colors }: CustomerViewProps) {
         <div>
           <section style={{ backgroundColor: '#ff6700' }} className="py-20">
             <div className="max-w-4xl mx-auto px-4 text-center">
-              <h1 style={{ color: '#ffffff' }} className="text-6xl font-black mb-6">Project Tracking</h1>
+              <h1 style={{ color: '#ffffff' }} className="text-6xl font-bold mb-6">Project Tracking</h1>
               <p style={{ color: '#1a1a1a' }} className="text-xl font-bold">
                 Real-time updates on your construction project timeline
               </p>
@@ -310,7 +310,7 @@ export default function CustomerView({ demo, colors }: CustomerViewProps) {
           <section className="py-16" style={{ backgroundColor: '#ffffff' }}>
             <div className="max-w-5xl mx-auto px-4">
               <div style={{ backgroundColor: '#f8f8f8' }} className="p-8 mb-8">
-                <h2 style={{ color: '#1a1a1a' }} className="text-2xl font-black mb-6">Sample Project Timeline</h2>
+                <h2 style={{ color: '#1a1a1a' }} className="text-2xl font-bold mb-6">Sample Project Timeline</h2>
                 <div className="space-y-6">
                   {[
                     { phase: 'Planning & Permits', status: 'Completed', progress: 100, date: 'Week 1-2' },
@@ -323,7 +323,7 @@ export default function CustomerView({ demo, colors }: CustomerViewProps) {
                     <div key={phase.phase}>
                       <div className="flex justify-between items-center mb-2">
                         <div>
-                          <span style={{ color: '#1a1a1a' }} className="font-black text-lg">{phase.phase}</span>
+                          <span style={{ color: '#1a1a1a' }} className="font-bold text-lg">{phase.phase}</span>
                           <span style={{
                             backgroundColor: phase.status === 'Completed' ? '#22c55e' :
                                           phase.status === 'In Progress' ? '#fbbf24' : '#9ca3af',
@@ -355,7 +355,7 @@ export default function CustomerView({ demo, colors }: CustomerViewProps) {
       <div>
         <section style={{ backgroundColor: '#ff6700' }} className="py-20">
           <div className="max-w-4xl mx-auto px-4 text-center">
-            <h1 style={{ color: '#ffffff' }} className="text-6xl font-black mb-6">{currentPage.charAt(0).toUpperCase() + currentPage.slice(1)}</h1>
+            <h1 style={{ color: '#ffffff' }} className="text-6xl font-bold mb-6">{currentPage.charAt(0).toUpperCase() + currentPage.slice(1)}</h1>
           </div>
         </section>
         <section className="py-16" style={{ backgroundColor: '#ffffff' }}>
@@ -381,12 +381,12 @@ export default function CustomerView({ demo, colors }: CustomerViewProps) {
         <div className="fixed inset-0 bg-black bg-opacity-70 flex items-center justify-center z-50 p-4">
           <div style={{ backgroundColor: '#ffffff' }} className="max-w-4xl w-full max-h-[90vh] overflow-y-auto">
             <div style={{ backgroundColor: '#ff6700', color: '#ffffff' }} className="p-6 flex justify-between items-center sticky top-0">
-              <h3 className="text-2xl font-black">Interactive Quote Builder</h3>
+              <h3 className="text-2xl font-bold">Interactive Quote Builder</h3>
               <button onClick={() => setShowQuoteBuilder(false)} className="text-3xl hover:opacity-70">&times;</button>
             </div>
             <div className="p-8">
               <div style={{ backgroundColor: '#1a1a1a', color: '#ffffff' }} className="p-6 mb-8 text-center">
-                <h4 className="text-2xl font-black mb-2">Get an Instant Estimate</h4>
+                <h4 className="text-2xl font-bold mb-2">Get an Instant Estimate</h4>
                 <p>Answer a few questions to receive a detailed project quote</p>
               </div>
 
@@ -514,30 +514,30 @@ export default function CustomerView({ demo, colors }: CustomerViewProps) {
         <div className="fixed inset-0 bg-black bg-opacity-70 flex items-center justify-center z-50 p-4">
           <div style={{ backgroundColor: '#ffffff' }} className="max-w-6xl w-full max-h-[90vh] overflow-y-auto">
             <div style={{ backgroundColor: '#ff6700', color: '#ffffff' }} className="p-6 flex justify-between items-center sticky top-0">
-              <h3 className="text-2xl font-black">My Projects Dashboard</h3>
+              <h3 className="text-2xl font-bold">My Projects Dashboard</h3>
               <button onClick={() => setShowClientPortal(false)} className="text-3xl hover:opacity-70">&times;</button>
             </div>
             <div className="p-8">
               <div className="grid md:grid-cols-3 gap-6 mb-8">
                 <div style={{ backgroundColor: '#f8f8f8' }} className="p-6">
                   <div style={{ color: '#666666' }} className="text-sm font-bold uppercase mb-2">Project Status</div>
-                  <div style={{ color: '#1a1a1a' }} className="text-3xl font-black mb-1">In Progress</div>
+                  <div style={{ color: '#1a1a1a' }} className="text-3xl font-bold mb-1">In Progress</div>
                   <div style={{ color: '#22c55e' }} className="text-sm font-bold">65% Complete</div>
                 </div>
                 <div style={{ backgroundColor: '#f8f8f8' }} className="p-6">
                   <div style={{ color: '#666666' }} className="text-sm font-bold uppercase mb-2">Estimated Completion</div>
-                  <div style={{ color: '#1a1a1a' }} className="text-3xl font-black mb-1">Mar 15</div>
+                  <div style={{ color: '#1a1a1a' }} className="text-3xl font-bold mb-1">Mar 15</div>
                   <div style={{ color: '#ff6700' }} className="text-sm font-bold">On Schedule</div>
                 </div>
                 <div style={{ backgroundColor: '#f8f8f8' }} className="p-6">
                   <div style={{ color: '#666666' }} className="text-sm font-bold uppercase mb-2">Recent Updates</div>
-                  <div style={{ color: '#1a1a1a' }} className="text-3xl font-black mb-1">12</div>
+                  <div style={{ color: '#1a1a1a' }} className="text-3xl font-bold mb-1">12</div>
                   <div style={{ color: '#666666' }} className="text-sm font-bold">This Week</div>
                 </div>
               </div>
 
               <div style={{ backgroundColor: '#f8f8f8' }} className="p-8 mb-8">
-                <h3 style={{ color: '#1a1a1a' }} className="text-2xl font-black mb-6">Recent Project Photos</h3>
+                <h3 style={{ color: '#1a1a1a' }} className="text-2xl font-bold mb-6">Recent Project Photos</h3>
                 <div className="grid md:grid-cols-4 gap-4">
                   {['🏗️', '🔨', '🪜', '🎨', '💡', '🚪', '🪟', '🛠️'].map((icon, idx) => (
                     <div key={idx} style={{ backgroundColor: '#ff6700', height: '150px' }} className="flex items-center justify-center text-6xl">
@@ -548,7 +548,7 @@ export default function CustomerView({ demo, colors }: CustomerViewProps) {
               </div>
 
               <div style={{ backgroundColor: '#f8f8f8' }} className="p-8">
-                <h3 style={{ color: '#1a1a1a' }} className="text-2xl font-black mb-6">Project Documents</h3>
+                <h3 style={{ color: '#1a1a1a' }} className="text-2xl font-bold mb-6">Project Documents</h3>
                 <div className="space-y-3">
                   {[
                     'Blueprints - Final Version.pdf',

@@ -122,7 +122,7 @@ export default function MembershipPage({ basePath }: MembershipPageProps) {
               <span className="text-sm font-medium text-[#c1121f]">7 Days Free Trial</span>
             </div>
 
-            <h1 className="text-5xl sm:text-6xl font-black text-zinc-50 mb-6">
+            <h1 className="text-5xl sm:text-6xl font-bold text-zinc-50 mb-6">
               Choose Your
               <span className="block text-transparent bg-clip-text bg-gradient-to-r from-[#c1121f] to-[#fdf0d5]">
                 Membership Plan
@@ -162,12 +162,12 @@ export default function MembershipPage({ basePath }: MembershipPageProps) {
                       <Icon className="h-8 w-8 text-zinc-50" strokeWidth={2.5} />
                     </div>
 
-                    <h3 className="text-2xl font-black text-zinc-50 mb-2">{plan.name}</h3>
+                    <h3 className="text-2xl font-bold text-zinc-50 mb-2">{plan.name}</h3>
                     <p className="text-zinc-400 text-sm mb-6">{plan.description}</p>
 
                     <div className="mb-8">
                       <div className="flex items-baseline">
-                        <span className="text-5xl font-black text-zinc-50">${plan.price}</span>
+                        <span className="text-5xl font-bold text-zinc-50">${plan.price}</span>
                         <span className="text-zinc-500 ml-2">/{plan.period}</span>
                       </div>
                     </div>
@@ -193,7 +193,7 @@ export default function MembershipPage({ basePath }: MembershipPageProps) {
                       href={`${basePath}/join`}
                       className={`block w-full py-4 rounded-lg font-bold text-center transition-all ${
                         plan.popular
-                          ? 'bg-gradient-to-r from-[#c1121f] to-[#780000] text-zinc-50 hover:shadow-lg hover:shadow-[#c1121f]/30 hover:scale-105'
+                          ? 'bg-gradient-to-r from-[#c1121f] to-[#780000] text-zinc-50 hover:shadow-lg hover:shadow-[#c1121f]/30 '
                           : 'bg-zinc-800 text-zinc-50 hover:bg-zinc-700'
                       }`}
                     >
@@ -227,7 +227,7 @@ export default function MembershipPage({ basePath }: MembershipPageProps) {
       <section className="py-20 bg-zinc-900">
         <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-12">
-            <h2 className="text-4xl font-black text-zinc-50 mb-4">Enhance Your Membership</h2>
+            <h2 className="text-4xl font-bold text-zinc-50 mb-4">Enhance Your Membership</h2>
             <p className="text-xl text-zinc-400">Optional add-ons to accelerate your results</p>
           </div>
 
@@ -253,7 +253,7 @@ export default function MembershipPage({ basePath }: MembershipPageProps) {
       <section className="py-20 bg-zinc-950">
         <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-12">
-            <h2 className="text-4xl font-black text-zinc-50 mb-4">Compare All Plans</h2>
+            <h2 className="text-4xl font-bold text-zinc-50 mb-4">Compare All Plans</h2>
             <p className="text-xl text-zinc-400">See what's included in each membership</p>
           </div>
 
@@ -314,7 +314,7 @@ export default function MembershipPage({ basePath }: MembershipPageProps) {
       <section className="py-20 bg-zinc-900">
         <div className="mx-auto max-w-4xl px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-12">
-            <h2 className="text-4xl font-black text-zinc-50 mb-4">Frequently Asked Questions</h2>
+            <h2 className="text-4xl font-bold text-zinc-50 mb-4">Frequently Asked Questions</h2>
             <p className="text-xl text-zinc-400">Everything you need to know</p>
           </div>
 
@@ -332,7 +332,7 @@ export default function MembershipPage({ basePath }: MembershipPageProps) {
       {/* CTA Section */}
       <section className="py-20 bg-gradient-to-br from-zinc-950 via-[#780000]/20 to-zinc-950">
         <div className="mx-auto max-w-4xl px-4 sm:px-6 lg:px-8 text-center">
-          <h2 className="text-4xl font-black text-zinc-50 mb-6">
+          <h2 className="text-4xl font-bold text-zinc-50 mb-6">
             Ready to Start Your Journey?
           </h2>
           <p className="text-xl text-zinc-300 mb-8">
@@ -341,7 +341,7 @@ export default function MembershipPage({ basePath }: MembershipPageProps) {
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
             <Link
               href={`${basePath}/join`}
-              className="inline-flex items-center justify-center px-8 py-4 bg-gradient-to-r from-[#c1121f] to-[#780000] text-zinc-50 rounded-lg font-bold text-lg hover:shadow-xl hover:shadow-[#c1121f]/30 transition-all hover:scale-105"
+              className="inline-flex items-center justify-center px-8 py-4 bg-gradient-to-r from-[#c1121f] to-[#780000] text-zinc-50 rounded-lg font-bold text-lg hover:shadow-xl hover:shadow-[#c1121f]/30 transition-all"
             >
               Start Free Trial
             </Link>

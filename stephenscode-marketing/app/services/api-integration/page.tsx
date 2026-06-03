@@ -167,7 +167,7 @@ export default function APIIntegration() {
       />
 
       {/* Hero Section */}
-      <section className="relative bg-gradient-to-br from-primary-900 via-primary-800 to-primary-700 text-white overflow-hidden">
+      <section className="relative bg-gradient-to-br from-black via-surface to-surface-card text-white overflow-hidden">
         <div className="absolute inset-0 opacity-10">
           <svg className="absolute w-full h-full" xmlns="http://www.w3.org/2000/svg">
             <defs>
@@ -181,7 +181,7 @@ export default function APIIntegration() {
 
         <div className="relative mx-auto max-w-7xl px-6 py-24 sm:py-32 lg:px-8">
           <div className="mx-auto max-w-4xl">
-            <div className="inline-flex items-center gap-3 rounded-full bg-slate-800/40 px-6 py-3 text-sm font-semibold backdrop-blur-lg border border-slate-600 mb-8">
+            <div className="inline-flex items-center gap-3 rounded-full bg-surface-card/60 px-6 py-3 text-sm font-semibold backdrop-blur-lg border border-surface-border mb-8">
               <span className="text-2xl">🔗</span>
               <span>200+ API Integration Projects Completed</span>
             </div>
@@ -200,7 +200,7 @@ export default function APIIntegration() {
                 <span className="block text-sm text-gray-200">Projects Completed</span>
                 <span className="text-3xl font-bold text-white">200+</span>
               </div>
-              <div className="rounded-2xl bg-slate-800/40 px-6 py-4 border border-slate-600">
+              <div className="rounded-2xl bg-surface-card/60 px-6 py-4 border border-surface-border">
                 <span className="block text-sm text-gray-200">API Types</span>
                 <span className="text-3xl font-bold text-white">REST, SOAP, GraphQL</span>
               </div>
@@ -209,13 +209,13 @@ export default function APIIntegration() {
             <div className="flex flex-col sm:flex-row items-center gap-4">
               <Link
                 href="/contact"
-                className="w-full sm:w-auto rounded-lg bg-accent-500 px-8 py-4 text-center text-lg font-bold text-white shadow-lg hover:bg-accent-600 transition-all hover:scale-105"
+                className="w-full sm:w-auto rounded-lg bg-accent-500 px-8 py-4 text-center text-lg font-bold text-white shadow-lg hover:bg-accent-600 transition-all"
               >
                 Discuss Your Integration
               </Link>
               <a
                 href="tel:+19363234527"
-                className="w-full sm:w-auto flex items-center justify-center gap-2 rounded-lg border-2 border-slate-500 px-8 py-4 text-lg font-bold text-white hover:bg-slate-800/40 transition-all"
+                className="w-full sm:w-auto flex items-center justify-center gap-2 rounded-lg border-2 border-surface-border px-8 py-4 text-lg font-bold text-white hover:bg-surface-card/60 transition-all"
               >
                 <span>📞</span>
                 <span>(936) 323-4527</span>
@@ -225,14 +225,14 @@ export default function APIIntegration() {
         </div>
 
         <div className="absolute bottom-0 left-0 right-0">
-          <svg className="w-full h-16 fill-slate-900" viewBox="0 0 1200 120" preserveAspectRatio="none">
+          <svg className="w-full h-16 fill-surface" viewBox="0 0 1200 120" preserveAspectRatio="none">
             <path d="M321.39,56.44c58-10.79,114.16-30.13,172-41.86,82.39-16.72,168.19-17.73,250.45-.39C823.78,31,906.67,72,985.66,92.83c70.05,18.48,146.53,26.09,214.34,3V0H0V27.35A600.21,600.21,0,0,0,321.39,56.44Z" />
           </svg>
         </div>
       </section>
 
       {/* What is API Integration Section */}
-      <section className="bg-slate-900 py-24">
+      <section className="bg-surface py-24">
         <div className="mx-auto max-w-7xl px-6 lg:px-8">
           <div className="mx-auto max-w-3xl">
             <h2 className="text-4xl font-bold tracking-tight text-white mb-8">
@@ -252,7 +252,7 @@ export default function APIIntegration() {
                 <strong>With API integration:</strong> Data flows automatically between systems in real-time. New customer in your CRM? They're automatically added to your email list. Sale on your website? Inventory updates instantly and an invoice appears in QuickBooks.
               </p>
 
-              <div className="bg-slate-800 rounded-2xl p-8 my-8">
+              <div className="bg-surface-card rounded-2xl p-8 my-8">
                 <h3 className="text-2xl font-bold text-white mb-4">Real Examples</h3>
                 <ul className="space-y-4">
                   <li className="flex items-start gap-3">
@@ -279,7 +279,7 @@ export default function APIIntegration() {
       </section>
 
       {/* Experience Section */}
-      <section className="bg-slate-800 py-24">
+      <section className="bg-surface-card py-24">
         <div className="mx-auto max-w-7xl px-6 lg:px-8">
           <div className="mx-auto max-w-3xl">
             <h2 className="text-4xl font-bold tracking-tight text-white mb-8">
@@ -292,15 +292,15 @@ export default function APIIntegration() {
               </p>
 
               <div className="grid md:grid-cols-3 gap-6 my-8">
-                <div className="bg-slate-900 rounded-xl p-6 text-center">
+                <div className="bg-surface rounded-xl p-6 text-center">
                   <div className="text-4xl font-bold text-primary-600 mb-2">REST</div>
                   <p className="text-gray-400">Modern, most common API type. Clean, predictable, well-documented.</p>
                 </div>
-                <div className="bg-slate-900 rounded-xl p-6 text-center">
+                <div className="bg-surface rounded-xl p-6 text-center">
                   <div className="text-4xl font-bold text-primary-600 mb-2">SOAP</div>
                   <p className="text-gray-400">Enterprise, legacy systems. More complex but highly reliable.</p>
                 </div>
-                <div className="bg-slate-900 rounded-xl p-6 text-center">
+                <div className="bg-surface rounded-xl p-6 text-center">
                   <div className="text-4xl font-bold text-primary-600 mb-2">GraphQL</div>
                   <p className="text-gray-400">Modern, flexible queries. Get exactly the data you need.</p>
                 </div>
@@ -315,7 +315,7 @@ export default function APIIntegration() {
       </section>
 
       {/* Common Integrations Section */}
-      <section className="bg-slate-900 py-24">
+      <section className="bg-surface py-24">
         <div className="mx-auto max-w-7xl px-6 lg:px-8">
           <div className="mx-auto max-w-2xl text-center mb-16">
             <h2 className="text-4xl font-bold tracking-tight text-white mb-4">
@@ -330,7 +330,7 @@ export default function APIIntegration() {
             {commonIntegrations.map((category) => (
               <div
                 key={category.category}
-                className="bg-slate-800 rounded-2xl p-8 border-2 border-slate-700 hover:border-primary-300 transition-all"
+                className="bg-surface-card rounded-2xl p-8 border-2 border-surface-border hover:border-primary-300 transition-all"
               >
                 <h3 className="text-xl font-bold text-white mb-2">{category.category}</h3>
                 <p className="text-gray-400 mb-4">{category.description}</p>
@@ -351,7 +351,7 @@ export default function APIIntegration() {
       </section>
 
       {/* Process Section */}
-      <section className="bg-slate-800 py-24">
+      <section className="bg-surface-card py-24">
         <div className="mx-auto max-w-7xl px-6 lg:px-8">
           <div className="mx-auto max-w-2xl text-center mb-16">
             <h2 className="text-4xl font-bold tracking-tight text-white mb-4">
@@ -365,7 +365,7 @@ export default function APIIntegration() {
           <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
             {processSteps.map((step) => (
               <div key={step.number} className="relative">
-                <div className="bg-slate-900 rounded-2xl p-8 shadow-md border-2 border-slate-700 h-full">
+                <div className="bg-surface rounded-2xl p-8 shadow-md border-2 border-surface-border h-full">
                   <div className="absolute -top-4 -left-4 w-10 h-10 rounded-full bg-primary-600 text-white flex items-center justify-center font-bold text-lg">
                     {step.number}
                   </div>
@@ -379,7 +379,7 @@ export default function APIIntegration() {
       </section>
 
       {/* Why Freelance Section */}
-      <section className="bg-slate-900 py-24">
+      <section className="bg-surface py-24">
         <div className="mx-auto max-w-7xl px-6 lg:px-8">
           <div className="mx-auto max-w-3xl">
             <h2 className="text-4xl font-bold tracking-tight text-white mb-8">
@@ -388,19 +388,19 @@ export default function APIIntegration() {
 
             <div className="prose prose-lg prose-invert max-w-none text-gray-300">
               <div className="grid md:grid-cols-2 gap-6 my-8">
-                <div className="bg-slate-800 rounded-xl p-6">
+                <div className="bg-surface-card rounded-xl p-6">
                   <h3 className="text-lg font-bold text-white mb-2">Direct Communication</h3>
                   <p className="text-gray-400">No account managers or project coordinators in between. You talk directly to the person doing the work.</p>
                 </div>
-                <div className="bg-slate-800 rounded-xl p-6">
+                <div className="bg-surface-card rounded-xl p-6">
                   <h3 className="text-lg font-bold text-white mb-2">Cost-Effective</h3>
                   <p className="text-gray-400">Agency overhead means agency prices. Working with me, you pay for expertise—not fancy offices.</p>
                 </div>
-                <div className="bg-slate-800 rounded-xl p-6">
+                <div className="bg-surface-card rounded-xl p-6">
                   <h3 className="text-lg font-bold text-white mb-2">Flexible Engagement</h3>
                   <p className="text-gray-400">One-time project? Ongoing support? Retainer? We structure the engagement to match your needs.</p>
                 </div>
-                <div className="bg-slate-800 rounded-xl p-6">
+                <div className="bg-surface-card rounded-xl p-6">
                   <h3 className="text-lg font-bold text-white mb-2">Long-term Partnership</h3>
                   <p className="text-gray-400">Many clients have worked with me for years. I know their systems, their business, and can respond quickly.</p>
                 </div>
@@ -411,7 +411,7 @@ export default function APIIntegration() {
       </section>
 
       {/* FAQ Section */}
-      <section className="bg-slate-800 py-24">
+      <section className="bg-surface-card py-24">
         <div className="mx-auto max-w-7xl px-6 lg:px-8">
           <div className="mx-auto max-w-3xl">
             <h2 className="text-4xl font-bold tracking-tight text-white mb-12">
@@ -420,7 +420,7 @@ export default function APIIntegration() {
 
             <div className="space-y-8">
               {pageSchemas.faq.mainEntity.map((faq, index) => (
-                <div key={index} className="bg-slate-900 rounded-xl p-6 shadow-md">
+                <div key={index} className="bg-surface rounded-xl p-6 shadow-md">
                   <h3 className="text-lg font-bold text-white mb-3">{faq.name}</h3>
                   <p className="text-gray-400">{faq.acceptedAnswer.text}</p>
                 </div>
@@ -444,13 +444,13 @@ export default function APIIntegration() {
             <div className="flex flex-col sm:flex-row items-center justify-center gap-4 mb-8">
               <Link
                 href="/contact"
-                className="w-full sm:w-auto rounded-lg bg-accent-500 px-10 py-5 text-xl font-bold text-white shadow-lg hover:bg-accent-600 transition-all hover:scale-105"
+                className="w-full sm:w-auto rounded-lg bg-accent-500 px-10 py-5 text-xl font-bold text-white shadow-lg hover:bg-accent-600 transition-all"
               >
                 Discuss Your Integration
               </Link>
               <a
                 href="tel:+19363234527"
-                className="w-full sm:w-auto flex items-center justify-center gap-2 rounded-lg bg-slate-800/40 px-10 py-5 text-xl font-bold text-white border-2 border-slate-600 hover:bg-slate-700/60 transition-all"
+                className="w-full sm:w-auto flex items-center justify-center gap-2 rounded-lg bg-surface-card/60 px-10 py-5 text-xl font-bold text-white border-2 border-surface-border hover:bg-surface-elevated/80 transition-all"
               >
                 <span>📞</span>
                 <span>(936) 323-4527</span>
@@ -465,7 +465,7 @@ export default function APIIntegration() {
       </section>
 
       {/* Related Services */}
-      <section className="bg-slate-900 py-24">
+      <section className="bg-surface py-24">
         <div className="mx-auto max-w-7xl px-6 lg:px-8">
           <div className="mx-auto max-w-2xl text-center mb-12">
             <h2 className="text-3xl font-bold tracking-tight text-white mb-4">
@@ -476,7 +476,7 @@ export default function APIIntegration() {
           <div className="grid md:grid-cols-3 gap-8">
             <Link
               href="/services/conroe-web-development"
-              className="group bg-slate-800 rounded-2xl p-8 border-2 border-slate-700 hover:border-primary-300 hover:shadow-xl transition-all"
+              className="group bg-surface-card rounded-2xl p-8 border-2 border-surface-border hover:border-primary-300 hover:shadow-xl transition-all"
             >
               <div className="text-3xl mb-4">🌐</div>
               <h3 className="text-xl font-bold text-white mb-2 group-hover:text-primary-600">Web Development</h3>
@@ -484,7 +484,7 @@ export default function APIIntegration() {
             </Link>
             <Link
               href="/services/web-scraping"
-              className="group bg-slate-800 rounded-2xl p-8 border-2 border-slate-700 hover:border-primary-300 hover:shadow-xl transition-all"
+              className="group bg-surface-card rounded-2xl p-8 border-2 border-surface-border hover:border-primary-300 hover:shadow-xl transition-all"
             >
               <div className="text-3xl mb-4">📊</div>
               <h3 className="text-xl font-bold text-white mb-2 group-hover:text-primary-600">Web Scraping</h3>
@@ -492,7 +492,7 @@ export default function APIIntegration() {
             </Link>
             <Link
               href="/services/business-automation"
-              className="group bg-slate-800 rounded-2xl p-8 border-2 border-slate-700 hover:border-primary-300 hover:shadow-xl transition-all"
+              className="group bg-surface-card rounded-2xl p-8 border-2 border-surface-border hover:border-primary-300 hover:shadow-xl transition-all"
             >
               <div className="text-3xl mb-4">⚡</div>
               <h3 className="text-xl font-bold text-white mb-2 group-hover:text-primary-600">Business Automation</h3>

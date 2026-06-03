@@ -56,7 +56,7 @@ export default function Work() {
       testimonial: 'Kyle built us exactly what we needed. Our phone hasn\'t stopped ringing since the new site went live. Best investment we\'ve made.',
       author: 'John M., Owner',
       icon: '🔧',
-      color: 'from-blue-500 to-cyan-500'
+      color: 'from-primary-500 to-accent-500'
     },
     {
       client: 'Bella\'s Boutique',
@@ -190,7 +190,7 @@ export default function Work() {
       description: 'Lefty Cartel is a unique members-only baseball apparel brand built by a father-son duo and Air Force veteran. We developed their complete e-commerce platform featuring $50/month Stripe subscription billing, exclusive member benefits including a FREE item every month, full admin dashboard with analytics, and integrated USPS/UPS shipping. The custom-built system handles membership management, inventory tracking, and order fulfillment seamlessly.',
       services: ['Membership Platform', 'Stripe Subscriptions', 'Admin Dashboard', 'Shipping Integration'],
       icon: '⚾',
-      color: 'from-slate-700 to-slate-900'
+      color: 'from-surface-elevated to-surface'
     },
     {
       name: 'JustWell Clinical Research',
@@ -210,7 +210,7 @@ export default function Work() {
       description: 'Benefits Builder helps companies save on FICA taxes through Section 125 Cafeteria Plans. We built their complete internal SaaS platform for managing pre-tax benefit deductions, featuring company and employee management, automated billing calculations across multiple billing models, tax savings tracking and reporting, QuickBooks Online integration for invoice syncing, and automated email notifications. The dashboard provides comprehensive analytics for their entire client portfolio.',
       services: ['Full-Stack SaaS', 'QuickBooks Integration', 'Automated Billing', 'Analytics Dashboard'],
       icon: '💼',
-      color: 'from-blue-600 to-indigo-700'
+      color: 'from-primary-600 to-primary-800'
     },
     {
       name: 'CalenFlow',
@@ -230,7 +230,7 @@ export default function Work() {
       description: 'SentinelForge is a powerful online gaming safety platform designed to protect gaming communities. The system features automated player behavior monitoring, cheat detection algorithms, toxicity analysis, and community moderation tools. Built with a scalable architecture to handle high-volume gaming data, it helps game developers and server administrators maintain fair, enjoyable gaming environments.',
       services: ['Platform Development', 'Data Analytics', 'Automation', 'Admin Dashboard'],
       icon: '🛡️',
-      color: 'from-emerald-500 to-cyan-600'
+      color: 'from-emerald-500 to-emerald-700'
     },
     {
       name: 'Project Ironclad',
@@ -240,7 +240,7 @@ export default function Work() {
       description: 'Project Ironclad is an ambitious 100% custom cloud platform built entirely from scratch with no third-party frameworks. It replaces GitHub, Vercel, Railway, Supabase, and Cloudflare with custom implementations including AES-256-GCM encryption, custom database query builders, S3-compatible object storage, distributed ledger technology, and container orchestration. Currently at Phase 36 with complete cryptography, database, storage, and compute modules.',
       services: ['Cloud Platform', 'Custom Infrastructure', 'Encryption', 'Container Orchestration'],
       icon: '☁️',
-      color: 'from-slate-600 to-zinc-800'
+      color: 'from-surface-elevated to-surface'
     },
     {
       name: 'AeonForge',
@@ -310,7 +310,7 @@ export default function Work() {
       description: 'A full-featured homeschool management system with AI-powered adaptive learning that generates custom educational packets based on student mastery levels. Features include Optical Mark Recognition (OMR) scanning for answer sheets, multi-guardian support, parent-controlled online mode with travel overrides, automatic quarter coverage tracking, PDF report cards with mastery tracking, real-time notifications, and portfolio management for work exemplars.',
       services: ['Adaptive Learning AI', 'OMR Scanning', 'Report Generation', 'Curriculum Tracking'],
       icon: '📚',
-      color: 'from-blue-500 to-indigo-600'
+      color: 'from-primary-500 to-primary-700'
     },
     {
       name: 'MedSim',
@@ -390,7 +390,7 @@ export default function Work() {
       description: 'FC Photo Houston captures weddings, events, portraits, and commercial photography with artistic excellence. We created their stunning portfolio website featuring high-resolution image galleries, an integrated booking system for scheduling sessions, and client proofing capabilities where customers can view and select their photos. The elegant design reflects the quality and professionalism of their photography work.',
       services: ['Portfolio Website', 'Booking System', 'Client Galleries', 'Image Optimization'],
       icon: '📸',
-      color: 'from-slate-500 to-gray-700'
+      color: 'from-surface-elevated to-surface-card'
     }
   ]
 
@@ -445,7 +445,7 @@ export default function Work() {
       />
 
       {/* Hero Section */}
-      <section className="relative bg-gradient-to-br from-primary-900 via-primary-800 to-primary-700 text-white overflow-hidden">
+      <section className="relative bg-gradient-to-br from-black via-surface to-surface-card text-white overflow-hidden">
         {/* Pattern overlay */}
         <div className="absolute inset-0 opacity-10">
           <svg className="absolute w-full h-full" xmlns="http://www.w3.org/2000/svg">
@@ -472,7 +472,7 @@ export default function Work() {
             <div className="mt-10 flex flex-col sm:flex-row items-center justify-center gap-6 animate-fade-in-up animation-delay-600">
               <Link
                 href="/contact"
-                className="group rounded-lg bg-accent-500 px-8 py-4 text-base font-semibold text-white shadow-lg hover:bg-accent-600 transition-all hover:scale-105"
+                className="group rounded-lg bg-accent-500 px-8 py-4 text-base font-semibold text-white shadow-lg hover:bg-accent-600 transition-all"
               >
                 Start Your Project
                 <span className="inline-block transition-transform group-hover:translate-x-1 ml-2">→</span>
@@ -489,34 +489,34 @@ export default function Work() {
 
         {/* Wave divider */}
         <div className="absolute bottom-0 left-0 right-0">
-          <svg className="w-full h-16 fill-slate-900" viewBox="0 0 1200 120" preserveAspectRatio="none">
+          <svg className="w-full h-16 fill-surface" viewBox="0 0 1200 120" preserveAspectRatio="none">
             <path d="M321.39,56.44c58-10.79,114.16-30.13,172-41.86,82.39-16.72,168.19-17.73,250.45-.39C823.78,31,906.67,72,985.66,92.83c70.05,18.48,146.53,26.09,214.34,3V0H0V27.35A600.21,600.21,0,0,0,321.39,56.44Z" />
           </svg>
         </div>
       </section>
 
       {/* Stats Section */}
-      <section className="bg-slate-900 py-16 border-b border-slate-700">
+      <section className="bg-surface py-16 border-b border-surface-border">
         <div className="mx-auto max-w-7xl px-6 lg:px-8">
           <div className="grid grid-cols-2 md:grid-cols-4 gap-8 text-center">
             <div className="animate-fade-in-up">
               <div className="text-5xl mb-3">📊</div>
-              <div className="text-4xl font-bold bg-gradient-to-r from-primary-900 to-accent-600 bg-clip-text text-transparent">2,600+</div>
+              <div className="text-4xl font-bold bg-gradient-to-r from-primary-400 to-accent-400 bg-clip-text text-transparent">2,600+</div>
               <div className="text-sm text-gray-400 mt-2">Projects Completed</div>
             </div>
             <div className="animate-fade-in-up animation-delay-200">
               <div className="text-5xl mb-3">😊</div>
-              <div className="text-4xl font-bold bg-gradient-to-r from-primary-900 to-accent-600 bg-clip-text text-transparent">14+</div>
+              <div className="text-4xl font-bold bg-gradient-to-r from-primary-400 to-accent-400 bg-clip-text text-transparent">14+</div>
               <div className="text-sm text-gray-400 mt-2">Years Experience</div>
             </div>
             <div className="animate-fade-in-up animation-delay-400">
               <div className="text-5xl mb-3">⚡</div>
-              <div className="text-4xl font-bold bg-gradient-to-r from-primary-900 to-accent-600 bg-clip-text text-transparent">2 Weeks</div>
+              <div className="text-4xl font-bold bg-gradient-to-r from-primary-400 to-accent-400 bg-clip-text text-transparent">2 Weeks</div>
               <div className="text-sm text-gray-400 mt-2">Average Project Time</div>
             </div>
             <div className="animate-fade-in-up animation-delay-600">
               <div className="text-5xl mb-3">⭐</div>
-              <div className="text-4xl font-bold bg-gradient-to-r from-primary-900 to-accent-600 bg-clip-text text-transparent">98%</div>
+              <div className="text-4xl font-bold bg-gradient-to-r from-primary-400 to-accent-400 bg-clip-text text-transparent">98%</div>
               <div className="text-sm text-gray-400 mt-2">Client Satisfaction</div>
             </div>
           </div>
@@ -524,7 +524,7 @@ export default function Work() {
       </section>
 
       {/* Live Portfolio Section */}
-      <section className="bg-slate-900 py-24 sm:py-32">
+      <section className="bg-surface py-24 sm:py-32">
         <div className="mx-auto max-w-7xl px-6 lg:px-8">
           <div className="mx-auto max-w-2xl text-center mb-16">
             <div className="inline-flex items-center rounded-full bg-green-500/10 px-4 py-2 text-sm font-semibold text-green-400 mb-4">
@@ -542,20 +542,20 @@ export default function Work() {
             {livePortfolio.map((project, index) => (
               <article
                 key={project.name}
-                className="group relative bg-slate-800 rounded-3xl shadow-xl shadow-black/20 overflow-hidden border-2 border-slate-700 hover:border-primary-300 hover:shadow-2xl transition-all"
+                className="group relative bg-surface-card rounded-3xl shadow-xl shadow-black/20 overflow-hidden border-2 border-surface-border hover:border-primary-300 transition-all"
                 style={{ animationDelay: `${index * 100}ms` }}
               >
                 <div className="md:flex">
                   {/* Header gradient - side on desktop, top on mobile */}
                   <div className={`md:w-64 md:min-h-full h-32 md:h-auto bg-gradient-to-br ${project.color} flex items-center justify-center flex-shrink-0`}>
-                    <span className="text-6xl md:text-7xl filter drop-shadow-lg group-hover:scale-110 transition-transform">
+                    <span className="text-6xl md:text-7xl filter drop-shadow-lg group- transition-transform">
                       {project.icon}
                     </span>
                   </div>
 
                   <div className="p-6 md:p-8 flex-1">
                     {/* Industry badge */}
-                    <div className="inline-flex items-center rounded-full bg-slate-700 px-3 py-1 text-xs font-semibold text-gray-300 mb-3">
+                    <div className="inline-flex items-center rounded-full bg-surface-elevated px-3 py-1 text-xs font-semibold text-gray-300 mb-3">
                       {project.industry}
                     </div>
 
@@ -597,7 +597,7 @@ export default function Work() {
                         </svg>
                       </a>
                     ) : (
-                      <span className="inline-flex items-center gap-2 px-6 py-3 bg-slate-700 text-gray-300 font-bold rounded-lg">
+                      <span className="inline-flex items-center gap-2 px-6 py-3 bg-surface-elevated text-gray-300 font-bold rounded-lg">
                         <svg className="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                           <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 15v2m-6 4h12a2 2 0 002-2v-6a2 2 0 00-2-2H6a2 2 0 00-2 2v6a2 2 0 002 2zm10-10V7a4 4 0 00-8 0v4h8z" />
                         </svg>
@@ -616,7 +616,7 @@ export default function Work() {
             </p>
             <Link
               href="/contact"
-              className="inline-flex items-center gap-2 rounded-lg bg-primary-600 px-8 py-4 text-lg font-bold text-white shadow-lg hover:bg-primary-700 transition-all hover:scale-105"
+              className="inline-flex items-center gap-2 rounded-lg bg-primary-600 px-8 py-4 text-lg font-bold text-white shadow-lg hover:bg-primary-700 transition-all"
             >
               <span>Start Your Project</span>
               <span>→</span>
@@ -626,7 +626,7 @@ export default function Work() {
       </section>
 
       {/* Case Studies Section */}
-      <section className="bg-slate-900 py-24 sm:py-32">
+      <section className="bg-surface py-24 sm:py-32">
         <div className="mx-auto max-w-7xl px-6 lg:px-8">
           <div className="mx-auto max-w-2xl text-center mb-16">
             <div className="inline-flex items-center rounded-full bg-primary-500/10 px-4 py-2 text-sm font-semibold text-primary-400 mb-4">
@@ -644,7 +644,7 @@ export default function Work() {
             {caseStudies.map((study, index) => (
               <article
                 key={index}
-                className="group relative bg-slate-800 rounded-3xl shadow-xl shadow-black/20 overflow-hidden border-2 border-slate-700 hover:border-primary-300 hover:shadow-2xl transition-all"
+                className="group relative bg-surface-card rounded-3xl shadow-xl shadow-black/20 overflow-hidden border-2 border-surface-border hover:border-primary-300 transition-all"
               >
                 {/* Industry badge */}
                 <div className="absolute top-6 right-6 z-10">
@@ -692,7 +692,7 @@ export default function Work() {
                     </div>
                     <div className="grid sm:grid-cols-2 gap-4">
                       {study.results.map((result, i) => (
-                        <div key={i} className="flex items-start gap-4 bg-green-500/10 rounded-xl p-6 border border-slate-700">
+                        <div key={i} className="flex items-start gap-4 bg-green-500/10 rounded-xl p-6 border border-surface-border">
                           <div className="flex-shrink-0 w-8 h-8 rounded-full bg-gradient-to-br from-accent-500 to-green-500 flex items-center justify-center text-white font-bold shadow-lg">
                             ✓
                           </div>
@@ -703,7 +703,7 @@ export default function Work() {
                   </div>
 
                   {/* Package Info */}
-                  <div className="bg-slate-700/50 rounded-2xl p-8 mb-8 border-2 border-slate-700">
+                  <div className="bg-surface-elevated/70 rounded-2xl p-8 mb-8 border-2 border-surface-border">
                     <h4 className="text-lg font-bold text-white mb-4 flex items-center gap-2">
                       <span className="text-2xl">💼</span>
                       Services Provided
@@ -723,7 +723,7 @@ export default function Work() {
                   </div>
 
                   {/* Testimonial */}
-                  <div className="relative rounded-2xl bg-slate-700/50 p-8 border-l-4 border-accent-500">
+                  <div className="relative rounded-2xl bg-surface-elevated/70 p-8 border-l-4 border-accent-500">
                     <div className="text-5xl text-accent-500 mb-4 opacity-30">"</div>
                     <p className="text-xl text-white italic mb-4 leading-relaxed">
                       {study.testimonial}
@@ -738,7 +738,7 @@ export default function Work() {
       </section>
 
       {/* Testimonials Grid */}
-      <section className="bg-slate-900 py-24 sm:py-32">
+      <section className="bg-surface py-24 sm:py-32">
         <div className="mx-auto max-w-7xl px-6 lg:px-8">
           <div className="mx-auto max-w-2xl text-center mb-16">
             <div className="inline-flex items-center rounded-full bg-accent-500/10 px-4 py-2 text-sm font-semibold text-accent-400 mb-4">
@@ -756,7 +756,7 @@ export default function Work() {
             {testimonials.map((testimonial, index) => (
               <div
                 key={index}
-                className="group rounded-3xl bg-slate-800 p-10 shadow-lg shadow-black/20 border-2 border-slate-700 hover:border-primary-300 hover:shadow-2xl transition-all hover:scale-105"
+                className="group rounded-3xl bg-surface-card p-10 shadow-lg shadow-black/20 border-2 border-surface-border hover:border-primary-300 transition-all"
               >
                 <div className="flex gap-1 mb-6">
                   {[...Array(testimonial.rating)].map((_, i) => (
@@ -784,7 +784,7 @@ export default function Work() {
       </section>
 
       {/* Industries Section */}
-      <section className="bg-slate-800 py-24 sm:py-32">
+      <section className="bg-surface-card py-24 sm:py-32">
         <div className="mx-auto max-w-7xl px-6 lg:px-8">
           <div className="mx-auto max-w-2xl text-center mb-16">
             <div className="inline-flex items-center rounded-full bg-green-500/10 px-4 py-2 text-sm font-semibold text-green-400 mb-4">
@@ -802,10 +802,10 @@ export default function Work() {
             {industries.map((industry, index) => (
               <div
                 key={industry.name}
-                className="group relative rounded-2xl bg-slate-900 p-8 shadow-lg shadow-black/20 border-2 border-slate-700 hover:border-primary-300 hover:shadow-2xl transition-all hover:scale-105 text-center"
+                className="group relative rounded-2xl bg-surface p-8 shadow-lg shadow-black/20 border-2 border-surface-border hover:border-primary-300 transition-all text-center"
                 style={{ animationDelay: `${index * 50}ms` }}
               >
-                <div className="text-5xl mb-4 group-hover:scale-110 transition-transform">{industry.icon}</div>
+                <div className="text-5xl mb-4 group- transition-transform">{industry.icon}</div>
                 <p className="font-bold text-white mb-2 text-lg">{industry.name}</p>
                 <p className="text-sm text-primary-600 font-semibold">{industry.count} projects</p>
               </div>
@@ -815,7 +815,7 @@ export default function Work() {
       </section>
 
       {/* CTA Section */}
-      <section className="relative bg-gradient-to-r from-primary-900 via-accent-600 to-primary-900 text-white overflow-hidden">
+      <section className="relative bg-gradient-to-r from-primary-600 via-accent-500 to-primary-600 text-white overflow-hidden">
         <div className="absolute inset-0 opacity-20">
           <div className="absolute inset-0" style={{
             backgroundImage: 'linear-gradient(45deg, transparent 45%, rgba(255,255,255,0.1) 50%, transparent 55%)',
@@ -834,7 +834,7 @@ export default function Work() {
             <div className="mt-10 flex flex-col sm:flex-row items-center justify-center gap-6">
               <Link
                 href="/contact"
-                className="group rounded-lg bg-slate-800 px-8 py-4 text-base font-semibold text-white shadow-2xl hover:bg-slate-700 transition-all hover:scale-105"
+                className="group rounded-lg bg-surface-card px-8 py-4 text-base font-semibold text-white shadow-2xl hover:bg-surface-elevated transition-all"
               >
                 Start Your Project
                 <span className="inline-block transition-transform group-hover:translate-x-1 ml-2">→</span>

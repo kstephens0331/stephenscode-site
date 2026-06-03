@@ -65,7 +65,7 @@ export default function AdminView({ basePath }: AdminViewProps) {
                 <Dumbbell className="h-8 w-8 text-[#c1121f]" strokeWidth={2.5} />
               </div>
               <div>
-                <h1 className="text-3xl font-black text-zinc-50">Iron Temple Fitness</h1>
+                <h1 className="text-3xl font-bold text-zinc-50">Iron Temple Fitness</h1>
                 <p className="text-[#fdf0d5] font-medium">Admin Dashboard - Gym Demo</p>
               </div>
             </div>
@@ -93,7 +93,7 @@ export default function AdminView({ basePath }: AdminViewProps) {
             { label: 'Membership Plans', value: '3', color: 'from-amber-600 to-orange-700' },
           ].map((stat, index) => (
             <div key={index} className="bg-zinc-900 border border-zinc-800 rounded-xl p-6">
-              <div className={`text-4xl font-black bg-gradient-to-r ${stat.color} bg-clip-text text-transparent mb-2`}>
+              <div className={`text-4xl font-bold bg-gradient-to-r ${stat.color} bg-clip-text text-transparent mb-2`}>
                 {stat.value}
               </div>
               <div className="text-zinc-400 text-sm font-medium">{stat.label}</div>
@@ -105,7 +105,7 @@ export default function AdminView({ basePath }: AdminViewProps) {
         <div className="bg-zinc-900 border border-zinc-800 rounded-xl p-8 mb-8">
           <div className="flex items-center space-x-3 mb-6">
             <FileEdit className="h-6 w-6 text-[#c1121f]" />
-            <h2 className="text-2xl font-black text-zinc-50">Site Pages</h2>
+            <h2 className="text-2xl font-bold text-zinc-50">Site Pages</h2>
           </div>
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
             {pages.map((page, index) => (
@@ -133,7 +133,7 @@ export default function AdminView({ basePath }: AdminViewProps) {
           <div className="bg-zinc-900 border border-zinc-800 rounded-xl p-8">
             <div className="flex items-center space-x-3 mb-6">
               <Settings className="h-6 w-6 text-[#c1121f]" />
-              <h2 className="text-2xl font-black text-zinc-50">Key Features</h2>
+              <h2 className="text-2xl font-bold text-zinc-50">Key Features</h2>
             </div>
             <ul className="space-y-3">
               {features.map((feature, index) => (
@@ -149,7 +149,7 @@ export default function AdminView({ basePath }: AdminViewProps) {
           <div className="bg-zinc-900 border border-zinc-800 rounded-xl p-8">
             <div className="flex items-center space-x-3 mb-6">
               <Palette className="h-6 w-6 text-[#c1121f]" />
-              <h2 className="text-2xl font-black text-zinc-50">Customizable Content</h2>
+              <h2 className="text-2xl font-bold text-zinc-50">Customizable Content</h2>
             </div>
             <div className="space-y-6">
               {editableSections.map((section, index) => (
@@ -173,7 +173,7 @@ export default function AdminView({ basePath }: AdminViewProps) {
         <div className="bg-zinc-900 border border-zinc-800 rounded-xl p-8 mt-8">
           <div className="flex items-center space-x-3 mb-6">
             <Palette className="h-6 w-6 text-[#c1121f]" />
-            <h2 className="text-2xl font-black text-zinc-50">Design System</h2>
+            <h2 className="text-2xl font-bold text-zinc-50">Design System</h2>
           </div>
 
           <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
@@ -210,7 +210,7 @@ export default function AdminView({ basePath }: AdminViewProps) {
               <h3 className="font-bold text-zinc-50 mb-4">Typography</h3>
               <div className="space-y-3">
                 <div>
-                  <div className="text-2xl font-black text-zinc-50 mb-1">Black 900</div>
+                  <div className="text-2xl font-bold text-zinc-50 mb-1">Black 900</div>
                   <div className="text-xs text-zinc-500">Headings</div>
                 </div>
                 <div>
@@ -243,7 +243,7 @@ export default function AdminView({ basePath }: AdminViewProps) {
 
         {/* Content Guidelines */}
         <div className="bg-zinc-900 border border-zinc-800 rounded-xl p-8 mt-8">
-          <h2 className="text-2xl font-black text-zinc-50 mb-6">Content Management</h2>
+          <h2 className="text-2xl font-bold text-zinc-50 mb-6">Content Management</h2>
           <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
             <div>
               <h3 className="font-bold text-zinc-50 mb-4">Updating Content</h3>

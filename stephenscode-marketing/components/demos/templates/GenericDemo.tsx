@@ -59,7 +59,7 @@ export default function GenericDemo({ demo, viewMode }: GenericDemoProps) {
     demo.layout === 'modern' ? 'font-sans' :
     demo.layout === 'classic' ? 'font-serif' :
     demo.layout === 'minimal' ? 'font-light' :
-    demo.layout === 'bold' ? 'font-black' :
+    demo.layout === 'bold' ? 'font-bold' :
     demo.layout === 'elegant' ? 'font-serif' :
     'font-mono'
 
@@ -157,7 +157,7 @@ export default function GenericDemo({ demo, viewMode }: GenericDemoProps) {
                 </div>
                 <button
                   type="submit"
-                  className="w-full py-4 rounded-lg font-bold text-white text-lg transition-transform hover:scale-105"
+                  className="w-full py-4 rounded-lg font-bold text-white text-lg transition-transform"
                   style={{ backgroundColor: demo.colors.accent }}
                 >
                   Submit
@@ -188,7 +188,7 @@ export default function GenericDemo({ demo, viewMode }: GenericDemoProps) {
           <p className="text-xl mb-8 opacity-90">
             Build a website like this for your business with {demo.package}
           </p>
-          <button className="bg-white px-8 py-4 rounded-lg font-bold text-lg transition-transform hover:scale-105" style={{ color: demo.colors.primary }}>
+          <button className="bg-white px-8 py-4 rounded-lg font-bold text-lg transition-transform" style={{ color: demo.colors.primary }}>
             Contact Us Today
           </button>
         </div>

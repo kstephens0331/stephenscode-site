@@ -130,7 +130,7 @@ export default function AmenitiesPage({ basePath }: AmenitiesPageProps) {
               <span className="text-sm font-medium text-[#c1121f]">World-Class Facilities</span>
             </div>
 
-            <h1 className="text-5xl sm:text-6xl font-black text-zinc-50 mb-6">
+            <h1 className="text-5xl sm:text-6xl font-bold text-zinc-50 mb-6">
               Gym Amenities &
               <span className="block text-transparent bg-clip-text bg-gradient-to-r from-[#c1121f] to-[#fdf0d5]">
                 Equipment
@@ -144,7 +144,7 @@ export default function AmenitiesPage({ basePath }: AmenitiesPageProps) {
 
             <Link
               href={`${basePath}/join`}
-              className="inline-flex items-center px-8 py-4 bg-gradient-to-r from-[#c1121f] to-[#780000] text-zinc-50 rounded-lg font-bold text-lg hover:shadow-xl hover:shadow-[#c1121f]/30 transition-all hover:scale-105"
+              className="inline-flex items-center px-8 py-4 bg-gradient-to-r from-[#c1121f] to-[#780000] text-zinc-50 rounded-lg font-bold text-lg hover:shadow-xl hover:shadow-[#c1121f]/30 transition-all"
             >
               Take a Virtual Tour
             </Link>
@@ -156,7 +156,7 @@ export default function AmenitiesPage({ basePath }: AmenitiesPageProps) {
       <section className="py-20 bg-zinc-950">
         <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-12">
-            <h2 className="text-4xl font-black text-zinc-50 mb-4">Premium Amenities</h2>
+            <h2 className="text-4xl font-bold text-zinc-50 mb-4">Premium Amenities</h2>
             <p className="text-xl text-zinc-400">Everything you need for the ultimate fitness experience</p>
           </div>
 
@@ -191,7 +191,7 @@ export default function AmenitiesPage({ basePath }: AmenitiesPageProps) {
       <section className="py-20 bg-zinc-900">
         <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-12">
-            <h2 className="text-4xl font-black text-zinc-50 mb-4">Equipment Inventory</h2>
+            <h2 className="text-4xl font-bold text-zinc-50 mb-4">Equipment Inventory</h2>
             <p className="text-xl text-zinc-400">Over 15,000 sq ft of training space</p>
           </div>
 
@@ -219,7 +219,7 @@ export default function AmenitiesPage({ basePath }: AmenitiesPageProps) {
       <section className="py-20 bg-zinc-950">
         <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-12">
-            <h2 className="text-4xl font-black text-zinc-50 mb-4">Additional Features</h2>
+            <h2 className="text-4xl font-bold text-zinc-50 mb-4">Additional Features</h2>
             <p className="text-xl text-zinc-400">The little extras that make a big difference</p>
           </div>
 
@@ -245,7 +245,7 @@ export default function AmenitiesPage({ basePath }: AmenitiesPageProps) {
         <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
           <div className="bg-gradient-to-br from-zinc-950 to-[#780000]/10 border border-zinc-800 rounded-2xl p-12">
             <div className="text-center mb-12">
-              <h2 className="text-4xl font-black text-zinc-50 mb-4">Our Facility by the Numbers</h2>
+              <h2 className="text-4xl font-bold text-zinc-50 mb-4">Our Facility by the Numbers</h2>
             </div>
 
             <div className="grid grid-cols-2 md:grid-cols-4 gap-8">
@@ -256,7 +256,7 @@ export default function AmenitiesPage({ basePath }: AmenitiesPageProps) {
                 { number: '24/7', label: 'Access Hours', unit: 'access' },
               ].map((stat, index) => (
                 <div key={index} className="text-center">
-                  <div className="text-4xl sm:text-5xl font-black text-transparent bg-clip-text bg-gradient-to-r from-[#c1121f] to-[#fdf0d5] mb-2">
+                  <div className="text-4xl sm:text-5xl font-bold text-transparent bg-clip-text bg-gradient-to-r from-[#c1121f] to-[#fdf0d5] mb-2">
                     {stat.number}
                   </div>
                   <div className="text-zinc-400 font-medium">{stat.label}</div>
@@ -271,7 +271,7 @@ export default function AmenitiesPage({ basePath }: AmenitiesPageProps) {
       <section className="py-20 bg-zinc-950">
         <div className="mx-auto max-w-4xl px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-12">
-            <h2 className="text-4xl font-black text-zinc-50 mb-4">Cleanliness & Safety</h2>
+            <h2 className="text-4xl font-bold text-zinc-50 mb-4">Cleanliness & Safety</h2>
             <p className="text-xl text-zinc-400">Your health and safety are our top priorities</p>
           </div>
 
@@ -306,7 +306,7 @@ export default function AmenitiesPage({ basePath }: AmenitiesPageProps) {
       {/* CTA Section */}
       <section className="py-20 bg-gradient-to-br from-zinc-900 via-[#780000]/20 to-zinc-900">
         <div className="mx-auto max-w-4xl px-4 sm:px-6 lg:px-8 text-center">
-          <h2 className="text-4xl font-black text-zinc-50 mb-6">
+          <h2 className="text-4xl font-bold text-zinc-50 mb-6">
             Experience Our Facilities Firsthand
           </h2>
           <p className="text-xl text-zinc-300 mb-8">
@@ -315,7 +315,7 @@ export default function AmenitiesPage({ basePath }: AmenitiesPageProps) {
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
             <Link
               href={`${basePath}/join`}
-              className="inline-flex items-center justify-center px-8 py-4 bg-gradient-to-r from-[#c1121f] to-[#780000] text-zinc-50 rounded-lg font-bold text-lg hover:shadow-xl hover:shadow-[#c1121f]/30 transition-all hover:scale-105"
+              className="inline-flex items-center justify-center px-8 py-4 bg-gradient-to-r from-[#c1121f] to-[#780000] text-zinc-50 rounded-lg font-bold text-lg hover:shadow-xl hover:shadow-[#c1121f]/30 transition-all"
             >
               Schedule Tour
             </Link>

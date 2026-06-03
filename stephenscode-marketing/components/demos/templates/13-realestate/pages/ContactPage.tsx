@@ -310,7 +310,7 @@ const ContactPage: React.FC = () => {
                   <img
                     src={office.image}
                     alt={office.name}
-                    className="w-full h-full object-cover hover:scale-110 transition-transform duration-500"
+                    className="w-full h-full object-cover transition-transform duration-500"
                   />
                 </div>
                 <div className="p-6">

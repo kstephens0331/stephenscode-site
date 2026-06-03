@@ -321,7 +321,7 @@ export default function ContactPage({ onNavigate }: ContactPageProps) {
           </p>
           <button
             onClick={() => onNavigate('booking')}
-            className="bg-gradient-to-r from-[#d00000] to-[#e85d04] text-white px-10 py-4 rounded-full font-semibold text-lg hover:shadow-2xl transition-all duration-300"
+            className="bg-gradient-to-r from-[#d00000] to-[#e85d04] text-white px-10 py-4 rounded-full font-semibold text-lg transition-all duration-300"
           >
             Book Your Appointment Now
           </button>

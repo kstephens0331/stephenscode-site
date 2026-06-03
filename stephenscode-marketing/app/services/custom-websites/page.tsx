@@ -72,7 +72,7 @@ export default function CustomWebsitesPage() {
       />
 
       {/* Hero Section */}
-      <section className="bg-gradient-to-br from-primary-900 via-primary-800 to-primary-700 text-white">
+      <section className="bg-gradient-to-br from-black via-surface to-surface-card text-white">
         <div className="mx-auto max-w-7xl px-6 py-24 sm:py-32 lg:px-8">
           <div className="mx-auto max-w-2xl text-center">
             <h1 className="text-4xl font-bold tracking-tight sm:text-6xl">
@@ -100,7 +100,7 @@ export default function CustomWebsitesPage() {
       </section>
 
       {/* What We Build */}
-      <section className="bg-slate-900 py-24 sm:py-32">
+      <section className="bg-surface py-24 sm:py-32">
         <div className="mx-auto max-w-7xl px-6 lg:px-8">
           <div className="mx-auto max-w-2xl lg:text-center">
             <h2 className="text-3xl font-bold tracking-tight text-white sm:text-4xl">
@@ -149,7 +149,7 @@ export default function CustomWebsitesPage() {
       </section>
 
       {/* Pricing Packages */}
-      <section className="bg-slate-800 py-24 sm:py-32">
+      <section className="bg-surface-card py-24 sm:py-32">
         <div className="mx-auto max-w-7xl px-6 lg:px-8">
           <div className="mx-auto max-w-2xl text-center mb-16">
             <h2 className="text-3xl font-bold tracking-tight text-white sm:text-4xl">
@@ -167,7 +167,7 @@ export default function CustomWebsitesPage() {
                 className={`flex flex-col rounded-3xl p-8 ${
                   pkg.popular
                     ? 'bg-primary-600 text-white ring-2 ring-primary-600'
-                    : 'bg-slate-900 text-white ring-1 ring-slate-700'
+                    : 'bg-surface text-white ring-1 ring-surface-border'
                 }`}
               >
                 {pkg.popular && (
@@ -202,7 +202,7 @@ export default function CustomWebsitesPage() {
                   href="/contact"
                   className={`mt-8 block rounded-md px-3.5 py-2.5 text-center text-sm font-semibold focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 ${
                     pkg.popular
-                      ? 'bg-slate-800 text-primary-400 hover:bg-slate-700'
+                      ? 'bg-surface-card text-primary-400 hover:bg-surface-elevated'
                       : 'bg-primary-600 text-white hover:bg-primary-700'
                   }`}
                 >
@@ -215,7 +215,7 @@ export default function CustomWebsitesPage() {
       </section>
 
       {/* Add-Ons */}
-      <section className="bg-slate-900 py-24 sm:py-32">
+      <section className="bg-surface py-24 sm:py-32">
         <div className="mx-auto max-w-7xl px-6 lg:px-8">
           <div className="mx-auto max-w-2xl text-center mb-16">
             <h2 className="text-3xl font-bold tracking-tight text-white sm:text-4xl">
@@ -230,7 +230,7 @@ export default function CustomWebsitesPage() {
             {addOns.map((addon) => (
               <div
                 key={addon.name}
-                className="rounded-lg border border-slate-700 p-6 hover:border-primary-500 hover:shadow-md transition-all"
+                className="rounded-lg border border-surface-border p-6 hover:border-primary-500 hover:shadow-md transition-all"
               >
                 <div className="flex items-center justify-between">
                   <h3 className="text-lg font-semibold text-white">{addon.name}</h3>
@@ -244,7 +244,7 @@ export default function CustomWebsitesPage() {
           <div className="mt-12 text-center">
             <Link
               href="/pricing"
-              className="text-base font-semibold text-primary-600 hover:text-primary-700"
+              className="text-base font-semibold text-primary-600 hover:text-primary-400"
             >
               View all 55+ add-ons <span aria-hidden="true">→</span>
             </Link>
@@ -253,7 +253,7 @@ export default function CustomWebsitesPage() {
       </section>
 
       {/* Why Custom vs Template */}
-      <section className="bg-slate-800 py-24 sm:py-32">
+      <section className="bg-surface-card py-24 sm:py-32">
         <div className="mx-auto max-w-7xl px-6 lg:px-8">
           <div className="mx-auto max-w-2xl lg:text-center">
             <h2 className="text-3xl font-bold tracking-tight text-white sm:text-4xl">

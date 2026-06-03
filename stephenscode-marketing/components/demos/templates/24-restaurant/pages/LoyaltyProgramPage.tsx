@@ -14,7 +14,7 @@ export default function LoyaltyProgramPage({ colors }: LoyaltyProgramPageProps) 
           <div style={{ color: '#ee9b00' }} className="text-sm font-bold uppercase tracking-widest mb-3">
             VIP Rewards Program
           </div>
-          <h1 style={{ color: '#ffffff' }} className="text-6xl font-black mb-6">
+          <h1 style={{ color: '#ffffff' }} className="text-6xl font-bold mb-6">
             Gourmet Kitchen Rewards
           </h1>
           <p style={{ color: '#f5f5f5' }} className="text-xl">
@@ -26,7 +26,7 @@ export default function LoyaltyProgramPage({ colors }: LoyaltyProgramPageProps) 
       <section className="py-16" style={{ backgroundColor: '#ffffff' }}>
         <div className="max-w-5xl mx-auto px-4">
           <div className="text-center mb-16">
-            <h2 style={{ color: '#1a1a1a' }} className="text-4xl font-black mb-6">
+            <h2 style={{ color: '#1a1a1a' }} className="text-4xl font-bold mb-6">
               How It Works
             </h2>
             <div className="grid md:grid-cols-4 gap-6">
@@ -70,14 +70,14 @@ export default function LoyaltyProgramPage({ colors }: LoyaltyProgramPageProps) 
           </div>
 
           <div className="mb-16">
-            <h2 style={{ color: '#1a1a1a' }} className="text-4xl font-black text-center mb-12">
+            <h2 style={{ color: '#1a1a1a' }} className="text-4xl font-bold text-center mb-12">
               Membership Tiers
             </h2>
             <div className="grid md:grid-cols-3 gap-8">
               <div style={{ backgroundColor: '#f8f8f8', border: '2px solid #e5e5e5' }} className="p-8">
                 <div className="text-center mb-6">
                   <div className="text-5xl mb-3">🥉</div>
-                  <h3 style={{ color: '#1a1a1a' }} className="text-2xl font-black mb-2">Bronze</h3>
+                  <h3 style={{ color: '#1a1a1a' }} className="text-2xl font-bold mb-2">Bronze</h3>
                   <div style={{ color: '#666666' }} className="text-sm">$0 - $499 annual spend</div>
                 </div>
                 <div className="space-y-3">
@@ -103,7 +103,7 @@ export default function LoyaltyProgramPage({ colors }: LoyaltyProgramPageProps) 
               <div style={{ backgroundColor: '#f8f8f8', border: '3px solid #ee9b00' }} className="p-8 transform scale-105">
                 <div className="text-center mb-6">
                   <div className="text-5xl mb-3">🥈</div>
-                  <h3 style={{ color: '#1a1a1a' }} className="text-2xl font-black mb-2">Silver</h3>
+                  <h3 style={{ color: '#1a1a1a' }} className="text-2xl font-bold mb-2">Silver</h3>
                   <div style={{ color: '#666666' }} className="text-sm">$500 - $999 annual spend</div>
                 </div>
                 <div className="space-y-3">
@@ -133,7 +133,7 @@ export default function LoyaltyProgramPage({ colors }: LoyaltyProgramPageProps) 
               <div style={{ backgroundColor: '#f8f8f8', border: '2px solid #e5e5e5' }} className="p-8">
                 <div className="text-center mb-6">
                   <div className="text-5xl mb-3">🥇</div>
-                  <h3 style={{ color: '#1a1a1a' }} className="text-2xl font-black mb-2">Gold</h3>
+                  <h3 style={{ color: '#1a1a1a' }} className="text-2xl font-bold mb-2">Gold</h3>
                   <div style={{ color: '#666666' }} className="text-sm">$1,000+ annual spend</div>
                 </div>
                 <div className="space-y-3">
@@ -167,49 +167,49 @@ export default function LoyaltyProgramPage({ colors }: LoyaltyProgramPageProps) 
           </div>
 
           <div style={{ backgroundColor: '#f8f8f8' }} className="p-12 mb-16">
-            <h2 style={{ color: '#1a1a1a' }} className="text-3xl font-black text-center mb-8">
+            <h2 style={{ color: '#1a1a1a' }} className="text-3xl font-bold text-center mb-8">
               Rewards Redemption
             </h2>
             <div className="grid md:grid-cols-2 gap-8 max-w-4xl mx-auto">
               <div style={{ backgroundColor: '#ffffff' }} className="p-6">
                 <div className="flex justify-between items-center mb-3">
                   <h3 style={{ color: '#1a1a1a' }} className="text-xl font-bold">Free Appetizer</h3>
-                  <div style={{ color: '#9b2226' }} className="font-black">100 pts</div>
+                  <div style={{ color: '#9b2226' }} className="font-bold">100 pts</div>
                 </div>
                 <p style={{ color: '#666666' }} className="text-sm">Choose any appetizer from our menu</p>
               </div>
               <div style={{ backgroundColor: '#ffffff' }} className="p-6">
                 <div className="flex justify-between items-center mb-3">
                   <h3 style={{ color: '#1a1a1a' }} className="text-xl font-bold">Free Dessert</h3>
-                  <div style={{ color: '#9b2226' }} className="font-black">75 pts</div>
+                  <div style={{ color: '#9b2226' }} className="font-bold">75 pts</div>
                 </div>
                 <p style={{ color: '#666666' }} className="text-sm">Any dessert on the house</p>
               </div>
               <div style={{ backgroundColor: '#ffffff' }} className="p-6">
                 <div className="flex justify-between items-center mb-3">
                   <h3 style={{ color: '#1a1a1a' }} className="text-xl font-bold">$10 Off Order</h3>
-                  <div style={{ color: '#9b2226' }} className="font-black">200 pts</div>
+                  <div style={{ color: '#9b2226' }} className="font-bold">200 pts</div>
                 </div>
                 <p style={{ color: '#666666' }} className="text-sm">Discount on any dine-in or takeout order</p>
               </div>
               <div style={{ backgroundColor: '#ffffff' }} className="p-6">
                 <div className="flex justify-between items-center mb-3">
                   <h3 style={{ color: '#1a1a1a' }} className="text-xl font-bold">$25 Off Order</h3>
-                  <div style={{ color: '#9b2226' }} className="font-black">450 pts</div>
+                  <div style={{ color: '#9b2226' }} className="font-bold">450 pts</div>
                 </div>
                 <p style={{ color: '#666666' }} className="text-sm">Bigger discount for loyal members</p>
               </div>
               <div style={{ backgroundColor: '#ffffff' }} className="p-6">
                 <div className="flex justify-between items-center mb-3">
                   <h3 style={{ color: '#1a1a1a' }} className="text-xl font-bold">Free Pasta Night</h3>
-                  <div style={{ color: '#9b2226' }} className="font-black">300 pts</div>
+                  <div style={{ color: '#9b2226' }} className="font-bold">300 pts</div>
                 </div>
                 <p style={{ color: '#666666' }} className="text-sm">Complimentary pasta dish of your choice</p>
               </div>
               <div style={{ backgroundColor: '#ffffff' }} className="p-6">
                 <div className="flex justify-between items-center mb-3">
                   <h3 style={{ color: '#1a1a1a' }} className="text-xl font-bold">Wine Tasting for 2</h3>
-                  <div style={{ color: '#9b2226' }} className="font-black">600 pts</div>
+                  <div style={{ color: '#9b2226' }} className="font-bold">600 pts</div>
                 </div>
                 <p style={{ color: '#666666' }} className="text-sm">Exclusive wine tasting with sommelier</p>
               </div>
@@ -217,7 +217,7 @@ export default function LoyaltyProgramPage({ colors }: LoyaltyProgramPageProps) 
           </div>
 
           <div style={{ backgroundColor: '#ee9b00' }} className="p-12 text-center">
-            <h2 style={{ color: '#1a1a1a' }} className="text-3xl font-black mb-6">
+            <h2 style={{ color: '#1a1a1a' }} className="text-3xl font-bold mb-6">
               Join Today and Get 50 Bonus Points
             </h2>
             <p style={{ color: '#333333' }} className="text-lg mb-8">

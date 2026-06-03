@@ -200,7 +200,7 @@ export default function ServicesPage() {
       />
 
       {/* Hero Section with Advanced Design */}
-      <section className="relative overflow-hidden bg-gradient-to-br from-primary-900 via-primary-800 to-primary-700 text-white">
+      <section className="relative overflow-hidden bg-gradient-to-br from-black via-surface to-surface-card text-white">
         <div className="absolute inset-0 opacity-10">
           <div className="absolute inset-0" style={{
             backgroundImage: `url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%23ffffff' fill-opacity='1'%3E%3Cpath d='M36 34v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4zm0-30V0h-2v4h-4v2h4v4h2V6h4V4h-4zM6 34v-4H4v4H0v2h4v4h2v-4h4v-2H6zM6 4V0H4v4H0v2h4v4h2V6h4V4H6z'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E")`
@@ -209,12 +209,12 @@ export default function ServicesPage() {
 
         <div className="relative mx-auto max-w-7xl px-6 py-32 sm:py-40 lg:px-8">
           <div className="mx-auto max-w-4xl text-center">
-            <div className="mb-8 inline-flex items-center gap-3 rounded-full bg-slate-800/40 px-6 py-3 text-sm font-semibold backdrop-blur-lg border border-slate-600 shadow-2xl">
+            <div className="mb-8 inline-flex items-center gap-3 rounded-full bg-surface-card/60 px-6 py-3 text-sm font-semibold backdrop-blur-lg border border-surface-border shadow-2xl">
               <span className="text-2xl">🌐</span>
               <span>47 Service Packages & Add-Ons</span>
             </div>
 
-            <h1 className="text-5xl font-black tracking-tight sm:text-7xl mb-8">
+            <h1 className="text-5xl font-bold tracking-tight sm:text-7xl mb-8">
               Houston Web Development & Affordable Web Design
               <span className="block text-accent-400 mt-2">Custom Websites for Small Business</span>
             </h1>
@@ -226,7 +226,7 @@ export default function ServicesPage() {
             <div className="mt-12 flex flex-wrap items-center justify-center gap-4">
               <Link
                 href="/pricing"
-                className="group inline-flex items-center gap-2 rounded-lg bg-accent-500 px-8 py-4 text-lg font-bold text-white shadow-2xl hover:bg-accent-600 transition-all hover:scale-105"
+                className="group inline-flex items-center gap-2 rounded-lg bg-accent-500 px-8 py-4 text-lg font-bold text-white shadow-2xl hover:bg-accent-600 transition-all"
               >
                 <span>View All Pricing</span>
                 <svg className="w-5 h-5 group-hover:translate-x-1 transition-transform" fill="none" viewBox="0 0 24 24" stroke="currentColor">
@@ -235,7 +235,7 @@ export default function ServicesPage() {
               </Link>
               <Link
                 href="/demos"
-                className="inline-flex items-center gap-2 rounded-lg bg-slate-800/40 px-8 py-4 text-lg font-bold text-white backdrop-blur-lg border-2 border-slate-600 hover:bg-slate-700/60 transition-all"
+                className="inline-flex items-center gap-2 rounded-lg bg-surface-card/60 px-8 py-4 text-lg font-bold text-white backdrop-blur-lg border-2 border-surface-border hover:bg-surface-elevated/80 transition-all"
               >
                 <span>View Live Demos</span>
               </Link>
@@ -252,14 +252,14 @@ export default function ServicesPage() {
 
       {/* Service Categories */}
       {serviceCategories.map((category, catIndex) => (
-        <section key={category.title} className={catIndex % 2 === 0 ? 'bg-slate-900 py-24 sm:py-32' : 'bg-slate-800 py-24 sm:py-32'}>
+        <section key={category.title} className={catIndex % 2 === 0 ? 'bg-surface py-24 sm:py-32' : 'bg-surface-card py-24 sm:py-32'}>
           <div className="mx-auto max-w-7xl px-6 lg:px-8">
             <div className="mx-auto max-w-2xl text-center mb-16">
               <div className={`inline-flex items-center gap-3 rounded-full bg-gradient-to-r ${category.gradient} px-6 py-3 text-white shadow-xl mb-6`}>
                 <span className="text-3xl">{category.icon}</span>
                 <span className="font-bold">{category.subtitle}</span>
               </div>
-              <h2 className="text-4xl font-black tracking-tight text-white sm:text-5xl mb-6">
+              <h2 className="text-4xl font-bold tracking-tight text-white sm:text-5xl mb-6">
                 {category.title}
               </h2>
               <p className="text-lg leading-8 text-gray-400">
@@ -271,7 +271,7 @@ export default function ServicesPage() {
               {category.services.map((service, index) => (
                 <article
                   key={service.id}
-                  className="group relative flex flex-col rounded-2xl bg-slate-900 border-2 border-slate-700 p-8 shadow-lg hover:border-primary-500 hover:shadow-2xl transition-all hover:scale-105"
+                  className="group relative flex flex-col rounded-2xl bg-surface border-2 border-surface-border p-8 shadow-lg hover:border-primary-500 transition-all"
                 >
                   <div className="mb-4">
                     <h3 className="text-2xl font-bold text-white group-hover:text-primary-600 transition-colors">
@@ -285,7 +285,7 @@ export default function ServicesPage() {
                   </p>
 
                   <div className="mb-6">
-                    <p className="text-3xl font-black text-primary-600">
+                    <p className="text-3xl font-bold text-primary-600">
                       {service.priceLabel}
                     </p>
                     <p className="text-sm text-gray-400 mt-1">{service.timeline}</p>
@@ -319,7 +319,7 @@ export default function ServicesPage() {
               <div className="mt-12 text-center">
                 <Link
                   href="/pricing"
-                  className="inline-flex items-center gap-2 rounded-lg bg-primary-600 px-8 py-4 text-lg font-bold text-white shadow-lg hover:bg-primary-700 transition-all hover:scale-105"
+                  className="inline-flex items-center gap-2 rounded-lg bg-primary-600 px-8 py-4 text-lg font-bold text-white shadow-lg hover:bg-primary-700 transition-all"
                 >
                   <span>View All 40 Add-Ons</span>
                   <span>→</span>
@@ -331,20 +331,20 @@ export default function ServicesPage() {
       ))}
 
       {/* Why Choose Us */}
-      <section className="bg-slate-900 py-24 sm:py-32">
+      <section className="bg-surface py-24 sm:py-32">
         <div className="mx-auto max-w-7xl px-6 lg:px-8">
           <div className="mx-auto max-w-2xl text-center mb-16">
             <h2 className="text-base font-semibold leading-7 text-primary-600">Why Choose a Veteran Owned Web Developer?</h2>
-            <p className="mt-2 text-4xl font-black tracking-tight text-white sm:text-5xl">
+            <p className="mt-2 text-4xl font-bold tracking-tight text-white sm:text-5xl">
               Affordable Web Design You Can Trust
             </p>
           </div>
 
           <div className="grid grid-cols-1 gap-8 lg:grid-cols-2">
             {whyChoose.map((item, index) => (
-              <div key={index} className="relative group overflow-hidden rounded-2xl bg-slate-900 p-8 shadow-xl hover:shadow-2xl transition-all hover:scale-105">
+              <div key={index} className="relative group overflow-hidden rounded-2xl bg-surface p-8 shadow-xl transition-all">
                 <div className="flex items-start gap-6">
-                  <div className="flex h-16 w-16 flex-shrink-0 items-center justify-center rounded-xl bg-primary-600 text-4xl shadow-lg group-hover:scale-110 transition-transform">
+                  <div className="flex h-16 w-16 flex-shrink-0 items-center justify-center rounded-xl bg-primary-600 text-4xl shadow-lg group- transition-transform">
                     {item.icon}
                   </div>
                   <div className="flex-1">
@@ -365,11 +365,11 @@ export default function ServicesPage() {
       </section>
 
       {/* Process Section */}
-      <section className="bg-slate-900 py-24 sm:py-32">
+      <section className="bg-surface py-24 sm:py-32">
         <div className="mx-auto max-w-7xl px-6 lg:px-8">
           <div className="mx-auto max-w-2xl text-center mb-16">
             <h2 className="text-base font-semibold leading-7 text-primary-600">Our Process</h2>
-            <p className="mt-2 text-4xl font-black tracking-tight text-white sm:text-5xl">
+            <p className="mt-2 text-4xl font-bold tracking-tight text-white sm:text-5xl">
               From Idea to Launch
             </p>
             <p className="mt-6 text-lg leading-8 text-gray-400">
@@ -384,7 +384,7 @@ export default function ServicesPage() {
                   <div className="hidden lg:block absolute top-24 left-full w-full h-1 bg-gradient-to-r from-primary-600 to-primary-200 -translate-x-1/2"></div>
                 )}
                 <div className="relative flex flex-col items-center text-center">
-                  <div className="flex h-24 w-24 items-center justify-center rounded-full bg-primary-600 text-white text-5xl mb-6 group-hover:scale-110 transition-transform shadow-2xl">
+                  <div className="flex h-24 w-24 items-center justify-center rounded-full bg-primary-600 text-white text-5xl mb-6 group- transition-transform shadow-2xl">
                     {step.number}
                   </div>
                   <h3 className="text-xl font-bold text-white mb-3">{step.title}</h3>
@@ -410,7 +410,7 @@ export default function ServicesPage() {
         <div className="mx-auto max-w-7xl px-6 lg:px-8">
           <div className="mx-auto max-w-2xl text-center mb-16">
             <h2 className="text-base font-semibold leading-7 text-accent-400">Tech Stack</h2>
-            <p className="mt-2 text-4xl font-black tracking-tight text-white sm:text-5xl">
+            <p className="mt-2 text-4xl font-bold tracking-tight text-white sm:text-5xl">
               Modern, Reliable Technologies
             </p>
             <p className="mt-6 text-lg leading-8 text-gray-300">
@@ -422,7 +422,7 @@ export default function ServicesPage() {
             {technologies.map((tech) => (
               <div
                 key={tech.name}
-                className="group relative overflow-hidden rounded-xl bg-slate-800/40 backdrop-blur-lg border border-slate-600 p-6 text-center hover:bg-slate-700/60 transition-all hover:scale-105 shadow-xl"
+                className="group relative overflow-hidden rounded-xl bg-surface-card/60 backdrop-blur-lg border border-surface-border p-6 text-center hover:bg-surface-elevated/80 transition-all shadow-xl"
               >
                 <p className="text-lg font-bold text-white mb-1">{tech.name}</p>
                 <p className="text-xs text-gray-300">{tech.category}</p>
@@ -433,11 +433,11 @@ export default function ServicesPage() {
       </section>
 
       {/* FAQ Section */}
-      <section className="bg-slate-900 py-24 sm:py-32">
+      <section className="bg-surface py-24 sm:py-32">
         <div className="mx-auto max-w-4xl px-6 lg:px-8">
           <div className="mx-auto max-w-2xl text-center mb-16">
             <h2 className="text-base font-semibold leading-7 text-primary-600">Frequently Asked Questions</h2>
-            <p className="mt-2 text-4xl font-black tracking-tight text-white sm:text-5xl">
+            <p className="mt-2 text-4xl font-bold tracking-tight text-white sm:text-5xl">
               Web Development FAQ
             </p>
           </div>
@@ -479,7 +479,7 @@ export default function ServicesPage() {
             ].map((faq, index) => (
               <details
                 key={index}
-                className="group rounded-2xl border-2 border-slate-700 bg-slate-800 hover:border-primary-300 transition-colors"
+                className="group rounded-2xl border-2 border-surface-border bg-surface-card hover:border-primary-300 transition-colors"
               >
                 <summary className="flex cursor-pointer items-center justify-between p-6 text-lg font-bold text-white">
                   <span>{faq.question}</span>
@@ -500,7 +500,7 @@ export default function ServicesPage() {
             <p className="text-gray-400 mb-4">Still have questions?</p>
             <Link
               href="/contact"
-              className="inline-flex items-center gap-2 text-primary-600 font-bold hover:text-primary-700"
+              className="inline-flex items-center gap-2 text-primary-600 font-bold hover:text-primary-400"
             >
               <span>Contact us for a free consultation</span>
               <span>→</span>
@@ -510,7 +510,7 @@ export default function ServicesPage() {
       </section>
 
       {/* Final CTA */}
-      <section className="relative overflow-hidden bg-gradient-to-br from-primary-900 via-primary-800 to-primary-700 text-white">
+      <section className="relative overflow-hidden bg-gradient-to-br from-black via-surface to-surface-card text-white">
         <div className="absolute inset-0 opacity-10">
           <div className="absolute inset-0" style={{
             backgroundImage: `url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%23ffffff' fill-opacity='1'%3E%3Cpath d='M36 34v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4zm0-30V0h-2v4h-4v2h4v4h2V6h4V4h-4zM6 34v-4H4v4H0v2h4v4h2v-4h4v-2H6zM6 4V0H4v4H0v2h4v4h2V6h4V4H6z'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E")`
@@ -519,7 +519,7 @@ export default function ServicesPage() {
 
         <div className="relative px-6 py-24 sm:px-6 sm:py-32 lg:px-8">
           <div className="mx-auto max-w-3xl text-center">
-            <h2 className="text-4xl font-black tracking-tight sm:text-6xl mb-8">
+            <h2 className="text-4xl font-bold tracking-tight sm:text-6xl mb-8">
               Let's Build Something Great
             </h2>
             <p className="mx-auto max-w-2xl text-xl leading-8 text-gray-200 mb-12">
@@ -528,7 +528,7 @@ export default function ServicesPage() {
             <div className="flex flex-wrap items-center justify-center gap-4">
               <Link
                 href="/contact"
-                className="group inline-flex items-center gap-2 rounded-lg bg-accent-500 px-10 py-5 text-xl font-bold text-white shadow-2xl hover:bg-accent-600 transition-all hover:scale-110"
+                className="group inline-flex items-center gap-2 rounded-lg bg-accent-500 px-10 py-5 text-xl font-bold text-white shadow-2xl hover:bg-accent-600 transition-all"
               >
                 <span>Get Free Quote</span>
                 <svg className="w-6 h-6 group-hover:translate-x-1 transition-transform" fill="none" viewBox="0 0 24 24" stroke="currentColor">
@@ -537,7 +537,7 @@ export default function ServicesPage() {
               </Link>
               <Link
                 href="/pricing"
-                className="inline-flex items-center gap-2 rounded-lg bg-slate-800/40 px-10 py-5 text-xl font-bold text-white backdrop-blur-lg border-2 border-slate-600 hover:bg-slate-700/60 transition-all"
+                className="inline-flex items-center gap-2 rounded-lg bg-surface-card/60 px-10 py-5 text-xl font-bold text-white backdrop-blur-lg border-2 border-surface-border hover:bg-surface-elevated/80 transition-all"
               >
                 <span>View All Pricing</span>
               </Link>

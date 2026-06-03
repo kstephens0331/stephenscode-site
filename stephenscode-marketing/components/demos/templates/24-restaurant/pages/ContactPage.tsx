@@ -14,7 +14,7 @@ export default function ContactPage({ colors }: ContactPageProps) {
           <div style={{ color: '#ee9b00' }} className="text-sm font-bold uppercase tracking-widest mb-3">
             Get in Touch
           </div>
-          <h1 style={{ color: '#ffffff' }} className="text-6xl font-black mb-6">
+          <h1 style={{ color: '#ffffff' }} className="text-6xl font-bold mb-6">
             Contact Us
           </h1>
           <p style={{ color: '#f5f5f5' }} className="text-xl">
@@ -27,7 +27,7 @@ export default function ContactPage({ colors }: ContactPageProps) {
         <div className="max-w-7xl mx-auto px-4">
           <div className="grid md:grid-cols-2 gap-12">
             <div>
-              <h2 style={{ color: '#1a1a1a' }} className="text-3xl font-black mb-8">
+              <h2 style={{ color: '#1a1a1a' }} className="text-3xl font-bold mb-8">
                 Send Us a Message
               </h2>
               <form className="space-y-6">
@@ -103,7 +103,7 @@ export default function ContactPage({ colors }: ContactPageProps) {
             </div>
 
             <div>
-              <h2 style={{ color: '#1a1a1a' }} className="text-3xl font-black mb-8">
+              <h2 style={{ color: '#1a1a1a' }} className="text-3xl font-bold mb-8">
                 Visit Us
               </h2>
 

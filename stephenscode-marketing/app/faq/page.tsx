@@ -287,7 +287,7 @@ export default function FAQPage() {
       />
 
       {/* Hero Section */}
-      <section className="relative bg-gradient-to-br from-primary-900 via-primary-800 to-primary-700 text-white">
+      <section className="relative bg-gradient-to-br from-black via-surface to-surface-card text-white">
         <div className="mx-auto max-w-7xl px-6 py-16 sm:py-24 lg:px-8">
           <div className="mx-auto max-w-2xl text-center">
             <h1 className="text-4xl font-bold tracking-tight sm:text-5xl">
@@ -301,14 +301,14 @@ export default function FAQPage() {
       </section>
 
       {/* Quick Navigation */}
-      <section className="bg-slate-800 py-8 border-b border-slate-700">
+      <section className="bg-surface-card py-8 border-b border-surface-border">
         <div className="mx-auto max-w-7xl px-6 lg:px-8">
           <nav className="flex flex-wrap justify-center gap-4">
             {Object.keys(groupedFaqs).map((category) => (
               <a
                 key={category}
                 href={`#${category.toLowerCase().replace(/\s+/g, '-')}`}
-                className="text-sm font-medium text-primary-600 hover:text-primary-700 hover:underline"
+                className="text-sm font-medium text-primary-600 hover:text-primary-400 hover:underline"
               >
                 {category}
               </a>
@@ -318,16 +318,16 @@ export default function FAQPage() {
       </section>
 
       {/* FAQ Content */}
-      <section className="bg-slate-900 py-16 sm:py-24">
+      <section className="bg-surface py-16 sm:py-24">
         <div className="mx-auto max-w-4xl px-6 lg:px-8">
           {Object.entries(groupedFaqs).map(([category, categoryFaqs]) => (
             <div key={category} id={category.toLowerCase().replace(/\s+/g, '-')} className="mb-16 scroll-mt-24">
-              <h2 className="text-2xl font-bold text-white mb-8 pb-4 border-b border-slate-700">
+              <h2 className="text-2xl font-bold text-white mb-8 pb-4 border-b border-surface-border">
                 {category}
               </h2>
               <dl className="space-y-8">
                 {categoryFaqs.map((faq, index) => (
-                  <div key={index} className="bg-slate-800 rounded-lg p-6">
+                  <div key={index} className="bg-surface-card rounded-lg p-6">
                     <dt className="text-lg font-semibold text-white mb-3">
                       {faq.question}
                     </dt>
@@ -343,7 +343,7 @@ export default function FAQPage() {
       </section>
 
       {/* Still Have Questions CTA */}
-      <section className="bg-slate-800 py-16 sm:py-24">
+      <section className="bg-surface-card py-16 sm:py-24">
         <div className="mx-auto max-w-7xl px-6 lg:px-8">
           <div className="mx-auto max-w-2xl text-center">
             <h2 className="text-3xl font-bold tracking-tight text-white sm:text-4xl">
@@ -371,7 +371,7 @@ export default function FAQPage() {
       </section>
 
       {/* Related Resources */}
-      <section className="bg-slate-900 py-16 sm:py-24 border-t border-slate-700">
+      <section className="bg-surface py-16 sm:py-24 border-t border-surface-border">
         <div className="mx-auto max-w-7xl px-6 lg:px-8">
           <h2 className="text-2xl font-bold text-white mb-8 text-center">
             Helpful Resources
@@ -379,7 +379,7 @@ export default function FAQPage() {
           <div className="grid grid-cols-1 gap-8 md:grid-cols-3">
             <Link
               href="/blog/why-houston-businesses-need-custom-websites-2025"
-              className="bg-slate-800 rounded-lg p-6 hover:bg-slate-700 transition-colors"
+              className="bg-surface-card rounded-lg p-6 hover:bg-surface-elevated transition-colors"
             >
               <h3 className="font-semibold text-white mb-2">
                 Why Custom Websites Matter
@@ -390,7 +390,7 @@ export default function FAQPage() {
             </Link>
             <Link
               href="/blog/website-speed-conversion-rates-guide"
-              className="bg-slate-800 rounded-lg p-6 hover:bg-slate-700 transition-colors"
+              className="bg-surface-card rounded-lg p-6 hover:bg-surface-elevated transition-colors"
             >
               <h3 className="font-semibold text-white mb-2">
                 Website Speed Guide
@@ -401,7 +401,7 @@ export default function FAQPage() {
             </Link>
             <Link
               href="/blog/local-seo-guide-houston-businesses"
-              className="bg-slate-800 rounded-lg p-6 hover:bg-slate-700 transition-colors"
+              className="bg-surface-card rounded-lg p-6 hover:bg-surface-elevated transition-colors"
             >
               <h3 className="font-semibold text-white mb-2">
                 Local SEO Guide

@@ -14,7 +14,7 @@ export default function ReservationsPage({ colors }: ReservationsPageProps) {
           <div style={{ color: '#ee9b00' }} className="text-sm font-bold uppercase tracking-widest mb-3">
             Reserve Your Table
           </div>
-          <h1 style={{ color: '#ffffff' }} className="text-6xl font-black mb-6">
+          <h1 style={{ color: '#ffffff' }} className="text-6xl font-bold mb-6">
             Book Your Dining Experience
           </h1>
           <p style={{ color: '#f5f5f5' }} className="text-xl">
@@ -28,7 +28,7 @@ export default function ReservationsPage({ colors }: ReservationsPageProps) {
           <div className="grid md:grid-cols-2 gap-12">
             {/* Reservation Form */}
             <div>
-              <h2 style={{ color: '#1a1a1a' }} className="text-3xl font-black mb-6">
+              <h2 style={{ color: '#1a1a1a' }} className="text-3xl font-bold mb-6">
                 Make a Reservation
               </h2>
               <form className="space-y-4">
@@ -137,7 +137,7 @@ export default function ReservationsPage({ colors }: ReservationsPageProps) {
 
             {/* Info */}
             <div>
-              <h2 style={{ color: '#1a1a1a' }} className="text-3xl font-black mb-6">
+              <h2 style={{ color: '#1a1a1a' }} className="text-3xl font-bold mb-6">
                 Reservation Policies
               </h2>
               <div className="space-y-6">

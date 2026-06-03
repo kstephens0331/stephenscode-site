@@ -343,14 +343,14 @@ export default function TestimonialsPage({ onNavigate }: TestimonialsPageProps) 
             {videoTestimonials.map((video, index) => (
               <div
                 key={index}
-                className="bg-white rounded-2xl shadow-xl overflow-hidden hover:shadow-2xl transition-all group cursor-pointer"
+                className="bg-white rounded-2xl shadow-xl overflow-hidden transition-all group cursor-pointer"
               >
                 <div className="relative aspect-video bg-gradient-to-br from-[#386641] to-[#6a994e] flex items-center justify-center">
                   <div className="text-center">
                     <div className="w-20 h-20 bg-white/20 backdrop-blur-sm rounded-full flex items-center justify-center mx-auto mb-4">
                       <span className="text-2xl font-bold text-white">{video.thumbnail}</span>
                     </div>
-                    <div className="w-16 h-16 bg-[#a7c957] rounded-full flex items-center justify-center mx-auto group-hover:scale-110 transition-transform">
+                    <div className="w-16 h-16 bg-[#a7c957] rounded-full flex items-center justify-center mx-auto group- transition-transform">
                       <svg className="w-8 h-8 text-[#386641] ml-1" fill="currentColor" viewBox="0 0 24 24">
                         <path d="M8 5v14l11-7z" />
                       </svg>
@@ -420,7 +420,7 @@ export default function TestimonialsPage({ onNavigate }: TestimonialsPageProps) 
           </p>
           <button
             onClick={() => onNavigate('contact')}
-            className="bg-[#a7c957] text-[#386641] px-10 py-5 rounded-lg font-bold text-xl hover:bg-white transition-all transform hover:scale-105 shadow-2xl"
+            className="bg-[#a7c957] text-[#386641] px-10 py-5 rounded-lg font-bold text-xl hover:bg-white transition-all transform shadow-2xl"
           >
             Get Free Estimate
           </button>

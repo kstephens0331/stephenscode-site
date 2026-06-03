@@ -243,9 +243,9 @@ export default function AboutPage({ onNavigate }: AboutPageProps) {
               return (
                 <div
                   key={index}
-                  className="text-center group hover:scale-105 transition-transform duration-300"
+                  className="text-center group transition-transform duration-300"
                 >
-                  <div className="inline-flex items-center justify-center w-20 h-20 bg-gradient-to-br from-[#5f0f40] to-[#9a031e] rounded-2xl mb-4 shadow-lg group-hover:shadow-2xl transition-shadow">
+                  <div className="inline-flex items-center justify-center w-20 h-20 bg-gradient-to-br from-[#5f0f40] to-[#9a031e] rounded-2xl mb-4 shadow-lg group- transition-shadow">
                     <Icon className="h-10 w-10 text-white" />
                   </div>
                   <h3 className="text-xl font-bold text-gray-900 mb-2">{value.title}</h3>
@@ -275,7 +275,7 @@ export default function AboutPage({ onNavigate }: AboutPageProps) {
               return (
                 <div
                   key={index}
-                  className="bg-white rounded-2xl p-6 shadow-lg hover:shadow-2xl transition-all duration-300 border border-gray-100"
+                  className="bg-white rounded-2xl p-6 shadow-lg transition-all duration-300 border border-gray-100"
                 >
                   <div className="flex items-center space-x-4 mb-4">
                     <div className="flex items-center justify-center w-12 h-12 bg-gradient-to-br from-[#5f0f40] to-[#9a031e] rounded-xl text-white font-bold text-xl">
@@ -308,7 +308,7 @@ export default function AboutPage({ onNavigate }: AboutPageProps) {
             {tutors.map((tutor, index) => (
               <div
                 key={index}
-                className="bg-white rounded-2xl shadow-lg hover:shadow-2xl transition-all duration-300 border border-gray-100 overflow-hidden"
+                className="bg-white rounded-2xl shadow-lg transition-all duration-300 border border-gray-100 overflow-hidden"
               >
                 <div className="bg-gradient-to-br from-[#5f0f40] to-[#9a031e] p-6 text-white">
                   <div className="flex items-start space-x-4">
@@ -387,7 +387,7 @@ export default function AboutPage({ onNavigate }: AboutPageProps) {
             {successStories.map((story, index) => (
               <div
                 key={index}
-                className="bg-white rounded-2xl shadow-lg hover:shadow-2xl transition-all duration-300 border border-gray-100 overflow-hidden"
+                className="bg-white rounded-2xl shadow-lg transition-all duration-300 border border-gray-100 overflow-hidden"
               >
                 <div className="bg-gradient-to-br from-[#fb8b24] to-orange-600 p-6 text-white text-center">
                   <div className="inline-flex items-center justify-center w-16 h-16 bg-white/20 backdrop-blur-md rounded-full mb-4">
@@ -437,7 +437,7 @@ export default function AboutPage({ onNavigate }: AboutPageProps) {
                     <span className="text-3xl font-bold text-[#5f0f40]">{milestone.year}</span>
                   </div>
                   <div className="flex-shrink-0">
-                    <div className="w-16 h-16 bg-gradient-to-br from-[#5f0f40] to-[#9a031e] rounded-full flex items-center justify-center shadow-lg group-hover:scale-110 transition-transform">
+                    <div className="w-16 h-16 bg-gradient-to-br from-[#5f0f40] to-[#9a031e] rounded-full flex items-center justify-center shadow-lg group- transition-transform">
                       <Icon className="h-8 w-8 text-white" />
                     </div>
                   </div>
