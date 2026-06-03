@@ -70,7 +70,7 @@ export default function MSPServicesPage() {
       description: 'Complete IT management so you can focus on your business. From helpdesk support to strategic IT planning.',
       services: managedITServices,
       icon: '🖥️',
-      gradient: 'from-blue-600 to-blue-800'
+      gradient: 'from-primary-600 to-primary-800'
     },
     {
       title: 'Cybersecurity',
@@ -86,7 +86,7 @@ export default function MSPServicesPage() {
       description: 'Microsoft 365 management, cloud backup, and migration services to modernize your IT.',
       services: cloudServices,
       icon: '☁️',
-      gradient: 'from-cyan-600 to-cyan-800'
+      gradient: 'from-accent-600 to-accent-800'
     },
     {
       title: 'IT Support & Projects',

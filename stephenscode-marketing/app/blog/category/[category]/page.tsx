@@ -70,10 +70,10 @@ export default async function CategoryPage({ params }: Props) {
 
   const allPosts = getAllPosts()
   const categoryPosts = allPosts.filter(post => post.category === categoryName)
-  const config = categoryConfig[categoryName] || { icon: '📚', color: 'from-blue-500 to-cyan-500', gradient: 'from-blue-900 via-blue-800 to-cyan-900' }
+  const config = categoryConfig[categoryName] || { icon: '📚', color: 'from-primary-500 to-accent-500', gradient: 'from-black via-surface to-surface-card' }
 
   const categories = [
-    { name: 'All Posts', slug: 'all', icon: '📚', color: 'from-blue-500 to-cyan-500' },
+    { name: 'All Posts', slug: 'all', icon: '📚', color: 'from-primary-500 to-accent-500' },
     { name: 'Web Development', slug: 'web-development', icon: '💻', color: 'from-purple-500 to-blue-500' },
     { name: 'SEO', slug: 'seo', icon: '🔍', color: 'from-green-500 to-teal-500' },
     { name: 'Business', slug: 'business', icon: '💼', color: 'from-orange-500 to-red-500' },

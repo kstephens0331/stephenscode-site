@@ -98,7 +98,7 @@ export default function ServicesPage() {
       description: 'Get online fast with our professionally designed core packages. From simple 4-page sites to comprehensive business websites.',
       services: corePackages.slice(0, 4),
       icon: '🌐',
-      gradient: 'from-blue-600 to-blue-800'
+      gradient: 'from-primary-600 to-primary-800'
     },
     {
       title: 'Premium Builds',

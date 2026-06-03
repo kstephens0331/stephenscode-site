@@ -63,14 +63,14 @@ export default function AddOnsClient() {
                   className={`px-4 py-2 rounded-full text-sm font-medium whitespace-nowrap transition-all ${
                     activeFilter === filter.key
                       ? 'bg-primary-600 text-white shadow-md'
-                      : 'bg-surface-elevated text-gray-400 hover:bg-slate-600'
+                      : 'bg-surface-elevated text-gray-400 hover:bg-surface-border'
                   }`}
                 >
                   {filter.label}
                   <span className={`ml-2 px-2 py-0.5 rounded-full text-xs ${
                     activeFilter === filter.key
                       ? 'bg-surface-elevated/40 text-white'
-                      : 'bg-slate-600 text-gray-400'
+                      : 'bg-surface-border text-gray-400'
                   }`}>
                     {filter.count}
                   </span>
