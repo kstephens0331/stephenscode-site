@@ -120,7 +120,7 @@ export default async function Image() {
               fontWeight: 600,
             }}
           >
-            Flat-Rate Websites From $850
+            Six Flat-Rate Tiers · $250 to $7,500+
           </div>
         </div>
       </div>

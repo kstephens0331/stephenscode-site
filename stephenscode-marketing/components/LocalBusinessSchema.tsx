@@ -167,33 +167,45 @@ export default function LocalBusinessSchema() {
     serviceType: 'Web Development',
     provider: { '@id': 'https://www.stephenscode.dev/#organization' },
     areaServed: { '@type': 'State', name: 'Texas' },
-    description: 'Custom website development for small businesses. Includes responsive design, SEO optimization, and ongoing maintenance. Flat-rate pricing from $850 for a standard small business site.',
+    description: 'Custom website development for small businesses. Six flat-rate tiers from Starter ($250) to Enterprise Platform ($7,500+), all with 90 days post-launch support. Standard small business sites are $950 and are the typical entry tier. Custom SaaS and platform builds quoted on top of the catalog.',
     hasOfferCatalog: {
       '@type': 'OfferCatalog',
-      name: 'Website Packages',
+      name: 'Website Tiers',
       itemListElement: [
         {
           '@type': 'Offer',
-          itemOffered: { '@type': 'Service', name: 'Plug and Play Website', description: '4-page professional website with hosting' },
+          itemOffered: { '@type': 'Service', name: 'Starter', description: '3-4 page flyer site for brand-new businesses. Mobile, contact form, basic SEO, 90 days post-launch support.' },
           price: '250',
           priceCurrency: 'USD',
         },
         {
           '@type': 'Offer',
-          itemOffered: { '@type': 'Service', name: 'Standard Website', description: '8-12 page custom website with SEO' },
-          price: '850',
+          itemOffered: { '@type': 'Service', name: 'Basic', description: '5-7 page campaign or landing site with lead form and basic SEO. 90 days post-launch support.' },
+          price: '500',
           priceCurrency: 'USD',
         },
         {
           '@type': 'Offer',
-          itemOffered: { '@type': 'Service', name: 'Website Rebuild', description: 'Complete website redesign and optimization' },
-          price: '600',
+          itemOffered: { '@type': 'Service', name: 'Standard', description: '8-12 page small-business website with CMS, SEO foundation, GA4, and 2 rounds of revisions. The typical entry tier. 90 days post-launch support.' },
+          price: '950',
           priceCurrency: 'USD',
         },
         {
           '@type': 'Offer',
-          itemOffered: { '@type': 'Service', name: 'E-Commerce Store', description: 'Full online store with payment processing' },
-          price: '1100',
+          itemOffered: { '@type': 'Service', name: 'Advanced', description: 'Custom full-stack site with admin portal and KPI dashboard. CMS, conversion UX, lead forms. 90 days post-launch support.' },
+          price: '2000',
+          priceCurrency: 'USD',
+        },
+        {
+          '@type': 'Offer',
+          itemOffered: { '@type': 'Service', name: 'Business System', description: 'CRM, customer and staff portals, booking, invoicing, Stripe payments, automation, dashboards, third-party integrations. 90 days post-launch support.' },
+          price: '5000',
+          priceCurrency: 'USD',
+        },
+        {
+          '@type': 'Offer',
+          itemOffered: { '@type': 'Service', name: 'Enterprise Platform', description: 'Multi-tenant architecture, SSO, audit logs, workflow builder, CI-ready, performance monitoring. 90 days post-launch support plus roadmap workshop.' },
+          price: '7500',
           priceCurrency: 'USD',
         },
       ],
@@ -274,7 +286,7 @@ export default function LocalBusinessSchema() {
         name: 'How much does a custom website cost?',
         acceptedAnswer: {
           '@type': 'Answer',
-          text: 'StephensCode offers flat-rate website pricing. Standard small business websites are $850, e-commerce stores start at $1,100, and premium custom builds start at $2,000. A simple Plug and Play 3-4 page site is available from $250 for brand-new businesses that just need an online presence to start. All prices include design, development, and initial SEO setup.',
+          text: 'StephensCode offers six flat-rate website tiers, all with 90 days of post-launch support. Starter is $250 (3-4 page flyer for brand-new businesses). Basic is $500 (campaign or landing site). Standard is $950 (full 8-12 page small-business website with CMS, the typical entry tier). Advanced is $2,000 (custom full-stack with admin portal and KPI dashboard). Business System is $5,000 (CRM, portals, booking, payments, automation, integrations). Enterprise Platform starts at $7,500 (multi-tenant, SSO, audit logs, workflow builder). Custom SaaS and platform builds are quoted as flat-rate projects above the catalog. No hourly billing.',
         },
       },
       {

@@ -16,7 +16,7 @@ export const metadata: Metadata = {
     default: 'Conroe Web Developer | Houston Web Development | StephensCode',
     template: '%s | StephensCode'
   },
-  description: 'Veteran owned web developer in Conroe TX serving Houston. Flat-rate small business websites from $850. Custom builds, e-commerce, business automation. 14+ years experience. Call (936) 323-4527.',
+  description: 'Veteran owned web developer in Conroe TX serving Houston. Six flat-rate website tiers from Starter $250 to Enterprise Platform $7,500+, with 90 days post-launch support. Custom SaaS quoted on top. 14+ years experience. Call (936) 323-4527.',
   keywords: [
     // Primary location keywords
     'Conroe web developer',
@@ -79,12 +79,12 @@ export const metadata: Metadata = {
     url: 'https://www.stephenscode.dev',
     siteName: 'StephensCode',
     title: 'Conroe Web Developer | Houston Web Development | Veteran Owned',
-    description: 'Flat-rate small business websites from $850. Custom builds and business automation by a veteran owned developer serving Houston, The Woodlands, and Montgomery County.',
+    description: 'Six flat-rate website tiers from $250 to $7,500+, with 90 days post-launch support. Standard small business sites are $950. Veteran owned developer serving Houston, The Woodlands, and Montgomery County.',
   },
   twitter: {
     card: 'summary_large_image',
     title: 'Conroe Web Developer | Affordable Web Design Houston',
-    description: 'Veteran owned web developer. Flat-rate small business websites from $850. Serving Houston and The Woodlands.',
+    description: 'Veteran owned web developer. Six flat-rate website tiers from $250 to $7,500+, all with 90 days post-launch support. Serving Houston and The Woodlands.',
     creator: '@stephenscode',
   },
   robots: {
