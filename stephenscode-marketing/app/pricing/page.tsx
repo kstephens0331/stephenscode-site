@@ -25,8 +25,8 @@ export const metadata: Metadata = {
     'Montgomery County web design',
   ],
   openGraph: {
-    title: 'Houston Web Development | Flat-Rate Small Business Websites from $850',
-    description: 'Conroe web developer with flat-rate small business websites from $850. Small business website packages for Houston and The Woodlands. Veteran owned. No hidden fees.',
+    title: 'Houston Web Development | Six Flat-Rate Website Tiers, $250 to $7,500+',
+    description: 'Six flat-rate website tiers from $250 to $7,500+, all with 90 days post-launch support. Standard small business sites at $950. Houston, Conroe, and The Woodlands. Veteran owned. No hourly billing.',
     url: 'https://www.stephenscode.dev/pricing',
     type: 'website',
   },
@@ -206,14 +206,16 @@ export default function PricingPage() {
       <section className="bg-surface py-24 sm:py-32">
         <div className="mx-auto max-w-7xl px-6 lg:px-8">
           <div className="mx-auto max-w-2xl text-center mb-16">
-            <div className="inline-flex items-center rounded-full bg-primary-500/15 px-4 py-2 text-sm font-semibold text-primary-200 mb-4">
-              🚀 Core Packages
+            <div className="inline-flex items-center gap-3 text-[11px] font-semibold uppercase tracking-[0.22em] text-primary-500 mb-4">
+              <span aria-hidden="true" className="font-mono text-primary-500/80">&lt;</span>
+              <span>Core Tiers</span>
+              <span aria-hidden="true" className="font-mono text-primary-500/80">/&gt;</span>
             </div>
-            <h2 className="text-4xl font-bold tracking-tight text-white sm:text-5xl">
-              Basic Website Packages
+            <h2 className="text-3xl font-bold tracking-tight text-white sm:text-4xl">
+              Most small businesses land in this band.
             </h2>
             <p className="mt-4 text-lg leading-8 text-gray-400">
-              Professional websites for businesses of all sizes. Sites from $850 to $1,100.
+              Starter through E-Commerce, $250 to $1,100. The Standard tier at $950 is the typical entry for established businesses. Premium tiers below cover Advanced, Business System, and Enterprise Platform builds.
             </p>
           </div>
 

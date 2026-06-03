@@ -122,8 +122,8 @@ export const corePackages: Service[] = [
     name: 'Standard Website',
     slug: 'standard-website',
     category: 'core',
-    price: 850,
-    priceLabel: '$850',
+    price: 950,
+    priceLabel: '$950',
     shortDescription: 'Custom-built website with Home, About, Services, Contact pages',
     longDescription: `Get a fully custom-built website designed specifically for your business. Our Standard Website package is perfect for small to medium-sized businesses that need a professional online presence without the complexity of a full enterprise platform. Built with modern technologies like React and Next.js, your website will be fast, secure, SEO-optimized, and built to convert visitors into customers. Unlike template-based sites, every element is crafted to match your brand and serve your business goals.`,
     features: [
@@ -229,12 +229,12 @@ export const corePackages: Service[] = [
 export const premiumBuilds: Service[] = [
   {
     id: 'premium-build',
-    name: '$2,500 Premium Build',
+    name: 'Advanced',
     slug: 'premium-build',
     category: 'premium',
-    price: 2500,
-    priceLabel: '$2,500',
-    shortDescription: 'Advanced full-stack site (up to 15 pages) with admin portal and dashboard',
+    price: 2000,
+    priceLabel: '$2,000',
+    shortDescription: 'Custom full-stack site with admin portal and KPI dashboard. Up to 10 pages plus CMS.',
     longDescription: `Elevate your business with a premium full-stack web application. Our $2,500 Premium Build is designed for businesses that need more than a website—you need a complete business system. This package includes up to 15 pages, a custom admin portal, analytics dashboard, user management, and advanced features tailored to your specific workflow. Built with enterprise-grade technologies, your premium build will scale with your business and give you competitive advantages in your market.`,
     features: [
       'Up to 15 pages included',

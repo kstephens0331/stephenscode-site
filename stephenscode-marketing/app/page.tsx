@@ -39,7 +39,7 @@ const homepageSchemas = {
       "longitude": "-95.4560"
     },
     "url": "https://www.stephenscode.dev",
-    "priceRange": "$850-$7500",
+    "priceRange": "$250-$7500",
     "openingHoursSpecification": {
       "@type": "OpeningHoursSpecification",
       "dayOfWeek": ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday"],
@@ -73,7 +73,7 @@ const homepageSchemas = {
         "name": "How much does a custom website cost?",
         "acceptedAnswer": {
           "@type": "Answer",
-          "text": "Standard professional websites are $850, e-commerce sites are $1,100, and premium custom builds start at $2,000. A simple Plug and Play 3-4 page site is available from $250 for brand-new businesses that just need an online presence to start. All pricing is flat-rate with no hidden fees."
+          "text": "StephensCode offers six flat-rate website tiers, all with 90 days of post-launch support. Starter $250 (3-4 page flyer for brand-new businesses). Basic $500 (campaign or landing site). Standard $950 (full 8-12 page small-business website with CMS, the typical entry tier for established businesses). Advanced $2,000 (custom full-stack with admin portal and KPI dashboard). Business System $5,000 (CRM + portals + booking + payments + automation, replaces agencies and SaaS subscriptions). Enterprise Platform $7,500 and up (multi-tenant, SSO, audit logs, workflow builder). Custom SaaS and platform builds quoted as flat-rate projects above that. No hourly billing, no scope-creep invoices."
         }
       },
       {
@@ -111,37 +111,59 @@ const homepageSchemas = {
 export default function Home() {
   const packages = [
     {
-      name: 'Plug and Play',
+      name: 'Starter',
       price: '$250',
-      description: 'For a brand-new business that just needs an online presence to start. A clean 3-4 page flyer site, online in a week.',
-      features: ['3-4 Pages', 'Mobile Responsive', 'Contact Form', '1 Week Delivery'],
+      description: 'For a brand-new business that just needs to exist online. A clean 3-4 page flyer so you show up looking professional.',
+      features: ['3-4 pages', 'Mobile responsive', 'Contact form + email routing', 'Basic on-page SEO', '90 days post-launch support'],
+      delivery: '5-7 business days',
       href: '/services/plug-and-play',
-      popular: false
+      popular: false,
     },
     {
-      name: 'Standard Website',
-      price: '$850',
-      description: 'The real starting point for most small businesses. A full 8-12 page site built to work for you, not just to exist.',
-      features: ['8-12 Pages', 'SEO Optimized', 'Blog Setup', 'Google Analytics'],
+      name: 'Basic',
+      price: '$500',
+      description: 'Campaign sites, single-product landings, small operations that don’t need a back end. Built to convert.',
+      features: ['5-7 pages', 'Lead form + auto-replies', 'Basic SEO + analytics', '1 round of revisions', '90 days post-launch support'],
+      delivery: '7-10 business days',
+      href: '/contact',
+      popular: false,
+    },
+    {
+      name: 'Standard',
+      price: '$950',
+      description: 'A full small-business website that works for you. Real SEO foundation, CMS you can edit yourself, real analytics.',
+      features: ['8-12 pages, custom design', 'CMS for self-service edits', 'SEO foundation + GA4', 'Contact + lead forms', '2 rounds of revisions', '90 days post-launch support'],
+      delivery: '10-14 business days',
       href: '/services/standard-website',
-      popular: true
+      popular: true,
     },
     {
-      name: 'E-Commerce',
-      price: '$1,100',
-      description: 'Complete online store with payment processing, inventory management, and shopping cart.',
-      features: ['Unlimited Products', 'Stripe Payment', 'Order Management', 'Customer Accounts'],
-      href: '/services/ecommerce-website',
-      popular: false
-    },
-    {
-      name: 'Premium Build',
-      price: '$2,000+',
-      description: 'Advanced full-stack applications with custom features, admin dashboards, and business automation.',
-      features: ['Custom Features', 'Admin Dashboard', 'Database Design', 'API Integration'],
+      name: 'Advanced',
+      price: '$2,000',
+      description: 'Custom full-stack site with an admin behind it. See your leads, customers, and KPIs — not just publish pages.',
+      features: ['Custom full-stack, up to 10 pages', 'Admin portal + KPI dashboard (lite)', 'CMS, conversion-focused UX', 'SEO + GA4 events', '2 rounds of revisions', '90 days post-launch support'],
+      delivery: '2-3 weeks',
       href: '/services/premium-build',
-      popular: false
-    }
+      popular: false,
+    },
+    {
+      name: 'Business System',
+      price: '$5,000',
+      description: 'Replaces your agency, your scheduler, your invoicing tool, and your spreadsheet. A real system, built once, owned by you.',
+      features: ['CRM + customer/staff portals', 'Booking, invoicing, Stripe payments', 'Automation + dashboards/exports', 'Third-party integrations (QB, Google, SMS)', 'Role-based access + branded PDF', '90 days post-launch support'],
+      delivery: '4-6 weeks',
+      href: '/custom-solutions',
+      popular: false,
+    },
+    {
+      name: 'Enterprise Platform',
+      price: '$7,500+',
+      description: 'Multi-location, multi-tenant, SSO, audit trail. For franchises and operations outgrowing off-the-shelf SaaS.',
+      features: ['Multi-tenant architecture', 'SSO (optional) + audit logs', 'Workflow builder + automations', 'CI-ready, staging/sandbox', 'Performance budgets + monitoring', '90 days post-launch support + roadmap workshop'],
+      delivery: '8-12 weeks',
+      href: '/custom-solutions',
+      popular: false,
+    },
   ]
 
   const stats = [
@@ -284,7 +306,7 @@ export default function Home() {
               </div>
               <div className="border-l border-primary-500/40 pl-4">
                 <dt className="text-[10px] uppercase tracking-[0.18em] text-gray-500">Standard site</dt>
-                <dd className="mt-1.5 text-3xl font-semibold text-white tracking-tight">$850</dd>
+                <dd className="mt-1.5 text-3xl font-semibold text-white tracking-tight">$950</dd>
               </div>
               <div className="border-l border-primary-500/40 pl-4">
                 <dt className="text-[10px] uppercase tracking-[0.18em] text-gray-500">Based in</dt>
@@ -344,66 +366,82 @@ export default function Home() {
             </p>
           </div>
 
-          <div className="grid grid-cols-1 gap-8 lg:grid-cols-4 lg:gap-6">
-            {packages.map((pkg, index) => (
+          <div className="grid grid-cols-1 gap-6 md:grid-cols-2 lg:grid-cols-3">
+            {packages.map((pkg) => (
               <article
                 key={pkg.name}
-                className={`relative flex flex-col rounded-2xl p-8 card-lift ${
+                className={`relative flex flex-col rounded-2xl p-7 card-lift ${
                   pkg.popular
-                    ? 'bg-surface-card ring-1 ring-primary-500'
+                    ? 'bg-surface-card ring-2 ring-primary-500'
                     : 'bg-surface-card ring-1 ring-surface-border'
                 }`}
               >
                 {pkg.popular && (
-                  <div className="absolute -top-5 left-0 right-0 mx-auto w-32">
-                    <div className="rounded-full bg-accent-400 px-4 py-1 text-center text-sm font-bold text-black shadow-lg">
-                      Most Popular
+                  <div className="absolute -top-3 left-7">
+                    <div className="rounded-full bg-primary-500 px-3 py-0.5 text-[10px] font-semibold uppercase tracking-[0.18em] text-white">
+                      Most picked
                     </div>
                   </div>
                 )}
 
-                <h3 className={`text-2xl font-bold ${pkg.popular ? 'text-white' : 'text-white'}`}>
-                  {pkg.name}
-                </h3>
+                <div className="flex items-baseline justify-between">
+                  <h3 className="text-xl font-semibold text-white">{pkg.name}</h3>
+                  <div className="flex items-baseline gap-1">
+                    <span className="text-3xl font-bold tracking-tight text-white">{pkg.price}</span>
+                    {!pkg.price.includes('+') && (
+                      <span className="text-xs text-gray-500">flat</span>
+                    )}
+                  </div>
+                </div>
 
-                <p className={`mt-4 text-sm leading-6 ${pkg.popular ? 'text-gray-100' : 'text-gray-400'}`}>
+                <p className="mt-3 text-sm leading-6 text-gray-400">
                   {pkg.description}
                 </p>
 
-                <p className="mt-6 flex items-baseline gap-x-1">
-                  <span className={`text-5xl font-bold tracking-tight ${pkg.popular ? 'text-white' : 'text-white'}`}>
-                    {pkg.price}
-                  </span>
-                  {!pkg.price.includes('+') && (
-                    <span className={`text-sm font-semibold leading-6 ${pkg.popular ? 'text-gray-100' : 'text-gray-400'}`}>
-                      flat rate
-                    </span>
-                  )}
-                </p>
-
-                <ul role="list" className={`mt-8 space-y-3 text-sm leading-6 flex-1 ${pkg.popular ? 'text-gray-100' : 'text-gray-300'}`}>
+                <ul role="list" className="mt-5 space-y-2 text-sm leading-6 text-gray-300 flex-1">
                   {pkg.features.map((feature) => (
-                    <li key={feature} className="flex gap-x-3">
-                      <svg className={`h-6 w-5 flex-none ${pkg.popular ? 'text-white' : 'text-primary-500'}`} viewBox="0 0 20 20" fill="currentColor">
-                        <path fillRule="evenodd" d="M16.704 4.153a.75.75 0 01.143 1.052l-8 10.5a.75.75 0 01-1.127.075l-4.5-4.5a.75.75 0 011.06-1.06l3.894 3.893 7.48-9.817a.75.75 0 011.05-.143z" clipRule="evenodd" />
-                      </svg>
-                      <span className="font-semibold">{feature}</span>
+                    <li key={feature} className="flex gap-x-2.5">
+                      <Check className="h-4 w-4 flex-none mt-1 text-primary-500" strokeWidth={2.5} />
+                      <span>{feature}</span>
                     </li>
                   ))}
                 </ul>
 
-                <Link
-                  href={pkg.href}
-                  className={`mt-8 block rounded-lg px-6 py-4 text-center text-sm font-bold transition-all ${
-                    pkg.popular
-                      ? 'bg-black text-primary-300 hover:bg-surface-elevated'
-                      : 'bg-primary-600 text-white hover:bg-primary-500 hover:'
-                  }`}
-                >
-                  Learn More →
-                </Link>
+                <div className="mt-6 flex items-center justify-between border-t border-surface-border pt-4">
+                  <span className="text-xs uppercase tracking-wider text-gray-500">Delivery {pkg.delivery}</span>
+                  <Link
+                    href={pkg.href}
+                    className="inline-flex items-center gap-1 text-sm font-semibold text-primary-400 hover:text-primary-300 transition-colors"
+                  >
+                    Learn more
+                    <ArrowRight className="h-3.5 w-3.5" />
+                  </Link>
+                </div>
               </article>
             ))}
+          </div>
+
+          {/* Above-the-tier custom band */}
+          <div className="mx-auto mt-10 max-w-4xl rounded-2xl border border-dashed border-surface-border p-8 text-center">
+            <h3 className="text-lg font-semibold text-white">Above this — let&apos;s talk</h3>
+            <p className="mt-2 text-sm leading-6 text-gray-400">
+              SaaS Phase 1 builds, profit-share platforms, custom products. I&apos;ll scope it and quote you a flat number. No hourly billing, ever.
+            </p>
+            <div className="mt-5 flex flex-wrap items-center justify-center gap-3">
+              <Link
+                href="/contact"
+                className="inline-flex items-center gap-2 rounded-md bg-primary-500 px-5 py-2.5 text-sm font-semibold text-white hover:bg-primary-600 transition-colors"
+              >
+                Scope my project
+                <ArrowRight className="h-3.5 w-3.5" />
+              </Link>
+              <Link
+                href="/custom-solutions"
+                className="text-sm font-semibold text-gray-300 hover:text-primary-400 transition-colors"
+              >
+                See custom platforms I&apos;ve built →
+              </Link>
+            </div>
           </div>
 
           <div className="mt-12 text-center">

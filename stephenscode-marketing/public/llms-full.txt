@@ -26,19 +26,23 @@
 
 StephensCode operates on a flat-rate, transparent pricing model. We publish prices on the website and avoid hourly billing for productized services. Custom solutions outside the standard catalog are scoped and quoted as fixed-bid projects.
 
-### Web Development Packages
+### Web Development Tiers
 
-The real starting point for most small businesses is the Standard Website at $850. The $250 Plug and Play tier is a small, infrequent offering for brand-new businesses that just need an online presence to start; it is not the typical entry price.
+StephensCode publishes a six-tier flat-rate ladder. Every tier includes 90 days of post-launch support. The Standard tier at $950 is the typical entry point for most established small businesses. Tiers below it serve specific narrow use cases (brand-new businesses, campaign sites). Custom SaaS Phase 1 builds, profit-share platforms, and custom products are quoted as flat-rate projects above the catalog.
 
-1. Standard Website. $850 flat. Eight to twelve page custom site. Mobile-responsive, SEO foundation (sitemap, robots, schema, meta), contact form with email routing, two rounds of revisions, basic analytics setup. Delivered in 10 to 14 business days. This is the entry point for most small businesses.
+1. Starter. $250 flat. Three to four page flyer site (Home, About, Services, Contact). Mobile-responsive, basic on-page SEO, contact form with email routing. Delivered in 5 to 7 business days. For brand-new businesses that just need to exist online. Sold infrequently — most established small businesses should choose the Standard tier instead.
 
-2. Website Rebuild. $600 flat. Complete redesign and modernization of an existing site. Content migration from the old site, updated branding, improved page speed, fresh SEO baseline. Delivered in 7 to 10 business days.
+2. Basic. $500 flat. Five to seven page campaign or landing site. Mobile-responsive, performance-tuned, lead form with intake routing and auto-replies, basic SEO (sitemap, robots, meta), one round of revisions. Delivered in 7 to 10 business days. For single-product launches, political campaign sites, and small operations that do not need a back end.
 
-3. E-Commerce Store. $1,100 flat. Full online store with Stripe or Square payment processing, product catalog, cart, checkout, order management, basic shipping configuration, and customer email notifications. Delivered in 14 to 21 business days.
+3. Standard. $950 flat. Eight to twelve page custom small-business website. Mobile-first, conversion-focused design, CMS for self-service content edits, SEO foundation (sitemap, schema, meta, robots), Google Analytics 4 with basic event tracking, contact and lead forms with email routing, two rounds of revisions. Delivered in 10 to 14 business days. This is the typical entry tier for established small businesses.
 
-4. Custom Solutions. Starting at $2,500, scoped per project. Web applications, API integrations, web scraping pipelines, business process automation, custom dashboards, and bespoke tooling.
+4. Advanced. $2,000 flat. Custom full-stack site with admin portal and KPI dashboard (lite). Up to ten pages plus a CMS for easy edits. Conversion-focused UX, mobile-first, performance tuning. SEO baseline, sitemap, GA4 events. Lead forms (quote and intake) with contact routing and email notifications. Two rounds of revisions. Delivered in 2 to 3 weeks. For businesses that need to see what is coming in: leads, customers, KPIs.
 
-5. Plug and Play Website. $250 flat. Three to four page flyer site (Home, About, Services, Contact). Mobile-responsive, basic SEO, contact form. Delivered in 5 to 7 business days. Sold infrequently and only for brand-new businesses that just need an online presence to start; most small businesses should pick the Standard Website tier instead.
+5. Business System. $5,000 flat. Complete business system: CRM pipeline, customer and staff portals, booking, invoicing, and Stripe payments (one-time plus subscriptions with receipts). Automation for status updates, reminders, and workflow triggers. Dashboards and reports (sales, leads, tasks) with PDF and CSV export. Third-party API integrations (QuickBooks, Google, email/SMS). Role-based access, document manager, branded PDF generator. Training and handoff docs. Delivered in 4 to 6 weeks. Replaces an agency, a scheduler, an invoicing tool, and a spreadsheet.
+
+6. Enterprise Platform. $7,500 and up, flat. Multi-location and multi-tenant architecture with advanced role controls. P&L module, revenue and expense tracking, custom reporting. Scalable modules: inventory and ticketing at scale, queue and batch jobs. SSO (optional), audit logs, access policies, enhanced security. Workflow builder (visual automations) plus data import and export. CI-ready structure, staging and sandbox, CDN and image pipeline. Performance budgets and monitoring. Delivered in 8 to 12 weeks. Includes a roadmap workshop after launch.
+
+Custom (above the catalog): SaaS Phase 1 builds, profit-share platforms, custom products. Scoped and quoted as flat-rate projects. No hourly billing.
 
 ### Web Development Specialties by Industry
 
@@ -132,7 +136,7 @@ We use modern, production-grade technology and avoid template platforms like Wix
 ## Frequently Asked Questions
 
 Q: How much does a custom website cost?
-A: For most small businesses the answer is $850 flat for a Standard custom website. E-commerce stores start at $1,100, premium custom applications start at $2,500. A simple 3-4 page Plug-and-Play flyer site is available from $250 for brand-new businesses that just need an online presence to start, but that is not the typical entry tier. All prices include design, development, and initial SEO setup.
+A: StephensCode has six flat-rate website tiers, all with 90 days of post-launch support. Starter is $250 (3-4 page flyer for brand-new businesses). Basic is $500 (campaign or landing site). Standard is $950 (full 8-12 page small-business website with CMS, the typical entry tier for established small businesses). Advanced is $2,000 (custom full-stack site with admin portal and KPI dashboard). Business System is $5,000 (CRM + portals + booking + Stripe + automation + dashboards + integrations). Enterprise Platform starts at $7,500 (multi-tenant, SSO, audit logs, workflow builder). Custom SaaS Phase 1 builds, profit-share platforms, and custom products are scoped and quoted as flat-rate projects above the catalog. No hourly billing on any tier.
 
 Q: Do you provide IT support in Houston?
 A: Yes. On-site and remote support across the Houston metro area, with same-day response for critical issues. Predictable per-user pricing starting at $99 per user per month.

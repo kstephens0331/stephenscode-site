@@ -446,7 +446,7 @@ export default function ServicesPage() {
             {[
               {
                 question: "How much does a custom website cost?",
-                answer: "Standard small business websites are $850 (the typical entry point), website rebuilds are $600, and e-commerce stores start at $1,100. Premium enterprise solutions range from $2,500-$10,000+ depending on complexity. A simple 3-4 page Plug-and-Play flyer site is available from $250 for brand-new businesses that just need an online presence to start. All prices are flat-rate with no hidden fees."
+                answer: "Six flat-rate tiers with 90 days post-launch support on every one. Starter $250 (3-4 page flyer for brand-new businesses), Basic $500 (campaign or landing site), Standard $950 (full 8-12 page small-business site with CMS — the typical entry tier), Advanced $2,000 (custom full-stack with admin portal + KPI dashboard), Business System $5,000 (CRM + portals + booking + payments + automation), Enterprise Platform $7,500+ (multi-tenant + SSO + audit). Custom SaaS and platform builds quoted above the catalog. No hourly billing."
               },
               {
                 question: "How long does it take to build a website?",

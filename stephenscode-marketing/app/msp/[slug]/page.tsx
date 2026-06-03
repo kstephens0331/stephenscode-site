@@ -35,7 +35,7 @@ const faqs: FAQItem[] = [
   {
     category: 'Pricing & Costs',
     question: 'How much does a custom website cost?',
-    answer: 'Our pricing is transparent and flat-rate. A Plug and Play 4-page site starts at $250, Standard 8-12 page websites are $850, Website Rebuilds are $600, and E-Commerce stores are $1,100. Premium custom platforms start at $2,500. No hidden fees, no hourly billing surprises.'
+    answer: 'Six flat-rate tiers, all with 90 days of post-launch support. Starter $250, Basic $500, Standard $950 (the typical entry tier for established small businesses), Advanced $2,000 (with admin + KPI dashboard), Business System $5,000 (full CRM + portals + payments + automation), Enterprise Platform $7,500+ (multi-tenant + SSO + audit). Custom SaaS and platform builds quoted above the catalog. No hidden fees, no hourly billing.'
   },
   {
     category: 'Pricing & Costs',
