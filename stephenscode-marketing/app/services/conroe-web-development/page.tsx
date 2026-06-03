@@ -3,8 +3,8 @@ import type { Metadata } from 'next'
 import Breadcrumbs from '@/components/Breadcrumbs'
 
 export const metadata: Metadata = {
-  title: 'Conroe Web Developer | Small Business Websites from $250',
-  description: 'Conroe web developer serving Houston and The Woodlands. Veteran owned, affordable web design from $250. Custom websites for small business. Call (936) 323-4527.',
+  title: 'Conroe Web Developer | Flat-Rate Small Business Websites from $850',
+  description: 'Conroe web developer serving Houston and The Woodlands. Veteran owned, flat-rate small business websites from $850. Custom websites for small business. Call (936) 323-4527.',
   keywords: [
     'Conroe web developer',
     'Houston web development',

@@ -167,7 +167,7 @@ export default function LocalBusinessSchema() {
     serviceType: 'Web Development',
     provider: { '@id': 'https://www.stephenscode.dev/#organization' },
     areaServed: { '@type': 'State', name: 'Texas' },
-    description: 'Custom website development for small businesses. Includes responsive design, SEO optimization, and ongoing maintenance. Flat-rate pricing starting at $250.',
+    description: 'Custom website development for small businesses. Includes responsive design, SEO optimization, and ongoing maintenance. Flat-rate pricing from $850 for a standard small business site.',
     hasOfferCatalog: {
       '@type': 'OfferCatalog',
       name: 'Website Packages',
@@ -274,7 +274,7 @@ export default function LocalBusinessSchema() {
         name: 'How much does a custom website cost?',
         acceptedAnswer: {
           '@type': 'Answer',
-          text: 'StephensCode offers flat-rate website pricing starting at $250 for a 4-page Plug and Play website. Standard custom websites are $850, and e-commerce stores start at $1,100. All prices include design, development, and initial SEO setup.',
+          text: 'StephensCode offers flat-rate website pricing. Standard small business websites are $850, e-commerce stores start at $1,100, and premium custom builds start at $2,000. A simple Plug and Play 3-4 page site is available from $250 for brand-new businesses that just need an online presence to start. All prices include design, development, and initial SEO setup.',
         },
       },
       {

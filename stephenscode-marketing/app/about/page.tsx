@@ -257,7 +257,7 @@ export default function About() {
                 </p>
 
                 <p>
-                  What started as building simple websites for local contractors has grown into a full-service web development company serving <span className="font-bold text-white">150+ businesses</span> across Houston, Conroe, The Woodlands, and surrounding areas. We've built everything from $250 starter sites to $7,500 enterprise platforms, always with the same commitment to quality and transparency.
+                  What started as building simple websites for local contractors has grown into a full-service web development company serving <span className="font-bold text-white">150+ businesses</span> across Houston, Conroe, The Woodlands, and surrounding areas. We've built everything from $850 starter sites to $7,500 enterprise platforms, always with the same commitment to quality and transparency.
                 </p>
 
                 <p>
@@ -475,7 +475,7 @@ export default function About() {
                 Transparent Flat-Rate Pricing
               </h3>
               <p className="text-gray-400 leading-relaxed">
-                Know exactly what you're paying before we start. No hourly rates, no surprise bills. Core packages from $250, premium builds up to $7,500.
+                Know exactly what you're paying before we start. No hourly rates, no surprise bills. Standard sites from $850, premium builds up to $7,500.
               </p>
             </div>
 

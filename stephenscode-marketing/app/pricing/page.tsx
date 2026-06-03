@@ -4,8 +4,8 @@ import { corePackages, premiumBuilds } from '@/lib/services-data'
 import { basicAddOns, advancedAddOns } from '@/lib/addons-data'
 
 export const metadata: Metadata = {
-  title: 'Affordable Web Design Houston | Small Business Websites from $250',
-  description: 'Conroe web developer with affordable web design from $250. Small business website packages for Houston and The Woodlands. Veteran owned. No hidden fees.',
+  title: 'Houston Web Development | Flat-Rate Small Business Websites from $850',
+  description: 'Conroe web developer with flat-rate small business websites from $850. Small business website packages for Houston and The Woodlands. Veteran owned. No hidden fees.',
   keywords: [
     'affordable web design Houston',
     'Conroe web developer',
@@ -25,8 +25,8 @@ export const metadata: Metadata = {
     'Montgomery County web design',
   ],
   openGraph: {
-    title: 'Affordable Web Design Houston | Small Business Websites from $250',
-    description: 'Conroe web developer with affordable web design from $250. Small business website packages for Houston and The Woodlands. Veteran owned. No hidden fees.',
+    title: 'Houston Web Development | Flat-Rate Small Business Websites from $850',
+    description: 'Conroe web developer with flat-rate small business websites from $850. Small business website packages for Houston and The Woodlands. Veteran owned. No hidden fees.',
     url: 'https://www.stephenscode.dev/pricing',
     type: 'website',
   },
@@ -213,7 +213,7 @@ export default function PricingPage() {
               Basic Website Packages
             </h2>
             <p className="mt-4 text-lg leading-8 text-gray-400">
-              Professional websites for businesses of all sizes. Perfect starting point from $250-$1,100.
+              Professional websites for businesses of all sizes. Sites from $850 to $1,100.
             </p>
           </div>
 
