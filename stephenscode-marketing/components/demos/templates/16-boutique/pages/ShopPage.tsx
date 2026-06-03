@@ -181,12 +181,12 @@ export default function ShopPage({ addToCart, addToWishlist }: any) {
         {/* Products Grid */}
         <div className="grid grid-cols-1 md:grid-cols-3 lg:grid-cols-4 gap-8">
           {filteredProducts.map((product) => (
-            <div key={product.id} className="group bg-white rounded-xl overflow-hidden shadow-md hover:shadow-2xl transition-all duration-300">
+            <div key={product.id} className="group bg-white rounded-xl overflow-hidden shadow-md transition-all duration-300">
               <div className="relative overflow-hidden">
                 <img
                   src={product.image}
                   alt={product.name}
-                  className="w-full h-80 object-cover group-hover:scale-110 transition-transform duration-500"
+                  className="w-full h-80 object-cover group- transition-transform duration-500"
                 />
                 <button
                   onClick={() => addToWishlist(product)}

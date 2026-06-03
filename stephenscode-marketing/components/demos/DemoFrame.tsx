@@ -306,7 +306,7 @@ export default function DemoFrame({ demo }: DemoFrameProps) {
       <div className="fixed bottom-6 right-6 z-40">
         <Link
           href="/contact"
-          className="bg-accent-500 hover:bg-accent-600 text-white px-6 py-4 rounded-full shadow-2xl font-bold text-sm flex items-center gap-2 transition-all hover:scale-105"
+          className="bg-accent-500 hover:bg-accent-600 text-white px-6 py-4 rounded-full shadow-2xl font-bold text-sm flex items-center gap-2 transition-all"
         >
           <span>💼</span>
           <span>Want This for Your Business?</span>

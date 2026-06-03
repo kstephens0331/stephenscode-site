@@ -457,7 +457,7 @@ const TechProManufacturing = () => {
             <button
               key={label}
               onClick={() => setCurrentPage(page)}
-              className="bg-[#0b090a] rounded-lg shadow-xl p-6 border border-gray-800 hover:border-[#ba181b] transition-all hover:scale-105 flex items-center gap-4"
+              className="bg-[#0b090a] rounded-lg shadow-xl p-6 border border-gray-800 hover:border-[#ba181b] transition-all flex items-center gap-4"
             >
               <Icon className="w-8 h-8 text-[#ba181b]" />
               <span className="font-semibold text-white">{label}</span>

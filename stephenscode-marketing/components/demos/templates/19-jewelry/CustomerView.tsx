@@ -103,9 +103,9 @@ export default function CustomerView({ demo, colors }: CustomerViewProps) {
               { id: '3', name: 'Gold Bracelet', price: 1499.99, image: 'https://images.unsplash.com/photo-1611591437281-460bfbe1220a?w=400', rating: 4.8 },
               { id: '4', name: 'Emerald Earrings', price: 2199.99, image: 'https://images.unsplash.com/photo-1535632066927-ab7c9ab60908?w=400', rating: 5.0 },
             ].map(product => (
-              <div key={product.id} className="bg-white rounded-xl shadow-md overflow-hidden group hover:shadow-2xl transition-all">
+              <div key={product.id} className="bg-white rounded-xl shadow-md overflow-hidden group transition-all">
                 <div className="relative overflow-hidden bg-gray-50">
-                  <img src={product.image} alt={product.name} className="w-full h-64 object-cover group-hover:scale-110 transition-transform duration-700" />
+                  <img src={product.image} alt={product.name} className="w-full h-64 object-cover group- transition-transform duration-700" />
                   <button onClick={() => addToCart(product)} className="absolute inset-0 bg-black/60 text-white flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity">
                     <Gem className="w-8 h-8 mr-2" />
                     <span className="font-semibold">View Details</span>
@@ -161,7 +161,7 @@ export default function CustomerView({ demo, colors }: CustomerViewProps) {
             image: 'https://images.unsplash.com/photo-1515562141207-7a88fb7ce338?w=400',
             rating: 4.5 + (i % 5) * 0.1,
           })).map(product => (
-            <div key={product.id} className="bg-white rounded-xl shadow-md overflow-hidden hover:shadow-2xl transition-all">
+            <div key={product.id} className="bg-white rounded-xl shadow-md overflow-hidden transition-all">
               <div className="relative bg-gray-50">
                 <img src={product.image} alt={product.name} className="w-full h-48 object-cover" />
                 <button className="absolute top-4 right-4 bg-white p-2 rounded-full shadow-md hover:bg-red-50">
@@ -202,9 +202,9 @@ export default function CustomerView({ demo, colors }: CustomerViewProps) {
             { name: 'Bracelets', count: 41, image: 'https://images.unsplash.com/photo-1611591437281-460bfbe1220a?w=600' },
             { name: 'Fine Watches', count: 28, image: 'https://images.unsplash.com/photo-1523170335258-f5ed11844a49?w=600' },
           ].map(collection => (
-            <button key={collection.name} onClick={() => setCurrentPage('shop')} className="group relative overflow-hidden rounded-xl shadow-lg hover:shadow-2xl transition-all">
+            <button key={collection.name} onClick={() => setCurrentPage('shop')} className="group relative overflow-hidden rounded-xl shadow-lg transition-all">
               <div className="aspect-[4/3] overflow-hidden bg-gray-100">
-                <img src={collection.image} alt={collection.name} className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700" />
+                <img src={collection.image} alt={collection.name} className="w-full h-full object-cover group- transition-transform duration-700" />
               </div>
               <div className="absolute inset-0 bg-gradient-to-t from-black/80 to-transparent flex flex-col justify-end p-6">
                 <h3 className="text-2xl font-bold text-white mb-2">{collection.name}</h3>
@@ -307,12 +307,12 @@ export default function CustomerView({ demo, colors }: CustomerViewProps) {
         <h1 className="text-4xl font-bold text-gray-900 mb-8">Gift Registry</h1>
         <p className="text-xl text-gray-600 mb-12">Create your perfect wedding or special event registry</p>
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 max-w-4xl mx-auto">
-          <button className="bg-white rounded-xl shadow-md p-12 text-center hover:shadow-2xl transition-all border-2 border-transparent hover:border-yellow-400">
+          <button className="bg-white rounded-xl shadow-md p-12 text-center transition-all border-2 border-transparent hover:border-yellow-400">
             <Gift className="w-16 h-16 mx-auto mb-6" style={{ color: colors.primary }} />
             <h3 className="text-2xl font-bold text-gray-900 mb-4">Create Registry</h3>
             <p className="text-gray-600">Start building your dream gift list</p>
           </button>
-          <button className="bg-white rounded-xl shadow-md p-12 text-center hover:shadow-2xl transition-all border-2 border-transparent hover:border-yellow-400">
+          <button className="bg-white rounded-xl shadow-md p-12 text-center transition-all border-2 border-transparent hover:border-yellow-400">
             <Search className="w-16 h-16 text-gray-400 mx-auto mb-6" />
             <h3 className="text-2xl font-bold text-gray-900 mb-4">Find Registry</h3>
             <p className="text-gray-600">Search for a couple's registry</p>

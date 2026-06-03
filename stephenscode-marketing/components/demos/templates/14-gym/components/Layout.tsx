@@ -32,7 +32,7 @@ export default function Layout({ children, currentPage, basePath }: LayoutProps)
           <div className="flex h-20 items-center justify-between">
             {/* Logo */}
             <Link href={basePath} className="flex items-center space-x-3 group">
-              <div className="bg-gradient-to-br from-[#c1121f] to-[#780000] p-2.5 rounded-lg group-hover:scale-105 transition-transform">
+              <div className="bg-gradient-to-br from-[#c1121f] to-[#780000] p-2.5 rounded-lg group- transition-transform">
                 <Dumbbell className="h-7 w-7 text-[#fdf0d5]" strokeWidth={2.5} />
               </div>
               <div>
@@ -65,7 +65,7 @@ export default function Layout({ children, currentPage, basePath }: LayoutProps)
               })}
               <Link
                 href={`${basePath}/join`}
-                className="ml-4 px-6 py-2.5 bg-gradient-to-r from-[#c1121f] to-[#780000] text-zinc-50 rounded-lg font-semibold hover:shadow-lg hover:shadow-[#c1121f]/20 transition-all hover:scale-105"
+                className="ml-4 px-6 py-2.5 bg-gradient-to-r from-[#c1121f] to-[#780000] text-zinc-50 rounded-lg font-semibold hover:shadow-lg hover:shadow-[#c1121f]/20 transition-all"
               >
                 Join Now
               </Link>

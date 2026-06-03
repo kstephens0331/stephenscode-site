@@ -204,7 +204,7 @@ export default function SubjectsPage({ onNavigate }: SubjectsPageProps) {
               return (
                 <div
                   key={index}
-                  className="bg-white rounded-2xl shadow-lg hover:shadow-2xl transition-all duration-300 border border-gray-100 overflow-hidden group"
+                  className="bg-white rounded-2xl shadow-lg transition-all duration-300 border border-gray-100 overflow-hidden group"
                 >
                   <div className={`bg-gradient-to-br ${subject.color} p-6`}>
                     <div className="flex items-start justify-between">
@@ -277,7 +277,7 @@ export default function SubjectsPage({ onNavigate }: SubjectsPageProps) {
               return (
                 <div
                   key={index}
-                  className={`relative bg-white rounded-2xl shadow-lg hover:shadow-2xl transition-all duration-300 border-2 overflow-hidden ${
+                  className={`relative bg-white rounded-2xl shadow-lg  transition-all duration-300 border-2 overflow-hidden ${
                     pkg.popular ? 'border-[#fb8b24] scale-105' : 'border-gray-200'
                   }`}
                 >
@@ -346,7 +346,7 @@ export default function SubjectsPage({ onNavigate }: SubjectsPageProps) {
                   key={index}
                   className="bg-white rounded-xl p-6 shadow-md hover:shadow-xl transition-all duration-300 text-center group"
                 >
-                  <div className="inline-flex items-center justify-center w-16 h-16 bg-gradient-to-br from-[#5f0f40] to-[#9a031e] rounded-2xl mb-4 group-hover:scale-110 transition-transform duration-300">
+                  <div className="inline-flex items-center justify-center w-16 h-16 bg-gradient-to-br from-[#5f0f40] to-[#9a031e] rounded-2xl mb-4 group- transition-transform duration-300">
                     <Icon className="h-8 w-8 text-white" />
                   </div>
                   <h3 className="text-xl font-bold text-gray-900 mb-2">{skill.title}</h3>
@@ -408,7 +408,7 @@ export default function SubjectsPage({ onNavigate }: SubjectsPageProps) {
                 </p>
                 <button
                   onClick={() => onNavigate('contact')}
-                  className="w-full px-8 py-4 bg-[#fb8b24] text-white rounded-xl font-bold hover:bg-[#e57a1a] transition-all duration-200 shadow-xl hover:shadow-2xl"
+                  className="w-full px-8 py-4 bg-[#fb8b24] text-white rounded-xl font-bold hover:bg-[#e57a1a] transition-all duration-200 shadow-xl"
                 >
                   Book Free Consultation
                 </button>

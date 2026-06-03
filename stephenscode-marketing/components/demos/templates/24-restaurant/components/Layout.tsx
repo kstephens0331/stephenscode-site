@@ -32,7 +32,7 @@ export default function Layout({ children, colors, currentPage, onNavigate, onOr
             <div className="flex items-center gap-3 cursor-pointer" onClick={() => onNavigate('home')}>
               <div className="text-4xl">🍽️</div>
               <div>
-                <div style={{ color: '#ffffff' }} className="text-2xl font-black">Gourmet Kitchen</div>
+                <div style={{ color: '#ffffff' }} className="text-2xl font-bold">Gourmet Kitchen</div>
                 <div style={{ color: '#ee9b00' }} className="text-xs font-bold uppercase tracking-wide">Fine Dining Experience</div>
               </div>
             </div>
@@ -72,7 +72,7 @@ export default function Layout({ children, colors, currentPage, onNavigate, onOr
             <div>
               <div className="flex items-center gap-2 mb-4">
                 <div className="text-3xl">🍽️</div>
-                <div style={{ color: '#ee9b00' }} className="text-xl font-black">Gourmet Kitchen</div>
+                <div style={{ color: '#ee9b00' }} className="text-xl font-bold">Gourmet Kitchen</div>
               </div>
               <p style={{ color: '#999999' }} className="text-sm leading-relaxed">
                 Authentic Italian cuisine crafted with passion and premium ingredients. Experience fine dining at its finest.

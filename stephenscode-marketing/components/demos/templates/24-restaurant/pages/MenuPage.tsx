@@ -61,7 +61,7 @@ export default function MenuPage({ colors, onOrderOpen, setOrderItem }: MenuPage
           <div style={{ color: '#ee9b00' }} className="text-sm font-bold uppercase tracking-widest mb-3">
             Our Menu
           </div>
-          <h1 style={{ color: '#ffffff' }} className="text-6xl font-black mb-6">
+          <h1 style={{ color: '#ffffff' }} className="text-6xl font-bold mb-6">
             Authentic Italian Cuisine
           </h1>
           <p style={{ color: '#f5f5f5' }} className="text-xl max-w-2xl mx-auto">
@@ -78,7 +78,7 @@ export default function MenuPage({ colors, onOrderOpen, setOrderItem }: MenuPage
           style={{ backgroundColor: idx % 2 === 0 ? '#ffffff' : '#f8f8f8' }}
         >
           <div className="max-w-5xl mx-auto px-4">
-            <h2 style={{ color: '#9b2226' }} className="text-4xl font-black mb-12 text-center">
+            <h2 style={{ color: '#9b2226' }} className="text-4xl font-bold mb-12 text-center">
               {category.name}
             </h2>
             <div className="space-y-6">
@@ -110,7 +110,7 @@ export default function MenuPage({ colors, onOrderOpen, setOrderItem }: MenuPage
                         {item.description}
                       </p>
                     </div>
-                    <div style={{ color: '#9b2226' }} className="text-2xl font-black ml-6">
+                    <div style={{ color: '#9b2226' }} className="text-2xl font-bold ml-6">
                       {item.price}
                     </div>
                   </div>
@@ -132,7 +132,7 @@ export default function MenuPage({ colors, onOrderOpen, setOrderItem }: MenuPage
       <section className="py-20" style={{ backgroundColor: '#1a1a1a' }}>
         <div className="max-w-4xl mx-auto px-4 text-center">
           <div className="text-6xl mb-6">🍷</div>
-          <h2 style={{ color: '#ffffff' }} className="text-4xl font-black mb-4">
+          <h2 style={{ color: '#ffffff' }} className="text-4xl font-bold mb-4">
             Award-Winning Wine Selection
           </h2>
           <p style={{ color: '#cccccc' }} className="text-lg mb-8">
@@ -141,15 +141,15 @@ export default function MenuPage({ colors, onOrderOpen, setOrderItem }: MenuPage
           </p>
           <div className="flex gap-8 justify-center text-left" style={{ color: '#ee9b00' }}>
             <div>
-              <div className="text-3xl font-black">200+</div>
+              <div className="text-3xl font-bold">200+</div>
               <div style={{ color: '#cccccc' }} className="text-sm">Wine Selections</div>
             </div>
             <div>
-              <div className="text-3xl font-black">15+</div>
+              <div className="text-3xl font-bold">15+</div>
               <div style={{ color: '#cccccc' }} className="text-sm">Italian Regions</div>
             </div>
             <div>
-              <div className="text-3xl font-black">$12</div>
+              <div className="text-3xl font-bold">$12</div>
               <div style={{ color: '#cccccc' }} className="text-sm">Glasses From</div>
             </div>
           </div>
@@ -159,7 +159,7 @@ export default function MenuPage({ colors, onOrderOpen, setOrderItem }: MenuPage
       {/* CTA */}
       <section className="py-20" style={{ backgroundColor: '#ee9b00' }}>
         <div className="max-w-4xl mx-auto px-4 text-center">
-          <h2 style={{ color: '#1a1a1a' }} className="text-4xl font-black mb-6">
+          <h2 style={{ color: '#1a1a1a' }} className="text-4xl font-bold mb-6">
             Ready to Order?
           </h2>
           <p style={{ color: '#333333' }} className="text-lg mb-8">

@@ -112,7 +112,7 @@ export default function AdminView({ demo, colors }: AdminViewProps) {
                     <span className="text-3xl">{stat.icon}</span>
                     <span style={{ color: stat.color }} className="text-xs font-bold">{stat.change}</span>
                   </div>
-                  <div style={{ color: colors.text }} className="text-3xl font-black mb-1">{stat.value}</div>
+                  <div style={{ color: colors.text }} className="text-3xl font-bold mb-1">{stat.value}</div>
                   <div style={{ color: colors.textLight }} className="text-sm">{stat.label}</div>
                 </div>
               ))}

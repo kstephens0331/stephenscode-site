@@ -85,7 +85,7 @@ export default async function BlogPostPage({ params }: BlogPostPageProps) {
                   day: 'numeric',
                 })}
               </time>
-              <span className="rounded-full bg-slate-800/40 px-3 py-1.5 font-medium backdrop-blur">
+              <span className="rounded-full bg-surface-card/60 px-3 py-1.5 font-medium backdrop-blur">
                 {post.category}
               </span>
               <span className="flex items-center gap-1">
@@ -102,7 +102,7 @@ export default async function BlogPostPage({ params }: BlogPostPageProps) {
               {post.excerpt}
             </p>
             <div className="mt-6 flex items-center gap-3">
-              <div className="h-12 w-12 rounded-full bg-slate-800/40 flex items-center justify-center text-2xl">
+              <div className="h-12 w-12 rounded-full bg-surface-card/60 flex items-center justify-center text-2xl">
                 🎖️
               </div>
               <div>
@@ -115,12 +115,10 @@ export default async function BlogPostPage({ params }: BlogPostPageProps) {
       </section>
 
       {/* Blog Content */}
-      <article className="bg-slate-900 py-16 sm:py-24">
+      <article className="bg-surface py-16 sm:py-24">
         <div className="mx-auto max-w-3xl px-6 lg:px-8">
           <div
-            className="prose prose-lg prose-primary prose-invert max-w-none
-              prose-headings:font-bold prose-headings:text-white
-              prose-h2:text-3xl prose-h2:mt-12 prose-h2:mb-6
+            className="prose prose-lg prose-primary prose-invert max-w-none prose-headings:font-bold prose-headings:text-white prose-h2:text-3xl prose-h2:mt-12 prose-h2:mb-6
               prose-h3:text-2xl prose-h3:mt-8 prose-h3:mb-4
               prose-p:text-gray-400 prose-p:leading-8 prose-p:mb-6
               prose-a:text-primary-600 prose-a:no-underline hover:prose-a:text-primary-700
@@ -130,14 +128,14 @@ export default async function BlogPostPage({ params }: BlogPostPageProps) {
               prose-li:text-gray-400 prose-li:my-2
               prose-blockquote:border-l-4 prose-blockquote:border-primary-500
               prose-blockquote:pl-6 prose-blockquote:italic prose-blockquote:text-gray-300
-              prose-code:text-primary-600 prose-code:bg-slate-800 prose-code:px-1 prose-code:py-0.5 prose-code:rounded
+              prose-code:text-primary-600 prose-code:bg-surface-card prose-code:px-1 prose-code:py-0.5 prose-code:rounded
               prose-pre:bg-gray-900 prose-pre:text-gray-100"
             dangerouslySetInnerHTML={{ __html: post.content }}
           />
 
           {/* Tags */}
           {post.tags && post.tags.length > 0 && (
-            <div className="mt-12 pt-8 border-t border-slate-700">
+            <div className="mt-12 pt-8 border-t border-surface-border">
               <h3 className="text-sm font-semibold text-white mb-4">Tags</h3>
               <div className="flex flex-wrap gap-2">
                 {post.tags.map((tag) => (
@@ -153,14 +151,14 @@ export default async function BlogPostPage({ params }: BlogPostPageProps) {
           )}
 
           {/* Share Section */}
-          <div className="mt-12 pt-8 border-t border-slate-700">
+          <div className="mt-12 pt-8 border-t border-surface-border">
             <h3 className="text-sm font-semibold text-white mb-4">Share this article</h3>
             <div className="flex gap-4">
               <a
                 href={`https://twitter.com/intent/tweet?text=${encodeURIComponent(post.title)}&url=${encodeURIComponent(`https://www.stephenscode.dev/blog/${post.slug}`)}`}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="inline-flex items-center justify-center h-10 w-10 rounded-full bg-slate-800 text-gray-300 hover:bg-primary-500/10 hover:text-primary-700 transition-colors"
+                className="inline-flex items-center justify-center h-10 w-10 rounded-full bg-surface-card text-gray-300 hover:bg-primary-500/10 hover:text-primary-400 transition-colors"
               >
                 𝕏
               </a>
@@ -168,7 +166,7 @@ export default async function BlogPostPage({ params }: BlogPostPageProps) {
                 href={`https://www.facebook.com/sharer/sharer.php?u=${encodeURIComponent(`https://www.stephenscode.dev/blog/${post.slug}`)}`}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="inline-flex items-center justify-center h-10 w-10 rounded-full bg-slate-800 text-gray-300 hover:bg-primary-500/10 hover:text-primary-700 transition-colors"
+                className="inline-flex items-center justify-center h-10 w-10 rounded-full bg-surface-card text-gray-300 hover:bg-primary-500/10 hover:text-primary-400 transition-colors"
               >
                 f
               </a>
@@ -176,7 +174,7 @@ export default async function BlogPostPage({ params }: BlogPostPageProps) {
                 href={`https://www.linkedin.com/shareArticle?mini=true&url=${encodeURIComponent(`https://www.stephenscode.dev/blog/${post.slug}`)}&title=${encodeURIComponent(post.title)}`}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="inline-flex items-center justify-center h-10 w-10 rounded-full bg-slate-800 text-gray-300 hover:bg-primary-500/10 hover:text-primary-700 transition-colors"
+                className="inline-flex items-center justify-center h-10 w-10 rounded-full bg-surface-card text-gray-300 hover:bg-primary-500/10 hover:text-primary-400 transition-colors"
               >
                 in
               </a>
@@ -184,7 +182,7 @@ export default async function BlogPostPage({ params }: BlogPostPageProps) {
           </div>
 
           {/* Author Bio */}
-          <div className="mt-12 pt-8 border-t border-slate-700">
+          <div className="mt-12 pt-8 border-t border-surface-border">
             <div className="flex items-start gap-4 sm:gap-6">
               <div className="h-16 w-16 sm:h-20 sm:w-20 rounded-full bg-primary-500/10 flex items-center justify-center text-3xl sm:text-4xl flex-shrink-0">
                 🎖️
@@ -201,13 +199,13 @@ export default async function BlogPostPage({ params }: BlogPostPageProps) {
                 <div className="mt-4 flex gap-4">
                   <Link
                     href="/about"
-                    className="text-sm font-semibold text-primary-600 hover:text-primary-700"
+                    className="text-sm font-semibold text-primary-600 hover:text-primary-400"
                   >
                     Learn more about Kyle →
                   </Link>
                   <Link
                     href="/contact"
-                    className="text-sm font-semibold text-primary-600 hover:text-primary-700"
+                    className="text-sm font-semibold text-primary-600 hover:text-primary-400"
                   >
                     Get in touch →
                   </Link>
@@ -220,7 +218,7 @@ export default async function BlogPostPage({ params }: BlogPostPageProps) {
 
       {/* Related Posts */}
       {relatedPosts.length > 0 && (
-        <section className="bg-slate-800 py-16 sm:py-24">
+        <section className="bg-surface-card py-16 sm:py-24">
           <div className="mx-auto max-w-7xl px-6 lg:px-8">
             <h2 className="text-3xl font-bold tracking-tight text-white mb-12">
               Related Articles
@@ -229,7 +227,7 @@ export default async function BlogPostPage({ params }: BlogPostPageProps) {
               {relatedPosts.map((relatedPost) => (
                 <article
                   key={relatedPost.slug}
-                  className="flex flex-col bg-slate-900 rounded-2xl shadow-lg shadow-black/20 overflow-hidden hover:shadow-xl transition-shadow"
+                  className="flex flex-col bg-surface rounded-2xl shadow-lg shadow-black/20 overflow-hidden hover:shadow-xl transition-shadow"
                 >
                   <div className="flex flex-1 flex-col p-6">
                     <div className="flex items-center gap-x-4 text-xs mb-4">
@@ -254,7 +252,7 @@ export default async function BlogPostPage({ params }: BlogPostPageProps) {
                     <div className="mt-4">
                       <Link
                         href={`/blog/${relatedPost.slug}`}
-                        className="text-sm font-semibold text-primary-600 hover:text-primary-700"
+                        className="text-sm font-semibold text-primary-600 hover:text-primary-400"
                       >
                         Read more <span aria-hidden="true">→</span>
                       </Link>

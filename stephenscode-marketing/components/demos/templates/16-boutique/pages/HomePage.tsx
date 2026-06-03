@@ -84,12 +84,12 @@ export default function HomePage({ demo, colors, setCurrentPage, addToCart, addT
           </div>
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
             {featuredProducts.map((product) => (
-              <div key={product.id} className="group bg-white rounded-xl overflow-hidden shadow-md hover:shadow-2xl transition-all duration-300">
+              <div key={product.id} className="group bg-white rounded-xl overflow-hidden shadow-md transition-all duration-300">
                 <div className="relative overflow-hidden">
                   <img
                     src={product.image}
                     alt={product.name}
-                    className="w-full h-80 object-cover group-hover:scale-110 transition-transform duration-500"
+                    className="w-full h-80 object-cover group- transition-transform duration-500"
                   />
                   <button
                     onClick={() => addToWishlist(product)}
@@ -148,13 +148,13 @@ export default function HomePage({ demo, colors, setCurrentPage, addToCart, addT
               <button
                 key={collection.name}
                 onClick={() => setCurrentPage('collections')}
-                className="group relative overflow-hidden rounded-xl shadow-lg hover:shadow-2xl transition-all"
+                className="group relative overflow-hidden rounded-xl shadow-lg transition-all"
               >
                 <div className="aspect-[4/5] overflow-hidden">
                   <img
                     src={collection.image}
                     alt={collection.name}
-                    className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500"
+                    className="w-full h-full object-cover group- transition-transform duration-500"
                   />
                 </div>
                 <div className="absolute inset-0 bg-gradient-to-t from-black/70 to-transparent flex flex-col justify-end p-6">

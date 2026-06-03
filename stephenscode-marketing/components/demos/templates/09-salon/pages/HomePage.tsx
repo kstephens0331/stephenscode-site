@@ -149,7 +149,7 @@ export default function HomePage({ onNavigate }: HomePageProps) {
             {services.map((service, index) => (
               <div
                 key={index}
-                className="bg-gradient-to-br from-white to-gray-50 rounded-2xl shadow-lg hover:shadow-2xl transition-all duration-300 overflow-hidden group cursor-pointer"
+                className="bg-gradient-to-br from-white to-gray-50 rounded-2xl shadow-lg transition-all duration-300 overflow-hidden group cursor-pointer"
                 onClick={() => onNavigate('services')}
               >
                 <div className="p-8 text-center">
@@ -271,7 +271,7 @@ export default function HomePage({ onNavigate }: HomePageProps) {
           </p>
           <button
             onClick={() => onNavigate('booking')}
-            className="bg-gradient-to-r from-[#d00000] to-[#e85d04] text-white px-10 py-4 rounded-full font-semibold text-lg hover:shadow-2xl transition-all duration-300"
+            className="bg-gradient-to-r from-[#d00000] to-[#e85d04] text-white px-10 py-4 rounded-full font-semibold text-lg transition-all duration-300"
           >
             Book Your Appointment Now
           </button>

@@ -14,7 +14,7 @@ export default function GiftCardsPage({ colors }: GiftCardsPageProps) {
           <div style={{ color: '#ee9b00' }} className="text-sm font-bold uppercase tracking-widest mb-3">
             Gift Cards
           </div>
-          <h1 style={{ color: '#ffffff' }} className="text-6xl font-black mb-6">
+          <h1 style={{ color: '#ffffff' }} className="text-6xl font-bold mb-6">
             Share the Gourmet Experience
           </h1>
           <p style={{ color: '#f5f5f5' }} className="text-xl">
@@ -27,7 +27,7 @@ export default function GiftCardsPage({ colors }: GiftCardsPageProps) {
         <div className="max-w-6xl mx-auto px-4">
           <div className="grid md:grid-cols-2 gap-12 mb-16">
             <div style={{ backgroundColor: '#f8f8f8' }} className="p-12">
-              <h2 style={{ color: '#1a1a1a' }} className="text-3xl font-black mb-6">
+              <h2 style={{ color: '#1a1a1a' }} className="text-3xl font-bold mb-6">
                 Purchase Gift Card
               </h2>
               <form className="space-y-6">
@@ -39,7 +39,7 @@ export default function GiftCardsPage({ colors }: GiftCardsPageProps) {
                         key={amount}
                         type="button"
                         style={{ backgroundColor: '#ffffff', border: '3px solid #9b2226', color: '#1a1a1a' }}
-                        className="py-4 font-black text-xl hover:bg-red-900 hover:text-white transition"
+                        className="py-4 font-bold text-xl hover:bg-red-900 hover:text-white transition"
                       >
                         {amount}
                       </button>
@@ -149,7 +149,7 @@ export default function GiftCardsPage({ colors }: GiftCardsPageProps) {
 
             <div>
               <div style={{ backgroundColor: '#ee9b00' }} className="p-8 mb-8">
-                <h3 style={{ color: '#1a1a1a' }} className="text-2xl font-black mb-4">
+                <h3 style={{ color: '#1a1a1a' }} className="text-2xl font-bold mb-4">
                   Why Choose Our Gift Cards?
                 </h3>
                 <div className="space-y-4">
@@ -185,7 +185,7 @@ export default function GiftCardsPage({ colors }: GiftCardsPageProps) {
               </div>
 
               <div style={{ backgroundColor: '#f8f8f8' }} className="p-8 mb-8">
-                <h3 style={{ color: '#1a1a1a' }} className="text-2xl font-black mb-4">
+                <h3 style={{ color: '#1a1a1a' }} className="text-2xl font-bold mb-4">
                   Perfect For:
                 </h3>
                 <div className="grid grid-cols-2 gap-3">
@@ -207,7 +207,7 @@ export default function GiftCardsPage({ colors }: GiftCardsPageProps) {
               </div>
 
               <div style={{ backgroundColor: '#9b2226', color: '#ffffff' }} className="p-8">
-                <h3 className="text-2xl font-black mb-4">
+                <h3 className="text-2xl font-bold mb-4">
                   Bulk Gift Cards
                 </h3>
                 <p className="mb-4">
@@ -225,7 +225,7 @@ export default function GiftCardsPage({ colors }: GiftCardsPageProps) {
           </div>
 
           <div style={{ backgroundColor: '#f8f8f8' }} className="p-12">
-            <h2 style={{ color: '#1a1a1a' }} className="text-3xl font-black text-center mb-8">
+            <h2 style={{ color: '#1a1a1a' }} className="text-3xl font-bold text-center mb-8">
               Check Gift Card Balance
             </h2>
             <form className="max-w-2xl mx-auto">

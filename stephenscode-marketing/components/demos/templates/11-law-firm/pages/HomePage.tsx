@@ -168,7 +168,7 @@ export default function HomePage({ onNavigate, accentColor = '#c9a227' }: HomePa
                 <div
                   key={area.name}
                   onClick={() => onNavigate('practice-areas')}
-                  className="bg-white p-6 rounded-lg shadow-md cursor-pointer transition-all hover:shadow-xl hover:-translate-y-1"
+                  className="bg-white p-6 rounded-lg shadow-md cursor-pointer transition-all hover:shadow-xl"
                   style={{ borderTop: `4px solid ${accentColor}` }}
                 >
                   <Icon className="w-10 h-10 mb-4" style={{ color: accentColor }} />

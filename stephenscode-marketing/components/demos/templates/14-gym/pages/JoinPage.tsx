@@ -69,7 +69,7 @@ export default function JoinPage({ basePath }: JoinPageProps) {
               <span className="text-sm font-medium text-[#c1121f]">7 Days Free - No Credit Card Required</span>
             </div>
 
-            <h1 className="text-5xl sm:text-6xl font-black text-zinc-50 mb-6">
+            <h1 className="text-5xl sm:text-6xl font-bold text-zinc-50 mb-6">
               Join Iron Temple &
               <span className="block text-transparent bg-clip-text bg-gradient-to-r from-[#c1121f] to-[#fdf0d5]">
                 Start Today
@@ -112,7 +112,7 @@ export default function JoinPage({ basePath }: JoinPageProps) {
             {/* Form */}
             <div className="lg:col-span-2">
               <div className="bg-zinc-900 border border-zinc-800 rounded-2xl p-8">
-                <h2 className="text-3xl font-black text-zinc-50 mb-8">Complete Your Registration</h2>
+                <h2 className="text-3xl font-bold text-zinc-50 mb-8">Complete Your Registration</h2>
 
                 <form className="space-y-6">
                   {/* Personal Information */}
@@ -220,7 +220,7 @@ export default function JoinPage({ basePath }: JoinPageProps) {
                               </div>
                             </div>
                             <div className="text-right">
-                              <div className="text-2xl font-black text-zinc-50">${plan.price}</div>
+                              <div className="text-2xl font-bold text-zinc-50">${plan.price}</div>
                               <div className="text-xs text-zinc-500">per month</div>
                             </div>
                           </div>
@@ -284,7 +284,7 @@ export default function JoinPage({ basePath }: JoinPageProps) {
                   {/* Submit */}
                   <button
                     type="submit"
-                    className="w-full py-4 bg-gradient-to-r from-[#c1121f] to-[#780000] text-zinc-50 rounded-lg font-bold text-lg hover:shadow-xl hover:shadow-[#c1121f]/30 transition-all hover:scale-105"
+                    className="w-full py-4 bg-gradient-to-r from-[#c1121f] to-[#780000] text-zinc-50 rounded-lg font-bold text-lg hover:shadow-xl hover:shadow-[#c1121f]/30 transition-all"
                   >
                     Start Your 7-Day Free Trial
                   </button>
@@ -299,7 +299,7 @@ export default function JoinPage({ basePath }: JoinPageProps) {
             {/* Summary Sidebar */}
             <div className="lg:col-span-1">
               <div className="bg-zinc-900 border border-zinc-800 rounded-2xl p-6 sticky top-24">
-                <h3 className="text-xl font-black text-zinc-50 mb-6">Order Summary</h3>
+                <h3 className="text-xl font-bold text-zinc-50 mb-6">Order Summary</h3>
 
                 <div className="space-y-4 mb-6">
                   <div className="flex items-start justify-between">
@@ -331,7 +331,7 @@ export default function JoinPage({ basePath }: JoinPageProps) {
                   <div className="pt-4 border-t border-zinc-800">
                     <div className="flex items-center justify-between">
                       <span className="font-bold text-zinc-50">Due Today</span>
-                      <span className="text-2xl font-black text-[#c1121f]">$0</span>
+                      <span className="text-2xl font-bold text-[#c1121f]">$0</span>
                     </div>
                   </div>
                 </div>
@@ -363,7 +363,7 @@ export default function JoinPage({ basePath }: JoinPageProps) {
       {/* Trust Indicators */}
       <section className="py-20 bg-zinc-900">
         <div className="mx-auto max-w-4xl px-4 sm:px-6 lg:px-8 text-center">
-          <h2 className="text-3xl font-black text-zinc-50 mb-12">Why Join Iron Temple?</h2>
+          <h2 className="text-3xl font-bold text-zinc-50 mb-12">Why Join Iron Temple?</h2>
           <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
             {[
               { number: '5,000+', label: 'Happy Members' },
@@ -371,7 +371,7 @@ export default function JoinPage({ basePath }: JoinPageProps) {
               { number: '15+', label: 'Years in Business' },
             ].map((stat, index) => (
               <div key={index}>
-                <div className="text-5xl font-black text-transparent bg-clip-text bg-gradient-to-r from-[#c1121f] to-[#fdf0d5] mb-2">
+                <div className="text-5xl font-bold text-transparent bg-clip-text bg-gradient-to-r from-[#c1121f] to-[#fdf0d5] mb-2">
                   {stat.number}
                 </div>
                 <div className="text-zinc-400">{stat.label}</div>
@@ -385,7 +385,7 @@ export default function JoinPage({ basePath }: JoinPageProps) {
       <section className="py-20 bg-zinc-950">
         <div className="mx-auto max-w-3xl px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-12">
-            <h2 className="text-3xl font-black text-zinc-50 mb-4">Questions?</h2>
+            <h2 className="text-3xl font-bold text-zinc-50 mb-4">Questions?</h2>
             <p className="text-zinc-400">Here are some common questions about joining</p>
           </div>
 

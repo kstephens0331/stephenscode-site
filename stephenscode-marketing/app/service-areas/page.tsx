@@ -39,9 +39,9 @@ export default function ServiceAreasPage() {
     <Link
       key={area.slug}
       href={`/service-areas/${area.slug}`}
-      className="group bg-slate-800 rounded-lg p-6 hover:bg-primary-500/10 hover:shadow-md hover:shadow-black/20 transition-all"
+      className="group bg-surface-card rounded-lg p-6 hover:bg-primary-500/10 hover:shadow-md hover:shadow-black/20 transition-all"
     >
-      <h4 className="text-lg font-semibold text-white group-hover:text-primary-700">
+      <h4 className="text-lg font-semibold text-white group-hover:text-primary-400">
         {area.name}
         {area.slug === 'conroe' && (
           <span className="ml-2 text-xs bg-primary-600 text-white px-2 py-0.5 rounded">
@@ -58,7 +58,7 @@ export default function ServiceAreasPage() {
       <p className="mt-2 text-xs text-gray-500 line-clamp-2">
         {area.businessTypes.slice(0, 4).join(' · ')}
       </p>
-      <p className="mt-3 text-sm font-semibold text-primary-600 group-hover:text-primary-700">
+      <p className="mt-3 text-sm font-semibold text-primary-600 group-hover:text-primary-400">
         View details →
       </p>
     </Link>
@@ -68,7 +68,7 @@ export default function ServiceAreasPage() {
     if (areas.length === 0) return null
     return (
       <div className="mb-16 last:mb-0">
-        <h3 className="text-xl font-bold text-white mb-2 pb-2 border-b border-slate-700">
+        <h3 className="text-xl font-bold text-white mb-2 pb-2 border-b border-surface-border">
           {title}
         </h3>
         {description && (
@@ -84,7 +84,7 @@ export default function ServiceAreasPage() {
   return (
     <>
       {/* Hero Section */}
-      <section className="relative bg-gradient-to-br from-primary-900 via-primary-800 to-primary-700 text-white">
+      <section className="relative bg-gradient-to-br from-black via-surface to-surface-card text-white">
         <div className="mx-auto max-w-7xl px-6 py-16 sm:py-24 lg:px-8">
           <div className="mx-auto max-w-2xl text-center">
             <h1 className="text-4xl font-bold tracking-tight sm:text-5xl">
@@ -113,7 +113,7 @@ export default function ServiceAreasPage() {
       </section>
 
       {/* Stats Bar */}
-      <section className="bg-slate-900 py-8 border-b border-slate-700">
+      <section className="bg-surface py-8 border-b border-surface-border">
         <div className="mx-auto max-w-7xl px-6 lg:px-8">
           <dl className="grid grid-cols-2 gap-4 sm:grid-cols-4">
             <div className="text-center">
@@ -137,7 +137,7 @@ export default function ServiceAreasPage() {
       </section>
 
       {/* All Service Areas */}
-      <section className="bg-slate-900 py-16 sm:py-24">
+      <section className="bg-surface py-16 sm:py-24">
         <div className="mx-auto max-w-7xl px-6 lg:px-8">
           <div className="mx-auto max-w-3xl text-center mb-12">
             <h2 className="text-3xl font-bold tracking-tight text-white">
@@ -188,7 +188,7 @@ export default function ServiceAreasPage() {
       </section>
 
       {/* Not in Your Area Section */}
-      <section className="bg-slate-800 py-16 sm:py-24">
+      <section className="bg-surface-card py-16 sm:py-24">
         <div className="mx-auto max-w-7xl px-6 lg:px-8">
           <div className="mx-auto max-w-3xl text-center">
             <h2 className="text-3xl font-bold tracking-tight text-white sm:text-4xl">
@@ -198,21 +198,21 @@ export default function ServiceAreasPage() {
               While we're based in Conroe, Texas, we build websites for businesses across the entire United States through remote collaboration.
             </p>
             <div className="mt-10 grid grid-cols-1 gap-8 sm:grid-cols-3">
-              <div className="rounded-lg bg-slate-700/50 p-6 border border-slate-600">
+              <div className="rounded-lg bg-surface-elevated/70 p-6 border border-surface-border">
                 <div className="text-3xl mb-3">📹</div>
                 <h3 className="text-lg font-semibold text-white">Video Consultations</h3>
                 <p className="mt-2 text-sm text-gray-400">
                   Face-to-face meetings via Zoom or Google Meet. Screen sharing for real-time design reviews and feedback sessions.
                 </p>
               </div>
-              <div className="rounded-lg bg-slate-700/50 p-6 border border-slate-600">
+              <div className="rounded-lg bg-surface-elevated/70 p-6 border border-surface-border">
                 <div className="text-3xl mb-3">💬</div>
                 <h3 className="text-lg font-semibold text-white">Real-Time Communication</h3>
                 <p className="mt-2 text-sm text-gray-400">
                   Dedicated Slack channels, email, and phone support. You'll never wonder about your project's status.
                 </p>
               </div>
-              <div className="rounded-lg bg-slate-700/50 p-6 border border-slate-600">
+              <div className="rounded-lg bg-surface-elevated/70 p-6 border border-surface-border">
                 <div className="text-3xl mb-3">🚀</div>
                 <h3 className="text-lg font-semibold text-white">Same Quality, Any Distance</h3>
                 <p className="mt-2 text-sm text-gray-400">

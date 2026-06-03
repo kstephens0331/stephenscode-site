@@ -165,16 +165,16 @@ export default function Header() {
       <nav className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8" aria-label="Top">
         <div className="flex w-full items-center justify-between py-4">
           <div className="flex items-center">
-            <Link href="/" className="flex items-center gap-2 text-2xl font-bold text-white">
+            <Link href="/" className="flex items-center gap-2.5 text-xl font-semibold text-white" aria-label="StephensCode home">
               <Image
-                src="/images/favicon-512.png"
-                alt="StephensCode Logo"
-                width={32}
-                height={32}
-                className="w-8 h-8 object-contain"
+                src="/logo-mark.png"
+                alt="StephensCode"
+                width={36}
+                height={36}
+                className="h-9 w-9 object-contain"
                 priority
               />
-              <span>StephensCode</span>
+              <span className="tracking-tight">StephensCode</span>
             </Link>
           </div>
 
@@ -202,7 +202,7 @@ export default function Header() {
             <Link
               href="/contact"
               aria-label="Get started - request a free quote"
-              className="ml-4 inline-flex items-center rounded-md bg-primary-500 px-4 py-2 text-sm font-semibold text-white shadow-glow hover:bg-primary-600 hover:shadow-glow-lg transition-all"
+              className="ml-4 inline-flex items-center rounded-md bg-primary-500 px-4 py-2 text-sm font-semibold text-white hover:bg-primary-600 transition-colors"
             >
               Get Started
             </Link>
@@ -382,7 +382,7 @@ export default function Header() {
               </Link>
               <Link
                 href="/contact"
-                className="block rounded-lg bg-primary-500 px-3 py-2 text-base font-semibold text-white shadow-glow hover:bg-primary-600 mt-2 transition-all"
+                className="block rounded-lg bg-primary-500 px-3 py-2 text-base font-semibold text-white hover:bg-primary-600 mt-2 transition-all"
                 onClick={() => setMobileMenuOpen(false)}
               >
                 Get Started

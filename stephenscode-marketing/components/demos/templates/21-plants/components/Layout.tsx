@@ -40,7 +40,7 @@ export default function Layout({ demo, currentPage, onNavigate, cartItemCount, c
               }}
               className="flex items-center gap-2 group"
             >
-              <div className="w-10 h-10 bg-[var(--color-primary)] rounded-lg flex items-center justify-center transform group-hover:scale-110 transition-transform">
+              <div className="w-10 h-10 bg-[var(--color-primary)] rounded-lg flex items-center justify-center transform group- transition-transform">
                 <Leaf className="w-6 h-6 text-white" />
               </div>
               <div className="hidden sm:block">

@@ -489,7 +489,7 @@ const BellaBoutique: React.FC = () => {
           onClick={onClick}
         >
           <div
-            className="w-full h-full transform group-hover:scale-110 transition-transform duration-500"
+            className="w-full h-full transform group- transition-transform duration-500"
             style={{ background: product.image }}
           />
 
@@ -1038,7 +1038,7 @@ const BellaBoutique: React.FC = () => {
               className="group relative h-80 rounded-lg overflow-hidden shadow-md hover:shadow-xl transition-shadow"
             >
               <div
-                className="w-full h-full transform group-hover:scale-110 transition-transform duration-500"
+                className="w-full h-full transform group- transition-transform duration-500"
                 style={{ background: collection.image }}
               />
               <div className="absolute inset-0 bg-gradient-to-t from-black/70 via-black/30 to-transparent flex flex-col justify-end p-6 text-white">
@@ -1300,10 +1300,10 @@ const BellaBoutique: React.FC = () => {
         {collections.map(collection => (
           <div
             key={collection.id}
-            className="group relative h-96 rounded-2xl overflow-hidden shadow-lg hover:shadow-2xl transition-shadow cursor-pointer"
+            className="group relative h-96 rounded-2xl overflow-hidden shadow-lg transition-shadow cursor-pointer"
           >
             <div
-              className="w-full h-full transform group-hover:scale-110 transition-transform duration-500"
+              className="w-full h-full transform group- transition-transform duration-500"
               style={{ background: collection.image }}
             />
             <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/40 to-transparent flex flex-col justify-end p-8 text-white">

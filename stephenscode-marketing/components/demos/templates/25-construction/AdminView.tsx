@@ -38,7 +38,7 @@ export default function AdminView({ demo, colors }: AdminViewProps) {
       {/* Dashboard Header */}
       <div style={{ backgroundColor: '#ff6700' }} className="py-8">
         <div className="max-w-7xl mx-auto px-4">
-          <h1 style={{ color: '#ffffff' }} className="text-4xl font-black mb-2">
+          <h1 style={{ color: '#ffffff' }} className="text-4xl font-bold mb-2">
             Construction Management Dashboard
           </h1>
           <p style={{ color: '#1a1a1a' }} className="text-lg font-bold">
@@ -52,22 +52,22 @@ export default function AdminView({ demo, colors }: AdminViewProps) {
         <div className="grid md:grid-cols-4 gap-6">
           <div style={{ backgroundColor: '#ffffff' }} className="p-6 shadow-lg">
             <div style={{ color: '#666666' }} className="text-sm font-bold uppercase mb-2">Active Projects</div>
-            <div style={{ color: '#1a1a1a' }} className="text-4xl font-black mb-1">12</div>
+            <div style={{ color: '#1a1a1a' }} className="text-4xl font-bold mb-1">12</div>
             <div style={{ color: '#22c55e' }} className="text-sm font-bold">↑ 3 new this month</div>
           </div>
           <div style={{ backgroundColor: '#ffffff' }} className="p-6 shadow-lg">
             <div style={{ color: '#666666' }} className="text-sm font-bold uppercase mb-2">Total Value</div>
-            <div style={{ color: '#1a1a1a' }} className="text-4xl font-black mb-1">$4.8M</div>
+            <div style={{ color: '#1a1a1a' }} className="text-4xl font-bold mb-1">$4.8M</div>
             <div style={{ color: '#22c55e' }} className="text-sm font-bold">↑ 18% vs last month</div>
           </div>
           <div style={{ backgroundColor: '#ffffff' }} className="p-6 shadow-lg">
             <div style={{ color: '#666666' }} className="text-sm font-bold uppercase mb-2">Pending Quotes</div>
-            <div style={{ color: '#1a1a1a' }} className="text-4xl font-black mb-1">27</div>
+            <div style={{ color: '#1a1a1a' }} className="text-4xl font-bold mb-1">27</div>
             <div style={{ color: '#fbbf24' }} className="text-sm font-bold">15 need follow-up</div>
           </div>
           <div style={{ backgroundColor: '#ffffff' }} className="p-6 shadow-lg">
             <div style={{ color: '#666666' }} className="text-sm font-bold uppercase mb-2">Client Satisfaction</div>
-            <div style={{ color: '#1a1a1a' }} className="text-4xl font-black mb-1">4.9</div>
+            <div style={{ color: '#1a1a1a' }} className="text-4xl font-bold mb-1">4.9</div>
             <div style={{ color: '#22c55e' }} className="text-sm font-bold">Excellent rating</div>
           </div>
         </div>
@@ -100,7 +100,7 @@ export default function AdminView({ demo, colors }: AdminViewProps) {
         {activeTab === 'projects' && (
           <div style={{ backgroundColor: '#ffffff' }} className="p-8 shadow-lg">
             <div className="flex justify-between items-center mb-6">
-              <h2 style={{ color: '#1a1a1a' }} className="text-2xl font-black">Active Construction Projects</h2>
+              <h2 style={{ color: '#1a1a1a' }} className="text-2xl font-bold">Active Construction Projects</h2>
               <button style={{ backgroundColor: '#ff6700', color: '#ffffff' }} className="px-6 py-3 font-bold">
                 + New Project
               </button>
@@ -111,7 +111,7 @@ export default function AdminView({ demo, colors }: AdminViewProps) {
                   <div className="flex justify-between items-start mb-4">
                     <div>
                       <div className="flex items-center gap-3 mb-2">
-                        <span style={{ color: '#1a1a1a' }} className="text-xl font-black">{project.id}</span>
+                        <span style={{ color: '#1a1a1a' }} className="text-xl font-bold">{project.id}</span>
                         <span style={{
                           backgroundColor: project.timeline === 'Ahead' ? '#22c55e' : '#3b82f6',
                           color: '#ffffff'
@@ -126,7 +126,7 @@ export default function AdminView({ demo, colors }: AdminViewProps) {
                       </div>
                     </div>
                     <div className="text-right">
-                      <div style={{ color: '#ff6700' }} className="text-2xl font-black mb-1">{project.budget}</div>
+                      <div style={{ color: '#ff6700' }} className="text-2xl font-bold mb-1">{project.budget}</div>
                       <div style={{ color: '#666666' }} className="text-sm">Spent: {project.spent}</div>
                     </div>
                   </div>
@@ -134,7 +134,7 @@ export default function AdminView({ demo, colors }: AdminViewProps) {
                   <div className="mb-4">
                     <div className="flex justify-between items-center mb-2">
                       <span style={{ color: '#1a1a1a' }} className="font-bold text-sm">Project Progress</span>
-                      <span style={{ color: '#ff6700' }} className="font-black">{project.progress}%</span>
+                      <span style={{ color: '#ff6700' }} className="font-bold">{project.progress}%</span>
                     </div>
                     <div style={{ backgroundColor: '#e5e5e5' }} className="h-4 rounded-full overflow-hidden">
                       <div
@@ -164,14 +164,14 @@ export default function AdminView({ demo, colors }: AdminViewProps) {
         {/* Quotes Tab */}
         {activeTab === 'quotes' && (
           <div style={{ backgroundColor: '#ffffff' }} className="p-8 shadow-lg">
-            <h2 style={{ color: '#1a1a1a' }} className="text-2xl font-black mb-6">Recent Quote Requests</h2>
+            <h2 style={{ color: '#1a1a1a' }} className="text-2xl font-bold mb-6">Recent Quote Requests</h2>
             <div className="space-y-4">
               {recentQuotes.map((quote) => (
                 <div key={quote.id} style={{ backgroundColor: '#f8f8f8', border: '2px solid #e5e5e5' }} className="p-6">
                   <div className="flex justify-between items-start">
                     <div>
                       <div className="flex items-center gap-3 mb-2">
-                        <span style={{ color: '#1a1a1a' }} className="text-lg font-black">{quote.id}</span>
+                        <span style={{ color: '#1a1a1a' }} className="text-lg font-bold">{quote.id}</span>
                         <span style={{
                           backgroundColor: quote.status === 'Accepted' ? '#22c55e' :
                                         quote.status === 'Pending' ? '#fbbf24' : '#9ca3af',
@@ -187,7 +187,7 @@ export default function AdminView({ demo, colors }: AdminViewProps) {
                       </div>
                     </div>
                     <div className="text-right">
-                      <div style={{ color: '#ff6700' }} className="text-2xl font-black">{quote.value}</div>
+                      <div style={{ color: '#ff6700' }} className="text-2xl font-bold">{quote.value}</div>
                       <div className="flex gap-2 mt-3">
                         <button style={{ backgroundColor: '#3b82f6', color: '#ffffff' }} className="px-4 py-2 font-bold text-sm">
                           View
@@ -209,14 +209,14 @@ export default function AdminView({ demo, colors }: AdminViewProps) {
         {/* Clients Tab */}
         {activeTab === 'clients' && (
           <div style={{ backgroundColor: '#ffffff' }} className="p-8 shadow-lg">
-            <h2 style={{ color: '#1a1a1a' }} className="text-2xl font-black mb-6">Client Management</h2>
+            <h2 style={{ color: '#1a1a1a' }} className="text-2xl font-bold mb-6">Client Management</h2>
             <div className="space-y-4">
               {clients.map((client, idx) => (
                 <div key={idx} style={{ backgroundColor: '#f8f8f8', border: '2px solid #e5e5e5' }} className="p-6">
                   <div className="flex justify-between items-center">
                     <div>
                       <div className="flex items-center gap-3 mb-2">
-                        <span style={{ color: '#1a1a1a' }} className="text-lg font-black">{client.name}</span>
+                        <span style={{ color: '#1a1a1a' }} className="text-lg font-bold">{client.name}</span>
                         <span style={{ backgroundColor: '#22c55e', color: '#ffffff' }} className="px-3 py-1 text-xs font-bold uppercase">
                           {client.status}
                         </span>
@@ -244,7 +244,7 @@ export default function AdminView({ demo, colors }: AdminViewProps) {
         {/* Analytics Tab */}
         {activeTab === 'analytics' && (
           <div style={{ backgroundColor: '#ffffff' }} className="p-8 shadow-lg">
-            <h2 style={{ color: '#1a1a1a' }} className="text-2xl font-black mb-8">Business Analytics</h2>
+            <h2 style={{ color: '#1a1a1a' }} className="text-2xl font-bold mb-8">Business Analytics</h2>
             <div className="grid md:grid-cols-2 gap-8">
               <div>
                 <h3 style={{ color: '#ff6700' }} className="text-xl font-bold mb-4">Revenue by Project Type</h3>
@@ -258,7 +258,7 @@ export default function AdminView({ demo, colors }: AdminViewProps) {
                     <div key={item.type}>
                       <div className="flex justify-between mb-2">
                         <span style={{ color: '#1a1a1a' }} className="font-bold">{item.type}</span>
-                        <span style={{ color: '#ff6700' }} className="font-black">{item.revenue}</span>
+                        <span style={{ color: '#ff6700' }} className="font-bold">{item.revenue}</span>
                       </div>
                       <div style={{ backgroundColor: '#e5e5e5' }} className="h-3 rounded-full overflow-hidden">
                         <div
@@ -276,19 +276,19 @@ export default function AdminView({ demo, colors }: AdminViewProps) {
                 <div className="space-y-4">
                   <div style={{ backgroundColor: '#f8f8f8' }} className="p-4">
                     <div style={{ color: '#666666' }} className="text-sm mb-1">Average Project Value</div>
-                    <div style={{ color: '#1a1a1a' }} className="text-3xl font-black">$285,000</div>
+                    <div style={{ color: '#1a1a1a' }} className="text-3xl font-bold">$285,000</div>
                   </div>
                   <div style={{ backgroundColor: '#f8f8f8' }} className="p-4">
                     <div style={{ color: '#666666' }} className="text-sm mb-1">Quote Conversion Rate</div>
-                    <div style={{ color: '#1a1a1a' }} className="text-3xl font-black">68%</div>
+                    <div style={{ color: '#1a1a1a' }} className="text-3xl font-bold">68%</div>
                   </div>
                   <div style={{ backgroundColor: '#f8f8f8' }} className="p-4">
                     <div style={{ color: '#666666' }} className="text-sm mb-1">On-Time Completion Rate</div>
-                    <div style={{ color: '#1a1a1a' }} className="text-3xl font-black">94%</div>
+                    <div style={{ color: '#1a1a1a' }} className="text-3xl font-bold">94%</div>
                   </div>
                   <div style={{ backgroundColor: '#f8f8f8' }} className="p-4">
                     <div style={{ color: '#666666' }} className="text-sm mb-1">Referral Rate</div>
-                    <div style={{ color: '#1a1a1a' }} className="text-3xl font-black">72%</div>
+                    <div style={{ color: '#1a1a1a' }} className="text-3xl font-bold">72%</div>
                   </div>
                 </div>
               </div>

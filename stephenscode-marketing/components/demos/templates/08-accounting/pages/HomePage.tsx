@@ -85,7 +85,7 @@ export default function HomePage({ onNavigate }: HomePageProps) {
               <div className="flex flex-wrap gap-4">
                 <button
                   onClick={() => onNavigate('contact')}
-                  className="bg-[#fca311] text-[#14213d] px-8 py-4 rounded-lg font-semibold text-lg hover:bg-[#e59400] transition-all hover:scale-105"
+                  className="bg-[#fca311] text-[#14213d] px-8 py-4 rounded-lg font-semibold text-lg hover:bg-[#e59400] transition-all"
                 >
                   Schedule Free Consultation
                 </button>
@@ -170,7 +170,7 @@ export default function HomePage({ onNavigate }: HomePageProps) {
               return (
                 <div
                   key={index}
-                  className="bg-white rounded-xl p-8 shadow-lg hover:shadow-xl transition-all hover:-translate-y-1"
+                  className="bg-white rounded-xl p-8 shadow-lg hover:shadow-xl transition-all"
                 >
                   <div className="w-16 h-16 bg-[#14213d] rounded-lg flex items-center justify-center mb-6">
                     <Icon className="text-[#fca311]" size={32} />
@@ -235,7 +235,7 @@ export default function HomePage({ onNavigate }: HomePageProps) {
           </p>
           <button
             onClick={() => onNavigate('contact')}
-            className="bg-[#fca311] text-[#14213d] px-10 py-4 rounded-lg font-semibold text-lg hover:bg-[#e59400] transition-all hover:scale-105 inline-flex items-center gap-2"
+            className="bg-[#fca311] text-[#14213d] px-10 py-4 rounded-lg font-semibold text-lg hover:bg-[#e59400] transition-all inline-flex items-center gap-2"
           >
             Get Started Now <ChevronRight size={24} />
           </button>

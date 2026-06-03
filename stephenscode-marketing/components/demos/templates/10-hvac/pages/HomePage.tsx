@@ -195,7 +195,7 @@ export default function HomePage({ onNavigate }: HomePageProps) {
             {services.map((service, index) => (
               <div
                 key={index}
-                className="bg-white rounded-xl shadow-lg hover:shadow-2xl transition-all duration-300 overflow-hidden border-2 border-gray-100 hover:border-[#f77f00] cursor-pointer group"
+                className="bg-white rounded-xl shadow-lg transition-all duration-300 overflow-hidden border-2 border-gray-100 hover:border-[#f77f00] cursor-pointer group"
                 onClick={() => onNavigate('services')}
               >
                 <div className="bg-gradient-to-br from-[#003049] to-[#004d73] p-6 text-white">

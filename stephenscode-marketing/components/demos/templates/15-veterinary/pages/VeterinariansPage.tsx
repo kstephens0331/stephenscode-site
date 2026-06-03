@@ -196,7 +196,7 @@ export default function VeterinariansPage({ onNavigate, colors }: VeterinariansP
             {veterinarians.map((vet, index) => (
               <div
                 key={index}
-                className="bg-white rounded-2xl shadow-xl overflow-hidden hover:shadow-2xl transition-all"
+                className="bg-white rounded-2xl shadow-xl overflow-hidden transition-all"
               >
                 <div className="md:flex">
                   {/* Image Side */}

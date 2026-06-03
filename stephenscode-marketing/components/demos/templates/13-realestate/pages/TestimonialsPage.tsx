@@ -193,7 +193,7 @@ const TestimonialsPage: React.FC = () => {
           {filteredTestimonials.map((testimonial) => (
             <div
               key={testimonial.id}
-              className="bg-white rounded-xl shadow-lg overflow-hidden hover:shadow-2xl transition-all"
+              className="bg-white rounded-xl shadow-lg overflow-hidden transition-all"
             >
               {/* Header */}
               <div className="p-6 border-b">

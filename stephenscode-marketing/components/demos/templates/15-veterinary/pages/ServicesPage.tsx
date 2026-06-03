@@ -196,7 +196,7 @@ export default function ServicesPage({ onNavigate, colors }: ServicesPageProps) 
             {services.map((service, index) => (
               <div
                 key={index}
-                className="bg-white rounded-2xl shadow-lg hover:shadow-2xl transition-all transform hover:-translate-y-2 overflow-hidden"
+                className="bg-white rounded-2xl shadow-lg transition-all transform hover:-translate-y-2 overflow-hidden"
               >
                 <div className="p-6 border-b-4" style={{ borderBottomColor: colors.secondary }}>
                   <service.icon className="w-12 h-12 mb-4" style={{ color: colors.primary }} />

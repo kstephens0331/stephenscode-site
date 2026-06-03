@@ -191,7 +191,7 @@ export default function ServicesPage({ onNavigate, colors }: ServicesPageProps) 
             {services.map((service, index) => (
               <div
                 key={index}
-                className="bg-white rounded-xl shadow-lg hover:shadow-2xl transition-all overflow-hidden"
+                className="bg-white rounded-xl shadow-lg transition-all overflow-hidden"
               >
                 <div className="p-8">
                   <div className="flex items-start justify-between mb-4">
@@ -334,7 +334,7 @@ export default function ServicesPage({ onNavigate, colors }: ServicesPageProps) 
           </p>
           <button
             onClick={() => onNavigate('contact')}
-            className="px-8 py-4 rounded-lg font-bold text-lg shadow-xl hover:shadow-2xl transition-all transform hover:scale-105 inline-flex items-center gap-2"
+            className="px-8 py-4 rounded-lg font-bold text-lg shadow-xl transition-all transform inline-flex items-center gap-2"
             style={{ backgroundColor: colors.accent, color: 'white' }}
           >
             Request Free Quote

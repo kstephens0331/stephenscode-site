@@ -260,13 +260,13 @@ const ListingsPage: React.FC = () => {
             {listings.map((listing) => (
               <div
                 key={listing.id}
-                className="bg-white rounded-xl overflow-hidden shadow-lg hover:shadow-2xl transition-all group cursor-pointer"
+                className="bg-white rounded-xl overflow-hidden shadow-lg transition-all group cursor-pointer"
               >
                 <div className="relative overflow-hidden h-64">
                   <img
                     src={listing.image}
                     alt={listing.title}
-                    className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500"
+                    className="w-full h-full object-cover group- transition-transform duration-500"
                   />
                   {listing.featured && (
                     <div className="absolute top-4 left-4 bg-[#ffc300] text-[#000814] px-3 py-1 rounded-full text-sm font-bold">
@@ -318,14 +318,14 @@ const ListingsPage: React.FC = () => {
             {listings.map((listing) => (
               <div
                 key={listing.id}
-                className="bg-white rounded-xl overflow-hidden shadow-lg hover:shadow-2xl transition-all group cursor-pointer"
+                className="bg-white rounded-xl overflow-hidden shadow-lg transition-all group cursor-pointer"
               >
                 <div className="flex flex-col md:flex-row">
                   <div className="relative overflow-hidden md:w-96 h-64">
                     <img
                       src={listing.image}
                       alt={listing.title}
-                      className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500"
+                      className="w-full h-full object-cover group- transition-transform duration-500"
                     />
                     {listing.featured && (
                       <div className="absolute top-4 left-4 bg-[#ffc300] text-[#000814] px-3 py-1 rounded-full text-sm font-bold">

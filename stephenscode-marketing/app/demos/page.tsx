@@ -24,10 +24,10 @@ export default function DemosPage() {
   return (
     <>
       {/* Hero Section */}
-      <section className="relative bg-gradient-to-br from-primary-900 via-primary-800 to-primary-700 text-white">
+      <section className="relative bg-gradient-to-br from-black via-surface to-surface-card text-white">
         <div className="mx-auto max-w-7xl px-6 py-24 sm:py-32 lg:px-8">
           <div className="mx-auto max-w-2xl text-center">
-            <div className="mb-8 inline-flex items-center gap-2 rounded-full bg-slate-800/40 px-4 py-2 text-sm font-medium backdrop-blur">
+            <div className="mb-8 inline-flex items-center gap-2 rounded-full bg-surface-card/60 px-4 py-2 text-sm font-medium backdrop-blur">
               <span className="text-2xl">🎨</span>
               <span>40+ Live Interactive Demos</span>
             </div>
@@ -56,7 +56,7 @@ export default function DemosPage() {
       </section>
 
       {/* Stats */}
-      <section className="bg-slate-900 py-16">
+      <section className="bg-surface py-16">
         <div className="mx-auto max-w-7xl px-6 lg:px-8">
           <dl className="grid grid-cols-1 gap-8 sm:grid-cols-2 lg:grid-cols-4">
             <div className="flex flex-col items-center border-l-4 border-accent-500 pl-6">
@@ -85,7 +85,7 @@ export default function DemosPage() {
       </div>
 
       {/* Interactive Features Callout */}
-      <section className="bg-slate-900 py-24 sm:py-32">
+      <section className="bg-surface py-24 sm:py-32">
         <div className="mx-auto max-w-7xl px-6 lg:px-8">
           <div className="mx-auto max-w-2xl text-center mb-16">
             <h2 className="text-3xl font-bold tracking-tight text-white sm:text-4xl">

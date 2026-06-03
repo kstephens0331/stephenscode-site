@@ -25,7 +25,7 @@ export default function HomePage({ colors, onNavigate, onBookingOpen }: HomePage
             <div style={{ color: '#d4af37' }} className="text-sm font-bold uppercase tracking-widest mb-4">
               Premium Barbering Since 2010
             </div>
-            <h1 style={{ color: '#ffffff' }} className="text-6xl md:text-7xl font-black leading-tight mb-6">
+            <h1 style={{ color: '#ffffff' }} className="text-6xl md:text-7xl font-bold leading-tight mb-6">
               Where Tradition<br />Meets Precision
             </h1>
             <p style={{ color: '#c4a962' }} className="text-xl leading-relaxed mb-10">
@@ -60,7 +60,7 @@ export default function HomePage({ colors, onNavigate, onBookingOpen }: HomePage
             <div style={{ color: '#d4af37' }} className="text-sm font-bold uppercase tracking-widest mb-3">
               Why Classic Cuts
             </div>
-            <h2 style={{ color: '#1a1a1a' }} className="text-5xl font-black mb-4">
+            <h2 style={{ color: '#1a1a1a' }} className="text-5xl font-bold mb-4">
               The Classic Cuts Difference
             </h2>
             <p style={{ color: '#666666' }} className="text-lg max-w-2xl mx-auto">
@@ -106,7 +106,7 @@ export default function HomePage({ colors, onNavigate, onBookingOpen }: HomePage
             <div style={{ color: '#d4af37' }} className="text-sm font-bold uppercase tracking-widest mb-3">
               Our Most Popular Services
             </div>
-            <h2 style={{ color: '#1a1a1a' }} className="text-5xl font-black mb-4">
+            <h2 style={{ color: '#1a1a1a' }} className="text-5xl font-bold mb-4">
               Signature Grooming Services
             </h2>
           </div>
@@ -115,8 +115,8 @@ export default function HomePage({ colors, onNavigate, onBookingOpen }: HomePage
             {/* Signature Haircut */}
             <div style={{ backgroundColor: '#ffffff', border: '3px solid #d4af37' }} className="p-8 hover:shadow-xl transition">
               <div className="flex justify-between items-start mb-4">
-                <h3 style={{ color: '#1a1a1a' }} className="text-2xl font-black">Signature Haircut</h3>
-                <div style={{ color: '#d4af37' }} className="text-3xl font-black">$45</div>
+                <h3 style={{ color: '#1a1a1a' }} className="text-2xl font-bold">Signature Haircut</h3>
+                <div style={{ color: '#d4af37' }} className="text-3xl font-bold">$45</div>
               </div>
               <div style={{ color: '#999999' }} className="text-sm mb-4">⏱ 45 minutes</div>
               <p style={{ color: '#666666' }} className="leading-relaxed mb-6">
@@ -135,8 +135,8 @@ export default function HomePage({ colors, onNavigate, onBookingOpen }: HomePage
             {/* The Executive */}
             <div style={{ backgroundColor: '#ffffff', border: '3px solid #d4af37' }} className="p-8 hover:shadow-xl transition">
               <div className="flex justify-between items-start mb-4">
-                <h3 style={{ color: '#1a1a1a' }} className="text-2xl font-black">The Executive</h3>
-                <div style={{ color: '#d4af37' }} className="text-3xl font-black">$75</div>
+                <h3 style={{ color: '#1a1a1a' }} className="text-2xl font-bold">The Executive</h3>
+                <div style={{ color: '#d4af37' }} className="text-3xl font-bold">$75</div>
               </div>
               <div style={{ color: '#999999' }} className="text-sm mb-4">⏱ 75 minutes</div>
               <p style={{ color: '#666666' }} className="leading-relaxed mb-6">
@@ -172,7 +172,7 @@ export default function HomePage({ colors, onNavigate, onBookingOpen }: HomePage
             <div style={{ color: '#d4af37' }} className="text-sm font-bold uppercase tracking-widest mb-3">
               Client Testimonials
             </div>
-            <h2 style={{ color: '#1a1a1a' }} className="text-5xl font-black mb-4">
+            <h2 style={{ color: '#1a1a1a' }} className="text-5xl font-bold mb-4">
               What Our Clients Say
             </h2>
           </div>
@@ -232,7 +232,7 @@ export default function HomePage({ colors, onNavigate, onBookingOpen }: HomePage
       {/* CTA Section */}
       <section className="py-24" style={{ backgroundColor: '#1a1a1a' }}>
         <div className="max-w-4xl mx-auto px-4 text-center">
-          <h2 style={{ color: '#ffffff' }} className="text-5xl font-black mb-6">
+          <h2 style={{ color: '#ffffff' }} className="text-5xl font-bold mb-6">
             Ready for the Classic Cuts Experience?
           </h2>
           <p style={{ color: '#c4a962' }} className="text-xl mb-10">

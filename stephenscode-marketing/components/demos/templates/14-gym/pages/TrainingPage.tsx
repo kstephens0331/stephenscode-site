@@ -114,7 +114,7 @@ export default function TrainingPage({ basePath }: TrainingPageProps) {
               <span className="text-sm font-medium text-[#c1121f]">Elite Personal Training</span>
             </div>
 
-            <h1 className="text-5xl sm:text-6xl font-black text-zinc-50 mb-6">
+            <h1 className="text-5xl sm:text-6xl font-bold text-zinc-50 mb-6">
               Personal Training &
               <span className="block text-transparent bg-clip-text bg-gradient-to-r from-[#c1121f] to-[#fdf0d5]">
                 1-on-1 Coaching
@@ -128,7 +128,7 @@ export default function TrainingPage({ basePath }: TrainingPageProps) {
 
             <Link
               href={`${basePath}/join`}
-              className="inline-flex items-center px-8 py-4 bg-gradient-to-r from-[#c1121f] to-[#780000] text-zinc-50 rounded-lg font-bold text-lg hover:shadow-xl hover:shadow-[#c1121f]/30 transition-all hover:scale-105"
+              className="inline-flex items-center px-8 py-4 bg-gradient-to-r from-[#c1121f] to-[#780000] text-zinc-50 rounded-lg font-bold text-lg hover:shadow-xl hover:shadow-[#c1121f]/30 transition-all"
             >
               Book Free Consultation
             </Link>
@@ -140,7 +140,7 @@ export default function TrainingPage({ basePath }: TrainingPageProps) {
       <section className="py-20 bg-zinc-950">
         <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-12">
-            <h2 className="text-4xl font-black text-zinc-50 mb-4">Why Personal Training?</h2>
+            <h2 className="text-4xl font-bold text-zinc-50 mb-4">Why Personal Training?</h2>
             <p className="text-xl text-zinc-400">Invest in yourself with dedicated coaching</p>
           </div>
 
@@ -165,7 +165,7 @@ export default function TrainingPage({ basePath }: TrainingPageProps) {
       <section className="py-20 bg-zinc-900">
         <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-12">
-            <h2 className="text-4xl font-black text-zinc-50 mb-4">Training Programs</h2>
+            <h2 className="text-4xl font-bold text-zinc-50 mb-4">Training Programs</h2>
             <p className="text-xl text-zinc-400">Specialized programs for your goals</p>
           </div>
 
@@ -204,7 +204,7 @@ export default function TrainingPage({ basePath }: TrainingPageProps) {
       <section className="py-20 bg-zinc-950">
         <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-12">
-            <h2 className="text-4xl font-black text-zinc-50 mb-4">Meet Our Expert Trainers</h2>
+            <h2 className="text-4xl font-bold text-zinc-50 mb-4">Meet Our Expert Trainers</h2>
             <p className="text-xl text-zinc-400">Certified professionals dedicated to your success</p>
           </div>
 
@@ -267,7 +267,7 @@ export default function TrainingPage({ basePath }: TrainingPageProps) {
         <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
           <div className="max-w-4xl mx-auto">
             <div className="text-center mb-12">
-              <h2 className="text-4xl font-black text-zinc-50 mb-4">What's Included</h2>
+              <h2 className="text-4xl font-bold text-zinc-50 mb-4">What's Included</h2>
               <p className="text-xl text-zinc-400">Everything you need for success</p>
             </div>
 
@@ -296,7 +296,7 @@ export default function TrainingPage({ basePath }: TrainingPageProps) {
       <section className="py-20 bg-zinc-950">
         <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-12">
-            <h2 className="text-4xl font-black text-zinc-50 mb-4">Training Packages</h2>
+            <h2 className="text-4xl font-bold text-zinc-50 mb-4">Training Packages</h2>
             <p className="text-xl text-zinc-400">Flexible options to fit your schedule</p>
           </div>
 
@@ -352,7 +352,7 @@ export default function TrainingPage({ basePath }: TrainingPageProps) {
                 <div className="text-center mb-6">
                   <h3 className="text-2xl font-bold text-zinc-50 mb-2">{plan.name}</h3>
                   <div className="text-zinc-400 text-sm mb-4">{plan.sessions}</div>
-                  <div className="text-5xl font-black text-zinc-50 mb-1">{plan.price}</div>
+                  <div className="text-5xl font-bold text-zinc-50 mb-1">{plan.price}</div>
                   <div className="text-zinc-500 text-sm">per month</div>
                 </div>
 
@@ -384,7 +384,7 @@ export default function TrainingPage({ basePath }: TrainingPageProps) {
       {/* CTA Section */}
       <section className="py-20 bg-gradient-to-br from-zinc-900 via-[#780000]/20 to-zinc-900">
         <div className="mx-auto max-w-4xl px-4 sm:px-6 lg:px-8 text-center">
-          <h2 className="text-4xl font-black text-zinc-50 mb-6">
+          <h2 className="text-4xl font-bold text-zinc-50 mb-6">
             Ready to Transform Your Fitness?
           </h2>
           <p className="text-xl text-zinc-300 mb-8">
@@ -392,7 +392,7 @@ export default function TrainingPage({ basePath }: TrainingPageProps) {
           </p>
           <Link
             href={`${basePath}/join`}
-            className="inline-flex items-center px-8 py-4 bg-gradient-to-r from-[#c1121f] to-[#780000] text-zinc-50 rounded-lg font-bold text-lg hover:shadow-xl hover:shadow-[#c1121f]/30 transition-all hover:scale-105"
+            className="inline-flex items-center px-8 py-4 bg-gradient-to-r from-[#c1121f] to-[#780000] text-zinc-50 rounded-lg font-bold text-lg hover:shadow-xl hover:shadow-[#c1121f]/30 transition-all"
           >
             Book Free Consultation
           </Link>

@@ -200,7 +200,7 @@ export default function BusinessAutomation() {
       />
 
       {/* Hero Section */}
-      <section className="relative bg-gradient-to-br from-primary-900 via-primary-800 to-primary-700 text-white overflow-hidden">
+      <section className="relative bg-gradient-to-br from-black via-surface to-surface-card text-white overflow-hidden">
         <div className="absolute inset-0 opacity-10">
           <svg className="absolute w-full h-full" xmlns="http://www.w3.org/2000/svg">
             <defs>
@@ -214,7 +214,7 @@ export default function BusinessAutomation() {
 
         <div className="relative mx-auto max-w-7xl px-6 py-24 sm:py-32 lg:px-8">
           <div className="mx-auto max-w-4xl">
-            <div className="inline-flex items-center gap-3 rounded-full bg-slate-800/40 px-6 py-3 text-sm font-semibold backdrop-blur-lg border border-slate-600 mb-8">
+            <div className="inline-flex items-center gap-3 rounded-full bg-surface-card/60 px-6 py-3 text-sm font-semibold backdrop-blur-lg border border-surface-border mb-8">
               <span className="text-2xl">⚡</span>
               <span>Save 10-20 Hours Per Week</span>
             </div>
@@ -233,7 +233,7 @@ export default function BusinessAutomation() {
                 <span className="block text-sm text-gray-200">Average Time Saved</span>
                 <span className="text-3xl font-bold text-white">10-20 hrs/week</span>
               </div>
-              <div className="rounded-2xl bg-slate-800/40 px-6 py-4 border border-slate-600">
+              <div className="rounded-2xl bg-surface-card/60 px-6 py-4 border border-surface-border">
                 <span className="block text-sm text-gray-200">Platforms</span>
                 <span className="text-3xl font-bold text-white">Zapier, n8n, Make, Custom</span>
               </div>
@@ -242,13 +242,13 @@ export default function BusinessAutomation() {
             <div className="flex flex-col sm:flex-row items-center gap-4">
               <Link
                 href="/contact"
-                className="w-full sm:w-auto rounded-lg bg-accent-500 px-8 py-4 text-center text-lg font-bold text-white shadow-lg hover:bg-accent-600 transition-all hover:scale-105"
+                className="w-full sm:w-auto rounded-lg bg-accent-500 px-8 py-4 text-center text-lg font-bold text-white shadow-lg hover:bg-accent-600 transition-all"
               >
                 Automate Your Business
               </Link>
               <a
                 href="tel:+19363234527"
-                className="w-full sm:w-auto flex items-center justify-center gap-2 rounded-lg border-2 border-slate-500 px-8 py-4 text-lg font-bold text-white hover:bg-slate-800/40 transition-all"
+                className="w-full sm:w-auto flex items-center justify-center gap-2 rounded-lg border-2 border-surface-border px-8 py-4 text-lg font-bold text-white hover:bg-surface-card/60 transition-all"
               >
                 <span>📞</span>
                 <span>(936) 323-4527</span>
@@ -258,14 +258,14 @@ export default function BusinessAutomation() {
         </div>
 
         <div className="absolute bottom-0 left-0 right-0">
-          <svg className="w-full h-16 fill-slate-900" viewBox="0 0 1200 120" preserveAspectRatio="none">
+          <svg className="w-full h-16 fill-surface" viewBox="0 0 1200 120" preserveAspectRatio="none">
             <path d="M321.39,56.44c58-10.79,114.16-30.13,172-41.86,82.39-16.72,168.19-17.73,250.45-.39C823.78,31,906.67,72,985.66,92.83c70.05,18.48,146.53,26.09,214.34,3V0H0V27.35A600.21,600.21,0,0,0,321.39,56.44Z" />
           </svg>
         </div>
       </section>
 
       {/* Time Wasters Section */}
-      <section className="bg-slate-900 py-24">
+      <section className="bg-surface py-24">
         <div className="mx-auto max-w-7xl px-6 lg:px-8">
           <div className="mx-auto max-w-3xl">
             <h2 className="text-4xl font-bold tracking-tight text-white mb-8">
@@ -298,7 +298,7 @@ export default function BusinessAutomation() {
       </section>
 
       {/* Platforms Section */}
-      <section className="bg-slate-800 py-24">
+      <section className="bg-surface-card py-24">
         <div className="mx-auto max-w-7xl px-6 lg:px-8">
           <div className="mx-auto max-w-2xl text-center mb-16">
             <h2 className="text-4xl font-bold tracking-tight text-white mb-4">
@@ -313,7 +313,7 @@ export default function BusinessAutomation() {
             {platforms.map((platform) => (
               <div
                 key={platform.name}
-                className="bg-slate-900 rounded-2xl p-8 shadow-md border-2 border-slate-700 hover:border-primary-300 transition-all"
+                className="bg-surface rounded-2xl p-8 shadow-md border-2 border-surface-border hover:border-primary-300 transition-all"
               >
                 <div className="text-4xl mb-4">{platform.icon}</div>
                 <h3 className="text-xl font-bold text-white mb-2">{platform.name}</h3>
@@ -328,7 +328,7 @@ export default function BusinessAutomation() {
       </section>
 
       {/* Solutions Section */}
-      <section className="bg-slate-900 py-24">
+      <section className="bg-surface py-24">
         <div className="mx-auto max-w-7xl px-6 lg:px-8">
           <div className="mx-auto max-w-2xl text-center mb-16">
             <h2 className="text-4xl font-bold tracking-tight text-white mb-4">
@@ -343,7 +343,7 @@ export default function BusinessAutomation() {
             {automationSolutions.map((solution) => (
               <div
                 key={solution.name}
-                className="bg-slate-800 rounded-2xl p-8 border-2 border-slate-700 hover:border-primary-300 transition-all"
+                className="bg-surface-card rounded-2xl p-8 border-2 border-surface-border hover:border-primary-300 transition-all"
               >
                 <h3 className="text-lg font-bold text-white mb-2">{solution.name}</h3>
                 <p className="text-gray-400 mb-4">{solution.description}</p>
@@ -358,7 +358,7 @@ export default function BusinessAutomation() {
       </section>
 
       {/* Custom Automation Section */}
-      <section className="bg-slate-800 py-24">
+      <section className="bg-surface-card py-24">
         <div className="mx-auto max-w-7xl px-6 lg:px-8">
           <div className="mx-auto max-w-3xl">
             <h2 className="text-4xl font-bold tracking-tight text-white mb-8">
@@ -375,19 +375,19 @@ export default function BusinessAutomation() {
               </p>
 
               <div className="grid md:grid-cols-2 gap-6 my-8">
-                <div className="bg-slate-900 rounded-xl p-6">
+                <div className="bg-surface rounded-xl p-6">
                   <h3 className="text-lg font-bold text-white mb-2">Handle Complex Logic</h3>
                   <p className="text-gray-400">Conditional workflows, multi-step decisions, and complex data transformations.</p>
                 </div>
-                <div className="bg-slate-900 rounded-xl p-6">
+                <div className="bg-surface rounded-xl p-6">
                   <h3 className="text-lg font-bold text-white mb-2">Connect Any System</h3>
                   <p className="text-gray-400">Even systems without official integrations—if there's an API, we can connect it.</p>
                 </div>
-                <div className="bg-slate-900 rounded-xl p-6">
+                <div className="bg-surface rounded-xl p-6">
                   <h3 className="text-lg font-bold text-white mb-2">Scale Without Limits</h3>
                   <p className="text-gray-400">No per-task pricing. Process thousands of items without cost concerns.</p>
                 </div>
-                <div className="bg-slate-900 rounded-xl p-6">
+                <div className="bg-surface rounded-xl p-6">
                   <h3 className="text-lg font-bold text-white mb-2">Run On Your Infrastructure</h3>
                   <p className="text-gray-400">Self-hosted solutions for data privacy and complete control.</p>
                 </div>
@@ -398,7 +398,7 @@ export default function BusinessAutomation() {
       </section>
 
       {/* Process Section */}
-      <section className="bg-slate-900 py-24">
+      <section className="bg-surface py-24">
         <div className="mx-auto max-w-7xl px-6 lg:px-8">
           <div className="mx-auto max-w-2xl text-center mb-16">
             <h2 className="text-4xl font-bold tracking-tight text-white mb-4">
@@ -412,7 +412,7 @@ export default function BusinessAutomation() {
           <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
             {processSteps.map((step) => (
               <div key={step.number} className="relative">
-                <div className="bg-slate-800 rounded-2xl p-8 shadow-md border-2 border-slate-700 h-full">
+                <div className="bg-surface-card rounded-2xl p-8 shadow-md border-2 border-surface-border h-full">
                   <div className="absolute -top-4 -left-4 w-10 h-10 rounded-full bg-primary-600 text-white flex items-center justify-center font-bold text-lg">
                     {step.number}
                   </div>
@@ -426,7 +426,7 @@ export default function BusinessAutomation() {
       </section>
 
       {/* FAQ Section */}
-      <section className="bg-slate-800 py-24">
+      <section className="bg-surface-card py-24">
         <div className="mx-auto max-w-7xl px-6 lg:px-8">
           <div className="mx-auto max-w-3xl">
             <h2 className="text-4xl font-bold tracking-tight text-white mb-12">
@@ -435,7 +435,7 @@ export default function BusinessAutomation() {
 
             <div className="space-y-8">
               {pageSchemas.faq.mainEntity.map((faq, index) => (
-                <div key={index} className="bg-slate-900 rounded-xl p-6 shadow-md">
+                <div key={index} className="bg-surface rounded-xl p-6 shadow-md">
                   <h3 className="text-lg font-bold text-white mb-3">{faq.name}</h3>
                   <p className="text-gray-400">{faq.acceptedAnswer.text}</p>
                 </div>
@@ -459,13 +459,13 @@ export default function BusinessAutomation() {
             <div className="flex flex-col sm:flex-row items-center justify-center gap-4 mb-8">
               <Link
                 href="/contact"
-                className="w-full sm:w-auto rounded-lg bg-accent-500 px-10 py-5 text-xl font-bold text-white shadow-lg hover:bg-accent-600 transition-all hover:scale-105"
+                className="w-full sm:w-auto rounded-lg bg-accent-500 px-10 py-5 text-xl font-bold text-white shadow-lg hover:bg-accent-600 transition-all"
               >
                 Get Free Workflow Audit
               </Link>
               <a
                 href="tel:+19363234527"
-                className="w-full sm:w-auto flex items-center justify-center gap-2 rounded-lg bg-slate-800/40 px-10 py-5 text-xl font-bold text-white border-2 border-slate-600 hover:bg-slate-700/60 transition-all"
+                className="w-full sm:w-auto flex items-center justify-center gap-2 rounded-lg bg-surface-card/60 px-10 py-5 text-xl font-bold text-white border-2 border-surface-border hover:bg-surface-elevated/80 transition-all"
               >
                 <span>📞</span>
                 <span>(936) 323-4527</span>
@@ -480,7 +480,7 @@ export default function BusinessAutomation() {
       </section>
 
       {/* Related Services */}
-      <section className="bg-slate-900 py-24">
+      <section className="bg-surface py-24">
         <div className="mx-auto max-w-7xl px-6 lg:px-8">
           <div className="mx-auto max-w-2xl text-center mb-12">
             <h2 className="text-3xl font-bold tracking-tight text-white mb-4">
@@ -491,7 +491,7 @@ export default function BusinessAutomation() {
           <div className="grid md:grid-cols-3 gap-8">
             <Link
               href="/services/conroe-web-development"
-              className="group bg-slate-800 rounded-2xl p-8 border-2 border-slate-700 hover:border-primary-300 hover:shadow-xl transition-all"
+              className="group bg-surface-card rounded-2xl p-8 border-2 border-surface-border hover:border-primary-300 hover:shadow-xl transition-all"
             >
               <div className="text-3xl mb-4">🌐</div>
               <h3 className="text-xl font-bold text-white mb-2 group-hover:text-primary-600">Web Development</h3>
@@ -499,7 +499,7 @@ export default function BusinessAutomation() {
             </Link>
             <Link
               href="/services/api-integration"
-              className="group bg-slate-800 rounded-2xl p-8 border-2 border-slate-700 hover:border-primary-300 hover:shadow-xl transition-all"
+              className="group bg-surface-card rounded-2xl p-8 border-2 border-surface-border hover:border-primary-300 hover:shadow-xl transition-all"
             >
               <div className="text-3xl mb-4">🔗</div>
               <h3 className="text-xl font-bold text-white mb-2 group-hover:text-primary-600">API Integration</h3>
@@ -507,7 +507,7 @@ export default function BusinessAutomation() {
             </Link>
             <Link
               href="/services/web-scraping"
-              className="group bg-slate-800 rounded-2xl p-8 border-2 border-slate-700 hover:border-primary-300 hover:shadow-xl transition-all"
+              className="group bg-surface-card rounded-2xl p-8 border-2 border-surface-border hover:border-primary-300 hover:shadow-xl transition-all"
             >
               <div className="text-3xl mb-4">📊</div>
               <h3 className="text-xl font-bold text-white mb-2 group-hover:text-primary-600">Web Scraping</h3>

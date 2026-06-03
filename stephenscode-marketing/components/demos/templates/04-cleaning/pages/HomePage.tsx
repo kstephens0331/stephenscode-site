@@ -163,7 +163,7 @@ export default function HomePage({ onNavigate }: HomePageProps) {
               <div className="flex flex-col sm:flex-row gap-4 mb-8">
                 <button
                   onClick={() => onNavigate('contact')}
-                  className="bg-white text-[#0077b6] px-8 py-4 rounded-lg font-bold text-lg hover:bg-gray-100 transition-all transform hover:scale-105 shadow-xl"
+                  className="bg-white text-[#0077b6] px-8 py-4 rounded-lg font-bold text-lg hover:bg-gray-100 transition-all transform shadow-xl"
                 >
                   Get Free Quote
                 </button>

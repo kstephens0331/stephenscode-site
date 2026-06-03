@@ -13,7 +13,7 @@ export default function AdminView({ demo, colors }: AdminViewProps) {
     <div className="w-full h-screen flex items-center justify-center" style={{ backgroundColor: colors.backgroundAlt }}>
       <div className="text-center p-8">
         <div className="text-6xl mb-4">🎯</div>
-        <h2 style={{ color: colors.primary }} className="text-3xl font-black mb-4">
+        <h2 style={{ color: colors.primary }} className="text-3xl font-bold mb-4">
           Real Client Showcase
         </h2>
         <p style={{ color: colors.text }} className="text-lg mb-2">

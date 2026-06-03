@@ -126,7 +126,7 @@ export default function HomePage({ onNavigate }: HomePageProps) {
               <div className="flex flex-col sm:flex-row gap-4">
                 <button
                   onClick={() => setShowConsultForm(true)}
-                  className="group px-8 py-4 bg-[#fb8b24] text-white rounded-xl font-semibold hover:bg-[#e57a1a] transition-all duration-200 shadow-xl hover:shadow-2xl flex items-center justify-center space-x-2"
+                  className="group px-8 py-4 bg-[#fb8b24] text-white rounded-xl font-semibold hover:bg-[#e57a1a] transition-all duration-200 shadow-xl flex items-center justify-center space-x-2"
                 >
                   <span>Get Free Consultation</span>
                   <ArrowRight className="h-5 w-5 group-hover:translate-x-1 transition-transform" />
@@ -196,7 +196,7 @@ export default function HomePage({ onNavigate }: HomePageProps) {
             {stats.map((stat, index) => {
               const Icon = stat.icon;
               return (
-                <div key={index} className="text-center group hover:scale-105 transition-transform duration-200">
+                <div key={index} className="text-center group transition-transform duration-200">
                   <div className={`inline-flex items-center justify-center w-16 h-16 bg-gradient-to-br ${stat.color} rounded-2xl mb-4 shadow-lg group-hover:shadow-xl transition-shadow`}>
                     <Icon className="h-8 w-8 text-white" />
                   </div>
@@ -227,9 +227,9 @@ export default function HomePage({ onNavigate }: HomePageProps) {
               return (
                 <div
                   key={index}
-                  className="group bg-white rounded-2xl p-6 shadow-md hover:shadow-2xl transition-all duration-300 border border-gray-100 hover:border-[#5f0f40] cursor-pointer"
+                  className="group bg-white rounded-2xl p-6 shadow-md transition-all duration-300 border border-gray-100 hover:border-[#5f0f40] cursor-pointer"
                 >
-                  <div className={`inline-flex p-4 bg-gradient-to-br ${subject.color} rounded-xl mb-4 group-hover:scale-110 transition-transform duration-300 shadow-lg`}>
+                  <div className={`inline-flex p-4 bg-gradient-to-br ${subject.color} rounded-xl mb-4 group- transition-transform duration-300 shadow-lg`}>
                     <Icon className="h-8 w-8 text-white" />
                   </div>
                   <h3 className="text-xl font-bold text-gray-900 mb-2">{subject.name}</h3>
@@ -268,7 +268,7 @@ export default function HomePage({ onNavigate }: HomePageProps) {
               const Icon = benefit.icon;
               return (
                 <div key={index} className="text-center group">
-                  <div className="inline-flex items-center justify-center w-16 h-16 bg-gradient-to-br from-[#5f0f40] to-[#9a031e] rounded-2xl mb-4 shadow-lg group-hover:scale-110 transition-transform duration-300">
+                  <div className="inline-flex items-center justify-center w-16 h-16 bg-gradient-to-br from-[#5f0f40] to-[#9a031e] rounded-2xl mb-4 shadow-lg group- transition-transform duration-300">
                     <Icon className="h-8 w-8 text-white" />
                   </div>
                   <h3 className="text-xl font-bold text-gray-900 mb-2">{benefit.title}</h3>
@@ -292,7 +292,7 @@ export default function HomePage({ onNavigate }: HomePageProps) {
 
           <div className="grid md:grid-cols-3 gap-8">
             {testimonials.map((testimonial, index) => (
-              <div key={index} className="bg-white rounded-2xl p-8 shadow-lg hover:shadow-2xl transition-all duration-300 border border-gray-100">
+              <div key={index} className="bg-white rounded-2xl p-8 shadow-lg transition-all duration-300 border border-gray-100">
                 <div className="flex items-center justify-center mb-4">
                   {[...Array(testimonial.rating)].map((_, i) => (
                     <Star key={i} className="h-5 w-5 text-[#fb8b24] fill-current" />

@@ -297,7 +297,7 @@ export default function PetCarePage({ onNavigate, colors }: PetCarePageProps) {
             {articles[selectedCategory as keyof typeof articles].map((article, index) => (
               <div
                 key={index}
-                className="bg-white rounded-2xl shadow-lg hover:shadow-2xl transition-all overflow-hidden"
+                className="bg-white rounded-2xl shadow-lg transition-all overflow-hidden"
               >
                 <div className="p-6 border-b-4" style={{ borderBottomColor: colors.accent }}>
                   <article.icon className="w-12 h-12 mb-4" style={{ color: colors.primary }} />

@@ -335,12 +335,12 @@ export default function GalleryPage({ onNavigate }: GalleryPageProps) {
             {filteredItems.map((item) => (
               <div
                 key={item.id}
-                className="bg-white rounded-2xl shadow-lg overflow-hidden hover:shadow-2xl transition-all duration-300 group cursor-pointer"
+                className="bg-white rounded-2xl shadow-lg overflow-hidden transition-all duration-300 group cursor-pointer"
                 onClick={() => setSelectedImage(item.id)}
               >
                 {/* Image Placeholder */}
                 <div className="relative bg-gradient-to-br from-gray-100 to-gray-200 aspect-square flex items-center justify-center overflow-hidden">
-                  <div className="text-8xl group-hover:scale-110 transition-transform duration-300">
+                  <div className="text-8xl group- transition-transform duration-300">
                     {item.emoji}
                   </div>
 

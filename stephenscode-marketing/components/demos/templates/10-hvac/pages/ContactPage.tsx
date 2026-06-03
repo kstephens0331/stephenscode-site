@@ -118,7 +118,7 @@ export default function ContactPage({ onNavigate }: ContactPageProps) {
               <a
                 key={index}
                 href={method.action}
-                className={`bg-gradient-to-br ${method.color} rounded-2xl p-8 text-white text-center hover:shadow-2xl transition-all duration-300 transform hover:scale-105`}
+                className={`bg-gradient-to-br ${method.color} rounded-2xl p-8 text-white text-center  transition-all duration-300 transform `}
               >
                 <method.icon className="w-16 h-16 mx-auto mb-4" />
                 <h3 className="text-2xl font-bold mb-2">{method.title}</h3>

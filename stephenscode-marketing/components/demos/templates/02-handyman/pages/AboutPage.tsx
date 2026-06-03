@@ -360,7 +360,7 @@ export default function AboutPage({ onNavigate, colors }: AboutPageProps) {
           </p>
           <button
             onClick={() => onNavigate('contact')}
-            className="px-8 py-4 rounded-lg text-white font-bold text-lg shadow-xl hover:shadow-2xl transition-all transform hover:scale-105 inline-flex items-center gap-2"
+            className="px-8 py-4 rounded-lg text-white font-bold text-lg shadow-xl transition-all transform inline-flex items-center gap-2"
             style={{ backgroundColor: colors.accent }}
           >
             Get Your Free Quote

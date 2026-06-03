@@ -121,7 +121,7 @@ export default function ServicesPage({ colors, onBookingOpen, setBookingService 
           <div style={{ color: '#d4af37' }} className="text-sm font-bold uppercase tracking-widest mb-4">
             Our Services
           </div>
-          <h1 style={{ color: '#ffffff' }} className="text-6xl font-black mb-6">
+          <h1 style={{ color: '#ffffff' }} className="text-6xl font-bold mb-6">
             Premium Grooming Services
           </h1>
           <p style={{ color: '#c4a962' }} className="text-xl max-w-3xl mx-auto">
@@ -152,8 +152,8 @@ export default function ServicesPage({ colors, onBookingOpen, setBookingService 
                 )}
 
                 <div className="flex justify-between items-start mb-4">
-                  <h3 style={{ color: '#1a1a1a' }} className="text-2xl font-black">{service.name}</h3>
-                  <div style={{ color: '#d4af37' }} className="text-3xl font-black">{service.price}</div>
+                  <h3 style={{ color: '#1a1a1a' }} className="text-2xl font-bold">{service.name}</h3>
+                  <div style={{ color: '#d4af37' }} className="text-3xl font-bold">{service.price}</div>
                 </div>
 
                 <div style={{ color: '#999999' }} className="text-sm mb-4">⏱ {service.time}</div>
@@ -189,7 +189,7 @@ export default function ServicesPage({ colors, onBookingOpen, setBookingService 
       <section className="py-24" style={{ backgroundColor: '#ffffff' }}>
         <div className="max-w-7xl mx-auto px-4">
           <div className="text-center mb-16">
-            <h2 style={{ color: '#1a1a1a' }} className="text-4xl font-black mb-4">
+            <h2 style={{ color: '#1a1a1a' }} className="text-4xl font-bold mb-4">
               Service Add-Ons
             </h2>
             <p style={{ color: '#666666' }} className="text-lg">
@@ -229,7 +229,7 @@ export default function ServicesPage({ colors, onBookingOpen, setBookingService 
             <div style={{ color: '#d4af37' }} className="text-sm font-bold uppercase tracking-widest mb-4">
               Loyalty Program
             </div>
-            <h2 style={{ color: '#ffffff' }} className="text-4xl font-black mb-6">
+            <h2 style={{ color: '#ffffff' }} className="text-4xl font-bold mb-6">
               The Classic Cuts Club
             </h2>
             <p style={{ color: '#c4a962' }} className="text-lg mb-8">
@@ -239,19 +239,19 @@ export default function ServicesPage({ colors, onBookingOpen, setBookingService 
 
           <div className="grid md:grid-cols-3 gap-6">
             <div style={{ backgroundColor: '#2d2d2d', border: '2px solid #d4af37' }} className="p-6 text-center">
-              <div style={{ color: '#d4af37' }} className="text-3xl font-black mb-2">10%</div>
+              <div style={{ color: '#d4af37' }} className="text-3xl font-bold mb-2">10%</div>
               <div style={{ color: '#ffffff' }} className="font-bold mb-2">OFF</div>
               <p style={{ color: '#999999' }} className="text-sm">After 5 visits</p>
             </div>
 
             <div style={{ backgroundColor: '#2d2d2d', border: '2px solid #d4af37' }} className="p-6 text-center">
-              <div style={{ color: '#d4af37' }} className="text-3xl font-black mb-2">FREE</div>
+              <div style={{ color: '#d4af37' }} className="text-3xl font-bold mb-2">FREE</div>
               <div style={{ color: '#ffffff' }} className="font-bold mb-2">HAIRCUT</div>
               <p style={{ color: '#999999' }} className="text-sm">After 10 visits</p>
             </div>
 
             <div style={{ backgroundColor: '#2d2d2d', border: '2px solid #d4af37' }} className="p-6 text-center">
-              <div style={{ color: '#d4af37' }} className="text-3xl font-black mb-2">VIP</div>
+              <div style={{ color: '#d4af37' }} className="text-3xl font-bold mb-2">VIP</div>
               <div style={{ color: '#ffffff' }} className="font-bold mb-2">ACCESS</div>
               <p style={{ color: '#999999' }} className="text-sm">Priority booking</p>
             </div>

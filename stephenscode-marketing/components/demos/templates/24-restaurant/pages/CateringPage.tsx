@@ -57,7 +57,7 @@ export default function CateringPage({ colors }: CateringPageProps) {
           <div style={{ color: '#ee9b00' }} className="text-sm font-bold uppercase tracking-widest mb-3">
             Catering Services
           </div>
-          <h1 style={{ color: '#ffffff' }} className="text-6xl font-black mb-6">
+          <h1 style={{ color: '#ffffff' }} className="text-6xl font-bold mb-6">
             Bring Gourmet Kitchen to You
           </h1>
           <p style={{ color: '#f5f5f5' }} className="text-xl">
@@ -68,7 +68,7 @@ export default function CateringPage({ colors }: CateringPageProps) {
 
       <section className="py-16" style={{ backgroundColor: '#ffffff' }}>
         <div className="max-w-7xl mx-auto px-4">
-          <h2 style={{ color: '#1a1a1a' }} className="text-4xl font-black text-center mb-12">
+          <h2 style={{ color: '#1a1a1a' }} className="text-4xl font-bold text-center mb-12">
             Catering Packages
           </h2>
           <div className="grid md:grid-cols-3 gap-8 mb-16">
@@ -78,7 +78,7 @@ export default function CateringPage({ colors }: CateringPageProps) {
                 style={{ backgroundColor: '#f8f8f8', border: '3px solid #ee9b00' }}
                 className="p-8"
               >
-                <h3 style={{ color: '#1a1a1a' }} className="text-2xl font-black mb-3">
+                <h3 style={{ color: '#1a1a1a' }} className="text-2xl font-bold mb-3">
                   {pkg.name}
                 </h3>
                 <div style={{ color: '#9b2226' }} className="text-2xl font-bold mb-2">
@@ -100,7 +100,7 @@ export default function CateringPage({ colors }: CateringPageProps) {
           </div>
 
           <div style={{ backgroundColor: '#f8f8f8' }} className="p-12 mb-16">
-            <h2 style={{ color: '#1a1a1a' }} className="text-3xl font-black text-center mb-8">
+            <h2 style={{ color: '#1a1a1a' }} className="text-3xl font-bold text-center mb-8">
               Request Catering Quote
             </h2>
             <form className="max-w-3xl mx-auto space-y-6">

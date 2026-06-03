@@ -521,7 +521,7 @@ const CustomerView: React.FC = () => {
                 }}
                 className="bg-white p-8 rounded-xl hover:shadow-xl transition-all group border-2 border-transparent hover:border-[#f4a261]"
               >
-                <div className="text-6xl mb-4 group-hover:scale-110 transition-transform">{pet.icon}</div>
+                <div className="text-6xl mb-4 group- transition-transform">{pet.icon}</div>
                 <h3 className="font-bold text-lg mb-1">{pet.name}</h3>
                 <p className="text-gray-500 text-sm">{pet.count}</p>
               </button>
@@ -540,7 +540,7 @@ const CustomerView: React.FC = () => {
           <div className="grid md:grid-cols-4 gap-6">
             {products.slice(0, 4).map((product) => (
               <div key={product.id} className="bg-white border-2 border-gray-200 rounded-xl p-6 hover:border-[#f4a261] hover:shadow-lg transition-all group">
-                <div className="text-6xl mb-4 text-center group-hover:scale-110 transition-transform">{product.image}</div>
+                <div className="text-6xl mb-4 text-center group- transition-transform">{product.image}</div>
                 {product.vetApproved && (
                   <div className="inline-flex items-center gap-1 bg-[#264653] text-white text-xs px-2 py-1 rounded-full mb-2">
                     <Award className="w-3 h-3" />
@@ -782,7 +782,7 @@ const CustomerView: React.FC = () => {
         <div className="grid md:grid-cols-3 lg:grid-cols-4 gap-6">
           {filteredProducts.map((product) => (
             <div key={product.id} className="bg-white rounded-xl p-6 hover:shadow-xl transition-all group border-2 border-gray-100 hover:border-[#f4a261]">
-              <div className="text-6xl mb-4 text-center group-hover:scale-110 transition-transform">{product.image}</div>
+              <div className="text-6xl mb-4 text-center group- transition-transform">{product.image}</div>
 
               <div className="flex flex-wrap gap-2 mb-3">
                 {product.vetApproved && (

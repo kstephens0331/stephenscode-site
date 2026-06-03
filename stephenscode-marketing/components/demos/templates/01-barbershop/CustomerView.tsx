@@ -193,14 +193,14 @@ export default function CustomerView({ demo, colors }: CustomerViewProps) {
         <div className="fixed inset-0 bg-black bg-opacity-70 flex items-center justify-center z-50 p-4">
           <div style={{ backgroundColor: '#ffffff' }} className="max-w-2xl w-full max-h-[90vh] overflow-y-auto">
             <div style={{ backgroundColor: '#1a1a1a', color: '#ffffff' }} className="p-6 flex justify-between items-center">
-              <h3 className="text-2xl font-black">Book Your Appointment</h3>
+              <h3 className="text-2xl font-bold">Book Your Appointment</h3>
               <button onClick={() => setShowBooking(false)} className="text-3xl hover:opacity-70">&times;</button>
             </div>
             <div className="p-8">
               {submitted ? (
                 <div className="text-center py-12">
                   <div className="text-7xl mb-6">✅</div>
-                  <h4 style={{ color: '#1a1a1a' }} className="text-3xl font-black mb-4">Booking Confirmed!</h4>
+                  <h4 style={{ color: '#1a1a1a' }} className="text-3xl font-bold mb-4">Booking Confirmed!</h4>
                   <p style={{ color: '#666666' }} className="text-lg">
                     We've received your request and will send a confirmation text within 2 hours.
                   </p>

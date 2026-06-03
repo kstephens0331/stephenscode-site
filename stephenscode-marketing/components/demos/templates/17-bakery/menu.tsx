@@ -456,7 +456,7 @@ export default function Menu() {
                   <span className="text-2xl font-bold" style={{ color: '#d62828' }}>
                     ${product.price.toFixed(2)}
                   </span>
-                  <button className="px-4 py-2 rounded-lg font-semibold text-white text-sm transition-transform hover:scale-105" style={{ backgroundColor: '#f77f00' }}>
+                  <button className="px-4 py-2 rounded-lg font-semibold text-white text-sm transition-transform" style={{ backgroundColor: '#f77f00' }}>
                     Add to Cart
                   </button>
                 </div>
@@ -493,10 +493,10 @@ export default function Menu() {
             Design a custom cake or reach out to discuss special orders
           </p>
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
-            <a href="/custom-cakes" className="px-8 py-3 rounded-lg font-semibold transition-transform hover:scale-105" style={{ backgroundColor: '#fcbf49', color: '#d62828' }}>
+            <a href="/custom-cakes" className="px-8 py-3 rounded-lg font-semibold transition-transform" style={{ backgroundColor: '#fcbf49', color: '#d62828' }}>
               Custom Cake Builder
             </a>
-            <a href="/contact" className="px-8 py-3 border-2 border-white rounded-lg font-semibold text-white transition-transform hover:scale-105">
+            <a href="/contact" className="px-8 py-3 border-2 border-white rounded-lg font-semibold text-white transition-transform">
               Contact Us
             </a>
           </div>

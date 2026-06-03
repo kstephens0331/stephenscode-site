@@ -142,7 +142,7 @@ export default function ContactPage({ onNavigate }: ContactPageProps) {
           <div className="grid md:grid-cols-3 gap-6 max-w-5xl mx-auto">
             <a
               href="tel:555-0123"
-              className="bg-white rounded-2xl p-6 shadow-xl hover:shadow-2xl transition-all transform hover:-translate-y-2 border-2 border-transparent hover:border-[#a7c957]"
+              className="bg-white rounded-2xl p-6 shadow-xl transition-all transform hover:-translate-y-2 border-2 border-transparent hover:border-[#a7c957]"
             >
               <div className="w-14 h-14 bg-gradient-to-br from-[#386641] to-[#6a994e] rounded-xl flex items-center justify-center text-white mb-4">
                 <Phone className="h-7 w-7" />
@@ -154,7 +154,7 @@ export default function ContactPage({ onNavigate }: ContactPageProps) {
 
             <a
               href="mailto:info@greenvalley.com"
-              className="bg-white rounded-2xl p-6 shadow-xl hover:shadow-2xl transition-all transform hover:-translate-y-2 border-2 border-transparent hover:border-[#a7c957]"
+              className="bg-white rounded-2xl p-6 shadow-xl transition-all transform hover:-translate-y-2 border-2 border-transparent hover:border-[#a7c957]"
             >
               <div className="w-14 h-14 bg-gradient-to-br from-[#386641] to-[#6a994e] rounded-xl flex items-center justify-center text-white mb-4">
                 <Mail className="h-7 w-7" />
@@ -405,7 +405,7 @@ export default function ContactPage({ onNavigate }: ContactPageProps) {
                     {/* Submit Button */}
                     <button
                       type="submit"
-                      className="w-full bg-gradient-to-r from-[#386641] to-[#6a994e] text-white px-8 py-5 rounded-lg font-bold text-lg hover:from-[#6a994e] hover:to-[#a7c957] transition-all transform hover:scale-[1.02] shadow-xl flex items-center justify-center gap-3"
+                      className="w-full bg-gradient-to-r from-[#386641] to-[#6a994e] text-white px-8 py-5 rounded-lg font-bold text-lg hover:from-[#6a994e] hover:to-[#a7c957] transition-all transform shadow-xl flex items-center justify-center gap-3"
                     >
                       <Send className="h-6 w-6" />
                       Request Free Estimate

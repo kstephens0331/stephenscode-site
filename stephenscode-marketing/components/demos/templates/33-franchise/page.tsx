@@ -412,7 +412,7 @@ const FastServeFranchiseNetwork = () => {
             <button
               key={label}
               onClick={() => setCurrentPage(page)}
-              className="bg-white rounded-lg shadow-md p-6 hover:shadow-lg transition-all hover:scale-105 flex items-center gap-4"
+              className="bg-white rounded-lg shadow-md p-6 hover:shadow-lg transition-all flex items-center gap-4"
             >
               <Icon className="w-8 h-8 text-[#bc4749]" />
               <span className="font-semibold text-[#bc4749]">{label}</span>

@@ -344,10 +344,10 @@ const BuyerResourcesPage: React.FC = () => {
                   <img
                     src={video.thumbnail}
                     alt={video.title}
-                    className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500"
+                    className="w-full h-full object-cover group- transition-transform duration-500"
                   />
                   <div className="absolute inset-0 bg-black/40 flex items-center justify-center">
-                    <div className="bg-[#ffc300] p-4 rounded-full group-hover:scale-110 transition-transform">
+                    <div className="bg-[#ffc300] p-4 rounded-full group- transition-transform">
                       <PlayCircle className="w-8 h-8 text-[#000814]" />
                     </div>
                   </div>

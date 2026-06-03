@@ -156,7 +156,7 @@ export default function ContactPage() {
       />
 
       {/* Hero Section */}
-      <section className="relative bg-gradient-to-br from-primary-900 via-primary-800 to-primary-700 text-white overflow-hidden">
+      <section className="relative bg-gradient-to-br from-black via-surface to-surface-card text-white overflow-hidden">
         {/* Pattern overlay */}
         <div className="absolute inset-0 opacity-10">
           <svg className="absolute w-full h-full" xmlns="http://www.w3.org/2000/svg">
@@ -183,7 +183,7 @@ export default function ContactPage() {
             <div className="mt-10 flex flex-col sm:flex-row items-center justify-center gap-6 animate-fade-in-up animation-delay-600">
               <a
                 href="tel:+19363234527"
-                className="group flex items-center gap-3 rounded-lg bg-accent-500 px-8 py-4 text-base font-semibold text-white shadow-lg hover:bg-accent-600 transition-all hover:scale-105"
+                className="group flex items-center gap-3 rounded-lg bg-accent-500 px-8 py-4 text-base font-semibold text-white shadow-lg hover:bg-accent-600 transition-all"
               >
                 <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                   <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z" />
@@ -205,14 +205,14 @@ export default function ContactPage() {
 
         {/* Wave divider */}
         <div className="absolute bottom-0 left-0 right-0">
-          <svg className="w-full h-16 fill-slate-900" viewBox="0 0 1200 120" preserveAspectRatio="none">
+          <svg className="w-full h-16 fill-surface" viewBox="0 0 1200 120" preserveAspectRatio="none">
             <path d="M321.39,56.44c58-10.79,114.16-30.13,172-41.86,82.39-16.72,168.19-17.73,250.45-.39C823.78,31,906.67,72,985.66,92.83c70.05,18.48,146.53,26.09,214.34,3V0H0V27.35A600.21,600.21,0,0,0,321.39,56.44Z" />
           </svg>
         </div>
       </section>
 
       {/* Quick Response Section */}
-      <section className="bg-slate-900 py-16 border-b border-slate-700">
+      <section className="bg-surface py-16 border-b border-surface-border">
         <div className="mx-auto max-w-7xl px-6 lg:px-8">
           <div className="grid grid-cols-1 md:grid-cols-3 gap-8 text-center">
             <div className="animate-fade-in-up">
@@ -235,7 +235,7 @@ export default function ContactPage() {
       </section>
 
       {/* Contact Form & Info */}
-      <section className="bg-slate-900 py-24 sm:py-32">
+      <section className="bg-surface py-24 sm:py-32">
         <div className="mx-auto max-w-7xl px-6 lg:px-8">
           <div className="grid gap-12 lg:grid-cols-2 lg:gap-16">
             {/* Contact Info */}
@@ -251,7 +251,7 @@ export default function ContactPage() {
               <div className="space-y-6 mb-10">
                 <a
                   href="tel:+19363234527"
-                  className="group flex items-start gap-4 p-6 rounded-2xl bg-slate-800 border-2 border-slate-700 hover:border-primary-500 hover:shadow-lg transition-all"
+                  className="group flex items-start gap-4 p-6 rounded-2xl bg-surface-card border-2 border-surface-border hover:border-primary-500 hover:shadow-lg transition-all"
                 >
                   <div className="flex-shrink-0 w-12 h-12 rounded-full bg-gradient-to-br from-primary-500 to-accent-500 flex items-center justify-center text-white">
                     <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -272,9 +272,9 @@ export default function ContactPage() {
 
                 <a
                   href="mailto:info@stephenscode.dev"
-                  className="group flex items-start gap-4 p-6 rounded-2xl bg-slate-800 border-2 border-slate-700 hover:border-primary-500 hover:shadow-lg transition-all"
+                  className="group flex items-start gap-4 p-6 rounded-2xl bg-surface-card border-2 border-surface-border hover:border-primary-500 hover:shadow-lg transition-all"
                 >
-                  <div className="flex-shrink-0 w-12 h-12 rounded-full bg-gradient-to-br from-blue-500 to-purple-500 flex items-center justify-center text-white">
+                  <div className="flex-shrink-0 w-12 h-12 rounded-full bg-gradient-to-br from-primary-500 to-accent-500 flex items-center justify-center text-white">
                     <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                       <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z" />
                     </svg>
@@ -291,7 +291,7 @@ export default function ContactPage() {
                   </svg>
                 </a>
 
-                <div className="flex items-start gap-4 p-6 rounded-2xl bg-slate-800 border-2 border-slate-700">
+                <div className="flex items-start gap-4 p-6 rounded-2xl bg-surface-card border-2 border-surface-border">
                   <div className="flex-shrink-0 w-12 h-12 rounded-full bg-gradient-to-br from-green-500 to-teal-500 flex items-center justify-center text-white">
                     <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                       <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z" />
@@ -308,7 +308,7 @@ export default function ContactPage() {
                       href="https://www.google.com/maps/dir//Conroe+TX+77304"
                       target="_blank"
                       rel="noopener noreferrer"
-                      className="inline-flex items-center gap-1 text-sm font-semibold text-primary-600 hover:text-primary-700 mt-2"
+                      className="inline-flex items-center gap-1 text-sm font-semibold text-primary-600 hover:text-primary-400 mt-2"
                     >
                       Get Directions
                       <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -320,7 +320,7 @@ export default function ContactPage() {
               </div>
 
               {/* Google Maps */}
-              <div className="mt-8 rounded-2xl overflow-hidden border-2 border-slate-700 shadow-lg shadow-black/20">
+              <div className="mt-8 rounded-2xl overflow-hidden border-2 border-surface-border shadow-lg shadow-black/20">
                 <iframe
                   src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d110684.96908!2d-95.5560!3d30.3119!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x864731e2f73c2a15%3A0xc6e5b1e2d9e8c!2sConroe%2C%20TX%2077304!5e0!3m2!1sen!2sus!4v1234567890"
                   width="100%"
@@ -335,7 +335,7 @@ export default function ContactPage() {
 
               {/* Trust Badges */}
               <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
-                <div className="p-6 bg-gradient-to-br from-blue-500/10 to-primary-500/10 rounded-2xl border border-slate-700">
+                <div className="p-6 bg-gradient-to-br from-primary-500/10 to-accent-500/10 rounded-2xl border border-surface-border">
                   <div className="text-3xl mb-3">🇺🇸</div>
                   <h3 className="font-bold text-white mb-2">Veteran-Owned</h3>
                   <p className="text-sm text-gray-400 leading-relaxed">
@@ -343,7 +343,7 @@ export default function ContactPage() {
                   </p>
                 </div>
 
-                <div className="p-6 bg-gradient-to-br from-green-500/10 to-teal-500/10 rounded-2xl border border-slate-700">
+                <div className="p-6 bg-gradient-to-br from-green-500/10 to-teal-500/10 rounded-2xl border border-surface-border">
                   <div className="text-3xl mb-3">⭐</div>
                   <h3 className="font-bold text-white mb-2">14+ Years Experience</h3>
                   <p className="text-sm text-gray-400 leading-relaxed">
@@ -353,7 +353,7 @@ export default function ContactPage() {
               </div>
 
               {/* What to Expect */}
-              <div className="mt-8 p-8 bg-slate-800 rounded-2xl border-2 border-slate-700 shadow-lg shadow-black/20">
+              <div className="mt-8 p-8 bg-surface-card rounded-2xl border-2 border-surface-border shadow-lg shadow-black/20">
                 <h3 className="font-bold text-white mb-4 text-lg flex items-center gap-2">
                   <span className="text-2xl">✓</span>
                   What to Expect
@@ -400,7 +400,7 @@ export default function ContactPage() {
             </div>
 
             {/* Contact Form */}
-            <div className="rounded-3xl bg-slate-800 p-8 lg:p-12 shadow-2xl shadow-black/20 border border-slate-700">
+            <div className="rounded-3xl bg-surface-card p-8 lg:p-12 shadow-2xl shadow-black/20 border border-surface-border">
               <div className="mb-8">
                 <h3 className="text-2xl font-bold text-white mb-2">Send Us a Message</h3>
                 <p className="text-gray-400">Fill out the form below and we'll get back to you within 24 hours.</p>
@@ -412,7 +412,7 @@ export default function ContactPage() {
       </section>
 
       {/* Service Areas */}
-      <section className="bg-gradient-to-br from-primary-900 via-primary-800 to-primary-700 py-16">
+      <section className="bg-gradient-to-br from-black via-surface to-surface-card py-16">
         <div className="mx-auto max-w-7xl px-6 lg:px-8">
           <div className="text-center mb-12">
             <h2 className="text-3xl font-bold text-white mb-3">Serving the Greater Houston Area</h2>
@@ -425,7 +425,7 @@ export default function ContactPage() {
             ].map((city, index) => (
               <div
                 key={city}
-                className="bg-slate-800/40 backdrop-blur-sm rounded-lg px-4 py-3 text-white font-semibold border border-slate-600 hover:bg-slate-700/60 transition-all"
+                className="bg-surface-card/60 backdrop-blur-sm rounded-lg px-4 py-3 text-white font-semibold border border-surface-border hover:bg-surface-elevated/80 transition-all"
                 style={{ animationDelay: `${index * 50}ms` }}
               >
                 {city}
@@ -439,7 +439,7 @@ export default function ContactPage() {
       </section>
 
       {/* FAQ Section */}
-      <section className="bg-slate-900 py-24 sm:py-32">
+      <section className="bg-surface py-24 sm:py-32">
         <div className="mx-auto max-w-7xl px-6 lg:px-8">
           <div className="mx-auto max-w-2xl text-center mb-16">
             <h2 className="text-4xl font-bold tracking-tight text-white sm:text-5xl">
@@ -451,7 +451,7 @@ export default function ContactPage() {
           </div>
 
           <div className="mx-auto max-w-3xl space-y-6">
-            <div className="rounded-2xl border border-slate-700 bg-slate-800 p-8 hover:border-primary-300 transition-colors">
+            <div className="rounded-2xl border border-surface-border bg-surface-card p-8 hover:border-primary-300 transition-colors">
               <h3 className="text-lg font-bold text-white mb-3">
                 How long does a typical project take?
               </h3>
@@ -460,7 +460,7 @@ export default function ContactPage() {
               </p>
             </div>
 
-            <div className="rounded-2xl border border-slate-700 bg-slate-800 p-8 hover:border-primary-300 transition-colors">
+            <div className="rounded-2xl border border-surface-border bg-surface-card p-8 hover:border-primary-300 transition-colors">
               <h3 className="text-lg font-bold text-white mb-3">
                 Do you require payment upfront?
               </h3>
@@ -469,7 +469,7 @@ export default function ContactPage() {
               </p>
             </div>
 
-            <div className="rounded-2xl border border-slate-700 bg-slate-800 p-8 hover:border-primary-300 transition-colors">
+            <div className="rounded-2xl border border-surface-border bg-surface-card p-8 hover:border-primary-300 transition-colors">
               <h3 className="text-lg font-bold text-white mb-3">
                 Do you offer ongoing maintenance?
               </h3>
@@ -478,7 +478,7 @@ export default function ContactPage() {
               </p>
             </div>
 
-            <div className="rounded-2xl border border-slate-700 bg-slate-800 p-8 hover:border-primary-300 transition-colors">
+            <div className="rounded-2xl border border-surface-border bg-surface-card p-8 hover:border-primary-300 transition-colors">
               <h3 className="text-lg font-bold text-white mb-3">
                 Can you work with my existing website?
               </h3>
@@ -487,7 +487,7 @@ export default function ContactPage() {
               </p>
             </div>
 
-            <div className="rounded-2xl border border-slate-700 bg-slate-800 p-8 hover:border-primary-300 transition-colors">
+            <div className="rounded-2xl border border-surface-border bg-surface-card p-8 hover:border-primary-300 transition-colors">
               <h3 className="text-lg font-bold text-white mb-3">
                 Do you only work with local businesses?
               </h3>
@@ -496,7 +496,7 @@ export default function ContactPage() {
               </p>
             </div>
 
-            <div className="rounded-2xl border border-slate-700 bg-slate-800 p-8 hover:border-primary-300 transition-colors">
+            <div className="rounded-2xl border border-surface-border bg-surface-card p-8 hover:border-primary-300 transition-colors">
               <h3 className="text-lg font-bold text-white mb-3">
                 What information should I have ready for the consultation?
               </h3>
@@ -505,7 +505,7 @@ export default function ContactPage() {
               </p>
             </div>
 
-            <div className="rounded-2xl border border-slate-700 bg-slate-800 p-8 hover:border-primary-300 transition-colors">
+            <div className="rounded-2xl border border-surface-border bg-surface-card p-8 hover:border-primary-300 transition-colors">
               <h3 className="text-lg font-bold text-white mb-3">
                 How quickly can we get started?
               </h3>
@@ -514,7 +514,7 @@ export default function ContactPage() {
               </p>
             </div>
 
-            <div className="rounded-2xl border border-slate-700 bg-slate-800 p-8 hover:border-primary-300 transition-colors">
+            <div className="rounded-2xl border border-surface-border bg-surface-card p-8 hover:border-primary-300 transition-colors">
               <h3 className="text-lg font-bold text-white mb-3">
                 What happens after I submit the contact form?
               </h3>
@@ -523,7 +523,7 @@ export default function ContactPage() {
               </p>
             </div>
 
-            <div className="rounded-2xl border border-slate-700 bg-slate-800 p-8 hover:border-primary-300 transition-colors">
+            <div className="rounded-2xl border border-surface-border bg-surface-card p-8 hover:border-primary-300 transition-colors">
               <h3 className="text-lg font-bold text-white mb-3">
                 Do you offer free consultations?
               </h3>
@@ -532,16 +532,16 @@ export default function ContactPage() {
               </p>
             </div>
 
-            <div className="rounded-2xl border border-slate-700 bg-slate-800 p-8 hover:border-primary-300 transition-colors">
+            <div className="rounded-2xl border border-surface-border bg-surface-card p-8 hover:border-primary-300 transition-colors">
               <h3 className="text-lg font-bold text-white mb-3">
                 Can I see examples of similar projects you've built?
               </h3>
               <p className="text-gray-400 leading-relaxed">
-                Absolutely! Check out our <Link href="/demos" className="text-primary-600 font-semibold hover:text-primary-700">Demos page</Link> with 40+ live examples, or visit our <Link href="/work" className="text-primary-600 font-semibold hover:text-primary-700">Work page</Link> to see real client projects with testimonials.
+                Absolutely! Check out our <Link href="/demos" className="text-primary-600 font-semibold hover:text-primary-400">Demos page</Link> with 40+ live examples, or visit our <Link href="/work" className="text-primary-600 font-semibold hover:text-primary-400">Work page</Link> to see real client projects with testimonials.
               </p>
             </div>
 
-            <div className="rounded-2xl border border-slate-700 bg-slate-800 p-8 hover:border-primary-300 transition-colors">
+            <div className="rounded-2xl border border-surface-border bg-surface-card p-8 hover:border-primary-300 transition-colors">
               <h3 className="text-lg font-bold text-white mb-3">
                 What if I'm not sure what package I need?
               </h3>
@@ -550,7 +550,7 @@ export default function ContactPage() {
               </p>
             </div>
 
-            <div className="rounded-2xl border border-slate-700 bg-slate-800 p-8 hover:border-primary-300 transition-colors">
+            <div className="rounded-2xl border border-surface-border bg-surface-card p-8 hover:border-primary-300 transition-colors">
               <h3 className="text-lg font-bold text-white mb-3">
                 Do you provide hosting and domain registration?
               </h3>
@@ -559,7 +559,7 @@ export default function ContactPage() {
               </p>
             </div>
 
-            <div className="rounded-2xl border border-slate-700 bg-slate-800 p-8 hover:border-primary-300 transition-colors">
+            <div className="rounded-2xl border border-surface-border bg-surface-card p-8 hover:border-primary-300 transition-colors">
               <h3 className="text-lg font-bold text-white mb-3">
                 Will I be able to update the website myself?
               </h3>
@@ -568,7 +568,7 @@ export default function ContactPage() {
               </p>
             </div>
 
-            <div className="rounded-2xl border border-slate-700 bg-slate-800 p-8 hover:border-primary-300 transition-colors">
+            <div className="rounded-2xl border border-surface-border bg-surface-card p-8 hover:border-primary-300 transition-colors">
               <h3 className="text-lg font-bold text-white mb-3">
                 What makes StephensCode different from other web developers?
               </h3>
@@ -582,7 +582,7 @@ export default function ContactPage() {
             <p className="text-gray-400 mb-4">Still have questions?</p>
             <a
               href="tel:+19363234527"
-              className="inline-flex items-center gap-2 rounded-lg bg-primary-600 px-6 py-3 text-base font-semibold text-white shadow-lg hover:bg-primary-700 transition-all hover:scale-105"
+              className="inline-flex items-center gap-2 rounded-lg bg-primary-600 px-6 py-3 text-base font-semibold text-white shadow-lg hover:bg-primary-700 transition-all"
             >
               <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                 <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z" />

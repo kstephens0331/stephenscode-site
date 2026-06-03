@@ -38,7 +38,7 @@ export default function AdminView({ demo, colors }: AdminViewProps) {
       {/* Dashboard Header */}
       <div style={{ backgroundColor: '#0353a4' }} className="py-8">
         <div className="max-w-7xl mx-auto px-4">
-          <h1 style={{ color: '#ffffff' }} className="text-4xl font-black mb-2">
+          <h1 style={{ color: '#ffffff' }} className="text-4xl font-bold mb-2">
             Medical Practice Dashboard
           </h1>
           <p style={{ color: '#0496ff' }} className="text-lg font-bold">
@@ -52,22 +52,22 @@ export default function AdminView({ demo, colors }: AdminViewProps) {
         <div className="grid md:grid-cols-4 gap-6">
           <div style={{ backgroundColor: '#ffffff' }} className="p-6 shadow-lg">
             <div style={{ color: '#666666' }} className="text-sm font-bold uppercase mb-2">Today&apos;s Patients</div>
-            <div style={{ color: '#1a1a1a' }} className="text-4xl font-black mb-1">47</div>
+            <div style={{ color: '#1a1a1a' }} className="text-4xl font-bold mb-1">47</div>
             <div style={{ color: '#22c55e' }} className="text-sm font-bold">8 walk-ins, 39 scheduled</div>
           </div>
           <div style={{ backgroundColor: '#ffffff' }} className="p-6 shadow-lg">
             <div style={{ color: '#666666' }} className="text-sm font-bold uppercase mb-2">Active Patients</div>
-            <div style={{ color: '#1a1a1a' }} className="text-4xl font-black mb-1">12,847</div>
+            <div style={{ color: '#1a1a1a' }} className="text-4xl font-bold mb-1">12,847</div>
             <div style={{ color: '#22c55e' }} className="text-sm font-bold">↑ 234 new this month</div>
           </div>
           <div style={{ backgroundColor: '#ffffff' }} className="p-6 shadow-lg">
             <div style={{ color: '#666666' }} className="text-sm font-bold uppercase mb-2">Pending Results</div>
-            <div style={{ color: '#1a1a1a' }} className="text-4xl font-black mb-1">28</div>
+            <div style={{ color: '#1a1a1a' }} className="text-4xl font-bold mb-1">28</div>
             <div style={{ color: '#fbbf24' }} className="text-sm font-bold">Requiring review</div>
           </div>
           <div style={{ backgroundColor: '#ffffff' }} className="p-6 shadow-lg">
             <div style={{ color: '#666666' }} className="text-sm font-bold uppercase mb-2">Patient Satisfaction</div>
-            <div style={{ color: '#1a1a1a' }} className="text-4xl font-black mb-1">4.9</div>
+            <div style={{ color: '#1a1a1a' }} className="text-4xl font-bold mb-1">4.9</div>
             <div style={{ color: '#22c55e' }} className="text-sm font-bold">Excellent rating</div>
           </div>
         </div>
@@ -100,7 +100,7 @@ export default function AdminView({ demo, colors }: AdminViewProps) {
         {activeTab === 'appointments' && (
           <div style={{ backgroundColor: '#ffffff' }} className="p-8 shadow-lg">
             <div className="flex justify-between items-center mb-6">
-              <h2 style={{ color: '#1a1a1a' }} className="text-2xl font-black">Today&apos;s Schedule</h2>
+              <h2 style={{ color: '#1a1a1a' }} className="text-2xl font-bold">Today&apos;s Schedule</h2>
               <div className="flex gap-3">
                 <button style={{ backgroundColor: '#0353a4', color: '#ffffff' }} className="px-6 py-3 font-bold">
                   + New Appointment
@@ -116,7 +116,7 @@ export default function AdminView({ demo, colors }: AdminViewProps) {
                   <div className="flex justify-between items-start">
                     <div>
                       <div className="flex items-center gap-3 mb-2">
-                        <span style={{ color: '#0353a4' }} className="text-2xl font-black">{apt.time}</span>
+                        <span style={{ color: '#0353a4' }} className="text-2xl font-bold">{apt.time}</span>
                         <span style={{
                           backgroundColor: apt.status === 'Checked In' ? '#22c55e' :
                                         apt.status === 'Waiting' ? '#fbbf24' : '#9ca3af',
@@ -159,7 +159,7 @@ export default function AdminView({ demo, colors }: AdminViewProps) {
         {activeTab === 'patients' && (
           <div style={{ backgroundColor: '#ffffff' }} className="p-8 shadow-lg">
             <div className="flex justify-between items-center mb-6">
-              <h2 style={{ color: '#1a1a1a' }} className="text-2xl font-black">Patient Records (EHR System)</h2>
+              <h2 style={{ color: '#1a1a1a' }} className="text-2xl font-bold">Patient Records (EHR System)</h2>
               <button style={{ backgroundColor: '#0353a4', color: '#ffffff' }} className="px-6 py-3 font-bold">
                 + New Patient
               </button>
@@ -170,7 +170,7 @@ export default function AdminView({ demo, colors }: AdminViewProps) {
                   <div className="flex justify-between items-start">
                     <div>
                       <div className="flex items-center gap-3 mb-2">
-                        <span style={{ color: '#1a1a1a' }} className="text-lg font-black">{patient.name}</span>
+                        <span style={{ color: '#1a1a1a' }} className="text-lg font-bold">{patient.name}</span>
                         <span style={{ backgroundColor: '#0353a4', color: '#ffffff' }} className="px-3 py-1 text-xs font-bold">
                           {patient.mrn}
                         </span>
@@ -202,14 +202,14 @@ export default function AdminView({ demo, colors }: AdminViewProps) {
         {/* Prescriptions Tab */}
         {activeTab === 'prescriptions' && (
           <div style={{ backgroundColor: '#ffffff' }} className="p-8 shadow-lg">
-            <h2 style={{ color: '#1a1a1a' }} className="text-2xl font-black mb-6">E-Prescription Management</h2>
+            <h2 style={{ color: '#1a1a1a' }} className="text-2xl font-bold mb-6">E-Prescription Management</h2>
             <div className="space-y-4">
               {pendingPrescriptions.map((rx, idx) => (
                 <div key={idx} style={{ backgroundColor: '#f8f8f8', border: '2px solid #e5e5e5' }} className="p-6">
                   <div className="flex justify-between items-start">
                     <div>
                       <div className="flex items-center gap-3 mb-2">
-                        <span style={{ color: '#1a1a1a' }} className="text-lg font-black">{rx.medication}</span>
+                        <span style={{ color: '#1a1a1a' }} className="text-lg font-bold">{rx.medication}</span>
                         <span style={{
                           backgroundColor: rx.status === 'Approved' ? '#22c55e' :
                                         rx.status === 'Sent to Pharmacy' ? '#3b82f6' : '#fbbf24',
@@ -249,7 +249,7 @@ export default function AdminView({ demo, colors }: AdminViewProps) {
         {/* Analytics Tab */}
         {activeTab === 'analytics' && (
           <div style={{ backgroundColor: '#ffffff' }} className="p-8 shadow-lg">
-            <h2 style={{ color: '#1a1a1a' }} className="text-2xl font-black mb-8">Practice Analytics</h2>
+            <h2 style={{ color: '#1a1a1a' }} className="text-2xl font-bold mb-8">Practice Analytics</h2>
             <div className="grid md:grid-cols-2 gap-8">
               <div>
                 <h3 style={{ color: '#0353a4' }} className="text-xl font-bold mb-4">Patient Demographics</h3>
@@ -263,7 +263,7 @@ export default function AdminView({ demo, colors }: AdminViewProps) {
                     <div key={item.category}>
                       <div className="flex justify-between mb-2">
                         <span style={{ color: '#1a1a1a' }} className="font-bold">{item.category}</span>
-                        <span style={{ color: '#0353a4' }} className="font-black">{item.count} patients</span>
+                        <span style={{ color: '#0353a4' }} className="font-bold">{item.count} patients</span>
                       </div>
                       <div style={{ backgroundColor: '#e5e5e5' }} className="h-3 rounded-full overflow-hidden">
                         <div
@@ -281,19 +281,19 @@ export default function AdminView({ demo, colors }: AdminViewProps) {
                 <div className="space-y-4">
                   <div style={{ backgroundColor: '#f8f8f8' }} className="p-4">
                     <div style={{ color: '#666666' }} className="text-sm mb-1">Average Wait Time</div>
-                    <div style={{ color: '#1a1a1a' }} className="text-3xl font-black">12 min</div>
+                    <div style={{ color: '#1a1a1a' }} className="text-3xl font-bold">12 min</div>
                   </div>
                   <div style={{ backgroundColor: '#f8f8f8' }} className="p-4">
                     <div style={{ color: '#666666' }} className="text-sm mb-1">Appointment Show Rate</div>
-                    <div style={{ color: '#1a1a1a' }} className="text-3xl font-black">94%</div>
+                    <div style={{ color: '#1a1a1a' }} className="text-3xl font-bold">94%</div>
                   </div>
                   <div style={{ backgroundColor: '#f8f8f8' }} className="p-4">
                     <div style={{ color: '#666666' }} className="text-sm mb-1">Same-Day Appointments</div>
-                    <div style={{ color: '#1a1a1a' }} className="text-3xl font-black">87%</div>
+                    <div style={{ color: '#1a1a1a' }} className="text-3xl font-bold">87%</div>
                   </div>
                   <div style={{ backgroundColor: '#f8f8f8' }} className="p-4">
                     <div style={{ color: '#666666' }} className="text-sm mb-1">Telehealth Adoption</div>
-                    <div style={{ color: '#1a1a1a' }} className="text-3xl font-black">43%</div>
+                    <div style={{ color: '#1a1a1a' }} className="text-3xl font-bold">43%</div>
                   </div>
                 </div>
               </div>
@@ -308,7 +308,7 @@ export default function AdminView({ demo, colors }: AdminViewProps) {
                     { diagnosis: 'Anxiety/Depression', count: 389 }
                   ].map((item) => (
                     <div key={item.diagnosis} style={{ backgroundColor: '#f8f8f8' }} className="p-4 text-center">
-                      <div style={{ color: '#0353a4' }} className="text-3xl font-black mb-2">{item.count}</div>
+                      <div style={{ color: '#0353a4' }} className="text-3xl font-bold mb-2">{item.count}</div>
                       <div style={{ color: '#666666' }} className="text-sm font-bold">{item.diagnosis}</div>
                     </div>
                   ))}

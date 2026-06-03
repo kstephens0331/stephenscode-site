@@ -46,7 +46,7 @@ export default function Layout({ children, colors, currentPage, onNavigate, onAp
             <div className="flex items-center gap-3 cursor-pointer" onClick={() => onNavigate('home')}>
               <div className="text-4xl">⚕️</div>
               <div>
-                <div style={{ color: '#ffffff' }} className="text-2xl font-black">HealthFirst Medical Group</div>
+                <div style={{ color: '#ffffff' }} className="text-2xl font-bold">HealthFirst Medical Group</div>
                 <div style={{ color: '#0496ff' }} className="text-xs font-bold uppercase tracking-wide">Compassionate Care Since 1985</div>
               </div>
             </div>
@@ -84,7 +84,7 @@ export default function Layout({ children, colors, currentPage, onNavigate, onAp
             <div>
               <div className="flex items-center gap-2 mb-4">
                 <div className="text-3xl">⚕️</div>
-                <div style={{ color: '#0496ff' }} className="text-xl font-black">HealthFirst</div>
+                <div style={{ color: '#0496ff' }} className="text-xl font-bold">HealthFirst</div>
               </div>
               <p style={{ color: '#999999' }} className="text-sm">
                 Providing exceptional healthcare with compassion and expertise for over 35 years.

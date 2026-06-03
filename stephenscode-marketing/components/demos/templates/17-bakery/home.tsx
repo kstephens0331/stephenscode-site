@@ -113,10 +113,10 @@ export default function Home() {
                 From custom celebration cakes to daily fresh bread, every item is made with love using the finest ingredients.
               </p>
               <div className="flex flex-col sm:flex-row gap-4">
-                <a href="/order" className="px-8 py-4 rounded-lg font-semibold text-white text-center transition-transform hover:scale-105" style={{ backgroundColor: '#d62828' }}>
+                <a href="/order" className="px-8 py-4 rounded-lg font-semibold text-white text-center transition-transform" style={{ backgroundColor: '#d62828' }}>
                   Order Online Now
                 </a>
-                <a href="/custom-cakes" className="px-8 py-4 border-2 rounded-lg font-semibold text-center transition-transform hover:scale-105" style={{ borderColor: '#d62828', color: '#d62828' }}>
+                <a href="/custom-cakes" className="px-8 py-4 border-2 rounded-lg font-semibold text-center transition-transform" style={{ borderColor: '#d62828', color: '#d62828' }}>
                   Design Custom Cake
                 </a>
               </div>
@@ -241,7 +241,7 @@ export default function Home() {
           </div>
           <div className="grid md:grid-cols-4 gap-8">
             {featuredProducts.map((product) => (
-              <div key={product.id} className="bg-white rounded-xl shadow-lg overflow-hidden hover:shadow-2xl transition-shadow">
+              <div key={product.id} className="bg-white rounded-xl shadow-lg overflow-hidden transition-shadow">
                 <div className="relative">
                   <div className="text-8xl text-center py-8 bg-gradient-to-br from-orange-50 to-yellow-50">
                     {product.image}
@@ -275,7 +275,7 @@ export default function Home() {
             ))}
           </div>
           <div className="text-center mt-12">
-            <a href="/menu" className="inline-flex items-center gap-2 px-8 py-4 rounded-lg font-semibold text-white transition-transform hover:scale-105" style={{ backgroundColor: '#d62828' }}>
+            <a href="/menu" className="inline-flex items-center gap-2 px-8 py-4 rounded-lg font-semibold text-white transition-transform" style={{ backgroundColor: '#d62828' }}>
               View Full Menu
               <ChevronRight className="w-5 h-5" />
             </a>
@@ -293,7 +293,7 @@ export default function Home() {
           <p className="text-xl text-white/90 mb-8">
             Use our interactive cake builder to create a custom masterpiece for your special occasion. Choose flavors, fillings, designs, and more!
           </p>
-          <a href="/custom-cakes" className="inline-flex items-center gap-2 px-8 py-4 rounded-lg font-semibold transition-transform hover:scale-105" style={{ backgroundColor: '#fcbf49', color: '#d62828' }}>
+          <a href="/custom-cakes" className="inline-flex items-center gap-2 px-8 py-4 rounded-lg font-semibold transition-transform" style={{ backgroundColor: '#fcbf49', color: '#d62828' }}>
             Start Designing
             <ChevronRight className="w-5 h-5" />
           </a>

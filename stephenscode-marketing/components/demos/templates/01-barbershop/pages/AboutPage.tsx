@@ -52,7 +52,7 @@ export default function AboutPage({ colors, onBookingOpen }: AboutPageProps) {
           <div style={{ color: '#d4af37' }} className="text-sm font-bold uppercase tracking-widest mb-4">
             Our Story
           </div>
-          <h1 style={{ color: '#ffffff' }} className="text-6xl font-black mb-6">
+          <h1 style={{ color: '#ffffff' }} className="text-6xl font-bold mb-6">
             About Classic Cuts
           </h1>
           <p style={{ color: '#c4a962' }} className="text-xl max-w-3xl mx-auto">
@@ -65,7 +65,7 @@ export default function AboutPage({ colors, onBookingOpen }: AboutPageProps) {
       <section className="py-24" style={{ backgroundColor: '#ffffff' }}>
         <div className="max-w-4xl mx-auto px-4">
           <div className="prose prose-lg">
-            <h2 style={{ color: '#1a1a1a' }} className="text-4xl font-black mb-6">Our Story</h2>
+            <h2 style={{ color: '#1a1a1a' }} className="text-4xl font-bold mb-6">Our Story</h2>
 
             <div style={{ color: '#666666' }} className="space-y-6 text-lg leading-relaxed">
               <p>
@@ -100,7 +100,7 @@ export default function AboutPage({ colors, onBookingOpen }: AboutPageProps) {
       <section className="py-24" style={{ backgroundColor: '#f5f5f5' }}>
         <div className="max-w-7xl mx-auto px-4">
           <div className="text-center mb-16">
-            <h2 style={{ color: '#1a1a1a' }} className="text-4xl font-black mb-4">
+            <h2 style={{ color: '#1a1a1a' }} className="text-4xl font-bold mb-4">
               What We Stand For
             </h2>
             <p style={{ color: '#666666' }} className="text-lg max-w-2xl mx-auto">
@@ -146,7 +146,7 @@ export default function AboutPage({ colors, onBookingOpen }: AboutPageProps) {
             <div style={{ color: '#d4af37' }} className="text-sm font-bold uppercase tracking-widest mb-3">
               Our Team
             </div>
-            <h2 style={{ color: '#1a1a1a' }} className="text-5xl font-black mb-4">
+            <h2 style={{ color: '#1a1a1a' }} className="text-5xl font-bold mb-4">
               Meet Our Master Barbers
             </h2>
             <p style={{ color: '#666666' }} className="text-lg max-w-2xl mx-auto">
@@ -171,7 +171,7 @@ export default function AboutPage({ colors, onBookingOpen }: AboutPageProps) {
                         </div>
                       </div>
                       <div className="md:col-span-2">
-                        <h3 style={{ color: '#1a1a1a' }} className="text-3xl font-black mb-2">{barber.name}</h3>
+                        <h3 style={{ color: '#1a1a1a' }} className="text-3xl font-bold mb-2">{barber.name}</h3>
                         <div style={{ color: '#d4af37' }} className="text-xl font-bold mb-4">{barber.title}</div>
                         <div style={{ color: '#666666' }} className="mb-4">
                           <span className="font-bold">Specialty: </span>{barber.specialty}
@@ -183,7 +183,7 @@ export default function AboutPage({ colors, onBookingOpen }: AboutPageProps) {
                   ) : (
                     <>
                       <div className="md:col-span-2">
-                        <h3 style={{ color: '#1a1a1a' }} className="text-3xl font-black mb-2">{barber.name}</h3>
+                        <h3 style={{ color: '#1a1a1a' }} className="text-3xl font-bold mb-2">{barber.name}</h3>
                         <div style={{ color: '#d4af37' }} className="text-xl font-bold mb-4">{barber.title}</div>
                         <div style={{ color: '#666666' }} className="mb-4">
                           <span className="font-bold">Specialty: </span>{barber.specialty}
@@ -210,7 +210,7 @@ export default function AboutPage({ colors, onBookingOpen }: AboutPageProps) {
       <section className="py-24" style={{ backgroundColor: '#1a1a1a' }}>
         <div className="max-w-4xl mx-auto px-4">
           <div className="text-center mb-12">
-            <h2 style={{ color: '#ffffff' }} className="text-4xl font-black mb-6">
+            <h2 style={{ color: '#ffffff' }} className="text-4xl font-bold mb-6">
               Why Clients Choose Classic Cuts
             </h2>
           </div>

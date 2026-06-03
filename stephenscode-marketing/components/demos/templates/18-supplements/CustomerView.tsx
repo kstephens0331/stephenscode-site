@@ -97,9 +97,9 @@ export default function CustomerView({ demo, colors }: CustomerViewProps) {
               { id: '3', name: 'BCAA Recovery', price: 34.99, image: 'https://images.unsplash.com/photo-1579722821273-0f6c7d44362f?w=400', rating: 4.7 },
               { id: '4', name: 'Creatine Monohydrate', price: 29.99, image: 'https://images.unsplash.com/photo-1593095948071-474c5cc2989d?w=400', rating: 5.0 },
             ].map(product => (
-              <div key={product.id} className="bg-white rounded-xl shadow-md overflow-hidden group hover:shadow-2xl transition-all">
+              <div key={product.id} className="bg-white rounded-xl shadow-md overflow-hidden group transition-all">
                 <div className="relative overflow-hidden">
-                  <img src={product.image} alt={product.name} className="w-full h-64 object-cover group-hover:scale-110 transition-transform duration-500" />
+                  <img src={product.image} alt={product.name} className="w-full h-64 object-cover group- transition-transform duration-500" />
                   <div className="absolute top-4 left-4 bg-cyan-500 text-white px-3 py-1 rounded-full text-sm font-bold flex items-center">
                     <Star className="w-4 h-4 mr-1 fill-current" />
                     {product.rating}
@@ -160,7 +160,7 @@ export default function CustomerView({ demo, colors }: CustomerViewProps) {
             image: 'https://images.unsplash.com/photo-1579722821273-0f6c7d44362f?w=400',
             rating: 4.5 + (i % 5) * 0.1,
           })).map(product => (
-            <div key={product.id} className="bg-white rounded-xl shadow-md overflow-hidden hover:shadow-2xl transition-all">
+            <div key={product.id} className="bg-white rounded-xl shadow-md overflow-hidden transition-all">
               <img src={product.image} alt={product.name} className="w-full h-48 object-cover" />
               <div className="p-6">
                 <div className="flex items-center mb-2">
@@ -195,9 +195,9 @@ export default function CustomerView({ demo, colors }: CustomerViewProps) {
             { name: 'Weight Management', count: 21, image: 'https://images.unsplash.com/photo-1579722821273-0f6c7d44362f?w=600' },
             { name: 'Performance', count: 19, image: 'https://images.unsplash.com/photo-1593095948071-474c5cc2989d?w=600' },
           ].map(cat => (
-            <button key={cat.name} onClick={() => setCurrentPage('shop')} className="group relative overflow-hidden rounded-xl shadow-lg hover:shadow-2xl transition-all">
+            <button key={cat.name} onClick={() => setCurrentPage('shop')} className="group relative overflow-hidden rounded-xl shadow-lg transition-all">
               <div className="aspect-[4/3] overflow-hidden">
-                <img src={cat.image} alt={cat.name} className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500" />
+                <img src={cat.image} alt={cat.name} className="w-full h-full object-cover group- transition-transform duration-500" />
               </div>
               <div className="absolute inset-0 bg-gradient-to-t from-black/80 to-transparent flex flex-col justify-end p-6">
                 <h3 className="text-2xl font-bold text-white mb-2">{cat.name}</h3>
@@ -219,7 +219,7 @@ export default function CustomerView({ demo, colors }: CustomerViewProps) {
         </div>
         <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
           {['Monthly', 'Bi-Weekly', 'Weekly'].map((freq, i) => (
-            <div key={freq} className="bg-white rounded-xl shadow-md p-8 hover:shadow-2xl transition-all">
+            <div key={freq} className="bg-white rounded-xl shadow-md p-8 transition-all">
               <div className="text-center mb-6">
                 <Calendar className="w-12 h-12 text-[var(--color-primary)] mx-auto mb-4" />
                 <h3 className="text-2xl font-bold text-gray-900 mb-2">{freq}</h3>
@@ -262,7 +262,7 @@ export default function CustomerView({ demo, colors }: CustomerViewProps) {
             { name: 'Performance Pack', products: ['Pre-Workout', 'Protein', 'Recovery'], price: 119.99, save: 20 },
             { name: 'Essential Wellness', products: ['Multivitamin', 'Fish Oil', 'Vitamin D'], price: 59.99, save: 15 },
           ].map(bundle => (
-            <div key={bundle.name} className="bg-white rounded-xl shadow-md p-8 hover:shadow-2xl transition-all">
+            <div key={bundle.name} className="bg-white rounded-xl shadow-md p-8 transition-all">
               <div className="flex justify-between items-start mb-6">
                 <div>
                   <h3 className="text-2xl font-bold text-gray-900 mb-2">{bundle.name}</h3>

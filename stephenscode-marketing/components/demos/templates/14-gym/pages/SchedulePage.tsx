@@ -109,7 +109,7 @@ export default function SchedulePage({ basePath }: SchedulePageProps) {
               <span className="text-sm font-medium text-[#c1121f]">100+ Weekly Classes</span>
             </div>
 
-            <h1 className="text-5xl sm:text-6xl font-black text-zinc-50 mb-6">
+            <h1 className="text-5xl sm:text-6xl font-bold text-zinc-50 mb-6">
               Class
               <span className="block text-transparent bg-clip-text bg-gradient-to-r from-[#c1121f] to-[#fdf0d5]">
                 Schedule
@@ -185,7 +185,7 @@ export default function SchedulePage({ basePath }: SchedulePageProps) {
                     <div className={`bg-gradient-to-br ${getClassColor(item.class)} lg:w-48 p-6 flex items-center justify-center`}>
                       <div className="text-center">
                         <Clock className="h-6 w-6 text-white/80 mx-auto mb-2" />
-                        <div className="text-2xl font-black text-white">{item.time}</div>
+                        <div className="text-2xl font-bold text-white">{item.time}</div>
                         <div className="text-sm text-white/80">{item.duration}</div>
                       </div>
                     </div>
@@ -194,7 +194,7 @@ export default function SchedulePage({ basePath }: SchedulePageProps) {
                     <div className="flex-1 p-6">
                       <div className="flex flex-col lg:flex-row lg:items-center lg:justify-between">
                         <div className="mb-4 lg:mb-0">
-                          <h3 className="text-2xl font-black text-zinc-50 mb-2">{item.class}</h3>
+                          <h3 className="text-2xl font-bold text-zinc-50 mb-2">{item.class}</h3>
                           <div className="flex flex-wrap gap-4 text-sm text-zinc-400">
                             <div className="flex items-center">
                               <Users className="h-4 w-4 mr-2 text-[#c1121f]" />
@@ -265,13 +265,13 @@ export default function SchedulePage({ basePath }: SchedulePageProps) {
       {/* CTA Section */}
       <section className="py-20 bg-gradient-to-br from-zinc-950 via-[#780000]/20 to-zinc-950">
         <div className="mx-auto max-w-4xl px-4 sm:px-6 lg:px-8 text-center">
-          <h2 className="text-4xl font-black text-zinc-50 mb-6">
+          <h2 className="text-4xl font-bold text-zinc-50 mb-6">
             Ready to Book Your First Class?
           </h2>
           <p className="text-xl text-zinc-300 mb-8">
             Join today and try your first class absolutely FREE!
           </p>
-          <button className="inline-flex items-center px-8 py-4 bg-gradient-to-r from-[#c1121f] to-[#780000] text-zinc-50 rounded-lg font-bold text-lg hover:shadow-xl hover:shadow-[#c1121f]/30 transition-all hover:scale-105">
+          <button className="inline-flex items-center px-8 py-4 bg-gradient-to-r from-[#c1121f] to-[#780000] text-zinc-50 rounded-lg font-bold text-lg hover:shadow-xl hover:shadow-[#c1121f]/30 transition-all">
             Start Free Trial
           </button>
         </div>

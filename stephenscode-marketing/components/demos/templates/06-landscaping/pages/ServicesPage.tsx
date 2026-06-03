@@ -258,7 +258,7 @@ export default function ServicesPage({ onNavigate }: ServicesPageProps) {
             </p>
             <button
               onClick={() => onNavigate('contact')}
-              className="bg-[#a7c957] text-[#386641] px-8 py-4 rounded-lg font-bold text-lg hover:bg-white transition-all transform hover:scale-105 shadow-xl inline-flex items-center gap-2"
+              className="bg-[#a7c957] text-[#386641] px-8 py-4 rounded-lg font-bold text-lg hover:bg-white transition-all transform shadow-xl inline-flex items-center gap-2"
             >
               Get Free Estimate
               <ArrowRight className="h-5 w-5" />
@@ -342,7 +342,7 @@ export default function ServicesPage({ onNavigate }: ServicesPageProps) {
 
                     <button
                       onClick={() => onNavigate('contact')}
-                      className="bg-[#386641] text-white px-8 py-4 rounded-lg font-bold hover:bg-[#6a994e] transition-all transform hover:scale-105 shadow-lg inline-flex items-center gap-2"
+                      className="bg-[#386641] text-white px-8 py-4 rounded-lg font-bold hover:bg-[#6a994e] transition-all transform shadow-lg inline-flex items-center gap-2"
                     >
                       Request Quote
                       <ArrowRight className="h-5 w-5" />
@@ -437,7 +437,7 @@ export default function ServicesPage({ onNavigate }: ServicesPageProps) {
 
                   <button
                     onClick={() => onNavigate('contact')}
-                    className={`w-full py-4 rounded-lg font-bold transition-all transform hover:scale-105 shadow-lg ${
+                    className={`w-full py-4 rounded-lg font-bold transition-all transform  shadow-lg ${
                       pkg.popular
                         ? 'bg-[#a7c957] text-[#386641] hover:bg-[#6a994e] hover:text-white'
                         : 'bg-[#386641] text-white hover:bg-[#6a994e]'
@@ -512,14 +512,14 @@ export default function ServicesPage({ onNavigate }: ServicesPageProps) {
             <div className="flex flex-wrap justify-center gap-4">
               <button
                 onClick={() => onNavigate('contact')}
-                className="bg-[#386641] text-white px-10 py-5 rounded-lg font-bold text-xl hover:bg-white hover:text-[#386641] transition-all transform hover:scale-105 shadow-2xl inline-flex items-center gap-2"
+                className="bg-[#386641] text-white px-10 py-5 rounded-lg font-bold text-xl hover:bg-white hover:text-[#386641] transition-all transform shadow-2xl inline-flex items-center gap-2"
               >
                 Get Free Estimate
                 <ArrowRight className="h-6 w-6" />
               </button>
               <button
                 onClick={() => onNavigate('gallery')}
-                className="bg-white text-[#386641] px-10 py-5 rounded-lg font-bold text-xl hover:bg-[#386641] hover:text-white transition-all transform hover:scale-105 shadow-2xl"
+                className="bg-white text-[#386641] px-10 py-5 rounded-lg font-bold text-xl hover:bg-[#386641] hover:text-white transition-all transform shadow-2xl"
               >
                 View Our Work
               </button>

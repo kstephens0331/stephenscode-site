@@ -84,7 +84,7 @@ export default function SACVPNPage() {
   return (
     <>
       {/* Hero Section */}
-      <section className="relative bg-gradient-to-br from-slate-900 via-blue-900 to-slate-900 text-white overflow-hidden">
+      <section className="relative bg-gradient-to-br from-surface via-surface-card to-surface text-white overflow-hidden">
         {/* Animated background */}
         <div className="absolute inset-0 opacity-20">
           <div className="absolute inset-0" style={{
@@ -104,8 +104,8 @@ export default function SACVPNPage() {
               Enterprise-Grade VPN Security
             </div>
 
-            <h1 className="text-5xl font-black tracking-tight sm:text-7xl mb-6">
-              <span className="bg-gradient-to-r from-blue-400 via-cyan-400 to-blue-400 bg-clip-text text-transparent">
+            <h1 className="text-5xl font-bold tracking-tight sm:text-7xl mb-6">
+              <span className="bg-gradient-to-r from-primary-400 via-accent-400 to-primary-400 bg-clip-text text-transparent">
                 SACVPN
               </span>
             </h1>
@@ -125,7 +125,7 @@ export default function SACVPNPage() {
                 href="https://sacvpn.com"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="group inline-flex items-center gap-3 rounded-xl bg-gradient-to-r from-blue-500 to-cyan-500 px-8 py-4 text-lg font-bold text-white shadow-2xl shadow-blue-500/25 hover:shadow-blue-500/40 hover:from-blue-600 hover:to-cyan-600 transition-all hover:scale-105"
+                className="group inline-flex items-center gap-3 rounded-xl bg-gradient-to-r from-primary-500 to-accent-500 px-8 py-4 text-lg font-bold text-white shadow-2xl shadow-primary-500/30 hover:shadow-blue-500/40 hover:from-primary-600 hover:to-accent-600 transition-all"
               >
                 <span>Get SACVPN</span>
                 <svg className="w-5 h-5 group-hover:translate-x-1 transition-transform" fill="none" viewBox="0 0 24 24" stroke="currentColor">
@@ -134,7 +134,7 @@ export default function SACVPNPage() {
               </a>
               <Link
                 href="/contact"
-                className="inline-flex items-center gap-2 rounded-xl bg-slate-800/40 px-8 py-4 text-lg font-bold text-white backdrop-blur-lg border border-slate-600 hover:bg-slate-700/60 transition-all"
+                className="inline-flex items-center gap-2 rounded-xl bg-surface-card/60 px-8 py-4 text-lg font-bold text-white backdrop-blur-lg border border-surface-border hover:bg-surface-elevated/80 transition-all"
               >
                 <span>Contact Sales</span>
               </Link>
@@ -148,18 +148,18 @@ export default function SACVPNPage() {
 
         {/* Wave divider */}
         <div className="absolute bottom-0 left-0 right-0">
-          <svg className="w-full h-16 fill-slate-900" viewBox="0 0 1200 120" preserveAspectRatio="none">
+          <svg className="w-full h-16 fill-surface" viewBox="0 0 1200 120" preserveAspectRatio="none">
             <path d="M321.39,56.44c58-10.79,114.16-30.13,172-41.86,82.39-16.72,168.19-17.73,250.45-.39C823.78,31,906.67,72,985.66,92.83c70.05,18.48,146.53,26.09,214.34,3V0H0V27.35A600.21,600.21,0,0,0,321.39,56.44Z" />
           </svg>
         </div>
       </section>
 
       {/* Features Grid */}
-      <section className="bg-slate-900 py-24 sm:py-32">
+      <section className="bg-surface py-24 sm:py-32">
         <div className="mx-auto max-w-7xl px-6 lg:px-8">
           <div className="mx-auto max-w-2xl text-center mb-16">
             <h2 className="text-base font-semibold leading-7 text-blue-400">Why SACVPN?</h2>
-            <p className="mt-2 text-4xl font-black tracking-tight text-white sm:text-5xl">
+            <p className="mt-2 text-4xl font-bold tracking-tight text-white sm:text-5xl">
               Enterprise Security Made Simple
             </p>
             <p className="mt-6 text-lg leading-8 text-gray-400">
@@ -171,7 +171,7 @@ export default function SACVPNPage() {
             {features.map((feature, index) => (
               <div
                 key={index}
-                className="group relative rounded-2xl bg-slate-800 p-8 hover:bg-gradient-to-br hover:from-blue-900/30 hover:to-cyan-900/30 transition-all hover:shadow-xl border border-slate-700 hover:border-blue-500/50"
+                className="group relative rounded-2xl bg-surface-card p-8 hover:bg-gradient-to-br hover:from-primary-900/30 hover:to-accent-900/30 transition-all hover:shadow-xl border border-surface-border hover:border-primary-500/60"
               >
                 <div className="text-4xl mb-4">{feature.icon}</div>
                 <h3 className="text-xl font-bold text-white mb-3 group-hover:text-blue-300">
@@ -187,11 +187,11 @@ export default function SACVPNPage() {
       </section>
 
       {/* Use Cases */}
-      <section className="bg-slate-800 py-24 sm:py-32">
+      <section className="bg-surface-card py-24 sm:py-32">
         <div className="mx-auto max-w-7xl px-6 lg:px-8">
           <div className="mx-auto max-w-2xl text-center mb-16">
             <h2 className="text-base font-semibold leading-7 text-blue-400">Use Cases</h2>
-            <p className="mt-2 text-4xl font-black tracking-tight text-white sm:text-5xl">
+            <p className="mt-2 text-4xl font-bold tracking-tight text-white sm:text-5xl">
               Built for Business
             </p>
           </div>
@@ -200,7 +200,7 @@ export default function SACVPNPage() {
             {useCases.map((useCase, index) => (
               <div
                 key={index}
-                className="flex items-start gap-6 rounded-2xl bg-slate-900 p-8 shadow-lg hover:shadow-xl transition-shadow"
+                className="flex items-start gap-6 rounded-2xl bg-surface p-8 shadow-lg hover:shadow-xl transition-shadow"
               >
                 <div className="flex-shrink-0 text-5xl">{useCase.icon}</div>
                 <div>
@@ -214,11 +214,11 @@ export default function SACVPNPage() {
       </section>
 
       {/* How It Works */}
-      <section className="bg-slate-900 py-24 sm:py-32">
+      <section className="bg-surface py-24 sm:py-32">
         <div className="mx-auto max-w-7xl px-6 lg:px-8">
           <div className="mx-auto max-w-2xl text-center mb-16">
             <h2 className="text-base font-semibold leading-7 text-blue-400">Simple Setup</h2>
-            <p className="mt-2 text-4xl font-black tracking-tight text-white sm:text-5xl">
+            <p className="mt-2 text-4xl font-bold tracking-tight text-white sm:text-5xl">
               Get Protected in Minutes
             </p>
           </div>
@@ -256,7 +256,7 @@ export default function SACVPNPage() {
       </section>
 
       {/* CTA Section */}
-      <section className="relative bg-gradient-to-br from-slate-900 via-blue-900 to-slate-900 py-24 sm:py-32 overflow-hidden">
+      <section className="relative bg-gradient-to-br from-surface via-surface-card to-surface py-24 sm:py-32 overflow-hidden">
         <div className="absolute inset-0 opacity-20">
           <div className="absolute inset-0" style={{
             backgroundImage: 'radial-gradient(circle at 2px 2px, rgba(255,255,255,0.3) 1px, transparent 0)',
@@ -265,7 +265,7 @@ export default function SACVPNPage() {
         </div>
 
         <div className="relative mx-auto max-w-4xl px-6 lg:px-8 text-center">
-          <h2 className="text-4xl font-black tracking-tight text-white sm:text-5xl mb-6">
+          <h2 className="text-4xl font-bold tracking-tight text-white sm:text-5xl mb-6">
             Ready to Secure Your Business?
           </h2>
           <p className="text-xl text-gray-300 mb-12 max-w-2xl mx-auto">
@@ -278,7 +278,7 @@ export default function SACVPNPage() {
               href="https://sacvpn.com"
               target="_blank"
               rel="noopener noreferrer"
-              className="group inline-flex items-center gap-3 rounded-xl bg-gradient-to-r from-blue-500 to-cyan-500 px-10 py-5 text-xl font-bold text-white shadow-2xl shadow-blue-500/25 hover:shadow-blue-500/40 hover:from-blue-600 hover:to-cyan-600 transition-all hover:scale-105"
+              className="group inline-flex items-center gap-3 rounded-xl bg-gradient-to-r from-primary-500 to-accent-500 px-10 py-5 text-xl font-bold text-white shadow-2xl shadow-primary-500/30 hover:shadow-blue-500/40 hover:from-primary-600 hover:to-accent-600 transition-all"
             >
               <span>Visit SACVPN.com</span>
               <svg className="w-6 h-6 group-hover:translate-x-1 transition-transform" fill="none" viewBox="0 0 24 24" stroke="currentColor">
@@ -287,7 +287,7 @@ export default function SACVPNPage() {
             </a>
             <Link
               href="/services/enterprise-vpn"
-              className="inline-flex items-center gap-2 rounded-xl bg-slate-800/40 px-10 py-5 text-xl font-bold text-white backdrop-blur-lg border border-slate-600 hover:bg-slate-700/60 transition-all"
+              className="inline-flex items-center gap-2 rounded-xl bg-surface-card/60 px-10 py-5 text-xl font-bold text-white backdrop-blur-lg border border-surface-border hover:bg-surface-elevated/80 transition-all"
             >
               <span>View Add-On Details</span>
             </Link>

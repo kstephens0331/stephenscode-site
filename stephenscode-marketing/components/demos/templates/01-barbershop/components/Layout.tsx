@@ -45,7 +45,7 @@ export default function Layout({ children, colors, currentPage, onNavigate, onBo
               onClick={() => onNavigate('home')}
               className="flex items-center gap-3 hover:opacity-80 transition"
             >
-              <div style={{ color: '#1a1a1a' }} className="text-3xl font-black">CLASSIC CUTS</div>
+              <div style={{ color: '#1a1a1a' }} className="text-3xl font-bold">CLASSIC CUTS</div>
               <div style={{ color: '#d4af37' }} className="text-xs font-semibold uppercase tracking-wider">Est. 2010</div>
             </button>
 
@@ -127,7 +127,7 @@ export default function Layout({ children, colors, currentPage, onNavigate, onBo
         <div className="max-w-7xl mx-auto px-4">
           <div className="grid md:grid-cols-4 gap-8 mb-8">
             <div>
-              <div className="text-2xl font-black mb-4">CLASSIC CUTS</div>
+              <div className="text-2xl font-bold mb-4">CLASSIC CUTS</div>
               <p style={{ color: '#999999' }} className="text-sm">
                 Premium barbering since 2010. Traditional craft meets modern style in downtown Houston.
               </p>

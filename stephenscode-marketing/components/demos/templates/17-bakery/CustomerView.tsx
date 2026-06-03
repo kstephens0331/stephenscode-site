@@ -101,7 +101,7 @@ export default function CustomerView({ demo, colors }: CustomerViewProps) {
             ].map(item => (
               <div key={item.id} className="bg-white rounded-xl shadow-md overflow-hidden group hover:shadow-xl transition-all">
                 <div className="relative overflow-hidden">
-                  <img src={item.image} alt={item.name} className="w-full h-48 object-cover group-hover:scale-110 transition-transform duration-500" />
+                  <img src={item.image} alt={item.name} className="w-full h-48 object-cover group- transition-transform duration-500" />
                   <button onClick={() => addToCart(item)} className="absolute bottom-4 left-4 right-4 bg-[var(--color-primary)] text-white py-2 rounded-lg font-semibold opacity-0 group-hover:opacity-100 transition-opacity">
                     Add to Cart
                   </button>
@@ -215,7 +215,7 @@ export default function CustomerView({ demo, colors }: CustomerViewProps) {
           ].map((item, i) => (
             <div key={i} className="bg-white rounded-xl shadow-md overflow-hidden group hover:shadow-xl transition-all">
               <div className="relative overflow-hidden">
-                <img src={item.image} alt={item.name} className="w-full h-48 object-cover group-hover:scale-110 transition-transform duration-500" />
+                <img src={item.image} alt={item.name} className="w-full h-48 object-cover group- transition-transform duration-500" />
               </div>
               <div className="p-4">
                 <h3 className="font-semibold text-gray-900 mb-2">{item.name}</h3>

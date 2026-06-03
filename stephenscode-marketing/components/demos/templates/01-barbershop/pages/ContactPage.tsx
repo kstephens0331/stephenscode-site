@@ -22,7 +22,7 @@ export default function ContactPage({ colors, onBookingOpen }: ContactPageProps)
           <div style={{ color: '#d4af37' }} className="text-sm font-bold uppercase tracking-widest mb-4">
             Get In Touch
           </div>
-          <h1 style={{ color: '#ffffff' }} className="text-6xl font-black mb-6">
+          <h1 style={{ color: '#ffffff' }} className="text-6xl font-bold mb-6">
             Visit Us Today
           </h1>
           <p style={{ color: '#c4a962' }} className="text-xl max-w-3xl mx-auto">
@@ -37,7 +37,7 @@ export default function ContactPage({ colors, onBookingOpen }: ContactPageProps)
           <div className="grid lg:grid-cols-2 gap-16">
             {/* Contact Information */}
             <div>
-              <h2 style={{ color: '#1a1a1a' }} className="text-4xl font-black mb-8">Location & Hours</h2>
+              <h2 style={{ color: '#1a1a1a' }} className="text-4xl font-bold mb-8">Location & Hours</h2>
 
               <div className="space-y-8">
                 {/* Address */}
@@ -116,7 +116,7 @@ export default function ContactPage({ colors, onBookingOpen }: ContactPageProps)
             {/* Booking CTA */}
             <div>
               <div style={{ backgroundColor: '#f5f5f5', border: '2px solid #e5e5e5' }} className="p-8 lg:p-12 sticky top-24">
-                <h3 style={{ color: '#1a1a1a' }} className="text-3xl font-black mb-4">
+                <h3 style={{ color: '#1a1a1a' }} className="text-3xl font-bold mb-4">
                   Book Your Appointment
                 </h3>
                 <p style={{ color: '#666666' }} className="text-lg mb-8 leading-relaxed">
@@ -148,7 +148,7 @@ export default function ContactPage({ colors, onBookingOpen }: ContactPageProps)
       <section className="py-24" style={{ backgroundColor: '#f5f5f5' }}>
         <div className="max-w-7xl mx-auto px-4">
           <div className="text-center mb-12">
-            <h2 style={{ color: '#1a1a1a' }} className="text-4xl font-black mb-4">
+            <h2 style={{ color: '#1a1a1a' }} className="text-4xl font-bold mb-4">
               Find Us in Downtown Houston
             </h2>
             <p style={{ color: '#666666' }} className="text-lg">
@@ -202,7 +202,7 @@ export default function ContactPage({ colors, onBookingOpen }: ContactPageProps)
       <section className="py-24" style={{ backgroundColor: '#ffffff' }}>
         <div className="max-w-4xl mx-auto px-4">
           <div className="text-center mb-16">
-            <h2 style={{ color: '#1a1a1a' }} className="text-4xl font-black mb-4">
+            <h2 style={{ color: '#1a1a1a' }} className="text-4xl font-bold mb-4">
               Frequently Asked Questions
             </h2>
           </div>
@@ -264,7 +264,7 @@ export default function ContactPage({ colors, onBookingOpen }: ContactPageProps)
       {/* Final CTA */}
       <section className="py-24" style={{ backgroundColor: '#1a1a1a' }}>
         <div className="max-w-4xl mx-auto px-4 text-center">
-          <h2 style={{ color: '#ffffff' }} className="text-5xl font-black mb-6">
+          <h2 style={{ color: '#ffffff' }} className="text-5xl font-bold mb-6">
             Ready to Look Your Best?
           </h2>
           <p style={{ color: '#c4a962' }} className="text-xl mb-10">
