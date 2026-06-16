@@ -3,7 +3,7 @@ import Link from 'next/link'
 
 export const metadata: Metadata = {
   title: 'FAQ | Conroe Web Developer Questions | Affordable Web Design',
-  description: 'FAQ about Conroe web developer services. Custom website Houston pricing, small business website Texas cost. Veteran owned, flat-rate small business websites from $850.',
+  description: 'FAQ about Conroe web developer services. Custom website Houston pricing, small business website Texas cost. Veteran owned, flat-rate small business websites from $950.',
   keywords: [
     'Conroe web developer',
     'Houston web development',
@@ -15,7 +15,7 @@ export const metadata: Metadata = {
   ],
   openGraph: {
     title: 'FAQ | Conroe Web Developer Questions | Affordable Web Design',
-    description: 'FAQ about Conroe web developer services. Custom website Houston pricing, small business website Texas cost. Veteran owned, flat-rate small business websites from $850.',
+    description: 'FAQ about Conroe web developer services. Custom website Houston pricing, small business website Texas cost. Veteran owned, flat-rate small business websites from $950.',
     url: 'https://www.stephenscode.dev/faq',
     type: 'website',
   },
@@ -287,13 +287,19 @@ export default function FAQPage() {
       />
 
       {/* Hero Section */}
-      <section className="relative bg-gradient-to-br from-black via-surface to-surface-card text-white">
-        <div className="mx-auto max-w-7xl px-6 py-16 sm:py-24 lg:px-8">
+      <section className="relative bg-black border-b border-surface-border overflow-hidden">
+        <div className="pointer-events-none absolute inset-0 bg-gradient-to-b from-surface-card/60 via-black to-black" />
+        <div className="relative mx-auto max-w-7xl px-6 py-16 sm:py-24 lg:px-8">
           <div className="mx-auto max-w-2xl text-center">
-            <h1 className="text-4xl font-bold tracking-tight sm:text-5xl">
+            <div className="mb-6 inline-flex items-center gap-3 text-[11px] font-semibold uppercase tracking-[0.22em] text-primary-500">
+              <span aria-hidden="true" className="font-mono text-primary-500/80">&lt;</span>
+              <span>Answers Up Front</span>
+              <span aria-hidden="true" className="font-mono text-primary-500/80">/&gt;</span>
+            </div>
+            <h1 className="text-4xl font-bold tracking-tight text-white sm:text-5xl">
               Frequently Asked Questions
             </h1>
-            <p className="mt-6 text-lg leading-8 text-gray-200">
+            <p className="mt-6 text-lg leading-8 text-gray-300">
               Everything you need to know about custom website development, pricing, timelines, and working with StephensCode.
             </p>
           </div>
@@ -308,7 +314,7 @@ export default function FAQPage() {
               <a
                 key={category}
                 href={`#${category.toLowerCase().replace(/\s+/g, '-')}`}
-                className="text-sm font-medium text-primary-600 hover:text-primary-400 hover:underline"
+                className="text-sm font-medium text-primary-400 hover:text-primary-300 hover:underline"
               >
                 {category}
               </a>
@@ -327,7 +333,7 @@ export default function FAQPage() {
               </h2>
               <dl className="space-y-8">
                 {categoryFaqs.map((faq, index) => (
-                  <div key={index} className="bg-surface-card rounded-lg p-6">
+                  <div key={index} className="bg-surface-card rounded-lg p-6 border border-surface-border hover:border-primary-500/60 transition-colors">
                     <dt className="text-lg font-semibold text-white mb-3">
                       {faq.question}
                     </dt>
@@ -355,13 +361,13 @@ export default function FAQPage() {
             <div className="mt-10 flex items-center justify-center gap-x-6">
               <Link
                 href="/contact"
-                className="rounded-md bg-primary-600 px-6 py-3 text-base font-semibold text-white shadow-sm hover:bg-primary-700 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-primary-600"
+                className="rounded-md bg-primary-500 px-6 py-3 text-base font-semibold text-white hover:bg-primary-600 transition-colors focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-primary-500"
               >
                 Contact Us
               </Link>
               <a
                 href="tel:9363234527"
-                className="text-base font-semibold leading-7 text-white hover:text-primary-400"
+                className="text-base font-semibold leading-7 text-white hover:text-primary-400 transition-colors"
               >
                 Call (936) 323-4527 <span aria-hidden="true">→</span>
               </a>
@@ -379,7 +385,7 @@ export default function FAQPage() {
           <div className="grid grid-cols-1 gap-8 md:grid-cols-3">
             <Link
               href="/blog/why-houston-businesses-need-custom-websites-2025"
-              className="bg-surface-card rounded-lg p-6 hover:bg-surface-elevated transition-colors"
+              className="bg-surface-card rounded-lg p-6 border border-surface-border hover:border-primary-500/60 transition-colors"
             >
               <h3 className="font-semibold text-white mb-2">
                 Why Custom Websites Matter
@@ -390,7 +396,7 @@ export default function FAQPage() {
             </Link>
             <Link
               href="/blog/website-speed-conversion-rates-guide"
-              className="bg-surface-card rounded-lg p-6 hover:bg-surface-elevated transition-colors"
+              className="bg-surface-card rounded-lg p-6 border border-surface-border hover:border-primary-500/60 transition-colors"
             >
               <h3 className="font-semibold text-white mb-2">
                 Website Speed Guide
@@ -401,7 +407,7 @@ export default function FAQPage() {
             </Link>
             <Link
               href="/blog/local-seo-guide-houston-businesses"
-              className="bg-surface-card rounded-lg p-6 hover:bg-surface-elevated transition-colors"
+              className="bg-surface-card rounded-lg p-6 border border-surface-border hover:border-primary-500/60 transition-colors"
             >
               <h3 className="font-semibold text-white mb-2">
                 Local SEO Guide

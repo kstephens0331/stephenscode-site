@@ -1,11 +1,15 @@
 import Link from 'next/link'
 import type { Metadata } from 'next'
+import {
+  Globe, Rocket, Zap, DollarSign, Clock, Award,
+  ArrowRight, Check, MessageSquare, PenTool, Code2, CheckCircle2,
+} from 'lucide-react'
 import { corePackages, premiumBuilds } from '@/lib/services-data'
 import { allAddOns } from '@/lib/addons-data'
 
 export const metadata: Metadata = {
-  title: 'Houston Web Development | Flat-Rate Web Design from $850',
-  description: 'Conroe web developer offering custom websites for small business. Flat-rate small business websites from $850. Veteran owned, 14+ years exp. Free quote: (936) 323-4527.',
+  title: 'Houston Web Development | Flat-Rate Web Design from $950',
+  description: 'Conroe web developer offering custom websites for small business. Flat-rate small business websites from $950. Veteran owned, 14+ years exp. Free quote: (936) 323-4527.',
   alternates: {
     canonical: '/services',
   },
@@ -28,7 +32,7 @@ export const metadata: Metadata = {
     'Montgomery County web developer',
   ],
   openGraph: {
-    title: 'Houston Web Design | Flat-Rate Custom Websites from $850',
+    title: 'Houston Web Design | Flat-Rate Custom Websites from $950',
     description: 'Get a professional website built in 1-2 weeks. Flat-rate pricing, no hidden fees. Veteran-owned.',
     url: 'https://www.stephenscode.dev/services',
   },
@@ -81,7 +85,7 @@ const serviceSchema = {
               "name": "Standard Website",
               "description": "Professional 8-12 page business website"
             },
-            "price": "850",
+            "price": "950",
             "priceCurrency": "USD"
           }
         ]
@@ -97,24 +101,21 @@ export default function ServicesPage() {
       subtitle: 'Perfect for most businesses',
       description: 'Get online fast with our professionally designed core packages. From simple 4-page sites to comprehensive business websites.',
       services: corePackages.slice(0, 4),
-      icon: '🌐',
-      gradient: 'from-primary-600 to-primary-800'
+      Icon: Globe,
     },
     {
       title: 'Premium Builds',
       subtitle: 'Advanced business solutions',
       description: 'Full-stack enterprise platforms with custom features, admin dashboards, and advanced functionality.',
       services: premiumBuilds,
-      icon: '🚀',
-      gradient: 'from-purple-600 to-purple-800'
+      Icon: Rocket,
     },
     {
       title: 'Add-On Features',
       subtitle: 'Enhance your website',
       description: 'Extend your website with powerful add-ons. From booking systems to e-commerce to membership portals.',
       services: allAddOns.slice(0, 6),
-      icon: '⚡',
-      gradient: 'from-orange-600 to-orange-800'
+      Icon: Zap,
     }
   ]
 
@@ -122,72 +123,76 @@ export default function ServicesPage() {
     {
       title: 'Transparent Flat-Rate Pricing',
       description: 'Know exactly what you\'ll pay before we start. No hourly rates, no surprise bills, no hidden fees.',
-      icon: '💰',
-      stats: 'Sites from $850+'
+      Icon: DollarSign,
+      stats: 'Sites from $950+'
     },
     {
       title: 'Fast Turnaround Time',
       description: 'Most projects completed in 1-2 weeks. We move quickly without sacrificing quality.',
-      icon: '⚡',
+      Icon: Zap,
       stats: '1-2 week average delivery'
     },
     {
       title: 'Veteran-Owned Quality',
       description: 'Military discipline meets technical expertise. 14+ years of experience building websites for Houston businesses.',
-      icon: '🎖️',
+      Icon: Award,
       stats: '200+ projects delivered'
     },
     {
       title: 'Houston-Based, Nationwide Service',
       description: 'Based in Conroe, serving Houston, The Woodlands, and clients nationwide. In-person meetings available locally, remote collaboration anywhere.',
-      icon: '🌐',
+      Icon: Globe,
       stats: 'Serving Nationwide'
     }
   ]
 
   const technologies = [
-    { name: 'Next.js', category: 'Frontend', color: 'bg-black' },
-    { name: 'React', category: 'Frontend', color: 'bg-blue-500' },
-    { name: 'TypeScript', category: 'Language', color: 'bg-blue-600' },
-    { name: 'Tailwind CSS', category: 'Styling', color: 'bg-cyan-500' },
-    { name: 'Node.js', category: 'Backend', color: 'bg-green-600' },
-    { name: 'Python', category: 'Backend', color: 'bg-yellow-500' },
-    { name: 'Firebase', category: 'Database', color: 'bg-orange-500' },
-    { name: 'PostgreSQL', category: 'Database', color: 'bg-blue-700' },
-    { name: 'Stripe', category: 'Payments', color: 'bg-purple-600' },
-    { name: 'Vercel', category: 'Hosting', color: 'bg-black' },
-    { name: 'Railway', category: 'Hosting', color: 'bg-purple-700' },
-    { name: 'Express', category: 'Backend', color: 'bg-gray-700' }
+    { name: 'Next.js', category: 'Frontend' },
+    { name: 'React', category: 'Frontend' },
+    { name: 'TypeScript', category: 'Language' },
+    { name: 'Tailwind CSS', category: 'Styling' },
+    { name: 'Node.js', category: 'Backend' },
+    { name: 'Python', category: 'Backend' },
+    { name: 'Firebase', category: 'Database' },
+    { name: 'PostgreSQL', category: 'Database' },
+    { name: 'Stripe', category: 'Payments' },
+    { name: 'Vercel', category: 'Hosting' },
+    { name: 'Railway', category: 'Hosting' },
+    { name: 'Express', category: 'Backend' }
   ]
 
   const processSteps = [
     {
       number: '01',
       title: 'Free Consultation',
-      description: 'We discuss your business goals, target audience, and project requirements. No obligation, no sales pressure—just honest advice.',
+      description: 'We discuss your business goals, target audience, and project requirements. No obligation, no sales pressure, just honest advice.',
       timeline: '30-60 minutes',
-      deliverable: 'Project scope & quote'
+      deliverable: 'Project scope & quote',
+      Icon: MessageSquare,
     },
     {
       number: '02',
       title: 'Design & Planning',
       description: 'We create wireframes and mockups for your approval. Unlimited revisions until you\'re 100% satisfied with the design.',
       timeline: '2-3 days',
-      deliverable: 'Approved design mockups'
+      deliverable: 'Approved design mockups',
+      Icon: PenTool,
     },
     {
       number: '03',
       title: 'Development',
       description: 'We build your website using modern technologies and best practices. Regular updates keep you in the loop.',
       timeline: '1-2 weeks',
-      deliverable: 'Fully functional website'
+      deliverable: 'Fully functional website',
+      Icon: Code2,
     },
     {
       number: '04',
       title: 'Testing & Launch',
       description: 'Thorough testing across devices and browsers. We handle deployment, training, and provide documentation.',
       timeline: '1-2 days',
-      deliverable: 'Live website + training'
+      deliverable: 'Live website + training',
+      Icon: CheckCircle2,
     }
   ]
 
@@ -199,221 +204,232 @@ export default function ServicesPage() {
         dangerouslySetInnerHTML={{ __html: JSON.stringify(serviceSchema) }}
       />
 
-      {/* Hero Section with Advanced Design */}
-      <section className="relative overflow-hidden bg-gradient-to-br from-black via-surface to-surface-card text-white">
-        <div className="absolute inset-0 opacity-10">
-          <div className="absolute inset-0" style={{
-            backgroundImage: `url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%23ffffff' fill-opacity='1'%3E%3Cpath d='M36 34v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4zm0-30V0h-2v4h-4v2h4v4h2V6h4V4h-4zM6 34v-4H4v4H0v2h4v4h2v-4h4v-2H6zM6 4V0H4v4H0v2h4v4h2V6h4V4H6z'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E")`
-          }}></div>
-        </div>
+      {/* Hero Section */}
+      <section className="relative bg-black border-b border-surface-border overflow-hidden">
+        <div className="pointer-events-none absolute inset-0 bg-gradient-to-b from-surface-card/60 via-black to-black" />
 
-        <div className="relative mx-auto max-w-7xl px-6 py-32 sm:py-40 lg:px-8">
+        <div className="relative mx-auto max-w-7xl px-6 py-28 sm:py-32 lg:px-8">
           <div className="mx-auto max-w-4xl text-center">
-            <div className="mb-8 inline-flex items-center gap-3 rounded-full bg-surface-card/60 px-6 py-3 text-sm font-semibold backdrop-blur-lg border border-surface-border shadow-2xl">
-              <span className="text-2xl">🌐</span>
-              <span>47 Service Packages & Add-Ons</span>
+            <div className="mb-10 inline-flex items-center gap-3 text-[11px] font-semibold uppercase tracking-[0.22em] text-primary-500 animate-fade-in-up">
+              <span aria-hidden="true" className="font-mono text-primary-500/80">&lt;</span>
+              <span>47 Service Packages &amp; Add-Ons</span>
+              <span aria-hidden="true" className="font-mono text-primary-500/80">/&gt;</span>
             </div>
 
-            <h1 className="text-5xl font-bold tracking-tight sm:text-7xl mb-8">
-              Houston Web Development & Affordable Web Design
-              <span className="block text-accent-400 mt-2">Custom Websites for Small Business</span>
+            <h1 className="text-5xl font-bold tracking-tight text-white sm:text-7xl leading-[1.02] animate-fade-in-up animation-delay-200">
+              Houston Web Development &amp; Affordable Web Design
+              <span className="block text-primary-500 mt-2">Custom Websites for Small Business</span>
             </h1>
 
-            <p className="mt-8 text-xl leading-8 text-gray-100 max-w-3xl mx-auto">
-              Conroe web developer offering flat-rate small business websites from $850. Affordable web design for Houston, The Woodlands, and Montgomery County. <strong className="text-white">Veteran owned web developer</strong> with transparent pricing. No hourly rates, no surprises.
+            <p className="mt-8 text-xl leading-8 text-gray-300 max-w-3xl mx-auto animate-fade-in-up animation-delay-400">
+              Conroe web developer offering flat-rate small business websites from $950. Affordable web design for Houston, The Woodlands, and Montgomery County. <strong className="text-white">Veteran owned web developer</strong> with transparent pricing. No hourly rates, no surprises.
             </p>
 
-            <div className="mt-12 flex flex-wrap items-center justify-center gap-4">
+            <div className="mt-12 flex flex-wrap items-center justify-center gap-3 animate-fade-in-up animation-delay-600">
               <Link
                 href="/pricing"
-                className="group inline-flex items-center gap-2 rounded-lg bg-accent-500 px-8 py-4 text-lg font-bold text-white shadow-2xl hover:bg-accent-600 transition-all"
+                className="group inline-flex items-center gap-2 rounded-md bg-primary-500 px-6 py-3 text-base font-semibold text-white hover:bg-primary-600 transition-colors"
               >
-                <span>View All Pricing</span>
-                <svg className="w-5 h-5 group-hover:translate-x-1 transition-transform" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M13 7l5 5m0 0l-5 5m5-5H6" />
-                </svg>
+                View All Pricing
+                <ArrowRight className="h-4 w-4 transition-transform group-hover:translate-x-0.5" />
               </Link>
               <Link
                 href="/demos"
-                className="inline-flex items-center gap-2 rounded-lg bg-surface-card/60 px-8 py-4 text-lg font-bold text-white backdrop-blur-lg border-2 border-surface-border hover:bg-surface-elevated/80 transition-all"
+                className="inline-flex items-center gap-2 rounded-md border border-surface-border px-6 py-3 text-base font-semibold text-white hover:border-primary-500/60 hover:bg-surface-card transition-colors"
               >
-                <span>View Live Demos</span>
+                View Live Demos
               </Link>
             </div>
           </div>
-        </div>
-
-        <div className="absolute bottom-0 left-0 right-0">
-          <svg viewBox="0 0 1440 120" fill="none" xmlns="http://www.w3.org/2000/svg" className="w-full">
-            <path d="M0 120L60 105C120 90 240 60 360 45C480 30 600 30 720 37.5C840 45 960 60 1080 67.5C1200 75 1320 75 1380 75L1440 75V120H1380C1320 120 1200 120 1080 120C960 120 840 120 720 120C600 120 480 120 360 120C240 120 120 120 60 120H0Z" fill="#0f172a"/>
-          </svg>
         </div>
       </section>
 
       {/* Service Categories */}
-      {serviceCategories.map((category, catIndex) => (
-        <section key={category.title} className={catIndex % 2 === 0 ? 'bg-surface py-24 sm:py-32' : 'bg-surface-card py-24 sm:py-32'}>
-          <div className="mx-auto max-w-7xl px-6 lg:px-8">
-            <div className="mx-auto max-w-2xl text-center mb-16">
-              <div className={`inline-flex items-center gap-3 rounded-full bg-gradient-to-r ${category.gradient} px-6 py-3 text-white shadow-xl mb-6`}>
-                <span className="text-3xl">{category.icon}</span>
-                <span className="font-bold">{category.subtitle}</span>
+      {serviceCategories.map((category, catIndex) => {
+        const CatIcon = category.Icon
+        return (
+          <section key={category.title} className={`${catIndex % 2 === 0 ? 'bg-surface' : 'bg-surface-card'} py-24 sm:py-28 border-b border-surface-border`}>
+            <div className="mx-auto max-w-7xl px-6 lg:px-8">
+              <div className="mx-auto max-w-2xl text-center mb-16">
+                <div className="inline-flex items-center gap-3 text-[11px] font-semibold uppercase tracking-[0.22em] text-primary-500 mb-4">
+                  <span aria-hidden="true" className="font-mono text-primary-500/80">&lt;</span>
+                  <span>{category.subtitle}</span>
+                  <span aria-hidden="true" className="font-mono text-primary-500/80">/&gt;</span>
+                </div>
+                <div className="mx-auto mb-6 flex h-12 w-12 items-center justify-center rounded-md border border-primary-500/40 text-primary-500">
+                  <CatIcon className="h-5 w-5" strokeWidth={1.75} />
+                </div>
+                <h2 className="text-3xl font-bold tracking-tight text-white sm:text-4xl mb-4">
+                  {category.title}
+                </h2>
+                <p className="text-lg leading-8 text-gray-400">
+                  {category.description}
+                </p>
               </div>
-              <h2 className="text-4xl font-bold tracking-tight text-white sm:text-5xl mb-6">
-                {category.title}
-              </h2>
-              <p className="text-lg leading-8 text-gray-400">
-                {category.description}
-              </p>
-            </div>
 
-            <div className="grid grid-cols-1 gap-8 lg:grid-cols-2 xl:grid-cols-3">
-              {category.services.map((service, index) => (
-                <article
-                  key={service.id}
-                  className="group relative flex flex-col rounded-2xl bg-surface border-2 border-surface-border p-8 shadow-lg hover:border-primary-500 transition-all"
-                >
-                  <div className="mb-4">
-                    <h3 className="text-2xl font-bold text-white group-hover:text-primary-600 transition-colors">
-                      {service.name}
-                    </h3>
-                    <p className="mt-2 text-sm text-gray-400">{service.category}</p>
-                  </div>
-
-                  <p className="text-gray-400 mb-6 line-clamp-3">
-                    {service.shortDescription}
-                  </p>
-
-                  <div className="mb-6">
-                    <p className="text-3xl font-bold text-primary-600">
-                      {service.priceLabel}
-                    </p>
-                    <p className="text-sm text-gray-400 mt-1">{service.timeline}</p>
-                  </div>
-
-                  <div className="mb-6 flex-1">
-                    <p className="text-sm font-semibold text-gray-300 mb-3">Key Features:</p>
-                    <ul className="space-y-2">
-                      {service.features.slice(0, 4).map((feature, i) => (
-                        <li key={i} className="flex items-start gap-2 text-sm text-gray-400">
-                          <svg className="h-5 w-5 text-primary-600 flex-shrink-0 mt-0.5" fill="currentColor" viewBox="0 0 20 20">
-                            <path fillRule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.857-9.809a.75.75 0 00-1.214-.882l-3.483 4.79-1.88-1.88a.75.75 0 10-1.06 1.061l2.5 2.5a.75.75 0 001.137-.089l4-5.5z" clipRule="evenodd" />
-                          </svg>
-                          <span>{feature}</span>
-                        </li>
-                      ))}
-                    </ul>
-                  </div>
-
-                  <Link
-                    href={`/services/${service.slug}`}
-                    className="block w-full rounded-lg bg-primary-600 px-6 py-3 text-center text-sm font-bold text-white hover:bg-primary-700 transition-colors"
+              <div className="grid grid-cols-1 gap-6 lg:grid-cols-2 xl:grid-cols-3">
+                {category.services.map((service) => (
+                  <article
+                    key={service.id}
+                    className="group relative flex flex-col rounded-2xl bg-surface-card ring-1 ring-surface-border p-7 card-lift hover:ring-primary-500/50 transition-all"
                   >
-                    Learn More & See Details →
-                  </Link>
-                </article>
-              ))}
-            </div>
+                    <div className="mb-4">
+                      <h3 className="text-2xl font-bold text-white group-hover:text-primary-400 transition-colors">
+                        {service.name}
+                      </h3>
+                      <p className="mt-2 text-sm text-gray-500">{service.category}</p>
+                    </div>
 
-            {category.title === 'Add-On Features' && (
-              <div className="mt-12 text-center">
-                <Link
-                  href="/pricing"
-                  className="inline-flex items-center gap-2 rounded-lg bg-primary-600 px-8 py-4 text-lg font-bold text-white shadow-lg hover:bg-primary-700 transition-all"
-                >
-                  <span>View All 40 Add-Ons</span>
-                  <span>→</span>
-                </Link>
+                    <p className="text-gray-400 mb-6 line-clamp-3">
+                      {service.shortDescription}
+                    </p>
+
+                    <div className="mb-6">
+                      <p className="text-3xl font-bold tracking-tight text-white">
+                        {service.priceLabel}
+                      </p>
+                      <p className="text-sm text-gray-500 mt-1">{service.timeline}</p>
+                    </div>
+
+                    <div className="mb-6 flex-1">
+                      <p className="text-sm font-semibold text-gray-300 mb-3">Key Features:</p>
+                      <ul className="space-y-2">
+                        {service.features.slice(0, 4).map((feature, i) => (
+                          <li key={i} className="flex items-start gap-2.5 text-sm text-gray-300">
+                            <Check className="h-4 w-4 flex-none mt-0.5 text-primary-500" strokeWidth={2.5} />
+                            <span>{feature}</span>
+                          </li>
+                        ))}
+                      </ul>
+                    </div>
+
+                    <Link
+                      href={`/services/${service.slug}`}
+                      className="block w-full rounded-md bg-primary-500 px-6 py-3 text-center text-sm font-semibold text-white hover:bg-primary-600 transition-colors"
+                    >
+                      Learn More &amp; See Details
+                    </Link>
+                  </article>
+                ))}
               </div>
-            )}
-          </div>
-        </section>
-      ))}
+
+              {category.title === 'Add-On Features' && (
+                <div className="mt-12 text-center">
+                  <Link
+                    href="/pricing"
+                    className="inline-flex items-center gap-2 rounded-md bg-primary-500 px-6 py-3 text-base font-semibold text-white hover:bg-primary-600 transition-colors"
+                  >
+                    View All 40 Add-Ons
+                    <ArrowRight className="h-4 w-4" />
+                  </Link>
+                </div>
+              )}
+            </div>
+          </section>
+        )
+      })}
 
       {/* Why Choose Us */}
-      <section className="bg-surface py-24 sm:py-32">
+      <section className="bg-surface py-24 sm:py-28 border-b border-surface-border">
         <div className="mx-auto max-w-7xl px-6 lg:px-8">
           <div className="mx-auto max-w-2xl text-center mb-16">
-            <h2 className="text-base font-semibold leading-7 text-primary-600">Why Choose a Veteran Owned Web Developer?</h2>
-            <p className="mt-2 text-4xl font-bold tracking-tight text-white sm:text-5xl">
+            <div className="inline-flex items-center gap-3 text-[11px] font-semibold uppercase tracking-[0.22em] text-primary-500 mb-4">
+              <span aria-hidden="true" className="font-mono text-primary-500/80">&lt;</span>
+              <span>Why Choose a Veteran Owned Web Developer?</span>
+              <span aria-hidden="true" className="font-mono text-primary-500/80">/&gt;</span>
+            </div>
+            <h2 className="text-3xl font-bold tracking-tight text-white sm:text-4xl">
               Affordable Web Design You Can Trust
-            </p>
+            </h2>
           </div>
 
-          <div className="grid grid-cols-1 gap-8 lg:grid-cols-2">
-            {whyChoose.map((item, index) => (
-              <div key={index} className="relative group overflow-hidden rounded-2xl bg-surface p-8 shadow-xl transition-all">
-                <div className="flex items-start gap-6">
-                  <div className="flex h-16 w-16 flex-shrink-0 items-center justify-center rounded-xl bg-primary-600 text-4xl shadow-lg group- transition-transform">
-                    {item.icon}
-                  </div>
-                  <div className="flex-1">
-                    <h3 className="text-xl font-bold text-white mb-2">{item.title}</h3>
-                    <p className="text-gray-400 mb-4">{item.description}</p>
-                    <div className="inline-flex items-center gap-2 rounded-full bg-primary-500/15 px-4 py-2 text-sm font-bold text-primary-400">
-                      <svg className="h-4 w-4" fill="currentColor" viewBox="0 0 20 20">
-                        <path fillRule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.857-9.809a.75.75 0 00-1.214-.882l-3.483 4.79-1.88-1.88a.75.75 0 10-1.06 1.061l2.5 2.5a.75.75 0 001.137-.089l4-5.5z" clipRule="evenodd" />
-                      </svg>
-                      <span>{item.stats}</span>
+          <div className="grid grid-cols-1 gap-6 lg:grid-cols-2">
+            {whyChoose.map((item, index) => {
+              const Icon = item.Icon
+              return (
+                <div key={index} className="group rounded-2xl bg-surface-card ring-1 ring-surface-border p-8 hover:ring-primary-500/50 transition-all">
+                  <div className="flex items-start gap-5">
+                    <div className="flex h-12 w-12 flex-none items-center justify-center rounded-md border border-primary-500/40 text-primary-500 group-hover:border-primary-500 group-hover:text-primary-400 transition-colors">
+                      <Icon className="h-5 w-5" strokeWidth={1.75} />
+                    </div>
+                    <div className="flex-1">
+                      <h3 className="text-xl font-bold text-white mb-2">{item.title}</h3>
+                      <p className="text-gray-400 mb-4">{item.description}</p>
+                      <div className="inline-flex items-center gap-2 rounded-md bg-surface-elevated border border-surface-border px-4 py-2 text-sm font-semibold text-accent-400">
+                        <Check className="h-4 w-4" strokeWidth={2.5} />
+                        <span>{item.stats}</span>
+                      </div>
                     </div>
                   </div>
                 </div>
-              </div>
-            ))}
+              )
+            })}
           </div>
         </div>
       </section>
 
       {/* Process Section */}
-      <section className="bg-surface py-24 sm:py-32">
+      <section className="bg-surface-card py-24 sm:py-28 border-b border-surface-border">
         <div className="mx-auto max-w-7xl px-6 lg:px-8">
           <div className="mx-auto max-w-2xl text-center mb-16">
-            <h2 className="text-base font-semibold leading-7 text-primary-600">Our Process</h2>
-            <p className="mt-2 text-4xl font-bold tracking-tight text-white sm:text-5xl">
+            <div className="inline-flex items-center gap-3 text-[11px] font-semibold uppercase tracking-[0.22em] text-primary-500 mb-4">
+              <span aria-hidden="true" className="font-mono text-primary-500/80">&lt;</span>
+              <span>Our Process</span>
+              <span aria-hidden="true" className="font-mono text-primary-500/80">/&gt;</span>
+            </div>
+            <h2 className="text-3xl font-bold tracking-tight text-white sm:text-4xl">
               From Idea to Launch
-            </p>
-            <p className="mt-6 text-lg leading-8 text-gray-400">
+            </h2>
+            <p className="mt-4 text-lg leading-8 text-gray-400">
               Transparent, efficient, and collaborative. Here's exactly how we work together.
             </p>
           </div>
 
           <div className="grid grid-cols-1 gap-12 lg:grid-cols-4">
-            {processSteps.map((step, index) => (
-              <div key={step.number} className="relative group">
-                {index < processSteps.length - 1 && (
-                  <div className="hidden lg:block absolute top-24 left-full w-full h-1 bg-gradient-to-r from-primary-600 to-primary-200 -translate-x-1/2"></div>
-                )}
-                <div className="relative flex flex-col items-center text-center">
-                  <div className="flex h-24 w-24 items-center justify-center rounded-full bg-primary-600 text-white text-5xl mb-6 group- transition-transform shadow-2xl">
-                    {step.number}
-                  </div>
-                  <h3 className="text-xl font-bold text-white mb-3">{step.title}</h3>
-                  <p className="text-gray-400 mb-4">{step.description}</p>
-                  <div className="space-y-2 text-sm">
-                    <div className="inline-flex items-center gap-2 text-primary-600 font-semibold">
-                      <svg className="h-4 w-4" fill="currentColor" viewBox="0 0 20 20">
-                        <path fillRule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm1-12a1 1 0 10-2 0v4a1 1 0 00.293.707l2.828 2.829a1 1 0 101.415-1.415L11 9.586V6z" clipRule="evenodd" />
-                      </svg>
-                      <span>{step.timeline}</span>
+            {processSteps.map((step, index) => {
+              const Icon = step.Icon
+              return (
+                <div key={step.number} className="relative group">
+                  {index < processSteps.length - 1 && (
+                    <div className="hidden lg:block absolute top-20 left-full w-full h-0.5 bg-gradient-to-r from-primary-500 to-primary-500/10 -translate-x-1/2"></div>
+                  )}
+                  <div className="relative flex flex-col items-center text-center">
+                    <div className="flex h-16 w-16 items-center justify-center rounded-md border-2 border-primary-500 bg-black text-primary-500 mb-6 group-hover:bg-primary-500 group-hover:text-white transition-colors">
+                      <Icon className="h-7 w-7" strokeWidth={2} />
                     </div>
-                    <p className="text-gray-400">→ {step.deliverable}</p>
+                    <div className="absolute top-0 -right-2 flex h-8 w-8 items-center justify-center rounded-full bg-accent-400 text-black text-sm font-bold ring-2 ring-surface-card">
+                      {step.number}
+                    </div>
+                    <h3 className="text-xl font-bold text-white mb-3">{step.title}</h3>
+                    <p className="text-gray-400 mb-4">{step.description}</p>
+                    <div className="space-y-2 text-sm">
+                      <div className="inline-flex items-center gap-2 text-primary-400 font-semibold">
+                        <Clock className="h-4 w-4" strokeWidth={2} />
+                        <span>{step.timeline}</span>
+                      </div>
+                      <p className="text-gray-500">{step.deliverable}</p>
+                    </div>
                   </div>
                 </div>
-              </div>
-            ))}
+              )
+            })}
           </div>
         </div>
       </section>
 
       {/* Technology Stack */}
-      <section className="bg-gray-900 text-white py-24 sm:py-32">
+      <section className="bg-surface py-24 sm:py-28 border-b border-surface-border">
         <div className="mx-auto max-w-7xl px-6 lg:px-8">
           <div className="mx-auto max-w-2xl text-center mb-16">
-            <h2 className="text-base font-semibold leading-7 text-accent-400">Tech Stack</h2>
-            <p className="mt-2 text-4xl font-bold tracking-tight text-white sm:text-5xl">
+            <div className="inline-flex items-center gap-3 text-[11px] font-semibold uppercase tracking-[0.22em] text-primary-500 mb-4">
+              <span aria-hidden="true" className="font-mono text-primary-500/80">&lt;</span>
+              <span>Tech Stack</span>
+              <span aria-hidden="true" className="font-mono text-primary-500/80">/&gt;</span>
+            </div>
+            <h2 className="text-3xl font-bold tracking-tight text-white sm:text-4xl">
               Modern, Reliable Technologies
-            </p>
-            <p className="mt-6 text-lg leading-8 text-gray-300">
+            </h2>
+            <p className="mt-4 text-lg leading-8 text-gray-400">
               We use industry-leading technologies that are fast, secure, and built to scale.
             </p>
           </div>
@@ -422,10 +438,10 @@ export default function ServicesPage() {
             {technologies.map((tech) => (
               <div
                 key={tech.name}
-                className="group relative overflow-hidden rounded-xl bg-surface-card/60 backdrop-blur-lg border border-surface-border p-6 text-center hover:bg-surface-elevated/80 transition-all shadow-xl"
+                className="group rounded-md bg-surface-card ring-1 ring-surface-border p-6 text-center hover:ring-primary-500/50 transition-all"
               >
-                <p className="text-lg font-bold text-white mb-1">{tech.name}</p>
-                <p className="text-xs text-gray-300">{tech.category}</p>
+                <p className="text-lg font-bold text-white mb-1 group-hover:text-primary-400 transition-colors">{tech.name}</p>
+                <p className="text-xs text-gray-500">{tech.category}</p>
               </div>
             ))}
           </div>
@@ -433,20 +449,24 @@ export default function ServicesPage() {
       </section>
 
       {/* FAQ Section */}
-      <section className="bg-surface py-24 sm:py-32">
+      <section className="bg-surface-card py-24 sm:py-28 border-b border-surface-border">
         <div className="mx-auto max-w-4xl px-6 lg:px-8">
           <div className="mx-auto max-w-2xl text-center mb-16">
-            <h2 className="text-base font-semibold leading-7 text-primary-600">Frequently Asked Questions</h2>
-            <p className="mt-2 text-4xl font-bold tracking-tight text-white sm:text-5xl">
+            <div className="inline-flex items-center gap-3 text-[11px] font-semibold uppercase tracking-[0.22em] text-primary-500 mb-4">
+              <span aria-hidden="true" className="font-mono text-primary-500/80">&lt;</span>
+              <span>Frequently Asked Questions</span>
+              <span aria-hidden="true" className="font-mono text-primary-500/80">/&gt;</span>
+            </div>
+            <h2 className="text-3xl font-bold tracking-tight text-white sm:text-4xl">
               Web Development FAQ
-            </p>
+            </h2>
           </div>
 
-          <div className="space-y-6">
+          <div className="space-y-4">
             {[
               {
                 question: "How much does a custom website cost?",
-                answer: "Six flat-rate tiers with 90 days post-launch support on every one. Starter $250 (3-4 page flyer for brand-new businesses), Basic $500 (campaign or landing site), Standard $950 (full 8-12 page small-business site with CMS — the typical entry tier), Advanced $2,000 (custom full-stack with admin portal + KPI dashboard), Business System $5,000 (CRM + portals + booking + payments + automation), Enterprise Platform $7,500+ (multi-tenant + SSO + audit). Custom SaaS and platform builds quoted above the catalog. No hourly billing."
+                answer: "Six flat-rate tiers with 90 days post-launch support on every one. Starter $250 (3-4 page flyer for brand-new businesses), Basic $500 (campaign or landing site), Standard $950 (full 8-12 page small-business site with CMS, the typical entry tier), Advanced $2,000 (custom full-stack with admin portal + KPI dashboard), Business System $5,000 (CRM + portals + booking + payments + automation), Enterprise Platform $7,500+ (multi-tenant + SSO + audit). Custom SaaS and platform builds quoted above the catalog. No hourly billing."
               },
               {
                 question: "How long does it take to build a website?",
@@ -454,7 +474,7 @@ export default function ServicesPage() {
               },
               {
                 question: "Do you offer website hosting?",
-                answer: "Yes! We offer managed hosting starting at $29/month which includes SSL certificates, daily backups, security monitoring, and unlimited support. Hosting is optional—we can also deploy to your existing hosting or platforms like Vercel, Netlify, or your own servers."
+                answer: "Yes! We offer managed hosting starting at $29/month which includes SSL certificates, daily backups, security monitoring, and unlimited support. Hosting is optional, we can also deploy to your existing hosting or platforms like Vercel, Netlify, or your own servers."
               },
               {
                 question: "Can you redesign my existing website?",
@@ -462,7 +482,7 @@ export default function ServicesPage() {
               },
               {
                 question: "What's included in the price?",
-                answer: "All packages include custom design, responsive development, basic SEO setup, contact forms, Google Analytics integration, and 90 days of post-launch support. E-commerce packages include payment processing setup. We don't nickel-and-dime—what we quote is what you pay."
+                answer: "All packages include custom design, responsive development, basic SEO setup, contact forms, Google Analytics integration, and 90 days of post-launch support. E-commerce packages include payment processing setup. We don't nickel-and-dime, what we quote is what you pay."
               },
               {
                 question: "Do I own my website after it's built?",
@@ -479,14 +499,12 @@ export default function ServicesPage() {
             ].map((faq, index) => (
               <details
                 key={index}
-                className="group rounded-2xl border-2 border-surface-border bg-surface-card hover:border-primary-300 transition-colors"
+                className="group rounded-2xl border border-surface-border bg-surface hover:border-primary-500/60 transition-colors"
               >
-                <summary className="flex cursor-pointer items-center justify-between p-6 text-lg font-bold text-white">
+                <summary className="flex cursor-pointer items-center justify-between p-6 text-lg font-semibold text-white">
                   <span>{faq.question}</span>
-                  <span className="ml-4 flex-shrink-0 text-primary-600 group-open:rotate-180 transition-transform">
-                    <svg className="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 9l-7 7-7-7" />
-                    </svg>
+                  <span className="ml-4 flex-shrink-0 text-primary-500 group-open:rotate-180 transition-transform">
+                    <ArrowRight className="h-5 w-5 rotate-90" />
                   </span>
                 </summary>
                 <div className="px-6 pb-6">
@@ -500,48 +518,38 @@ export default function ServicesPage() {
             <p className="text-gray-400 mb-4">Still have questions?</p>
             <Link
               href="/contact"
-              className="inline-flex items-center gap-2 text-primary-600 font-bold hover:text-primary-400"
+              className="inline-flex items-center gap-2 text-primary-400 font-semibold hover:text-primary-300 transition-colors"
             >
               <span>Contact us for a free consultation</span>
-              <span>→</span>
+              <ArrowRight className="h-4 w-4" />
             </Link>
           </div>
         </div>
       </section>
 
       {/* Final CTA */}
-      <section className="relative overflow-hidden bg-gradient-to-br from-black via-surface to-surface-card text-white">
-        <div className="absolute inset-0 opacity-10">
-          <div className="absolute inset-0" style={{
-            backgroundImage: `url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%23ffffff' fill-opacity='1'%3E%3Cpath d='M36 34v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4zm0-30V0h-2v4h-4v2h4v4h2V6h4V4h-4zM6 34v-4H4v4H0v2h4v4h2v-4h4v-2H6zM6 4V0H4v4H0v2h4v4h2V6h4V4H6z'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E")`
-          }}></div>
-        </div>
-
-        <div className="relative px-6 py-24 sm:px-6 sm:py-32 lg:px-8">
-          <div className="mx-auto max-w-3xl text-center">
-            <h2 className="text-4xl font-bold tracking-tight sm:text-6xl mb-8">
-              Let's Build Something Great
-            </h2>
-            <p className="mx-auto max-w-2xl text-xl leading-8 text-gray-200 mb-12">
-              Choose from 47 service packages or let us create a custom solution for your business. Free consultation, transparent pricing, fast delivery.
-            </p>
-            <div className="flex flex-wrap items-center justify-center gap-4">
-              <Link
-                href="/contact"
-                className="group inline-flex items-center gap-2 rounded-lg bg-accent-500 px-10 py-5 text-xl font-bold text-white shadow-2xl hover:bg-accent-600 transition-all"
-              >
-                <span>Get Free Quote</span>
-                <svg className="w-6 h-6 group-hover:translate-x-1 transition-transform" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M13 7l5 5m0 0l-5 5m5-5H6" />
-                </svg>
-              </Link>
-              <Link
-                href="/pricing"
-                className="inline-flex items-center gap-2 rounded-lg bg-surface-card/60 px-10 py-5 text-xl font-bold text-white backdrop-blur-lg border-2 border-surface-border hover:bg-surface-elevated/80 transition-all"
-              >
-                <span>View All Pricing</span>
-              </Link>
-            </div>
+      <section className="bg-surface border-t border-surface-border">
+        <div className="mx-auto max-w-4xl px-6 py-20 sm:py-24 lg:px-8 text-center">
+          <h2 className="text-3xl font-bold tracking-tight text-white sm:text-4xl">
+            Let's Build Something Great
+          </h2>
+          <p className="mx-auto mt-4 max-w-2xl text-lg leading-8 text-gray-300">
+            Choose from 47 service packages or let us create a custom solution for your business. Free consultation, transparent pricing, fast delivery.
+          </p>
+          <div className="mt-10 flex flex-wrap items-center justify-center gap-3">
+            <Link
+              href="/contact"
+              className="group inline-flex items-center gap-2 rounded-md bg-primary-500 px-6 py-3 text-base font-semibold text-white hover:bg-primary-600 transition-colors"
+            >
+              Get Free Quote
+              <ArrowRight className="h-4 w-4 transition-transform group-hover:translate-x-0.5" />
+            </Link>
+            <Link
+              href="/pricing"
+              className="inline-flex items-center gap-2 rounded-md border border-surface-border px-6 py-3 text-base font-semibold text-white hover:border-primary-500/60 hover:bg-surface-card transition-colors"
+            >
+              View All Pricing
+            </Link>
           </div>
         </div>
       </section>

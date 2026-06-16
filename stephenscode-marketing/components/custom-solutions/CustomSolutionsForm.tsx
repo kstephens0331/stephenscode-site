@@ -62,7 +62,7 @@ export default function CustomSolutionsForm() {
   };
 
   return (
-    <section id="contact" className="py-20 px-4">
+    <section id="contact" className="bg-surface border-b border-surface-border py-24 sm:py-28 px-4">
       <div className="max-w-4xl mx-auto">
         <motion.div
           initial={{ opacity: 0, y: 20 }}
@@ -70,8 +70,13 @@ export default function CustomSolutionsForm() {
           viewport={{ once: true }}
           className="text-center mb-12"
         >
-          <h2 className="text-4xl md:text-5xl font-bold mb-4 bg-gradient-to-r from-primary-400 to-accent-400 bg-clip-text text-transparent">
-            Get Your Free Quote
+          <div className="inline-flex items-center gap-3 text-[11px] font-semibold uppercase tracking-[0.22em] text-primary-500 mb-4">
+            <span aria-hidden="true" className="font-mono text-primary-500/80">&lt;</span>
+            <span>Get Your Free Quote</span>
+            <span aria-hidden="true" className="font-mono text-primary-500/80">/&gt;</span>
+          </div>
+          <h2 className="text-3xl md:text-4xl font-bold tracking-tight text-white mb-4">
+            Tell Us About Your Project
           </h2>
           <p className="text-xl text-gray-400 max-w-2xl mx-auto">
             Tell us about your project and we'll provide a detailed flat-rate quote within 24 hours

@@ -327,13 +327,19 @@ export default function PartnersPage() {
       />
 
       {/* Hero Section */}
-      <section className="bg-gradient-to-br from-surface via-surface-card to-surface py-16 sm:py-20">
-        <div className="mx-auto max-w-7xl px-6 lg:px-8">
+      <section className="relative bg-black border-b border-surface-border overflow-hidden">
+        <div className="pointer-events-none absolute inset-0 bg-gradient-to-b from-surface-card/60 via-black to-black" />
+        <div className="relative mx-auto max-w-7xl px-6 py-16 sm:py-20 lg:px-8">
           <div className="text-center">
+            <div className="mb-6 inline-flex items-center gap-3 text-[11px] font-semibold uppercase tracking-[0.22em] text-primary-500">
+              <span aria-hidden="true" className="font-mono text-primary-500/80">&lt;</span>
+              <span>Our Work</span>
+              <span aria-hidden="true" className="font-mono text-primary-500/80">/&gt;</span>
+            </div>
             <h1 className="text-4xl font-bold tracking-tight text-white sm:text-5xl">
               Our Portfolio & Client Projects
             </h1>
-            <p className="mt-4 text-lg text-blue-100 max-w-2xl mx-auto">
+            <p className="mt-4 text-lg text-gray-300 max-w-2xl mx-auto">
               Explore websites and applications we&apos;ve built for Houston-area businesses. Real projects delivering real results for HVAC contractors, auto body shops, photographers, and more.
             </p>
           </div>
@@ -352,7 +358,7 @@ export default function PartnersPage() {
                   href={partner.url}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="group rounded-xl border-2 border-surface-border bg-surface-card p-6 hover:border-primary-500 hover:shadow-xl transition-all"
+                  className="group rounded-xl border border-surface-border bg-surface-card p-6 hover:border-primary-500/60 transition-colors"
                 >
                   <h3 className="text-xl font-semibold text-white group-hover:text-primary-400 transition-colors mb-2">
                     {partner.name}
@@ -360,7 +366,7 @@ export default function PartnersPage() {
                   <p className="text-gray-400 mb-4">
                     {partner.description}
                   </p>
-                  <span className="text-primary-600 font-medium group-hover:text-primary-400 transition-colors">
+                  <span className="text-primary-400 font-medium group-hover:text-primary-300 transition-colors">
                     View Listing
                     <span aria-hidden="true" className="inline-block ml-1 transition-transform group-hover:translate-x-1">→</span>
                   </span>
@@ -383,15 +389,15 @@ export default function PartnersPage() {
                   href={partner.url}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="group rounded-xl border-2 border-surface-border bg-surface p-6 hover:border-accent-500 hover:shadow-xl transition-all"
+                  className="group rounded-xl border border-surface-border bg-surface p-6 hover:border-primary-500/60 transition-colors"
                 >
-                  <h3 className="text-xl font-semibold text-white group-hover:text-accent-400 transition-colors mb-2">
+                  <h3 className="text-xl font-semibold text-white group-hover:text-primary-400 transition-colors mb-2">
                     {partner.name}
                   </h3>
                   <p className="text-gray-400 mb-4">
                     {partner.description}
                   </p>
-                  <span className="text-accent-600 font-medium group-hover:text-accent-700 transition-colors">
+                  <span className="text-primary-400 font-medium group-hover:text-primary-300 transition-colors">
                     Learn More
                     <span aria-hidden="true" className="inline-block ml-1 transition-transform group-hover:translate-x-1">→</span>
                   </span>
@@ -414,7 +420,7 @@ export default function PartnersPage() {
                   href={partner.url}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="group rounded-xl border-2 border-surface-border bg-surface-card p-6 hover:border-primary-500 hover:shadow-xl transition-all"
+                  className="group rounded-xl border border-surface-border bg-surface-card p-6 hover:border-primary-500/60 transition-colors"
                 >
                   <h3 className="text-xl font-semibold text-white group-hover:text-primary-400 transition-colors mb-2">
                     {partner.name}
@@ -422,7 +428,7 @@ export default function PartnersPage() {
                   <p className="text-gray-400 mb-4">
                     {partner.description}
                   </p>
-                  <span className="text-primary-600 font-medium group-hover:text-primary-400 transition-colors">
+                  <span className="text-primary-400 font-medium group-hover:text-primary-300 transition-colors">
                     Visit Partner
                     <span aria-hidden="true" className="inline-block ml-1 transition-transform group-hover:translate-x-1">→</span>
                   </span>
@@ -443,7 +449,7 @@ export default function PartnersPage() {
               {clients.map((client) => (
                 <article
                   key={client.name}
-                  className="group rounded-2xl border-2 border-surface-border bg-surface p-8 hover:border-accent-500 hover:shadow-xl transition-all"
+                  className="group rounded-2xl border border-surface-border bg-surface p-8 hover:border-primary-500/60 transition-colors"
                 >
                   <div className="flex flex-wrap items-center gap-2 mb-4">
                     <span className="inline-flex items-center rounded-full bg-primary-500/10 px-3 py-1 text-xs font-medium text-primary-400">
@@ -453,7 +459,7 @@ export default function PartnersPage() {
                       {client.location}
                     </span>
                   </div>
-                  <h3 className="text-2xl font-bold text-white group-hover:text-accent-400 transition-colors mb-3">
+                  <h3 className="text-2xl font-bold text-white group-hover:text-primary-400 transition-colors mb-3">
                     {client.name}
                   </h3>
                   <p className="text-gray-300 mb-4 leading-relaxed">
@@ -463,7 +469,7 @@ export default function PartnersPage() {
                     {client.services.map((service) => (
                       <span
                         key={service}
-                        className="inline-flex items-center rounded-md bg-accent-500/10 px-2.5 py-1 text-xs font-medium text-accent-400 ring-1 ring-inset ring-accent-600/20"
+                        className="inline-flex items-center rounded-md bg-surface-elevated px-2.5 py-1 text-xs font-medium text-gray-300 ring-1 ring-inset ring-surface-border"
                       >
                         {service}
                       </span>
@@ -473,7 +479,7 @@ export default function PartnersPage() {
                     href={client.url}
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="inline-flex items-center text-accent-600 font-semibold group-hover:text-accent-700 transition-colors"
+                    className="inline-flex items-center text-primary-400 font-semibold group-hover:text-primary-300 transition-colors"
                   >
                     Visit {client.shortName} Website
                     <span aria-hidden="true" className="inline-block ml-2 transition-transform group-hover:translate-x-1">→</span>
@@ -486,17 +492,17 @@ export default function PartnersPage() {
       )}
 
       {/* CTA Section */}
-      <section className="bg-gradient-to-br from-surface via-surface-card to-surface py-16">
+      <section className="bg-surface border-t border-surface-border py-16">
         <div className="mx-auto max-w-4xl px-6 lg:px-8 text-center">
           <h2 className="text-2xl font-bold text-white mb-4">
             Ready to Work With Us?
           </h2>
-          <p className="text-blue-100 mb-8 max-w-2xl mx-auto">
+          <p className="text-gray-300 mb-8 max-w-2xl mx-auto">
             Join the businesses who trust StephensCode for their web development needs.
           </p>
           <Link
             href="/contact"
-            className="inline-flex items-center gap-2 rounded-lg bg-accent-500 px-6 py-3 text-base font-semibold text-white shadow-lg hover:bg-accent-600 transition-all"
+            className="inline-flex items-center gap-2 rounded-md bg-primary-500 px-6 py-3 text-base font-semibold text-white hover:bg-primary-600 transition-colors"
           >
             Get Started
             <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">

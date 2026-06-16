@@ -4,8 +4,8 @@ import { corePackages, premiumBuilds } from '@/lib/services-data'
 import { basicAddOns, advancedAddOns } from '@/lib/addons-data'
 
 export const metadata: Metadata = {
-  title: 'Houston Web Development | Flat-Rate Small Business Websites from $850',
-  description: 'Conroe web developer with flat-rate small business websites from $850. Small business website packages for Houston and The Woodlands. Veteran owned. No hidden fees.',
+  title: 'Houston Web Development | Flat-Rate Small Business Websites from $950',
+  description: 'Conroe web developer with flat-rate small business websites from $950. Small business website packages for Houston and The Woodlands. Veteran owned. No hidden fees.',
   keywords: [
     'affordable web design Houston',
     'Conroe web developer',
@@ -25,8 +25,8 @@ export const metadata: Metadata = {
     'Montgomery County web design',
   ],
   openGraph: {
-    title: 'Houston Web Development | Six Flat-Rate Website Tiers, $250 to $7,500+',
-    description: 'Six flat-rate website tiers from $250 to $7,500+, all with 90 days post-launch support. Standard small business sites at $950. Houston, Conroe, and The Woodlands. Veteran owned. No hourly billing.',
+    title: 'Houston Web Development | Flat-Rate Sites from $250, Plus Custom Enterprise Platforms',
+    description: 'Six flat-rate website tiers from $250, all with 90 days post-launch support. Standard small business sites at $950. Plus custom enterprise platforms and six-figure software builds, custom quoted. Houston, Conroe, and The Woodlands. Veteran owned. No hourly billing.',
     url: 'https://www.stephenscode.dev/pricing',
     type: 'website',
   },
@@ -128,53 +128,42 @@ export default function PricingPage() {
       />
 
       {/* Hero Section */}
-      <section className="relative bg-gradient-to-br from-black via-surface to-surface-card text-white overflow-hidden">
-        {/* Pattern overlay */}
-        <div className="absolute inset-0 opacity-10">
-          <svg className="absolute w-full h-full" xmlns="http://www.w3.org/2000/svg">
-            <defs>
-              <pattern id="pricing-pattern" x="0" y="0" width="40" height="40" patternUnits="userSpaceOnUse">
-                <circle cx="20" cy="20" r="1.5" fill="currentColor" />
-              </pattern>
-            </defs>
-            <rect width="100%" height="100%" fill="url(#pricing-pattern)" />
-          </svg>
-        </div>
+      <section className="relative bg-black border-b border-surface-border overflow-hidden">
+        {/* Soft vertical sheen — barely there, gives the canvas depth without halo */}
+        <div className="pointer-events-none absolute inset-0 bg-gradient-to-b from-surface-card/60 via-black to-black" />
 
         <div className="relative mx-auto max-w-7xl px-6 py-24 sm:py-32 lg:px-8">
           <div className="mx-auto max-w-3xl text-center">
-            <div className="inline-flex items-center rounded-full bg-accent-500/20 px-4 py-2 text-sm font-semibold text-white ring-1 ring-inset ring-accent-500/30 mb-8 animate-fade-in-up">
-              💰 100% Transparent Pricing
+            <div className="mb-8 inline-flex items-center justify-center gap-3 text-[11px] font-semibold uppercase tracking-[0.22em] text-primary-500 animate-fade-in-up">
+              <span aria-hidden="true" className="font-mono text-primary-500/80">&lt;</span>
+              <span>100% Transparent Pricing</span>
+              <span aria-hidden="true" className="font-mono text-primary-500/80">/&gt;</span>
             </div>
-            <h1 className="text-5xl font-bold tracking-tight sm:text-7xl animate-fade-in-up animation-delay-200">
+            <h1 className="text-5xl font-bold tracking-tight text-white sm:text-7xl animate-fade-in-up animation-delay-200">
               Simple, Transparent Pricing
             </h1>
-            <p className="mt-6 text-xl leading-8 text-gray-200 animate-fade-in-up animation-delay-400">
-              No hidden fees, no hourly rates, no surprises. Every service has a <span className="font-bold text-accent-400">flat rate</span> so you know exactly what you're paying before we start.
+            <p className="mt-6 text-xl leading-8 text-gray-300 animate-fade-in-up animation-delay-400">
+              No hidden fees, no hourly rates, no surprises. Every service has a <span className="font-semibold text-primary-400">flat rate</span> so you know exactly what you're paying before we start.
             </p>
-            <div className="mt-10 flex items-center justify-center gap-x-6 animate-fade-in-up animation-delay-600">
+            <p className="mt-4 text-base leading-7 text-gray-400 animate-fade-in-up animation-delay-400">
+              Every project is built by <span className="font-semibold text-white">real developers</span> and monitored by our team. Not AI, not an offshore template factory.
+            </p>
+            <div className="mt-10 flex flex-wrap items-center justify-center gap-3 animate-fade-in-up animation-delay-600">
               <Link
                 href="/contact"
-                className="group rounded-lg bg-accent-500 px-6 py-3.5 text-base font-semibold text-white shadow-lg hover:bg-accent-600 transition-all"
+                className="group inline-flex items-center gap-2 rounded-md bg-primary-500 px-6 py-3 text-base font-semibold text-white hover:bg-primary-600 transition-colors"
               >
                 Get Free Quote
-                <span className="inline-block transition-transform group-hover:translate-x-1 ml-2">→</span>
+                <span className="inline-block transition-transform group-hover:translate-x-0.5">→</span>
               </Link>
               <a
                 href="tel:+19363234527"
-                className="text-base font-semibold leading-7 text-white hover:text-gray-200 transition-colors"
+                className="inline-flex items-center gap-2 rounded-md border border-surface-border px-6 py-3 text-base font-semibold text-white hover:border-primary-500/60 hover:bg-surface-card transition-colors"
               >
                 Call (936) 323-4527 <span aria-hidden="true">→</span>
               </a>
             </div>
           </div>
-        </div>
-
-        {/* Wave divider */}
-        <div className="absolute bottom-0 left-0 right-0">
-          <svg className="w-full h-16 fill-surface" viewBox="0 0 1200 120" preserveAspectRatio="none">
-            <path d="M321.39,56.44c58-10.79,114.16-30.13,172-41.86,82.39-16.72,168.19-17.73,250.45-.39C823.78,31,906.67,72,985.66,92.83c70.05,18.48,146.53,26.09,214.34,3V0H0V27.35A600.21,600.21,0,0,0,321.39,56.44Z" />
-          </svg>
         </div>
       </section>
 
@@ -182,20 +171,20 @@ export default function PricingPage() {
       <section className="bg-surface py-16 border-b border-surface-border">
         <div className="mx-auto max-w-7xl px-6 lg:px-8">
           <div className="grid grid-cols-2 md:grid-cols-4 gap-8 text-center">
-            <div className="animate-fade-in-up">
-              <div className="text-4xl font-bold text-primary-200">$250</div>
+            <div className="animate-fade-in-up border-l border-primary-500/40 pl-4">
+              <div className="text-4xl font-bold tracking-tight text-white">$250</div>
               <div className="text-sm text-gray-400 mt-2">Starting Price</div>
             </div>
-            <div className="animate-fade-in-up animation-delay-200">
-              <div className="text-4xl font-bold text-primary-200">40+</div>
+            <div className="animate-fade-in-up animation-delay-200 border-l border-primary-500/40 pl-4">
+              <div className="text-4xl font-bold tracking-tight text-white">40+</div>
               <div className="text-sm text-gray-400 mt-2">Add-On Options</div>
             </div>
-            <div className="animate-fade-in-up animation-delay-400">
-              <div className="text-4xl font-bold text-primary-200">0%</div>
+            <div className="animate-fade-in-up animation-delay-400 border-l border-primary-500/40 pl-4">
+              <div className="text-4xl font-bold tracking-tight text-white">0%</div>
               <div className="text-sm text-gray-400 mt-2">Hidden Fees</div>
             </div>
-            <div className="animate-fade-in-up animation-delay-600">
-              <div className="text-4xl font-bold text-primary-200">8</div>
+            <div className="animate-fade-in-up animation-delay-600 border-l border-primary-500/40 pl-4">
+              <div className="text-4xl font-bold tracking-tight text-white">8</div>
               <div className="text-sm text-gray-400 mt-2">Package Options</div>
             </div>
           </div>
@@ -225,35 +214,35 @@ export default function PricingPage() {
               return (
                 <div
                   key={pkg.id}
-                  className={`relative flex flex-col rounded-3xl bg-surface p-8 shadow-lg  transition-all  ${
-                    isPopular ? 'border-2 border-accent-500 ring-4 ring-accent-500/20' : 'border border-surface-border'
+                  className={`relative flex flex-col rounded-2xl bg-surface-card p-8 card-lift ${
+                    isPopular ? 'ring-2 ring-primary-500' : 'ring-1 ring-surface-border'
                   }`}
                 >
                   {isPopular && (
-                    <div className="absolute -top-4 left-1/2 -translate-x-1/2">
-                      <span className="inline-flex items-center rounded-full bg-gradient-to-r from-accent-500 to-accent-600 px-4 py-1.5 text-xs font-bold text-white shadow-lg">
-                        ⭐ MOST POPULAR
+                    <div className="absolute -top-3 left-1/2 -translate-x-1/2">
+                      <span className="inline-flex items-center rounded-full bg-primary-500 px-3 py-0.5 text-[10px] font-semibold uppercase tracking-[0.18em] text-white">
+                        Most picked
                       </span>
                     </div>
                   )}
                   <h3 className="text-2xl font-bold text-white">{pkg.name}</h3>
                   <p className="mt-4 text-sm text-gray-400 leading-relaxed">{pkg.shortDescription}</p>
                   <p className="mt-6 flex items-baseline gap-x-1">
-                    <span className="text-5xl font-bold tracking-tight bg-gradient-to-r from-primary-400 to-accent-400 bg-clip-text text-transparent">
+                    <span className="text-5xl font-bold tracking-tight text-white">
                       {pkg.priceLabel}
                     </span>
                   </p>
                   <div className="mt-2 flex items-center gap-2">
-                    <svg className="w-4 h-4 text-gray-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <svg className="w-4 h-4 text-gray-500" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                       <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z" />
                     </svg>
                     <p className="text-sm text-gray-400">{pkg.timeline}</p>
                   </div>
-                  <ul className="mt-8 space-y-3 text-sm leading-6 text-gray-400 flex-grow">
+                  <ul className="mt-8 space-y-3 text-sm leading-6 text-gray-300 flex-grow">
                     {pkg.features.slice(0, 6).map((feature) => (
-                      <li key={feature} className="flex gap-x-3">
+                      <li key={feature} className="flex gap-x-2.5">
                         <svg
-                          className="h-6 w-5 flex-none text-accent-600"
+                          className="h-5 w-4 flex-none mt-0.5 text-primary-500"
                           viewBox="0 0 20 20"
                           fill="currentColor"
                         >
@@ -269,10 +258,10 @@ export default function PricingPage() {
                   </ul>
                   <Link
                     href={`/services/${pkg.slug}`}
-                    className={`mt-8 block rounded-lg px-3.5 py-2.5 text-center text-sm font-semibold shadow-sm transition-all  ${
+                    className={`mt-8 block rounded-md px-3.5 py-2.5 text-center text-sm font-semibold transition-colors ${
                       isPopular
-                        ? 'bg-gradient-to-r from-accent-500 to-accent-600 text-white hover:from-accent-600 hover:to-accent-700'
-                        : 'bg-primary-600 text-white hover:bg-primary-700'
+                        ? 'bg-primary-500 text-white hover:bg-primary-600'
+                        : 'border border-surface-border text-white hover:border-primary-500/60 hover:bg-surface-elevated'
                     }`}
                   >
                     View Full Details →
@@ -288,10 +277,12 @@ export default function PricingPage() {
       <section className="bg-surface py-24 sm:py-32">
         <div className="mx-auto max-w-7xl px-6 lg:px-8">
           <div className="mx-auto max-w-2xl text-center mb-16">
-            <div className="inline-flex items-center rounded-full bg-gradient-to-r from-purple-500/15 to-blue-500/15 px-4 py-2 text-sm font-semibold text-purple-200 mb-4">
-              ⚡ Premium Solutions
+            <div className="inline-flex items-center justify-center gap-3 text-[11px] font-semibold uppercase tracking-[0.22em] text-primary-500 mb-4">
+              <span aria-hidden="true" className="font-mono text-primary-500/80">&lt;</span>
+              <span>Premium Solutions</span>
+              <span aria-hidden="true" className="font-mono text-primary-500/80">/&gt;</span>
             </div>
-            <h2 className="text-4xl font-bold tracking-tight text-white sm:text-5xl">
+            <h2 className="text-3xl font-bold tracking-tight text-white sm:text-4xl">
               Advanced Full-Stack Platforms
             </h2>
             <p className="mt-4 text-lg leading-8 text-gray-400">
@@ -303,32 +294,26 @@ export default function PricingPage() {
             {premiumBuilds.map((pkg) => (
               <div
                 key={pkg.id}
-                className="relative flex flex-col rounded-3xl border-2 border-primary-600 bg-surface p-8 shadow-2xl hover:shadow-3xl transition-all"
-                style={{
-                  background: 'linear-gradient(135deg, #0f172a 0%, #1e293b 100%)'
-                }}
+                className="relative flex flex-col rounded-2xl bg-surface-elevated p-8 ring-1 ring-surface-border card-lift"
               >
-                <div className="absolute -top-3 -right-3 w-16 h-16 bg-gradient-to-br from-accent-500 to-primary-600 rounded-full flex items-center justify-center text-2xl shadow-lg">
-                  🏆
-                </div>
                 <h3 className="text-2xl font-bold text-white">{pkg.name}</h3>
                 <p className="mt-4 text-sm text-gray-400 leading-relaxed">{pkg.shortDescription}</p>
                 <p className="mt-6 flex items-baseline gap-x-1">
-                  <span className="text-5xl font-bold tracking-tight bg-gradient-to-r from-primary-400 via-accent-400 to-primary-400 bg-clip-text text-transparent">
+                  <span className="text-5xl font-bold tracking-tight text-white">
                     {pkg.priceLabel}
                   </span>
                 </p>
                 <div className="mt-2 flex items-center gap-2">
-                  <svg className="w-4 h-4 text-gray-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <svg className="w-4 h-4 text-gray-500" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                     <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z" />
                   </svg>
                   <p className="text-sm text-gray-400">{pkg.timeline}</p>
                 </div>
-                <ul className="mt-8 space-y-3 text-sm leading-6 text-gray-400 flex-grow">
+                <ul className="mt-8 space-y-3 text-sm leading-6 text-gray-300 flex-grow">
                   {pkg.features.slice(0, 7).map((feature) => (
-                    <li key={feature} className="flex gap-x-3">
+                    <li key={feature} className="flex gap-x-2.5">
                       <svg
-                        className="h-6 w-5 flex-none text-accent-600"
+                        className="h-5 w-4 flex-none mt-0.5 text-primary-500"
                         viewBox="0 0 20 20"
                         fill="currentColor"
                       >
@@ -344,7 +329,7 @@ export default function PricingPage() {
                 </ul>
                 <Link
                   href={`/services/${pkg.slug}`}
-                  className="mt-8 block rounded-lg bg-gradient-to-r from-primary-600 to-accent-600 px-3.5 py-2.5 text-center text-sm font-semibold text-white shadow-lg hover:shadow-xl transition-all"
+                  className="mt-8 block rounded-md bg-primary-500 px-3.5 py-2.5 text-center text-sm font-semibold text-white hover:bg-primary-600 transition-colors"
                 >
                   Explore Premium Details →
                 </Link>
@@ -358,10 +343,12 @@ export default function PricingPage() {
       <section className="bg-surface py-24 sm:py-32">
         <div className="mx-auto max-w-7xl px-6 lg:px-8">
           <div className="mx-auto max-w-2xl text-center mb-16">
-            <div className="inline-flex items-center rounded-full bg-green-500/15 px-4 py-2 text-sm font-semibold text-green-200 mb-4">
-              🎯 40+ Add-Ons Available
+            <div className="inline-flex items-center justify-center gap-3 text-[11px] font-semibold uppercase tracking-[0.22em] text-primary-500 mb-4">
+              <span aria-hidden="true" className="font-mono text-primary-500/80">&lt;</span>
+              <span>40+ Add-Ons Available</span>
+              <span aria-hidden="true" className="font-mono text-primary-500/80">/&gt;</span>
             </div>
-            <h2 className="text-4xl font-bold tracking-tight text-white sm:text-5xl">
+            <h2 className="text-3xl font-bold tracking-tight text-white sm:text-4xl">
               Customize Your Website
             </h2>
             <p className="mt-4 text-lg leading-8 text-gray-400">
@@ -380,16 +367,16 @@ export default function PricingPage() {
                 <Link
                   key={addon.id}
                   href={`/services/${addon.slug}`}
-                  className="group rounded-xl border border-surface-border bg-surface p-6 hover:border-accent-500 hover:shadow-lg transition-all"
+                  className="group rounded-xl border border-surface-border bg-surface-card p-6 hover:border-primary-500/60 transition-colors"
                 >
                   <div className="flex items-center justify-between mb-3">
-                    <h4 className="text-lg font-semibold text-white group-hover:text-primary-600 transition-colors">
+                    <h4 className="text-lg font-semibold text-white group-hover:text-primary-400 transition-colors">
                       {addon.name}
                     </h4>
-                    <p className="text-lg font-bold text-accent-600">{addon.priceLabel}</p>
+                    <p className="text-lg font-bold text-white">{addon.priceLabel}</p>
                   </div>
                   <p className="text-sm text-gray-400 leading-relaxed">{addon.shortDescription}</p>
-                  <div className="mt-4 text-sm font-semibold text-accent-600 group-hover:text-primary-600 transition-colors">
+                  <div className="mt-4 text-sm font-semibold text-primary-400 group-hover:text-primary-300 transition-colors">
                     Learn more <span aria-hidden="true" className="inline-block transition-transform group-hover:translate-x-1">→</span>
                   </div>
                 </Link>
@@ -413,18 +400,18 @@ export default function PricingPage() {
                 <Link
                   key={addon.id}
                   href={`/services/${addon.slug}`}
-                  className="group rounded-xl border-2 border-surface-border bg-surface p-6 hover:border-primary-500 hover:shadow-xl transition-all"
+                  className="group rounded-xl border border-surface-border bg-surface-card p-6 hover:border-primary-500/60 transition-colors"
                 >
                   <div className="flex items-center justify-between mb-3">
-                    <h4 className="text-lg font-semibold text-white group-hover:text-primary-600 transition-colors">
+                    <h4 className="text-lg font-semibold text-white group-hover:text-primary-400 transition-colors">
                       {addon.name}
                     </h4>
-                    <p className="text-xl font-bold text-primary-600">{addon.priceLabel}</p>
+                    <p className="text-xl font-bold text-white">{addon.priceLabel}</p>
                   </div>
                   <p className="text-sm text-gray-400 mb-4 leading-relaxed">{addon.shortDescription}</p>
                   <div className="flex items-center justify-between text-sm">
-                    <span className="text-gray-400">⏱️ {addon.timeline}</span>
-                    <span className="font-semibold text-primary-600 group-hover:text-accent-600 transition-colors">
+                    <span className="text-gray-500">{addon.timeline}</span>
+                    <span className="font-semibold text-primary-400 group-hover:text-primary-300 transition-colors">
                       Details <span aria-hidden="true" className="inline-block transition-transform group-hover:translate-x-1">→</span>
                     </span>
                   </div>
@@ -442,7 +429,7 @@ export default function PricingPage() {
           <div className="mt-12 text-center">
             <Link
               href="/pricing/add-ons"
-              className="inline-flex items-center gap-2 rounded-lg bg-primary-600 px-6 py-3 text-base font-semibold text-white shadow-lg hover:bg-primary-700 transition-all"
+              className="inline-flex items-center gap-2 rounded-md bg-primary-500 px-6 py-3 text-base font-semibold text-white hover:bg-primary-600 transition-colors"
             >
               View All 40+ Add-Ons
               <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -453,52 +440,76 @@ export default function PricingPage() {
         </div>
       </section>
 
-      {/* Custom Solutions CTA */}
-      <section className="relative bg-gradient-to-br from-surface via-surface-card to-surface py-24 sm:py-32 overflow-hidden">
-        {/* Background pattern */}
-        <div className="absolute inset-0 opacity-10">
-          <div className="absolute inset-0" style={{
-            backgroundImage: 'radial-gradient(circle at 2px 2px, white 1px, transparent 0)',
-            backgroundSize: '32px 32px'
-          }} />
+      {/* Just starting out — new business help */}
+      <section className="bg-surface py-20 border-b border-surface-border">
+        <div className="mx-auto max-w-4xl px-6 lg:px-8">
+          <div className="rounded-2xl bg-surface-card p-10 ring-1 ring-surface-border">
+            <div className="inline-flex items-center justify-center gap-3 text-[11px] font-semibold uppercase tracking-[0.22em] text-primary-500 mb-5">
+              <span aria-hidden="true" className="font-mono text-primary-500/80">&lt;</span>
+              <span>Just Starting Out?</span>
+              <span aria-hidden="true" className="font-mono text-primary-500/80">/&gt;</span>
+            </div>
+            <h2 className="text-2xl md:text-3xl font-bold text-white mb-4">
+              New business? We want to help.
+            </h2>
+            <p className="text-lg leading-8 text-gray-300">
+              If you are just getting started, reach out. We will help you get a real digital footprint for your business without the big upfront hit. We understand the struggle of a new business, and we can work with you on <span className="font-semibold text-white">monthly payments</span> so cost is not what holds you back.
+            </p>
+            <div className="mt-7">
+              <Link
+                href="/contact"
+                className="inline-flex items-center gap-2 px-7 py-3.5 bg-primary-500 text-white font-semibold rounded-md hover:bg-primary-600 transition-colors"
+              >
+                Let&apos;s talk about your start
+                <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M17 8l4 4m0 0l-4 4m4-4H3" />
+                </svg>
+              </Link>
+            </div>
+          </div>
         </div>
+      </section>
 
-        <div className="relative mx-auto max-w-7xl px-6 lg:px-8">
+      {/* Custom Solutions CTA */}
+      <section className="bg-surface-card border-y border-surface-border py-24 sm:py-32">
+        <div className="mx-auto max-w-7xl px-6 lg:px-8">
           <div className="mx-auto max-w-4xl">
-            <div className="rounded-3xl bg-gradient-to-br from-surface-card to-surface-elevated p-12 border-2 border-blue-500/30 shadow-2xl shadow-blue-500/10">
+            <div className="rounded-2xl bg-surface-elevated p-12 ring-1 ring-surface-border">
               <div className="text-center mb-8">
-                <div className="inline-flex items-center rounded-full bg-blue-500/20 border border-blue-500/30 px-4 py-2 text-sm font-semibold text-blue-400 mb-6">
-                  🚀 Need Something Different?
+                <div className="inline-flex items-center justify-center gap-3 text-[11px] font-semibold uppercase tracking-[0.22em] text-primary-500 mb-6">
+                  <span aria-hidden="true" className="font-mono text-primary-500/80">&lt;</span>
+                  <span>Beyond the Packages</span>
+                  <span aria-hidden="true" className="font-mono text-primary-500/80">/&gt;</span>
                 </div>
-                <h2 className="text-4xl md:text-5xl font-bold text-white mb-4">
-                  Custom Solutions
+                <h2 className="text-3xl md:text-4xl font-bold text-white mb-4">
+                  Enterprise &amp; Custom Platforms
                 </h2>
                 <p className="text-xl text-gray-300 leading-relaxed">
-                  SaaS platforms, web applications, data scrapers, automation tools, and bespoke software tailored to your exact needs.
+                  The tiers above cover websites. When you need a full operational platform, multi-system integrations, or an ongoing software contract, we build the whole system. We have delivered six-figure platform contracts, each custom scoped and custom quoted.
                 </p>
               </div>
 
               <div className="grid md:grid-cols-2 gap-8 mb-8">
-                <div className="bg-surface-card/70 rounded-xl p-6 border border-surface-border/30">
+                <div className="bg-surface-card rounded-xl p-6 border border-surface-border">
                   <div className="flex items-start gap-4">
-                    <div className="flex-shrink-0 w-12 h-12 rounded-md bg-primary-500/10 ring-1 ring-primary-500/40 flex items-center justify-center">
-                      <svg className="w-6 h-6 text-primary-500" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <div className="flex-shrink-0 w-12 h-12 rounded-md border border-primary-500/40 text-primary-500 flex items-center justify-center">
+                      <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                         <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 8c-1.657 0-3 .895-3 2s1.343 2 3 2 3 .895 3 2-1.343 2-3 2m0-8c1.11 0 2.08.402 2.599 1M12 8V7m0 1v8m0 0v1m0-1c-1.11 0-2.08-.402-2.599-1M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
                       </svg>
                     </div>
                     <div>
-                      <h3 className="text-lg font-bold text-white mb-2">Transparent Pricing</h3>
+                      <h3 className="text-lg font-bold text-white mb-2">Built at Scale</h3>
                       <p className="text-gray-300 text-sm">
-                        Based on $50/hour estimates, but quoted as a <strong className="text-white">flat-rate price</strong>. No hourly billing, no cost overruns.
+                        From advanced integrations to full operational platforms and ongoing contracts. The kind of work that runs into the <strong className="text-white">six figures</strong>, scoped to exactly what you need.
                       </p>
                     </div>
                   </div>
                 </div>
 
-                <div className="bg-surface-card/70 rounded-xl p-6 border border-surface-border/30">
+                <div className="bg-surface-card rounded-xl p-6 border border-surface-border">
                   <div className="flex items-start gap-4">
-                    <div className="flex-shrink-0 w-12 h-12 rounded-xl bg-gradient-to-br from-green-500 to-emerald-600 flex items-center justify-center">
-                      <svg className="w-6 h-6 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <div className="flex-shrink-0 w-12 h-12 rounded-md border border-primary-500/40 text-primary-500 flex items-center justify-center">
+                      <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                         <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z" />
                       </svg>
                     </div>
@@ -515,7 +526,7 @@ export default function PricingPage() {
               <div className="text-center">
                 <Link
                   href="/custom-solutions"
-                  className="inline-flex items-center gap-2 px-8 py-4 bg-gradient-to-r from-primary-500 to-accent-500 text-white font-bold rounded-xl hover:from-primary-600 hover:to-accent-600 transition-all duration-300 shadow-lg shadow-primary-500/30"
+                  className="inline-flex items-center gap-2 px-8 py-4 bg-primary-500 text-white font-semibold rounded-md hover:bg-primary-600 transition-colors"
                 >
                   Explore Custom Solutions
                   <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -523,7 +534,7 @@ export default function PricingPage() {
                   </svg>
                 </Link>
                 <p className="mt-4 text-sm text-gray-400">
-                  Get a detailed quote within 24 hours • No obligation
+                  Get a detailed quote within 24 hours. No obligation.
                 </p>
               </div>
             </div>
@@ -532,45 +543,39 @@ export default function PricingPage() {
       </section>
 
       {/* Why Flat-Rate Pricing */}
-      <section className="relative bg-gradient-to-br from-black via-surface to-surface-card py-24 sm:py-32 overflow-hidden">
-        {/* Background pattern */}
-        <div className="absolute inset-0 opacity-10">
-          <div className="absolute inset-0" style={{
-            backgroundImage: 'radial-gradient(circle at 2px 2px, white 1px, transparent 0)',
-            backgroundSize: '40px 40px'
-          }} />
-        </div>
-
-        <div className="relative mx-auto max-w-7xl px-6 lg:px-8">
+      <section className="bg-surface py-24 sm:py-32 border-b border-surface-border">
+        <div className="mx-auto max-w-7xl px-6 lg:px-8">
           <div className="mx-auto max-w-2xl text-center mb-16">
-            <h2 className="text-4xl font-bold tracking-tight text-white sm:text-5xl">
+            <div className="inline-flex items-center justify-center gap-3 text-[11px] font-semibold uppercase tracking-[0.22em] text-primary-500 mb-4">
+              <span aria-hidden="true" className="font-mono text-primary-500/80">&lt;</span>
+              <span>Why Flat-Rate</span>
+              <span aria-hidden="true" className="font-mono text-primary-500/80">/&gt;</span>
+            </div>
+            <h2 className="text-3xl font-bold tracking-tight text-white sm:text-4xl">
               Why Flat-Rate Pricing?
             </h2>
-            <p className="mt-4 text-lg text-gray-200">
+            <p className="mt-4 text-lg text-gray-400">
               Transparent pricing that puts you in control of your budget.
             </p>
           </div>
 
           <div className="mx-auto max-w-5xl">
             <div className="grid grid-cols-1 gap-8 lg:grid-cols-3">
-              <div className="rounded-2xl bg-surface-card/60 backdrop-blur-sm p-8 border border-surface-border hover:bg-surface-elevated/40 transition-all">
-                <div className="text-4xl mb-4">🎯</div>
+              <div className="rounded-2xl bg-surface-card p-8 ring-1 ring-surface-border card-lift">
                 <h3 className="text-xl font-bold text-white mb-3">No Surprises</h3>
-                <p className="text-gray-200 leading-relaxed">
+                <p className="text-gray-400 leading-relaxed">
                   You know the exact cost upfront. No hourly billing that spirals out of control or unexpected charges at the end.
                 </p>
               </div>
-              <div className="rounded-2xl bg-surface-card/60 backdrop-blur-sm p-8 border border-surface-border hover:bg-surface-elevated/40 transition-all">
-                <div className="text-4xl mb-4">💰</div>
+              <div className="rounded-2xl bg-surface-card p-8 ring-1 ring-surface-border card-lift">
                 <h3 className="text-xl font-bold text-white mb-3">Budget-Friendly</h3>
-                <p className="text-gray-200 leading-relaxed">
+                <p className="text-gray-400 leading-relaxed">
                   Plan your budget accurately. Mix and match packages and add-ons to get exactly what you need within your budget.
                 </p>
               </div>
-              <div className="rounded-2xl bg-surface-card/60 backdrop-blur-sm p-8 border border-surface-border hover:bg-surface-elevated/40 transition-all">
-                <div className="text-4xl mb-4">⭐</div>
+              <div className="rounded-2xl bg-surface-card p-8 ring-1 ring-surface-border card-lift">
                 <h3 className="text-xl font-bold text-white mb-3">Quality Focus</h3>
-                <p className="text-gray-200 leading-relaxed">
+                <p className="text-gray-400 leading-relaxed">
                   We focus on delivering quality, not padding hours. Flat rates align our incentives - we succeed when you succeed.
                 </p>
               </div>
@@ -580,31 +585,31 @@ export default function PricingPage() {
           {/* Additional benefits */}
           <div className="mt-16 grid grid-cols-1 md:grid-cols-2 gap-6 max-w-4xl mx-auto">
             <div className="flex items-start gap-4 text-white">
-              <div className="flex-shrink-0 w-8 h-8 rounded-full bg-accent-500 flex items-center justify-center text-sm font-bold">✓</div>
+              <div className="flex-shrink-0 w-8 h-8 rounded-full border border-primary-500/40 text-primary-500 flex items-center justify-center text-sm font-bold">✓</div>
               <div>
                 <h4 className="font-semibold mb-1">All-Inclusive Packages</h4>
-                <p className="text-sm text-gray-300">Design, development, revisions, testing, and launch all included</p>
+                <p className="text-sm text-gray-400">Design, development, revisions, testing, and launch all included</p>
               </div>
             </div>
             <div className="flex items-start gap-4 text-white">
-              <div className="flex-shrink-0 w-8 h-8 rounded-full bg-accent-500 flex items-center justify-center text-sm font-bold">✓</div>
+              <div className="flex-shrink-0 w-8 h-8 rounded-full border border-primary-500/40 text-primary-500 flex items-center justify-center text-sm font-bold">✓</div>
               <div>
                 <h4 className="font-semibold mb-1">Clear Timelines</h4>
-                <p className="text-sm text-gray-300">Every package has a defined timeline so you know when to expect results</p>
+                <p className="text-sm text-gray-400">Every package has a defined timeline so you know when to expect results</p>
               </div>
             </div>
             <div className="flex items-start gap-4 text-white">
-              <div className="flex-shrink-0 w-8 h-8 rounded-full bg-accent-500 flex items-center justify-center text-sm font-bold">✓</div>
+              <div className="flex-shrink-0 w-8 h-8 rounded-full border border-primary-500/40 text-primary-500 flex items-center justify-center text-sm font-bold">✓</div>
               <div>
                 <h4 className="font-semibold mb-1">Scalable Solutions</h4>
-                <p className="text-sm text-gray-300">Start small and add features later as your business grows</p>
+                <p className="text-sm text-gray-400">Start small and add features later as your business grows</p>
               </div>
             </div>
             <div className="flex items-start gap-4 text-white">
-              <div className="flex-shrink-0 w-8 h-8 rounded-full bg-accent-500 flex items-center justify-center text-sm font-bold">✓</div>
+              <div className="flex-shrink-0 w-8 h-8 rounded-full border border-primary-500/40 text-primary-500 flex items-center justify-center text-sm font-bold">✓</div>
               <div>
                 <h4 className="font-semibold mb-1">Dedicated Support</h4>
-                <p className="text-sm text-gray-300">Direct access to your developer throughout the entire project</p>
+                <p className="text-sm text-gray-400">Direct access to your developer throughout the entire project</p>
               </div>
             </div>
           </div>
@@ -615,7 +620,12 @@ export default function PricingPage() {
       <section className="bg-surface py-24 sm:py-32">
         <div className="mx-auto max-w-7xl px-6 lg:px-8">
           <div className="mx-auto max-w-2xl text-center mb-16">
-            <h2 className="text-4xl font-bold tracking-tight text-white sm:text-5xl">
+            <div className="inline-flex items-center justify-center gap-3 text-[11px] font-semibold uppercase tracking-[0.22em] text-primary-500 mb-4">
+              <span aria-hidden="true" className="font-mono text-primary-500/80">&lt;</span>
+              <span>FAQ</span>
+              <span aria-hidden="true" className="font-mono text-primary-500/80">/&gt;</span>
+            </div>
+            <h2 className="text-3xl font-bold tracking-tight text-white sm:text-4xl">
               Pricing Questions?
             </h2>
             <p className="mt-4 text-lg leading-8 text-gray-400">
@@ -626,7 +636,7 @@ export default function PricingPage() {
           <div className="mx-auto max-w-3xl">
             <div className="space-y-6">
               {/* FAQ Items */}
-              <div className="rounded-2xl border border-surface-border bg-surface-card p-8 hover:border-primary-300 transition-colors">
+              <div className="rounded-2xl border border-surface-border bg-surface-card p-8 hover:border-primary-500/60 transition-colors">
                 <h3 className="text-lg font-bold text-white mb-3">
                   Why do you use flat-rate pricing instead of hourly rates?
                 </h3>
@@ -635,7 +645,7 @@ export default function PricingPage() {
                 </p>
               </div>
 
-              <div className="rounded-2xl border border-surface-border bg-surface-card p-8 hover:border-primary-300 transition-colors">
+              <div className="rounded-2xl border border-surface-border bg-surface-card p-8 hover:border-primary-500/60 transition-colors">
                 <h3 className="text-lg font-bold text-white mb-3">
                   Can I combine packages with add-ons?
                 </h3>
@@ -644,7 +654,7 @@ export default function PricingPage() {
                 </p>
               </div>
 
-              <div className="rounded-2xl border border-surface-border bg-surface-card p-8 hover:border-primary-300 transition-colors">
+              <div className="rounded-2xl border border-surface-border bg-surface-card p-8 hover:border-primary-500/60 transition-colors">
                 <h3 className="text-lg font-bold text-white mb-3">
                   Are there any hidden fees or recurring costs?
                 </h3>
@@ -653,7 +663,7 @@ export default function PricingPage() {
                 </p>
               </div>
 
-              <div className="rounded-2xl border border-surface-border bg-surface-card p-8 hover:border-primary-300 transition-colors">
+              <div className="rounded-2xl border border-surface-border bg-surface-card p-8 hover:border-primary-500/60 transition-colors">
                 <h3 className="text-lg font-bold text-white mb-3">
                   What is included in the timeline?
                 </h3>
@@ -662,7 +672,7 @@ export default function PricingPage() {
                 </p>
               </div>
 
-              <div className="rounded-2xl border border-surface-border bg-surface-card p-8 hover:border-primary-300 transition-colors">
+              <div className="rounded-2xl border border-surface-border bg-surface-card p-8 hover:border-primary-500/60 transition-colors">
                 <h3 className="text-lg font-bold text-white mb-3">
                   Do you require payment upfront?
                 </h3>
@@ -671,7 +681,7 @@ export default function PricingPage() {
                 </p>
               </div>
 
-              <div className="rounded-2xl border border-surface-border bg-surface-card p-8 hover:border-primary-300 transition-colors">
+              <div className="rounded-2xl border border-surface-border bg-surface-card p-8 hover:border-primary-500/60 transition-colors">
                 <h3 className="text-lg font-bold text-white mb-3">
                   What technologies do you use?
                 </h3>
@@ -680,7 +690,7 @@ export default function PricingPage() {
                 </p>
               </div>
 
-              <div className="rounded-2xl border border-surface-border bg-surface-card p-8 hover:border-primary-300 transition-colors">
+              <div className="rounded-2xl border border-surface-border bg-surface-card p-8 hover:border-primary-500/60 transition-colors">
                 <h3 className="text-lg font-bold text-white mb-3">
                   How many revisions are included?
                 </h3>
@@ -689,7 +699,7 @@ export default function PricingPage() {
                 </p>
               </div>
 
-              <div className="rounded-2xl border border-surface-border bg-surface-card p-8 hover:border-primary-300 transition-colors">
+              <div className="rounded-2xl border border-surface-border bg-surface-card p-8 hover:border-primary-500/60 transition-colors">
                 <h3 className="text-lg font-bold text-white mb-3">
                   Do you offer ongoing maintenance and support?
                 </h3>
@@ -698,7 +708,7 @@ export default function PricingPage() {
                 </p>
               </div>
 
-              <div className="rounded-2xl border border-surface-border bg-surface-card p-8 hover:border-primary-300 transition-colors">
+              <div className="rounded-2xl border border-surface-border bg-surface-card p-8 hover:border-primary-500/60 transition-colors">
                 <h3 className="text-lg font-bold text-white mb-3">
                   What about hosting and domain costs?
                 </h3>
@@ -707,16 +717,16 @@ export default function PricingPage() {
                 </p>
               </div>
 
-              <div className="rounded-2xl border border-surface-border bg-surface-card p-8 hover:border-primary-300 transition-colors">
+              <div className="rounded-2xl border border-surface-border bg-surface-card p-8 hover:border-primary-500/60 transition-colors">
                 <h3 className="text-lg font-bold text-white mb-3">
                   Can I see examples of your work before committing?
                 </h3>
                 <p className="text-gray-400 leading-relaxed">
-                  Absolutely! Visit our <Link href="/demos" className="text-primary-600 font-semibold hover:text-primary-400">Demos page</Link> to explore 40+ fully interactive website examples across all our packages and industries. You can click around and test every feature.
+                  Absolutely! Visit our <Link href="/demos" className="text-primary-400 font-semibold hover:text-primary-300">Demos page</Link> to explore 40+ fully interactive website examples across all our packages and industries. You can click around and test every feature.
                 </p>
               </div>
 
-              <div className="rounded-2xl border border-surface-border bg-surface-card p-8 hover:border-primary-300 transition-colors">
+              <div className="rounded-2xl border border-surface-border bg-surface-card p-8 hover:border-primary-500/60 transition-colors">
                 <h3 className="text-lg font-bold text-white mb-3">
                   What if I need custom features not listed?
                 </h3>
@@ -725,7 +735,7 @@ export default function PricingPage() {
                 </p>
               </div>
 
-              <div className="rounded-2xl border border-surface-border bg-surface-card p-8 hover:border-primary-300 transition-colors">
+              <div className="rounded-2xl border border-surface-border bg-surface-card p-8 hover:border-primary-500/60 transition-colors">
                 <h3 className="text-lg font-bold text-white mb-3">
                   Do you provide training on how to update my website?
                 </h3>
@@ -734,7 +744,7 @@ export default function PricingPage() {
                 </p>
               </div>
 
-              <div className="rounded-2xl border border-surface-border bg-surface-card p-8 hover:border-primary-300 transition-colors">
+              <div className="rounded-2xl border border-surface-border bg-surface-card p-8 hover:border-primary-500/60 transition-colors">
                 <h3 className="text-lg font-bold text-white mb-3">
                   What happens if I want to add features later?
                 </h3>
@@ -743,7 +753,7 @@ export default function PricingPage() {
                 </p>
               </div>
 
-              <div className="rounded-2xl border border-surface-border bg-surface-card p-8 hover:border-primary-300 transition-colors">
+              <div className="rounded-2xl border border-surface-border bg-surface-card p-8 hover:border-primary-500/60 transition-colors">
                 <h3 className="text-lg font-bold text-white mb-3">
                   Are your websites mobile-friendly and SEO-optimized?
                 </h3>
@@ -752,7 +762,7 @@ export default function PricingPage() {
                 </p>
               </div>
 
-              <div className="rounded-2xl border border-surface-border bg-surface-card p-8 hover:border-primary-300 transition-colors">
+              <div className="rounded-2xl border border-surface-border bg-surface-card p-8 hover:border-primary-500/60 transition-colors">
                 <h3 className="text-lg font-bold text-white mb-3">
                   Will I own the website and all the code?
                 </h3>
@@ -761,7 +771,7 @@ export default function PricingPage() {
                 </p>
               </div>
 
-              <div className="rounded-2xl border border-surface-border bg-surface-card p-8 hover:border-primary-300 transition-colors">
+              <div className="rounded-2xl border border-surface-border bg-surface-card p-8 hover:border-primary-500/60 transition-colors">
                 <h3 className="text-lg font-bold text-white mb-3">
                   What if I'm not happy with the final result?
                 </h3>
@@ -770,7 +780,7 @@ export default function PricingPage() {
                 </p>
               </div>
 
-              <div className="rounded-2xl border border-surface-border bg-surface-card p-8 hover:border-primary-300 transition-colors">
+              <div className="rounded-2xl border border-surface-border bg-surface-card p-8 hover:border-primary-500/60 transition-colors">
                 <h3 className="text-lg font-bold text-white mb-3">
                   Do you work with clients outside Houston?
                 </h3>
@@ -808,7 +818,7 @@ export default function PricingPage() {
               "The flat-rate pricing made it so easy to plan our budget. We knew exactly what we were getting and what it would cost - no surprises. We started with the Standard package and added a few key features. The whole process was transparent and straightforward."
             </p>
             <div className="flex items-center gap-4">
-              <div className="w-12 h-12 rounded-full bg-gradient-to-br from-primary-500 to-accent-500 flex items-center justify-center text-white font-bold text-lg">
+              <div className="w-12 h-12 rounded-full border border-primary-500/40 text-primary-500 flex items-center justify-center font-bold text-lg">
                 M
               </div>
               <div>
@@ -821,33 +831,26 @@ export default function PricingPage() {
       </section>
 
       {/* Final CTA */}
-      <section className="relative bg-gradient-to-r from-primary-600 via-accent-500 to-primary-600 text-white overflow-hidden">
-        <div className="absolute inset-0 opacity-20">
-          <div className="absolute inset-0" style={{
-            backgroundImage: 'linear-gradient(45deg, transparent 45%, rgba(255,255,255,0.1) 50%, transparent 55%)',
-            backgroundSize: '20px 20px'
-          }} />
-        </div>
-
-        <div className="relative px-6 py-24 sm:px-6 sm:py-32 lg:px-8">
+      <section className="bg-surface border-t border-surface-border">
+        <div className="px-6 py-24 sm:px-6 sm:py-32 lg:px-8">
           <div className="mx-auto max-w-2xl text-center">
-            <h2 className="text-4xl font-bold tracking-tight sm:text-5xl">
+            <h2 className="text-3xl font-bold tracking-tight text-white sm:text-4xl">
               Ready to get started?
             </h2>
-            <p className="mx-auto mt-6 max-w-xl text-lg leading-8 text-gray-200">
+            <p className="mx-auto mt-6 max-w-xl text-lg leading-8 text-gray-300">
               Get a free consultation and custom quote. We'll help you choose the right package and add-ons for your needs and budget.
             </p>
-            <div className="mt-10 flex flex-col sm:flex-row items-center justify-center gap-6">
+            <div className="mt-10 flex flex-wrap items-center justify-center gap-3">
               <Link
                 href="/contact"
-                className="group rounded-lg bg-surface-card px-8 py-4 text-base font-semibold text-white shadow-2xl hover:bg-surface-elevated transition-all"
+                className="group inline-flex items-center gap-2 rounded-md bg-primary-500 px-6 py-3 text-base font-semibold text-white hover:bg-primary-600 transition-colors"
               >
                 Get Your Free Quote
-                <span className="inline-block transition-transform group-hover:translate-x-1 ml-2">→</span>
+                <span className="inline-block transition-transform group-hover:translate-x-0.5">→</span>
               </Link>
               <a
                 href="tel:+19363234527"
-                className="flex items-center gap-2 text-base font-semibold leading-7 text-white hover:text-gray-200 transition-colors"
+                className="inline-flex items-center gap-2 rounded-md border border-surface-border px-6 py-3 text-base font-semibold text-white hover:border-primary-500/60 hover:bg-surface-card transition-colors"
               >
                 <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                   <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z" />
@@ -855,8 +858,8 @@ export default function PricingPage() {
                 Call (936) 323-4527
               </a>
             </div>
-            <p className="mt-6 text-sm text-gray-300">
-              🎯 Free consultation • 📞 Quick response • 💰 Transparent pricing
+            <p className="mt-6 text-sm text-gray-500">
+              Free consultation. Quick response. Transparent pricing.
             </p>
           </div>
         </div>

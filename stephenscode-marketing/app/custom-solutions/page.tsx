@@ -36,7 +36,7 @@ export const metadata: Metadata = {
 
 export default function CustomSolutionsPage() {
   return (
-    <main className="min-h-screen bg-gradient-to-b from-black via-surface to-black">
+    <main className="min-h-screen bg-surface">
       <CustomSolutionsHero />
       <SolutionsGrid />
       <ProcessTimeline />
@@ -45,25 +45,25 @@ export default function CustomSolutionsPage() {
       <CustomSolutionsForm />
 
       {/* CTA Section */}
-      <section className="py-20 px-4">
+      <section className="bg-surface border-t border-surface-border py-20 px-4">
         <div className="max-w-4xl mx-auto text-center">
-          <div className="bg-gradient-to-br from-surface-card to-surface-elevated rounded-3xl p-12 border border-surface-border/30">
-            <h2 className="text-3xl md:text-4xl font-bold mb-4 bg-gradient-to-r from-primary-400 to-accent-400 bg-clip-text text-transparent">
+          <div className="bg-surface-card rounded-2xl p-12 ring-1 ring-surface-border">
+            <h2 className="text-3xl md:text-4xl font-bold tracking-tight text-white mb-4">
               Ready to Build Something Amazing?
             </h2>
             <p className="text-gray-300 text-lg mb-8">
               Whether you need a SaaS platform, custom web app, or specialized tool, we're here to bring your vision to life.
             </p>
-            <div className="flex flex-col sm:flex-row gap-4 justify-center">
+            <div className="flex flex-col sm:flex-row gap-3 justify-center">
               <a
                 href="#contact-form"
-                className="px-8 py-4 bg-gradient-to-r from-primary-500 to-accent-500 hover:from-primary-600 hover:to-accent-600 text-white font-semibold rounded-xl shadow-lg hover:shadow-primary-500/30 transition-all"
+                className="px-6 py-3 bg-primary-500 hover:bg-primary-600 text-white font-semibold rounded-md transition-colors"
               >
                 Request a Quote
               </a>
               <Link
                 href="/pricing"
-                className="px-8 py-4 bg-surface-elevated/70 hover:bg-surface-elevated/70 text-white font-semibold rounded-xl border border-surface-border hover:border-surface-border transition-all"
+                className="px-6 py-3 text-white font-semibold rounded-md border border-surface-border hover:border-primary-500/60 hover:bg-surface-elevated transition-colors"
               >
                 View Standard Pricing
               </Link>

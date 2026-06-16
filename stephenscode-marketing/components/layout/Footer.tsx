@@ -1,4 +1,5 @@
 import Link from 'next/link'
+import { Award } from 'lucide-react'
 
 export default function Footer() {
   const navigation = {
@@ -62,8 +63,8 @@ export default function Footer() {
             <div className="text-2xl font-bold text-white">StephensCode LLC</div>
 
             {/* Veteran Badge */}
-            <div className="inline-flex items-center gap-3 bg-white/10 rounded-lg px-4 py-3 border border-white/20">
-              <span className="text-3xl">🎖️</span>
+            <div className="inline-flex items-center gap-3 bg-surface-elevated rounded-lg px-4 py-3 border border-surface-border">
+              <Award className="h-7 w-7 text-primary-500" aria-hidden="true" />
               <div>
                 <span className="block text-xs text-gray-300 uppercase tracking-wide">USMC Veteran</span>
                 <span className="block text-sm font-bold text-white">Veteran-Owned Business</span>

@@ -94,17 +94,12 @@ export default function DemosClient({ demos, categories }: DemosClientProps) {
   const renderDemoCard = (demo: Demo, index: number) => (
     <article
       key={demo.id}
-      className="flex flex-col bg-surface-card rounded-2xl shadow-lg overflow-hidden transition-shadow group"
+      className="flex flex-col bg-surface-card rounded-2xl ring-1 ring-surface-border hover:ring-primary-500/50 overflow-hidden transition-all group"
       style={{ animationDelay: `${index * 100}ms` }}
     >
       {/* Demo Preview */}
-      <div
-        className="h-48 relative"
-        style={{
-          background: `linear-gradient(135deg, ${demo.colors.primary} 0%, ${demo.colors.secondary} 50%, ${demo.colors.accent} 100%)`
-        }}
-      >
-        <div className="absolute inset-0 bg-black/20 flex items-center justify-center">
+      <div className="h-48 relative bg-surface-elevated border-b border-surface-border">
+        <div className="absolute inset-0 flex items-center justify-center">
           <div className="text-white text-center">
             <div className="text-4xl mb-2">
               {demo.industry === 'Showcase' && '⚡'}
@@ -126,14 +121,14 @@ export default function DemosClient({ demos, categories }: DemosClientProps) {
               {demo.industry === 'Creative Services' && '📸'}
               {demo.industry === 'Education' && '📚'}
             </div>
-            <p className="text-sm font-semibold opacity-90">{demo.layout.toUpperCase()} LAYOUT</p>
+            <p className="text-sm font-semibold text-gray-400">{demo.layout.toUpperCase()} LAYOUT</p>
           </div>
         </div>
         {/* Badge - Real Client or Interactive */}
-        <div className={`absolute top-4 right-4 px-3 py-1 rounded-full text-xs font-bold shadow-lg ${
+        <div className={`absolute top-4 right-4 px-3 py-1 rounded-full text-xs font-bold ${
           demo.isRealClient
-            ? 'bg-green-500 text-white'
-            : 'bg-accent-500 text-white'
+            ? 'bg-primary-500 text-white'
+            : 'bg-surface-card text-gray-300 ring-1 ring-surface-border'
         }`}>
           {demo.isRealClient ? '✓ REAL CLIENT' : 'INTERACTIVE'}
         </div>
@@ -155,7 +150,7 @@ export default function DemosClient({ demos, categories }: DemosClientProps) {
         </p>
 
         <div className="mb-4">
-          <p className="text-xs font-semibold text-primary-600 mb-2">FEATURES INCLUDED:</p>
+          <p className="text-xs font-semibold text-primary-400 mb-2">FEATURES INCLUDED:</p>
           <div className="flex flex-wrap gap-1">
             {demo.features.slice(0, 4).map((feature, index) => (
               <span
@@ -177,7 +172,7 @@ export default function DemosClient({ demos, categories }: DemosClientProps) {
           <div className="flex items-center justify-between mb-3">
             <span className="text-xs font-semibold text-gray-400">{demo.package}</span>
             {demo.isRealClient && (
-              <span className="text-xs font-semibold text-green-600">Live Client Site</span>
+              <span className="text-xs font-semibold text-primary-400">Live Client Site</span>
             )}
           </div>
           {demo.isRealClient && demo.externalUrl ? (
@@ -185,14 +180,14 @@ export default function DemosClient({ demos, categories }: DemosClientProps) {
               href={demo.externalUrl}
               target="_blank"
               rel="noopener noreferrer"
-              className="block w-full text-center rounded-lg bg-green-600 px-4 py-2.5 text-sm font-semibold text-white shadow-sm hover:bg-green-700 transition-colors"
+              className="block w-full text-center rounded-md bg-primary-500 px-4 py-2.5 text-sm font-semibold text-white hover:bg-primary-600 transition-colors"
             >
               Visit Live Site →
             </a>
           ) : (
             <Link
               href={`/demos/${demo.slug}`}
-              className="block w-full text-center rounded-lg bg-primary-600 px-4 py-2.5 text-sm font-semibold text-white shadow-sm hover:bg-primary-700 transition-colors"
+              className="block w-full text-center rounded-md border border-surface-border px-4 py-2.5 text-sm font-semibold text-white hover:border-primary-500/60 hover:bg-surface-elevated transition-colors"
             >
               Launch Demo →
             </Link>

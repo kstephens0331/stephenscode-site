@@ -41,11 +41,11 @@ export default function BlogPage() {
   const posts = getAllPosts()
 
   const categories = [
-    { name: 'All Posts', slug: 'all', icon: '📚', color: 'from-primary-500 to-accent-500' },
-    { name: 'Web Development', slug: 'web-development', icon: '💻', color: 'from-purple-500 to-blue-500' },
-    { name: 'SEO', slug: 'seo', icon: '🔍', color: 'from-green-500 to-teal-500' },
-    { name: 'Business', slug: 'business', icon: '💼', color: 'from-orange-500 to-red-500' },
-    { name: 'E-Commerce', slug: 'ecommerce', icon: '🛒', color: 'from-pink-500 to-rose-500' },
+    { name: 'All Posts', slug: 'all' },
+    { name: 'Web Development', slug: 'web-development' },
+    { name: 'SEO', slug: 'seo' },
+    { name: 'Business', slug: 'business' },
+    { name: 'E-Commerce', slug: 'ecommerce' },
   ]
 
   return (
@@ -57,58 +57,40 @@ export default function BlogPage() {
       />
 
       {/* Hero Section */}
-      <section className="relative bg-gradient-to-br from-black via-surface to-surface-card text-white overflow-hidden">
-        {/* Pattern overlay */}
-        <div className="absolute inset-0 opacity-10">
-          <svg className="absolute w-full h-full" xmlns="http://www.w3.org/2000/svg">
-            <defs>
-              <pattern id="blog-pattern" x="0" y="0" width="40" height="40" patternUnits="userSpaceOnUse">
-                <circle cx="20" cy="20" r="1.5" fill="currentColor" />
-              </pattern>
-            </defs>
-            <rect width="100%" height="100%" fill="url(#blog-pattern)" />
-          </svg>
-        </div>
+      <section className="relative bg-black border-b border-surface-border overflow-hidden">
+        {/* Soft vertical sheen — barely there, gives the canvas depth without halo */}
+        <div className="pointer-events-none absolute inset-0 bg-gradient-to-b from-surface-card/60 via-black to-black" />
 
         <div className="relative mx-auto max-w-7xl px-6 py-24 sm:py-32 lg:px-8">
           <div className="mx-auto max-w-3xl text-center">
-            <div className="inline-flex items-center rounded-full bg-accent-500/20 px-4 py-2 text-sm font-semibold text-white ring-1 ring-inset ring-accent-500/30 mb-8 animate-fade-in-up">
-              📝 Expert Insights & Tips
+            <div className="mb-8 inline-flex items-center gap-3 text-[11px] font-semibold uppercase tracking-[0.22em] text-primary-500 animate-fade-in-up">
+              <span aria-hidden="true" className="font-mono text-primary-500/80">&lt;</span>
+              <span>Expert Insights</span>
+              <span aria-hidden="true" className="font-mono text-primary-500/80">/&gt;</span>
             </div>
-            <h1 className="text-5xl font-bold tracking-tight sm:text-7xl animate-fade-in-up animation-delay-200">
+            <h1 className="text-5xl font-bold tracking-tight text-white sm:text-7xl animate-fade-in-up animation-delay-200">
               StephensCode Blog
             </h1>
-            <p className="mt-6 text-xl leading-8 text-gray-200 animate-fade-in-up animation-delay-400">
-              Expert insights on <span className="font-bold text-accent-400">web development</span>, SEO, and growing your business online. Real-world advice from 14+ years helping Houston businesses succeed.
+            <p className="mt-6 text-xl leading-8 text-gray-300 animate-fade-in-up animation-delay-400">
+              Practical insights on <span className="font-semibold text-primary-400">web development</span>, SEO, and growing your business online. Real-world advice from 14+ years helping Houston businesses succeed.
             </p>
           </div>
-        </div>
-
-        {/* Wave divider */}
-        <div className="absolute bottom-0 left-0 right-0">
-          <svg className="w-full h-16 fill-surface" viewBox="0 0 1200 120" preserveAspectRatio="none">
-            <path d="M321.39,56.44c58-10.79,114.16-30.13,172-41.86,82.39-16.72,168.19-17.73,250.45-.39C823.78,31,906.67,72,985.66,92.83c70.05,18.48,146.53,26.09,214.34,3V0H0V27.35A600.21,600.21,0,0,0,321.39,56.44Z" />
-          </svg>
         </div>
       </section>
 
       {/* Categories */}
       <section className="bg-surface border-b border-surface-border py-8">
         <div className="mx-auto max-w-7xl px-6 lg:px-8">
-          <div className="flex flex-wrap justify-center gap-4">
-            {categories.map((category, index) => (
+          <div className="flex flex-wrap justify-center gap-3">
+            {categories.map((category) => (
               <Link
                 key={category.slug}
                 href={category.slug === 'all' ? '/blog' : `/blog/category/${category.slug}`}
-                className="group relative rounded-2xl bg-surface-card px-6 py-4 shadow-md shadow-black/20 border-2 border-surface-border hover:border-primary-300 hover:shadow-lg transition-all"
-                style={{ animationDelay: `${index * 100}ms` }}
+                className="group inline-flex items-center rounded-md bg-surface-card px-5 py-2.5 ring-1 ring-surface-border hover:border-primary-500/60 hover:ring-primary-500/60 transition-colors"
               >
-                <div className="flex items-center gap-3">
-                  <span className="text-2xl group- transition-transform">{category.icon}</span>
-                  <span className="font-semibold text-white group-hover:text-primary-600 transition-colors">
-                    {category.name}
-                  </span>
-                </div>
+                <span className="text-sm font-semibold text-white group-hover:text-primary-400 transition-colors">
+                  {category.name}
+                </span>
               </Link>
             ))}
           </div>
@@ -121,50 +103,41 @@ export default function BlogPage() {
           {posts.length === 0 ? (
             <div className="text-center">
               <div className="mx-auto max-w-3xl">
-                <div className="relative rounded-3xl bg-surface-card p-16 shadow-2xl shadow-black/20 border-2 border-surface-border">
-                  <div className="absolute -top-8 left-1/2 -translate-x-1/2">
-                    <div className="w-16 h-16 rounded-full bg-gradient-to-br from-primary-500 to-accent-500 flex items-center justify-center text-3xl shadow-xl">
-                      📝
-                    </div>
-                  </div>
-
-                  <h2 className="text-3xl font-bold text-white mb-4 mt-4">
+                <div className="rounded-2xl bg-surface-card p-16 ring-1 ring-surface-border">
+                  <h2 className="text-3xl font-bold text-white mb-4">
                     Valuable Content Coming Soon
                   </h2>
                   <p className="text-lg text-gray-400 mb-8 leading-relaxed">
-                    We're crafting in-depth articles on web development, SEO strategies, business automation, and proven growth tactics. Check back soon for expert insights that will help your business thrive online.
+                    We're crafting in-depth articles on web development, SEO strategies, business automation, and proven growth tactics. Check back soon for insights that will help your business thrive online.
                   </p>
 
                   {/* Featured Topics Preview */}
-                  <div className="grid md:grid-cols-3 gap-6 mb-10">
-                    <div className="rounded-xl bg-blue-500/10 p-6 border border-surface-border">
-                      <div className="text-3xl mb-3">💻</div>
+                  <div className="grid md:grid-cols-3 gap-6 mb-10 text-left">
+                    <div className="rounded-lg bg-surface-elevated p-6 border border-surface-border">
                       <h3 className="font-bold text-white mb-2">Web Development</h3>
                       <p className="text-sm text-gray-400">Modern frameworks, best practices, and performance optimization</p>
                     </div>
-                    <div className="rounded-xl bg-green-500/10 p-6 border border-surface-border">
-                      <div className="text-3xl mb-3">🔍</div>
+                    <div className="rounded-lg bg-surface-elevated p-6 border border-surface-border">
                       <h3 className="font-bold text-white mb-2">SEO Strategies</h3>
                       <p className="text-sm text-gray-400">Local SEO, keyword research, and ranking techniques</p>
                     </div>
-                    <div className="rounded-xl bg-orange-500/10 p-6 border border-surface-border">
-                      <div className="text-3xl mb-3">💼</div>
+                    <div className="rounded-lg bg-surface-elevated p-6 border border-surface-border">
                       <h3 className="font-bold text-white mb-2">Business Growth</h3>
                       <p className="text-sm text-gray-400">Automation, conversion optimization, and scaling tips</p>
                     </div>
                   </div>
 
-                  <div className="flex flex-col sm:flex-row gap-4 justify-center">
+                  <div className="flex flex-col sm:flex-row gap-3 justify-center">
                     <Link
                       href="/contact"
-                      className="group rounded-lg bg-gradient-to-r from-primary-600 to-accent-600 px-8 py-4 text-base font-semibold text-white shadow-lg hover:shadow-xl transition-all"
+                      className="group inline-flex items-center justify-center gap-2 rounded-md bg-primary-500 px-6 py-3 text-base font-semibold text-white hover:bg-primary-600 transition-colors"
                     >
-                      Get Expert Help Now
-                      <span className="inline-block transition-transform group-hover:translate-x-1 ml-2">→</span>
+                      Get Expert Help
+                      <span className="inline-block transition-transform group-hover:translate-x-0.5">→</span>
                     </Link>
                     <Link
                       href="/services"
-                      className="rounded-lg bg-surface px-8 py-4 text-base font-semibold text-primary-600 ring-2 ring-inset ring-primary-600 hover:bg-surface-card transition-all"
+                      className="inline-flex items-center justify-center rounded-md border border-surface-border px-6 py-3 text-base font-semibold text-white hover:border-primary-500/60 hover:bg-surface transition-colors"
                     >
                       View Our Services
                     </Link>
@@ -184,21 +157,20 @@ export default function BlogPage() {
               </div>
 
               <div className="grid grid-cols-1 gap-8 lg:grid-cols-3 md:grid-cols-2">
-                {posts.map((post, index) => (
+                {posts.map((post) => (
                   <article
                     key={post.slug}
-                    className="group flex flex-col bg-surface-card rounded-3xl shadow-lg shadow-black/20 overflow-hidden border-2 border-surface-border hover:border-primary-300 transition-all"
-                    style={{ animationDelay: `${index * 100}ms` }}
+                    className="group flex flex-col bg-surface-card rounded-2xl overflow-hidden ring-1 ring-surface-border hover:ring-primary-500/50 transition-all"
                   >
                     {post.image && (
-                      <div className="relative h-56 bg-gradient-to-br from-primary-100 to-accent-100 overflow-hidden">
+                      <div className="relative h-56 bg-surface-elevated overflow-hidden">
                         <img
                           src={post.image}
                           alt={post.title}
-                          className="h-full w-full object-cover group- transition-transform duration-300"
+                          className="h-full w-full object-cover transition-transform duration-300"
                         />
                         <div className="absolute top-4 right-4">
-                          <span className="px-4 py-2 rounded-full bg-surface-card/90 backdrop-blur-sm text-sm font-bold text-primary-400 shadow-lg">
+                          <span className="px-3 py-1 rounded-full bg-black/80 backdrop-blur-sm text-xs font-semibold uppercase tracking-wider text-primary-400">
                             {post.category}
                           </span>
                         </div>
@@ -218,7 +190,7 @@ export default function BlogPage() {
                         </time>
                       </div>
                       <div className="flex-1">
-                        <h3 className="text-2xl font-bold leading-8 text-white mb-4 group-hover:text-primary-600 transition-colors">
+                        <h3 className="text-2xl font-bold leading-8 text-white mb-4 group-hover:text-primary-400 transition-colors">
                           <Link href={`/blog/${post.slug}`}>
                             {post.title}
                           </Link>
@@ -236,7 +208,7 @@ export default function BlogPage() {
                         </div>
                         <Link
                           href={`/blog/${post.slug}`}
-                          className="inline-flex items-center gap-2 text-sm font-bold text-primary-600 hover:text-accent-600 transition-colors"
+                          className="inline-flex items-center gap-2 text-sm font-semibold text-primary-400 hover:text-primary-300 transition-colors"
                         >
                           Read Article
                           <span className="inline-block transition-transform group-hover:translate-x-1">→</span>
@@ -252,44 +224,28 @@ export default function BlogPage() {
       </section>
 
       {/* Newsletter CTA */}
-      <section className="relative bg-gradient-to-r from-primary-600 via-accent-500 to-primary-600 text-white overflow-hidden">
-        <div className="absolute inset-0 opacity-20">
-          <div className="absolute inset-0" style={{
-            backgroundImage: 'linear-gradient(45deg, transparent 45%, rgba(255,255,255,0.1) 50%, transparent 55%)',
-            backgroundSize: '20px 20px'
-          }} />
-        </div>
-
-        <div className="relative px-6 py-24 sm:px-6 sm:py-32 lg:px-8">
-          <div className="mx-auto max-w-2xl text-center">
-            <div className="text-5xl mb-6">📬</div>
-            <h2 className="text-4xl font-bold tracking-tight sm:text-5xl">
-              Stay Updated
-            </h2>
-            <p className="mx-auto mt-6 max-w-xl text-lg leading-8 text-gray-200">
-              Get the latest web development tips, SEO strategies, and business growth insights. Join Houston business owners who are growing online.
-            </p>
-            <div className="mt-10 flex flex-col sm:flex-row items-center justify-center gap-6">
-              <Link
-                href="/contact"
-                className="group rounded-lg bg-surface-card px-8 py-4 text-base font-semibold text-white shadow-2xl hover:bg-surface-elevated transition-all"
-              >
-                Subscribe for Updates
-                <span className="inline-block transition-transform group-hover:translate-x-1 ml-2">→</span>
-              </Link>
-              <Link
-                href="/services"
-                className="flex items-center gap-2 text-base font-semibold leading-7 text-white hover:text-gray-200 transition-colors"
-              >
-                <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M13 10V3L4 14h7v7l9-11h-7z" />
-                </svg>
-                Explore Services
-              </Link>
-            </div>
-            <p className="mt-6 text-sm text-gray-300">
-              💡 Expert insights • 🚀 Growth strategies • 🎯 Actionable tips
-            </p>
+      <section className="bg-surface border-t border-surface-border">
+        <div className="mx-auto max-w-4xl px-6 py-20 sm:py-24 lg:px-8 text-center">
+          <h2 className="text-3xl font-bold tracking-tight text-white sm:text-4xl">
+            Stay Updated
+          </h2>
+          <p className="mx-auto mt-4 max-w-xl text-lg leading-8 text-gray-300">
+            Get the latest web development tips, SEO strategies, and business growth insights. Join Houston business owners who are growing online.
+          </p>
+          <div className="mt-10 flex flex-wrap items-center justify-center gap-3">
+            <Link
+              href="/contact"
+              className="group inline-flex items-center gap-2 rounded-md bg-primary-500 px-6 py-3 text-base font-semibold text-white hover:bg-primary-600 transition-colors"
+            >
+              Subscribe for Updates
+              <span className="inline-block transition-transform group-hover:translate-x-0.5">→</span>
+            </Link>
+            <Link
+              href="/services"
+              className="inline-flex items-center gap-2 rounded-md border border-surface-border px-6 py-3 text-base font-semibold text-white hover:border-primary-500/60 hover:bg-surface-card transition-colors"
+            >
+              Explore Services
+            </Link>
           </div>
         </div>
       </section>

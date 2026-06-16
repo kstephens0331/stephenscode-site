@@ -24,29 +24,33 @@ export default function DemosPage() {
   return (
     <>
       {/* Hero Section */}
-      <section className="relative bg-gradient-to-br from-black via-surface to-surface-card text-white">
-        <div className="mx-auto max-w-7xl px-6 py-24 sm:py-32 lg:px-8">
+      <section className="relative bg-black border-b border-surface-border overflow-hidden">
+        {/* Soft vertical sheen — barely there, gives the canvas depth without halo */}
+        <div className="pointer-events-none absolute inset-0 bg-gradient-to-b from-surface-card/60 via-black to-black" />
+
+        <div className="relative mx-auto max-w-7xl px-6 py-24 sm:py-32 lg:px-8">
           <div className="mx-auto max-w-2xl text-center">
-            <div className="mb-8 inline-flex items-center gap-2 rounded-full bg-surface-card/60 px-4 py-2 text-sm font-medium backdrop-blur">
-              <span className="text-2xl">🎨</span>
+            <div className="mb-8 inline-flex items-center justify-center gap-3 text-[11px] font-semibold uppercase tracking-[0.22em] text-primary-500">
+              <span aria-hidden="true" className="font-mono text-primary-500/80">&lt;</span>
               <span>40+ Live Interactive Demos</span>
+              <span aria-hidden="true" className="font-mono text-primary-500/80">/&gt;</span>
             </div>
-            <h1 className="text-4xl font-bold tracking-tight sm:text-6xl">
+            <h1 className="text-4xl font-bold tracking-tight text-white sm:text-6xl">
               Custom Website Houston Examples
             </h1>
-            <p className="mt-6 text-lg leading-8 text-gray-200">
+            <p className="mt-6 text-lg leading-8 text-gray-300">
               Explore small business website demos from your Conroe web developer. 40+ affordable web design examples for Houston and The Woodlands businesses. Click around and test features.
             </p>
-            <div className="mt-10 flex items-center justify-center gap-x-6">
+            <div className="mt-10 flex flex-wrap items-center justify-center gap-3">
               <a
                 href="#demos-grid"
-                className="rounded-md bg-accent-500 px-6 py-3 text-base font-semibold text-white shadow-sm hover:bg-accent-600"
+                className="inline-flex items-center gap-2 rounded-md bg-primary-500 px-6 py-3 text-base font-semibold text-white hover:bg-primary-600 transition-colors"
               >
                 Browse Demos
               </a>
               <Link
                 href="/pricing"
-                className="text-base font-semibold leading-7 text-white hover:text-gray-200"
+                className="inline-flex items-center gap-2 rounded-md border border-surface-border px-6 py-3 text-base font-semibold text-white hover:border-primary-500/60 hover:bg-surface-card transition-colors"
               >
                 View Pricing <span aria-hidden="true">→</span>
               </Link>
@@ -59,21 +63,21 @@ export default function DemosPage() {
       <section className="bg-surface py-16">
         <div className="mx-auto max-w-7xl px-6 lg:px-8">
           <dl className="grid grid-cols-1 gap-8 sm:grid-cols-2 lg:grid-cols-4">
-            <div className="flex flex-col items-center border-l-4 border-accent-500 pl-6">
+            <div className="flex flex-col items-center border-l border-primary-500/40 pl-6">
               <dt className="text-base leading-7 text-gray-400">Total Demos</dt>
-              <dd className="order-first text-4xl font-bold tracking-tight text-primary-600">{allDemos.length}</dd>
+              <dd className="order-first text-4xl font-bold tracking-tight text-white">{allDemos.length}</dd>
             </div>
-            <div className="flex flex-col items-center border-l-4 border-accent-500 pl-6">
+            <div className="flex flex-col items-center border-l border-primary-500/40 pl-6">
               <dt className="text-base leading-7 text-gray-400">Industries</dt>
-              <dd className="order-first text-4xl font-bold tracking-tight text-primary-600">{Object.keys(demosByIndustry).length}</dd>
+              <dd className="order-first text-4xl font-bold tracking-tight text-white">{Object.keys(demosByIndustry).length}</dd>
             </div>
-            <div className="flex flex-col items-center border-l-4 border-accent-500 pl-6">
+            <div className="flex flex-col items-center border-l border-primary-500/40 pl-6">
               <dt className="text-base leading-7 text-gray-400">Unique Layouts</dt>
-              <dd className="order-first text-4xl font-bold tracking-tight text-primary-600">6</dd>
+              <dd className="order-first text-4xl font-bold tracking-tight text-white">6</dd>
             </div>
-            <div className="flex flex-col items-center border-l-4 border-accent-500 pl-6">
+            <div className="flex flex-col items-center border-l border-primary-500/40 pl-6">
               <dt className="text-base leading-7 text-gray-400">Fully Interactive</dt>
-              <dd className="order-first text-4xl font-bold tracking-tight text-primary-600">100%</dd>
+              <dd className="order-first text-4xl font-bold tracking-tight text-white">100%</dd>
             </div>
           </dl>
         </div>
@@ -88,67 +92,72 @@ export default function DemosPage() {
       <section className="bg-surface py-24 sm:py-32">
         <div className="mx-auto max-w-7xl px-6 lg:px-8">
           <div className="mx-auto max-w-2xl text-center mb-16">
+            <div className="inline-flex items-center justify-center gap-3 text-[11px] font-semibold uppercase tracking-[0.22em] text-primary-500 mb-4">
+              <span aria-hidden="true" className="font-mono text-primary-500/80">&lt;</span>
+              <span>Fully Interactive</span>
+              <span aria-hidden="true" className="font-mono text-primary-500/80">/&gt;</span>
+            </div>
             <h2 className="text-3xl font-bold tracking-tight text-white sm:text-4xl">
               Fully Interactive Demos
             </h2>
             <p className="mt-4 text-lg leading-8 text-gray-400">
-              These aren't screenshots—they're real, working websites you can interact with.
+              These aren't screenshots. They're real, working websites you can interact with.
             </p>
           </div>
 
           <div className="grid grid-cols-1 gap-8 md:grid-cols-2 lg:grid-cols-4">
             <div className="text-center">
-              <div className="mx-auto h-16 w-16 rounded-full bg-primary-500/10 flex items-center justify-center text-3xl mb-4">
+              <div className="mx-auto h-16 w-16 rounded-md border border-primary-500/40 flex items-center justify-center text-3xl mb-4">
                 ✅
               </div>
               <h3 className="text-lg font-semibold text-white mb-2">Click Around</h3>
-              <p className="text-sm text-gray-400">Navigate pages, open menus, test buttons—everything works.</p>
+              <p className="text-sm text-gray-400">Navigate pages, open menus, test buttons. Everything works.</p>
             </div>
             <div className="text-center">
-              <div className="mx-auto h-16 w-16 rounded-full bg-primary-500/10 flex items-center justify-center text-3xl mb-4">
+              <div className="mx-auto h-16 w-16 rounded-md border border-primary-500/40 flex items-center justify-center text-3xl mb-4">
                 📝
               </div>
               <h3 className="text-lg font-semibold text-white mb-2">Fill Out Forms</h3>
               <p className="text-sm text-gray-400">Test contact forms, booking systems, and checkout flows.</p>
             </div>
             <div className="text-center">
-              <div className="mx-auto h-16 w-16 rounded-full bg-primary-500/10 flex items-center justify-center text-3xl mb-4">
+              <div className="mx-auto h-16 w-16 rounded-md border border-primary-500/40 flex items-center justify-center text-3xl mb-4">
                 🔐
               </div>
               <h3 className="text-lg font-semibold text-white mb-2">Try Admin Panels</h3>
               <p className="text-sm text-gray-400">Log into dashboards, see reports, manage content (demo mode).</p>
             </div>
             <div className="text-center">
-              <div className="mx-auto h-16 w-16 rounded-full bg-primary-500/10 flex items-center justify-center text-3xl mb-4">
+              <div className="mx-auto h-16 w-16 rounded-md border border-primary-500/40 flex items-center justify-center text-3xl mb-4">
                 📱
               </div>
               <h3 className="text-lg font-semibold text-white mb-2">Test on Mobile</h3>
-              <p className="text-sm text-gray-400">Resize your browser—all demos are fully responsive.</p>
+              <p className="text-sm text-gray-400">Resize your browser. All demos are fully responsive.</p>
             </div>
           </div>
         </div>
       </section>
 
       {/* CTA Section */}
-      <section className="bg-primary-900 text-white">
+      <section className="bg-surface border-t border-surface-border">
         <div className="px-6 py-24 sm:px-6 sm:py-32 lg:px-8">
           <div className="mx-auto max-w-2xl text-center">
-            <h2 className="text-3xl font-bold tracking-tight sm:text-4xl">
+            <h2 className="text-3xl font-bold tracking-tight text-white sm:text-4xl">
               Ready to Build Yours?
             </h2>
-            <p className="mx-auto mt-6 max-w-xl text-lg leading-8 text-gray-200">
+            <p className="mx-auto mt-6 max-w-xl text-lg leading-8 text-gray-300">
               Seen something you like? Let's build a custom website tailored to your business. Transparent pricing, fast turnaround, veteran-owned quality.
             </p>
-            <div className="mt-10 flex items-center justify-center gap-x-6">
+            <div className="mt-10 flex flex-wrap items-center justify-center gap-3">
               <Link
                 href="/contact"
-                className="rounded-md bg-accent-500 px-6 py-3 text-base font-semibold text-white shadow-sm hover:bg-accent-600"
+                className="inline-flex items-center gap-2 rounded-md bg-primary-500 px-6 py-3 text-base font-semibold text-white hover:bg-primary-600 transition-colors"
               >
                 Get Started
               </Link>
               <Link
                 href="/pricing"
-                className="text-base font-semibold leading-7 text-white hover:text-gray-200"
+                className="inline-flex items-center gap-2 rounded-md border border-surface-border px-6 py-3 text-base font-semibold text-white hover:border-primary-500/60 hover:bg-surface-card transition-colors"
               >
                 View Pricing <span aria-hidden="true">→</span>
               </Link>

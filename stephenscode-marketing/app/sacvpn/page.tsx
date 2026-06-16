@@ -1,5 +1,9 @@
 import Link from 'next/link'
 import type { Metadata } from 'next'
+import {
+  Lock, Globe, Users, Zap, Smartphone, ShieldCheck,
+  Home, Briefcase, Wifi, BadgeCheck, ExternalLink,
+} from 'lucide-react'
 
 export const metadata: Metadata = {
   title: 'SACVPN | Enterprise-Grade VPN Security | StephensCode',
@@ -27,32 +31,32 @@ export const metadata: Metadata = {
 export default function SACVPNPage() {
   const features = [
     {
-      icon: '🔒',
+      Icon: Lock,
       title: 'Military-Grade Encryption',
       description: 'AES-256 encryption protects all data in transit, the same standard used by government agencies and financial institutions.'
     },
     {
-      icon: '🌐',
+      Icon: Globe,
       title: 'Global Server Network',
       description: 'Access secure servers worldwide for fast, reliable connections no matter where your team is located.'
     },
     {
-      icon: '👥',
+      Icon: Users,
       title: 'Multi-User Management',
       description: 'Easy admin dashboard to manage team access, permissions, and monitor usage across your organization.'
     },
     {
-      icon: '🚀',
+      Icon: Zap,
       title: 'High-Speed Performance',
       description: 'Optimized infrastructure ensures minimal latency so your team can work without slowdowns.'
     },
     {
-      icon: '📱',
+      Icon: Smartphone,
       title: 'Cross-Platform Support',
       description: 'Works on Windows, Mac, Linux, iOS, and Android. Protect all your devices with a single solution.'
     },
     {
-      icon: '🛡️',
+      Icon: ShieldCheck,
       title: 'Zero-Log Policy',
       description: 'We never track, store, or share your browsing activity. Your business data stays private.'
     },
@@ -62,55 +66,45 @@ export default function SACVPNPage() {
     {
       title: 'Remote Workforce Security',
       description: 'Protect employees working from home, coffee shops, or on the road. Ensure secure access to company resources from anywhere.',
-      icon: '🏠'
+      Icon: Home
     },
     {
       title: 'Secure Client Communications',
       description: 'Keep client data and communications protected. Essential for law firms, healthcare providers, and financial services.',
-      icon: '💼'
+      Icon: Briefcase
     },
     {
       title: 'Public Wi-Fi Protection',
       description: 'Shield your team from hackers on public networks. Hotels, airports, and conferences are prime targets for data theft.',
-      icon: '📶'
+      Icon: Wifi
     },
     {
       title: 'Compliance Requirements',
       description: 'Meet security requirements for HIPAA, PCI-DSS, and other regulatory frameworks that require encrypted communications.',
-      icon: '✅'
+      Icon: BadgeCheck
     },
   ]
 
   return (
     <>
       {/* Hero Section */}
-      <section className="relative bg-gradient-to-br from-surface via-surface-card to-surface text-white overflow-hidden">
-        {/* Animated background */}
-        <div className="absolute inset-0 opacity-20">
-          <div className="absolute inset-0" style={{
-            backgroundImage: 'radial-gradient(circle at 2px 2px, rgba(255,255,255,0.3) 1px, transparent 0)',
-            backgroundSize: '40px 40px'
-          }} />
-        </div>
-
-        {/* Glowing orbs */}
-        <div className="absolute top-20 left-10 w-72 h-72 bg-blue-500 rounded-full filter blur-[128px] opacity-20"></div>
-        <div className="absolute bottom-20 right-10 w-96 h-96 bg-cyan-500 rounded-full filter blur-[128px] opacity-20"></div>
+      <section className="relative bg-black border-b border-surface-border overflow-hidden">
+        {/* Soft vertical sheen — barely there, gives the canvas depth without halo */}
+        <div className="pointer-events-none absolute inset-0 bg-gradient-to-b from-surface-card/60 via-black to-black" />
 
         <div className="relative mx-auto max-w-7xl px-6 py-24 sm:py-32 lg:px-8">
           <div className="mx-auto max-w-4xl text-center">
-            <div className="inline-flex items-center rounded-full bg-blue-500/20 border border-blue-500/30 px-6 py-3 text-sm font-semibold text-blue-300 mb-8">
-              <span className="mr-2">🔐</span>
-              Enterprise-Grade VPN Security
+            <div className="mb-8 inline-flex items-center gap-3 text-[11px] font-semibold uppercase tracking-[0.22em] text-primary-500">
+              <span aria-hidden="true" className="font-mono text-primary-500/80">&lt;</span>
+              <span>Enterprise-Grade VPN Security</span>
+              <span aria-hidden="true" className="font-mono text-primary-500/80">/&gt;</span>
             </div>
 
-            <h1 className="text-5xl font-bold tracking-tight sm:text-7xl mb-6">
-              <span className="bg-gradient-to-r from-primary-400 via-accent-400 to-primary-400 bg-clip-text text-transparent">
-                SACVPN
-              </span>
+            <h1 className="text-5xl font-bold tracking-tight text-white sm:text-7xl mb-6">
+              SACVPN
             </h1>
 
-            <p className="text-2xl font-semibold text-blue-200 mb-4">
+            <p className="text-2xl font-semibold text-primary-500 mb-4">
               Secure Access. Complete Privacy. Zero Compromise.
             </p>
 
@@ -120,46 +114,37 @@ export default function SACVPNPage() {
               with industry regulations.
             </p>
 
-            <div className="mt-12 flex flex-col sm:flex-row items-center justify-center gap-4">
+            <div className="mt-12 flex flex-wrap items-center justify-center gap-3">
               <a
                 href="https://sacvpn.com"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="group inline-flex items-center gap-3 rounded-xl bg-gradient-to-r from-primary-500 to-accent-500 px-8 py-4 text-lg font-bold text-white shadow-2xl shadow-primary-500/30 hover:shadow-blue-500/40 hover:from-primary-600 hover:to-accent-600 transition-all"
+                className="group inline-flex items-center gap-2 rounded-md bg-primary-500 px-6 py-3 text-base font-semibold text-white hover:bg-primary-600 transition-colors"
               >
                 <span>Get SACVPN</span>
-                <svg className="w-5 h-5 group-hover:translate-x-1 transition-transform" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14" />
-                </svg>
+                <ExternalLink className="h-4 w-4 transition-transform group-hover:translate-x-0.5" />
               </a>
               <Link
                 href="/contact"
-                className="inline-flex items-center gap-2 rounded-xl bg-surface-card/60 px-8 py-4 text-lg font-bold text-white backdrop-blur-lg border border-surface-border hover:bg-surface-elevated/80 transition-all"
+                className="inline-flex items-center gap-2 rounded-md border border-surface-border px-6 py-3 text-base font-semibold text-white hover:border-primary-500/60 hover:bg-surface-card transition-colors"
               >
                 <span>Contact Sales</span>
               </Link>
             </div>
 
-            <p className="mt-6 text-sm text-gray-400">
-              Built by StephensCode • Trusted by businesses nationwide
+            <p className="mt-6 text-sm text-gray-500">
+              Built by StephensCode &middot; Trusted by businesses nationwide
             </p>
           </div>
-        </div>
-
-        {/* Wave divider */}
-        <div className="absolute bottom-0 left-0 right-0">
-          <svg className="w-full h-16 fill-surface" viewBox="0 0 1200 120" preserveAspectRatio="none">
-            <path d="M321.39,56.44c58-10.79,114.16-30.13,172-41.86,82.39-16.72,168.19-17.73,250.45-.39C823.78,31,906.67,72,985.66,92.83c70.05,18.48,146.53,26.09,214.34,3V0H0V27.35A600.21,600.21,0,0,0,321.39,56.44Z" />
-          </svg>
         </div>
       </section>
 
       {/* Features Grid */}
-      <section className="bg-surface py-24 sm:py-32">
+      <section className="bg-surface py-24 sm:py-32 border-b border-surface-border">
         <div className="mx-auto max-w-7xl px-6 lg:px-8">
           <div className="mx-auto max-w-2xl text-center mb-16">
-            <h2 className="text-base font-semibold leading-7 text-blue-400">Why SACVPN?</h2>
-            <p className="mt-2 text-4xl font-bold tracking-tight text-white sm:text-5xl">
+            <div className="text-xs font-semibold uppercase tracking-[0.18em] text-primary-500 mb-3">Why SACVPN?</div>
+            <p className="text-4xl font-bold tracking-tight text-white sm:text-5xl">
               Enterprise Security Made Simple
             </p>
             <p className="mt-6 text-lg leading-8 text-gray-400">
@@ -167,65 +152,73 @@ export default function SACVPNPage() {
             </p>
           </div>
 
-          <div className="grid grid-cols-1 gap-8 md:grid-cols-2 lg:grid-cols-3">
-            {features.map((feature, index) => (
-              <div
-                key={index}
-                className="group relative rounded-2xl bg-surface-card p-8 hover:bg-gradient-to-br hover:from-primary-900/30 hover:to-accent-900/30 transition-all hover:shadow-xl border border-surface-border hover:border-primary-500/60"
-              >
-                <div className="text-4xl mb-4">{feature.icon}</div>
-                <h3 className="text-xl font-bold text-white mb-3 group-hover:text-blue-300">
-                  {feature.title}
-                </h3>
-                <p className="text-gray-400 leading-relaxed">
-                  {feature.description}
-                </p>
-              </div>
-            ))}
+          <div className="grid grid-cols-1 gap-6 md:grid-cols-2 lg:grid-cols-3">
+            {features.map((feature) => {
+              const Icon = feature.Icon
+              return (
+                <div
+                  key={feature.title}
+                  className="group rounded-2xl bg-surface-card p-8 ring-1 ring-surface-border hover:ring-primary-500/50 transition-colors"
+                >
+                  <Icon className="h-6 w-6 text-primary-500 mb-4" strokeWidth={1.75} />
+                  <h3 className="text-xl font-bold text-white mb-3 group-hover:text-primary-400 transition-colors">
+                    {feature.title}
+                  </h3>
+                  <p className="text-gray-400 leading-relaxed">
+                    {feature.description}
+                  </p>
+                </div>
+              )
+            })}
           </div>
         </div>
       </section>
 
       {/* Use Cases */}
-      <section className="bg-surface-card py-24 sm:py-32">
+      <section className="bg-surface-card py-24 sm:py-32 border-b border-surface-border">
         <div className="mx-auto max-w-7xl px-6 lg:px-8">
           <div className="mx-auto max-w-2xl text-center mb-16">
-            <h2 className="text-base font-semibold leading-7 text-blue-400">Use Cases</h2>
-            <p className="mt-2 text-4xl font-bold tracking-tight text-white sm:text-5xl">
+            <div className="text-xs font-semibold uppercase tracking-[0.18em] text-primary-500 mb-3">Use Cases</div>
+            <p className="text-4xl font-bold tracking-tight text-white sm:text-5xl">
               Built for Business
             </p>
           </div>
 
-          <div className="grid grid-cols-1 gap-8 md:grid-cols-2">
-            {useCases.map((useCase, index) => (
-              <div
-                key={index}
-                className="flex items-start gap-6 rounded-2xl bg-surface p-8 shadow-lg hover:shadow-xl transition-shadow"
-              >
-                <div className="flex-shrink-0 text-5xl">{useCase.icon}</div>
-                <div>
-                  <h3 className="text-xl font-bold text-white mb-2">{useCase.title}</h3>
-                  <p className="text-gray-400 leading-relaxed">{useCase.description}</p>
+          <div className="grid grid-cols-1 gap-6 md:grid-cols-2">
+            {useCases.map((useCase) => {
+              const Icon = useCase.Icon
+              return (
+                <div
+                  key={useCase.title}
+                  className="flex items-start gap-5 rounded-2xl bg-surface p-8 ring-1 ring-surface-border hover:ring-primary-500/50 transition-colors"
+                >
+                  <div className="flex h-12 w-12 flex-none items-center justify-center rounded-md border border-primary-500/40 text-primary-500">
+                    <Icon className="h-5 w-5" strokeWidth={1.75} />
+                  </div>
+                  <div>
+                    <h3 className="text-xl font-bold text-white mb-2">{useCase.title}</h3>
+                    <p className="text-gray-400 leading-relaxed">{useCase.description}</p>
+                  </div>
                 </div>
-              </div>
-            ))}
+              )
+            })}
           </div>
         </div>
       </section>
 
       {/* How It Works */}
-      <section className="bg-surface py-24 sm:py-32">
+      <section className="bg-surface py-24 sm:py-32 border-b border-surface-border">
         <div className="mx-auto max-w-7xl px-6 lg:px-8">
           <div className="mx-auto max-w-2xl text-center mb-16">
-            <h2 className="text-base font-semibold leading-7 text-blue-400">Simple Setup</h2>
-            <p className="mt-2 text-4xl font-bold tracking-tight text-white sm:text-5xl">
+            <div className="text-xs font-semibold uppercase tracking-[0.18em] text-primary-500 mb-3">Simple Setup</div>
+            <p className="text-4xl font-bold tracking-tight text-white sm:text-5xl">
               Get Protected in Minutes
             </p>
           </div>
 
           <div className="grid grid-cols-1 gap-8 md:grid-cols-3">
             <div className="text-center">
-              <div className="mx-auto w-16 h-16 rounded-full bg-blue-500/10 flex items-center justify-center text-2xl font-bold text-blue-400 mb-6">
+              <div className="mx-auto w-16 h-16 rounded-md border-2 border-primary-500 bg-black flex items-center justify-center text-2xl font-bold text-primary-500 mb-6">
                 1
               </div>
               <h3 className="text-xl font-bold text-white mb-3">Subscribe</h3>
@@ -234,7 +227,7 @@ export default function SACVPNPage() {
               </p>
             </div>
             <div className="text-center">
-              <div className="mx-auto w-16 h-16 rounded-full bg-blue-500/10 flex items-center justify-center text-2xl font-bold text-blue-400 mb-6">
+              <div className="mx-auto w-16 h-16 rounded-md border-2 border-primary-500 bg-black flex items-center justify-center text-2xl font-bold text-primary-500 mb-6">
                 2
               </div>
               <h3 className="text-xl font-bold text-white mb-3">Install</h3>
@@ -243,7 +236,7 @@ export default function SACVPNPage() {
               </p>
             </div>
             <div className="text-center">
-              <div className="mx-auto w-16 h-16 rounded-full bg-blue-500/10 flex items-center justify-center text-2xl font-bold text-blue-400 mb-6">
+              <div className="mx-auto w-16 h-16 rounded-md border-2 border-primary-500 bg-black flex items-center justify-center text-2xl font-bold text-primary-500 mb-6">
                 3
               </div>
               <h3 className="text-xl font-bold text-white mb-3">Connect</h3>
@@ -256,15 +249,8 @@ export default function SACVPNPage() {
       </section>
 
       {/* CTA Section */}
-      <section className="relative bg-gradient-to-br from-surface via-surface-card to-surface py-24 sm:py-32 overflow-hidden">
-        <div className="absolute inset-0 opacity-20">
-          <div className="absolute inset-0" style={{
-            backgroundImage: 'radial-gradient(circle at 2px 2px, rgba(255,255,255,0.3) 1px, transparent 0)',
-            backgroundSize: '40px 40px'
-          }} />
-        </div>
-
-        <div className="relative mx-auto max-w-4xl px-6 lg:px-8 text-center">
+      <section className="bg-surface border-t border-surface-border">
+        <div className="mx-auto max-w-4xl px-6 py-24 sm:py-32 lg:px-8 text-center">
           <h2 className="text-4xl font-bold tracking-tight text-white sm:text-5xl mb-6">
             Ready to Secure Your Business?
           </h2>
@@ -273,28 +259,26 @@ export default function SACVPNPage() {
             secure their communications, and keep their teams safe online.
           </p>
 
-          <div className="flex flex-col sm:flex-row items-center justify-center gap-4">
+          <div className="flex flex-wrap items-center justify-center gap-3">
             <a
               href="https://sacvpn.com"
               target="_blank"
               rel="noopener noreferrer"
-              className="group inline-flex items-center gap-3 rounded-xl bg-gradient-to-r from-primary-500 to-accent-500 px-10 py-5 text-xl font-bold text-white shadow-2xl shadow-primary-500/30 hover:shadow-blue-500/40 hover:from-primary-600 hover:to-accent-600 transition-all"
+              className="group inline-flex items-center gap-2 rounded-md bg-primary-500 px-6 py-3 text-base font-semibold text-white hover:bg-primary-600 transition-colors"
             >
               <span>Visit SACVPN.com</span>
-              <svg className="w-6 h-6 group-hover:translate-x-1 transition-transform" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14" />
-              </svg>
+              <ExternalLink className="h-4 w-4 transition-transform group-hover:translate-x-0.5" />
             </a>
             <Link
               href="/services/enterprise-vpn"
-              className="inline-flex items-center gap-2 rounded-xl bg-surface-card/60 px-10 py-5 text-xl font-bold text-white backdrop-blur-lg border border-surface-border hover:bg-surface-elevated/80 transition-all"
+              className="inline-flex items-center gap-2 rounded-md border border-surface-border px-6 py-3 text-base font-semibold text-white hover:border-primary-500/60 hover:bg-surface-card transition-colors"
             >
               <span>View Add-On Details</span>
             </Link>
           </div>
 
-          <p className="mt-8 text-sm text-gray-400">
-            Questions? <Link href="/contact" className="text-blue-400 hover:text-blue-300">Contact our team</Link> for enterprise pricing and custom solutions.
+          <p className="mt-8 text-sm text-gray-500">
+            Questions? <Link href="/contact" className="text-primary-400 hover:text-primary-300">Contact our team</Link> for enterprise pricing and custom solutions.
           </p>
         </div>
       </section>

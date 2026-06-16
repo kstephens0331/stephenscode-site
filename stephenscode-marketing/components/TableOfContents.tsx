@@ -73,7 +73,7 @@ export default function TableOfContents({ content }: TableOfContentsProps) {
   }
 
   return (
-    <nav className="bg-slate-800 rounded-xl p-6 mb-8 border border-slate-700">
+    <nav className="bg-surface-card rounded-xl p-6 mb-8 border border-surface-border">
       <h2 className="text-sm font-bold text-white uppercase tracking-wide mb-4">
         Table of Contents
       </h2>
@@ -85,9 +85,9 @@ export default function TableOfContents({ content }: TableOfContentsProps) {
           >
             <button
               onClick={() => scrollToHeading(heading.id)}
-              className={`text-left text-sm transition-colors hover:text-primary-600 ${
+              className={`text-left text-sm transition-colors hover:text-primary-400 ${
                 activeId === heading.id
-                  ? 'text-primary-600 font-semibold'
+                  ? 'text-primary-400 font-semibold'
                   : 'text-gray-400'
               }`}
             >

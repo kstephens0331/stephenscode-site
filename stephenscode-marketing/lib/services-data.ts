@@ -166,8 +166,8 @@ export const corePackages: Service[] = [
     ],
     timeline: '3-4 weeks',
     seoKeywords: ['custom website development Houston', 'small business website Conroe', 'professional website design Texas', 'Next.js website development'],
-    metaTitle: 'Custom Website | $850 | Conroe TX',
-    metaDescription: 'Custom website development for small businesses. Fully responsive, SEO-optimized, modern tech stack. $850 flat rate. Houston, Conroe & The Woodlands.',
+    metaTitle: 'Custom Website | $950 | Conroe TX',
+    metaDescription: 'Custom website development for small businesses. Fully responsive, SEO-optimized, modern tech stack. $950 flat rate. Houston, Conroe & The Woodlands.',
   },
   {
     id: 'ecommerce-website',

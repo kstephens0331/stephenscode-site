@@ -50,7 +50,7 @@ export default function Work() {
         'Ranking #1 for "plumber Conroe TX"',
         'Average 3-5 leads per week from website'
       ],
-      package: 'Standard Website ($850)',
+      package: 'Standard Website ($950)',
       addOns: ['SEO Boost ($250/mo)', 'Blog Module ($110)'],
       timeline: '2 weeks',
       testimonial: 'Kyle built us exactly what we needed. Our phone hasn\'t stopped ringing since the new site went live. Best investment we\'ve made.',
@@ -445,53 +445,39 @@ export default function Work() {
       />
 
       {/* Hero Section */}
-      <section className="relative bg-gradient-to-br from-black via-surface to-surface-card text-white overflow-hidden">
-        {/* Pattern overlay */}
-        <div className="absolute inset-0 opacity-10">
-          <svg className="absolute w-full h-full" xmlns="http://www.w3.org/2000/svg">
-            <defs>
-              <pattern id="work-pattern" x="0" y="0" width="40" height="40" patternUnits="userSpaceOnUse">
-                <circle cx="20" cy="20" r="1.5" fill="currentColor" />
-              </pattern>
-            </defs>
-            <rect width="100%" height="100%" fill="url(#work-pattern)" />
-          </svg>
-        </div>
+      <section className="relative bg-black border-b border-surface-border overflow-hidden">
+        {/* Soft vertical sheen — barely there, gives the canvas depth without halo */}
+        <div className="pointer-events-none absolute inset-0 bg-gradient-to-b from-surface-card/60 via-black to-black" />
 
         <div className="relative mx-auto max-w-7xl px-6 py-24 sm:py-32 lg:px-8">
           <div className="mx-auto max-w-3xl text-center">
-            <div className="inline-flex items-center rounded-full bg-accent-500/20 px-4 py-2 text-sm font-semibold text-white ring-1 ring-inset ring-accent-500/30 mb-8 animate-fade-in-up">
-              🏆 2,600+ Successful Projects
+            <div className="mb-8 inline-flex items-center justify-center gap-3 text-[11px] font-semibold uppercase tracking-[0.22em] text-primary-500 animate-fade-in-up">
+              <span aria-hidden="true" className="font-mono text-primary-500/80">&lt;</span>
+              <span>2,600+ Successful Projects</span>
+              <span aria-hidden="true" className="font-mono text-primary-500/80">/&gt;</span>
             </div>
-            <h1 className="text-5xl font-bold tracking-tight sm:text-7xl animate-fade-in-up animation-delay-200">
+            <h1 className="text-5xl font-bold tracking-tight text-white sm:text-7xl animate-fade-in-up animation-delay-200">
               Our Work
             </h1>
-            <p className="mt-6 text-xl leading-8 text-gray-200 animate-fade-in-up animation-delay-400">
-              Real projects. <span className="font-bold text-accent-400">Real results</span>. Real businesses. See how we've helped Houston companies grow with custom web solutions and measurable outcomes.
+            <p className="mt-6 text-xl leading-8 text-gray-300 animate-fade-in-up animation-delay-400">
+              Real projects. <span className="font-semibold text-primary-400">Real results</span>. Real businesses. See how we've helped Houston companies grow with custom web solutions and measurable outcomes.
             </p>
-            <div className="mt-10 flex flex-col sm:flex-row items-center justify-center gap-6 animate-fade-in-up animation-delay-600">
+            <div className="mt-10 flex flex-wrap items-center justify-center gap-3 animate-fade-in-up animation-delay-600">
               <Link
                 href="/contact"
-                className="group rounded-lg bg-accent-500 px-8 py-4 text-base font-semibold text-white shadow-lg hover:bg-accent-600 transition-all"
+                className="group inline-flex items-center gap-2 rounded-md bg-primary-500 px-6 py-3 text-base font-semibold text-white hover:bg-primary-600 transition-colors"
               >
                 Start Your Project
-                <span className="inline-block transition-transform group-hover:translate-x-1 ml-2">→</span>
+                <span className="inline-block transition-transform group-hover:translate-x-0.5">→</span>
               </Link>
               <Link
                 href="/pricing"
-                className="text-base font-semibold leading-7 text-white hover:text-gray-200 transition-colors"
+                className="inline-flex items-center gap-2 rounded-md border border-surface-border px-6 py-3 text-base font-semibold text-white hover:border-primary-500/60 hover:bg-surface-card transition-colors"
               >
                 View Pricing <span aria-hidden="true">→</span>
               </Link>
             </div>
           </div>
-        </div>
-
-        {/* Wave divider */}
-        <div className="absolute bottom-0 left-0 right-0">
-          <svg className="w-full h-16 fill-surface" viewBox="0 0 1200 120" preserveAspectRatio="none">
-            <path d="M321.39,56.44c58-10.79,114.16-30.13,172-41.86,82.39-16.72,168.19-17.73,250.45-.39C823.78,31,906.67,72,985.66,92.83c70.05,18.48,146.53,26.09,214.34,3V0H0V27.35A600.21,600.21,0,0,0,321.39,56.44Z" />
-          </svg>
         </div>
       </section>
 
@@ -499,24 +485,20 @@ export default function Work() {
       <section className="bg-surface py-16 border-b border-surface-border">
         <div className="mx-auto max-w-7xl px-6 lg:px-8">
           <div className="grid grid-cols-2 md:grid-cols-4 gap-8 text-center">
-            <div className="animate-fade-in-up">
-              <div className="text-5xl mb-3">📊</div>
-              <div className="text-4xl font-bold bg-gradient-to-r from-primary-400 to-accent-400 bg-clip-text text-transparent">2,600+</div>
+            <div className="animate-fade-in-up border-l border-primary-500/40 pl-4">
+              <div className="text-4xl font-bold tracking-tight text-white">2,600+</div>
               <div className="text-sm text-gray-400 mt-2">Projects Completed</div>
             </div>
-            <div className="animate-fade-in-up animation-delay-200">
-              <div className="text-5xl mb-3">😊</div>
-              <div className="text-4xl font-bold bg-gradient-to-r from-primary-400 to-accent-400 bg-clip-text text-transparent">14+</div>
+            <div className="animate-fade-in-up animation-delay-200 border-l border-primary-500/40 pl-4">
+              <div className="text-4xl font-bold tracking-tight text-white">14+</div>
               <div className="text-sm text-gray-400 mt-2">Years Experience</div>
             </div>
-            <div className="animate-fade-in-up animation-delay-400">
-              <div className="text-5xl mb-3">⚡</div>
-              <div className="text-4xl font-bold bg-gradient-to-r from-primary-400 to-accent-400 bg-clip-text text-transparent">2 Weeks</div>
+            <div className="animate-fade-in-up animation-delay-400 border-l border-primary-500/40 pl-4">
+              <div className="text-4xl font-bold tracking-tight text-white">2 Weeks</div>
               <div className="text-sm text-gray-400 mt-2">Average Project Time</div>
             </div>
-            <div className="animate-fade-in-up animation-delay-600">
-              <div className="text-5xl mb-3">⭐</div>
-              <div className="text-4xl font-bold bg-gradient-to-r from-primary-400 to-accent-400 bg-clip-text text-transparent">98%</div>
+            <div className="animate-fade-in-up animation-delay-600 border-l border-primary-500/40 pl-4">
+              <div className="text-4xl font-bold tracking-tight text-white">98%</div>
               <div className="text-sm text-gray-400 mt-2">Client Satisfaction</div>
             </div>
           </div>
@@ -527,10 +509,12 @@ export default function Work() {
       <section className="bg-surface py-24 sm:py-32">
         <div className="mx-auto max-w-7xl px-6 lg:px-8">
           <div className="mx-auto max-w-2xl text-center mb-16">
-            <div className="inline-flex items-center rounded-full bg-green-500/10 px-4 py-2 text-sm font-semibold text-green-400 mb-4">
-              🌐 Live Portfolio
+            <div className="inline-flex items-center justify-center gap-3 text-[11px] font-semibold uppercase tracking-[0.22em] text-primary-500 mb-4">
+              <span aria-hidden="true" className="font-mono text-primary-500/80">&lt;</span>
+              <span>Live Portfolio</span>
+              <span aria-hidden="true" className="font-mono text-primary-500/80">/&gt;</span>
             </div>
-            <h2 className="text-4xl font-bold tracking-tight text-white sm:text-5xl">
+            <h2 className="text-3xl font-bold tracking-tight text-white sm:text-4xl">
               See Our Work Live
             </h2>
             <p className="mt-4 text-lg leading-8 text-gray-400">
@@ -542,28 +526,28 @@ export default function Work() {
             {livePortfolio.map((project, index) => (
               <article
                 key={project.name}
-                className="group relative bg-surface-card rounded-3xl shadow-xl shadow-black/20 overflow-hidden border-2 border-surface-border hover:border-primary-300 transition-all"
+                className="group relative bg-surface-card rounded-2xl ring-1 ring-surface-border overflow-hidden hover:ring-primary-500/50 transition-all"
                 style={{ animationDelay: `${index * 100}ms` }}
               >
                 <div className="md:flex">
-                  {/* Header gradient - side on desktop, top on mobile */}
-                  <div className={`md:w-64 md:min-h-full h-32 md:h-auto bg-gradient-to-br ${project.color} flex items-center justify-center flex-shrink-0`}>
-                    <span className="text-6xl md:text-7xl filter drop-shadow-lg group- transition-transform">
+                  {/* Icon panel - side on desktop, top on mobile */}
+                  <div className="md:w-64 md:min-h-full h-32 md:h-auto bg-surface-elevated border-b md:border-b-0 md:border-r border-surface-border flex items-center justify-center flex-shrink-0">
+                    <span className="text-6xl md:text-7xl">
                       {project.icon}
                     </span>
                   </div>
 
                   <div className="p-6 md:p-8 flex-1">
                     {/* Industry badge */}
-                    <div className="inline-flex items-center rounded-full bg-surface-elevated px-3 py-1 text-xs font-semibold text-gray-300 mb-3">
+                    <div className="inline-flex items-center rounded-full bg-surface-elevated ring-1 ring-surface-border px-3 py-1 text-xs font-semibold text-gray-300 mb-3">
                       {project.industry}
                     </div>
 
-                    <h3 className="text-2xl font-bold text-white mb-2 group-hover:text-primary-600 transition-colors">
+                    <h3 className="text-2xl font-bold text-white mb-2 group-hover:text-primary-400 transition-colors">
                       {project.name}
                     </h3>
 
-                    <p className="text-primary-600 font-medium text-sm mb-4">
+                    <p className="text-primary-400 font-medium text-sm mb-4">
                       {project.shortDesc}
                     </p>
 
@@ -616,7 +600,7 @@ export default function Work() {
             </p>
             <Link
               href="/contact"
-              className="inline-flex items-center gap-2 rounded-lg bg-primary-600 px-8 py-4 text-lg font-bold text-white shadow-lg hover:bg-primary-700 transition-all"
+              className="inline-flex items-center gap-2 rounded-md bg-primary-500 px-8 py-4 text-lg font-semibold text-white hover:bg-primary-600 transition-colors"
             >
               <span>Start Your Project</span>
               <span>→</span>
@@ -629,10 +613,12 @@ export default function Work() {
       <section className="bg-surface py-24 sm:py-32">
         <div className="mx-auto max-w-7xl px-6 lg:px-8">
           <div className="mx-auto max-w-2xl text-center mb-16">
-            <div className="inline-flex items-center rounded-full bg-primary-500/10 px-4 py-2 text-sm font-semibold text-primary-400 mb-4">
-              📈 Case Studies
+            <div className="inline-flex items-center justify-center gap-3 text-[11px] font-semibold uppercase tracking-[0.22em] text-primary-500 mb-4">
+              <span aria-hidden="true" className="font-mono text-primary-500/80">&lt;</span>
+              <span>Case Studies</span>
+              <span aria-hidden="true" className="font-mono text-primary-500/80">/&gt;</span>
             </div>
-            <h2 className="text-4xl font-bold tracking-tight text-white sm:text-5xl">
+            <h2 className="text-3xl font-bold tracking-tight text-white sm:text-4xl">
               Success Stories
             </h2>
             <p className="mt-4 text-lg leading-8 text-gray-400">
@@ -644,11 +630,11 @@ export default function Work() {
             {caseStudies.map((study, index) => (
               <article
                 key={index}
-                className="group relative bg-surface-card rounded-3xl shadow-xl shadow-black/20 overflow-hidden border-2 border-surface-border hover:border-primary-300 transition-all"
+                className="group relative bg-surface-card rounded-2xl ring-1 ring-surface-border overflow-hidden hover:ring-primary-500/50 transition-all"
               >
                 {/* Industry badge */}
                 <div className="absolute top-6 right-6 z-10">
-                  <div className={`px-6 py-3 rounded-full bg-gradient-to-r ${study.color} text-white font-semibold shadow-lg text-lg`}>
+                  <div className="px-5 py-2 rounded-full bg-surface-elevated ring-1 ring-surface-border text-gray-300 font-semibold text-sm">
                     {study.icon} {study.industry}
                   </div>
                 </div>
@@ -657,9 +643,9 @@ export default function Work() {
                   {/* Header */}
                   <div className="mb-8">
                     <h3 className="text-3xl font-bold text-white mb-3">{study.client}</h3>
-                    <p className="text-lg text-primary-600 font-semibold mb-4">{study.project}</p>
+                    <p className="text-lg text-primary-400 font-semibold mb-4">{study.project}</p>
                     <div className="flex items-center gap-2 text-sm text-gray-400">
-                      <svg className="h-5 w-5 text-accent-500" fill="currentColor" viewBox="0 0 20 20">
+                      <svg className="h-5 w-5 text-accent-400" fill="currentColor" viewBox="0 0 20 20">
                         <path fillRule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm1-12a1 1 0 10-2 0v4a1 1 0 00.293.707l2.828 2.829a1 1 0 101.415-1.415L11 9.586V6z" clipRule="evenodd" />
                       </svg>
                       <span className="font-semibold">Completed in {study.timeline}</span>
@@ -668,32 +654,23 @@ export default function Work() {
 
                   {/* Challenge & Solution */}
                   <div className="grid lg:grid-cols-2 gap-8 mb-10">
-                    <div className="rounded-2xl bg-red-500/10 p-8 border-l-4 border-red-500">
-                      <div className="flex items-center gap-3 mb-4">
-                        <div className="text-3xl">🎯</div>
-                        <h4 className="text-xl font-bold text-white">The Challenge</h4>
-                      </div>
+                    <div className="rounded-2xl bg-surface-elevated p-8 border-l-2 border-surface-border">
+                      <h4 className="text-xl font-bold text-white mb-4">The Challenge</h4>
                       <p className="text-gray-300 leading-relaxed">{study.challenge}</p>
                     </div>
-                    <div className="rounded-2xl bg-blue-500/10 p-8 border-l-4 border-blue-500">
-                      <div className="flex items-center gap-3 mb-4">
-                        <div className="text-3xl">💡</div>
-                        <h4 className="text-xl font-bold text-white">Our Solution</h4>
-                      </div>
+                    <div className="rounded-2xl bg-surface-elevated p-8 border-l-2 border-primary-500">
+                      <h4 className="text-xl font-bold text-white mb-4">Our Solution</h4>
                       <p className="text-gray-300 leading-relaxed">{study.solution}</p>
                     </div>
                   </div>
 
                   {/* Results */}
                   <div className="mb-10">
-                    <div className="flex items-center gap-3 mb-6">
-                      <div className="text-4xl">📊</div>
-                      <h4 className="text-2xl font-bold text-white">Results Achieved</h4>
-                    </div>
+                    <h4 className="text-2xl font-bold text-white mb-6">Results Achieved</h4>
                     <div className="grid sm:grid-cols-2 gap-4">
                       {study.results.map((result, i) => (
-                        <div key={i} className="flex items-start gap-4 bg-green-500/10 rounded-xl p-6 border border-surface-border">
-                          <div className="flex-shrink-0 w-8 h-8 rounded-full bg-gradient-to-br from-accent-500 to-green-500 flex items-center justify-center text-white font-bold shadow-lg">
+                        <div key={i} className="flex items-start gap-4 bg-surface-elevated rounded-xl p-6 border border-surface-border">
+                          <div className="flex-shrink-0 w-8 h-8 rounded-full border border-primary-500/40 text-primary-500 flex items-center justify-center font-bold">
                             ✓
                           </div>
                           <span className="text-white font-semibold leading-relaxed">{result}</span>
@@ -703,9 +680,8 @@ export default function Work() {
                   </div>
 
                   {/* Package Info */}
-                  <div className="bg-surface-elevated/70 rounded-2xl p-8 mb-8 border-2 border-surface-border">
-                    <h4 className="text-lg font-bold text-white mb-4 flex items-center gap-2">
-                      <span className="text-2xl">💼</span>
+                  <div className="bg-surface-elevated rounded-2xl p-8 mb-8 border border-surface-border">
+                    <h4 className="text-lg font-bold text-white mb-4">
                       Services Provided
                     </h4>
                     <div className="space-y-3">
@@ -715,7 +691,7 @@ export default function Work() {
                       </div>
                       {study.addOns && study.addOns.length > 0 && (
                         <div className="flex items-start gap-3">
-                          <span className="px-4 py-2 bg-accent-500/10 text-accent-400 rounded-full text-sm font-bold">Add-Ons</span>
+                          <span className="px-4 py-2 bg-surface-card ring-1 ring-surface-border text-gray-300 rounded-full text-sm font-bold">Add-Ons</span>
                           <span className="text-white">{study.addOns.join(', ')}</span>
                         </div>
                       )}
@@ -723,8 +699,8 @@ export default function Work() {
                   </div>
 
                   {/* Testimonial */}
-                  <div className="relative rounded-2xl bg-surface-elevated/70 p-8 border-l-4 border-accent-500">
-                    <div className="text-5xl text-accent-500 mb-4 opacity-30">"</div>
+                  <div className="relative rounded-2xl bg-surface-elevated p-8 border-l-2 border-primary-500">
+                    <div className="text-5xl text-primary-500/40 mb-4">"</div>
                     <p className="text-xl text-white italic mb-4 leading-relaxed">
                       {study.testimonial}
                     </p>
@@ -741,10 +717,12 @@ export default function Work() {
       <section className="bg-surface py-24 sm:py-32">
         <div className="mx-auto max-w-7xl px-6 lg:px-8">
           <div className="mx-auto max-w-2xl text-center mb-16">
-            <div className="inline-flex items-center rounded-full bg-accent-500/10 px-4 py-2 text-sm font-semibold text-accent-400 mb-4">
-              💬 Client Testimonials
+            <div className="inline-flex items-center justify-center gap-3 text-[11px] font-semibold uppercase tracking-[0.22em] text-primary-500 mb-4">
+              <span aria-hidden="true" className="font-mono text-primary-500/80">&lt;</span>
+              <span>Client Testimonials</span>
+              <span aria-hidden="true" className="font-mono text-primary-500/80">/&gt;</span>
             </div>
-            <h2 className="text-4xl font-bold tracking-tight text-white sm:text-5xl">
+            <h2 className="text-3xl font-bold tracking-tight text-white sm:text-4xl">
               What Our Clients Say
             </h2>
             <p className="mt-4 text-lg text-gray-400">
@@ -756,11 +734,11 @@ export default function Work() {
             {testimonials.map((testimonial, index) => (
               <div
                 key={index}
-                className="group rounded-3xl bg-surface-card p-10 shadow-lg shadow-black/20 border-2 border-surface-border hover:border-primary-300 transition-all"
+                className="group rounded-2xl bg-surface-elevated p-10 ring-1 ring-surface-border hover:ring-primary-500/50 transition-all"
               >
                 <div className="flex gap-1 mb-6">
                   {[...Array(testimonial.rating)].map((_, i) => (
-                    <svg key={i} className="h-6 w-6 text-accent-500" fill="currentColor" viewBox="0 0 20 20">
+                    <svg key={i} className="h-6 w-6 text-accent-400" fill="currentColor" viewBox="0 0 20 20">
                       <path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z" />
                     </svg>
                   ))}
@@ -769,7 +747,7 @@ export default function Work() {
                   "{testimonial.quote}"
                 </p>
                 <div className="flex items-center gap-4">
-                  <div className="w-12 h-12 rounded-full bg-gradient-to-br from-primary-500 to-accent-500 flex items-center justify-center text-white font-bold text-lg">
+                  <div className="w-12 h-12 rounded-full border border-primary-500/40 text-primary-500 flex items-center justify-center font-bold text-lg">
                     {testimonial.author.charAt(0)}
                   </div>
                   <div>
@@ -787,10 +765,12 @@ export default function Work() {
       <section className="bg-surface-card py-24 sm:py-32">
         <div className="mx-auto max-w-7xl px-6 lg:px-8">
           <div className="mx-auto max-w-2xl text-center mb-16">
-            <div className="inline-flex items-center rounded-full bg-green-500/10 px-4 py-2 text-sm font-semibold text-green-400 mb-4">
-              🏢 Industries We Serve
+            <div className="inline-flex items-center justify-center gap-3 text-[11px] font-semibold uppercase tracking-[0.22em] text-primary-500 mb-4">
+              <span aria-hidden="true" className="font-mono text-primary-500/80">&lt;</span>
+              <span>Industries We Serve</span>
+              <span aria-hidden="true" className="font-mono text-primary-500/80">/&gt;</span>
             </div>
-            <h2 className="text-4xl font-bold tracking-tight text-white sm:text-5xl">
+            <h2 className="text-3xl font-bold tracking-tight text-white sm:text-4xl">
               Diverse Experience
             </h2>
             <p className="mt-4 text-lg leading-8 text-gray-400">
@@ -802,12 +782,12 @@ export default function Work() {
             {industries.map((industry, index) => (
               <div
                 key={industry.name}
-                className="group relative rounded-2xl bg-surface p-8 shadow-lg shadow-black/20 border-2 border-surface-border hover:border-primary-300 transition-all text-center"
+                className="group relative rounded-2xl bg-surface ring-1 ring-surface-border hover:ring-primary-500/50 p-8 transition-all text-center card-lift"
                 style={{ animationDelay: `${index * 50}ms` }}
               >
-                <div className="text-5xl mb-4 group- transition-transform">{industry.icon}</div>
-                <p className="font-bold text-white mb-2 text-lg">{industry.name}</p>
-                <p className="text-sm text-primary-600 font-semibold">{industry.count} projects</p>
+                <div className="text-5xl mb-4">{industry.icon}</div>
+                <p className="font-bold text-white mb-2 text-lg group-hover:text-primary-400 transition-colors">{industry.name}</p>
+                <p className="text-sm text-gray-500 font-semibold">{industry.count} projects</p>
               </div>
             ))}
           </div>
@@ -815,33 +795,26 @@ export default function Work() {
       </section>
 
       {/* CTA Section */}
-      <section className="relative bg-gradient-to-r from-primary-600 via-accent-500 to-primary-600 text-white overflow-hidden">
-        <div className="absolute inset-0 opacity-20">
-          <div className="absolute inset-0" style={{
-            backgroundImage: 'linear-gradient(45deg, transparent 45%, rgba(255,255,255,0.1) 50%, transparent 55%)',
-            backgroundSize: '20px 20px'
-          }} />
-        </div>
-
-        <div className="relative px-6 py-24 sm:px-6 sm:py-32 lg:px-8">
+      <section className="bg-surface border-t border-surface-border">
+        <div className="px-6 py-24 sm:px-6 sm:py-32 lg:px-8">
           <div className="mx-auto max-w-2xl text-center">
-            <h2 className="text-4xl font-bold tracking-tight sm:text-5xl">
+            <h2 className="text-3xl font-bold tracking-tight text-white sm:text-4xl">
               Ready to Get Started?
             </h2>
-            <p className="mx-auto mt-6 max-w-xl text-lg leading-8 text-gray-200">
+            <p className="mx-auto mt-6 max-w-xl text-lg leading-8 text-gray-300">
               Join 200+ satisfied clients. Let's build something great together with transparent pricing and proven results.
             </p>
-            <div className="mt-10 flex flex-col sm:flex-row items-center justify-center gap-6">
+            <div className="mt-10 flex flex-wrap items-center justify-center gap-3">
               <Link
                 href="/contact"
-                className="group rounded-lg bg-surface-card px-8 py-4 text-base font-semibold text-white shadow-2xl hover:bg-surface-elevated transition-all"
+                className="group inline-flex items-center gap-2 rounded-md bg-primary-500 px-6 py-3 text-base font-semibold text-white hover:bg-primary-600 transition-colors"
               >
                 Start Your Project
-                <span className="inline-block transition-transform group-hover:translate-x-1 ml-2">→</span>
+                <span className="inline-block transition-transform group-hover:translate-x-0.5">→</span>
               </Link>
               <Link
                 href="/pricing"
-                className="flex items-center gap-2 text-base font-semibold leading-7 text-white hover:text-gray-200 transition-colors"
+                className="inline-flex items-center gap-2 rounded-md border border-surface-border px-6 py-3 text-base font-semibold text-white hover:border-primary-500/60 hover:bg-surface-card transition-colors"
               >
                 <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                   <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 8c-1.657 0-3 .895-3 2s1.343 2 3 2 3 .895 3 2-1.343 2-3 2m0-8c1.11 0 2.08.402 2.599 1M12 8V7m0 1v8m0 0v1m0-1c-1.11 0-2.08-.402-2.599-1M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
@@ -849,8 +822,8 @@ export default function Work() {
                 View Pricing
               </Link>
             </div>
-            <p className="mt-6 text-sm text-gray-300">
-              🎯 Free consultation • ⚡ Fast turnaround • 💰 Transparent pricing
+            <p className="mt-6 text-sm text-gray-500">
+              Free consultation. Fast turnaround. Transparent pricing.
             </p>
           </div>
         </div>

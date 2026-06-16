@@ -74,40 +74,43 @@ export default async function BlogPostPage({ params }: BlogPostPageProps) {
       />
 
       {/* Hero Section */}
-      <section className="relative bg-gradient-to-br from-primary-900 via-primary-800 to-primary-700 text-white">
-        <div className="mx-auto max-w-4xl px-6 py-16 sm:py-24 lg:px-8">
+      <section className="relative bg-black border-b border-surface-border overflow-hidden">
+        {/* Soft vertical sheen — barely there, gives the canvas depth without halo */}
+        <div className="pointer-events-none absolute inset-0 bg-gradient-to-b from-surface-card/60 via-black to-black" />
+
+        <div className="relative mx-auto max-w-4xl px-6 py-16 sm:py-24 lg:px-8">
           <div>
             <div className="flex items-center gap-x-4 text-sm mb-6">
-              <time dateTime={post.date} className="text-gray-200">
+              <time dateTime={post.date} className="text-gray-400">
                 {new Date(post.date).toLocaleDateString('en-US', {
                   year: 'numeric',
                   month: 'long',
                   day: 'numeric',
                 })}
               </time>
-              <span className="rounded-full bg-surface-card/60 px-3 py-1.5 font-medium backdrop-blur">
+              <span className="rounded-full bg-surface-card px-3 py-1.5 text-xs font-semibold uppercase tracking-wider text-primary-400 ring-1 ring-surface-border">
                 {post.category}
               </span>
-              <span className="flex items-center gap-1">
+              <span className="flex items-center gap-1 text-gray-400">
                 <svg className="h-4 w-4" fill="currentColor" viewBox="0 0 20 20">
                   <path fillRule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm1-12a1 1 0 10-2 0v4a1 1 0 00.293.707l2.828 2.829a1 1 0 101.415-1.415L11 9.586V6z" clipRule="evenodd" />
                 </svg>
                 {post.readTime}
               </span>
             </div>
-            <h1 className="text-3xl font-bold tracking-tight sm:text-5xl mb-6">
+            <h1 className="text-3xl font-bold tracking-tight text-white sm:text-5xl mb-6">
               {post.title}
             </h1>
-            <p className="text-xl leading-8 text-gray-200">
+            <p className="text-xl leading-8 text-gray-300">
               {post.excerpt}
             </p>
             <div className="mt-6 flex items-center gap-3">
-              <div className="h-12 w-12 rounded-full bg-surface-card/60 flex items-center justify-center text-2xl">
-                🎖️
+              <div className="h-12 w-12 rounded-md bg-surface-card flex items-center justify-center ring-1 ring-surface-border text-lg font-bold text-primary-500">
+                KS
               </div>
               <div>
-                <p className="font-semibold">{post.author}</p>
-                <p className="text-sm text-gray-200">Founder & Lead Developer</p>
+                <p className="font-semibold text-white">{post.author}</p>
+                <p className="text-sm text-gray-400">Founder & Lead Developer</p>
               </div>
             </div>
           </div>
@@ -121,15 +124,15 @@ export default async function BlogPostPage({ params }: BlogPostPageProps) {
             className="prose prose-lg prose-primary prose-invert max-w-none prose-headings:font-bold prose-headings:text-white prose-h2:text-3xl prose-h2:mt-12 prose-h2:mb-6
               prose-h3:text-2xl prose-h3:mt-8 prose-h3:mb-4
               prose-p:text-gray-400 prose-p:leading-8 prose-p:mb-6
-              prose-a:text-primary-600 prose-a:no-underline hover:prose-a:text-primary-700
+              prose-a:text-primary-400 prose-a:no-underline hover:prose-a:text-primary-300
               prose-strong:text-white prose-strong:font-semibold
               prose-ul:my-6 prose-ul:list-disc prose-ul:pl-6
               prose-ol:my-6 prose-ol:list-decimal prose-ol:pl-6
               prose-li:text-gray-400 prose-li:my-2
               prose-blockquote:border-l-4 prose-blockquote:border-primary-500
               prose-blockquote:pl-6 prose-blockquote:italic prose-blockquote:text-gray-300
-              prose-code:text-primary-600 prose-code:bg-surface-card prose-code:px-1 prose-code:py-0.5 prose-code:rounded
-              prose-pre:bg-gray-900 prose-pre:text-gray-100"
+              prose-code:text-primary-400 prose-code:bg-surface-card prose-code:px-1 prose-code:py-0.5 prose-code:rounded
+              prose-pre:bg-surface-elevated prose-pre:text-gray-100"
             dangerouslySetInnerHTML={{ __html: post.content }}
           />
 
@@ -141,7 +144,7 @@ export default async function BlogPostPage({ params }: BlogPostPageProps) {
                 {post.tags.map((tag) => (
                   <span
                     key={tag}
-                    className="inline-flex items-center rounded-full bg-primary-100 px-3 py-1 text-sm font-medium text-primary-700"
+                    className="inline-flex items-center rounded-full bg-surface-card ring-1 ring-surface-border px-3 py-1 text-sm font-medium text-gray-300"
                   >
                     #{tag}
                   </span>
@@ -184,12 +187,12 @@ export default async function BlogPostPage({ params }: BlogPostPageProps) {
           {/* Author Bio */}
           <div className="mt-12 pt-8 border-t border-surface-border">
             <div className="flex items-start gap-4 sm:gap-6">
-              <div className="h-16 w-16 sm:h-20 sm:w-20 rounded-full bg-primary-500/10 flex items-center justify-center text-3xl sm:text-4xl flex-shrink-0">
-                🎖️
+              <div className="h-16 w-16 sm:h-20 sm:w-20 rounded-md bg-surface-card ring-1 ring-surface-border flex items-center justify-center text-2xl sm:text-3xl font-bold text-primary-500 flex-shrink-0">
+                KS
               </div>
               <div className="flex-1">
                 <h3 className="text-lg font-semibold text-white">About the Author</h3>
-                <p className="text-sm font-medium text-primary-600 mb-2">{post.author}</p>
+                <p className="text-sm font-medium text-primary-400 mb-2">{post.author}</p>
                 <p className="text-gray-400 text-sm leading-6">
                   Kyle Stephens is a Marine Corps veteran and founder of StephensCode, a web development company
                   serving small businesses in the Greater Houston area. With 14+ years of experience building
@@ -199,13 +202,13 @@ export default async function BlogPostPage({ params }: BlogPostPageProps) {
                 <div className="mt-4 flex gap-4">
                   <Link
                     href="/about"
-                    className="text-sm font-semibold text-primary-600 hover:text-primary-400"
+                    className="text-sm font-semibold text-primary-400 hover:text-primary-300"
                   >
                     Learn more about Kyle →
                   </Link>
                   <Link
                     href="/contact"
-                    className="text-sm font-semibold text-primary-600 hover:text-primary-400"
+                    className="text-sm font-semibold text-primary-400 hover:text-primary-300"
                   >
                     Get in touch →
                   </Link>
@@ -227,7 +230,7 @@ export default async function BlogPostPage({ params }: BlogPostPageProps) {
               {relatedPosts.map((relatedPost) => (
                 <article
                   key={relatedPost.slug}
-                  className="flex flex-col bg-surface rounded-2xl shadow-lg shadow-black/20 overflow-hidden hover:shadow-xl transition-shadow"
+                  className="group flex flex-col bg-surface rounded-2xl ring-1 ring-surface-border overflow-hidden hover:ring-primary-500/50 transition-all"
                 >
                   <div className="flex flex-1 flex-col p-6">
                     <div className="flex items-center gap-x-4 text-xs mb-4">
@@ -240,8 +243,8 @@ export default async function BlogPostPage({ params }: BlogPostPageProps) {
                       </time>
                     </div>
                     <div className="flex-1">
-                      <h3 className="text-lg font-semibold leading-7 text-white mb-2">
-                        <Link href={`/blog/${relatedPost.slug}`} className="hover:text-primary-600">
+                      <h3 className="text-lg font-semibold leading-7 text-white mb-2 group-hover:text-primary-400 transition-colors">
+                        <Link href={`/blog/${relatedPost.slug}`}>
                           {relatedPost.title}
                         </Link>
                       </h3>
@@ -252,7 +255,7 @@ export default async function BlogPostPage({ params }: BlogPostPageProps) {
                     <div className="mt-4">
                       <Link
                         href={`/blog/${relatedPost.slug}`}
-                        className="text-sm font-semibold text-primary-600 hover:text-primary-400"
+                        className="text-sm font-semibold text-primary-400 hover:text-primary-300"
                       >
                         Read more <span aria-hidden="true">→</span>
                       </Link>
@@ -266,29 +269,27 @@ export default async function BlogPostPage({ params }: BlogPostPageProps) {
       )}
 
       {/* CTA Section */}
-      <section className="bg-primary-900 text-white">
-        <div className="px-6 py-16 sm:px-6 sm:py-24 lg:px-8">
-          <div className="mx-auto max-w-2xl text-center">
-            <h2 className="text-3xl font-bold tracking-tight sm:text-4xl">
-              Need Help with Your Website?
-            </h2>
-            <p className="mx-auto mt-6 max-w-xl text-lg leading-8 text-gray-200">
-              Let's discuss your project. Free consultation, transparent pricing, veteran-owned quality.
-            </p>
-            <div className="mt-10 flex items-center justify-center gap-x-6">
-              <Link
-                href="/contact"
-                className="rounded-md bg-accent-500 px-6 py-3 text-base font-semibold text-white shadow-sm hover:bg-accent-600"
-              >
-                Get Started
-              </Link>
-              <Link
-                href="/services"
-                className="text-base font-semibold leading-7 text-white hover:text-gray-200"
-              >
-                View Services <span aria-hidden="true">→</span>
-              </Link>
-            </div>
+      <section className="bg-surface border-t border-surface-border">
+        <div className="mx-auto max-w-2xl px-6 py-16 sm:py-24 lg:px-8 text-center">
+          <h2 className="text-3xl font-bold tracking-tight text-white sm:text-4xl">
+            Need Help with Your Website?
+          </h2>
+          <p className="mx-auto mt-4 max-w-xl text-lg leading-8 text-gray-300">
+            Let's discuss your project. Free consultation, transparent pricing, veteran-owned quality.
+          </p>
+          <div className="mt-10 flex flex-wrap items-center justify-center gap-3">
+            <Link
+              href="/contact"
+              className="inline-flex items-center gap-2 rounded-md bg-primary-500 px-6 py-3 text-base font-semibold text-white hover:bg-primary-600 transition-colors"
+            >
+              Get Started
+            </Link>
+            <Link
+              href="/services"
+              className="inline-flex items-center gap-2 rounded-md border border-surface-border px-6 py-3 text-base font-semibold text-white hover:border-primary-500/60 hover:bg-surface-card transition-colors"
+            >
+              View Services <span aria-hidden="true">→</span>
+            </Link>
           </div>
         </div>
       </section>

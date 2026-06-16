@@ -4,7 +4,7 @@ import ContactForm from '@/components/ContactForm'
 
 export const metadata: Metadata = {
   title: 'Contact Conroe Web Developer | Free Quote | Houston TX',
-  description: 'Contact veteran owned web developer for free quote. Flat-rate small business websites from $850. Custom websites for small business. Call (936) 323-4527.',
+  description: 'Contact veteran owned web developer for free quote. Flat-rate small business websites from $950. Custom websites for small business. Call (936) 323-4527.',
   keywords: [
     'Conroe web developer',
     'Houston web development',
@@ -16,7 +16,7 @@ export const metadata: Metadata = {
   ],
   openGraph: {
     title: 'Contact Conroe Web Developer | Free Quote | Houston TX',
-    description: 'Contact veteran owned web developer for free quote. Flat-rate small business websites from $850. Custom websites for small business.',
+    description: 'Contact veteran owned web developer for free quote. Flat-rate small business websites from $950. Custom websites for small business.',
     url: 'https://www.stephenscode.dev/contact',
     type: 'website',
   },
@@ -156,34 +156,27 @@ export default function ContactPage() {
       />
 
       {/* Hero Section */}
-      <section className="relative bg-gradient-to-br from-black via-surface to-surface-card text-white overflow-hidden">
-        {/* Pattern overlay */}
-        <div className="absolute inset-0 opacity-10">
-          <svg className="absolute w-full h-full" xmlns="http://www.w3.org/2000/svg">
-            <defs>
-              <pattern id="contact-pattern" x="0" y="0" width="40" height="40" patternUnits="userSpaceOnUse">
-                <circle cx="20" cy="20" r="1.5" fill="currentColor" />
-              </pattern>
-            </defs>
-            <rect width="100%" height="100%" fill="url(#contact-pattern)" />
-          </svg>
-        </div>
+      <section className="relative bg-black border-b border-surface-border overflow-hidden">
+        {/* Soft vertical sheen — barely there, gives the canvas depth without halo */}
+        <div className="pointer-events-none absolute inset-0 bg-gradient-to-b from-surface-card/60 via-black to-black" />
 
         <div className="relative mx-auto max-w-7xl px-6 py-24 sm:py-32 lg:px-8">
           <div className="mx-auto max-w-3xl text-center">
-            <div className="inline-flex items-center rounded-full bg-accent-500/20 px-4 py-2 text-sm font-semibold text-white ring-1 ring-inset ring-accent-500/30 mb-8 animate-fade-in-up">
-              💬 Free Consultation Available
+            <div className="mb-8 inline-flex items-center gap-3 text-[11px] font-semibold uppercase tracking-[0.22em] text-primary-500 animate-fade-in-up">
+              <span aria-hidden="true" className="font-mono text-primary-500/80">&lt;</span>
+              <span>Free Consultation Available</span>
+              <span aria-hidden="true" className="font-mono text-primary-500/80">/&gt;</span>
             </div>
-            <h1 className="text-5xl font-bold tracking-tight sm:text-7xl animate-fade-in-up animation-delay-200">
+            <h1 className="text-5xl font-bold tracking-tight text-white sm:text-7xl animate-fade-in-up animation-delay-200">
               Let's Build Something Great
             </h1>
-            <p className="mt-6 text-xl leading-8 text-gray-200 animate-fade-in-up animation-delay-400">
-              Get a <span className="font-bold text-accent-400">free consultation</span> and custom quote. <strong className="text-white">Located in Houston, working with clients nationwide.</strong> No obligation, no sales pressure. Let's discuss your project and how we can help bring your vision to life.
+            <p className="mt-6 text-xl leading-8 text-gray-300 animate-fade-in-up animation-delay-400">
+              Get a <span className="font-bold text-primary-400">free consultation</span> and custom quote. <strong className="text-white">Located in Houston, working with clients nationwide.</strong> No obligation, no sales pressure. Let's discuss your project and how we can help bring your vision to life.
             </p>
-            <div className="mt-10 flex flex-col sm:flex-row items-center justify-center gap-6 animate-fade-in-up animation-delay-600">
+            <div className="mt-10 flex flex-col sm:flex-row items-center justify-center gap-4 animate-fade-in-up animation-delay-600">
               <a
                 href="tel:+19363234527"
-                className="group flex items-center gap-3 rounded-lg bg-accent-500 px-8 py-4 text-base font-semibold text-white shadow-lg hover:bg-accent-600 transition-all"
+                className="group inline-flex items-center gap-3 rounded-md bg-primary-500 px-8 py-4 text-base font-semibold text-white hover:bg-primary-600 transition-colors"
               >
                 <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                   <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z" />
@@ -192,7 +185,7 @@ export default function ContactPage() {
               </a>
               <a
                 href="mailto:info@stephenscode.dev"
-                className="flex items-center gap-2 text-base font-semibold leading-7 text-white hover:text-gray-200 transition-colors"
+                className="inline-flex items-center gap-2 text-base font-semibold leading-7 text-gray-400 hover:text-primary-400 transition-colors"
               >
                 <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                   <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z" />
@@ -202,32 +195,22 @@ export default function ContactPage() {
             </div>
           </div>
         </div>
-
-        {/* Wave divider */}
-        <div className="absolute bottom-0 left-0 right-0">
-          <svg className="w-full h-16 fill-surface" viewBox="0 0 1200 120" preserveAspectRatio="none">
-            <path d="M321.39,56.44c58-10.79,114.16-30.13,172-41.86,82.39-16.72,168.19-17.73,250.45-.39C823.78,31,906.67,72,985.66,92.83c70.05,18.48,146.53,26.09,214.34,3V0H0V27.35A600.21,600.21,0,0,0,321.39,56.44Z" />
-          </svg>
-        </div>
       </section>
 
       {/* Quick Response Section */}
-      <section className="bg-surface py-16 border-b border-surface-border">
+      <section className="bg-black border-y border-surface-border py-16">
         <div className="mx-auto max-w-7xl px-6 lg:px-8">
           <div className="grid grid-cols-1 md:grid-cols-3 gap-8 text-center">
-            <div className="animate-fade-in-up">
-              <div className="text-4xl mb-3">⚡</div>
-              <div className="text-2xl font-bold text-primary-300">24 Hours</div>
+            <div className="border-l border-primary-500/40 pl-4 text-left animate-fade-in-up">
+              <div className="text-3xl font-semibold tracking-tight text-accent-400">24 Hours</div>
               <div className="text-sm text-gray-400 mt-2">Average Response Time</div>
             </div>
-            <div className="animate-fade-in-up animation-delay-200">
-              <div className="text-4xl mb-3">🎯</div>
-              <div className="text-2xl font-bold text-primary-300">100% Free</div>
+            <div className="border-l border-primary-500/40 pl-4 text-left animate-fade-in-up animation-delay-200">
+              <div className="text-3xl font-semibold tracking-tight text-accent-400">100% Free</div>
               <div className="text-sm text-gray-400 mt-2">Consultation & Quote</div>
             </div>
-            <div className="animate-fade-in-up animation-delay-400">
-              <div className="text-4xl mb-3">🤝</div>
-              <div className="text-2xl font-bold text-primary-300">No Pressure</div>
+            <div className="border-l border-primary-500/40 pl-4 text-left animate-fade-in-up animation-delay-400">
+              <div className="text-3xl font-semibold tracking-tight text-accent-400">No Pressure</div>
               <div className="text-sm text-gray-400 mt-2">Zero Obligation</div>
             </div>
           </div>
@@ -251,16 +234,16 @@ export default function ContactPage() {
               <div className="space-y-6 mb-10">
                 <a
                   href="tel:+19363234527"
-                  className="group flex items-start gap-4 p-6 rounded-2xl bg-surface-card border-2 border-surface-border hover:border-primary-500 hover:shadow-lg transition-all"
+                  className="group flex items-start gap-4 p-6 rounded-2xl bg-surface-card border border-surface-border hover:border-primary-500/60 transition-colors"
                 >
-                  <div className="flex-shrink-0 w-12 h-12 rounded-full bg-gradient-to-br from-primary-500 to-accent-500 flex items-center justify-center text-white">
-                    <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z" />
+                  <div className="flex-shrink-0 flex h-12 w-12 items-center justify-center rounded-md border border-primary-500/40 text-primary-500 group-hover:border-primary-500 group-hover:text-primary-400 transition-colors">
+                    <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" strokeWidth={1.75}>
+                      <path strokeLinecap="round" strokeLinejoin="round" d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z" />
                     </svg>
                   </div>
                   <div className="flex-grow">
                     <div className="font-semibold text-white mb-1">Phone</div>
-                    <div className="text-2xl font-bold text-primary-400 group-hover:text-accent-400 transition-colors">
+                    <div className="text-2xl font-bold text-primary-400 group-hover:text-primary-300 transition-colors">
                       (936) 323-4527
                     </div>
                     <div className="text-sm text-gray-400 mt-1">Mon-Fri, 9am-6pm CST</div>
@@ -272,16 +255,16 @@ export default function ContactPage() {
 
                 <a
                   href="mailto:info@stephenscode.dev"
-                  className="group flex items-start gap-4 p-6 rounded-2xl bg-surface-card border-2 border-surface-border hover:border-primary-500 hover:shadow-lg transition-all"
+                  className="group flex items-start gap-4 p-6 rounded-2xl bg-surface-card border border-surface-border hover:border-primary-500/60 transition-colors"
                 >
-                  <div className="flex-shrink-0 w-12 h-12 rounded-full bg-gradient-to-br from-primary-500 to-accent-500 flex items-center justify-center text-white">
-                    <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z" />
+                  <div className="flex-shrink-0 flex h-12 w-12 items-center justify-center rounded-md border border-primary-500/40 text-primary-500 group-hover:border-primary-500 group-hover:text-primary-400 transition-colors">
+                    <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" strokeWidth={1.75}>
+                      <path strokeLinecap="round" strokeLinejoin="round" d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z" />
                     </svg>
                   </div>
                   <div className="flex-grow">
                     <div className="font-semibold text-white mb-1">Email</div>
-                    <div className="text-lg font-bold text-primary-400 group-hover:text-accent-400 transition-colors break-all">
+                    <div className="text-lg font-bold text-primary-400 group-hover:text-primary-300 transition-colors break-all">
                       info@stephenscode.dev
                     </div>
                     <div className="text-sm text-gray-400 mt-1">We respond within 24 hours</div>
@@ -291,11 +274,11 @@ export default function ContactPage() {
                   </svg>
                 </a>
 
-                <div className="flex items-start gap-4 p-6 rounded-2xl bg-surface-card border-2 border-surface-border">
-                  <div className="flex-shrink-0 w-12 h-12 rounded-full bg-gradient-to-br from-green-500 to-teal-500 flex items-center justify-center text-white">
-                    <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z" />
-                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M15 11a3 3 0 11-6 0 3 3 0 016 0z" />
+                <div className="flex items-start gap-4 p-6 rounded-2xl bg-surface-card border border-surface-border">
+                  <div className="flex-shrink-0 flex h-12 w-12 items-center justify-center rounded-md border border-primary-500/40 text-primary-500">
+                    <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" strokeWidth={1.75}>
+                      <path strokeLinecap="round" strokeLinejoin="round" d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z" />
+                      <path strokeLinecap="round" strokeLinejoin="round" d="M15 11a3 3 0 11-6 0 3 3 0 016 0z" />
                     </svg>
                   </div>
                   <div className="flex-grow">
@@ -308,7 +291,7 @@ export default function ContactPage() {
                       href="https://www.google.com/maps/dir//Conroe+TX+77304"
                       target="_blank"
                       rel="noopener noreferrer"
-                      className="inline-flex items-center gap-1 text-sm font-semibold text-primary-600 hover:text-primary-400 mt-2"
+                      className="inline-flex items-center gap-1 text-sm font-semibold text-primary-400 hover:text-primary-300 mt-2"
                     >
                       Get Directions
                       <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -320,7 +303,7 @@ export default function ContactPage() {
               </div>
 
               {/* Google Maps */}
-              <div className="mt-8 rounded-2xl overflow-hidden border-2 border-surface-border shadow-lg shadow-black/20">
+              <div className="mt-8 rounded-2xl overflow-hidden border border-surface-border shadow-lg shadow-black/40">
                 <iframe
                   src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d110684.96908!2d-95.5560!3d30.3119!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x864731e2f73c2a15%3A0xc6e5b1e2d9e8c!2sConroe%2C%20TX%2077304!5e0!3m2!1sen!2sus!4v1234567890"
                   width="100%"
@@ -335,16 +318,14 @@ export default function ContactPage() {
 
               {/* Trust Badges */}
               <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
-                <div className="p-6 bg-gradient-to-br from-primary-500/10 to-accent-500/10 rounded-2xl border border-surface-border">
-                  <div className="text-3xl mb-3">🇺🇸</div>
+                <div className="p-6 bg-surface-card rounded-2xl border border-surface-border">
                   <h3 className="font-bold text-white mb-2">Veteran-Owned</h3>
                   <p className="text-sm text-gray-400 leading-relaxed">
                     Proudly serving businesses with military values: integrity, dedication, and excellence.
                   </p>
                 </div>
 
-                <div className="p-6 bg-gradient-to-br from-green-500/10 to-teal-500/10 rounded-2xl border border-surface-border">
-                  <div className="text-3xl mb-3">⭐</div>
+                <div className="p-6 bg-surface-card rounded-2xl border border-surface-border">
                   <h3 className="font-bold text-white mb-2">14+ Years Experience</h3>
                   <p className="text-sm text-gray-400 leading-relaxed">
                     Proven track record with 200+ successful projects and 98% client satisfaction.
@@ -353,15 +334,14 @@ export default function ContactPage() {
               </div>
 
               {/* What to Expect */}
-              <div className="mt-8 p-8 bg-surface-card rounded-2xl border-2 border-surface-border shadow-lg shadow-black/20">
-                <h3 className="font-bold text-white mb-4 text-lg flex items-center gap-2">
-                  <span className="text-2xl">✓</span>
+              <div className="mt-8 p-8 bg-surface-card rounded-2xl border border-surface-border shadow-lg shadow-black/40">
+                <h3 className="font-bold text-white mb-4 text-lg">
                   What to Expect
                 </h3>
                 <ul className="space-y-3">
                   <li className="flex items-start gap-3">
-                    <div className="flex-shrink-0 w-6 h-6 rounded-full bg-accent-500/15 flex items-center justify-center mt-0.5">
-                      <span className="text-accent-600 text-sm font-bold">1</span>
+                    <div className="flex-shrink-0 flex h-6 w-6 items-center justify-center rounded-md border border-primary-500/40 mt-0.5">
+                      <span className="text-primary-400 text-sm font-bold">1</span>
                     </div>
                     <div>
                       <div className="font-semibold text-white">Quick Response</div>
@@ -369,8 +349,8 @@ export default function ContactPage() {
                     </div>
                   </li>
                   <li className="flex items-start gap-3">
-                    <div className="flex-shrink-0 w-6 h-6 rounded-full bg-accent-500/15 flex items-center justify-center mt-0.5">
-                      <span className="text-accent-600 text-sm font-bold">2</span>
+                    <div className="flex-shrink-0 flex h-6 w-6 items-center justify-center rounded-md border border-primary-500/40 mt-0.5">
+                      <span className="text-primary-400 text-sm font-bold">2</span>
                     </div>
                     <div>
                       <div className="font-semibold text-white">Free Consultation</div>
@@ -378,8 +358,8 @@ export default function ContactPage() {
                     </div>
                   </li>
                   <li className="flex items-start gap-3">
-                    <div className="flex-shrink-0 w-6 h-6 rounded-full bg-accent-500/15 flex items-center justify-center mt-0.5">
-                      <span className="text-accent-600 text-sm font-bold">3</span>
+                    <div className="flex-shrink-0 flex h-6 w-6 items-center justify-center rounded-md border border-primary-500/40 mt-0.5">
+                      <span className="text-primary-400 text-sm font-bold">3</span>
                     </div>
                     <div>
                       <div className="font-semibold text-white">Custom Quote</div>
@@ -387,8 +367,8 @@ export default function ContactPage() {
                     </div>
                   </li>
                   <li className="flex items-start gap-3">
-                    <div className="flex-shrink-0 w-6 h-6 rounded-full bg-accent-500/15 flex items-center justify-center mt-0.5">
-                      <span className="text-accent-600 text-sm font-bold">4</span>
+                    <div className="flex-shrink-0 flex h-6 w-6 items-center justify-center rounded-md border border-primary-500/40 mt-0.5">
+                      <span className="text-primary-400 text-sm font-bold">4</span>
                     </div>
                     <div>
                       <div className="font-semibold text-white">Zero Pressure</div>
@@ -400,11 +380,8 @@ export default function ContactPage() {
             </div>
 
             {/* Contact Form */}
-            <div className="rounded-3xl bg-surface-card p-8 lg:p-12 shadow-2xl shadow-black/20 border border-surface-border">
-              <div className="mb-8">
-                <h3 className="text-2xl font-bold text-white mb-2">Send Us a Message</h3>
-                <p className="text-gray-400">Fill out the form below and we'll get back to you within 24 hours.</p>
-              </div>
+            <div className="rounded-3xl bg-surface-card p-8 lg:p-12 shadow-2xl shadow-black/40 border border-surface-border">
+              <p className="mb-8 text-gray-400">Fill out the form below and we'll get back to you within 24 hours.</p>
               <ContactForm />
             </div>
           </div>
@@ -412,11 +389,11 @@ export default function ContactPage() {
       </section>
 
       {/* Service Areas */}
-      <section className="bg-gradient-to-br from-black via-surface to-surface-card py-16">
+      <section className="bg-surface-card border-y border-surface-border py-16">
         <div className="mx-auto max-w-7xl px-6 lg:px-8">
           <div className="text-center mb-12">
             <h2 className="text-3xl font-bold text-white mb-3">Serving the Greater Houston Area</h2>
-            <p className="text-lg text-gray-200">Professional web development services for businesses throughout Texas</p>
+            <p className="text-lg text-gray-400">Professional web development services for businesses throughout Texas</p>
           </div>
           <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-6 gap-4 text-center">
             {[
@@ -425,14 +402,14 @@ export default function ContactPage() {
             ].map((city, index) => (
               <div
                 key={city}
-                className="bg-surface-card/60 backdrop-blur-sm rounded-lg px-4 py-3 text-white font-semibold border border-surface-border hover:bg-surface-elevated/80 transition-all"
+                className="group rounded-md bg-surface ring-1 ring-surface-border px-4 py-3 text-white font-semibold hover:text-primary-400 transition-colors"
                 style={{ animationDelay: `${index * 50}ms` }}
               >
                 {city}
               </div>
             ))}
           </div>
-          <p className="text-center text-gray-200 mt-8 text-sm">
+          <p className="text-center text-gray-400 mt-8 text-sm">
             + Serving clients throughout Texas and the United States
           </p>
         </div>
@@ -451,7 +428,7 @@ export default function ContactPage() {
           </div>
 
           <div className="mx-auto max-w-3xl space-y-6">
-            <div className="rounded-2xl border border-surface-border bg-surface-card p-8 hover:border-primary-300 transition-colors">
+            <div className="rounded-2xl border border-surface-border bg-surface-card p-8 hover:border-primary-500/60 transition-colors">
               <h3 className="text-lg font-bold text-white mb-3">
                 How long does a typical project take?
               </h3>
@@ -460,7 +437,7 @@ export default function ContactPage() {
               </p>
             </div>
 
-            <div className="rounded-2xl border border-surface-border bg-surface-card p-8 hover:border-primary-300 transition-colors">
+            <div className="rounded-2xl border border-surface-border bg-surface-card p-8 hover:border-primary-500/60 transition-colors">
               <h3 className="text-lg font-bold text-white mb-3">
                 Do you require payment upfront?
               </h3>
@@ -469,7 +446,7 @@ export default function ContactPage() {
               </p>
             </div>
 
-            <div className="rounded-2xl border border-surface-border bg-surface-card p-8 hover:border-primary-300 transition-colors">
+            <div className="rounded-2xl border border-surface-border bg-surface-card p-8 hover:border-primary-500/60 transition-colors">
               <h3 className="text-lg font-bold text-white mb-3">
                 Do you offer ongoing maintenance?
               </h3>
@@ -478,7 +455,7 @@ export default function ContactPage() {
               </p>
             </div>
 
-            <div className="rounded-2xl border border-surface-border bg-surface-card p-8 hover:border-primary-300 transition-colors">
+            <div className="rounded-2xl border border-surface-border bg-surface-card p-8 hover:border-primary-500/60 transition-colors">
               <h3 className="text-lg font-bold text-white mb-3">
                 Can you work with my existing website?
               </h3>
@@ -487,7 +464,7 @@ export default function ContactPage() {
               </p>
             </div>
 
-            <div className="rounded-2xl border border-surface-border bg-surface-card p-8 hover:border-primary-300 transition-colors">
+            <div className="rounded-2xl border border-surface-border bg-surface-card p-8 hover:border-primary-500/60 transition-colors">
               <h3 className="text-lg font-bold text-white mb-3">
                 Do you only work with local businesses?
               </h3>
@@ -496,7 +473,7 @@ export default function ContactPage() {
               </p>
             </div>
 
-            <div className="rounded-2xl border border-surface-border bg-surface-card p-8 hover:border-primary-300 transition-colors">
+            <div className="rounded-2xl border border-surface-border bg-surface-card p-8 hover:border-primary-500/60 transition-colors">
               <h3 className="text-lg font-bold text-white mb-3">
                 What information should I have ready for the consultation?
               </h3>
@@ -505,7 +482,7 @@ export default function ContactPage() {
               </p>
             </div>
 
-            <div className="rounded-2xl border border-surface-border bg-surface-card p-8 hover:border-primary-300 transition-colors">
+            <div className="rounded-2xl border border-surface-border bg-surface-card p-8 hover:border-primary-500/60 transition-colors">
               <h3 className="text-lg font-bold text-white mb-3">
                 How quickly can we get started?
               </h3>
@@ -514,7 +491,7 @@ export default function ContactPage() {
               </p>
             </div>
 
-            <div className="rounded-2xl border border-surface-border bg-surface-card p-8 hover:border-primary-300 transition-colors">
+            <div className="rounded-2xl border border-surface-border bg-surface-card p-8 hover:border-primary-500/60 transition-colors">
               <h3 className="text-lg font-bold text-white mb-3">
                 What happens after I submit the contact form?
               </h3>
@@ -523,7 +500,7 @@ export default function ContactPage() {
               </p>
             </div>
 
-            <div className="rounded-2xl border border-surface-border bg-surface-card p-8 hover:border-primary-300 transition-colors">
+            <div className="rounded-2xl border border-surface-border bg-surface-card p-8 hover:border-primary-500/60 transition-colors">
               <h3 className="text-lg font-bold text-white mb-3">
                 Do you offer free consultations?
               </h3>
@@ -532,7 +509,7 @@ export default function ContactPage() {
               </p>
             </div>
 
-            <div className="rounded-2xl border border-surface-border bg-surface-card p-8 hover:border-primary-300 transition-colors">
+            <div className="rounded-2xl border border-surface-border bg-surface-card p-8 hover:border-primary-500/60 transition-colors">
               <h3 className="text-lg font-bold text-white mb-3">
                 Can I see examples of similar projects you've built?
               </h3>
@@ -541,7 +518,7 @@ export default function ContactPage() {
               </p>
             </div>
 
-            <div className="rounded-2xl border border-surface-border bg-surface-card p-8 hover:border-primary-300 transition-colors">
+            <div className="rounded-2xl border border-surface-border bg-surface-card p-8 hover:border-primary-500/60 transition-colors">
               <h3 className="text-lg font-bold text-white mb-3">
                 What if I'm not sure what package I need?
               </h3>
@@ -550,7 +527,7 @@ export default function ContactPage() {
               </p>
             </div>
 
-            <div className="rounded-2xl border border-surface-border bg-surface-card p-8 hover:border-primary-300 transition-colors">
+            <div className="rounded-2xl border border-surface-border bg-surface-card p-8 hover:border-primary-500/60 transition-colors">
               <h3 className="text-lg font-bold text-white mb-3">
                 Do you provide hosting and domain registration?
               </h3>
@@ -559,7 +536,7 @@ export default function ContactPage() {
               </p>
             </div>
 
-            <div className="rounded-2xl border border-surface-border bg-surface-card p-8 hover:border-primary-300 transition-colors">
+            <div className="rounded-2xl border border-surface-border bg-surface-card p-8 hover:border-primary-500/60 transition-colors">
               <h3 className="text-lg font-bold text-white mb-3">
                 Will I be able to update the website myself?
               </h3>
@@ -568,7 +545,7 @@ export default function ContactPage() {
               </p>
             </div>
 
-            <div className="rounded-2xl border border-surface-border bg-surface-card p-8 hover:border-primary-300 transition-colors">
+            <div className="rounded-2xl border border-surface-border bg-surface-card p-8 hover:border-primary-500/60 transition-colors">
               <h3 className="text-lg font-bold text-white mb-3">
                 What makes StephensCode different from other web developers?
               </h3>
@@ -582,7 +559,7 @@ export default function ContactPage() {
             <p className="text-gray-400 mb-4">Still have questions?</p>
             <a
               href="tel:+19363234527"
-              className="inline-flex items-center gap-2 rounded-lg bg-primary-600 px-6 py-3 text-base font-semibold text-white shadow-lg hover:bg-primary-700 transition-all"
+              className="inline-flex items-center gap-2 rounded-md bg-primary-500 px-6 py-3 text-base font-semibold text-white hover:bg-primary-600 transition-colors"
             >
               <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                 <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z" />

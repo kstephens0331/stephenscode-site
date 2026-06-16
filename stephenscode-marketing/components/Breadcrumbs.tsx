@@ -44,13 +44,13 @@ export default function Breadcrumbs({ items }: BreadcrumbsProps) {
       />
 
       {/* Visual breadcrumb navigation */}
-      <nav aria-label="Breadcrumb" className="bg-slate-800 border-b border-slate-700">
+      <nav aria-label="Breadcrumb" className="bg-surface-card border-b border-surface-border">
         <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
           <ol className="flex items-center space-x-2 py-3 text-sm">
             <li>
               <Link
                 href="/"
-                className="text-gray-500 hover:text-primary-600 transition-colors"
+                className="text-gray-500 hover:text-primary-400 transition-colors"
               >
                 <HomeIcon className="h-4 w-4 flex-shrink-0" aria-hidden="true" />
                 <span className="sr-only">Home</span>
@@ -72,7 +72,7 @@ export default function Breadcrumbs({ items }: BreadcrumbsProps) {
                 ) : (
                   <Link
                     href={item.href}
-                    className="ml-2 text-gray-500 hover:text-primary-600 transition-colors truncate max-w-[150px] sm:max-w-none"
+                    className="ml-2 text-gray-500 hover:text-primary-400 transition-colors truncate max-w-[150px] sm:max-w-none"
                   >
                     {item.name}
                   </Link>

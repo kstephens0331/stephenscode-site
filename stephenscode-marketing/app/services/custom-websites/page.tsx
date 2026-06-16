@@ -4,7 +4,7 @@ import { serviceSchema } from '@/lib/schemas'
 
 export const metadata: Metadata = {
   title: 'Custom Website Development | From $250 | Houston & Conroe',
-  description: 'Professional custom website development for Houston businesses. Responsive design, SEO-optimized, mobile-friendly. Flat-rate pricing from $850. Free consultation.',
+  description: 'Professional custom website development for Houston businesses. Responsive design, SEO-optimized, mobile-friendly. Flat-rate pricing from $950. Free consultation.',
   keywords: ['custom website development Houston', 'small business website Conroe TX', 'responsive web design Texas'],
 }
 
@@ -39,7 +39,7 @@ export default function CustomWebsitesPage() {
     },
     {
       name: 'Standard Website',
-      price: '$850',
+      price: '$950',
       description: 'Custom-built website with Home, About, Services, Contact pages',
       features: [
         'Custom design & development',
@@ -68,7 +68,7 @@ export default function CustomWebsitesPage() {
       {/* Schema Markup */}
       <script
         type="application/ld+json"
-        dangerouslySetInnerHTML={{ __html: JSON.stringify(serviceSchema('Custom Website Development', '850')) }}
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(serviceSchema('Custom Website Development', '950')) }}
       />
 
       {/* Hero Section */}

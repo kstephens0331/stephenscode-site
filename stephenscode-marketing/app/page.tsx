@@ -270,6 +270,9 @@ export default function Home() {
             <p className="mt-10 max-w-2xl text-lg leading-8 text-gray-300 animate-fade-in-up animation-delay-400">
               I&apos;m Kyle. I&apos;ve been building websites and custom software for small businesses out of Conroe, Texas for 14 years. You get a flat quote up front, you get the site you paid for, and you get my cell number if anything breaks. That&apos;s it. No retainer games, no agency layers.
             </p>
+            <p className="mt-4 max-w-2xl text-base leading-7 text-gray-400 animate-fade-in-up animation-delay-400">
+              Your project is built by <span className="font-semibold text-white">real developers</span> and watched over by our team. Never AI-generated code dumped on you, never an offshore template factory.
+            </p>
 
             <div className="mt-12 flex flex-wrap items-center gap-3 animate-fade-in-up animation-delay-600">
               <Link

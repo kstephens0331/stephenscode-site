@@ -39,12 +39,12 @@ export default function ServiceAreasPage() {
     <Link
       key={area.slug}
       href={`/service-areas/${area.slug}`}
-      className="group bg-surface-card rounded-lg p-6 hover:bg-primary-500/10 hover:shadow-md hover:shadow-black/20 transition-all"
+      className="group bg-surface-card rounded-lg p-6 ring-1 ring-surface-border hover:ring-primary-500/50 transition-all"
     >
       <h4 className="text-lg font-semibold text-white group-hover:text-primary-400">
         {area.name}
         {area.slug === 'conroe' && (
-          <span className="ml-2 text-xs bg-primary-600 text-white px-2 py-0.5 rounded">
+          <span className="ml-2 text-xs bg-primary-500 text-white px-2 py-0.5 rounded">
             HQ
           </span>
         )}
@@ -58,7 +58,7 @@ export default function ServiceAreasPage() {
       <p className="mt-2 text-xs text-gray-500 line-clamp-2">
         {area.businessTypes.slice(0, 4).join(' · ')}
       </p>
-      <p className="mt-3 text-sm font-semibold text-primary-600 group-hover:text-primary-400">
+      <p className="mt-3 text-sm font-semibold text-primary-400 group-hover:text-primary-300">
         View details →
       </p>
     </Link>
@@ -84,26 +84,34 @@ export default function ServiceAreasPage() {
   return (
     <>
       {/* Hero Section */}
-      <section className="relative bg-gradient-to-br from-black via-surface to-surface-card text-white">
-        <div className="mx-auto max-w-7xl px-6 py-16 sm:py-24 lg:px-8">
+      <section className="relative bg-black border-b border-surface-border overflow-hidden">
+        {/* Soft vertical sheen — barely there, gives the canvas depth without halo */}
+        <div className="pointer-events-none absolute inset-0 bg-gradient-to-b from-surface-card/60 via-black to-black" />
+
+        <div className="relative mx-auto max-w-7xl px-6 py-16 sm:py-24 lg:px-8">
           <div className="mx-auto max-w-2xl text-center">
-            <h1 className="text-4xl font-bold tracking-tight sm:text-5xl">
+            <div className="mb-8 inline-flex items-center gap-3 text-[11px] font-semibold uppercase tracking-[0.22em] text-primary-500">
+              <span aria-hidden="true" className="font-mono text-primary-500/80">&lt;</span>
+              <span>Greater Houston</span>
+              <span aria-hidden="true" className="font-mono text-primary-500/80">/&gt;</span>
+            </div>
+            <h1 className="text-4xl font-bold tracking-tight text-white sm:text-5xl">
               Web Development Across Greater Houston
             </h1>
-            <p className="mt-6 text-lg leading-8 text-gray-200">
+            <p className="mt-6 text-lg leading-8 text-gray-300">
               Conroe-based web developer serving {serviceAreas.length}+ communities from Montgomery County to Galveston Bay.
               Local knowledge, veteran-owned quality, and flat-rate pricing for every neighborhood.
             </p>
-            <div className="mt-8 flex items-center justify-center gap-x-6">
+            <div className="mt-8 flex flex-wrap items-center justify-center gap-3">
               <Link
                 href="/contact"
-                className="rounded-md bg-accent-500 px-6 py-3 text-base font-semibold text-white shadow-sm hover:bg-accent-600"
+                className="inline-flex items-center gap-2 rounded-md bg-primary-500 px-6 py-3 text-base font-semibold text-white hover:bg-primary-600 transition-colors"
               >
                 Get Free Quote
               </Link>
               <a
                 href="tel:9363234527"
-                className="text-base font-semibold leading-7 text-white hover:text-gray-200"
+                className="inline-flex items-center gap-2 rounded-md border border-surface-border px-6 py-3 text-base font-semibold text-white hover:border-primary-500/60 hover:bg-surface-card transition-colors"
               >
                 Call (936) 323-4527 <span aria-hidden="true">→</span>
               </a>
@@ -117,19 +125,19 @@ export default function ServiceAreasPage() {
         <div className="mx-auto max-w-7xl px-6 lg:px-8">
           <dl className="grid grid-cols-2 gap-4 sm:grid-cols-4">
             <div className="text-center">
-              <dd className="text-3xl font-bold text-primary-600">{serviceAreas.length}+</dd>
+              <dd className="text-3xl font-bold text-accent-400">{serviceAreas.length}+</dd>
               <dt className="text-sm text-gray-400">Communities Served</dt>
             </div>
             <div className="text-center">
-              <dd className="text-3xl font-bold text-primary-600">6</dd>
+              <dd className="text-3xl font-bold text-accent-400">6</dd>
               <dt className="text-sm text-gray-400">Counties Covered</dt>
             </div>
             <div className="text-center">
-              <dd className="text-3xl font-bold text-primary-600">14+</dd>
+              <dd className="text-3xl font-bold text-accent-400">14+</dd>
               <dt className="text-sm text-gray-400">Years Experience</dt>
             </div>
             <div className="text-center">
-              <dd className="text-3xl font-bold text-primary-600">$250</dd>
+              <dd className="text-3xl font-bold text-accent-400">$250</dd>
               <dt className="text-sm text-gray-400">Starting Price</dt>
             </div>
           </dl>
@@ -197,39 +205,36 @@ export default function ServiceAreasPage() {
             <p className="mt-4 text-lg text-gray-300">
               While we're based in Conroe, Texas, we build websites for businesses across the entire United States through remote collaboration.
             </p>
-            <div className="mt-10 grid grid-cols-1 gap-8 sm:grid-cols-3">
-              <div className="rounded-lg bg-surface-elevated/70 p-6 border border-surface-border">
-                <div className="text-3xl mb-3">📹</div>
+            <div className="mt-10 grid grid-cols-1 gap-6 sm:grid-cols-3 text-left">
+              <div className="rounded-lg bg-surface-elevated p-6 border border-surface-border">
                 <h3 className="text-lg font-semibold text-white">Video Consultations</h3>
                 <p className="mt-2 text-sm text-gray-400">
                   Face-to-face meetings via Zoom or Google Meet. Screen sharing for real-time design reviews and feedback sessions.
                 </p>
               </div>
-              <div className="rounded-lg bg-surface-elevated/70 p-6 border border-surface-border">
-                <div className="text-3xl mb-3">💬</div>
+              <div className="rounded-lg bg-surface-elevated p-6 border border-surface-border">
                 <h3 className="text-lg font-semibold text-white">Real-Time Communication</h3>
                 <p className="mt-2 text-sm text-gray-400">
                   Dedicated Slack channels, email, and phone support. You'll never wonder about your project's status.
                 </p>
               </div>
-              <div className="rounded-lg bg-surface-elevated/70 p-6 border border-surface-border">
-                <div className="text-3xl mb-3">🚀</div>
+              <div className="rounded-lg bg-surface-elevated p-6 border border-surface-border">
                 <h3 className="text-lg font-semibold text-white">Same Quality, Any Distance</h3>
                 <p className="mt-2 text-sm text-gray-400">
-                  Same transparent pricing, same timeline guarantees, same veteran-owned quality — regardless of where you're located.
+                  Same transparent pricing, same timeline guarantees, same veteran-owned quality, regardless of where you're located.
                 </p>
               </div>
             </div>
-            <div className="mt-10 flex items-center justify-center gap-x-6">
+            <div className="mt-10 flex flex-wrap items-center justify-center gap-3">
               <Link
                 href="/contact"
-                className="rounded-md bg-primary-600 px-6 py-3 text-base font-semibold text-white shadow-sm hover:bg-primary-700"
+                className="inline-flex items-center gap-2 rounded-md bg-primary-500 px-6 py-3 text-base font-semibold text-white hover:bg-primary-600 transition-colors"
               >
                 Start Your Project
               </Link>
               <a
                 href="tel:9363234527"
-                className="text-base font-semibold text-gray-300 hover:text-primary-400"
+                className="inline-flex items-center gap-2 rounded-md border border-surface-border px-6 py-3 text-base font-semibold text-white hover:border-primary-500/60 hover:bg-surface transition-colors"
               >
                 Call (936) 323-4527 <span aria-hidden="true">→</span>
               </a>
@@ -239,29 +244,27 @@ export default function ServiceAreasPage() {
       </section>
 
       {/* CTA Section */}
-      <section className="bg-primary-900 text-white">
-        <div className="px-6 py-16 sm:px-6 sm:py-24 lg:px-8">
-          <div className="mx-auto max-w-2xl text-center">
-            <h2 className="text-3xl font-bold tracking-tight sm:text-4xl">
-              Ready to Get Started?
-            </h2>
-            <p className="mx-auto mt-6 max-w-xl text-lg leading-8 text-gray-200">
-              Free consultation, transparent pricing, and veteran-owned quality for your local business.
-            </p>
-            <div className="mt-10 flex items-center justify-center gap-x-6">
-              <Link
-                href="/contact"
-                className="rounded-md bg-accent-500 px-6 py-3 text-base font-semibold text-white shadow-sm hover:bg-accent-600"
-              >
-                Get Free Quote
-              </Link>
-              <Link
-                href="/services"
-                className="text-base font-semibold leading-7 text-white hover:text-gray-200"
-              >
-                View Services <span aria-hidden="true">→</span>
-              </Link>
-            </div>
+      <section className="bg-surface border-t border-surface-border">
+        <div className="mx-auto max-w-2xl px-6 py-16 sm:py-24 lg:px-8 text-center">
+          <h2 className="text-3xl font-bold tracking-tight text-white sm:text-4xl">
+            Ready to Get Started?
+          </h2>
+          <p className="mx-auto mt-4 max-w-xl text-lg leading-8 text-gray-300">
+            Free consultation, transparent pricing, and veteran-owned quality for your local business.
+          </p>
+          <div className="mt-10 flex flex-wrap items-center justify-center gap-3">
+            <Link
+              href="/contact"
+              className="inline-flex items-center gap-2 rounded-md bg-primary-500 px-6 py-3 text-base font-semibold text-white hover:bg-primary-600 transition-colors"
+            >
+              Get Free Quote
+            </Link>
+            <Link
+              href="/services"
+              className="inline-flex items-center gap-2 rounded-md border border-surface-border px-6 py-3 text-base font-semibold text-white hover:border-primary-500/60 hover:bg-surface-card transition-colors"
+            >
+              View Services <span aria-hidden="true">→</span>
+            </Link>
           </div>
         </div>
       </section>

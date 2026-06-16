@@ -1,5 +1,9 @@
 import Link from 'next/link'
 import type { Metadata } from 'next'
+import {
+  Monitor, Lock, Cloud, Wrench, Clock, Award,
+  MapPin, DollarSign, ArrowRight, Check, Phone, ShieldCheck,
+} from 'lucide-react'
 import { managedITServices, cybersecurityServices, cloudServices, supportServices } from '@/lib/msp-services-data'
 
 export const metadata: Metadata = {
@@ -69,58 +73,54 @@ export default function MSPServicesPage() {
       subtitle: 'Your Outsourced IT Department',
       description: 'Complete IT management so you can focus on your business. From helpdesk support to strategic IT planning.',
       services: managedITServices,
-      icon: '🖥️',
-      gradient: 'from-primary-600 to-primary-800'
+      Icon: Monitor,
     },
     {
       title: 'Cybersecurity',
       subtitle: 'Protect Your Business',
       description: 'Defend against ransomware, phishing, and data breaches with enterprise-grade security solutions.',
       services: cybersecurityServices,
-      icon: '🔒',
-      gradient: 'from-red-600 to-red-800'
+      Icon: Lock,
     },
     {
       title: 'Cloud Solutions',
       subtitle: 'Modern Infrastructure',
       description: 'Microsoft 365 management, cloud backup, and migration services to modernize your IT.',
       services: cloudServices,
-      icon: '☁️',
-      gradient: 'from-accent-600 to-accent-800'
+      Icon: Cloud,
     },
     {
       title: 'IT Support & Projects',
       subtitle: 'Flexible Options',
       description: 'On-demand support, network installation, and consulting for businesses of all sizes.',
       services: supportServices,
-      icon: '🔧',
-      gradient: 'from-orange-600 to-orange-800'
+      Icon: Wrench,
     }
   ]
 
   const whyChooseMSP = [
     {
       title: '24/7 Monitoring & Support',
-      description: 'Your systems are monitored around the clock. When issues arise, we\'re on it—often before you even notice.',
-      icon: '🕐',
+      description: 'Your systems are monitored around the clock. When issues arise, we\'re on it, often before you even notice.',
+      Icon: Clock,
       stats: 'Always-On Protection'
     },
     {
       title: 'Veteran-Owned Business',
       description: 'Military discipline meets IT expertise. We bring the same dedication and attention to detail to protecting your business.',
-      icon: '🎖️',
+      Icon: Award,
       stats: '14+ Years Experience'
     },
     {
       title: 'Local Houston-Area Team',
       description: 'Based in Conroe, we provide on-site support throughout Houston, The Woodlands, Spring, and surrounding areas.',
-      icon: '📍',
+      Icon: MapPin,
       stats: 'On-Site When Needed'
     },
     {
       title: 'Predictable Monthly Costs',
       description: 'No surprise IT bills. Know exactly what you\'ll pay each month with our transparent per-user pricing.',
-      icon: '💰',
+      Icon: DollarSign,
       stats: 'From $99/user/mo'
     }
   ]
@@ -140,184 +140,188 @@ export default function MSPServicesPage() {
       />
 
       {/* Hero Section */}
-      <section className="relative overflow-hidden bg-gradient-to-br from-gray-900 via-primary-900 to-gray-900 text-white">
-        <div className="absolute inset-0 opacity-20">
-          <div className="absolute inset-0" style={{
-            backgroundImage: `url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%23ffffff' fill-opacity='0.4'%3E%3Cpath d='M36 34v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4zm0-30V0h-2v4h-4v2h4v4h2V6h4V4h-4zM6 34v-4H4v4H0v2h4v4h2v-4h4v-2H6zM6 4V0H4v4H0v2h4v4h2V6h4V4H6z'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E")`
-          }}></div>
-        </div>
+      <section className="relative bg-black border-b border-surface-border overflow-hidden">
+        <div className="pointer-events-none absolute inset-0 bg-gradient-to-b from-surface-card/60 via-black to-black" />
 
-        <div className="relative mx-auto max-w-7xl px-6 py-32 sm:py-40 lg:px-8">
+        <div className="relative mx-auto max-w-7xl px-6 py-28 sm:py-32 lg:px-8">
           <div className="mx-auto max-w-4xl text-center">
-            <div className="mb-8 inline-flex items-center gap-3 rounded-full bg-red-500/20 px-6 py-3 text-sm font-semibold backdrop-blur-lg border border-red-500/30 shadow-2xl">
-              <span className="text-2xl">🔒</span>
-              <span>Managed IT & Cybersecurity</span>
+            <div className="mb-10 inline-flex items-center gap-3 text-[11px] font-semibold uppercase tracking-[0.22em] text-primary-500 animate-fade-in-up">
+              <span aria-hidden="true" className="font-mono text-primary-500/80">&lt;</span>
+              <span>Managed IT &amp; Cybersecurity</span>
+              <span aria-hidden="true" className="font-mono text-primary-500/80">/&gt;</span>
             </div>
 
-            <h1 className="text-5xl font-bold tracking-tight sm:text-7xl mb-8">
+            <h1 className="text-5xl font-bold tracking-tight text-white sm:text-7xl leading-[1.02] animate-fade-in-up animation-delay-200">
               IT Services That
-              <span className="block text-red-400 mt-2">Protect & Power</span>
-              Your Business
+              <span className="block text-primary-500 mt-2">Protect &amp; Power</span>
+              <span className="block text-gray-500 mt-2">Your Business</span>
             </h1>
 
-            <p className="mt-8 text-xl leading-8 text-gray-200 max-w-3xl mx-auto">
-              Stop worrying about technology and start growing your business. Our managed IT services provide <strong className="text-white">24/7 monitoring, cybersecurity protection, and expert support</strong>—all for a predictable monthly cost.
+            <p className="mt-10 text-xl leading-8 text-gray-300 max-w-3xl mx-auto animate-fade-in-up animation-delay-400">
+              Stop worrying about technology and start growing your business. Our managed IT services provide <strong className="text-white">24/7 monitoring, cybersecurity protection, and expert support</strong>, all for a predictable monthly cost.
             </p>
 
             {/* Stats Bar */}
-            <div className="mt-12 grid grid-cols-2 md:grid-cols-4 gap-6">
+            <div className="mt-14 grid grid-cols-2 md:grid-cols-4 gap-4 animate-fade-in-up animation-delay-600">
               {stats.map((stat) => (
-                <div key={stat.label} className="rounded-xl bg-surface-card/60 backdrop-blur-lg border border-surface-border p-4">
-                  <div className="text-3xl font-bold text-red-400">{stat.value}</div>
-                  <div className="text-sm text-gray-300">{stat.label}</div>
+                <div key={stat.label} className="rounded-md bg-surface-card ring-1 ring-surface-border p-4">
+                  <div className="text-3xl font-bold tracking-tight text-white">{stat.value}</div>
+                  <div className="text-sm text-gray-400">{stat.label}</div>
                 </div>
               ))}
             </div>
 
-            <div className="mt-12 flex flex-wrap items-center justify-center gap-4">
+            <div className="mt-12 flex flex-wrap items-center justify-center gap-3 animate-fade-in-up animation-delay-800">
               <Link
                 href="/contact"
-                className="group inline-flex items-center gap-2 rounded-lg bg-red-500 px-8 py-4 text-lg font-bold text-white shadow-2xl hover:bg-red-600 transition-all"
+                className="group inline-flex items-center gap-2 rounded-md bg-primary-500 px-6 py-3 text-base font-semibold text-white hover:bg-primary-600 transition-colors"
               >
-                <span>Get Free IT Assessment</span>
-                <svg className="w-5 h-5 group-hover:translate-x-1 transition-transform" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M13 7l5 5m0 0l-5 5m5-5H6" />
-                </svg>
+                Get Free IT Assessment
+                <ArrowRight className="h-4 w-4 transition-transform group-hover:translate-x-0.5" />
               </Link>
               <a
                 href="tel:+19363234527"
-                className="inline-flex items-center gap-2 rounded-lg bg-surface-card/60 px-8 py-4 text-lg font-bold text-white backdrop-blur-lg border-2 border-surface-border hover:bg-surface-elevated/80 transition-all"
+                className="inline-flex items-center gap-2 rounded-md border border-surface-border px-6 py-3 text-base font-semibold text-white hover:border-primary-500/60 hover:bg-surface-card transition-colors"
               >
-                <span>📞 (936) 323-4527</span>
+                <Phone className="h-4 w-4" />
+                (936) 323-4527
               </a>
             </div>
           </div>
         </div>
-
-        <div className="absolute bottom-0 left-0 right-0">
-          <svg viewBox="0 0 1440 120" fill="none" xmlns="http://www.w3.org/2000/svg" className="w-full">
-            <path d="M0 120L60 105C120 90 240 60 360 45C480 30 600 30 720 37.5C840 45 960 60 1080 67.5C1200 75 1320 75 1380 75L1440 75V120H1380C1320 120 1200 120 1080 120C960 120 840 120 720 120C600 120 480 120 360 120C240 120 120 120 60 120H0Z" fill="#0f172a"/>
-          </svg>
-        </div>
       </section>
 
       {/* Service Categories */}
-      {serviceCategories.map((category, catIndex) => (
-        <section key={category.title} className={catIndex % 2 === 0 ? 'bg-surface py-24 sm:py-32' : 'bg-surface-card py-24 sm:py-32'}>
-          <div className="mx-auto max-w-7xl px-6 lg:px-8">
-            <div className="mx-auto max-w-2xl text-center mb-16">
-              <div className={`inline-flex items-center gap-3 rounded-full bg-gradient-to-r ${category.gradient} px-6 py-3 text-white shadow-xl mb-6`}>
-                <span className="text-3xl">{category.icon}</span>
-                <span className="font-bold">{category.subtitle}</span>
+      {serviceCategories.map((category, catIndex) => {
+        const CatIcon = category.Icon
+        return (
+          <section key={category.title} className={`${catIndex % 2 === 0 ? 'bg-surface' : 'bg-surface-card'} py-24 sm:py-28 border-b border-surface-border`}>
+            <div className="mx-auto max-w-7xl px-6 lg:px-8">
+              <div className="mx-auto max-w-2xl text-center mb-16">
+                <div className="inline-flex items-center gap-3 text-[11px] font-semibold uppercase tracking-[0.22em] text-primary-500 mb-4">
+                  <span aria-hidden="true" className="font-mono text-primary-500/80">&lt;</span>
+                  <span>{category.subtitle}</span>
+                  <span aria-hidden="true" className="font-mono text-primary-500/80">/&gt;</span>
+                </div>
+                <div className="mx-auto mb-6 flex h-12 w-12 items-center justify-center rounded-md border border-primary-500/40 text-primary-500">
+                  <CatIcon className="h-5 w-5" strokeWidth={1.75} />
+                </div>
+                <h2 className="text-3xl font-bold tracking-tight text-white sm:text-4xl mb-4">
+                  {category.title}
+                </h2>
+                <p className="text-lg leading-8 text-gray-400">
+                  {category.description}
+                </p>
               </div>
-              <h2 className="text-4xl font-bold tracking-tight text-white sm:text-5xl mb-6">
-                {category.title}
-              </h2>
-              <p className="text-lg leading-8 text-gray-400">
-                {category.description}
-              </p>
-            </div>
 
-            <div className="grid grid-cols-1 gap-8 lg:grid-cols-2 xl:grid-cols-3">
-              {category.services.map((service) => (
-                <article
-                  key={service.id}
-                  className="group relative flex flex-col rounded-2xl bg-surface-card border-2 border-surface-border p-8 shadow-lg hover:border-primary-500 transition-all"
-                >
-                  <div className="mb-4">
-                    <h3 className="text-2xl font-bold text-white group-hover:text-primary-400 transition-colors">
-                      {service.name}
-                    </h3>
-                    <p className="mt-2 text-sm text-gray-400 capitalize">{service.category.replace('-', ' ')}</p>
-                  </div>
-
-                  <p className="text-gray-400 mb-6 line-clamp-3">
-                    {service.shortDescription}
-                  </p>
-
-                  <div className="mb-6">
-                    <p className="text-3xl font-bold text-primary-600">
-                      {service.priceLabel}
-                    </p>
-                    <p className="text-sm text-gray-400 mt-1">{service.timeline}</p>
-                  </div>
-
-                  <div className="mb-6 flex-1">
-                    <p className="text-sm font-semibold text-gray-300 mb-3">Includes:</p>
-                    <ul className="space-y-2">
-                      {service.features.slice(0, 4).map((feature, i) => (
-                        <li key={i} className="flex items-start gap-2 text-sm text-gray-400">
-                          <svg className="h-5 w-5 text-green-600 flex-shrink-0 mt-0.5" fill="currentColor" viewBox="0 0 20 20">
-                            <path fillRule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.857-9.809a.75.75 0 00-1.214-.882l-3.483 4.79-1.88-1.88a.75.75 0 10-1.06 1.061l2.5 2.5a.75.75 0 001.137-.089l4-5.5z" clipRule="evenodd" />
-                          </svg>
-                          <span>{feature}</span>
-                        </li>
-                      ))}
-                    </ul>
-                  </div>
-
-                  <Link
-                    href={`/msp/${service.slug}`}
-                    className="block w-full rounded-lg bg-primary-600 px-6 py-3 text-center text-sm font-bold text-white hover:bg-primary-700 transition-colors"
+              <div className="grid grid-cols-1 gap-6 lg:grid-cols-2 xl:grid-cols-3">
+                {category.services.map((service) => (
+                  <article
+                    key={service.id}
+                    className="group relative flex flex-col rounded-2xl bg-surface-card ring-1 ring-surface-border p-7 card-lift hover:ring-primary-500/50 transition-all"
                   >
-                    Learn More →
-                  </Link>
-                </article>
-              ))}
+                    <div className="mb-4">
+                      <h3 className="text-2xl font-bold text-white group-hover:text-primary-400 transition-colors">
+                        {service.name}
+                      </h3>
+                      <p className="mt-2 text-sm text-gray-500 capitalize">{service.category.replace('-', ' ')}</p>
+                    </div>
+
+                    <p className="text-gray-400 mb-6 line-clamp-3">
+                      {service.shortDescription}
+                    </p>
+
+                    <div className="mb-6">
+                      <p className="text-3xl font-bold tracking-tight text-white">
+                        {service.priceLabel}
+                      </p>
+                      <p className="text-sm text-gray-500 mt-1">{service.timeline}</p>
+                    </div>
+
+                    <div className="mb-6 flex-1">
+                      <p className="text-sm font-semibold text-gray-300 mb-3">Includes:</p>
+                      <ul className="space-y-2">
+                        {service.features.slice(0, 4).map((feature, i) => (
+                          <li key={i} className="flex items-start gap-2.5 text-sm text-gray-300">
+                            <Check className="h-4 w-4 flex-none mt-0.5 text-primary-500" strokeWidth={2.5} />
+                            <span>{feature}</span>
+                          </li>
+                        ))}
+                      </ul>
+                    </div>
+
+                    <Link
+                      href={`/msp/${service.slug}`}
+                      className="block w-full rounded-md bg-primary-500 px-6 py-3 text-center text-sm font-semibold text-white hover:bg-primary-600 transition-colors"
+                    >
+                      Learn More
+                    </Link>
+                  </article>
+                ))}
+              </div>
             </div>
-          </div>
-        </section>
-      ))}
+          </section>
+        )
+      })}
 
       {/* Why Choose Us */}
-      <section className="bg-gradient-to-b from-gray-900 to-gray-800 text-white py-24 sm:py-32">
+      <section className="bg-surface py-24 sm:py-28 border-b border-surface-border">
         <div className="mx-auto max-w-7xl px-6 lg:px-8">
           <div className="mx-auto max-w-2xl text-center mb-16">
-            <h2 className="text-base font-semibold leading-7 text-red-400">Why StephensCode MSP?</h2>
-            <p className="mt-2 text-4xl font-bold tracking-tight text-white sm:text-5xl">
+            <div className="inline-flex items-center gap-3 text-[11px] font-semibold uppercase tracking-[0.22em] text-primary-500 mb-4">
+              <span aria-hidden="true" className="font-mono text-primary-500/80">&lt;</span>
+              <span>Why StephensCode MSP?</span>
+              <span aria-hidden="true" className="font-mono text-primary-500/80">/&gt;</span>
+            </div>
+            <h2 className="text-3xl font-bold tracking-tight text-white sm:text-4xl">
               IT Support You Can Trust
-            </p>
+            </h2>
           </div>
 
-          <div className="grid grid-cols-1 gap-8 lg:grid-cols-2">
-            {whyChooseMSP.map((item, index) => (
-              <div key={index} className="relative group overflow-hidden rounded-2xl bg-surface-card/60 backdrop-blur-lg border border-surface-border p-8 hover:bg-surface-elevated/80 transition-all">
-                <div className="flex items-start gap-6">
-                  <div className="flex h-16 w-16 flex-shrink-0 items-center justify-center rounded-xl bg-red-500 text-4xl shadow-lg group- transition-transform">
-                    {item.icon}
-                  </div>
-                  <div className="flex-1">
-                    <h3 className="text-xl font-bold text-white mb-2">{item.title}</h3>
-                    <p className="text-gray-300 mb-4">{item.description}</p>
-                    <div className="inline-flex items-center gap-2 rounded-full bg-red-500/20 px-4 py-2 text-sm font-bold text-red-300">
-                      <svg className="h-4 w-4" fill="currentColor" viewBox="0 0 20 20">
-                        <path fillRule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.857-9.809a.75.75 0 00-1.214-.882l-3.483 4.79-1.88-1.88a.75.75 0 10-1.06 1.061l2.5 2.5a.75.75 0 001.137-.089l4-5.5z" clipRule="evenodd" />
-                      </svg>
-                      <span>{item.stats}</span>
+          <div className="grid grid-cols-1 gap-6 lg:grid-cols-2">
+            {whyChooseMSP.map((item, index) => {
+              const Icon = item.Icon
+              return (
+                <div key={index} className="group rounded-2xl bg-surface-card ring-1 ring-surface-border p-8 hover:ring-primary-500/50 transition-all">
+                  <div className="flex items-start gap-5">
+                    <div className="flex h-12 w-12 flex-none items-center justify-center rounded-md border border-primary-500/40 text-primary-500 group-hover:border-primary-500 group-hover:text-primary-400 transition-colors">
+                      <Icon className="h-5 w-5" strokeWidth={1.75} />
+                    </div>
+                    <div className="flex-1">
+                      <h3 className="text-xl font-bold text-white mb-2">{item.title}</h3>
+                      <p className="text-gray-400 mb-4">{item.description}</p>
+                      <div className="inline-flex items-center gap-2 rounded-md bg-surface-elevated border border-surface-border px-4 py-2 text-sm font-semibold text-accent-400">
+                        <Check className="h-4 w-4" strokeWidth={2.5} />
+                        <span>{item.stats}</span>
+                      </div>
                     </div>
                   </div>
                 </div>
-              </div>
-            ))}
+              )
+            })}
           </div>
         </div>
       </section>
 
       {/* FAQ Section */}
-      <section className="bg-surface py-24 sm:py-32">
+      <section className="bg-surface-card py-24 sm:py-28 border-b border-surface-border">
         <div className="mx-auto max-w-4xl px-6 lg:px-8">
           <div className="mx-auto max-w-2xl text-center mb-16">
-            <h2 className="text-base font-semibold leading-7 text-red-400">Frequently Asked Questions</h2>
-            <p className="mt-2 text-4xl font-bold tracking-tight text-white sm:text-5xl">
+            <div className="inline-flex items-center gap-3 text-[11px] font-semibold uppercase tracking-[0.22em] text-primary-500 mb-4">
+              <span aria-hidden="true" className="font-mono text-primary-500/80">&lt;</span>
+              <span>Frequently Asked Questions</span>
+              <span aria-hidden="true" className="font-mono text-primary-500/80">/&gt;</span>
+            </div>
+            <h2 className="text-3xl font-bold tracking-tight text-white sm:text-4xl">
               Managed IT Services FAQ
-            </p>
+            </h2>
           </div>
 
-          <div className="space-y-6">
+          <div className="space-y-4">
             {[
               {
                 question: "What is included in managed IT services?",
-                answer: "Our managed IT services include 24/7 system monitoring, helpdesk support, cybersecurity protection (antivirus, firewall, threat detection), backup and disaster recovery, Microsoft 365 management, patch management, and strategic IT consulting. The specific features depend on your plan—Essential IT ($99/user), Business Pro ($129/user), or Complete IT ($179/user)."
+                answer: "Our managed IT services include 24/7 system monitoring, helpdesk support, cybersecurity protection (antivirus, firewall, threat detection), backup and disaster recovery, Microsoft 365 management, patch management, and strategic IT consulting. The specific features depend on your plan, Essential IT ($99/user), Business Pro ($129/user), or Complete IT ($179/user)."
               },
               {
                 question: "How much do managed IT services cost?",
@@ -345,19 +349,17 @@ export default function MSPServicesPage() {
               },
               {
                 question: "How do we get started with managed IT services?",
-                answer: "Start with a free IT assessment. We'll evaluate your current infrastructure, identify vulnerabilities, and recommend the right service level. There's no obligation—just honest advice about your IT needs. If you decide to move forward, onboarding typically takes 1-2 weeks."
+                answer: "Start with a free IT assessment. We'll evaluate your current infrastructure, identify vulnerabilities, and recommend the right service level. There's no obligation, just honest advice about your IT needs. If you decide to move forward, onboarding typically takes 1-2 weeks."
               }
             ].map((faq, index) => (
               <details
                 key={index}
-                className="group rounded-2xl border-2 border-surface-border bg-surface-card hover:border-red-300 transition-colors"
+                className="group rounded-2xl border border-surface-border bg-surface hover:border-primary-500/60 transition-colors"
               >
-                <summary className="flex cursor-pointer items-center justify-between p-6 text-lg font-bold text-white">
+                <summary className="flex cursor-pointer items-center justify-between p-6 text-lg font-semibold text-white">
                   <span>{faq.question}</span>
-                  <span className="ml-4 flex-shrink-0 text-red-600 group-open:rotate-180 transition-transform">
-                    <svg className="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 9l-7 7-7-7" />
-                    </svg>
+                  <span className="ml-4 flex-shrink-0 text-primary-500 group-open:rotate-180 transition-transform">
+                    <ArrowRight className="h-5 w-5 rotate-90" />
                   </span>
                 </summary>
                 <div className="px-6 pb-6">
@@ -371,48 +373,40 @@ export default function MSPServicesPage() {
             <p className="text-gray-400 mb-4">Ready to improve your IT?</p>
             <Link
               href="/contact"
-              className="inline-flex items-center gap-2 text-red-600 font-bold hover:text-red-700"
+              className="inline-flex items-center gap-2 text-primary-400 font-semibold hover:text-primary-300 transition-colors"
             >
               <span>Schedule your free IT assessment</span>
-              <span>→</span>
+              <ArrowRight className="h-4 w-4" />
             </Link>
           </div>
         </div>
       </section>
 
       {/* CTA Section */}
-      <section className="relative overflow-hidden bg-gradient-to-br from-red-600 via-red-700 to-red-800 text-white">
-        <div className="absolute inset-0 opacity-10">
-          <div className="absolute inset-0" style={{
-            backgroundImage: `url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%23ffffff' fill-opacity='1'%3E%3Cpath d='M36 34v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4zm0-30V0h-2v4h-4v2h4v4h2V6h4V4h-4zM6 34v-4H4v4H0v2h4v4h2v-4h4v-2H6zM6 4V0H4v4H0v2h4v4h2V6h4V4H6z'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E")`
-          }}></div>
-        </div>
-
-        <div className="relative px-6 py-24 sm:px-6 sm:py-32 lg:px-8">
-          <div className="mx-auto max-w-3xl text-center">
-            <h2 className="text-4xl font-bold tracking-tight sm:text-6xl mb-8">
-              Is Your Business Protected?
-            </h2>
-            <p className="mx-auto max-w-2xl text-xl leading-8 text-red-100 mb-12">
-              Get a free IT assessment to identify vulnerabilities and opportunities. No obligation, no sales pressure—just honest advice about your technology.
-            </p>
-            <div className="flex flex-wrap items-center justify-center gap-4">
-              <Link
-                href="/contact"
-                className="group inline-flex items-center gap-2 rounded-lg bg-surface-card px-10 py-5 text-xl font-bold text-red-400 shadow-2xl hover:bg-surface-elevated transition-all"
-              >
-                <span>Schedule Free Assessment</span>
-                <svg className="w-6 h-6 group-hover:translate-x-1 transition-transform" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M13 7l5 5m0 0l-5 5m5-5H6" />
-                </svg>
-              </Link>
-              <a
-                href="tel:+19363234527"
-                className="inline-flex items-center gap-2 rounded-lg bg-surface-card/60 px-10 py-5 text-xl font-bold text-white backdrop-blur-lg border-2 border-surface-border hover:bg-surface-elevated/80 transition-all"
-              >
-                <span>📞 Call (936) 323-4527</span>
-              </a>
-            </div>
+      <section className="bg-surface border-t border-surface-border">
+        <div className="mx-auto max-w-4xl px-6 py-20 sm:py-24 lg:px-8 text-center">
+          <h2 className="text-3xl font-bold tracking-tight text-white sm:text-4xl">
+            Is Your Business Protected?
+          </h2>
+          <p className="mx-auto mt-4 max-w-2xl text-lg leading-8 text-gray-300">
+            Get a free IT assessment to identify vulnerabilities and opportunities. No obligation, no sales pressure, just honest advice about your technology.
+          </p>
+          <div className="mt-10 flex flex-wrap items-center justify-center gap-3">
+            <Link
+              href="/contact"
+              className="group inline-flex items-center gap-2 rounded-md bg-primary-500 px-6 py-3 text-base font-semibold text-white hover:bg-primary-600 transition-colors"
+            >
+              <ShieldCheck className="h-4 w-4" />
+              Schedule Free Assessment
+              <ArrowRight className="h-4 w-4 transition-transform group-hover:translate-x-0.5" />
+            </Link>
+            <a
+              href="tel:+19363234527"
+              className="inline-flex items-center gap-2 rounded-md border border-surface-border px-6 py-3 text-base font-semibold text-white hover:bg-surface-card transition-colors"
+            >
+              <Phone className="h-4 w-4" />
+              (936) 323-4527
+            </a>
           </div>
         </div>
       </section>
