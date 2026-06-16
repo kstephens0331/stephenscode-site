@@ -1,301 +1,451 @@
-import Link from 'next/link'
 import type { Metadata } from 'next'
+import Link from 'next/link'
+import { notFound } from 'next/navigation'
+import {
+  MapPin, Building2, Users, CheckCircle2, Phone, ArrowRight, Navigation,
+} from 'lucide-react'
+import Breadcrumbs from '@/components/Breadcrumbs'
+import {
+  serviceAreas,
+  getServiceAreaBySlug,
+  getAllServiceAreaSlugs,
+  type ServiceArea,
+} from '@/lib/service-areas-data'
 
-export const metadata: Metadata = {
-  title: 'SACVPN | Enterprise-Grade VPN Security | StephensCode',
-  description: 'SACVPN provides enterprise-grade VPN security for businesses. Secure your remote workforce and protect sensitive data with military-grade encryption.',
-  keywords: [
-    'enterprise VPN',
-    'business VPN solution',
-    'secure remote access',
-    'corporate VPN',
-    'VPN security Houston',
-    'private network Texas',
-    'secure business communications'
-  ],
-  openGraph: {
-    title: 'SACVPN | Enterprise-Grade VPN Security | StephensCode',
-    description: 'SACVPN provides enterprise-grade VPN security for businesses. Secure your remote workforce and protect sensitive data with military-grade encryption.',
-    url: 'https://www.stephenscode.dev/sacvpn',
-    type: 'website',
-  },
-  alternates: {
-    canonical: 'https://www.stephenscode.dev/sacvpn',
-  },
+const BASE_URL = 'https://www.stephenscode.dev'
+
+interface PageProps {
+  params: Promise<{ slug: string }>
 }
 
-export default function SACVPNPage() {
-  const features = [
-    {
-      icon: '🔒',
-      title: 'Military-Grade Encryption',
-      description: 'AES-256 encryption protects all data in transit, the same standard used by government agencies and financial institutions.'
-    },
-    {
-      icon: '🌐',
-      title: 'Global Server Network',
-      description: 'Access secure servers worldwide for fast, reliable connections no matter where your team is located.'
-    },
-    {
-      icon: '👥',
-      title: 'Multi-User Management',
-      description: 'Easy admin dashboard to manage team access, permissions, and monitor usage across your organization.'
-    },
-    {
-      icon: '🚀',
-      title: 'High-Speed Performance',
-      description: 'Optimized infrastructure ensures minimal latency so your team can work without slowdowns.'
-    },
-    {
-      icon: '📱',
-      title: 'Cross-Platform Support',
-      description: 'Works on Windows, Mac, Linux, iOS, and Android. Protect all your devices with a single solution.'
-    },
-    {
-      icon: '🛡️',
-      title: 'Zero-Log Policy',
-      description: 'We never track, store, or share your browsing activity. Your business data stays private.'
-    },
-  ]
+export async function generateStaticParams(): Promise<{ slug: string }[]> {
+  return getAllServiceAreaSlugs().map((slug) => ({ slug }))
+}
 
-  const useCases = [
+export async function generateMetadata({ params }: PageProps): Promise<Metadata> {
+  const { slug } = await params
+  const area = getServiceAreaBySlug(slug)
+
+  if (!area) {
+    return {
+      title: 'Service Area Not Found | StephensCode LLC',
+      description: 'The requested service area could not be found.',
+    }
+  }
+
+  const canonical = `${BASE_URL}/service-areas/${area.slug}`
+  const title = `Web Development in ${area.name}, TX | StephensCode LLC`
+  const description = `Professional web development and website design for ${area.name}, ${area.county} businesses. Veteran-owned, flat-rate pricing, and local Conroe-based service. Custom small business websites for ${area.name}, Texas.`
+
+  return {
+    title,
+    description,
+    keywords: [
+      `${area.name} web developer`,
+      `${area.name} web design`,
+      `${area.name} TX website design`,
+      `small business website ${area.name}`,
+      `web development ${area.county}`,
+      'veteran owned web developer',
+      'affordable web design Houston',
+    ],
+    alternates: {
+      canonical,
+    },
+    openGraph: {
+      title,
+      description,
+      url: canonical,
+      type: 'website',
+    },
+  }
+}
+
+// Pick 4-6 OTHER nearby cities for the internal-link mesh.
+// Prefer same region first, then fill from the rest of the list.
+function getNearbyAreas(current: ServiceArea): ServiceArea[] {
+  const sameRegion = serviceAreas.filter(
+    (a) => a.slug !== current.slug && a.region === current.region
+  )
+  const otherRegions = serviceAreas.filter(
+    (a) => a.slug !== current.slug && a.region !== current.region
+  )
+  return [...sameRegion, ...otherRegions].slice(0, 6)
+}
+
+interface CityFaq {
+  question: string
+  answer: string
+}
+
+function buildFaqs(area: ServiceArea): CityFaq[] {
+  const topIndustries = area.businessTypes.slice(0, 3).join(', ')
+  return [
     {
-      title: 'Remote Workforce Security',
-      description: 'Protect employees working from home, coffee shops, or on the road. Ensure secure access to company resources from anywhere.',
-      icon: '🏠'
+      question: `Do you build websites for ${area.name}, TX businesses?`,
+      answer: `Yes. StephensCode is a Conroe-based, veteran-owned web developer serving ${area.name} and the rest of ${area.county}. We build fast, professional websites for local businesses including ${topIndustries.toLowerCase()}, and more.`,
     },
     {
-      title: 'Secure Client Communications',
-      description: 'Keep client data and communications protected. Essential for law firms, healthcare providers, and financial services.',
-      icon: '💼'
+      question: `How much does a website cost for a ${area.name} business?`,
+      answer: `We use flat-rate pricing with no hourly billing or surprise invoices. Plans start at $250 for a simple site and scale up to full custom builds. Every ${area.name} business gets a clear quote up front. See our pricing page for the full breakdown.`,
     },
     {
-      title: 'Public Wi-Fi Protection',
-      description: 'Shield your team from hackers on public networks. Hotels, airports, and conferences are prime targets for data theft.',
-      icon: '📶'
+      question: `Are you local to ${area.name}?`,
+      answer: `We are based in Conroe, about ${area.distanceFromConroe === 'Home base' ? 'right here in town' : `${area.distanceFromConroe} from ${area.name}`}. That means same time zone, same area code, and a developer who understands the ${area.county} market your customers live in.`,
     },
     {
-      title: 'Compliance Requirements',
-      description: 'Meet security requirements for HIPAA, PCI-DSS, and other regulatory frameworks that require encrypted communications.',
-      icon: '✅'
+      question: `How long does it take to build a ${area.name} website?`,
+      answer: `Most websites are completed in 1 to 4 weeks depending on size and complexity. Simple sites launch in about a week, while larger custom builds take longer. We give every ${area.name} project a firm timeline before we start.`,
+    },
+    {
+      question: `Can you help my existing ${area.name} website rank better in local search?`,
+      answer: `Yes. Every site we build is structured for local SEO so ${area.name} customers can find you when they search. We also handle rebuilds of existing sites that are slow, outdated, or not showing up in ${area.county} searches.`,
     },
   ]
+}
+
+export default async function ServiceAreaPage({ params }: PageProps) {
+  const { slug } = await params
+  const area = getServiceAreaBySlug(slug)
+
+  if (!area) {
+    notFound()
+  }
+
+  const nearbyAreas = getNearbyAreas(area)
+  const faqs = buildFaqs(area)
+  const canonical = `${BASE_URL}/service-areas/${area.slug}`
+
+  // ---- JSON-LD ----
+  const professionalServiceSchema = {
+    '@context': 'https://schema.org',
+    '@type': 'ProfessionalService',
+    name: `StephensCode LLC — Web Development in ${area.name}, TX`,
+    url: canonical,
+    image: `${BASE_URL}/logo.png`,
+    telephone: '+1-936-323-4527',
+    email: 'kyle@stephenscode.dev',
+    priceRange: '$250-$7500',
+    description: `Custom website design and web development for ${area.name}, ${area.county} businesses. Veteran-owned, flat-rate pricing, Conroe-based.`,
+    address: {
+      '@type': 'PostalAddress',
+      addressLocality: 'Conroe',
+      addressRegion: 'TX',
+      postalCode: '77301',
+      addressCountry: 'US',
+    },
+    provider: {
+      '@type': 'LocalBusiness',
+      name: 'StephensCode LLC',
+      telephone: '+1-936-323-4527',
+    },
+    areaServed: [
+      { '@type': 'City', name: area.name, containedIn: { '@type': 'State', name: 'Texas' } },
+      { '@type': 'AdministrativeArea', name: area.county },
+    ],
+    offers: {
+      '@type': 'Offer',
+      price: '250',
+      priceCurrency: 'USD',
+      priceSpecification: {
+        '@type': 'PriceSpecification',
+        price: '250',
+        priceCurrency: 'USD',
+        minPrice: '250',
+      },
+    },
+  }
+
+  const breadcrumbSchema = {
+    '@context': 'https://schema.org',
+    '@type': 'BreadcrumbList',
+    itemListElement: [
+      { '@type': 'ListItem', position: 1, name: 'Home', item: BASE_URL },
+      { '@type': 'ListItem', position: 2, name: 'Service Areas', item: `${BASE_URL}/service-areas` },
+      { '@type': 'ListItem', position: 3, name: area.name, item: canonical },
+    ],
+  }
+
+  const faqSchema = {
+    '@context': 'https://schema.org',
+    '@type': 'FAQPage',
+    mainEntity: faqs.map((faq) => ({
+      '@type': 'Question',
+      name: faq.question,
+      acceptedAnswer: {
+        '@type': 'Answer',
+        text: faq.answer,
+      },
+    })),
+  }
 
   return (
     <>
-      {/* Hero Section */}
-      <section className="relative bg-gradient-to-br from-surface via-surface-card to-surface text-white overflow-hidden">
-        {/* Animated background */}
-        <div className="absolute inset-0 opacity-20">
-          <div className="absolute inset-0" style={{
-            backgroundImage: 'radial-gradient(circle at 2px 2px, rgba(255,255,255,0.3) 1px, transparent 0)',
-            backgroundSize: '40px 40px'
-          }} />
-        </div>
+      {/* JSON-LD: ProfessionalService + FAQPage. BreadcrumbList from <Breadcrumbs/> below. */}
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(professionalServiceSchema) }}
+      />
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(faqSchema) }}
+      />
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumbSchema) }}
+      />
 
-        {/* Glowing orbs */}
-        <div className="absolute top-20 left-10 w-72 h-72 bg-blue-500 rounded-full filter blur-[128px] opacity-20"></div>
-        <div className="absolute bottom-20 right-10 w-96 h-96 bg-cyan-500 rounded-full filter blur-[128px] opacity-20"></div>
+      <Breadcrumbs
+        items={[
+          { name: 'Service Areas', href: '/service-areas' },
+          { name: area.name, href: `/service-areas/${area.slug}` },
+        ]}
+      />
 
-        <div className="relative mx-auto max-w-7xl px-6 py-24 sm:py-32 lg:px-8">
-          <div className="mx-auto max-w-4xl text-center">
-            <div className="inline-flex items-center rounded-full bg-blue-500/20 border border-blue-500/30 px-6 py-3 text-sm font-semibold text-blue-300 mb-8">
-              <span className="mr-2">🔐</span>
-              Enterprise-Grade VPN Security
+      {/* Hero */}
+      <section className="relative bg-black border-b border-surface-border overflow-hidden">
+        <div className="pointer-events-none absolute inset-0 bg-gradient-to-b from-surface-card/60 via-black to-black" />
+
+        <div className="relative mx-auto max-w-7xl px-6 py-16 sm:py-24 lg:px-8">
+          <div className="mx-auto max-w-3xl">
+            <div className="mb-6 inline-flex items-center gap-2 text-[11px] font-semibold uppercase tracking-[0.22em] text-primary-500">
+              <MapPin className="h-4 w-4" aria-hidden="true" />
+              <span>{area.county}, Texas</span>
             </div>
 
-            <h1 className="text-5xl font-bold tracking-tight sm:text-7xl mb-6">
-              <span className="bg-gradient-to-r from-primary-400 via-accent-400 to-primary-400 bg-clip-text text-transparent">
-                SACVPN
-              </span>
+            <h1 className="text-4xl font-bold tracking-tight text-white sm:text-5xl">
+              Web Development in {area.name}, Texas
             </h1>
 
-            <p className="text-2xl font-semibold text-blue-200 mb-4">
-              Secure Access. Complete Privacy. Zero Compromise.
+            <p className="mt-6 text-lg leading-8 text-gray-300">
+              {area.description}
             </p>
 
-            <p className="mt-6 text-xl leading-8 text-gray-300 max-w-3xl mx-auto">
-              Enterprise-grade VPN security built for businesses that take data protection seriously.
-              Protect your remote workforce, secure sensitive communications, and ensure compliance
-              with industry regulations.
-            </p>
+            <div className="mt-8 flex flex-wrap gap-3">
+              <div className="rounded-md bg-surface-card px-4 py-2 text-sm text-gray-300 ring-1 ring-surface-border">
+                <Users className="mr-2 inline h-4 w-4 text-accent-400" aria-hidden="true" />
+                Population {area.population}
+              </div>
+              <div className="rounded-md bg-surface-card px-4 py-2 text-sm text-gray-300 ring-1 ring-surface-border">
+                <Navigation className="mr-2 inline h-4 w-4 text-accent-400" aria-hidden="true" />
+                {area.distanceFromConroe === 'Home base'
+                  ? 'Our home base'
+                  : `${area.distanceFromConroe} from Conroe`}
+              </div>
+            </div>
 
-            <div className="mt-12 flex flex-col sm:flex-row items-center justify-center gap-4">
-              <a
-                href="https://sacvpn.com"
-                target="_blank"
-                rel="noopener noreferrer"
-                className="group inline-flex items-center gap-3 rounded-xl bg-gradient-to-r from-primary-500 to-accent-500 px-8 py-4 text-lg font-bold text-white shadow-2xl shadow-primary-500/30 hover:shadow-blue-500/40 hover:from-primary-600 hover:to-accent-600 transition-all"
-              >
-                <span>Get SACVPN</span>
-                <svg className="w-5 h-5 group-hover:translate-x-1 transition-transform" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14" />
-                </svg>
-              </a>
+            <div className="mt-10 flex flex-wrap items-center gap-3">
               <Link
                 href="/contact"
-                className="inline-flex items-center gap-2 rounded-xl bg-surface-card/60 px-8 py-4 text-lg font-bold text-white backdrop-blur-lg border border-surface-border hover:bg-surface-elevated/80 transition-all"
+                className="inline-flex items-center gap-2 rounded-md bg-primary-500 px-6 py-3 text-base font-semibold text-white hover:bg-primary-600 transition-colors"
               >
-                <span>Contact Sales</span>
+                Get a Free Quote
+              </Link>
+              <a
+                href="tel:9363234527"
+                className="inline-flex items-center gap-2 rounded-md border border-surface-border px-6 py-3 text-base font-semibold text-white hover:border-primary-500/60 hover:bg-surface-card transition-colors"
+              >
+                <Phone className="h-4 w-4" aria-hidden="true" />
+                (936) 323-4527
+              </a>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* Neighborhoods we serve */}
+      {area.neighborhoods && area.neighborhoods.length > 0 && (
+        <section className="bg-surface py-16 border-b border-surface-border">
+          <div className="mx-auto max-w-7xl px-6 lg:px-8">
+            <div className="mx-auto max-w-3xl">
+              <h2 className="text-2xl font-bold tracking-tight text-white sm:text-3xl">
+                Neighborhoods We Serve in {area.name}
+              </h2>
+              <p className="mt-4 text-gray-400">
+                We build websites for businesses across every part of {area.name}, including these areas:
+              </p>
+              <div className="mt-8 flex flex-wrap gap-3">
+                {area.neighborhoods.map((hood) => (
+                  <span
+                    key={hood}
+                    className="inline-flex items-center gap-2 rounded-md bg-surface-card px-4 py-2 text-sm text-gray-300 ring-1 ring-surface-border"
+                  >
+                    <MapPin className="h-4 w-4 text-primary-500" aria-hidden="true" />
+                    {hood}
+                  </span>
+                ))}
+              </div>
+            </div>
+          </div>
+        </section>
+      )}
+
+      {/* Why City businesses need a professional website */}
+      <section className="bg-surface py-16 sm:py-24">
+        <div className="mx-auto max-w-7xl px-6 lg:px-8">
+          <div className="mx-auto max-w-3xl">
+            <h2 className="text-2xl font-bold tracking-tight text-white sm:text-3xl">
+              Why {area.name} Businesses Need a Professional Website
+            </h2>
+            <p className="mt-4 text-gray-400">
+              {area.name} has its own character, and your website should reflect the local market your
+              customers live in. Here is what makes this area distinct and where a strong online
+              presence pays off.
+            </p>
+
+            <div className="mt-10 grid grid-cols-1 gap-6 md:grid-cols-2">
+              <div className="rounded-lg bg-surface-card p-6 ring-1 ring-surface-border">
+                <h3 className="flex items-center gap-2 text-lg font-semibold text-white">
+                  <MapPin className="h-5 w-5 text-primary-500" aria-hidden="true" />
+                  What Defines {area.name}
+                </h3>
+                <ul className="mt-4 space-y-3">
+                  {area.localFeatures.map((feature) => (
+                    <li key={feature} className="flex items-start gap-3 text-sm text-gray-300">
+                      <CheckCircle2 className="mt-0.5 h-4 w-4 flex-shrink-0 text-accent-400" aria-hidden="true" />
+                      <span>{feature}</span>
+                    </li>
+                  ))}
+                </ul>
+              </div>
+
+              <div className="rounded-lg bg-surface-card p-6 ring-1 ring-surface-border">
+                <h3 className="flex items-center gap-2 text-lg font-semibold text-white">
+                  <Building2 className="h-5 w-5 text-primary-500" aria-hidden="true" />
+                  Businesses We Help in {area.name}
+                </h3>
+                <ul className="mt-4 space-y-3">
+                  {area.businessTypes.map((type) => (
+                    <li key={type} className="flex items-start gap-3 text-sm text-gray-300">
+                      <CheckCircle2 className="mt-0.5 h-4 w-4 flex-shrink-0 text-accent-400" aria-hidden="true" />
+                      <span>{type}</span>
+                    </li>
+                  ))}
+                </ul>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* Flat-rate offering */}
+      <section className="bg-surface-card py-16 sm:py-24 border-y border-surface-border">
+        <div className="mx-auto max-w-7xl px-6 lg:px-8">
+          <div className="mx-auto max-w-3xl text-center">
+            <h2 className="text-2xl font-bold tracking-tight text-white sm:text-3xl">
+              Flat-Rate Websites for {area.name}, Texas
+            </h2>
+            <p className="mt-4 text-lg text-gray-300">
+              No hourly billing. No surprise invoices. Every {area.name} business gets a clear,
+              flat-rate quote up front, with all design, development, mobile optimization, and basic
+              SEO included. Plans start at $250.
+            </p>
+            <div className="mt-10 flex flex-wrap items-center justify-center gap-3">
+              <Link
+                href="/pricing"
+                className="inline-flex items-center gap-2 rounded-md bg-primary-500 px-6 py-3 text-base font-semibold text-white hover:bg-primary-600 transition-colors"
+              >
+                View Pricing
+              </Link>
+              <Link
+                href="/services"
+                className="inline-flex items-center gap-2 rounded-md border border-surface-border px-6 py-3 text-base font-semibold text-white hover:border-primary-500/60 hover:bg-surface transition-colors"
+              >
+                Explore Services <ArrowRight className="h-4 w-4" aria-hidden="true" />
               </Link>
             </div>
-
-            <p className="mt-6 text-sm text-gray-400">
-              Built by StephensCode • Trusted by businesses nationwide
-            </p>
-          </div>
-        </div>
-
-        {/* Wave divider */}
-        <div className="absolute bottom-0 left-0 right-0">
-          <svg className="w-full h-16 fill-surface" viewBox="0 0 1200 120" preserveAspectRatio="none">
-            <path d="M321.39,56.44c58-10.79,114.16-30.13,172-41.86,82.39-16.72,168.19-17.73,250.45-.39C823.78,31,906.67,72,985.66,92.83c70.05,18.48,146.53,26.09,214.34,3V0H0V27.35A600.21,600.21,0,0,0,321.39,56.44Z" />
-          </svg>
-        </div>
-      </section>
-
-      {/* Features Grid */}
-      <section className="bg-surface py-24 sm:py-32">
-        <div className="mx-auto max-w-7xl px-6 lg:px-8">
-          <div className="mx-auto max-w-2xl text-center mb-16">
-            <h2 className="text-base font-semibold leading-7 text-blue-400">Why SACVPN?</h2>
-            <p className="mt-2 text-4xl font-bold tracking-tight text-white sm:text-5xl">
-              Enterprise Security Made Simple
-            </p>
-            <p className="mt-6 text-lg leading-8 text-gray-400">
-              All the security features your business needs, without the complexity of enterprise solutions.
-            </p>
-          </div>
-
-          <div className="grid grid-cols-1 gap-8 md:grid-cols-2 lg:grid-cols-3">
-            {features.map((feature, index) => (
-              <div
-                key={index}
-                className="group relative rounded-2xl bg-surface-card p-8 hover:bg-gradient-to-br hover:from-primary-900/30 hover:to-accent-900/30 transition-all hover:shadow-xl border border-surface-border hover:border-primary-500/60"
-              >
-                <div className="text-4xl mb-4">{feature.icon}</div>
-                <h3 className="text-xl font-bold text-white mb-3 group-hover:text-blue-300">
-                  {feature.title}
-                </h3>
-                <p className="text-gray-400 leading-relaxed">
-                  {feature.description}
-                </p>
-              </div>
-            ))}
           </div>
         </div>
       </section>
 
-      {/* Use Cases */}
-      <section className="bg-surface-card py-24 sm:py-32">
+      {/* City-specific FAQ */}
+      <section className="bg-surface py-16 sm:py-24">
         <div className="mx-auto max-w-7xl px-6 lg:px-8">
-          <div className="mx-auto max-w-2xl text-center mb-16">
-            <h2 className="text-base font-semibold leading-7 text-blue-400">Use Cases</h2>
-            <p className="mt-2 text-4xl font-bold tracking-tight text-white sm:text-5xl">
-              Built for Business
-            </p>
-          </div>
-
-          <div className="grid grid-cols-1 gap-8 md:grid-cols-2">
-            {useCases.map((useCase, index) => (
-              <div
-                key={index}
-                className="flex items-start gap-6 rounded-2xl bg-surface p-8 shadow-lg hover:shadow-xl transition-shadow"
-              >
-                <div className="flex-shrink-0 text-5xl">{useCase.icon}</div>
-                <div>
-                  <h3 className="text-xl font-bold text-white mb-2">{useCase.title}</h3>
-                  <p className="text-gray-400 leading-relaxed">{useCase.description}</p>
+          <div className="mx-auto max-w-3xl">
+            <h2 className="text-2xl font-bold tracking-tight text-white sm:text-3xl">
+              {area.name} Web Development FAQ
+            </h2>
+            <div className="mt-10 space-y-6">
+              {faqs.map((faq) => (
+                <div
+                  key={faq.question}
+                  className="rounded-lg bg-surface-card p-6 ring-1 ring-surface-border"
+                >
+                  <h3 className="text-lg font-semibold text-white">{faq.question}</h3>
+                  <p className="mt-3 text-gray-400">{faq.answer}</p>
                 </div>
-              </div>
-            ))}
+              ))}
+            </div>
           </div>
         </div>
       </section>
 
-      {/* How It Works */}
-      <section className="bg-surface py-24 sm:py-32">
+      {/* Nearby areas we serve — internal link mesh */}
+      <section className="bg-surface-card py-16 sm:py-24 border-t border-surface-border">
         <div className="mx-auto max-w-7xl px-6 lg:px-8">
-          <div className="mx-auto max-w-2xl text-center mb-16">
-            <h2 className="text-base font-semibold leading-7 text-blue-400">Simple Setup</h2>
-            <p className="mt-2 text-4xl font-bold tracking-tight text-white sm:text-5xl">
-              Get Protected in Minutes
+          <div className="mx-auto max-w-3xl text-center mb-12">
+            <h2 className="text-2xl font-bold tracking-tight text-white sm:text-3xl">
+              Nearby Areas We Serve
+            </h2>
+            <p className="mt-4 text-gray-400">
+              StephensCode serves businesses across Greater Houston. Explore web development in these
+              communities near {area.name}.
             </p>
           </div>
-
-          <div className="grid grid-cols-1 gap-8 md:grid-cols-3">
-            <div className="text-center">
-              <div className="mx-auto w-16 h-16 rounded-full bg-blue-500/10 flex items-center justify-center text-2xl font-bold text-blue-400 mb-6">
-                1
-              </div>
-              <h3 className="text-xl font-bold text-white mb-3">Subscribe</h3>
-              <p className="text-gray-400">
-                Choose your plan based on team size and needs. No long-term contracts required.
-              </p>
-            </div>
-            <div className="text-center">
-              <div className="mx-auto w-16 h-16 rounded-full bg-blue-500/10 flex items-center justify-center text-2xl font-bold text-blue-400 mb-6">
-                2
-              </div>
-              <h3 className="text-xl font-bold text-white mb-3">Install</h3>
-              <p className="text-gray-400">
-                Download the app on any device. Simple one-click installation with no technical expertise needed.
-              </p>
-            </div>
-            <div className="text-center">
-              <div className="mx-auto w-16 h-16 rounded-full bg-blue-500/10 flex items-center justify-center text-2xl font-bold text-blue-400 mb-6">
-                3
-              </div>
-              <h3 className="text-xl font-bold text-white mb-3">Connect</h3>
-              <p className="text-gray-400">
-                One click to connect. Your entire team is now protected with enterprise-grade encryption.
-              </p>
-            </div>
+          <div className="grid grid-cols-1 gap-6 sm:grid-cols-2 lg:grid-cols-3">
+            {nearbyAreas.map((nearby) => (
+              <Link
+                key={nearby.slug}
+                href={`/service-areas/${nearby.slug}`}
+                className="group rounded-lg bg-surface p-6 ring-1 ring-surface-border hover:ring-primary-500/50 transition-all"
+              >
+                <h3 className="flex items-center gap-2 text-lg font-semibold text-white group-hover:text-primary-400">
+                  <MapPin className="h-4 w-4 text-primary-500" aria-hidden="true" />
+                  {nearby.name}
+                </h3>
+                <p className="mt-2 text-sm text-gray-500">{nearby.county}</p>
+                <p className="mt-3 text-sm font-semibold text-primary-400 group-hover:text-primary-300">
+                  Web development in {nearby.name} <span aria-hidden="true">&rarr;</span>
+                </p>
+              </Link>
+            ))}
           </div>
-        </div>
-      </section>
-
-      {/* CTA Section */}
-      <section className="relative bg-gradient-to-br from-surface via-surface-card to-surface py-24 sm:py-32 overflow-hidden">
-        <div className="absolute inset-0 opacity-20">
-          <div className="absolute inset-0" style={{
-            backgroundImage: 'radial-gradient(circle at 2px 2px, rgba(255,255,255,0.3) 1px, transparent 0)',
-            backgroundSize: '40px 40px'
-          }} />
-        </div>
-
-        <div className="relative mx-auto max-w-4xl px-6 lg:px-8 text-center">
-          <h2 className="text-4xl font-bold tracking-tight text-white sm:text-5xl mb-6">
-            Ready to Secure Your Business?
-          </h2>
-          <p className="text-xl text-gray-300 mb-12 max-w-2xl mx-auto">
-            Join thousands of businesses that trust SACVPN to protect their data,
-            secure their communications, and keep their teams safe online.
-          </p>
-
-          <div className="flex flex-col sm:flex-row items-center justify-center gap-4">
-            <a
-              href="https://sacvpn.com"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="group inline-flex items-center gap-3 rounded-xl bg-gradient-to-r from-primary-500 to-accent-500 px-10 py-5 text-xl font-bold text-white shadow-2xl shadow-primary-500/30 hover:shadow-blue-500/40 hover:from-primary-600 hover:to-accent-600 transition-all"
-            >
-              <span>Visit SACVPN.com</span>
-              <svg className="w-6 h-6 group-hover:translate-x-1 transition-transform" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14" />
-              </svg>
-            </a>
+          <div className="mt-12 text-center">
             <Link
-              href="/services/enterprise-vpn"
-              className="inline-flex items-center gap-2 rounded-xl bg-surface-card/60 px-10 py-5 text-xl font-bold text-white backdrop-blur-lg border border-surface-border hover:bg-surface-elevated/80 transition-all"
+              href="/service-areas"
+              className="inline-flex items-center gap-2 rounded-md border border-surface-border px-6 py-3 text-base font-semibold text-white hover:border-primary-500/60 hover:bg-surface transition-colors"
             >
-              <span>View Add-On Details</span>
+              View All Service Areas <ArrowRight className="h-4 w-4" aria-hidden="true" />
             </Link>
           </div>
+        </div>
+      </section>
 
-          <p className="mt-8 text-sm text-gray-400">
-            Questions? <Link href="/contact" className="text-blue-400 hover:text-blue-300">Contact our team</Link> for enterprise pricing and custom solutions.
+      {/* Final CTA */}
+      <section className="bg-surface border-t border-surface-border">
+        <div className="mx-auto max-w-2xl px-6 py-16 sm:py-24 lg:px-8 text-center">
+          <h2 className="text-3xl font-bold tracking-tight text-white sm:text-4xl">
+            Ready to Grow Your {area.name} Business Online?
+          </h2>
+          <p className="mx-auto mt-4 max-w-xl text-lg leading-8 text-gray-300">
+            Free consultation, transparent flat-rate pricing, and veteran-owned quality for your{' '}
+            {area.name} business.
           </p>
+          <div className="mt-10 flex flex-wrap items-center justify-center gap-3">
+            <Link
+              href="/contact"
+              className="inline-flex items-center gap-2 rounded-md bg-primary-500 px-6 py-3 text-base font-semibold text-white hover:bg-primary-600 transition-colors"
+            >
+              Get Free Quote
+            </Link>
+            <a
+              href="tel:9363234527"
+              className="inline-flex items-center gap-2 rounded-md border border-surface-border px-6 py-3 text-base font-semibold text-white hover:border-primary-500/60 hover:bg-surface-card transition-colors"
+            >
+              <Phone className="h-4 w-4" aria-hidden="true" />
+              (936) 323-4527
+            </a>
+          </div>
         </div>
       </section>
     </>
