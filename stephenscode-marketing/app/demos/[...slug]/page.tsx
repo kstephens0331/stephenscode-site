@@ -1,76 +1,67 @@
-import { Metadata } from 'next';
-import Link from 'next/link';
-import CustomSolutionsHero from '@/components/custom-solutions/CustomSolutionsHero';
-import SolutionsGrid from '@/components/custom-solutions/SolutionsGrid';
-import ProcessTimeline from '@/components/custom-solutions/ProcessTimeline';
-import PricingApproach from '@/components/custom-solutions/PricingApproach';
-import CustomSolutionsForm from '@/components/custom-solutions/CustomSolutionsForm';
-import SuccessStories from '@/components/custom-solutions/SuccessStories';
+import type { Metadata } from 'next'
+import { notFound } from 'next/navigation'
+import { allDemos } from '@/lib/demos-data'
+import DemoFrame from '@/components/demos/DemoFrame'
 
-export const metadata: Metadata = {
-  title: 'Custom Solutions - SaaS, Web Apps, Scrapers & More | StephensCode',
-  description: 'Need a custom software solution? We build SaaS platforms, web applications, data scrapers, and bespoke tools tailored to your business. Flat-rate pricing based on $50/hour estimates.',
-  openGraph: {
-    title: 'Custom Solutions - SaaS, Web Apps, Scrapers & More',
-    description: 'We build SaaS platforms, web applications, data scrapers, and bespoke tools tailored to your business. Flat-rate pricing based on $50/hour estimates.',
-    type: 'website',
-    url: 'https://www.stephenscode.dev/custom-solutions',
-    siteName: 'StephensCode',
-    images: [
-      {
-        url: 'https://www.stephenscode.dev/og-image.svg',
-        width: 1200,
-        height: 630,
-        alt: 'StephensCode Custom Solutions - SaaS, Web Apps, Automation',
-        type: 'image/svg+xml',
-      }
-    ],
-  },
-  twitter: {
-    card: 'summary_large_image',
-    title: 'Custom Solutions - SaaS, Web Apps, Scrapers & More',
-    description: 'We build SaaS platforms, web applications, data scrapers, and bespoke tools. Flat-rate pricing based on $50/hour estimates.',
-    images: ['https://www.stephenscode.dev/og-image.svg'],
-  },
-};
+type Props = {
+  params: Promise<{ slug: string[] }>
+}
 
-export default function CustomSolutionsPage() {
-  return (
-    <main className="min-h-screen bg-gradient-to-b from-black via-surface to-black">
-      <CustomSolutionsHero />
-      <SolutionsGrid />
-      <ProcessTimeline />
-      <PricingApproach />
-      <SuccessStories />
-      <CustomSolutionsForm />
+// Pre-render a page for every demo slug. The route is a catch-all so that
+// deep links like /demos/<slug>/services still resolve to the demo (the
+// template handles its own in-page navigation client-side).
+export function generateStaticParams() {
+  return allDemos.map((demo) => ({ slug: [demo.slug] }))
+}
 
-      {/* CTA Section */}
-      <section className="py-20 px-4">
-        <div className="max-w-4xl mx-auto text-center">
-          <div className="bg-gradient-to-br from-surface-card to-surface-elevated rounded-3xl p-12 border border-surface-border/30">
-            <h2 className="text-3xl md:text-4xl font-bold mb-4 bg-gradient-to-r from-primary-400 to-accent-400 bg-clip-text text-transparent">
-              Ready to Build Something Amazing?
-            </h2>
-            <p className="text-gray-300 text-lg mb-8">
-              Whether you need a SaaS platform, custom web app, or specialized tool, we're here to bring your vision to life.
-            </p>
-            <div className="flex flex-col sm:flex-row gap-4 justify-center">
-              <a
-                href="#contact-form"
-                className="px-8 py-4 bg-gradient-to-r from-primary-500 to-accent-500 hover:from-primary-600 hover:to-accent-600 text-white font-semibold rounded-xl shadow-lg hover:shadow-primary-500/30 transition-all"
-              >
-                Request a Quote
-              </a>
-              <Link
-                href="/pricing"
-                className="px-8 py-4 bg-surface-elevated/70 hover:bg-surface-elevated/70 text-white font-semibold rounded-xl border border-surface-border hover:border-surface-border transition-all"
-              >
-                View Standard Pricing
-              </Link>
-            </div>
-          </div>
-        </div>
-      </section>
-    </main>
-  );
+function findDemo(slug: string[] | undefined) {
+  const first = slug?.[0]
+  if (!first) return undefined
+  return allDemos.find((demo) => demo.slug === first)
+}
+
+export async function generateMetadata({ params }: Props): Promise<Metadata> {
+  const { slug } = await params
+  const demo = findDemo(slug)
+
+  if (!demo) {
+    return {
+      title: 'Demo Not Found | StephensCode',
+      description: 'The demo you are looking for could not be found.',
+    }
+  }
+
+  const title = `${demo.name} Demo | StephensCode`
+  const description = demo.description
+
+  return {
+    title,
+    description,
+    alternates: {
+      canonical: `https://www.stephenscode.dev/demos/${demo.slug}`,
+    },
+    openGraph: {
+      title,
+      description,
+      url: `https://www.stephenscode.dev/demos/${demo.slug}`,
+      type: 'website',
+      siteName: 'StephensCode',
+    },
+    twitter: {
+      card: 'summary_large_image',
+      title,
+      description,
+    },
+  }
+}
+
+export default async function DemoSlugPage({ params }: Props) {
+  const { slug } = await params
+  const demo = findDemo(slug)
+
+  if (!demo) {
+    notFound()
+  }
+
+  return <DemoFrame demo={demo} />
 }
