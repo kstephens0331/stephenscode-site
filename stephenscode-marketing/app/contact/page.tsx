@@ -329,7 +329,7 @@ export default function ContactPage() {
                   allowFullScreen
                   loading="lazy"
                   referrerPolicy="no-referrer-when-downgrade"
-                  title="StephensCode Location - Conroe, TX"
+                  title="StephensCode Location: Conroe, TX"
                 />
               </div>
 
@@ -392,7 +392,7 @@ export default function ContactPage() {
                     </div>
                     <div>
                       <div className="font-semibold text-white">Zero Pressure</div>
-                      <div className="text-sm text-gray-400">No obligation - take your time to decide</div>
+                      <div className="text-sm text-gray-400">No obligation, take your time to decide</div>
                     </div>
                   </li>
                 </ul>
@@ -501,7 +501,7 @@ export default function ContactPage() {
                 What information should I have ready for the consultation?
               </h3>
               <p className="text-gray-400 leading-relaxed">
-                It helps to have an idea of your business goals, target audience, desired features, and budget range. But don't worry if you're not sure yet - we'll guide you through the process and help you figure out exactly what you need.
+                It helps to have an idea of your business goals, target audience, desired features, and budget range. But don't worry if you're not sure yet, we'll guide you through the process and help you figure out exactly what you need.
               </p>
             </div>
 
@@ -528,7 +528,7 @@ export default function ContactPage() {
                 Do you offer free consultations?
               </h3>
               <p className="text-gray-400 leading-relaxed">
-                Yes! Every initial consultation is 100% free with zero obligation. We'll discuss your needs, explain your options, and provide honest advice - even if we're not the right fit for your project.
+                Yes! Every initial consultation is 100% free with zero obligation. We'll discuss your needs, explain your options, and provide honest advice, even if we're not the right fit for your project.
               </p>
             </div>
 

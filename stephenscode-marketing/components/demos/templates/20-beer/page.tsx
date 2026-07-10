@@ -409,13 +409,13 @@ const HoppyTrailsCraftBeer = () => {
             }}
             className="w-full bg-[#582f0e] text-white px-6 py-3 rounded-lg font-semibold hover:bg-[#7f4f24] transition-colors"
           >
-            I am 21 or Older - Enter Site
+            I am 21 or Older, Enter Site
           </button>
           <button
             onClick={() => window.location.href = 'https://www.responsibility.org/'}
             className="w-full bg-gray-200 text-gray-700 px-6 py-3 rounded-lg font-semibold hover:bg-gray-300 transition-colors"
           >
-            I am Under 21 - Exit
+            I am Under 21, Exit
           </button>
         </div>
       </div>
@@ -833,7 +833,7 @@ const HoppyTrailsCraftBeer = () => {
                   onClick={() => addToCart(beer)}
                   className="w-full bg-[#582f0e] text-white px-4 py-2 rounded-lg hover:bg-[#7f4f24] transition-colors text-sm"
                 >
-                  Add to Cart - ${beer.price.toFixed(2)}
+                  Add to Cart (${beer.price.toFixed(2)})
                 </button>
               </div>
             ))}

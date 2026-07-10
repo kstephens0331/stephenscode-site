@@ -177,7 +177,7 @@ They can tell you approximately how long the project will take and what the majo
 
 ### 6. They Push Back Sometimes
 
-A developer who agrees with everything you say isn't thinking critically. Good developers share their expertise—they'll tell you if something you want isn't a good idea and explain why.
+A developer who agrees with everything you say isn't thinking critically. Good developers share their expertise. They'll tell you if something you want isn't a good idea and explain why.
 
 ### 7. They Talk About After Launch
 
@@ -389,8 +389,8 @@ At StephensCode, we build custom websites for small businesses with:
 
 **Call (936) 323-4527 or visit [stephenscode.dev/contact](https://www.stephenscode.dev/contact) to discuss your project.**
 
-We'll answer your questions honestly—even if it means recommending someone else.
+We'll answer your questions honestly, even if it means recommending someone else.
 
 ---
 
-*Kyle Stephens is the founder of StephensCode, a veteran-owned web development company serving Houston and Conroe, TX. Kyle has been building websites for small businesses for 14+ years and has seen every type of web development disaster—and how to avoid them.*
+*Kyle Stephens is the founder of StephensCode, a veteran-owned web development company serving Houston and Conroe, TX. Kyle has been building websites for small businesses for 14+ years and has seen every type of web development disaster, and how to avoid them.*

@@ -50,7 +50,7 @@ If these take more than 5 seconds to find, you're losing customers.
 - Phone number that's click-to-call on mobile
 - Link to Google Maps directions
 
-**Pro Tip:** Add hours to your Google Business Profile and embed that on your site—it updates automatically and shows holiday hours.
+**Pro Tip:** Add hours to your Google Business Profile and embed that on your site. It updates automatically and shows holiday hours.
 
 ## Mistake #3: No Online Reservations
 
@@ -161,11 +161,11 @@ $200-500 for a professional photo session yields images you'll use for years.
 ## What Your Restaurant Website Actually Needs
 
 ### Essential Pages:
-1. **Homepage** - Atmosphere, highlights, clear navigation
-2. **Menu** - HTML text, mobile-friendly, current prices
-3. **About** - Your story, the chef, your concept
-4. **Contact/Location** - Address, hours, phone, map
-5. **Reservations** - Online booking or clear instructions
+1. **Homepage**: Atmosphere, highlights, clear navigation
+2. **Menu**: HTML text, mobile-friendly, current prices
+3. **About**: Your story, the chef, your concept
+4. **Contact/Location**: Address, hours, phone, map
+5. **Reservations**: Online booking or clear instructions
 
 ### Essential Features:
 - Mobile-responsive design
@@ -255,15 +255,15 @@ Your website is only useful if people find it.
 
 ## Quick Wins You Can Do Today
 
-1. **Check your Google Business Profile** - Is everything accurate?
-2. **Test mobile menu** - Can you read it without zooming?
-3. **Verify hours** - Are holiday hours correct?
-4. **Click your phone number** - Does click-to-call work?
-5. **Load test** - How long does your homepage take?
+1. **Check your Google Business Profile**: Is everything accurate?
+2. **Test mobile menu**: Can you read it without zooming?
+3. **Verify hours**: Are holiday hours correct?
+4. **Click your phone number**: Does click-to-call work?
+5. **Load test**: How long does your homepage take?
 
 ## Ready to Fill More Tables?
 
-Your restaurant's website should make hungry customers excited to visit—not frustrated enough to leave. Every day with a problematic website is revenue walking out the door.
+Your restaurant's website should make hungry customers excited to visit, not frustrated enough to leave. Every day with a problematic website is revenue walking out the door.
 
 At StephensCode, we build restaurant websites that look as good as your food. Mobile-first, fast-loading, and designed to convert browsers into reservations.
 

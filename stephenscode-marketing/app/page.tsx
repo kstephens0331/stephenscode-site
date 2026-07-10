@@ -140,7 +140,7 @@ export default function Home() {
     {
       name: 'Advanced',
       price: '$2,000',
-      description: 'Custom full-stack site with an admin behind it. See your leads, customers, and KPIs — not just publish pages.',
+      description: 'Custom full-stack site with an admin behind it. See your leads, customers, and KPIs, not just publish pages.',
       features: ['Custom full-stack, up to 10 pages', 'Admin portal + KPI dashboard (lite)', 'CMS, conversion-focused UX', 'SEO + GA4 events', '2 rounds of revisions', '90 days post-launch support'],
       delivery: '2-3 weeks',
       href: '/services/premium-build',
@@ -216,7 +216,7 @@ export default function Home() {
     {
       quote: "Our online gaming safety platform was built exactly to spec. StephensCode delivered a powerful system that streamlines our entire operation.",
       author: "SentinelForge Team",
-      company: "SentinelForge - Online Gaming Safety",
+      company: "SentinelForge: Online Gaming Safety",
       result: "Platform protecting gamers"
     }
   ]
@@ -423,7 +423,7 @@ export default function Home() {
 
           {/* Above-the-tier custom band */}
           <div className="mx-auto mt-10 max-w-4xl rounded-2xl border border-dashed border-surface-border p-8 text-center">
-            <h3 className="text-lg font-semibold text-white">Above this — let&apos;s talk</h3>
+            <h3 className="text-lg font-semibold text-white">Above this, let&apos;s talk</h3>
             <p className="mt-2 text-sm leading-6 text-gray-400">
               SaaS Phase 1 builds, profit-share platforms, custom products. I&apos;ll scope it and quote you a flat number. No hourly billing, ever.
             </p>

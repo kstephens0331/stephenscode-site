@@ -22,19 +22,19 @@ Before diving into design tactics, understand who you're designing for:
 
 ### Houston Customers Are:
 
-**Diverse** - Houston is the most ethnically diverse major city in America. Your website may need to serve customers who prefer English, Spanish, Vietnamese, Chinese, or other languages.
+**Diverse**: Houston is the most ethnically diverse major city in America. Your website may need to serve customers who prefer English, Spanish, Vietnamese, Chinese, or other languages.
 
-**Value-Conscious** - Texas business culture respects a good deal. Don't hide your pricing or make customers feel like they're getting the runaround.
+**Value-Conscious**: Texas business culture respects a good deal. Don't hide your pricing or make customers feel like they're getting the runaround.
 
-**Relationship-Driven** - Houstonians prefer doing business with people they trust. Your website needs to build that trust before the first phone call.
+**Relationship-Driven**: Houstonians prefer doing business with people they trust. Your website needs to build that trust before the first phone call.
 
-**Mobile-First** - Houston's sprawl means people are constantly searching on their phones while commuting, waiting, or between appointments.
+**Mobile-First**: Houston's sprawl means people are constantly searching on their phones while commuting, waiting, or between appointments.
 
-**Weather-Aware** - From hurricanes to heat waves, Houston's weather affects buying behavior. Seasonal relevance matters.
+**Weather-Aware**: From hurricanes to heat waves, Houston's weather affects buying behavior. Seasonal relevance matters.
 
 ## Local SEO Is Non-Negotiable in Houston
 
-With 7 million people in the metro area, you're not just competing locally—you're competing in one of America's largest markets.
+With 7 million people in the metro area, you're not just competing locally. You're competing in one of America's largest markets.
 
 ### Google Business Profile Optimization
 
@@ -278,7 +278,7 @@ Red flags:
 
 ## Ready to Build for Houston?
 
-The Houston market rewards businesses that understand local culture and expectations. A website that would work in Austin or Denver might fall flat here—and vice versa.
+The Houston market rewards businesses that understand local culture and expectations. A website that would work in Austin or Denver might fall flat here, and vice versa.
 
 At StephensCode, we're based in the Conroe area and serve businesses throughout Greater Houston. We understand the market because we live and work here.
 

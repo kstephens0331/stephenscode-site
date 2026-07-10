@@ -36,9 +36,9 @@ export default function BookingPage({ onNavigate }: BookingPageProps) {
   };
 
   const dentists = [
-    'Dr. Sarah Johnson - General & Cosmetic',
-    'Dr. Michael Chen - Cosmetic & Restorative',
-    'Dr. Emily Rodriguez - Pediatric'
+    'Dr. Sarah Johnson (General & Cosmetic)',
+    'Dr. Michael Chen (Cosmetic & Restorative)',
+    'Dr. Emily Rodriguez (Pediatric)'
   ];
 
   const visitTypes = [
@@ -145,7 +145,7 @@ export default function BookingPage({ onNavigate }: BookingPageProps) {
                   <div className="flex items-start gap-3">
                     <AlertCircle className="w-6 h-6 text-[#0077b6] flex-shrink-0 mt-1" />
                     <div>
-                      <div className="font-bold text-[#023e8a] mb-2">New Patient Special - $99</div>
+                      <div className="font-bold text-[#023e8a] mb-2">New Patient Special: $99</div>
                       <p className="text-gray-700 text-sm">
                         Comprehensive exam, professional cleaning, and digital X-rays (regularly $350).
                         Select "New Patient Exam & Cleaning" below to claim this offer!

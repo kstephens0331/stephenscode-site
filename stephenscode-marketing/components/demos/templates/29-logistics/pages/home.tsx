@@ -83,7 +83,7 @@ export default function HomePage({ colors, onNavigate }: HomePageProps) {
       <section className="py-16" style={{ backgroundColor: colors.background }}>
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="bg-gradient-to-br from-blue-900 to-blue-700 rounded-2xl p-12 text-center text-white">
-            <h2 className="text-3xl font-bold mb-4">Premium Build - $2,000 Value</h2>
+            <h2 className="text-3xl font-bold mb-4">Premium Build: $2,000 Value</h2>
             <p className="text-xl mb-8 opacity-90">Complete logistics management platform</p>
             <ul className="grid md:grid-cols-2 gap-4 max-w-3xl mx-auto text-left mb-8">
               {['10 fully functional pages', 'Real-time tracking system', 'Customer portal dashboard', 'Quote calculator tool', 'Analytics & reporting', 'Service area mapping'].map((feature, i) => (

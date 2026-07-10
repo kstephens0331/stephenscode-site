@@ -33,22 +33,22 @@ const ServiceAreasPage: React.FC<ServiceAreasPageProps> = ({ onNavigate }) => {
       avgResponse: '35 min'
     },
     {
-      name: 'Suburbs - North',
+      name: 'Suburbs (North)',
       neighborhoods: ['Northbrook', 'Woodridge', 'Clearwater', 'Pine Hills'],
       avgResponse: '40 min'
     },
     {
-      name: 'Suburbs - South',
+      name: 'Suburbs (South)',
       neighborhoods: ['Southfield', 'Oak Valley', 'Greenwood', 'Pleasant Hills'],
       avgResponse: '40 min'
     },
     {
-      name: 'Suburbs - East',
+      name: 'Suburbs (East)',
       neighborhoods: ['Eastgate', 'Fairview', 'Brookside', 'Millcreek'],
       avgResponse: '45 min'
     },
     {
-      name: 'Suburbs - West',
+      name: 'Suburbs (West)',
       neighborhoods: ['Westwood', 'Cedar Park', 'Rolling Hills', 'Sunset Ridge'],
       avgResponse: '45 min'
     }

@@ -10,10 +10,10 @@ export default function CustomerView() {
 
   const getPageTitle = () => {
     const titles = {
-      home: 'Smart Start Tutoring - Expert Academic Tutoring Services',
-      subjects: 'Our Subjects & Services - Smart Start Tutoring',
-      about: 'About Us - Smart Start Tutoring',
-      contact: 'Contact Us - Smart Start Tutoring',
+      home: 'Smart Start Tutoring | Expert Academic Tutoring Services',
+      subjects: 'Our Subjects & Services | Smart Start Tutoring',
+      about: 'About Us | Smart Start Tutoring',
+      contact: 'Contact Us | Smart Start Tutoring',
     };
     return titles[currentPage];
   };

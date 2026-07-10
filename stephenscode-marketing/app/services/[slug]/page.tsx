@@ -217,7 +217,7 @@ export default function WebScraping() {
             </h1>
 
             <p className="text-xl leading-8 text-gray-200 mb-8">
-              Need data that's trapped on websites? Lead lists, competitor prices, market research, real estate listings—I can extract and structure it for you. With 500+ web scraping projects completed, I've tackled everything from simple directory scrapes to complex JavaScript-heavy sites.
+              Need data that's trapped on websites? Lead lists, competitor prices, market research, real estate listings. I can extract and structure it for you. With 500+ web scraping projects completed, I've tackled everything from simple directory scrapes to complex JavaScript-heavy sites.
             </p>
 
             <div className="flex flex-wrap items-center gap-6 mb-10">
@@ -326,7 +326,7 @@ export default function WebScraping() {
 
             <div className="prose prose-lg prose-invert max-w-none text-gray-300">
               <p className="mb-6">
-                With <strong>500+ web scraping projects</strong> completed, I've developed scrapers for every imaginable scenario. Simple static sites, complex JavaScript-rendered applications, sites with anti-bot measures—each presents unique challenges I've learned to overcome.
+                With <strong>500+ web scraping projects</strong> completed, I've developed scrapers for every imaginable scenario. Simple static sites, complex JavaScript-rendered applications, sites with anti-bot measures, each presents unique challenges I've learned to overcome.
               </p>
 
               <div className="bg-surface-card rounded-2xl p-8 my-8">

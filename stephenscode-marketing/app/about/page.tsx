@@ -110,7 +110,7 @@ export default function About() {
     },
     {
       name: 'Service',
-      description: 'We serve our clients the way we served our country - with dedication, reliability, and a mission-first mentality.',
+      description: 'We serve our clients the way we served our country, with dedication, reliability, and a mission-first mentality.',
       icon: '🤝',
       color: 'from-green-500 to-teal-500'
     },
@@ -268,7 +268,7 @@ export default function About() {
                   <p className="text-primary-300 font-bold text-xl italic">
                     "We're not the biggest agency in Houston, but we're proud to be the most honest."
                   </p>
-                  <p className="text-sm text-gray-300 mt-2">— Kyle Stephens, Founder</p>
+                  <p className="text-sm text-gray-300 mt-2">Kyle Stephens, Founder</p>
                 </div>
               </div>
             </div>

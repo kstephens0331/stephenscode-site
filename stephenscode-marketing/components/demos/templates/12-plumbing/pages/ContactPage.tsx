@@ -12,7 +12,7 @@ const ContactPage: React.FC<ContactPageProps> = ({ onNavigate }) => {
       title: 'Call Us',
       primary: '(555) 765-8237',
       secondary: '24/7 Emergency Line',
-      description: 'Speak directly with our team - no automated systems'
+      description: 'Speak directly with our team, no automated systems'
     },
     {
       icon: Mail,
@@ -26,7 +26,7 @@ const ContactPage: React.FC<ContactPageProps> = ({ onNavigate }) => {
       title: 'Visit Our Office',
       primary: '123 Main Street',
       secondary: 'Anytown, ST 12345',
-      description: 'Stop by during business hours - appointments welcome'
+      description: 'Stop by during business hours, appointments welcome'
     },
     {
       icon: Clock,
@@ -72,7 +72,7 @@ const ContactPage: React.FC<ContactPageProps> = ({ onNavigate }) => {
           <div className="text-center max-w-3xl mx-auto">
             <h1 className="text-5xl font-bold mb-6">Get in Touch</h1>
             <p className="text-xl text-blue-100 mb-8">
-              Need plumbing service? We're here to help! Contact us anytime - we're available 24/7
+              Need plumbing service? We're here to help! Contact us anytime. We're available 24/7
               for emergencies and happy to answer your questions.
             </p>
             <div className="flex flex-col sm:flex-row gap-4 justify-center">

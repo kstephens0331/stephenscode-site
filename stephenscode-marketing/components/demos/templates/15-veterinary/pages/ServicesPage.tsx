@@ -184,7 +184,7 @@ export default function ServicesPage({ onNavigate, colors }: ServicesPageProps) 
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
           <h1 className="text-5xl font-bold mb-6">Our Veterinary Services</h1>
           <p className="text-xl text-teal-100 max-w-3xl mx-auto leading-relaxed">
-            Comprehensive care for your pet's complete health and wellbeing - from preventive wellness to advanced medical treatments
+            Comprehensive care for your pet's complete health and wellbeing, from preventive wellness to advanced medical treatments
           </p>
         </div>
       </section>

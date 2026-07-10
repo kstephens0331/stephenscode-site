@@ -118,7 +118,7 @@ export default function CustomerView({ demo, colors }: CustomerViewProps) {
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({
           demoName: 'Classic Cuts Barbershop',
-          demoPackage: 'Simple 4-Page Website - $1,500',
+          demoPackage: 'Simple 4-Page Website ($1,500)',
           demoSlug: 'classic-cuts-barbershop',
           clientName: formData.name,
           clientPhone: formData.phone,
@@ -255,7 +255,7 @@ export default function CustomerView({ demo, colors }: CustomerViewProps) {
                     >
                       <option value="">Select a service</option>
                       {services.map((s) => (
-                        <option key={s.name} value={s.name}>{s.name} - {s.price} ({s.time})</option>
+                        <option key={s.name} value={s.name}>{s.name}: {s.price} ({s.time})</option>
                       ))}
                     </select>
                   </div>

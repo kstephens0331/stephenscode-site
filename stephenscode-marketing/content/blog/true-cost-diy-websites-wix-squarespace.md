@@ -53,7 +53,7 @@ The gap isn't as big as the ads suggest.
 
 ## Hidden Cost #1: Your Time
 
-This is the cost most people ignore—and it's usually the biggest.
+This is the cost most people ignore, and it's usually the biggest.
 
 ### How Long Does It Really Take?
 
@@ -93,7 +93,7 @@ It doesn't stop after launch. DIY sites require constant tinkering:
 - You want to change something
 - Security patches need attention
 
-Budget 2-5 hours per month for maintenance. That's 24-60 hours per year—another $1,200-6,000 in time.
+Budget 2-5 hours per month for maintenance. That's 24-60 hours per year, another $1,200-6,000 in time.
 
 ## Hidden Cost #2: Opportunity Cost
 
@@ -138,7 +138,7 @@ DIY builders restrict your SEO capabilities:
 - Clean URL structures
 - Server-level optimizations
 
-**Real impact:** I've seen businesses move from Wix to custom sites and triple their organic traffic within 6 months—same content, better technical foundation.
+**Real impact:** I've seen businesses move from Wix to custom sites and triple their organic traffic within 6 months: same content, better technical foundation.
 
 ### Mobile Experience Issues
 
@@ -165,7 +165,7 @@ If 10% of leads become customers worth $500 each:
 
 **Difference: $1,000/month in lost revenue**
 
-Over a year, that's $12,000 in lost business—far more than a professional site costs.
+Over a year, that's $12,000 in lost business, far more than a professional site costs.
 
 ## Hidden Cost #4: Platform Lock-In
 
@@ -181,9 +181,9 @@ With DIY builders, you're renting space on their platform. You don't own:
 
 Let's say you outgrow Wix and want a professional site. Your options:
 
-1. **Start from scratch** - Your design, content structure, and SEO history don't transfer
-2. **Pay for migration services** - $500-2,000 to extract and rebuild
-3. **Stay stuck** - Keep paying for a platform that doesn't serve you
+1. **Start from scratch**: Your design, content structure, and SEO history don't transfer
+2. **Pay for migration services**: $500-2,000 to extract and rebuild
+3. **Stay stuck**: Keep paying for a platform that doesn't serve you
 
 **Compare to a custom site:** You own everything. Host it anywhere. Change developers anytime. Full control forever.
 
@@ -224,7 +224,7 @@ Most businesses outgrow DIY builders within 2-3 years. Then they face:
 
 ### Security Issues
 
-DIY builders handle security for you—which sounds good until you realize:
+DIY builders handle security for you, which sounds good until you realize:
 - You can't implement additional security measures
 - You're trusting their security practices completely
 - If they get breached, you get breached
@@ -338,7 +338,7 @@ DIY website builders aren't "cheap." They just hide the real costs:
 - Future migration costs
 - Opportunity costs
 
-For a business website meant to generate revenue, professional development almost always costs less over time—and performs significantly better.
+For a business website meant to generate revenue, professional development almost always costs less over time, and performs significantly better.
 
 The question isn't "Can I save money with DIY?" It's "What's the total cost of ownership, and what's the ROI?"
 
@@ -363,4 +363,4 @@ We'll also give you an honest assessment of whether professional development mak
 
 ---
 
-*Kyle Stephens is the founder of StephensCode, a veteran-owned web development company serving Houston and Conroe, TX. Kyle has rebuilt dozens of DIY websites that weren't meeting business goals—and helped those businesses start generating real results online.*
+*Kyle Stephens is the founder of StephensCode, a veteran-owned web development company serving Houston and Conroe, TX. Kyle has rebuilt dozens of DIY websites that weren't meeting business goals, and helped those businesses start generating real results online.*

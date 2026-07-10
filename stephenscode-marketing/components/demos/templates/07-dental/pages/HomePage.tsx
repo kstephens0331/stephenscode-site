@@ -87,7 +87,7 @@ export default function HomePage({ onNavigate }: HomePageProps) {
           <div className="grid lg:grid-cols-2 gap-12 items-center">
             <div>
               <div className="inline-block bg-[#48cae4] text-[#023e8a] px-4 py-2 rounded-full text-sm font-semibold mb-6">
-                New Patients Welcome - Special Offer Inside!
+                New Patients Welcome: Special Offer Inside!
               </div>
               <h1 className="text-5xl font-bold mb-6 leading-tight">
                 Your Partner in <span className="text-[#48cae4]">Healthy, Beautiful Smiles</span>

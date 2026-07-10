@@ -290,7 +290,7 @@ export default function AdminView({ demo, colors }: AdminViewProps) {
                       <div>
                         <h3 className="font-bold mb-1" style={{ color: colors.text }}>{schedule.report}</h3>
                         <p className="text-sm" style={{ color: colors.textLight }}>
-                          {schedule.frequency} - {schedule.format}
+                          {schedule.frequency}, {schedule.format}
                         </p>
                       </div>
                       <button className="text-sm font-medium hover:underline" style={{ color: colors.primary }}>

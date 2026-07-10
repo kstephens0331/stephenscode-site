@@ -112,7 +112,7 @@ const ReviewsPage: React.FC<ReviewsPageProps> = ({ onNavigate }) => {
       rating: 5,
       date: 'September 20, 2024',
       service: 'Whole House Repipe',
-      text: 'Major job - complete house repipe. The team was incredible. Minimal disruption, daily cleanup, and the quality is outstanding. They even found and fixed some issues from the original construction. Money well spent for peace of mind!',
+      text: 'Major job: complete house repipe. The team was incredible. Minimal disruption, daily cleanup, and the quality is outstanding. They even found and fixed some issues from the original construction. Money well spent for peace of mind!',
       verified: true
     }
   ];
@@ -137,7 +137,7 @@ const ReviewsPage: React.FC<ReviewsPageProps> = ({ onNavigate }) => {
             </div>
             <h1 className="text-5xl font-bold mb-6">Customer Reviews & Testimonials</h1>
             <p className="text-xl text-blue-100 mb-4">
-              Don't just take our word for it - see what our customers have to say about their
+              Don't just take our word for it. See what our customers have to say about their
               experience with Premier Plumbing Pros.
             </p>
             <div className="flex items-center justify-center space-x-4 text-2xl">
@@ -305,7 +305,7 @@ const ReviewsPage: React.FC<ReviewsPageProps> = ({ onNavigate }) => {
                 Why Our Reviews Speak Volumes
               </h2>
               <p className="text-lg text-gray-600 mb-6">
-                Our reviews aren't just numbers - they represent thousands of satisfied customers who
+                Our reviews aren't just numbers. They represent thousands of satisfied customers who
                 have trusted us with their plumbing needs over the past 25 years.
               </p>
               <div className="space-y-4">
@@ -385,7 +385,7 @@ const ReviewsPage: React.FC<ReviewsPageProps> = ({ onNavigate }) => {
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
           <h2 className="text-3xl font-bold mb-4">Experience Our Award-Winning Service</h2>
           <p className="text-xl text-blue-100 mb-8">
-            Join thousands of satisfied customers - schedule your service today
+            Join thousands of satisfied customers. Schedule your service today
           </p>
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
             <button

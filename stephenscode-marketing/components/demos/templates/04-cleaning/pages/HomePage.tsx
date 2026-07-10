@@ -132,7 +132,7 @@ export default function HomePage({ onNavigate }: HomePageProps) {
   return (
     <div className="bg-white">
       {/* SEO Meta Tags */}
-      <title>Sparkle Clean Services - Professional Cleaning in Sparkle City | Residential & Commercial</title>
+      <title>Sparkle Clean Services | Professional Cleaning in Sparkle City | Residential & Commercial</title>
 
       {/* Hero Section */}
       <section className="relative bg-gradient-to-br from-[#0077b6] via-[#00b4d8] to-[#90e0ef] text-white py-20 overflow-hidden">

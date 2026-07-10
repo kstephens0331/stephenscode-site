@@ -876,9 +876,9 @@ const TechProManufacturing = () => {
             <div className="space-y-3">
               {[
                 { type: 'warning', message: 'Line C scheduled maintenance in 2 hours', time: '10 min ago' },
-                { type: 'info', message: 'Material shipment arrived - Bay 3', time: '45 min ago' },
-                { type: 'success', message: 'Job JOB-004 completed - 100% pass rate', time: '2 hours ago' },
-                { type: 'warning', message: 'Raw material stock low - Item RM-345', time: '3 hours ago' }
+                { type: 'info', message: 'Material shipment arrived, Bay 3', time: '45 min ago' },
+                { type: 'success', message: 'Job JOB-004 completed, 100% pass rate', time: '2 hours ago' },
+                { type: 'warning', message: 'Raw material stock low, Item RM-345', time: '3 hours ago' }
               ].map((alert, idx) => (
                 <div key={idx} className="flex items-start gap-3 p-3 bg-[#161a1d] rounded-lg border border-gray-800">
                   {alert.type === 'warning' && <AlertTriangle className="w-5 h-5 text-yellow-500 flex-shrink-0" />}
@@ -1586,7 +1586,7 @@ const TechProManufacturing = () => {
         </div>
         <div className="border-t border-gray-800 pt-8 text-center text-gray-400 text-sm">
           <p>&copy; 2024 TechPro Manufacturing. All rights reserved.</p>
-          <p className="mt-2">Enterprise Platform Demo - $7,500 Tier</p>
+          <p className="mt-2">Enterprise Platform Demo: $7,500 Tier</p>
         </div>
       </div>
     </footer>

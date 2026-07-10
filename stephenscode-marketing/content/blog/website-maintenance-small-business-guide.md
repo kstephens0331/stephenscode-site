@@ -2,7 +2,7 @@
 title: "Website Maintenance: What Small Businesses Actually Need (And What They Don't)"
 date: "2025-01-26"
 author: "Kyle Stephens"
-excerpt: "Your website needs maintenance—but how much? Learn what actually matters for security, performance, and SEO, plus what's just upselling by web agencies."
+excerpt: "Your website needs maintenance, but how much? Learn what actually matters for security, performance, and SEO, plus what's just upselling by web agencies."
 category: "Web Development"
 tags: ["website maintenance", "security", "updates", "small business", "WordPress", "SSL", "backups"]
 readTime: "11 min read"
@@ -12,7 +12,7 @@ readTime: "11 min read"
 
 "Do I really need website maintenance?"
 
-I hear this question constantly. And I get it—you've already paid for a website. Now someone wants you to pay monthly for... what exactly?
+I hear this question constantly. And I get it. You've already paid for a website. Now someone wants you to pay monthly for... what exactly?
 
 Here's my honest answer: **It depends on what kind of website you have and how critical it is to your business.**
 
@@ -41,7 +41,7 @@ WordPress powers 43% of websites, but it requires the most maintenance.
 **Why WordPress needs more attention:**
 
 - Core WordPress updates (4-6 per year)
-- Plugin updates (constant—some plugins update weekly)
+- Plugin updates (constant, some plugins update weekly)
 - Theme updates (varies)
 - Each update can break things
 - Huge target for hackers (because it's so popular)
@@ -114,7 +114,7 @@ Regardless of platform, these fundamentals matter:
 
 **What it means:** Regular copies of your website files and database.
 
-**Why it matters:** Without backups, any problem becomes a disaster. Server failure, hacking, accidental deletion—all fixable with good backups, all catastrophic without them.
+**Why it matters:** Without backups, any problem becomes a disaster. Server failure, hacking, accidental deletion, all fixable with good backups, all catastrophic without them.
 
 **What to do:**
 
@@ -186,7 +186,7 @@ Unless your business operates 24/7 and depends entirely on your website, you don
 
 ### Monthly SEO Adjustments
 
-SEO isn't a monthly knob-turning exercise. After initial optimization, significant SEO work happens quarterly or when you add new content—not monthly.
+SEO isn't a monthly knob-turning exercise. After initial optimization, significant SEO work happens quarterly or when you add new content, not monthly.
 
 ### Weekly Content Updates
 
@@ -338,7 +338,7 @@ Some agencies build sites in ways that make you dependent on them for even minor
 
 ## The Bottom Line
 
-Website maintenance isn't optional—but it doesn't have to be expensive or time-consuming if you build the right foundation.
+Website maintenance isn't optional, but it doesn't have to be expensive or time-consuming if you build the right foundation.
 
 **My approach:**
 

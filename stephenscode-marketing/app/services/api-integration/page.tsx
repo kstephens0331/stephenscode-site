@@ -394,7 +394,7 @@ export default function APIIntegration() {
                 </div>
                 <div className="bg-surface-card rounded-xl p-6">
                   <h3 className="text-lg font-bold text-white mb-2">Cost-Effective</h3>
-                  <p className="text-gray-400">Agency overhead means agency prices. Working with me, you pay for expertise—not fancy offices.</p>
+                  <p className="text-gray-400">Agency overhead means agency prices. Working with me, you pay for expertise, not fancy offices.</p>
                 </div>
                 <div className="bg-surface-card rounded-xl p-6">
                   <h3 className="text-lg font-bold text-white mb-2">Flexible Engagement</h3>

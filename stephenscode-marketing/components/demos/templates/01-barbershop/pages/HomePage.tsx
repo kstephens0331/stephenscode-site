@@ -30,7 +30,7 @@ export default function HomePage({ colors, onNavigate, onBookingOpen }: HomePage
             </h1>
             <p style={{ color: '#c4a962' }} className="text-xl leading-relaxed mb-10">
               Experience the art of classic barbering in downtown Houston. Expert cuts, traditional hot towel shaves,
-              and modern styling from master barbers who take pride in their craft. We're not just a barbershop—we're
+              and modern styling from master barbers who take pride in their craft. We're not just a barbershop, we're
               a destination for the modern gentleman who values quality, tradition, and attention to detail.
             </p>
             <div className="flex flex-col sm:flex-row gap-4">
@@ -74,7 +74,7 @@ export default function HomePage({ colors, onNavigate, onBookingOpen }: HomePage
               <h3 style={{ color: '#1a1a1a' }} className="text-2xl font-bold mb-3">Master Craftsmanship</h3>
               <p style={{ color: '#666666' }} className="leading-relaxed">
                 Our barbers have over 38 years of combined experience. Each cut is tailored to your unique face shape,
-                hair texture, and lifestyle. We don't rush—we perfect.
+                hair texture, and lifestyle. We don't rush. We perfect.
               </p>
             </div>
 

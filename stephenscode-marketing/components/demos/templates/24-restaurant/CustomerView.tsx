@@ -91,7 +91,7 @@ export default function CustomerView({ demo, colors }: CustomerViewProps) {
                 </div>
                 <div style={{ backgroundColor: '#f8f8f8' }} className="p-6">
                   <h4 style={{ color: '#1a1a1a' }} className="text-xl font-bold mb-4">🏃 Pickup</h4>
-                  <p style={{ color: '#666666' }} className="mb-4">Pick up your order at the restaurant - ready in 20-30 minutes</p>
+                  <p style={{ color: '#666666' }} className="mb-4">Pick up your order at the restaurant, ready in 20-30 minutes</p>
                   <button style={{ backgroundColor: '#9b2226', color: '#ffffff' }} className="w-full py-3 font-bold hover:opacity-90">
                     Start Pickup Order
                   </button>

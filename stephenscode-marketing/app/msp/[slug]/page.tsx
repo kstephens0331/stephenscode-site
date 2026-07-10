@@ -40,7 +40,7 @@ const faqs: FAQItem[] = [
   {
     category: 'Pricing & Costs',
     question: 'Why are your prices so much lower than other agencies?',
-    answer: 'We keep overhead low—no fancy office, no sales team, no account managers. Just direct access to the developer building your site. We also use modern tools and AI assistance to work more efficiently without sacrificing quality.'
+    answer: 'We keep overhead low: no fancy office, no sales team, no account managers. Just direct access to the developer building your site. We also use modern tools and AI assistance to work more efficiently without sacrificing quality.'
   },
   {
     category: 'Pricing & Costs',
@@ -87,14 +87,14 @@ const faqs: FAQItem[] = [
   {
     category: 'Timeline & Process',
     question: 'What if I need my website faster?',
-    answer: 'Rush delivery is available for an additional 25% fee. Contact us to discuss your timeline needs—we\'ll do our best to accommodate urgent projects.'
+    answer: 'Rush delivery is available for an additional 25% fee. Contact us to discuss your timeline needs. We\'ll do our best to accommodate urgent projects.'
   },
 
   // Technical Questions
   {
     category: 'Technical',
     question: 'What platform do you build websites on?',
-    answer: 'We primarily use Next.js, a modern React framework that delivers exceptional performance, SEO, and scalability. For simpler sites, we may use other technologies. All sites are custom-coded—no WordPress or page builders.'
+    answer: 'We primarily use Next.js, a modern React framework that delivers exceptional performance, SEO, and scalability. For simpler sites, we may use other technologies. All sites are custom-coded, no WordPress or page builders.'
   },
   {
     category: 'Technical',
@@ -104,7 +104,7 @@ const faqs: FAQItem[] = [
   {
     category: 'Technical',
     question: 'How fast will my website load?',
-    answer: 'We target under 2 seconds load time on mobile. Our sites typically score 90+ on Google PageSpeed Insights. Fast loading improves user experience and search rankings—slow sites lose customers.'
+    answer: 'We target under 2 seconds load time on mobile. Our sites typically score 90+ on Google PageSpeed Insights. Fast loading improves user experience and search rankings. Slow sites lose customers.'
   },
   {
     category: 'Technical',
@@ -124,7 +124,7 @@ const faqs: FAQItem[] = [
   {
     category: 'Technical',
     question: 'Do you handle domain registration?',
-    answer: 'We can help you register a domain or transfer an existing one. We recommend registering through Namecheap, Google Domains, or Cloudflare. You own the domain—we just help set it up.'
+    answer: 'We can help you register a domain or transfer an existing one. We recommend registering through Namecheap, Google Domains, or Cloudflare. You own the domain. We just help set it up.'
   },
 
   // SEO Questions
@@ -136,7 +136,7 @@ const faqs: FAQItem[] = [
   {
     category: 'SEO & Marketing',
     question: 'Do you offer ongoing SEO services?',
-    answer: 'Our packages include basic SEO setup. For ongoing SEO—content creation, link building, local citations, keyword research—we can discuss a monthly retainer. Many clients see great results from just the foundational setup.'
+    answer: 'Our packages include basic SEO setup. For ongoing SEO (content creation, link building, local citations, keyword research), we can discuss a monthly retainer. Many clients see great results from just the foundational setup.'
   },
   {
     category: 'SEO & Marketing',
@@ -158,7 +158,7 @@ const faqs: FAQItem[] = [
   {
     category: 'Custom vs Template',
     question: 'Why should I get a custom website instead of using Wix or Squarespace?',
-    answer: 'Template sites are slower, look generic, have SEO limitations, and you don\'t own them—stop paying and your site disappears. Custom sites load faster, rank better, look unique, and you own the code forever. The ROI from better performance usually exceeds the cost difference quickly.'
+    answer: 'Template sites are slower, look generic, have SEO limitations, and you don\'t own them. Stop paying and your site disappears. Custom sites load faster, rank better, look unique, and you own the code forever. The ROI from better performance usually exceeds the cost difference quickly.'
   },
   {
     category: 'Custom vs Template',
@@ -168,7 +168,7 @@ const faqs: FAQItem[] = [
   {
     category: 'Custom vs Template',
     question: 'What if I already have a WordPress site?',
-    answer: 'WordPress can work well but often has security vulnerabilities and performance issues. We can rebuild it as a modern, fast, secure site—or optimize your existing WordPress if you prefer to keep it.'
+    answer: 'WordPress can work well but often has security vulnerabilities and performance issues. We can rebuild it as a modern, fast, secure site, or optimize your existing WordPress if you prefer to keep it.'
   },
 
   // E-Commerce Questions
@@ -219,7 +219,7 @@ const faqs: FAQItem[] = [
   {
     category: 'Service Area',
     question: 'What areas do you serve?',
-    answer: 'We\'re based in Conroe, TX and serve all of Greater Houston including The Woodlands, Spring, Tomball, Katy, Sugar Land, Pearland, Cypress, and surrounding areas. We also work with clients nationwide—everything can be done remotely.'
+    answer: 'We\'re based in Conroe, TX and serve all of Greater Houston including The Woodlands, Spring, Tomball, Katy, Sugar Land, Pearland, Cypress, and surrounding areas. We also work with clients nationwide. Everything can be done remotely.'
   },
   {
     category: 'Service Area',
@@ -236,7 +236,7 @@ const faqs: FAQItem[] = [
   {
     category: 'Getting Started',
     question: 'How do I get started?',
-    answer: 'Call us at (936) 323-4527 or fill out our contact form. We\'ll schedule a free consultation to discuss your needs, then provide a detailed proposal. No pressure, no sales tactics—just honest advice about what you need.'
+    answer: 'Call us at (936) 323-4527 or fill out our contact form. We\'ll schedule a free consultation to discuss your needs, then provide a detailed proposal. No pressure, no sales tactics, just honest advice about what you need.'
   },
   {
     category: 'Getting Started',

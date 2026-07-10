@@ -79,7 +79,7 @@ Lead captured: ${new Date().toLocaleString('en-US', { timeZone: 'America/Chicago
     await transporter.sendMail({
       from: process.env.SMTP_FROM || process.env.SMTP_USER,
       to: process.env.CONTACT_EMAIL || 'info@stephenscode.dev',
-      subject: `🎯 NEW DEMO LEAD: ${clientName} - Interested in "${demoName}" Design`,
+      subject: `🎯 NEW DEMO LEAD: ${clientName}, interested in "${demoName}" Design`,
       text: ownerEmailContent,
       replyTo: clientEmail || clientPhone,
     })
@@ -108,7 +108,7 @@ StephensCode Team
       await transporter.sendMail({
         from: process.env.SMTP_FROM || process.env.SMTP_USER,
         to: clientEmail,
-        subject: `Thanks for your interest in StephensCode - ${demoName}`,
+        subject: `Thanks for your interest in StephensCode: ${demoName}`,
         text: clientEmailContent,
       })
     }

@@ -8,14 +8,14 @@ export const metadata: Metadata = {
   description: 'Conroe web developer demos. Custom website Houston examples, small business website Texas showcases. 40+ live demos from veteran owned web developer.',
   keywords: ['Conroe web developer', 'Houston web development', 'custom website Houston', 'small business website Texas', 'affordable web design Houston', 'veteran owned web developer'],
   openGraph: {
-    title: 'Live Demos - See Our Work in Action | StephensCode',
+    title: 'Live Demos: See Our Work in Action | StephensCode',
     description: 'Explore 40+ fully interactive website demos. Try admin dashboards, customer portals, and advanced functionality.',
     url: 'https://www.stephenscode.dev/demos',
     type: 'website',
   },
   twitter: {
     card: 'summary_large_image',
-    title: 'Live Demos - See Our Work in Action | StephensCode',
+    title: 'Live Demos: See Our Work in Action | StephensCode',
     description: 'Explore 40+ fully interactive website demos. Try admin dashboards, customer portals, and advanced functionality.',
   },
 }
@@ -92,7 +92,7 @@ export default function DemosPage() {
               Fully Interactive Demos
             </h2>
             <p className="mt-4 text-lg leading-8 text-gray-400">
-              These aren't screenshots—they're real, working websites you can interact with.
+              These aren't screenshots. They're real, working websites you can interact with.
             </p>
           </div>
 
@@ -102,7 +102,7 @@ export default function DemosPage() {
                 ✅
               </div>
               <h3 className="text-lg font-semibold text-white mb-2">Click Around</h3>
-              <p className="text-sm text-gray-400">Navigate pages, open menus, test buttons—everything works.</p>
+              <p className="text-sm text-gray-400">Navigate pages, open menus, test buttons. Everything works.</p>
             </div>
             <div className="text-center">
               <div className="mx-auto h-16 w-16 rounded-full bg-primary-500/10 flex items-center justify-center text-3xl mb-4">
@@ -123,7 +123,7 @@ export default function DemosPage() {
                 📱
               </div>
               <h3 className="text-lg font-semibold text-white mb-2">Test on Mobile</h3>
-              <p className="text-sm text-gray-400">Resize your browser—all demos are fully responsive.</p>
+              <p className="text-sm text-gray-400">Resize your browser. All demos are fully responsive.</p>
             </div>
           </div>
         </div>

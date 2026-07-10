@@ -25,7 +25,7 @@ export default function HomePage({ onNavigate, colors }: HomePageProps) {
     {
       icon: Droplet,
       title: 'Plumbing Fixes',
-      description: 'Leaky faucets, running toilets, clogged drains - we handle all minor plumbing issues.',
+      description: 'Leaky faucets, running toilets, clogged drains. We handle all minor plumbing issues.',
     },
     {
       icon: Hammer,

@@ -40,7 +40,7 @@ export default function Layout({ children, currentPage, onNavigate, businessInfo
       <div className="bg-red-600 text-white py-2 px-4 text-center text-sm font-medium">
         <span className="flex items-center justify-center gap-2">
           <Heart className="w-4 h-4" />
-          Emergency Services Available 24/7 - Call {businessInfo.phone}
+          Emergency Services Available 24/7. Call {businessInfo.phone}
         </span>
       </div>
 

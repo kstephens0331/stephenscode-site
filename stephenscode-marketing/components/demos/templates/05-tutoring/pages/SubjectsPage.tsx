@@ -413,7 +413,7 @@ export default function SubjectsPage({ onNavigate }: SubjectsPageProps) {
                   Book Free Consultation
                 </button>
                 <p className="text-center text-sm text-purple-200 mt-4">
-                  First session absolutely free - no obligation
+                  First session absolutely free, no obligation
                 </p>
               </div>
             </div>
@@ -432,7 +432,7 @@ export default function SubjectsPage({ onNavigate }: SubjectsPageProps) {
           </h2>
           <p className="text-xl text-gray-700 leading-relaxed mb-8">
             We're confident in our tutors' ability to help your student succeed. If you're not
-            satisfied after your first paid session, we'll refund your money - no questions asked.
+            satisfied after your first paid session, we'll refund your money, no questions asked.
           </p>
           <div className="grid md:grid-cols-3 gap-6">
             <div className="bg-white rounded-xl p-6 shadow-md">
