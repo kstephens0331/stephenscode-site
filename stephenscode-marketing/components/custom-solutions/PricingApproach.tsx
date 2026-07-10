@@ -41,7 +41,7 @@ export default function PricingApproach() {
               </h3>
 
               <p className="text-lg text-slate-300 leading-relaxed">
-                Our custom development is based on an hourly rate of <strong className="text-white">$50/hour</strong>. However, you won't be billed hourly—we provide a comprehensive flat-rate quote for your entire project upfront.
+                Our custom development is based on an hourly rate of <strong className="text-white">$50/hour</strong>. However, you won't be billed hourly. We provide a comprehensive flat-rate quote for your entire project upfront.
               </p>
             </div>
 
@@ -144,7 +144,7 @@ export default function PricingApproach() {
           className="mt-12 p-6 bg-slate-800/30 border border-slate-700/50 rounded-xl"
         >
           <p className="text-sm text-slate-400 leading-relaxed">
-            <strong className="text-slate-300">Note:</strong> While our base rate is $50/hour, all custom development projects are quoted as flat-rate packages. The hourly rate is used solely for estimation purposes. Once you approve the quote, that's your final price—we will not bill you additional hours if the project takes longer than expected. You get the full solution for the quoted price, period.
+            <strong className="text-slate-300">Note:</strong> While our base rate is $50/hour, all custom development projects are quoted as flat-rate packages. The hourly rate is used solely for estimation purposes. Once you approve the quote, that's your final price. We will not bill you additional hours if the project takes longer than expected. You get the full solution for the quoted price, period.
           </p>
         </motion.div>
       </div>

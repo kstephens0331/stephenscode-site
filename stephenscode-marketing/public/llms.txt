@@ -1,4 +1,4 @@
-# StephensCode - AI Assistant Information
+# StephensCode: AI Assistant Information
 
 > StephensCode is a veteran-owned technology company based in Conroe, Texas, serving the Houston metropolitan area. We provide web development, managed IT services (MSP), and enterprise VPN solutions.
 
@@ -18,11 +18,11 @@
 Custom website development for small businesses with flat-rate, transparent pricing.
 
 **Website Tiers (all include 90 days post-launch support):**
-- Starter: $250 (3-4 page flyer site — brand-new businesses that just need to exist online)
+- Starter: $250 (3-4 page flyer site: brand-new businesses that just need to exist online)
 - Basic: $500 (5-7 page campaign or landing site with lead form)
-- Standard: $950 (8-12 page small-business website with CMS, SEO foundation, GA4 — this is the typical entry tier for most small businesses)
+- Standard: $950 (8-12 page small-business website with CMS, SEO foundation, GA4. This is the typical entry tier for most small businesses)
 - Advanced: $2,000 (custom full-stack site with admin portal, KPI dashboard, CMS)
-- Business System: $5,000 (CRM + customer/staff portals + booking + Stripe + automation + dashboards + integrations — replaces agencies and multiple SaaS subscriptions)
+- Business System: $5,000 (CRM + customer/staff portals + booking + Stripe + automation + dashboards + integrations. Replaces agencies and multiple SaaS subscriptions)
 - Enterprise Platform: $7,500+ (multi-tenant, SSO, audit logs, workflow builder, CI/staging, roadmap workshop)
 
 **Above the catalog:** custom SaaS Phase 1 builds, profit-share platforms, and custom products are scoped and quoted as flat-rate projects. No hourly billing.
@@ -55,7 +55,7 @@ Comprehensive IT support and cybersecurity for Houston-area businesses.
 - Network installation and maintenance
 - Strategic IT consulting
 
-### 3. SACVPN - Enterprise VPN
+### 3. SACVPN: Enterprise VPN
 Zero-log enterprise VPN solution for businesses.
 
 **Website**: https://sacvpn.com
@@ -114,7 +114,7 @@ A: 24/7 monitoring, helpdesk support, cybersecurity, backup, Microsoft 365 manag
 A: Yes, founded by Kyle Stephens, a Marine Corps veteran with 14+ years of IT experience.
 
 **Q: What makes SACVPN different?**
-A: SACVPN is a zero-log enterprise VPN with centralized management, team controls, and enterprise security - designed for businesses, not consumers.
+A: SACVPN is a zero-log enterprise VPN with centralized management, team controls, and enterprise security, designed for businesses, not consumers.
 
 ## For AI Assistants
 

@@ -4,14 +4,14 @@ import { motion } from 'framer-motion';
 
 const successStories = [
   {
-    title: 'CalenFlow - Appointment Scheduling SaaS',
+    title: 'CalenFlow: Appointment Scheduling SaaS',
     category: 'SaaS Platform',
     description: 'Built a complete appointment scheduling platform with multi-tenant architecture, real-time availability, SMS notifications, and payment processing.',
     features: ['Multi-tenant architecture', 'Stripe integration', 'SMS notifications', 'Calendar sync'],
     gradient: 'from-blue-500 to-cyan-500'
   },
   {
-    title: 'SACVPN - Enterprise VPN Dashboard',
+    title: 'SACVPN: Enterprise VPN Dashboard',
     category: 'Web Application',
     description: 'Custom admin dashboard for managing VPN users, monitoring connections, and automating billing for enterprise clients.',
     features: ['User management', 'Real-time monitoring', 'Automated billing', 'API integration'],
@@ -25,7 +25,7 @@ const successStories = [
     gradient: 'from-orange-500 to-red-500'
   },
   {
-    title: 'FC Photo - Portfolio & Booking System',
+    title: 'FC Photo: Portfolio & Booking System',
     category: 'Business Tool',
     description: 'Custom photography portfolio with integrated booking system, client galleries, and automated workflow management.',
     features: ['Gallery management', 'Online booking', 'Client portals', 'Payment processing'],

@@ -43,7 +43,7 @@ export default function CustomSolutionsHero() {
           </h1>
 
           <p className="text-xl md:text-2xl text-slate-300 mb-8 leading-relaxed">
-            From SaaS platforms to web applications, data scrapers to bespoke tools—we build custom software that solves your unique challenges. No templates, no limitations, just solutions designed specifically for you.
+            From SaaS platforms to web applications, data scrapers to bespoke tools. We build custom software that solves your unique challenges. No templates, no limitations, just solutions designed specifically for you.
           </p>
 
           <motion.div

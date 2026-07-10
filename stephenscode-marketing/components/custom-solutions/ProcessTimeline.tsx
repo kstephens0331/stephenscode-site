@@ -18,7 +18,7 @@ const steps = [
   {
     number: '03',
     title: 'Detailed Quote',
-    description: 'You receive a comprehensive flat-rate quote with no surprises—what you see is what you pay.',
+    description: 'You receive a comprehensive flat-rate quote with no surprises. What you see is what you pay.',
     duration: '24-48 hours'
   },
   {

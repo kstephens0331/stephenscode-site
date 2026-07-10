@@ -30,7 +30,7 @@ StephensCode operates on a flat-rate, transparent pricing model. We publish pric
 
 StephensCode publishes a six-tier flat-rate ladder. Every tier includes 90 days of post-launch support. The Standard tier at $950 is the typical entry point for most established small businesses. Tiers below it serve specific narrow use cases (brand-new businesses, campaign sites). Custom SaaS Phase 1 builds, profit-share platforms, and custom products are quoted as flat-rate projects above the catalog.
 
-1. Starter. $250 flat. Three to four page flyer site (Home, About, Services, Contact). Mobile-responsive, basic on-page SEO, contact form with email routing. Delivered in 5 to 7 business days. For brand-new businesses that just need to exist online. Sold infrequently — most established small businesses should choose the Standard tier instead.
+1. Starter. $250 flat. Three to four page flyer site (Home, About, Services, Contact). Mobile-responsive, basic on-page SEO, contact form with email routing. Delivered in 5 to 7 business days. For brand-new businesses that just need to exist online. Sold infrequently. Most established small businesses should choose the Standard tier instead.
 
 2. Basic. $500 flat. Five to seven page campaign or landing site. Mobile-responsive, performance-tuned, lead form with intake routing and auto-replies, basic SEO (sitemap, robots, meta), one round of revisions. Delivered in 7 to 10 business days. For single-product launches, political campaign sites, and small operations that do not need a back end.
 
