@@ -229,7 +229,7 @@ export default function CustomerView({ demo, colors }: CustomerViewProps) {
                       <AlertTriangle className="w-6 h-6 mt-1" style={{ color: product.status === 'Critical' ? colors.error : colors.warning }} />
                       <div>
                         <h3 className="font-bold text-lg mb-1" style={{ color: colors.text }}>{product.name}</h3>
-                        <p className="text-sm mb-2" style={{ color: colors.textLight }}>SKU: {product.id} - {product.category}</p>
+                        <p className="text-sm mb-2" style={{ color: colors.textLight }}>SKU: {product.id}, {product.category}</p>
                         <p className="font-semibold" style={{ color: colors.text }}>
                           Current stock: {product.stock} / Reorder point: {product.reorderPoint}
                         </p>
@@ -269,7 +269,7 @@ export default function CustomerView({ demo, colors }: CustomerViewProps) {
                     <p className="font-semibold mb-1" style={{ color: colors.text }}>
                       {activity.type === 'received' ? 'Received' :
                        activity.type === 'sold' ? 'Sold' :
-                       activity.type === 'adjusted' ? 'Adjusted' : 'Ordered'} - {activity.item}
+                       activity.type === 'adjusted' ? 'Adjusted' : 'Ordered'}: {activity.item}
                     </p>
                     <p className="text-sm" style={{ color: colors.textLight }}>
                       Quantity: {activity.quantity > 0 ? '+' : ''}{activity.quantity}

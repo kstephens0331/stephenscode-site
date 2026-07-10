@@ -164,7 +164,7 @@ export default function HomePage({ basePath }: HomePageProps) {
               Why Iron Temple Fitness?
             </h2>
             <p className="text-xl text-zinc-400 max-w-3xl mx-auto">
-              We're not just a gym—we're a community dedicated to your transformation
+              We're not just a gym. We're a community dedicated to your transformation
             </p>
           </div>
 

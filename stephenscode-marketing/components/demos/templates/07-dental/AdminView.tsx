@@ -74,7 +74,7 @@ export default function AdminView() {
       id: 6,
       time: '1:00 PM',
       patient: 'Michael Brown',
-      type: 'Emergency - Toothache',
+      type: 'Emergency: Toothache',
       dentist: 'Dr. Johnson',
       status: 'urgent',
       isNew: false

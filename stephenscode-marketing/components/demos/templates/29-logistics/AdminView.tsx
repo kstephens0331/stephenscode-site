@@ -32,7 +32,7 @@ export default function AdminView({ demo, colors }: AdminViewProps) {
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="flex justify-between items-center h-16">
             <h1 className="text-xl font-bold" style={{ color: colors.text }}>
-              Admin Dashboard - Swift Logistics Services
+              Admin Dashboard: Swift Logistics Services
             </h1>
             <span style={{ color: colors.textLight }}>Admin User</span>
           </div>

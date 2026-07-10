@@ -318,10 +318,10 @@ const PremierStaffingSolutions = () => {
       amount: 8640,
       status: 'Paid',
       items: [
-        { description: 'Nursing Services - Week 1', hours: 48, rate: 45, amount: 2160 },
-        { description: 'Nursing Services - Week 2', hours: 48, rate: 45, amount: 2160 },
-        { description: 'Nursing Services - Week 3', hours: 48, rate: 45, amount: 2160 },
-        { description: 'Nursing Services - Week 4', hours: 48, rate: 45, amount: 2160 }
+        { description: 'Nursing Services, Week 1', hours: 48, rate: 45, amount: 2160 },
+        { description: 'Nursing Services, Week 2', hours: 48, rate: 45, amount: 2160 },
+        { description: 'Nursing Services, Week 3', hours: 48, rate: 45, amount: 2160 },
+        { description: 'Nursing Services, Week 4', hours: 48, rate: 45, amount: 2160 }
       ]
     }
   ];

@@ -126,7 +126,7 @@ export default function ServicesPage({ colors, onBookingOpen, setBookingService 
           </h1>
           <p style={{ color: '#c4a962' }} className="text-xl max-w-3xl mx-auto">
             Every service includes complimentary beverage, hot towel treatment, and expert consultation.
-            No hidden fees—what you see is what you pay.
+            No hidden fees. What you see is what you pay.
           </p>
         </div>
       </section>
@@ -263,7 +263,7 @@ export default function ServicesPage({ colors, onBookingOpen, setBookingService 
               style={{ backgroundColor: '#d4af37', color: '#1a1a1a' }}
               className="px-10 py-4 font-bold text-lg hover:opacity-90 transition"
             >
-              Join Today - Book Your First Visit
+              Join Today, Book Your First Visit
             </button>
           </div>
         </div>

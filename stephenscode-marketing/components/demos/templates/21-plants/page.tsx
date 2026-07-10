@@ -762,7 +762,7 @@ const UrbanJunglePlantShop = () => {
                   onClick={() => addToCart(plant)}
                   className="w-full bg-[#2d6a4f] text-white px-4 py-2 rounded-lg hover:bg-[#40916c] transition-colors text-sm"
                 >
-                  Add to Cart - ${plant.price.toFixed(2)}
+                  Add to Cart (${plant.price.toFixed(2)})
                 </button>
               </div>
             ))}

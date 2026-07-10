@@ -176,11 +176,11 @@ Having a great website means nothing if no one finds it. For HVAC companies, loc
 
 Wix, Squarespace, and GoDaddy are fine for portfolios and blogs. For HVAC companies, they create problems:
 
-1. **Limited local SEO capabilities** - Can't create proper service area pages
-2. **Generic templates** - You look like every other HVAC company
-3. **Slow performance** - Template bloat slows your site
-4. **No HVAC-specific features** - No scheduling integration, no financing widgets
-5. **You're on your own** - No one to call when something breaks
+1. **Limited local SEO capabilities**: Can't create proper service area pages
+2. **Generic templates**: You look like every other HVAC company
+3. **Slow performance**: Template bloat slows your site
+4. **No HVAC-specific features**: No scheduling integration, no financing widgets
+5. **You're on your own**: No one to call when something breaks
 
 ## What a Professional HVAC Website Costs
 

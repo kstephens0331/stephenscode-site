@@ -424,7 +424,7 @@ export default function CustomerView({ demo, colors }: CustomerViewProps) {
               <input type="text" placeholder="CVV" className="px-4 py-3 border-2 border-gray-200 rounded-lg" />
             </div>
             <button type="submit" className="w-full text-white py-4 rounded-lg font-semibold hover:opacity-90" style={{ backgroundColor: colors.primary }}>
-              Complete Purchase - ${cartTotal.toLocaleString()}
+              Complete Purchase (${cartTotal.toLocaleString()})
             </button>
           </form>
         </div>

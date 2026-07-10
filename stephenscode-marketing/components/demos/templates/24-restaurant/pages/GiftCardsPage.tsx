@@ -18,7 +18,7 @@ export default function GiftCardsPage({ colors }: GiftCardsPageProps) {
             Share the Gourmet Experience
           </h1>
           <p style={{ color: '#f5f5f5' }} className="text-xl">
-            Give the gift of exceptional Italian dining - perfect for any occasion
+            Give the gift of exceptional Italian dining, perfect for any occasion
           </p>
         </div>
       </section>

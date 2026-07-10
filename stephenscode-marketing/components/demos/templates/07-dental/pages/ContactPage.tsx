@@ -311,7 +311,7 @@ export default function ContactPage({ onNavigate }: ContactPageProps) {
           </div>
           <h2 className="text-4xl font-bold mb-4">Having a Dental Emergency?</h2>
           <p className="text-xl mb-8 text-red-100">
-            Don't wait - our emergency hotline is available 24 hours a day, 7 days a week.
+            Don't wait. Our emergency hotline is available 24 hours a day, 7 days a week.
             We provide same-day emergency appointments for urgent dental issues.
           </p>
           <a

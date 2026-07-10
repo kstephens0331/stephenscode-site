@@ -86,7 +86,7 @@ export default function AboutPage({ colors, onBookingOpen }: AboutPageProps) {
               </p>
 
               <p>
-                What sets us apart isn't just our technical ability—it's our commitment to the experience.
+                What sets us apart isn't just our technical ability, it's our commitment to the experience.
                 When you sit in our chair, you're not just getting a haircut. You're part of a tradition that
                 goes back centuries. You're taking time for yourself in our comfortable, welcoming space.
                 You're building a relationship with a barber who genuinely cares about how you look and feel.
@@ -243,7 +243,7 @@ export default function AboutPage({ colors, onBookingOpen }: AboutPageProps) {
               style={{ backgroundColor: '#d4af37', color: '#1a1a1a' }}
               className="px-10 py-4 font-bold text-lg hover:opacity-90 transition"
             >
-              Experience the Difference - Book Now
+              Experience the Difference, Book Now
             </button>
           </div>
         </div>

@@ -125,7 +125,7 @@ export default function ContactPage({ onNavigate, colors }: ContactPageProps) {
       <section className="py-4 text-white" style={{ backgroundColor: colors.accent }}>
         <div className="max-w-7xl mx-auto px-4 text-center">
           <p className="font-bold text-lg">
-            🚨 EMERGENCY? Call Now: (555) 123-4567 - Available 24/7
+            🚨 EMERGENCY? Call Now: (555) 123-4567. Available 24/7
           </p>
         </div>
       </section>
@@ -416,7 +416,7 @@ export default function ContactPage({ onNavigate, colors }: ContactPageProps) {
                     {[
                       'Licensed & Insured Professionals',
                       'Same-Day Service Available',
-                      'Upfront Pricing - No Hidden Fees',
+                      'Upfront Pricing, No Hidden Fees',
                       'Satisfaction Guaranteed',
                       '500+ Five-Star Reviews',
                     ].map((item, index) => (

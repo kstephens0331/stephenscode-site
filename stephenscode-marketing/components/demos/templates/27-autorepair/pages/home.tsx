@@ -16,7 +16,7 @@ export default function HomePage({ colors, onNavigate }: HomePageProps) {
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
           <p className="text-white font-semibold flex items-center justify-center gap-2">
             <Star className="w-5 h-5" />
-            REAL CLIENT SHOWCASE - View our actual production work
+            REAL CLIENT SHOWCASE: View our actual production work
             <Star className="w-5 h-5" />
           </p>
         </div>
@@ -157,7 +157,7 @@ export default function HomePage({ colors, onNavigate }: HomePageProps) {
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="bg-gradient-to-r from-gray-900 to-gray-800 rounded-2xl p-12 text-center">
             <h2 className="text-3xl font-bold mb-4 text-white">
-              Premium Build - $2,000 Value
+              Premium Build: $2,000 Value
             </h2>
             <p className="text-xl mb-6 text-gray-300">
               Complete collision repair business solution with advanced features

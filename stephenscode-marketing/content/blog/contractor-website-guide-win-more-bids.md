@@ -14,17 +14,17 @@ Before a homeowner calls you for a quote, they've already visited your website. 
 
 What did they find?
 
-If your website looks like it was built in 2010—or worse, if you don't have one at all—you've already lost ground to competitors who invested in their digital presence.
+If your website looks like it was built in 2010, or worse, if you don't have one at all, you've already lost ground to competitors who invested in their digital presence.
 
 ## Why Contractor Websites Are Different
 
 Unlike retail or service businesses, contractors face unique challenges:
 
-1. **High-value decisions** - Projects range from $10K to $500K+
-2. **Long sales cycles** - Clients research for weeks or months
-3. **Trust is everything** - You're asking for major investments
-4. **Portfolio matters** - Clients want to see your work
-5. **References get checked** - Your online reputation follows you
+1. **High-value decisions**: Projects range from $10K to $500K+
+2. **Long sales cycles**: Clients research for weeks or months
+3. **Trust is everything**: You're asking for major investments
+4. **Portfolio matters**: Clients want to see your work
+5. **References get checked**: Your online reputation follows you
 
 Your website needs to support this entire journey, not just capture a quick lead.
 
@@ -314,18 +314,18 @@ Getting found online requires more than just having a website:
 
 ## Common Mistakes Contractors Make Online
 
-1. **No website at all** - "I get all my work from referrals" (until you don't)
-2. **DIY website that looks DIY** - Unprofessional = untrustworthy
-3. **Outdated portfolio** - Projects from 5+ years ago hurt more than help
-4. **No mobile optimization** - Half your visitors are on phones
-5. **Missing license/insurance info** - Raises red flags
-6. **Stock photos only** - Screams "we have no real work to show"
-7. **No reviews or testimonials** - Social proof is expected
-8. **Contact form only** - Some clients want to call NOW
+1. **No website at all**: "I get all my work from referrals" (until you don't)
+2. **DIY website that looks DIY**: Unprofessional = untrustworthy
+3. **Outdated portfolio**: Projects from 5+ years ago hurt more than help
+4. **No mobile optimization**: Half your visitors are on phones
+5. **Missing license/insurance info**: Raises red flags
+6. **Stock photos only**: Screams "we have no real work to show"
+7. **No reviews or testimonials**: Social proof is expected
+8. **Contact form only**: Some clients want to call NOW
 
 ## Ready to Win More Bids?
 
-Your website should be your best salesperson—working 24/7 to build trust and qualify leads. Every day with an underwhelming online presence is another day losing work to competitors who invested in theirs.
+Your website should be your best salesperson, working 24/7 to build trust and qualify leads. Every day with an underwhelming online presence is another day losing work to competitors who invested in theirs.
 
 At StephensCode, we build websites for contractors who want to win bigger projects and better clients. We understand the construction industry and what it takes to convert website visitors into signed contracts.
 

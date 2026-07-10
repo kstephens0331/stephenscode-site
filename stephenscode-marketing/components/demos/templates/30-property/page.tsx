@@ -479,7 +479,7 @@ const ElitePropertyManagement = () => {
               <div key={request.id} className="border-l-4 border-red-500 bg-red-50 p-4 rounded">
                 <div className="flex items-start justify-between mb-2">
                   <div>
-                    <h3 className="font-bold text-gray-900">{request.property} - {request.unit}</h3>
+                    <h3 className="font-bold text-gray-900">{request.property}, {request.unit}</h3>
                     <p className="text-sm text-gray-600">{request.category}</p>
                   </div>
                   <span className={`px-3 py-1 rounded-full text-xs font-semibold ${

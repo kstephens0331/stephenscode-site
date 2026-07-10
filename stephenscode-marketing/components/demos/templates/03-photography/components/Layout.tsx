@@ -226,7 +226,7 @@ export default function Layout({ children, currentPage, onNavigate, isAdmin = fa
             <p>&copy; {new Date().getFullYear()} Lens & Light Photography. All rights reserved.</p>
             {isAdmin && (
               <p className="mt-2 text-xs text-[#4f5d75]">
-                Demo Mode - This is a sample website showcasing StephensCode capabilities
+                Demo Mode: This is a sample website showcasing StephensCode capabilities
               </p>
             )}
           </div>

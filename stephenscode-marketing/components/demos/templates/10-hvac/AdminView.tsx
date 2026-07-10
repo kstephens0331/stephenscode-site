@@ -109,7 +109,7 @@ export default function AdminView() {
               <div key={index} className="border-l-4 border-[#f77f00] pl-4 py-2">
                 <div className="flex justify-between items-start">
                   <div>
-                    <p className="font-bold text-[#003049]">{apt.time} - {apt.customer}</p>
+                    <p className="font-bold text-[#003049]">{apt.time}, {apt.customer}</p>
                     <p className="text-sm text-gray-600">{apt.service}</p>
                     <p className="text-xs text-gray-500">{apt.address}</p>
                   </div>
@@ -149,7 +149,7 @@ export default function AdminView() {
       <div className="bg-[#003049] text-white shadow-lg">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-4">
           <div className="flex items-center justify-between">
-            <h1 className="text-2xl font-bold">Cool Breeze HVAC - Admin Portal</h1>
+            <h1 className="text-2xl font-bold">Cool Breeze HVAC: Admin Portal</h1>
             <div className="flex items-center space-x-4">
               <span className="text-sm">Admin User</span>
               <div className="w-10 h-10 bg-[#f77f00] rounded-full flex items-center justify-center font-bold">

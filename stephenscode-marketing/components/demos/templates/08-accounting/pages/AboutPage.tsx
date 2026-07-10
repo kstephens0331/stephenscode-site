@@ -9,7 +9,7 @@ export default function AboutPage({ onNavigate }: AboutPageProps) {
   const team = [
     {
       name: 'Robert Thompson',
-      title: 'CPA, CFP - Managing Partner',
+      title: 'CPA, CFP, Managing Partner',
       experience: '25 years',
       specialties: ['Tax Planning', 'Business Advisory', 'Estate Planning'],
       bio: 'Robert founded Peak Financial in 1999 with a vision to provide comprehensive financial services with a personal touch. He specializes in complex tax strategies and business advisory services.',
@@ -17,7 +17,7 @@ export default function AboutPage({ onNavigate }: AboutPageProps) {
     },
     {
       name: 'Linda Martinez',
-      title: 'CPA - Senior Tax Partner',
+      title: 'CPA, Senior Tax Partner',
       experience: '18 years',
       specialties: ['Individual Taxation', 'IRS Representation', 'Tax Compliance'],
       bio: 'Linda brings nearly two decades of tax expertise, specializing in individual and small business taxation. She has successfully represented hundreds of clients in IRS matters.',
@@ -25,7 +25,7 @@ export default function AboutPage({ onNavigate }: AboutPageProps) {
     },
     {
       name: 'David Chen',
-      title: 'CFP - Wealth Management Director',
+      title: 'CFP, Wealth Management Director',
       experience: '15 years',
       specialties: ['Investment Management', 'Retirement Planning', 'Portfolio Strategy'],
       bio: 'David leads our wealth management division, helping clients build and preserve wealth through strategic investment planning and comprehensive retirement strategies.',
@@ -57,11 +57,11 @@ export default function AboutPage({ onNavigate }: AboutPageProps) {
   ];
 
   const awards = [
-    { year: '2024', award: 'Top Financial Advisor - Chicago Business Journal' },
-    { year: '2023', award: 'Best CPA Firm - Illinois CPA Society' },
-    { year: '2023', award: 'Five Star Wealth Manager - Chicago Magazine' },
-    { year: '2022', award: 'Excellence in Tax Planning - AICPA' },
-    { year: '2022', award: 'Client Choice Award - Wealth Management Today' },
+    { year: '2024', award: 'Top Financial Advisor, Chicago Business Journal' },
+    { year: '2023', award: 'Best CPA Firm, Illinois CPA Society' },
+    { year: '2023', award: 'Five Star Wealth Manager, Chicago Magazine' },
+    { year: '2022', award: 'Excellence in Tax Planning, AICPA' },
+    { year: '2022', award: 'Client Choice Award, Wealth Management Today' },
   ];
 
   const milestones = [
@@ -70,7 +70,7 @@ export default function AboutPage({ onNavigate }: AboutPageProps) {
     { year: '2010', event: 'Reached $500M in assets under management' },
     { year: '2015', event: 'Opened second office, 500+ clients served' },
     { year: '2020', event: '$1B+ in assets under management' },
-    { year: '2024', event: '25th Anniversary - 1,200+ clients, $2.5B+ AUM' },
+    { year: '2024', event: '25th Anniversary: 1,200+ clients, $2.5B+ AUM' },
   ];
 
   return (

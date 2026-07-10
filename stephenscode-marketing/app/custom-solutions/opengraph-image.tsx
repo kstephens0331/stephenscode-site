@@ -1,7 +1,7 @@
 import { ImageResponse } from 'next/og';
 
 export const runtime = 'edge';
-export const alt = 'StephensCode Custom Solutions - SaaS, Web Apps, Automation';
+export const alt = 'StephensCode Custom Solutions: SaaS, Web Apps, Automation';
 export const size = {
   width: 1200,
   height: 630,

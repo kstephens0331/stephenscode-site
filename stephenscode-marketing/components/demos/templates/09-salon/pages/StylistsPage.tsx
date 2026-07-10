@@ -18,7 +18,7 @@ export default function StylistsPage({ onNavigate }: StylistsPageProps) {
       certifications: ['Redken Certified Colorist', 'Balayage Specialist', 'Olaplex Certified'],
       bio: 'Jessica is our lead colorist with a passion for creating stunning, dimensional color. She has trained with top colorists in NYC and specializes in natural-looking balayage and bold fashion colors. Her color corrections are legendary.',
       achievements: [
-        'Best Colorist 2023 - City Beauty Awards',
+        'Best Colorist 2023, City Beauty Awards',
         'Featured in Vogue Beauty',
         'International Balayage Certification',
       ],
@@ -69,7 +69,7 @@ export default function StylistsPage({ onNavigate }: StylistsPageProps) {
       certifications: ['OPI Certified Technician', 'Gel-X Specialist', 'Nail Art Master'],
       bio: 'Taylor is our nail art virtuoso, creating intricate designs and flawless manicures. Her attention to detail and creativity make her one of the most sought-after nail artists in the city.',
       achievements: [
-        'Best Nail Artist 2023 - Beauty Excellence Awards',
+        'Best Nail Artist 2023, Beauty Excellence Awards',
         'Instagram Nail Artist with 50K+ followers',
         'Featured in Nailpro Magazine',
       ],
@@ -317,7 +317,7 @@ export default function StylistsPage({ onNavigate }: StylistsPageProps) {
           <Calendar className="w-16 h-16 mx-auto mb-6" />
           <h2 className="text-4xl font-bold mb-4">Book with Your Favorite Stylist</h2>
           <p className="text-xl text-white/90 mb-8">
-            Choose your preferred stylist and service - appointments available now
+            Choose your preferred stylist and service. Appointments available now
           </p>
           <button
             onClick={() => onNavigate('booking')}

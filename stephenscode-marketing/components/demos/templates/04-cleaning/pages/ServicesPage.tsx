@@ -194,7 +194,7 @@ export default function ServicesPage({ onNavigate }: ServicesPageProps) {
   return (
     <div className="bg-white">
       {/* SEO Meta */}
-      <title>Our Services - Sparkle Clean | Residential & Commercial Cleaning in Sparkle City</title>
+      <title>Our Services | Sparkle Clean | Residential & Commercial Cleaning in Sparkle City</title>
 
       {/* Hero */}
       <section className="bg-gradient-to-br from-[#0077b6] to-[#00b4d8] text-white py-16">

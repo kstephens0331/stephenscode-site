@@ -554,7 +554,7 @@ export default function RestaurantDemo({ demo, viewMode }: RestaurantDemoProps) 
                   style={{ backgroundColor: demo.colors.accent }}
                   onClick={(e) => {
                     e.preventDefault()
-                    alert('Reservation submitted! (This is a demo - no actual reservation was made)')
+                    alert('Reservation submitted! (This is a demo, no actual reservation was made)')
                   }}
                 >
                   Reserve Table

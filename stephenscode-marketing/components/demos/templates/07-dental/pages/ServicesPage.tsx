@@ -74,7 +74,7 @@ export default function ServicesPage({ onNavigate }: ServicesPageProps) {
     {
       icon: <AlertCircle className="w-12 h-12 text-[#0077b6]" />,
       title: 'Emergency Dental Care',
-      description: 'Immediate care when you need it most - available 24/7',
+      description: 'Immediate care when you need it most, available 24/7',
       priceRange: '$150 - $500',
       treatments: [
         'Severe Toothaches',

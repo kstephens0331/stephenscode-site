@@ -19,7 +19,7 @@ export default function AdminView() {
         'Hero with Free Consultation CTA',
         'Key Statistics (500+ Students, 98% Success)',
         'Subjects Preview Grid',
-        'Why Choose Us - Benefits',
+        'Why Choose Us: Benefits',
         'Student Testimonials',
         'Final CTA Section',
         'Free Consultation Modal',
@@ -111,8 +111,8 @@ export default function AdminView() {
               <GraduationCap className="h-8 w-8 text-white" />
             </div>
             <div>
-              <h1 className="text-2xl font-bold">Smart Start Tutoring - Admin View</h1>
-              <p className="text-purple-300">Demo Template #05 - Educational Services</p>
+              <h1 className="text-2xl font-bold">Smart Start Tutoring | Admin View</h1>
+              <p className="text-purple-300">Demo Template #05: Educational Services</p>
             </div>
           </div>
         </div>

@@ -24,7 +24,7 @@ export default function FAQPage({ onNavigate, colors }: FAQPageProps) {
         },
         {
           question: 'Do I need an appointment?',
-          answer: 'Yes, we recommend scheduling appointments for wellness exams and routine care. This ensures minimal wait time and allows us to dedicate proper time to your pet. For emergencies, call ahead if possible, but come in immediately - we always make room for urgent cases.'
+          answer: 'Yes, we recommend scheduling appointments for wellness exams and routine care. This ensures minimal wait time and allows us to dedicate proper time to your pet. For emergencies, call ahead if possible, but come in immediately; we always make room for urgent cases.'
         },
         {
           question: 'What should I bring to my first visit?',
@@ -84,11 +84,11 @@ export default function FAQPage({ onNavigate, colors }: FAQPageProps) {
         },
         {
           question: 'How does pet insurance work?',
-          answer: 'We accept all pet insurance providers. You pay for services at the time of visit, and we provide a detailed invoice for you to submit to your insurance company for reimbursement. We can also help with direct claim submission for many insurers. We recommend getting insurance early - before health issues develop.'
+          answer: 'We accept all pet insurance providers. You pay for services at the time of visit, and we provide a detailed invoice for you to submit to your insurance company for reimbursement. We can also help with direct claim submission for many insurers. We recommend getting insurance early, before health issues develop.'
         },
         {
           question: 'Do you provide cost estimates?',
-          answer: 'Yes! We always provide cost estimates before procedures. For surgeries and extensive treatments, we give written estimates with price ranges. For routine care, we discuss costs during your appointment. We never want cost to be a surprise - we\'ll work with you to find the best care within your budget.'
+          answer: 'Yes! We always provide cost estimates before procedures. For surgeries and extensive treatments, we give written estimates with price ranges. For routine care, we discuss costs during your appointment. We never want cost to be a surprise; we\'ll work with you to find the best care within your budget.'
         }
       ]
     },
@@ -102,7 +102,7 @@ export default function FAQPage({ onNavigate, colors }: FAQPageProps) {
         },
         {
           question: 'How often should my pet have a checkup?',
-          answer: 'Annual wellness exams for adult pets (1-7 years). Senior pets (7+ years) should have exams twice yearly. Puppies and kittens need more frequent visits - typically at 6, 9, 12, and 16 weeks, then at 6 months for spay/neuter. Pets with chronic conditions may need more frequent monitoring.'
+          answer: 'Annual wellness exams for adult pets (1-7 years). Senior pets (7+ years) should have exams twice yearly. Puppies and kittens need more frequent visits, typically at 6, 9, 12, and 16 weeks, then at 6 months for spay/neuter. Pets with chronic conditions may need more frequent monitoring.'
         },
         {
           question: 'At what age should I spay/neuter my pet?',
@@ -128,7 +128,7 @@ export default function FAQPage({ onNavigate, colors }: FAQPageProps) {
       faqs: [
         {
           question: 'What constitutes a pet emergency?',
-          answer: 'Emergencies include difficulty breathing, collapse, seizures, severe bleeding, poisoning, trauma, bloat, inability to urinate, eye injuries, heat stroke, or any situation where your pet\'s life may be in danger. If you\'re unsure, call us - we\'re happy to help you assess the urgency.'
+          answer: 'Emergencies include difficulty breathing, collapse, seizures, severe bleeding, poisoning, trauma, bloat, inability to urinate, eye injuries, heat stroke, or any situation where your pet\'s life may be in danger. If you\'re unsure, call us; we\'re happy to help you assess the urgency.'
         },
         {
           question: 'Are you open for emergencies 24/7?',
@@ -136,7 +136,7 @@ export default function FAQPage({ onNavigate, colors }: FAQPageProps) {
         },
         {
           question: 'Should I call before bringing in an emergency?',
-          answer: 'If possible, yes - call ahead so we can prepare for your arrival. However, if seconds count (severe trauma, not breathing, etc.), come directly to the clinic and call en route if you have a passenger who can make the call. Ring the emergency bell if you arrive after hours.'
+          answer: 'If possible, yes. Call ahead so we can prepare for your arrival. However, if seconds count (severe trauma, not breathing, etc.), come directly to the clinic and call en route if you have a passenger who can make the call. Ring the emergency bell if you arrive after hours.'
         },
         {
           question: 'How much do emergency visits cost?',
@@ -144,7 +144,7 @@ export default function FAQPage({ onNavigate, colors }: FAQPageProps) {
         },
         {
           question: 'What if I can\'t afford emergency care?',
-          answer: 'We offer CareCredit and Scratchpay financing with instant approval. We also work with you on payment plans for qualified clients. Your pet\'s health comes first - we\'ll stabilize and treat, then work out payment arrangements. We never turn away critical emergencies due to inability to pay upfront.'
+          answer: 'We offer CareCredit and Scratchpay financing with instant approval. We also work with you on payment plans for qualified clients. Your pet\'s health comes first; we\'ll stabilize and treat, then work out payment arrangements. We never turn away critical emergencies due to inability to pay upfront.'
         }
       ]
     },

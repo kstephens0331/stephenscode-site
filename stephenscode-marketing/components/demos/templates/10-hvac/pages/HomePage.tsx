@@ -52,7 +52,7 @@ export default function HomePage({ onNavigate }: HomePageProps) {
   const benefits = [
     { icon: Shield, text: 'Licensed & Insured Technicians' },
     { icon: Clock, text: '24/7 Emergency Service Available' },
-    { icon: DollarSign, text: 'Upfront Pricing - No Hidden Fees' },
+    { icon: DollarSign, text: 'Upfront Pricing, No Hidden Fees' },
     { icon: Award, text: 'Satisfaction Guaranteed' },
     { icon: Star, text: '5000+ 5-Star Reviews' },
     { icon: CheckCircle, text: 'Same-Day Service Available' },

@@ -16,7 +16,7 @@ Maybe their site is slow. Maybe they can't get the layout they want. Maybe they'
 
 Here's the truth: **Drag-and-drop website builders are excellent for getting started. But they're not designed for growing.**
 
-If you're reading this, you've probably already sensed that. Let me help you figure out if it's time to make the jump to a custom website—and what that transition actually looks like.
+If you're reading this, you've probably already sensed that. Let me help you figure out if it's time to make the jump to a custom website, and what that transition actually looks like.
 
 ## Why Drag-and-Drop Builders Exist (And What They're Good For)
 
@@ -32,7 +32,7 @@ Platforms like Wix, Squarespace, GoDaddy Website Builder, and Vistaprint are per
 
 If you're a church group needing a simple page with service times, a template builder is fine. If you're an artist who wants a basic portfolio and isn't focused on leads, it works.
 
-But if your website is supposed to generate business—phone calls, form submissions, sales—the limitations of these platforms become serious problems.
+But if your website is supposed to generate business (phone calls, form submissions, sales), the limitations of these platforms become serious problems.
 
 ## 7 Signs Your Template Site Is Costing You Business
 
@@ -70,7 +70,7 @@ Add it up over 3 years:
 | Squarespace | $40-65/month | $1,440-2,340 |
 | GoDaddy | $35-60/month | $1,260-2,160 |
 
-Meanwhile, a custom website might cost $850-1,500 upfront with optional hosting around $20-50/month. Over 3 years, you often pay LESS for a custom site—and you actually own it.
+Meanwhile, a custom website might cost $850-1,500 upfront with optional hosting around $20-50/month. Over 3 years, you often pay LESS for a custom site, and you actually own it.
 
 ### 3. Your Site Looks Like Everyone Else's
 
@@ -98,7 +98,7 @@ I've helped dozens of businesses improve their Google rankings simply by moving 
 
 "Can you make this section wider?" "Can we move this above that?" "Can we add a feature that works like this?"
 
-If you've asked your template builder these questions, you know the answer is usually no—or "you need to upgrade to a different plan."
+If you've asked your template builder these questions, you know the answer is usually no, or "you need to upgrade to a different plan."
 
 Template builders work great when your vision matches their templates. The moment you need something custom, you hit walls. And those walls often mean choosing between a compromised design or starting over.
 
@@ -120,7 +120,7 @@ This is the biggest issue most people don't realize until it's too late:
 
 **You don't own your template website.**
 
-Stop paying the monthly fee? Your site disappears. Want to move to a different platform? You can't take your design—it's built on their proprietary system. Want to switch to a new hosting provider? Not possible.
+Stop paying the monthly fee? Your site disappears. Want to move to a different platform? You can't take your design. It's built on their proprietary system. Want to switch to a new hosting provider? Not possible.
 
 You're essentially renting someone else's property. When you "build" on Wix or Squarespace, you're building on their land with their rules. They can change pricing, features, or terms whenever they want.
 
@@ -150,7 +150,7 @@ Unlike template builders where you pick from existing designs, a custom site sta
 - What's your brand personality?
 - Who is your ideal customer?
 
-We create designs specifically for your business—not a template you modify.
+We create designs specifically for your business, not a template you modify.
 
 ### Step 3: Development
 
@@ -290,10 +290,10 @@ Compare that to 3 years of template builder fees ($1,500-2,500+) and the math is
 
 If your template website is holding you back, here's what to do:
 
-1. **Run a speed test** at [PageSpeed Insights](https://pagespeed.web.dev/) - see exactly how your site performs
-2. **Check your mobile experience** - visit your site on your phone and be honest about the experience
-3. **Calculate your true costs** - add up everything you're paying for your current platform
-4. **Reach out for a free consultation** - let's discuss whether an upgrade makes sense for your situation
+1. **Run a speed test** at [PageSpeed Insights](https://pagespeed.web.dev/). See exactly how your site performs
+2. **Check your mobile experience**: visit your site on your phone and be honest about the experience
+3. **Calculate your true costs**: add up everything you're paying for your current platform
+4. **Reach out for a free consultation**: let's discuss whether an upgrade makes sense for your situation
 
 I never push anyone toward a custom site who doesn't need one. But if you've read this far, you probably already know the answer.
 

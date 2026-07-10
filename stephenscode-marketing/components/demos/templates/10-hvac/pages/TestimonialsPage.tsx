@@ -158,7 +158,7 @@ export default function TestimonialsPage({ onNavigate }: TestimonialsPageProps) 
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
           <h1 className="text-5xl font-bold mb-4">Customer Testimonials</h1>
           <p className="text-xl text-white/90 max-w-3xl mx-auto">
-            Real reviews from real customers - see why thousands trust Cool Breeze HVAC
+            Real reviews from real customers. See why thousands trust Cool Breeze HVAC
           </p>
         </div>
       </section>

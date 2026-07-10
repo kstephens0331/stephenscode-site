@@ -177,7 +177,7 @@ export default function CustomerView({ demo, colors }: CustomerViewProps) {
 
     if (currentPage === 'portfolio') {
       const projects = [
-        { title: 'Modern Farmhouse - Austin, TX', type: 'Custom Home', sqft: '3,200 sqft', value: '$1.2M', image: '🏡' },
+        { title: 'Modern Farmhouse, Austin, TX', type: 'Custom Home', sqft: '3,200 sqft', value: '$1.2M', image: '🏡' },
         { title: 'Downtown Office Renovation', type: 'Commercial', sqft: '12,000 sqft', value: '$850K', image: '🏢' },
         { title: 'Luxury Kitchen Remodel', type: 'Remodeling', sqft: '450 sqft', value: '$95K', image: '🔪' },
         { title: 'Master Suite Addition', type: 'Addition', sqft: '800 sqft', value: '$275K', image: '🛏️' },

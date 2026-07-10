@@ -72,7 +72,7 @@ const pageSchemas = {
         name: 'Can automations break?',
         acceptedAnswer: {
           '@type': 'Answer',
-          text: 'Occasionally, yes—usually when connected services change their APIs. I build robust automations with error handling and monitoring. Maintenance plans ensure quick fixes when issues arise.'
+          text: 'Occasionally, yes, usually when connected services change their APIs. I build robust automations with error handling and monitoring. Maintenance plans ensure quick fixes when issues arise.'
         }
       }
     ]
@@ -155,7 +155,7 @@ export default function BusinessAutomation() {
     {
       number: '2',
       title: 'Opportunity Identification',
-      description: 'Prioritize automations by ROI—which will save the most time and have the biggest impact.'
+      description: 'Prioritize automations by ROI, which will save the most time and have the biggest impact.'
     },
     {
       number: '3',
@@ -274,7 +274,7 @@ export default function BusinessAutomation() {
 
             <div className="prose prose-lg prose-invert max-w-none text-gray-300">
               <p className="mb-6">
-                Think about your week. How many hours do you spend on tasks that follow the same pattern every time? Copying data from one system to another. Sending the same follow-up emails. Creating the same reports. These tasks are necessary, but they don't require human creativity—they require a computer.
+                Think about your week. How many hours do you spend on tasks that follow the same pattern every time? Copying data from one system to another. Sending the same follow-up emails. Creating the same reports. These tasks are necessary, but they don't require human creativity. They require a computer.
               </p>
 
               <div className="bg-red-500/10 border-l-4 border-red-400 p-6 my-8">
@@ -290,7 +290,7 @@ export default function BusinessAutomation() {
               </div>
 
               <p className="mb-6">
-                Automation isn't just about saving time—it's about eliminating errors, ensuring consistency, and freeing you to focus on strategic work that actually grows your business.
+                Automation isn't just about saving time: it's about eliminating errors, ensuring consistency, and freeing you to focus on strategic work that actually grows your business.
               </p>
             </div>
           </div>
@@ -381,7 +381,7 @@ export default function BusinessAutomation() {
                 </div>
                 <div className="bg-surface rounded-xl p-6">
                   <h3 className="text-lg font-bold text-white mb-2">Connect Any System</h3>
-                  <p className="text-gray-400">Even systems without official integrations—if there's an API, we can connect it.</p>
+                  <p className="text-gray-400">Even systems without official integrations: if there's an API, we can connect it.</p>
                 </div>
                 <div className="bg-surface rounded-xl p-6">
                   <h3 className="text-lg font-bold text-white mb-2">Scale Without Limits</h3>

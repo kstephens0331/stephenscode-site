@@ -48,7 +48,7 @@ Submitted: ${new Date().toLocaleString()}
     await transporter.sendMail({
       from: process.env.SMTP_FROM || process.env.SMTP_USER,
       to: process.env.CONTACT_EMAIL || 'info@stephenscode.dev',
-      subject: `New Contact: ${name} - ${service}`,
+      subject: `New Contact from ${name}: ${service}`,
       text: emailContent,
       replyTo: email,
     })

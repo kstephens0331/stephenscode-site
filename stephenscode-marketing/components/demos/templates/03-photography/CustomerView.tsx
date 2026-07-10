@@ -14,7 +14,7 @@ export default function CustomerView({ demo, colors }: CustomerViewProps) {
       {/* Real Client Showcase Banner */}
       <div style={{ backgroundColor: colors.primary }} className="py-3 px-4 text-center">
         <p style={{ color: colors.accent }} className="text-sm font-bold">
-          🎯 REAL CLIENT SHOWCASE: FC Photo Houston - Professional Photography Website
+          🎯 REAL CLIENT SHOWCASE: FC Photo Houston, Professional Photography Website
         </p>
         <p style={{ color: colors.textLight }} className="text-xs mt-1">
           This is an actual live client website built by StephensCode. Package: Premium Build ($2,000)

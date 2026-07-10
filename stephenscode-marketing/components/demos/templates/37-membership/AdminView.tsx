@@ -299,7 +299,7 @@ export default function AdminView({ demo, colors }: AdminViewProps) {
                         </div>
                         <div>
                           <p className="font-bold" style={{ color: colors.text }}>{member.name}</p>
-                          <p className="text-sm" style={{ color: colors.textLight }}>{member.tier} - Renews {member.renewal}</p>
+                          <p className="text-sm" style={{ color: colors.textLight }}>{member.tier}, renews {member.renewal}</p>
                         </div>
                       </div>
                       <div className="flex gap-2">

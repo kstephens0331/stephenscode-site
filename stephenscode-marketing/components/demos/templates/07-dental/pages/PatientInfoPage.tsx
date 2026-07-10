@@ -24,7 +24,7 @@ export default function PatientInfoPage({ onNavigate }: PatientInfoPageProps) {
   const forms = [
     {
       title: 'New Patient Registration Form',
-      description: 'Required for all new patients - includes medical history',
+      description: 'Required for all new patients, includes medical history',
       icon: <FileText className="w-6 h-6 text-[#0077b6]" />,
       required: true
     },
@@ -335,7 +335,7 @@ export default function PatientInfoPage({ onNavigate }: PatientInfoPageProps) {
                 ))}
               </div>
               <p className="text-sm text-gray-500 mt-6">
-                Don't see your insurance listed? Contact us - we work with many additional providers!
+                Don't see your insurance listed? Contact us. We work with many additional providers!
               </p>
             </div>
 
