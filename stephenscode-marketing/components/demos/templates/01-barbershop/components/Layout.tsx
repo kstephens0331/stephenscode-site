@@ -27,7 +27,7 @@ export default function Layout({ children, colors, currentPage, onNavigate, onBo
       <div style={{ backgroundColor: '#1a1a1a', color: '#ffffff' }} className="py-2 text-sm">
         <div className="max-w-7xl mx-auto px-4 flex justify-between items-center">
           <div className="flex items-center gap-6">
-            <span>📍 Downtown Houston - 5th & Main</span>
+            <span>📍 Downtown Houston, 5th & Main</span>
             <span className="hidden sm:inline">📞 (832) 555-CUTS</span>
           </div>
           <div className="hidden md:block">

@@ -148,7 +148,7 @@ export default function ConroeWebDevelopment() {
   const services = [
     {
       name: 'Custom Website Design & Development',
-      description: 'Fully custom websites built from scratch with modern technologies. No templates, no WordPress bloat—just clean, fast, professional sites.',
+      description: 'Fully custom websites built from scratch with modern technologies. No templates, no WordPress bloat, just clean, fast, professional sites.',
       price: 'From $250'
     },
     {
@@ -178,7 +178,7 @@ export default function ConroeWebDevelopment() {
     },
     {
       name: 'SEO-Optimized Development',
-      description: 'Every site is built with search engines in mind—proper structure, fast loading, and technical SEO best practices.',
+      description: 'Every site is built with search engines in mind: proper structure, fast loading, and technical SEO best practices.',
       price: 'Included'
     }
   ]
@@ -187,7 +187,7 @@ export default function ConroeWebDevelopment() {
     {
       number: '1',
       title: 'Discovery Call (Free)',
-      description: 'We discuss your business, goals, and requirements. No sales pressure—just honest advice about what you need.'
+      description: 'We discuss your business, goals, and requirements. No sales pressure, just honest advice about what you need.'
     },
     {
       number: '2',
@@ -315,7 +315,7 @@ export default function ConroeWebDevelopment() {
 
             <div className="prose prose-lg prose-invert max-w-none text-gray-300">
               <p className="mb-6">
-                When you work with a local Conroe web developer, you get more than just a website—you get a partner who understands your market. I know the Houston suburbs, the growth happening in Montgomery County, and the unique challenges local businesses face competing online.
+                When you work with a local Conroe web developer, you get more than just a website. You get a partner who understands your market. I know the Houston suburbs, the growth happening in Montgomery County, and the unique challenges local businesses face competing online.
               </p>
 
               <div className="grid md:grid-cols-2 gap-6 my-8">
@@ -329,7 +329,7 @@ export default function ConroeWebDevelopment() {
                 </div>
                 <div className="bg-surface-card rounded-xl p-6">
                   <h3 className="text-lg font-bold text-white mb-2">Quick Response Times</h3>
-                  <p className="text-gray-400">Same timezone, same area code. When you need changes or have questions, you get fast responses—not offshore delays.</p>
+                  <p className="text-gray-400">Same timezone, same area code. When you need changes or have questions, you get fast responses, not offshore delays.</p>
                 </div>
                 <div className="bg-surface-card rounded-xl p-6">
                   <h3 className="text-lg font-bold text-white mb-2">Support Veteran-Owned Business</h3>
@@ -559,7 +559,7 @@ export default function ConroeWebDevelopment() {
             >
               <div className="text-3xl mb-4">🔗</div>
               <h3 className="text-xl font-bold text-white mb-2 group-hover:text-primary-600">API Integration</h3>
-              <p className="text-gray-400">Connect your business systems. CRM, payments, inventory—all working together.</p>
+              <p className="text-gray-400">Connect your business systems. CRM, payments, inventory, all working together.</p>
             </Link>
             <Link
               href="/services/web-scraping"

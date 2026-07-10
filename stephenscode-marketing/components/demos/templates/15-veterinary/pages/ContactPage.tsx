@@ -77,7 +77,7 @@ export default function ContactPage({ onNavigate, colors }: ContactPageProps) {
     { day: 'Monday - Friday', hours: '8:00 AM - 7:00 PM' },
     { day: 'Saturday', hours: '9:00 AM - 5:00 PM' },
     { day: 'Sunday', hours: '10:00 AM - 4:00 PM' },
-    { day: 'Emergency Services', hours: '24/7 - Always Available' },
+    { day: 'Emergency Services', hours: '24/7, Always Available' },
   ];
 
   return (
@@ -145,7 +145,7 @@ export default function ContactPage({ onNavigate, colors }: ContactPageProps) {
               (555) 123-4567
             </a>
             <p className="text-red-100">
-              Available 24/7 - We're always here when you need us
+              Available 24/7. We're always here when you need us
             </p>
           </div>
         </div>

@@ -66,7 +66,7 @@ export default function JoinPage({ basePath }: JoinPageProps) {
           <div className="text-center max-w-3xl mx-auto">
             <div className="inline-flex items-center space-x-2 bg-[#c1121f]/10 border border-[#c1121f]/20 rounded-full px-4 py-2 mb-6">
               <Gift className="h-4 w-4 text-[#c1121f]" />
-              <span className="text-sm font-medium text-[#c1121f]">7 Days Free - No Credit Card Required</span>
+              <span className="text-sm font-medium text-[#c1121f]">7 Days Free, No Credit Card Required</span>
             </div>
 
             <h1 className="text-5xl sm:text-6xl font-bold text-zinc-50 mb-6">

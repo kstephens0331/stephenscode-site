@@ -8,10 +8,10 @@ import CustomSolutionsForm from '@/components/custom-solutions/CustomSolutionsFo
 import SuccessStories from '@/components/custom-solutions/SuccessStories';
 
 export const metadata: Metadata = {
-  title: 'Custom Solutions - SaaS, Web Apps, Scrapers & More | StephensCode',
+  title: 'Custom Solutions: SaaS, Web Apps, Scrapers & More | StephensCode',
   description: 'Need a custom software solution? We build SaaS platforms, web applications, data scrapers, and bespoke tools tailored to your business. Flat-rate pricing based on $50/hour estimates.',
   openGraph: {
-    title: 'Custom Solutions - SaaS, Web Apps, Scrapers & More',
+    title: 'Custom Solutions: SaaS, Web Apps, Scrapers & More',
     description: 'We build SaaS platforms, web applications, data scrapers, and bespoke tools tailored to your business. Flat-rate pricing based on $50/hour estimates.',
     type: 'website',
     url: 'https://www.stephenscode.dev/custom-solutions',
@@ -21,14 +21,14 @@ export const metadata: Metadata = {
         url: 'https://www.stephenscode.dev/og-image.svg',
         width: 1200,
         height: 630,
-        alt: 'StephensCode Custom Solutions - SaaS, Web Apps, Automation',
+        alt: 'StephensCode Custom Solutions: SaaS, Web Apps, Automation',
         type: 'image/svg+xml',
       }
     ],
   },
   twitter: {
     card: 'summary_large_image',
-    title: 'Custom Solutions - SaaS, Web Apps, Scrapers & More',
+    title: 'Custom Solutions: SaaS, Web Apps, Scrapers & More',
     description: 'We build SaaS platforms, web applications, data scrapers, and bespoke tools. Flat-rate pricing based on $50/hour estimates.',
     images: ['https://www.stephenscode.dev/og-image.svg'],
   },

@@ -14,7 +14,7 @@ Let me start with a number that should terrify every small business owner: **a 1
 
 That's not a typo. One second equals 7% fewer customers.
 
-For a business getting 1,000 website visitors a month with a 3% conversion rate, that's 30 leads. Add just 2 seconds of load time delay, and you're down to 26 leads. That's 4 lost customers every month—48 per year.
+For a business getting 1,000 website visitors a month with a 3% conversion rate, that's 30 leads. Add just 2 seconds of load time delay, and you're down to 26 leads. That's 4 lost customers every month, 48 per year.
 
 If your average customer is worth $500, you're losing $24,000 annually to website speed. And most businesses have sites that are more than 2 seconds too slow.
 
@@ -22,11 +22,11 @@ If your average customer is worth $500, you're losing $24,000 annually to websit
 
 When someone clicks a link to your website, here's what has to happen:
 
-1. **DNS lookup** - Finding your server's address
-2. **Server connection** - Establishing communication
-3. **Server processing** - Building your page
-4. **Content transfer** - Sending files to the browser
-5. **Browser rendering** - Displaying the page
+1. **DNS lookup**: Finding your server's address
+2. **Server connection**: Establishing communication
+3. **Server processing**: Building your page
+4. **Content transfer**: Sending files to the browser
+5. **Browser rendering**: Displaying the page
 
 Each step takes time. When any step is slow, everything backs up. The user stares at a blank or half-loaded page, gets frustrated, and leaves.
 
@@ -98,10 +98,10 @@ Google measures three specific metrics:
 
 ### How to Check Your Core Web Vitals
 
-1. **Google PageSpeed Insights** (free) - Test individual pages
-2. **Google Search Console** - See site-wide data
-3. **Chrome DevTools** - Detailed technical analysis
-4. **WebPageTest.org** - Comprehensive testing
+1. **Google PageSpeed Insights** (free): Test individual pages
+2. **Google Search Console**: See site-wide data
+3. **Chrome DevTools**: Detailed technical analysis
+4. **WebPageTest.org**: Comprehensive testing
 
 ## What's Making Your Website Slow
 
@@ -115,7 +115,7 @@ Images typically account for 50-80% of a page's total weight. Common problems:
 - **No compression**: Raw camera files uploaded directly
 - **No lazy loading**: All images load at once
 
-**Example:** A Katy contractor had a gallery page with 24 photos totaling 72MB. After optimization, same page was 3.2MB—95% smaller, visually identical.
+**Example:** A Katy contractor had a gallery page with 24 photos totaling 72MB. After optimization, same page was 3.2MB, 95% smaller, visually identical.
 
 ### 2. Too Much JavaScript
 
@@ -259,9 +259,9 @@ Load essential content first, extras later:
 **1. Choose the Right Platform**
 
 For speed, modern options win:
-- **Next.js** - Incredible performance, what I use
-- **Hugo** - Blazing fast for simple sites
-- **Custom HTML/CSS** - No overhead at all
+- **Next.js**: Incredible performance, what I use
+- **Hugo**: Blazing fast for simple sites
+- **Custom HTML/CSS**: No overhead at all
 
 Template builders (Wix, Squarespace) will always be slower due to platform overhead.
 
@@ -381,11 +381,11 @@ Continuously track speed:
 
 **Track these metrics monthly:**
 
-1. **Largest Contentful Paint** - Main content visible
-2. **Time to Interactive** - Page fully usable
-3. **Total Blocking Time** - How long the page is frozen
-4. **Speed Index** - How quickly content appears
-5. **Total Page Weight** - Bytes transferred
+1. **Largest Contentful Paint**: Main content visible
+2. **Time to Interactive**: Page fully usable
+3. **Total Blocking Time**: How long the page is frozen
+4. **Speed Index**: How quickly content appears
+5. **Total Page Weight**: Bytes transferred
 
 ### Setting Speed Goals
 
@@ -405,7 +405,7 @@ If you haven't tested it, you don't know. Most business owners are surprised by 
 
 ### "Only tech people care about speed"
 
-Everyone cares—they just don't know that's why they're frustrated. They'll blame your business, not your website.
+Everyone cares. They just don't know that's why they're frustrated. They'll blame your business, not your website.
 
 ### "I have fast internet so it's fine"
 
@@ -505,7 +505,7 @@ The math usually makes sense.
 
 ## The Bottom Line
 
-Website speed isn't a vanity metric—it's a business metric. Every second you shave off load time puts more money in your bank account.
+Website speed isn't a vanity metric. It's a business metric. Every second you shave off load time puts more money in your bank account.
 
 The good news: huge improvements are possible with relatively simple changes. Most businesses can cut their load time in half just by optimizing images and upgrading hosting.
 
@@ -517,7 +517,7 @@ I offer free website speed audits for Houston small businesses. I'll test your s
 
 **Call (936) 323-4527 or visit [stephenscode.dev/contact](https://www.stephenscode.dev/contact) to schedule your free audit.**
 
-For sites that need more than quick fixes, I build custom websites optimized for speed from the ground up—typically loading in under 2 seconds.
+For sites that need more than quick fixes, I build custom websites optimized for speed from the ground up, typically loading in under 2 seconds.
 
 ---
 

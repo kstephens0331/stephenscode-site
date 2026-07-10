@@ -361,7 +361,7 @@ export default function AdminView() {
               <span className="text-[#14213d] font-bold">P</span>
             </div>
             <div>
-              <h1 className="text-xl font-bold">Peak Financial - Admin Portal</h1>
+              <h1 className="text-xl font-bold">Peak Financial: Admin Portal</h1>
               <p className="text-xs text-gray-300">Financial Advisory Management System</p>
             </div>
           </div>

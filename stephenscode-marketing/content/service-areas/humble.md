@@ -1,7 +1,7 @@
 ---
 title: Web Developer Humble TX | Custom Websites, SEO & E-Commerce
 metaDescription: Professional web development for Humble, Texas businesses. Custom websites starting at $250, local SEO, e-commerce. Veteran-owned, based in nearby Conroe.
-heroSubtitle: Custom websites for Humble businesses - from Deerbrook Mall to FM 1960
+heroSubtitle: Custom websites for Humble businesses, from Deerbrook Mall to FM 1960
 ---
 
 # Web Development Services for Humble, Texas Businesses

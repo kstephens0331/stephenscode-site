@@ -84,7 +84,7 @@ export default function TestimonialsPage({ onNavigate }: TestimonialsPageProps) 
       service: 'Seasonal Maintenance',
       rating: 5,
       date: 'April 2024',
-      text: 'We\'ve used their seasonal maintenance for two years now, and our property has never looked better. They\'re reliable, thorough, and always go above and beyond. The spring cleanup was especially impressive - they made our yard shine!',
+      text: 'We\'ve used their seasonal maintenance for two years now, and our property has never looked better. They\'re reliable, thorough, and always go above and beyond. The spring cleanup was especially impressive. They made our yard shine!',
       image: 'EP',
       projectType: 'Seasonal Service'
     },

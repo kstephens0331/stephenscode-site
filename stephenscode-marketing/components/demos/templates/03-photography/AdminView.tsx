@@ -17,7 +17,7 @@ export default function AdminView({ demo, colors }: AdminViewProps) {
           Real Client Showcase
         </h2>
         <p style={{ color: colors.text }} className="text-lg mb-2">
-          FC Photo Houston - Professional Photography Website
+          FC Photo Houston, Professional Photography Website
         </p>
         <p style={{ color: colors.textLight }} className="text-sm">
           This demo displays the actual live client website at fcphotohouston.com

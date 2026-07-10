@@ -150,7 +150,7 @@ export default function ServiceAreasPage() {
           </div>
 
           {renderSection(
-            'Montgomery County — Our Home Turf',
+            'Montgomery County: Our Home Turf',
             montgomeryCounty,
             'Based in Conroe, we know Montgomery County inside and out. From Lake Conroe to The Woodlands, we serve businesses across the entire county.'
           )}
@@ -158,7 +158,7 @@ export default function ServiceAreasPage() {
           {renderSection(
             'North Houston Suburbs',
             harrisNorth,
-            'The fast-growing suburbs north of Houston — from Spring and Tomball to Kingwood and Atascocita.'
+            'The fast-growing suburbs north of Houston, from Spring and Tomball to Kingwood and Atascocita.'
           )}
 
           {renderSection(
@@ -170,7 +170,7 @@ export default function ServiceAreasPage() {
           {renderSection(
             'Fort Bend County',
             fortBend,
-            'One of the fastest-growing and most diverse counties in Texas — from Katy to Sugar Land to Richmond.'
+            'One of the fastest-growing and most diverse counties in Texas, from Katy to Sugar Land to Richmond.'
           )}
 
           {renderSection(
@@ -216,7 +216,7 @@ export default function ServiceAreasPage() {
                 <div className="text-3xl mb-3">🚀</div>
                 <h3 className="text-lg font-semibold text-white">Same Quality, Any Distance</h3>
                 <p className="mt-2 text-sm text-gray-400">
-                  Same transparent pricing, same timeline guarantees, same veteran-owned quality — regardless of where you're located.
+                  Same transparent pricing, same timeline guarantees, same veteran-owned quality, regardless of where you're located.
                 </p>
               </div>
             </div>

@@ -197,7 +197,7 @@ export default function CustomerView({ demo, colors }: CustomerViewProps) {
                   <div className="flex-1">
                     <p className="font-semibold mb-1" style={{ color: colors.text }}>{activity.action}</p>
                     <p className="text-sm" style={{ color: colors.textLight }}>
-                      {activity.contact} - {activity.company}
+                      {activity.contact}, {activity.company}
                     </p>
                   </div>
                   <span className="text-sm" style={{ color: colors.textLight }}>{activity.time}</span>

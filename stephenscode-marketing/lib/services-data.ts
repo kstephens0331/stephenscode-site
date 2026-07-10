@@ -235,7 +235,7 @@ export const premiumBuilds: Service[] = [
     price: 2000,
     priceLabel: '$2,000',
     shortDescription: 'Custom full-stack site with admin portal and KPI dashboard. Up to 10 pages plus CMS.',
-    longDescription: `Elevate your business with a premium full-stack web application. Our $2,500 Premium Build is designed for businesses that need more than a website—you need a complete business system. This package includes up to 15 pages, a custom admin portal, analytics dashboard, user management, and advanced features tailored to your specific workflow. Built with enterprise-grade technologies, your premium build will scale with your business and give you competitive advantages in your market.`,
+    longDescription: `Elevate your business with a premium full-stack web application. Our $2,500 Premium Build is designed for businesses that need more than a website. You need a complete business system. This package includes up to 15 pages, a custom admin portal, analytics dashboard, user management, and advanced features tailored to your specific workflow. Built with enterprise-grade technologies, your premium build will scale with your business and give you competitive advantages in your market.`,
     features: [
       'Up to 15 pages included',
       'Advanced full-stack development',
@@ -289,7 +289,7 @@ export const premiumBuilds: Service[] = [
     price: 5000,
     priceLabel: '$5,000',
     shortDescription: 'Complete business system (up to 25 pages): CRM, client portals, APIs',
-    longDescription: `Build a complete custom business platform tailored to your exact needs. The $5,000 Custom Business Platform package is perfect for businesses that need a unified system to manage everything in one place. This package includes up to 25 pages and we build you a custom platform that includes CRM, client portals, project management, invoicing, and all the integrations you need—owned entirely by you. Stop paying monthly SaaS fees and get full control of your business operations with a system built specifically for how you work.`,
+    longDescription: `Build a complete custom business platform tailored to your exact needs. The $5,000 Custom Business Platform package is perfect for businesses that need a unified system to manage everything in one place. This package includes up to 25 pages and we build you a custom platform that includes CRM, client portals, project management, invoicing, and all the integrations you need, owned entirely by you. Stop paying monthly SaaS fees and get full control of your business operations with a system built specifically for how you work.`,
     features: [
       'Up to 25 pages included',
       'Complete CRM system',

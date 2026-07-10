@@ -164,7 +164,7 @@ export default function ServicesPage() {
     {
       number: '01',
       title: 'Free Consultation',
-      description: 'We discuss your business goals, target audience, and project requirements. No obligation, no sales pressure—just honest advice.',
+      description: 'We discuss your business goals, target audience, and project requirements. No obligation, no sales pressure, just honest advice.',
       timeline: '30-60 minutes',
       deliverable: 'Project scope & quote'
     },
@@ -446,7 +446,7 @@ export default function ServicesPage() {
             {[
               {
                 question: "How much does a custom website cost?",
-                answer: "Six flat-rate tiers with 90 days post-launch support on every one. Starter $250 (3-4 page flyer for brand-new businesses), Basic $500 (campaign or landing site), Standard $950 (full 8-12 page small-business site with CMS — the typical entry tier), Advanced $2,000 (custom full-stack with admin portal + KPI dashboard), Business System $5,000 (CRM + portals + booking + payments + automation), Enterprise Platform $7,500+ (multi-tenant + SSO + audit). Custom SaaS and platform builds quoted above the catalog. No hourly billing."
+                answer: "Six flat-rate tiers with 90 days post-launch support on every one. Starter $250 (3-4 page flyer for brand-new businesses), Basic $500 (campaign or landing site), Standard $950 (full 8-12 page small-business site with CMS, the typical entry tier), Advanced $2,000 (custom full-stack with admin portal + KPI dashboard), Business System $5,000 (CRM + portals + booking + payments + automation), Enterprise Platform $7,500+ (multi-tenant + SSO + audit). Custom SaaS and platform builds quoted above the catalog. No hourly billing."
               },
               {
                 question: "How long does it take to build a website?",
@@ -454,7 +454,7 @@ export default function ServicesPage() {
               },
               {
                 question: "Do you offer website hosting?",
-                answer: "Yes! We offer managed hosting starting at $29/month which includes SSL certificates, daily backups, security monitoring, and unlimited support. Hosting is optional—we can also deploy to your existing hosting or platforms like Vercel, Netlify, or your own servers."
+                answer: "Yes! We offer managed hosting starting at $29/month which includes SSL certificates, daily backups, security monitoring, and unlimited support. Hosting is optional. We can also deploy to your existing hosting or platforms like Vercel, Netlify, or your own servers."
               },
               {
                 question: "Can you redesign my existing website?",
@@ -462,7 +462,7 @@ export default function ServicesPage() {
               },
               {
                 question: "What's included in the price?",
-                answer: "All packages include custom design, responsive development, basic SEO setup, contact forms, Google Analytics integration, and 90 days of post-launch support. E-commerce packages include payment processing setup. We don't nickel-and-dime—what we quote is what you pay."
+                answer: "All packages include custom design, responsive development, basic SEO setup, contact forms, Google Analytics integration, and 90 days of post-launch support. E-commerce packages include payment processing setup. We don't nickel-and-dime. What we quote is what you pay."
               },
               {
                 question: "Do I own my website after it's built?",

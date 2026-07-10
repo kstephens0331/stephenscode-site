@@ -12,7 +12,7 @@ readTime: "15 min read"
 
 The Houston retail landscape has changed dramatically. While big-box stores struggle, small businesses that embrace e-commerce are thriving. A Heights boutique that added online sales saw revenue increase 40% in the first year. A Conroe specialty food store now ships nationwide and has tripled their customer base.
 
-E-commerce isn't about replacing your physical presence—it's about extending it. Your store is open when you sleep. Customers can browse when it's convenient for them. And you're not limited to whoever happens to walk by.
+E-commerce isn't about replacing your physical presence. It's about extending it. Your store is open when you sleep. Customers can browse when it's convenient for them. And you're not limited to whoever happens to walk by.
 
 But here's what I tell every business owner considering e-commerce: **It's easier than you think to get started, and more work than you expect to do well.** This guide will help you understand both sides.
 
@@ -194,7 +194,7 @@ Shipping is where many new e-commerce businesses struggle. Here's what you need 
 - "Free shipping on orders over $50"
 - Most effective for increasing cart size
 - Build shipping cost into product pricing
-- Customer favorite—removes purchase hesitation
+- Customer favorite, removes purchase hesitation
 
 **Real-Time Rates**
 - Show exact carrier rates at checkout
@@ -225,7 +225,7 @@ Packaging affects both costs and customer experience:
 
 ## Product Photography That Sells
 
-Your photos ARE your products online. Customers can't touch, feel, or try—they rely entirely on images.
+Your photos ARE your products online. Customers can't touch, feel, or try. They rely entirely on images.
 
 ### Basic Requirements
 
@@ -355,7 +355,7 @@ Texas requires sales tax collection:
 - Collect on all Texas sales
 - File regular returns (monthly, quarterly, or annually)
 
-**For out-of-state sales:** Rules vary—research "economic nexus" for each state you sell into.
+**For out-of-state sales:** Rules vary. Research "economic nexus" for each state you sell into.
 
 ## Starting Simple: A Phased Approach
 
@@ -421,7 +421,7 @@ For a small business doing $50,000 in online sales:
 | Photography | $200 |
 | **Total** | **$3,840** |
 
-That's 7.7% of revenue—very reasonable for a sales channel.
+That's 7.7% of revenue, very reasonable for a sales channel.
 
 ## Next Steps
 
@@ -434,6 +434,6 @@ Ready to sell online? Here's your action plan:
 5. **Set up business accounts** with your preferred carrier
 6. **Reach out for a consultation** to discuss your e-commerce site
 
-E-commerce can transform your Houston business—extending your reach, increasing revenue, and building resilience against whatever comes next.
+E-commerce can transform your Houston business, extending your reach, increasing revenue, and building resilience against whatever comes next.
 
 [Let's discuss your e-commerce project](/contact). The first consultation is always free.

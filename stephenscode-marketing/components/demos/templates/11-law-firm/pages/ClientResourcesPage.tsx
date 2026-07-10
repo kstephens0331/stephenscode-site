@@ -73,8 +73,8 @@ export default function ClientResourcesPage({ onNavigate, accentColor = '#c9a227
     'New Client Intake Form',
     'Authorization to Release Medical Records',
     'Contingency Fee Agreement',
-    'Client Questionnaire - Personal Injury',
-    'Document Checklist - Family Law',
+    'Client Questionnaire (Personal Injury)',
+    'Document Checklist (Family Law)',
     'Business Formation Questionnaire',
   ];
 
@@ -310,7 +310,7 @@ export default function ClientResourcesPage({ onNavigate, accentColor = '#c9a227
             {[
               {
                 question: 'How much does it cost?',
-                answer: 'Many cases are handled on contingency - you pay nothing unless we win.',
+                answer: 'Many cases are handled on contingency: you pay nothing unless we win.',
               },
               {
                 question: 'How long will my case take?',

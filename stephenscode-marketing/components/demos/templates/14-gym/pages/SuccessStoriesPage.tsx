@@ -54,7 +54,7 @@ export default function SuccessStoriesPage({ basePath }: SuccessStoriesPageProps
       timeframe: '8 months',
       weightLost: 30,
       program: 'Bootcamp & Boxing',
-      story: 'I wanted to get stronger and more athletic, not just skinnier. The bootcamp and boxing classes at Iron Temple delivered exactly that. I lost 30 pounds of fat while building serious muscle and learning self-defense. The community here is incredible—everyone supports and motivates each other. I\'ve never felt more powerful and confident!',
+      story: 'I wanted to get stronger and more athletic, not just skinnier. The bootcamp and boxing classes at Iron Temple delivered exactly that. I lost 30 pounds of fat while building serious muscle and learning self-defense. The community here is incredible. Everyone supports and motivates each other. I\'ve never felt more powerful and confident!',
       stats: [
         { label: 'Fat Lost', value: '30 lbs', icon: TrendingDown },
         { label: 'Lean Muscle', value: '+8 lbs', icon: TrendingUp },
@@ -91,7 +91,7 @@ export default function SuccessStoriesPage({ basePath }: SuccessStoriesPageProps
 
   const testimonials = [
     {
-      quote: 'Iron Temple didn\'t just change my body—it changed my entire life. I wake up energized, I\'m more productive at work, and I\'m setting an example for my family.',
+      quote: 'Iron Temple didn\'t just change my body; it changed my entire life. I wake up energized, I\'m more productive at work, and I\'m setting an example for my family.',
       author: 'Tom Richardson',
       result: 'Lost 55 lbs',
     },
@@ -101,7 +101,7 @@ export default function SuccessStoriesPage({ basePath }: SuccessStoriesPageProps
       result: 'Lost 35 lbs',
     },
     {
-      quote: 'I\'ve tried every gym in town. Iron Temple is different—the community, the equipment, the programs. Everything is designed to help you succeed.',
+      quote: 'I\'ve tried every gym in town. Iron Temple is different: the community, the equipment, the programs. Everything is designed to help you succeed.',
       author: 'Marcus Johnson',
       result: 'Lost 48 lbs',
     },

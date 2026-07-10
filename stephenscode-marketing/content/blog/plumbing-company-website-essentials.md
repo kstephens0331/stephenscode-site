@@ -26,11 +26,11 @@ If not, they're calling someone else while their kitchen floods.
 
 Plumbing isn't like other businesses. Your customers are usually:
 
-1. **In crisis mode** - Something is broken, leaking, or clogged
-2. **Searching on mobile** - Often from the room with the problem
-3. **Making fast decisions** - They can't wait days for quotes
-4. **Skeptical** - Too many horror stories about dishonest contractors
-5. **Price-sensitive** - But willing to pay for reliability
+1. **In crisis mode**: Something is broken, leaking, or clogged
+2. **Searching on mobile**: Often from the room with the problem
+3. **Making fast decisions**: They can't wait days for quotes
+4. **Skeptical**: Too many horror stories about dishonest contractors
+5. **Price-sensitive**: But willing to pay for reliability
 
 Your website needs to address all of these in seconds.
 
@@ -69,7 +69,7 @@ Include:
 - **Zip codes** you cover
 - **Response times** by area if they vary
 
-Create individual pages for major service areas. "Plumber in The Woodlands" is a different search than "Plumber in Conroe" - and you want to rank for both.
+Create individual pages for major service areas. "Plumber in The Woodlands" is a different search than "Plumber in Conroe", and you want to rank for both.
 
 ### 4. Trust Signals That Plumbing Customers Need
 
@@ -212,11 +212,11 @@ Your website is useless if no one finds it. For plumbers, local SEO is the game:
 
 Wix, Squarespace, and GoDaddy templates have fundamental problems for plumbing businesses:
 
-1. **No emergency optimization** - They're built for browsing, not crisis calls
-2. **Poor local SEO** - Limited ability to create proper service area content
-3. **Generic design** - You look like every other plumber using the same template
-4. **Slow performance** - Template bloat kills loading speed
-5. **No plumbing features** - No scheduling integration, no service-specific layouts
+1. **No emergency optimization**: They're built for browsing, not crisis calls
+2. **Poor local SEO**: Limited ability to create proper service area content
+3. **Generic design**: You look like every other plumber using the same template
+4. **Slow performance**: Template bloat kills loading speed
+5. **No plumbing features**: No scheduling integration, no service-specific layouts
 
 ## What Professional Plumbing Websites Cost
 

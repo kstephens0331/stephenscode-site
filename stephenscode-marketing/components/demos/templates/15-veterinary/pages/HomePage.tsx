@@ -199,7 +199,7 @@ export default function HomePage({ onNavigate, colors }: HomePageProps) {
                 Pet Emergency? We're Here 24/7
               </h2>
               <p className="text-xl text-red-100 leading-relaxed">
-                Our experienced team is ready to provide immediate care when your pet needs it most. Don't wait - call us right away.
+                Our experienced team is ready to provide immediate care when your pet needs it most. Don't wait. Call us right away.
               </p>
             </div>
             <div className="flex flex-col gap-4">
@@ -229,7 +229,7 @@ export default function HomePage({ onNavigate, colors }: HomePageProps) {
               What Pet Parents Say
             </h2>
             <p className="text-xl text-gray-600 max-w-3xl mx-auto">
-              Don't just take our word for it - hear from our happy clients
+              Don't just take our word for it. Hear from our happy clients
             </p>
           </div>
 

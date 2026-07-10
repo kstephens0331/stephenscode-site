@@ -84,7 +84,7 @@ const faqSchema = {
       "name": "Why do you use flat-rate pricing instead of hourly rates?",
       "acceptedAnswer": {
         "@type": "Answer",
-        "text": "Flat-rate pricing provides complete transparency and eliminates surprises. You know the exact cost upfront, can budget accurately, and we focus on delivering quality rather than padding hours. Our incentives are aligned - we succeed when you succeed."
+        "text": "Flat-rate pricing provides complete transparency and eliminates surprises. You know the exact cost upfront, can budget accurately, and we focus on delivering quality rather than padding hours. Our incentives are aligned: we succeed when you succeed."
       }
     },
     {
@@ -92,7 +92,7 @@ const faqSchema = {
       "name": "Can I combine packages with add-ons?",
       "acceptedAnswer": {
         "@type": "Answer",
-        "text": "Absolutely! Our pricing is modular - start with any core package or premium build, then add any combination of our 40+ add-ons to customize your website to your exact needs and budget."
+        "text": "Absolutely! Our pricing is modular: start with any core package or premium build, then add any combination of our 40+ add-ons to customize your website to your exact needs and budget."
       }
     },
     {
@@ -571,7 +571,7 @@ export default function PricingPage() {
                 <div className="text-4xl mb-4">⭐</div>
                 <h3 className="text-xl font-bold text-white mb-3">Quality Focus</h3>
                 <p className="text-gray-200 leading-relaxed">
-                  We focus on delivering quality, not padding hours. Flat rates align our incentives - we succeed when you succeed.
+                  We focus on delivering quality, not padding hours. Flat rates align our incentives: we succeed when you succeed.
                 </p>
               </div>
             </div>
@@ -631,7 +631,7 @@ export default function PricingPage() {
                   Why do you use flat-rate pricing instead of hourly rates?
                 </h3>
                 <p className="text-gray-400 leading-relaxed">
-                  Flat-rate pricing provides complete transparency and eliminates surprises. You know the exact cost upfront, can budget accurately, and we focus on delivering quality rather than padding hours. Our incentives are aligned - we succeed when you succeed.
+                  Flat-rate pricing provides complete transparency and eliminates surprises. You know the exact cost upfront, can budget accurately, and we focus on delivering quality rather than padding hours. Our incentives are aligned: we succeed when you succeed.
                 </p>
               </div>
 
@@ -640,7 +640,7 @@ export default function PricingPage() {
                   Can I combine packages with add-ons?
                 </h3>
                 <p className="text-gray-400 leading-relaxed">
-                  Absolutely! Our pricing is modular - start with any core package or premium build, then add any combination of our 40+ add-ons to customize your website to your exact needs and budget.
+                  Absolutely! Our pricing is modular: start with any core package or premium build, then add any combination of our 40+ add-ons to customize your website to your exact needs and budget.
                 </p>
               </div>
 
@@ -805,7 +805,7 @@ export default function PricingPage() {
               </svg>
             </div>
             <p className="text-lg text-white leading-relaxed mb-6 italic">
-              "The flat-rate pricing made it so easy to plan our budget. We knew exactly what we were getting and what it would cost - no surprises. We started with the Standard package and added a few key features. The whole process was transparent and straightforward."
+              "The flat-rate pricing made it so easy to plan our budget. We knew exactly what we were getting and what it would cost, no surprises. We started with the Standard package and added a few key features. The whole process was transparent and straightforward."
             </p>
             <div className="flex items-center gap-4">
               <div className="w-12 h-12 rounded-full bg-gradient-to-br from-primary-500 to-accent-500 flex items-center justify-center text-white font-bold text-lg">

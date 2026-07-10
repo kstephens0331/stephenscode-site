@@ -171,7 +171,7 @@ export default function ContactPage({ colors }: ContactPageProps) {
                     <div>✓ Public parking garage 1 block north</div>
                     <div>✓ Street parking available</div>
                     <div>✓ Wheelchair accessible entrance and restrooms</div>
-                    <div>✓ Easy access from L train (Red Line - Grand stop)</div>
+                    <div>✓ Easy access from L train (Red Line, Grand stop)</div>
                   </div>
                 </div>
 

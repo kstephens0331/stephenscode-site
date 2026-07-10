@@ -155,7 +155,7 @@ export default function ServicesPage({ onNavigate, colors }: ServicesPageProps) 
   ];
 
   const pricingFeatures = [
-    'No hidden fees - upfront pricing',
+    'No hidden fees, upfront pricing',
     'Free estimates on all projects',
     'Senior and military discounts',
     'Same-day service available',
@@ -179,7 +179,7 @@ export default function ServicesPage({ onNavigate, colors }: ServicesPageProps) 
       <section className="py-4 text-white" style={{ backgroundColor: colors.accent }}>
         <div className="max-w-7xl mx-auto px-4 text-center">
           <p className="font-bold text-lg">
-            ⚡ EMERGENCY SERVICE AVAILABLE 24/7 - Call (555) 123-4567 Now!
+            ⚡ EMERGENCY SERVICE AVAILABLE 24/7. Call (555) 123-4567 Now!
           </p>
         </div>
       </section>

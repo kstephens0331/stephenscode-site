@@ -17,7 +17,7 @@ export default function AboutPage({ onNavigate }: AboutPageProps) {
     {
       icon: Shield,
       title: 'Integrity',
-      description: 'We believe in honest, transparent service. No upselling, no hidden fees - just straightforward solutions.',
+      description: 'We believe in honest, transparent service. No upselling, no hidden fees. Just straightforward solutions.',
     },
     {
       icon: Heart,

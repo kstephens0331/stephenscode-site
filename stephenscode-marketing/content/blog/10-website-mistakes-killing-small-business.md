@@ -12,7 +12,7 @@ readTime: "14 min read"
 
 Here's a hard truth most web designers won't tell you: **the average small business website converts less than 2% of visitors into customers.** That means for every 100 people who visit your site, 98 leave without contacting you.
 
-In my 14+ years building websites for Houston small businesses, I've audited hundreds of sites. The same mistakes appear over and over—mistakes that seem minor but collectively cost business owners thousands of dollars in lost revenue every month.
+In my 14+ years building websites for Houston small businesses, I've audited hundreds of sites. The same mistakes appear over and over, mistakes that seem minor but collectively cost business owners thousands of dollars in lost revenue every month.
 
 The good news? Most of these problems are fixable. Often within a few hours. Let me show you what they are and exactly how to fix them.
 
@@ -54,7 +54,7 @@ Your website takes more than 3 seconds to load. You might not notice because you
 
 Visitors land on your site and don't know what to do next. Your phone number is buried in the footer. Your contact form is three clicks away. There's no obvious next step.
 
-I call this "the museum website"—pretty to look at, but visitors just browse and leave.
+I call this "the museum website," pretty to look at, but visitors just browse and leave.
 
 ### Why It Happens
 
@@ -67,11 +67,11 @@ I call this "the museum website"—pretty to look at, but visitors just browse a
 
 **Make your primary action impossible to miss:**
 
-1. **Phone number in the header** - Clickable on mobile
-2. **CTA button above the fold** - "Get Free Quote," "Schedule Service," "Book Now"
-3. **Sticky header or footer** - Contact options always visible
-4. **Multiple CTAs per page** - Don't make them scroll to find it
-5. **Contrasting colors** - Your CTA button should stand out
+1. **Phone number in the header**: Clickable on mobile
+2. **CTA button above the fold**: "Get Free Quote," "Schedule Service," "Book Now"
+3. **Sticky header or footer**: Contact options always visible
+4. **Multiple CTAs per page**: Don't make them scroll to find it
+5. **Contrasting colors**: Your CTA button should stand out
 
 **Good CTA examples for different industries:**
 - HVAC: "Schedule Emergency Repair" (urgent)
@@ -79,7 +79,7 @@ I call this "the museum website"—pretty to look at, but visitors just browse a
 - Restaurant: "Reserve a Table" (action)
 - Contractor: "Get Free Estimate" (low commitment)
 
-**Bad CTAs:** "Submit," "Learn More," "Click Here" - these are vague and uninspiring.
+**Bad CTAs:** "Submit," "Learn More," "Click Here." These are vague and uninspiring.
 
 ### The Test
 
@@ -104,13 +104,13 @@ Your website looks great on your desktop but terrible on phones. Text is too sma
 
 **Essential mobile fixes:**
 
-1. **Responsive design** - Site adapts to any screen size
-2. **Tap targets** - Buttons at least 44x44 pixels
-3. **Readable text** - 16px minimum font size
-4. **No horizontal scrolling** - Everything fits the screen
-5. **Click-to-call** - Phone numbers dial when tapped
-6. **Simplified navigation** - Hamburger menu that works
-7. **Fast loading** - Mobile users are often on slower connections
+1. **Responsive design**: Site adapts to any screen size
+2. **Tap targets**: Buttons at least 44x44 pixels
+3. **Readable text**: 16px minimum font size
+4. **No horizontal scrolling**: Everything fits the screen
+5. **Click-to-call**: Phone numbers dial when tapped
+6. **Simplified navigation**: Hamburger menu that works
+7. **Fast loading**: Mobile users are often on slower connections
 
 **Test your site:**
 - Use Google's Mobile-Friendly Test
@@ -125,7 +125,7 @@ Google uses mobile-first indexing. If your mobile site is bad, your rankings suf
 
 ### The Problem
 
-Your website makes claims but doesn't prove them. "Best service in Houston!" "Quality you can trust!" "Professional and reliable!" - these mean nothing without proof.
+Your website makes claims but doesn't prove them. "Best service in Houston!" "Quality you can trust!" "Professional and reliable!" These mean nothing without proof.
 
 Customers are skeptical. They've been burned before. Your site needs to earn their trust before they'll pick up the phone.
 
@@ -140,16 +140,16 @@ Customers are skeptical. They've been burned before. Your site needs to earn the
 
 **Trust signals that actually work:**
 
-1. **Customer reviews** - Google reviews embedded on site (with dates)
-2. **Before/after photos** - Visual proof of your work
-3. **Video testimonials** - Most powerful form of social proof
-4. **Certifications and licenses** - Display prominently
-5. **Industry associations** - BBB, trade organizations
-6. **Years in business** - "Serving Houston since 2010"
-7. **Insurance and bonding** - Especially for contractors
-8. **Real team photos** - People trust faces, not stock images
-9. **Case studies** - Detailed examples of your work
-10. **Guarantees** - Remove the risk
+1. **Customer reviews**: Google reviews embedded on site (with dates)
+2. **Before/after photos**: Visual proof of your work
+3. **Video testimonials**: Most powerful form of social proof
+4. **Certifications and licenses**: Display prominently
+5. **Industry associations**: BBB, trade organizations
+6. **Years in business**: "Serving Houston since 2010"
+7. **Insurance and bonding**: Especially for contractors
+8. **Real team photos**: People trust faces, not stock images
+9. **Case studies**: Detailed examples of your work
+10. **Guarantees**: Remove the risk
 
 **Where to place them:**
 - Testimonials near CTAs (right before they decide)
@@ -180,13 +180,13 @@ If someone can't find your services page in 2 clicks, they'll leave and find a c
 
 **Navigation best practices:**
 
-1. **Limit main menu to 5-7 items** - More causes decision paralysis
-2. **Use clear, simple labels** - "Services" not "Solutions Portfolio"
-3. **Most important pages first** - Reading pattern goes left to right
-4. **Contact in the top right** - That's where people look for it
-5. **Search function** - For sites with lots of content
-6. **Breadcrumbs** - Help users know where they are
-7. **Consistent across pages** - Same navigation everywhere
+1. **Limit main menu to 5-7 items**: More causes decision paralysis
+2. **Use clear, simple labels**: "Services" not "Solutions Portfolio"
+3. **Most important pages first**: Reading pattern goes left to right
+4. **Contact in the top right**: That's where people look for it
+5. **Search function**: For sites with lots of content
+6. **Breadcrumbs**: Help users know where they are
+7. **Consistent across pages**: Same navigation everywhere
 
 **Ideal small business menu:**
 - Home
@@ -208,7 +208,7 @@ Can a first-time visitor find your main service and contact you in under 10 seco
 
 I can't tell you how many times I've visited a business website and couldn't find a phone number. Or it's only in the footer. Or it's an image file that can't be clicked on mobile.
 
-Your contact information is your money—hiding it is insane.
+Your contact information is your money. Hiding it is insane.
 
 ### Why It Happens
 
@@ -221,11 +221,11 @@ Your contact information is your money—hiding it is insane.
 
 **Make contact info omnipresent:**
 
-1. **Header** - Phone number on every page
-2. **Footer** - Full contact info including address, email, hours
-3. **Sidebar or floating button** - On long pages
-4. **Service pages** - Specific CTA for that service
-5. **Mobile sticky bar** - Tap to call always visible
+1. **Header**: Phone number on every page
+2. **Footer**: Full contact info including address, email, hours
+3. **Sidebar or floating button**: On long pages
+4. **Service pages**: Specific CTA for that service
+5. **Mobile sticky bar**: Tap to call always visible
 
 **Phone number format:**
 - Use text, not images (accessibility and SEO)
@@ -250,7 +250,7 @@ Go to any page on your site. Can you find the phone number without scrolling? If
 
 Your website is filled with obviously fake stock photos. The smiling customer service rep. The diverse team in a glass conference room. The handshake between two business people.
 
-Customers can spot stock photos instantly—and they make your business look fake, small, or untrustworthy.
+Customers can spot stock photos instantly, and they make your business look fake, small, or untrustworthy.
 
 ### Why It Happens
 
@@ -263,11 +263,11 @@ Customers can spot stock photos instantly—and they make your business look fak
 
 **Real photos that work:**
 
-1. **Your actual team** - Even if it's just you
-2. **Your work** - Before/after, process shots
-3. **Your location** - Office, truck, equipment
-4. **Your customers** (with permission) - Real testimonials
-5. **Local landmarks** - Show you're actually in Houston
+1. **Your actual team**: Even if it's just you
+2. **Your work**: Before/after, process shots
+3. **Your location**: Office, truck, equipment
+4. **Your customers** (with permission): Real testimonials
+5. **Local landmarks**: Show you're actually in Houston
 
 **If you must use stock photos:**
 - Choose authentic-looking images, not posed corporate shots
@@ -283,7 +283,7 @@ Customers can spot stock photos instantly—and they make your business look fak
 
 ### The Exception
 
-Abstract or illustrative images (icons, patterns, backgrounds) are fine—it's the fake "people" photos that hurt you.
+Abstract or illustrative images (icons, patterns, backgrounds) are fine. It's the fake "people" photos that hurt you.
 
 ## Mistake #8: No Content (Nothing for Google to Rank)
 
@@ -304,12 +304,12 @@ Your website has five pages with two paragraphs each. There's nothing to read, n
 
 **Content that drives traffic and builds trust:**
 
-1. **Service pages** - One page per service, 500+ words each
-2. **FAQ page** - Answer real customer questions
-3. **Blog posts** - Regular helpful content (like this one)
-4. **About page** - Your story, why you're different
-5. **Location pages** - If you serve multiple areas
-6. **Resource guides** - Helpful content for customers
+1. **Service pages**: One page per service, 500+ words each
+2. **FAQ page**: Answer real customer questions
+3. **Blog posts**: Regular helpful content (like this one)
+4. **About page**: Your story, why you're different
+5. **Location pages**: If you serve multiple areas
+6. **Resource guides**: Helpful content for customers
 
 **What to write about:**
 
@@ -354,12 +354,12 @@ Nothing screams "this business might be closed" like outdated information.
 
 **Essential updates:**
 
-1. **Footer copyright** - Should be current year (automate this)
-2. **Pricing** - Update when it changes
-3. **Team page** - Add/remove as needed
-4. **Hours** - Especially holiday hours
-5. **Contact info** - Phone, email, address
-6. **Services** - Add new, remove discontinued
+1. **Footer copyright**: Should be current year (automate this)
+2. **Pricing**: Update when it changes
+3. **Team page**: Add/remove as needed
+4. **Hours**: Especially holiday hours
+5. **Contact info**: Phone, email, address
+6. **Services**: Add new, remove discontinued
 
 **Set a quarterly review:**
 - 30 minutes every 3 months
@@ -421,7 +421,7 @@ With analytics, you can make smart decisions: invest more in what works, fix wha
 
 ## The Compound Effect of Fixing These Mistakes
 
-Here's what most business owners don't realize: these mistakes compound. A slow site with no trust signals and hidden contact info doesn't lose 10% of customers—it loses 80%.
+Here's what most business owners don't realize: these mistakes compound. A slow site with no trust signals and hidden contact info doesn't lose 10% of customers. It loses 80%.
 
 But the reverse is also true. Fix these issues and the improvements multiply:
 
@@ -482,7 +482,7 @@ Not sure which mistakes are hurting you most? I'll audit your site for free and 
 
 **Call (936) 323-4527 or visit [stephenscode.dev/contact](https://www.stephenscode.dev/contact) for a free website review.**
 
-No sales pitch—just honest feedback on what's working and what isn't.
+No sales pitch, just honest feedback on what's working and what isn't.
 
 ---
 

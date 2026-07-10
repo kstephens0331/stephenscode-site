@@ -18,7 +18,7 @@ Here's what military service instills that benefits you as a customer:
 
 In the military, you don't get to quit when things get hard. You adapt, overcome, and complete the mission.
 
-This translates directly to business. When I take on a project, I don't abandon it when complications arise. I find solutions. Your website launch, your business automation, your custom dashboard—it gets done. Period.
+This translates directly to business. When I take on a project, I don't abandon it when complications arise. I find solutions. Your website launch, your business automation, your custom dashboard. It gets done. Period.
 
 **What this means for you:** Your project won't be left half-finished or pushed to the back burner when something "more important" comes along.
 
@@ -63,7 +63,7 @@ For small businesses, this matters. A veteran-owned business understands how to 
 
 ## The Numbers Back It Up
 
-Veteran-owned businesses aren't just trustworthy—they're successful:
+Veteran-owned businesses aren't just trustworthy. They're successful:
 
 - **2.5 million** veteran-owned businesses in the US
 - **$1.14 trillion** in annual receipts
@@ -94,20 +94,20 @@ These certifications require documentation and verification. They're not self-de
 
 The opposite is true. Military leadership, especially at NCO and officer levels, requires independent decision-making, creative problem-solving, and the ability to lead teams through uncertainty.
 
-By the time someone leaves the military, they've likely led teams, managed budgets, coordinated logistics, and made high-stakes decisions. That's not "following orders"—that's running operations.
+By the time someone leaves the military, they've likely led teams, managed budgets, coordinated logistics, and made high-stakes decisions. That's not "following orders." That's running operations.
 
 ### "It's charity to hire a veteran business"
 
-Hiring a veteran-owned business isn't charity. It's recognizing that military experience develops valuable business skills. You're not doing us a favor—you're making a smart business decision.
+Hiring a veteran-owned business isn't charity. It's recognizing that military experience develops valuable business skills. You're not doing us a favor. You're making a smart business decision.
 
 ## How to Verify Veteran-Owned Status
 
 Want to ensure a business is legitimately veteran-owned? Look for:
 
-1. **VA verification** - Check the VA's Vendor Information Pages database
-2. **State certifications** - Many states have veteran business registries
-3. **Service history** - Legitimate veterans are usually happy to discuss their service
-4. **Military culture cues** - We tend to use certain language, understand military references, and connect with other veterans
+1. **VA verification**: Check the VA's Vendor Information Pages database
+2. **State certifications**: Many states have veteran business registries
+3. **Service history**: Legitimate veterans are usually happy to discuss their service
+4. **Military culture cues**: We tend to use certain language, understand military references, and connect with other veterans
 
 If a business is cagey about their veteran status or can't provide verification, be skeptical.
 
@@ -115,20 +115,20 @@ If a business is cagey about their veteran status or can't provide verification,
 
 When you hire a veteran-owned business:
 
-- **You're supporting job creation** - Veteran businesses employ 5.8 million Americans
-- **You're investing in your community** - Local veteran businesses keep money local
-- **You're enabling the transition** - Many veterans struggle to transition to civilian careers; successful businesses help
-- **You're getting proven skills** - Military training is a real investment with real returns
+- **You're supporting job creation**: Veteran businesses employ 5.8 million Americans
+- **You're investing in your community**: Local veteran businesses keep money local
+- **You're enabling the transition**: Many veterans struggle to transition to civilian careers; successful businesses help
+- **You're getting proven skills**: Military training is a real investment with real returns
 
 ## The StephensCode Story
 
 I served in the United States Marine Corps before transitioning to web development. The discipline, attention to detail, and commitment to mission completion I learned in the Marines shapes how I run StephensCode today.
 
 When you work with me:
-- **Projects get completed** - I don't abandon work mid-stream
-- **Communication is clear** - You'll never wonder what's happening
-- **Pricing is transparent** - No hidden fees or surprise charges
-- **Quality is standard** - Every project gets my full attention
+- **Projects get completed**: I don't abandon work mid-stream
+- **Communication is clear**: You'll never wonder what's happening
+- **Pricing is transparent**: No hidden fees or surprise charges
+- **Quality is standard**: Every project gets my full attention
 
 I've been building websites and business solutions for 14+ years. The military taught me how to execute. Experience taught me how to build.
 
@@ -145,7 +145,7 @@ Then working with a veteran-owned business is a smart choice.
 
 **Contact StephensCode at (936) 323-4527 or visit [stephenscode.dev/contact](https://www.stephenscode.dev/contact) to discuss your project.**
 
-We don't just build websites—we build them right.
+We don't just build websites. We build them right.
 
 ---
 
