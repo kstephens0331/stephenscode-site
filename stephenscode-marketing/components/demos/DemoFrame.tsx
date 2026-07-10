@@ -280,7 +280,7 @@ export default function DemoFrame({ demo }: DemoFrameProps) {
               <div className="flex-1">
                 <h3 className="font-bold text-primary-300 mb-2">This is a Fully Interactive Demo</h3>
                 <ul className="text-sm text-gray-300 space-y-1">
-                  <li>• Click around, fill out forms, and test all features—everything works!</li>
+                  <li>• Click around, fill out forms, and test all features. Everything works!</li>
                   <li>• Switch between <strong>Customer View</strong> (what your clients see) and <strong>Admin Dashboard</strong> (your control panel)</li>
                   <li>• All data is stored locally and will be cleared when you close this tab</li>
                   <li>• Resize your browser to see the responsive mobile design</li>
