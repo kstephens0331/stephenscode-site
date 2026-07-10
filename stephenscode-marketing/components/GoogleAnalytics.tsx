@@ -1,7 +1,7 @@
 import Script from 'next/script'
 import { headers } from 'next/headers'
 
-const GA_MEASUREMENT_ID = 'G-W7W7DR4VYJ'
+const GA_MEASUREMENT_ID = 'G-JE84EH0H09'
 
 export default async function GoogleAnalytics() {
   const headersList = await headers()
