@@ -29,8 +29,8 @@ export const managedITServices: MSPService[] = [
     price: 99,
     priceLabel: '$99/user/mo',
     billingType: 'monthly',
-    shortDescription: 'Complete IT support with security included - more value than competitors at $125+',
-    longDescription: `Get more than basic IT support at a competitive price. Our Essential IT package includes everything small businesses need: helpdesk, monitoring, security essentials, AND email security with phishing protection - features competitors charge extra for. Perfect for businesses with 1-15 employees who want reliable IT without paying enterprise prices. You get $125+ worth of services at $99/user.`,
+    shortDescription: 'Complete IT support with security included: more value than competitors at $125+',
+    longDescription: `Get more than basic IT support at a competitive price. Our Essential IT package includes everything small businesses need: helpdesk, monitoring, security essentials, AND email security with phishing protection. These are features competitors charge extra for. Perfect for businesses with 1-15 employees who want reliable IT without paying enterprise prices. You get $125+ worth of services at $99/user.`,
     features: [
       'Remote helpdesk support (M-F 8AM-6PM)',
       '24/7 system monitoring & alerts',
@@ -81,7 +81,7 @@ export const managedITServices: MSPService[] = [
     price: 129,
     priceLabel: '$129/user/mo',
     billingType: 'monthly',
-    shortDescription: 'Full managed IT with backup, security monitoring, and MFA - $175+ value at $129',
+    shortDescription: 'Full managed IT with backup, security monitoring, and MFA: $175+ value at $129',
     longDescription: `Our most popular plan delivers $175+ worth of IT services at $129/user. Business Pro includes everything in Essential IT plus cloud backup, dark web monitoring, MFA setup, priority 2-hour support, and vendor management. While competitors charge $150-175 for basic managed IT, we include security features they charge extra for. Ideal for businesses with 5-30 employees who need comprehensive IT without enterprise pricing.`,
     features: [
       'All Essential IT features',
@@ -137,8 +137,8 @@ export const managedITServices: MSPService[] = [
     price: 179,
     priceLabel: '$179/user/mo',
     billingType: 'monthly',
-    shortDescription: 'IT + Security combined - EDR, SIEM, training, and dedicated support in one package',
-    longDescription: `The all-in-one IT and security solution for businesses that need enterprise-grade protection without enterprise complexity. Complete IT bundles our Business Pro managed IT with advanced cybersecurity - EDR, SIEM monitoring, security awareness training, and quarterly assessments. Competitors charge $200-250+ for this level of service. Ideal for businesses with 10-50 employees, especially those handling sensitive data or facing compliance requirements.`,
+    shortDescription: 'IT + Security combined: EDR, SIEM, training, and dedicated support in one package',
+    longDescription: `The all-in-one IT and security solution for businesses that need enterprise-grade protection without enterprise complexity. Complete IT bundles our Business Pro managed IT with advanced cybersecurity: EDR, SIEM monitoring, security awareness training, and quarterly assessments. Competitors charge $200-250+ for this level of service. Ideal for businesses with 10-50 employees, especially those handling sensitive data or facing compliance requirements.`,
     features: [
       'All Business Pro features',
       'Endpoint Detection & Response (EDR)',
@@ -250,7 +250,7 @@ export const cybersecurityServices: MSPService[] = [
     price: 29,
     priceLabel: '$29/user/mo',
     billingType: 'monthly',
-    shortDescription: 'Core cybersecurity protection - antivirus, firewall management, email security',
+    shortDescription: 'Core cybersecurity protection: antivirus, firewall management, email security',
     longDescription: `Essential cybersecurity protection for small businesses. Our Security Essentials package provides the core security tools every business needs: enterprise-grade antivirus, email security to block phishing and malware, and firewall management. We monitor your systems 24/7 for threats and provide monthly security reports so you always know your protection status. Perfect for businesses that need solid security without complexity.`,
     features: [
       'Enterprise antivirus/anti-malware',

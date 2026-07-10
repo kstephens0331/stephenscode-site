@@ -36,21 +36,21 @@ export default function HomePage({ onNavigate }: HomePageProps) {
   const testimonials = [
     {
       name: 'Jennifer Martinez',
-      role: 'Parent - High School Student',
+      role: 'Parent of a High School Student',
       text: 'My daughter went from struggling in calculus to getting an A! The personalized attention made all the difference.',
       rating: 5,
       image: '👩‍💼',
     },
     {
       name: 'David Chen',
-      role: 'Parent - SAT Student',
+      role: 'Parent of an SAT Student',
       text: 'SAT score improved by 300 points! The test prep strategies were incredibly effective. Highly recommend!',
       rating: 5,
       image: '👨‍💻',
     },
     {
       name: 'Sarah Johnson',
-      role: 'Parent - Middle School Student',
+      role: 'Parent of a Middle School Student',
       text: 'The tutors are patient, knowledgeable, and genuinely care about student success. Worth every penny!',
       rating: 5,
       image: '👩‍🎓',
@@ -259,7 +259,7 @@ export default function HomePage({ onNavigate }: HomePageProps) {
               Why Choose Smart Start?
             </h2>
             <p className="text-xl text-gray-600 max-w-3xl mx-auto">
-              We provide more than just tutoring - we build confidence and foster lifelong learning
+              We provide more than just tutoring. We build confidence and foster lifelong learning
             </p>
           </div>
 

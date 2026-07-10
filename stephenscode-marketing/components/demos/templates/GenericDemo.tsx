@@ -18,7 +18,7 @@ export default function GenericDemo({ demo, viewMode }: GenericDemoProps) {
         <div className="container mx-auto px-4 py-8">
           <div className="bg-white rounded-lg shadow-2xl p-8">
             <div className="mb-8">
-              <h1 className="text-3xl font-bold text-gray-900 mb-2">Admin Dashboard - {demo.name}</h1>
+              <h1 className="text-3xl font-bold text-gray-900 mb-2">Admin Dashboard: {demo.name}</h1>
               <p className="text-gray-600">{demo.description}</p>
             </div>
 
@@ -124,7 +124,7 @@ export default function GenericDemo({ demo, viewMode }: GenericDemoProps) {
               <h3 className="text-2xl font-bold text-gray-900 mb-4">Try it Out</h3>
               <form className="space-y-4" onSubmit={(e) => {
                 e.preventDefault()
-                alert('Form submitted! (Demo only - no data is actually sent)')
+                alert('Form submitted! (Demo only, no data is actually sent)')
               }}>
                 <div>
                   <label className="block text-sm font-semibold text-gray-700 mb-2">Your Name</label>

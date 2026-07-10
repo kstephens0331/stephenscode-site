@@ -66,7 +66,7 @@ export default function AdminView({ basePath }: AdminViewProps) {
               </div>
               <div>
                 <h1 className="text-3xl font-bold text-zinc-50">Iron Temple Fitness</h1>
-                <p className="text-[#fdf0d5] font-medium">Admin Dashboard - Gym Demo</p>
+                <p className="text-[#fdf0d5] font-medium">Admin Dashboard | Gym Demo</p>
               </div>
             </div>
             <a

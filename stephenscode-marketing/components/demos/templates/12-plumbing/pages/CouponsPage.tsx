@@ -285,7 +285,7 @@ const CouponsPage: React.FC<CouponsPageProps> = ({ onNavigate }) => {
                 </li>
                 <li className="flex items-start space-x-3">
                   <CheckCircle className="h-6 w-6 flex-shrink-0 mt-0.5" />
-                  <span>Some restrictions may apply - see individual coupon terms</span>
+                  <span>Some restrictions may apply. See individual coupon terms</span>
                 </li>
                 <li className="flex items-start space-x-3">
                   <CheckCircle className="h-6 w-6 flex-shrink-0 mt-0.5" />

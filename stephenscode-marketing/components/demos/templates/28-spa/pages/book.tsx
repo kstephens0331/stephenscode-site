@@ -21,9 +21,9 @@ export default function BookPage({ colors, onNavigate }: BookPageProps) {
             <div>
               <label className="block text-sm font-medium mb-2" style={{ color: colors.text }}>Select Treatment</label>
               <select className="w-full px-4 py-3 rounded-lg border" style={{ borderColor: colors.border }}>
-                <option>Swedish Massage (60 min) - $120</option>
-                <option>Deep Tissue Massage (90 min) - $190</option>
-                <option>Hydrating Facial (60 min) - $130</option>
+                <option>Swedish Massage (60 min): $120</option>
+                <option>Deep Tissue Massage (90 min): $190</option>
+                <option>Hydrating Facial (60 min): $130</option>
               </select>
             </div>
             <div>

@@ -79,7 +79,7 @@ const CustomerView: React.FC = () => {
     },
     {
       id: 2,
-      name: 'Organic Cat Treats - Salmon',
+      name: 'Organic Cat Treats (Salmon)',
       price: 12.99,
       image: '🐟',
       category: 'Treats',
@@ -203,7 +203,7 @@ const CustomerView: React.FC = () => {
     },
     {
       id: 12,
-      name: 'Orthopedic Pet Bed - Large',
+      name: 'Orthopedic Pet Bed (Large)',
       price: 79.99,
       salePrice: 64.99,
       image: '🛏️',
@@ -598,7 +598,7 @@ const CustomerView: React.FC = () => {
                 </li>
                 <li className="flex items-center gap-3">
                   <Check className="w-6 h-6 text-[#f4a261]" />
-                  <span>Flexible scheduling - change or cancel anytime</span>
+                  <span>Flexible scheduling: change or cancel anytime</span>
                 </li>
               </ul>
               <button
@@ -974,12 +974,12 @@ const CustomerView: React.FC = () => {
         <div className="text-center mb-12">
           <div className="text-6xl mb-6">🏷️💰</div>
           <h1 className="text-4xl font-bold text-[#264653] mb-4">Sale Items</h1>
-          <p className="text-gray-600 text-lg">Amazing deals on premium pet supplies - limited time!</p>
+          <p className="text-gray-600 text-lg">Amazing deals on premium pet supplies, limited time!</p>
         </div>
 
         {/* Sale Banner */}
         <div className="bg-gradient-to-r from-red-500 to-[#e76f51] text-white p-8 rounded-2xl mb-12 text-center">
-          <h2 className="text-3xl font-bold mb-2">Flash Sale - Up to 40% Off!</h2>
+          <h2 className="text-3xl font-bold mb-2">Flash Sale: Up to 40% Off!</h2>
           <p className="text-xl mb-4">Ends in 2 days, 14 hours, 32 minutes</p>
           <div className="flex justify-center gap-4">
             <div className="bg-white/20 backdrop-blur-sm px-6 py-3 rounded-lg">
@@ -1047,7 +1047,7 @@ const CustomerView: React.FC = () => {
         <div className="text-center mb-12">
           <div className="text-6xl mb-6">📦⏰</div>
           <h1 className="text-4xl font-bold text-[#264653] mb-4">Auto-Delivery Service</h1>
-          <p className="text-gray-600 text-lg">Never run out of your pet's essentials - save time and money!</p>
+          <p className="text-gray-600 text-lg">Never run out of your pet's essentials. Save time and money!</p>
         </div>
 
         {/* Benefits Grid */}
@@ -1071,7 +1071,7 @@ const CustomerView: React.FC = () => {
               <Calendar className="w-8 h-8 text-[#264653]" />
             </div>
             <h3 className="text-xl font-bold mb-3">Flexible Schedule</h3>
-            <p className="text-gray-600">Choose delivery frequency - skip, pause, or cancel anytime</p>
+            <p className="text-gray-600">Choose delivery frequency: skip, pause, or cancel anytime</p>
           </div>
         </div>
 
@@ -1887,7 +1887,7 @@ const CustomerView: React.FC = () => {
                 </div>
                 <div>
                   <h4 className="font-bold mb-2">Returns & Refunds</h4>
-                  <p className="text-white/90 text-sm">100% satisfaction guarantee - 30 day returns</p>
+                  <p className="text-white/90 text-sm">100% satisfaction guarantee, 30 day returns</p>
                 </div>
                 <div>
                   <h4 className="font-bold mb-2">Auto-Delivery</h4>

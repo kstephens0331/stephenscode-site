@@ -115,7 +115,7 @@ export default function PricingPage({ onNavigate }: PricingPageProps) {
   return (
     <div className="bg-white">
       {/* SEO Meta */}
-      <title>Pricing - Sparkle Clean Services | Transparent Cleaning Service Rates</title>
+      <title>Pricing | Sparkle Clean Services | Transparent Cleaning Service Rates</title>
 
       {/* Hero */}
       <section className="bg-gradient-to-br from-[#0077b6] to-[#00b4d8] text-white py-16">

@@ -287,19 +287,19 @@ export default function AdminView({
               <div className="space-y-3 text-sm">
                 <div className="pb-3 border-b border-gray-100">
                   <p className="font-medium" style={{ color: primaryColor }}>Settlement reached</p>
-                  <p className="text-xs text-gray-600">Johnson v. ABC Corp - 2 hours ago</p>
+                  <p className="text-xs text-gray-600">Johnson v. ABC Corp, 2 hours ago</p>
                 </div>
                 <div className="pb-3 border-b border-gray-100">
                   <p className="font-medium" style={{ color: primaryColor }}>New consultation booked</p>
-                  <p className="text-xs text-gray-600">Personal Injury - 4 hours ago</p>
+                  <p className="text-xs text-gray-600">Personal Injury, 4 hours ago</p>
                 </div>
                 <div className="pb-3 border-b border-gray-100">
                   <p className="font-medium" style={{ color: primaryColor }}>Document filed</p>
-                  <p className="text-xs text-gray-600">Motion to Dismiss - 5 hours ago</p>
+                  <p className="text-xs text-gray-600">Motion to Dismiss, 5 hours ago</p>
                 </div>
                 <div>
                   <p className="font-medium" style={{ color: primaryColor }}>Court date set</p>
-                  <p className="text-xs text-gray-600">Chen trial - 6 hours ago</p>
+                  <p className="text-xs text-gray-600">Chen trial, 6 hours ago</p>
                 </div>
               </div>
             </div>

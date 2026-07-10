@@ -204,7 +204,7 @@ export default function ClientPortalPage({ onNavigate }: ClientPortalPageProps) 
               <div className="space-y-4">
                 {[
                   { name: '2024 Q3 Investment Statement', date: 'Nov 1, 2024', size: '2.3 MB' },
-                  { name: '2023 Tax Return - Form 1040', date: 'Oct 15, 2024', size: '1.8 MB' },
+                  { name: '2023 Tax Return (Form 1040)', date: 'Oct 15, 2024', size: '1.8 MB' },
                   { name: 'Estate Planning Document Updates', date: 'Sep 28, 2024', size: '3.1 MB' },
                   { name: 'Portfolio Rebalancing Report', date: 'Sep 15, 2024', size: '1.2 MB' },
                 ].map((doc, index) => (

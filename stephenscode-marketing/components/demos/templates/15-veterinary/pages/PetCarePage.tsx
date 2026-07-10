@@ -222,7 +222,7 @@ export default function PetCarePage({ onNavigate, colors }: PetCarePageProps) {
           'Large breeds may need puppy food longer',
           'Feed 3-4 times daily until 6 months',
           'Then reduce to 2-3 times daily',
-          'Don\'t overfeed - obesity affects development',
+          'Don\'t overfeed. Obesity affects development',
           'Provide fresh water at all times'
         ]
       }
@@ -335,7 +335,7 @@ export default function PetCarePage({ onNavigate, colors }: PetCarePageProps) {
               Breed-Specific Care Tips
             </h2>
             <p className="text-xl text-gray-600 max-w-3xl mx-auto">
-              Different breeds have unique needs - here's what to know
+              Different breeds have unique needs. Here's what to know
             </p>
           </div>
 

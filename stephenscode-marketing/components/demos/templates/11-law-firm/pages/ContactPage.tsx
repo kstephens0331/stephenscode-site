@@ -319,7 +319,7 @@ export default function ContactPage({ onNavigate, accentColor = '#c9a227' }: Con
                 <div className="space-y-6">
                   <div>
                     <h4 className="font-bold mb-2" style={{ color: accentColor }}>
-                      Main Office - Manhattan
+                      Main Office, Manhattan
                     </h4>
                     <p className="text-sm text-gray-700">
                       123 Justice Plaza, Suite 500<br />

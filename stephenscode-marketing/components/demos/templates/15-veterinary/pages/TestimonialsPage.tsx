@@ -81,7 +81,7 @@ export default function TestimonialsPage({ onNavigate, colors }: TestimonialsPag
       image: '🐕',
       rating: 5,
       date: 'July 2024',
-      review: 'Charlie ate a sock (of course), and needed emergency surgery to remove it. The team was incredible - they got us in right away, explained all the options, and worked with our pet insurance. Charlie recovered perfectly, and they even called to check on him several times after surgery.',
+      review: 'Charlie ate a sock (of course), and needed emergency surgery to remove it. The team was incredible. They got us in right away, explained all the options, and worked with our pet insurance. Charlie recovered perfectly, and they even called to check on him several times after surgery.',
       service: 'Emergency Foreign Body Removal'
     },
     {
@@ -108,7 +108,7 @@ export default function TestimonialsPage({ onNavigate, colors }: TestimonialsPag
       image: '🐈',
       rating: 5,
       date: 'June 2024',
-      review: 'Milo blocked (couldn\'t urinate) on a Sunday evening - a true emergency. I called the emergency line, and Dr. Martinez met us at the clinic within 20 minutes. She unblocked him, got him stabilized, and he stayed for monitoring. The 24/7 emergency service literally saved his life.',
+      review: 'Milo blocked (couldn\'t urinate) on a Sunday evening, a true emergency. I called the emergency line, and Dr. Martinez met us at the clinic within 20 minutes. She unblocked him, got him stabilized, and he stayed for monitoring. The 24/7 emergency service literally saved his life.',
       service: '24/7 Emergency Care'
     },
     {

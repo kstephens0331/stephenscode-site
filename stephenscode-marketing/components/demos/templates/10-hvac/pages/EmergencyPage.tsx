@@ -148,7 +148,7 @@ export default function EmergencyPage({ onNavigate }: EmergencyPageProps) {
           </div>
 
           <div className="mt-12 bg-[#d62828] text-white p-8 rounded-xl text-center">
-            <h3 className="text-2xl font-bold mb-4">Don&apos;t Wait - Call Immediately!</h3>
+            <h3 className="text-2xl font-bold mb-4">Don&apos;t Wait. Call Immediately!</h3>
             <p className="text-xl mb-6">
               Emergency HVAC issues can be dangerous and cause property damage. Our team is standing by.
             </p>
@@ -319,7 +319,7 @@ export default function EmergencyPage({ onNavigate }: EmergencyPageProps) {
           <AlertCircle className="w-20 h-20 mx-auto mb-6" />
           <h2 className="text-4xl font-bold mb-4">Need Emergency Help Right Now?</h2>
           <p className="text-2xl text-white/90 mb-8">
-            Don&apos;t wait - our expert technicians are standing by 24/7
+            Don&apos;t wait. Our expert technicians are standing by 24/7
           </p>
           <a
             href="tel:555-COOL-NOW"

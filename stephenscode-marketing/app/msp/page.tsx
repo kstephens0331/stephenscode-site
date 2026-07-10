@@ -101,7 +101,7 @@ export default function MSPServicesPage() {
   const whyChooseMSP = [
     {
       title: '24/7 Monitoring & Support',
-      description: 'Your systems are monitored around the clock. When issues arise, we\'re on it—often before you even notice.',
+      description: 'Your systems are monitored around the clock. When issues arise, we\'re on it, often before you even notice.',
       icon: '🕐',
       stats: 'Always-On Protection'
     },
@@ -161,7 +161,7 @@ export default function MSPServicesPage() {
             </h1>
 
             <p className="mt-8 text-xl leading-8 text-gray-200 max-w-3xl mx-auto">
-              Stop worrying about technology and start growing your business. Our managed IT services provide <strong className="text-white">24/7 monitoring, cybersecurity protection, and expert support</strong>—all for a predictable monthly cost.
+              Stop worrying about technology and start growing your business. Our managed IT services provide <strong className="text-white">24/7 monitoring, cybersecurity protection, and expert support</strong>, all for a predictable monthly cost.
             </p>
 
             {/* Stats Bar */}
@@ -317,7 +317,7 @@ export default function MSPServicesPage() {
             {[
               {
                 question: "What is included in managed IT services?",
-                answer: "Our managed IT services include 24/7 system monitoring, helpdesk support, cybersecurity protection (antivirus, firewall, threat detection), backup and disaster recovery, Microsoft 365 management, patch management, and strategic IT consulting. The specific features depend on your plan—Essential IT ($99/user), Business Pro ($129/user), or Complete IT ($179/user)."
+                answer: "Our managed IT services include 24/7 system monitoring, helpdesk support, cybersecurity protection (antivirus, firewall, threat detection), backup and disaster recovery, Microsoft 365 management, patch management, and strategic IT consulting. The specific features depend on your plan: Essential IT ($99/user), Business Pro ($129/user), or Complete IT ($179/user)."
               },
               {
                 question: "How much do managed IT services cost?",
@@ -345,7 +345,7 @@ export default function MSPServicesPage() {
               },
               {
                 question: "How do we get started with managed IT services?",
-                answer: "Start with a free IT assessment. We'll evaluate your current infrastructure, identify vulnerabilities, and recommend the right service level. There's no obligation—just honest advice about your IT needs. If you decide to move forward, onboarding typically takes 1-2 weeks."
+                answer: "Start with a free IT assessment. We'll evaluate your current infrastructure, identify vulnerabilities, and recommend the right service level. There's no obligation, just honest advice about your IT needs. If you decide to move forward, onboarding typically takes 1-2 weeks."
               }
             ].map((faq, index) => (
               <details
@@ -394,7 +394,7 @@ export default function MSPServicesPage() {
               Is Your Business Protected?
             </h2>
             <p className="mx-auto max-w-2xl text-xl leading-8 text-red-100 mb-12">
-              Get a free IT assessment to identify vulnerabilities and opportunities. No obligation, no sales pressure—just honest advice about your technology.
+              Get a free IT assessment to identify vulnerabilities and opportunities. No obligation, no sales pressure, just honest advice about your technology.
             </p>
             <div className="flex flex-wrap items-center justify-center gap-4">
               <Link

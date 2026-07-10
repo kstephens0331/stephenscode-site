@@ -185,7 +185,7 @@ export default function CustomerView({ demo, colors }: CustomerViewProps) {
                 <input type="text" placeholder="Happy Birthday!" className="w-full px-4 py-3 border-2 border-gray-200 rounded-lg" />
               </div>
               <button className="w-full bg-[var(--color-primary)] text-white py-4 rounded-lg font-semibold hover:bg-opacity-90">
-                Add to Cart - $65.99
+                Add to Cart ($65.99)
               </button>
             </div>
           </div>

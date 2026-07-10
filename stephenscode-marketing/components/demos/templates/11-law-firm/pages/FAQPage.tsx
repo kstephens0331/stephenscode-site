@@ -78,7 +78,7 @@ export default function FAQPage({ onNavigate, accentColor = '#c9a227' }: FAQPage
       faqs: [
         {
           question: 'What should I do if I\'m arrested?',
-          answer: 'Remain calm and polite, but invoke your right to remain silent and your right to an attorney immediately. Don\'t answer questions, consent to searches, or make statements without a lawyer present. Contact us as soon as possible - we\'re available 24/7 for emergency situations.',
+          answer: 'Remain calm and polite, but invoke your right to remain silent and your right to an attorney immediately. Don\'t answer questions, consent to searches, or make statements without a lawyer present. Contact us as soon as possible. We\'re available 24/7 for emergency situations.',
         },
         {
           question: 'Can charges be dropped or reduced?',
@@ -132,7 +132,7 @@ export default function FAQPage({ onNavigate, accentColor = '#c9a227' }: FAQPage
         },
         {
           question: 'How involved will I be in my case?',
-          answer: 'You\'ll be informed and involved at every stage. We make all major decisions together, though we handle the day-to-day legal work. You\'ll receive regular updates, and we encourage your input throughout the process. This is your case - we\'re here to guide and advocate for you.',
+          answer: 'You\'ll be informed and involved at every stage. We make all major decisions together, though we handle the day-to-day legal work. You\'ll receive regular updates, and we encourage your input throughout the process. This is your case. We\'re here to guide and advocate for you.',
         },
       ],
     },

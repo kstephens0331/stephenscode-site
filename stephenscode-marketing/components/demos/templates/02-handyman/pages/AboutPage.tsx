@@ -133,7 +133,7 @@ export default function AboutPage({ onNavigate, colors }: AboutPageProps) {
                   We built our reputation on a simple philosophy: treat every home like it's our own. From minor repairs to major renovations, we approach each project with the same dedication to quality and customer satisfaction.
                 </p>
                 <p>
-                  Today, our team of certified professionals brings decades of combined experience to every job. We're not just handymen—we're your neighbors, committed to keeping our community's homes safe, functional, and beautiful.
+                  Today, our team of certified professionals brings decades of combined experience to every job. We're not just handymen, we're your neighbors, committed to keeping our community's homes safe, functional, and beautiful.
                 </p>
               </div>
             </div>

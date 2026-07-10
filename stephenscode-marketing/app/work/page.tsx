@@ -28,7 +28,7 @@ export const metadata: Metadata = {
 const portfolioSchema = {
   "@context": "https://schema.org",
   "@type": "CollectionPage",
-  "name": "StephensCode Portfolio - Our Work",
+  "name": "StephensCode Portfolio: Our Work",
   "description": "Portfolio of web development projects for Houston businesses with case studies and results.",
   "provider": {
     "@type": "Organization",
@@ -236,7 +236,7 @@ export default function Work() {
       name: 'Project Ironclad',
       url: null,
       industry: 'Cloud Infrastructure',
-      shortDesc: 'Custom cloud platform replacing GitHub, Vercel, Railway, and Supabase - built from scratch.',
+      shortDesc: 'Custom cloud platform replacing GitHub, Vercel, Railway, and Supabase. Built from scratch.',
       description: 'Project Ironclad is an ambitious 100% custom cloud platform built entirely from scratch with no third-party frameworks. It replaces GitHub, Vercel, Railway, Supabase, and Cloudflare with custom implementations including AES-256-GCM encryption, custom database query builders, S3-compatible object storage, distributed ledger technology, and container orchestration. Currently at Phase 36 with complete cryptography, database, storage, and compute modules.',
       services: ['Cloud Platform', 'Custom Infrastructure', 'Encryption', 'Container Orchestration'],
       icon: '☁️',
@@ -410,7 +410,7 @@ export default function Work() {
     {
       quote: 'Our online gaming safety platform was built exactly to spec. StephensCode delivered a powerful system that streamlines our entire operation protecting gamers.',
       author: 'SentinelForge Team',
-      company: 'SentinelForge - Online Gaming Safety Platform',
+      company: 'SentinelForge: Online Gaming Safety Platform',
       rating: 5
     },
     {

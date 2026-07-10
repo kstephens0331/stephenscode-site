@@ -68,7 +68,7 @@ const EmergencyPage: React.FC<EmergencyPageProps> = ({ onNavigate }) => {
               No overtime charges, ever.
             </p>
             <div className="bg-white text-red-600 rounded-2xl p-8 max-w-2xl mx-auto mb-8">
-              <p className="text-lg font-semibold mb-3">Emergency Hotline - Call Now!</p>
+              <p className="text-lg font-semibold mb-3">Emergency Hotline: Call Now!</p>
               <a href="tel:5557658237" className="text-5xl md:text-6xl font-bold hover:text-red-700 transition-colors">
                 (555) 765-8237
               </a>
@@ -357,7 +357,7 @@ const EmergencyPage: React.FC<EmergencyPageProps> = ({ onNavigate }) => {
       <section className="py-16 bg-gradient-to-r from-red-600 to-red-700 text-white">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
           <AlertCircle className="h-16 w-16 mx-auto mb-6 animate-pulse" />
-          <h2 className="text-4xl font-bold mb-4">Don't Wait - Get Help Now!</h2>
+          <h2 className="text-4xl font-bold mb-4">Don't Wait. Get Help Now!</h2>
           <p className="text-2xl text-red-100 mb-8 max-w-3xl mx-auto">
             Plumbing emergencies get worse with time. Call us now for immediate assistance.
           </p>

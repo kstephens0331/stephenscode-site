@@ -10,11 +10,11 @@ readTime: "16 min read"
 
 ## Why Local SEO Is Your Best Marketing Investment
 
-Here's a statistic that should shape your entire marketing strategy: **46% of all Google searches have local intent.** People aren't just browsing—they're looking for businesses near them, ready to buy.
+Here's a statistic that should shape your entire marketing strategy: **46% of all Google searches have local intent.** People aren't just browsing. They're looking for businesses near them, ready to buy.
 
 And Houston is a massive market. The Greater Houston area has 7+ million people actively searching for local services. "HVAC repair Houston" gets 3,600 searches per month. "Plumber near me" gets 8,100. "Best restaurants in The Woodlands" gets 1,900.
 
-These aren't just numbers—they're potential customers, searching right now, ready to spend money. The only question is whether they find you or your competitors.
+These aren't just numbers. They're potential customers, searching right now, ready to spend money. The only question is whether they find you or your competitors.
 
 This guide will show you exactly how to dominate local search results in Houston and turn those searches into customers.
 
@@ -36,7 +36,7 @@ The 3 business listings that appear with a map in search results. These get 44% 
 
 ### 2. Organic Local Results
 
-The standard search results below the map pack. Still important—many users scroll past the map.
+The standard search results below the map pack. Still important. Many users scroll past the map.
 
 Both require different strategies, and you need both.
 
@@ -128,11 +128,11 @@ Reviews impact both rankings and conversion rates. Businesses with more positive
 4. Shorten it with bit.ly
 
 **The ask script:**
-"If you're happy with our work today, we'd really appreciate a Google review. I'll send you a link that makes it easy—just takes a minute."
+"If you're happy with our work today, we'd really appreciate a Google review. I'll send you a link that makes it easy, just takes a minute."
 
 ### Responding to Reviews
 
-Respond to every review—positive and negative.
+Respond to every review, positive and negative.
 
 **Positive review response:**
 - Thank them specifically
@@ -145,7 +145,7 @@ Respond to every review—positive and negative.
 - Offer to make it right offline
 - Keep it professional
 
-Never argue or get defensive. Your response is public—future customers are judging you.
+Never argue or get defensive. Your response is public. Future customers are judging you.
 
 ### Dealing With Fake Reviews
 
@@ -613,7 +613,7 @@ Local SEO takes time. Here's a realistic timeline:
 
 **Example:** A contractor spending $1,000/month on local SEO who gains just 2 extra jobs per month at $500 average value = $1,000/month revenue.
 
-That's break-even from 2 jobs. Most businesses gain more than that—so it's usually profitable.
+That's break-even from 2 jobs. Most businesses gain more than that, so it's usually profitable.
 
 ## Quick Wins: Start Today
 

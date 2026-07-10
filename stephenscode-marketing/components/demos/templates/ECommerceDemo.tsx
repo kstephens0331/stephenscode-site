@@ -128,7 +128,7 @@ export default function ECommerceDemo({ demo, viewMode }: ECommerceDemoProps) {
         <div className="container mx-auto px-4 flex justify-between items-center">
           <div className="font-bold text-xl">Shop</div>
           <div className="font-semibold"style={{ color: demo.colors.accent }}>
-            🛒 Cart ({cart.length}) - ${cartTotal.toFixed(2)}
+            🛒 Cart ({cart.length}): ${cartTotal.toFixed(2)}
           </div>
         </div>
       </nav>

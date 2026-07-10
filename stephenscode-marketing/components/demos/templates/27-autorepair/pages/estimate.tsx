@@ -53,7 +53,7 @@ export default function EstimatePage({ colors, onNavigate }: EstimatePageProps) 
             Get Your Repair Estimate
           </h1>
           <p className="text-lg" style={{ color: colors.textLight }}>
-            Interactive cost estimator - Get an instant ballpark quote
+            Interactive cost estimator. Get an instant ballpark quote
           </p>
         </div>
 

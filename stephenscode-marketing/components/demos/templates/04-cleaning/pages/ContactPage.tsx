@@ -148,7 +148,7 @@ export default function ContactPage({ onNavigate }: ContactPageProps) {
   return (
     <div className="bg-white">
       {/* SEO Meta */}
-      <title>Contact Us - Sparkle Clean Services | Get Your Free Cleaning Quote</title>
+      <title>Contact Us | Sparkle Clean Services | Get Your Free Cleaning Quote</title>
 
       {/* Hero */}
       <section className="bg-gradient-to-br from-[#0077b6] to-[#00b4d8] text-white py-16">

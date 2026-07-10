@@ -1607,7 +1607,7 @@ const FastServeFranchiseNetwork = () => {
         </div>
         <div className="border-t border-[#a33f41] pt-8 text-center text-gray-300 text-sm">
           <p>&copy; 2024 FastServe Franchise Network. All rights reserved.</p>
-          <p className="mt-2">Enterprise Platform Demo - $7,500 Tier</p>
+          <p className="mt-2">Enterprise Platform Demo: $7,500 Tier</p>
         </div>
       </div>
     </footer>

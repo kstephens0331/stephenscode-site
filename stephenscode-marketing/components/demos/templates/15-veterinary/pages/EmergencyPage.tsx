@@ -16,7 +16,7 @@ export default function EmergencyPage({ onNavigate, colors }: EmergencyPageProps
       icon: Activity,
       title: 'Difficulty Breathing',
       description: 'Gasping, choking, blue-tinged gums, or severe respiratory distress',
-      action: 'Call immediately - life-threatening'
+      action: 'Call immediately, life-threatening'
     },
     {
       icon: Heart,
@@ -148,12 +148,12 @@ export default function EmergencyPage({ onNavigate, colors }: EmergencyPageProps
           <AlertTriangle className="w-20 h-20 mx-auto mb-6" />
           <h1 className="text-5xl font-bold mb-6">24/7 Emergency Veterinary Care</h1>
           <p className="text-2xl text-red-100 mb-8 leading-relaxed max-w-3xl mx-auto">
-            When your pet needs immediate medical attention, we're here for you - day or night
+            When your pet needs immediate medical attention, we're here for you, day or night
           </p>
 
           <div className="bg-white text-gray-900 rounded-2xl p-8 max-w-2xl mx-auto shadow-2xl">
             <Phone className="w-16 h-16 mx-auto mb-4 text-red-600" />
-            <p className="text-xl font-semibold mb-4">Emergency Hotline - Available 24/7</p>
+            <p className="text-xl font-semibold mb-4">Emergency Hotline: Available 24/7</p>
             <a
               href="tel:555-123-4567"
               className="text-5xl font-bold text-red-600 hover:underline block mb-4"
@@ -376,7 +376,7 @@ export default function EmergencyPage({ onNavigate, colors }: EmergencyPageProps
                 <ol className="space-y-3 text-gray-700">
                   <li className="flex gap-3">
                     <span className="font-bold" style={{ color: colors.primary }}>1.</span>
-                    <span>Call our main number (555) 123-4567 - it's answered 24/7</span>
+                    <span>Call our main number (555) 123-4567, it's answered 24/7</span>
                   </li>
                   <li className="flex gap-3">
                     <span className="font-bold" style={{ color: colors.primary }}>2.</span>
@@ -388,7 +388,7 @@ export default function EmergencyPage({ onNavigate, colors }: EmergencyPageProps
                   </li>
                   <li className="flex gap-3">
                     <span className="font-bold" style={{ color: colors.primary }}>4.</span>
-                    <span>If needed, bring your pet in - a veterinarian will meet you at the clinic</span>
+                    <span>If needed, bring your pet in. A veterinarian will meet you at the clinic</span>
                   </li>
                 </ol>
               </div>
@@ -398,7 +398,7 @@ export default function EmergencyPage({ onNavigate, colors }: EmergencyPageProps
                   Emergency Fee Information
                 </p>
                 <p className="text-gray-700 leading-relaxed">
-                  After-hours emergency visits include an emergency exam fee in addition to treatment costs. We accept all major credit cards and offer CareCredit financing. Your pet's health comes first - we'll work with you on payment.
+                  After-hours emergency visits include an emergency exam fee in addition to treatment costs. We accept all major credit cards and offer CareCredit financing. Your pet's health comes first; we'll work with you on payment.
                 </p>
               </div>
             </div>

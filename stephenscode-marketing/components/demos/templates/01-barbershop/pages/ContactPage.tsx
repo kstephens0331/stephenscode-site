@@ -121,7 +121,7 @@ export default function ContactPage({ colors, onBookingOpen }: ContactPageProps)
                 </h3>
                 <p style={{ color: '#666666' }} className="text-lg mb-8 leading-relaxed">
                   Reserve your spot online and choose your preferred barber and time. We'll confirm your appointment
-                  within 2 hours. Or simply walk in—we always do our best to accommodate!
+                  within 2 hours. Or simply walk in. We always do our best to accommodate!
                 </p>
 
                 <button
@@ -233,7 +233,7 @@ export default function ContactPage({ colors, onBookingOpen }: ContactPageProps)
                 How long does a typical haircut take?
               </h3>
               <p style={{ color: '#666666' }}>
-                Most haircuts take 30-45 minutes. Our Executive service takes 75 minutes. We don't rush—we take
+                Most haircuts take 30-45 minutes. Our Executive service takes 75 minutes. We don't rush, we take
                 the time needed to do it right.
               </p>
             </div>

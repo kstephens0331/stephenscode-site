@@ -105,7 +105,7 @@ export default function ContactPage({ onNavigate }: ContactPageProps) {
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
           <h1 className="text-5xl font-bold mb-4">Contact Us</h1>
           <p className="text-xl text-white/90 max-w-3xl mx-auto">
-            Get in touch with Cool Breeze HVAC - We&apos;re here to help!
+            Get in touch with Cool Breeze HVAC. We&apos;re here to help!
           </p>
         </div>
       </section>
@@ -371,7 +371,7 @@ export default function ContactPage({ onNavigate }: ContactPageProps) {
           <Phone className="w-20 h-20 mx-auto mb-6 animate-pulse" />
           <h2 className="text-4xl font-bold mb-4">Have an HVAC Emergency?</h2>
           <p className="text-2xl text-white/90 mb-8">
-            Don&apos;t wait - call our 24/7 emergency hotline now!
+            Don&apos;t wait. Call our 24/7 emergency hotline now!
           </p>
           <a
             href="tel:555-COOL-NOW"

@@ -13,31 +13,31 @@ interface DemosClientProps {
 const packageDescriptions: { [key: string]: { title: string; subtitle: string } } = {
   'plug-play': {
     title: 'Plug & Play Websites',
-    subtitle: 'Simple 4-page sites perfect for getting online quickly - $250'
+    subtitle: 'Simple 4-page sites perfect for getting online quickly ($250).'
   },
   'rebuild': {
     title: 'Website Rebuilds',
-    subtitle: 'Modernize your existing site with fresh design and features - $350'
+    subtitle: 'Modernize your existing site with fresh design and features ($350).'
   },
   'standard': {
     title: 'Standard Websites',
-    subtitle: 'Full-featured business sites with 8-12 pages and custom functionality - $750-$1,200'
+    subtitle: 'Full-featured business sites with 8-12 pages and custom functionality ($750-$1,200).'
   },
   'ecommerce': {
     title: 'E-Commerce Websites',
-    subtitle: 'Complete online stores with product management and checkout - $1,500-$3,000'
+    subtitle: 'Complete online stores with product management and checkout ($1,500-$3,000).'
   },
   'premium': {
     title: 'Premium Builds',
-    subtitle: 'Advanced custom websites with complex features and integrations - $3,000-$8,000'
+    subtitle: 'Advanced custom websites with complex features and integrations ($3,000-$8,000).'
   },
   'business-platform': {
     title: 'Custom Business Platforms',
-    subtitle: 'Full-scale platforms with dashboards, automation, and workflows - $8,000-$15,000'
+    subtitle: 'Full-scale platforms with dashboards, automation, and workflows ($8,000-$15,000).'
   },
   'enterprise': {
     title: 'Enterprise Solutions',
-    subtitle: 'Large-scale applications with multi-user systems and advanced features - $15,000+'
+    subtitle: 'Large-scale applications with multi-user systems and advanced features ($15,000+).'
   },
   'showcase': {
     title: 'Feature Showcases',

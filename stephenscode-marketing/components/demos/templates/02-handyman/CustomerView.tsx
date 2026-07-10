@@ -31,25 +31,25 @@ export default function CustomerView() {
     switch (currentPage) {
       case 'home':
         return {
-          title: `${baseTitle} - Your Trusted Home Repair Experts`,
+          title: `${baseTitle} | Your Trusted Home Repair Experts`,
           description: baseDescription,
           keywords: 'handyman, home repair, plumbing, electrical, carpentry, painting, emergency service, licensed handyman',
         };
       case 'services':
         return {
-          title: `Our Services - ${baseTitle}`,
+          title: `Our Services | ${baseTitle}`,
           description: 'Complete handyman services including general repairs, electrical work, plumbing, carpentry, painting, and more. Upfront pricing and satisfaction guaranteed.',
           keywords: 'handyman services, home repairs, electrical repair, plumbing repair, carpentry, painting services, drywall repair, TV mounting',
         };
       case 'about':
         return {
-          title: `About Us - ${baseTitle}`,
+          title: `About Us | ${baseTitle}`,
           description: 'Meet our team of licensed, insured professionals with 15+ years of experience. Learn why thousands of homeowners trust Fix-It Fast for their home repairs.',
           keywords: 'licensed handyman, insured contractor, experienced handyman, professional home repair, trusted handyman',
         };
       case 'contact':
         return {
-          title: `Contact Us - ${baseTitle}`,
+          title: `Contact Us | ${baseTitle}`,
           description: 'Get a free quote for your home repair project. Same-day service available. Call (555) 123-4567 or request a quote online.',
           keywords: 'handyman quote, home repair estimate, same day service, emergency handyman, contact handyman',
         };

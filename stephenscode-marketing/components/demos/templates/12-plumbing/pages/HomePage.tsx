@@ -308,7 +308,7 @@ const HomePage: React.FC<HomePageProps> = ({ onNavigate }) => {
             <div>
               <h2 className="text-3xl font-bold mb-2">Plumbing Emergency?</h2>
               <p className="text-xl text-red-100">
-                We're available 24/7 for emergency service - No overtime charges!
+                We're available 24/7 for emergency service. No overtime charges!
               </p>
             </div>
             <button
