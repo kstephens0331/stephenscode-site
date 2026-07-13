@@ -76,13 +76,7 @@ ENV/
 !admin-dashboard/README.md
 !customer.stephenscode.dev/README.md
 
-# Root-level config files that belong to other projects (not Next.js)
-/index.html
-/vite.config.js
-/src/
-/public/demo-images/
-/public/vite.svg
-/public/manifest.json
+# Firebase data-export utilities (kept local only)
 /scripts/
 
 # Claude artifacts
