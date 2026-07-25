@@ -1,5 +1,6 @@
 import type { Metadata } from 'next'
 import Link from 'next/link'
+import Image from 'next/image'
 
 export const metadata: Metadata = {
   title: 'Web Development Portfolio | Custom Websites Houston | Case Studies',
@@ -36,6 +37,22 @@ const portfolioSchema = {
   }
 }
 
+function getInitials(name: string) {
+  const words = name.trim().split(/\s+/)
+  if (words.length === 1) {
+    return words[0].slice(0, 2).toUpperCase()
+  }
+  return (words[0][0] + words[1][0]).toUpperCase()
+}
+
+function CheckIcon() {
+  return (
+    <svg className="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={3} d="M5 13l4 4L19 7" />
+    </svg>
+  )
+}
+
 export default function Work() {
   const caseStudies = [
     {
@@ -55,7 +72,6 @@ export default function Work() {
       timeline: '2 weeks',
       testimonial: 'Kyle built us exactly what we needed. Our phone hasn\'t stopped ringing since the new site went live. Best investment we\'ve made.',
       author: 'John M., Owner',
-      icon: '🔧',
       color: 'from-primary-500 to-accent-500'
     },
     {
@@ -75,7 +91,6 @@ export default function Work() {
       timeline: '2 weeks',
       testimonial: 'I was nervous about moving online but Kyle made it so easy. The site pays for itself every single month. I actually enjoy managing my store now!',
       author: 'Isabella R., Owner',
-      icon: '🛍️',
       color: 'from-pink-500 to-rose-500'
     },
     {
@@ -95,7 +110,6 @@ export default function Work() {
       timeline: '10 days',
       testimonial: 'The booking system alone has been a game-changer. We look more professional and save so much time. Highly recommend StephensCode.',
       author: 'Mike T., Owner',
-      icon: '🌳',
       color: 'from-green-500 to-emerald-500'
     },
     {
@@ -115,7 +129,6 @@ export default function Work() {
       timeline: '3 weeks',
       testimonial: 'This is exactly what we envisioned. Our clients love being able to check their case status anytime. Worth every penny.',
       author: 'Sarah K., Managing Partner',
-      icon: '⚖️',
       color: 'from-indigo-500 to-purple-500'
     },
     {
@@ -135,7 +148,6 @@ export default function Work() {
       timeline: '4 weeks',
       testimonial: 'Kyle understood our unique needs and delivered a system that works perfectly. Our members love it and we\'ve cut admin time in half.',
       author: 'Carlos M., Owner',
-      icon: '💪',
       color: 'from-orange-500 to-red-500'
     },
     {
@@ -155,7 +167,6 @@ export default function Work() {
       timeline: '2.5 weeks',
       testimonial: 'I didn\'t think we could sell plants online with our changing inventory, but Kyle figured it out. Sales have been amazing!',
       author: 'Linda W., Owner',
-      icon: '🌱',
       color: 'from-lime-500 to-green-500'
     }
   ]
@@ -165,231 +176,231 @@ export default function Work() {
     {
       name: 'San Diego Incident Monitoring System',
       url: null,
+      screenshot: null,
       industry: 'Lead Generation / Automation',
       shortDesc: 'Real-time emergency incident monitoring and property owner lead generation for restoration companies.',
       description: 'Built for Clarketon Restoration, this automated system monitors 7 fire departments across San Diego County in real-time, tracking structure fires, water emergencies, and flooding incidents. The system automatically identifies affected properties, enriches data with property owner information, and delivers qualified leads directly to the restoration company via SMS and Google Sheets integration. This enables rapid dispatch of restoration crews before competitors even know about the incident.',
       services: ['Real-time API Integration', 'Property Data Enrichment', 'SMS Notifications', 'Lead Generation Automation'],
-      icon: '🚒',
       color: 'from-red-500 to-orange-600'
     },
     {
       name: 'Stephen Long for Congress TX-8',
       url: 'https://stephenlongforcongress.com',
+      screenshot: '/images/portfolio/stephen-long-congress.png',
       industry: 'Political Campaign',
       shortDesc: 'Congressional campaign website for Texas District 8 Republican primary.',
       description: 'Stephen Long is running for U.S. Congress in Texas District 8 on a platform of fiscal responsibility and reducing the national debt. We built his complete campaign website featuring interactive district maps, detailed policy positions, volunteer signup forms, donation integration, and event calendars. The SEO-optimized site helps voters in Montgomery County and The Woodlands learn about his moderate conservative platform.',
       services: ['Campaign Website', 'Interactive Maps', 'Donation Integration', 'SEO Optimization'],
-      icon: '🗳️',
       color: 'from-red-600 to-blue-600'
     },
     {
       name: 'Lefty Cartel',
       url: 'https://leftycartel.net',
+      screenshot: '/images/portfolio/lefty-cartel.png',
       industry: 'E-Commerce / Membership',
       shortDesc: 'Members-only baseball apparel with exclusive monthly perks and subscription billing.',
       description: 'Lefty Cartel is a unique members-only baseball apparel brand built by a father-son duo and Air Force veteran. We developed their complete e-commerce platform featuring $50/month Stripe subscription billing, exclusive member benefits including a FREE item every month, full admin dashboard with analytics, and integrated USPS/UPS shipping. The custom-built system handles membership management, inventory tracking, and order fulfillment seamlessly.',
       services: ['Membership Platform', 'Stripe Subscriptions', 'Admin Dashboard', 'Shipping Integration'],
-      icon: '⚾',
       color: 'from-surface-elevated to-surface'
     },
     {
       name: 'JustWell Clinical Research',
       url: 'https://www.justwellclinical.org',
+      screenshot: '/images/portfolio/justwell-clinical.png',
       industry: 'Healthcare',
       shortDesc: 'Professional website for Houston-based clinical research company.',
       description: 'JustWell Clinical Research conducts medical research studies in the Houston area with their tagline "Research You Can Trust." We built their professional website featuring information about their therapeutic areas, company background, and contact capabilities. The clean, trustworthy design with their signature teal and gold branding helps patients and sponsors learn about their clinical trial services.',
       services: ['Custom Website', 'Mobile Responsive', 'Contact Forms', 'SEO Optimization'],
-      icon: '🔬',
       color: 'from-teal-500 to-emerald-600'
     },
     {
       name: 'Benefits Builder Backoffice',
       url: null,
+      screenshot: null,
       industry: 'SaaS / Finance',
       shortDesc: 'Section 125 Cafeteria Plan administration platform with QuickBooks integration.',
       description: 'Benefits Builder helps companies save on FICA taxes through Section 125 Cafeteria Plans. We built their complete internal SaaS platform for managing pre-tax benefit deductions, featuring company and employee management, automated billing calculations across multiple billing models, tax savings tracking and reporting, QuickBooks Online integration for invoice syncing, and automated email notifications. The dashboard provides comprehensive analytics for their entire client portfolio.',
       services: ['Full-Stack SaaS', 'QuickBooks Integration', 'Automated Billing', 'Analytics Dashboard'],
-      icon: '💼',
       color: 'from-primary-600 to-primary-800'
     },
     {
       name: 'CalenFlow',
       url: null,
+      screenshot: null,
       industry: 'SaaS / Scheduling',
       shortDesc: 'Multi-tenant scheduling SaaS platform with payments and automated notifications.',
       description: 'CalenFlow is a complete scheduling and workflow automation platform built for service businesses. The system features multi-tenant business management, Google OAuth authentication, customizable service catalogs, staff scheduling and availability management, branded booking widgets, Stripe payment processing, and automated email/SMS notifications. The admin dashboard provides full visibility into bookings, revenue, and client management.',
       services: ['Full-Stack SaaS', 'Stripe Payments', 'Booking System', 'SMS/Email Automation'],
-      icon: '📅',
       color: 'from-purple-500 to-violet-600'
     },
     {
       name: 'SentinelForge',
       url: null,
+      screenshot: null,
       industry: 'Gaming / Security',
       shortDesc: 'Online gaming safety platform protecting players from cheaters and toxic behavior.',
       description: 'SentinelForge is a powerful online gaming safety platform designed to protect gaming communities. The system features automated player behavior monitoring, cheat detection algorithms, toxicity analysis, and community moderation tools. Built with a scalable architecture to handle high-volume gaming data, it helps game developers and server administrators maintain fair, enjoyable gaming environments.',
       services: ['Platform Development', 'Data Analytics', 'Automation', 'Admin Dashboard'],
-      icon: '🛡️',
       color: 'from-emerald-500 to-emerald-700'
     },
     {
       name: 'Project Ironclad',
       url: null,
+      screenshot: null,
       industry: 'Cloud Infrastructure',
       shortDesc: 'Custom cloud platform replacing GitHub, Vercel, Railway, and Supabase. Built from scratch.',
       description: 'Project Ironclad is an ambitious 100% custom cloud platform built entirely from scratch with no third-party frameworks. It replaces GitHub, Vercel, Railway, Supabase, and Cloudflare with custom implementations including AES-256-GCM encryption, custom database query builders, S3-compatible object storage, distributed ledger technology, and container orchestration. Currently at Phase 36 with complete cryptography, database, storage, and compute modules.',
       services: ['Cloud Platform', 'Custom Infrastructure', 'Encryption', 'Container Orchestration'],
-      icon: '☁️',
       color: 'from-surface-elevated to-surface'
     },
     {
       name: 'AeonForge',
       url: null,
+      screenshot: null,
       industry: 'AI / Machine Learning',
       shortDesc: 'Intelligent LLM routing system with multi-provider support and automatic failover.',
       description: 'AeonForge is an intelligent AI routing system that manages multiple LLM providers including Anthropic Claude, Google Gemini, and Together.ai. The system automatically selects the best provider based on task type (general, coding, thinking, longform, multilingual), monitors provider availability, and implements automatic failover to ensure responses are always delivered. Built for reliability and cost optimization across AI workloads.',
       services: ['AI Integration', 'Multi-Provider Routing', 'API Development', 'Failover Systems'],
-      icon: '🤖',
       color: 'from-cyan-500 to-blue-600'
     },
     {
       name: 'BotOpsHQ',
       url: null,
+      screenshot: null,
       industry: 'Automation / DevOps',
       shortDesc: 'Bot operations platform for managing automated workflows and integrations.',
       description: 'BotOpsHQ is a centralized platform for managing bots, automated workflows, and system integrations. The hub architecture allows teams to deploy, monitor, and maintain multiple automation bots from a single dashboard. Features include workflow templates, real-time monitoring, error handling, and integration management across various services and APIs.',
       services: ['Automation Platform', 'Workflow Management', 'Bot Development', 'Integration Hub'],
-      icon: '🤖',
       color: 'from-orange-500 to-amber-600'
     },
     {
       name: 'Autopilot System',
       url: null,
+      screenshot: null,
       industry: 'Business Automation',
       shortDesc: '24/7 autonomous web agency operations with AI-powered lead generation and client management.',
       description: 'The Autopilot System is a comprehensive microservices architecture that automates web agency operations around the clock. It includes Prospector for lead generation, Sentinel for review monitoring, ChainLink for client outreach sequences, Pulse for ticket handling, Scribe for quote generation, Foundry for automated site building, and Dispatch for reporting. The Nexus orchestrator coordinates all services via cron scheduling and event routing.',
       services: ['Microservices Architecture', 'AI Lead Generation', 'Automated Outreach', 'Quote Generation'],
-      icon: '🚀',
       color: 'from-indigo-500 to-purple-600'
     },
     {
       name: 'Lead Generation Engine',
       url: null,
+      screenshot: null,
       industry: 'Sales Automation',
       shortDesc: 'AI-powered lead machine finding businesses with poor websites and nurturing them to close.',
       description: 'An intelligent lead generation system that scrapes Google Maps daily for 20-30 businesses with website issues, analyzes and grades their sites, calculates fixed-price quotes from 50+ services, sends AI-written personalized outreach emails, manages 7-touch follow-up sequences over 90 days, analyzes reply sentiment, and alerts when leads are ready to close. Expected results: 500-700 leads/month with 3-10 hot leads monthly.',
       services: ['Lead Scraping', 'AI Email Writing', 'Automated Follow-ups', 'Sentiment Analysis'],
-      icon: '📈',
       color: 'from-green-500 to-teal-600'
     },
     {
       name: 'GradeStack',
       url: null,
+      screenshot: null,
       industry: 'SEO / Analytics',
       shortDesc: 'Self-hosted 125-point SEO audit platform with actionable fix instructions.',
       description: 'GradeStack is a self-hosted SEO health check system that runs 125 meaningful checks on websites. Unlike competitors that show inflated issues to upsell services, GradeStack provides accurate, actionable analysis with step-by-step fix instructions, transparent documented scoring, and real data from Google APIs. Built for agencies and businesses who want honest SEO insights.',
       services: ['SEO Auditing', 'Google API Integration', 'Automated Reporting', 'Fix Instructions'],
-      icon: '📊',
       color: 'from-yellow-500 to-orange-500'
     },
     {
       name: 'ThinkSync',
       url: null,
+      screenshot: null,
       industry: 'Family / Productivity',
       shortDesc: 'Family command center app designed for neurodivergent families.',
       description: 'ThinkSync is a custom-built family management application specifically designed for neurodivergent families. Features include task assignment and tracking, shared family calendars, a needs tracker for shopping items, and comprehensive kid profiles for tracking important information. Role-based dashboards provide different views for parents and children with a flexible family structure system.',
       services: ['Custom App Development', 'Task Management', 'Family Scheduling', 'User Profiles'],
-      icon: '👨‍👩‍👧‍👦',
       color: 'from-pink-500 to-rose-600'
     },
     {
       name: 'Homeschool Management System',
       url: null,
+      screenshot: null,
       industry: 'Education',
       shortDesc: 'Comprehensive homeschool platform with adaptive learning and OMR scanning.',
       description: 'A full-featured homeschool management system with AI-powered adaptive learning that generates custom educational packets based on student mastery levels. Features include Optical Mark Recognition (OMR) scanning for answer sheets, multi-guardian support, parent-controlled online mode with travel overrides, automatic quarter coverage tracking, PDF report cards with mastery tracking, real-time notifications, and portfolio management for work exemplars.',
       services: ['Adaptive Learning AI', 'OMR Scanning', 'Report Generation', 'Curriculum Tracking'],
-      icon: '📚',
       color: 'from-primary-500 to-primary-700'
     },
     {
       name: 'MedSim',
       url: null,
+      screenshot: null,
       industry: 'Healthcare / Education',
       shortDesc: 'Full-fidelity medical simulation platform for hands-on clinical training.',
       description: 'MedSim is a web-based medical simulator that trains healthcare professionals through realistic hands-on interaction rather than menu clicks. Learners manipulate realistic tools with pressure, angle, and depth sensitivity, manage patient physiology, and administer medications with real pharmacokinetic and pharmacodynamic consequences. Built with a deterministic simulation engine running in Web Workers for consistent training scenarios.',
       services: ['Medical Simulation', '3D Interaction', 'PK/PD Modeling', 'Training Platform'],
-      icon: '🏥',
       color: 'from-red-500 to-pink-600'
     },
     {
       name: 'Terracotta Construction',
       url: 'https://terracottaconstruction.com',
+      screenshot: '/images/portfolio/terracotta-construction.png',
       industry: 'Construction',
       shortDesc: 'Houston-area general contractor specializing in residential and commercial construction.',
       description: 'Terracotta Construction is a trusted Houston-area general contractor delivering quality residential and commercial construction services. We built their professional website featuring project galleries showcasing their craftsmanship, detailed service pages for each construction specialty, and integrated lead capture forms that connect potential clients directly with their team. The mobile-responsive design ensures homeowners can explore their portfolio from any device.',
       services: ['Custom Website', 'SEO Optimization', 'Contact Forms', 'Project Gallery'],
-      icon: '🏗️',
       color: 'from-amber-500 to-orange-600'
     },
     {
       name: "Car's Collision & Refinish Shop",
       url: 'https://www.carscollisionandrefinishshop.com',
+      screenshot: '/images/portfolio/cars-collision.png',
       industry: 'Automotive',
       shortDesc: 'Professional auto body repair and collision center serving the Houston community.',
       description: "Car's Collision & Refinish Shop provides expert auto body repair, paint refinishing, and collision restoration services. Their website showcases dramatic before-and-after galleries of their restoration work, detailed service explanations for insurance claims, and an easy-to-use online quote request system. The site helps customers understand the repair process and builds trust through visual proof of their quality workmanship.",
       services: ['Custom Website', 'Photo Gallery', 'Quote System', 'Service Pages'],
-      icon: '🚗',
       color: 'from-red-500 to-rose-600'
     },
     {
       name: 'AMW Air Conditioning',
       url: 'https://www.amwairconditioning.com',
+      screenshot: '/images/portfolio/amw-air-conditioning.png',
       industry: 'HVAC',
       shortDesc: 'Reliable HVAC services including AC repair, installation, and maintenance plans.',
       description: 'AMW Air Conditioning delivers reliable heating and cooling solutions for homes and businesses throughout the Houston area. We developed their website with emergency service prominently featured for urgent AC repairs, detailed maintenance plan options for year-round comfort, and online scheduling capabilities. The SEO-optimized content helps them rank for local HVAC searches and connect with customers who need fast, professional service.',
       services: ['Custom Website', 'Service Booking', 'SEO', 'Emergency Services Page'],
-      icon: '❄️',
       color: 'from-cyan-500 to-blue-600'
     },
     {
       name: 'Forge-X',
       url: 'https://forge-x.app',
+      screenshot: '/images/portfolio/forge-x.png',
       industry: 'Technology',
       shortDesc: 'Advanced technology platform delivering innovative software solutions.',
       description: 'Forge-X represents our capabilities in building sophisticated technology platforms. This full-stack application features secure user authentication, interactive dashboards with real-time data visualization, and complex business logic handling. The platform demonstrates our ability to architect and develop enterprise-grade software solutions that scale with business needs.',
       services: ['Full-Stack Platform', 'User Portal', 'API Development', 'Dashboard Design'],
-      icon: '⚡',
       color: 'from-violet-500 to-purple-600'
     },
     {
       name: 'SACVPN',
       url: 'https://www.sacvpn.com',
+      screenshot: '/images/portfolio/sacvpn.png',
       industry: 'Cybersecurity',
       shortDesc: 'Zero-log enterprise VPN service providing secure, private internet access.',
       description: 'SACVPN is a zero-log enterprise VPN solution built for businesses and privacy-conscious users who demand true security. We developed the complete platform including user account management, Stripe subscription billing with multiple pricing tiers, secure authentication systems, and server connection infrastructure. The platform serves enterprise clients with centralized team management and dedicated IP options.',
       services: ['Enterprise Platform', 'Payment Processing', 'User Management', 'Subscription System'],
-      icon: '🔐',
       color: 'from-emerald-500 to-green-600'
     },
     {
       name: 'ColorFuse Prints',
       url: 'https://www.colorfuseprints.com',
+      screenshot: '/images/portfolio/colorfuse-prints.png',
       industry: 'E-Commerce / Print',
       shortDesc: 'Custom printing and promotional products with easy online ordering.',
       description: 'ColorFuse Prints offers custom printing services for businesses and individuals, from business cards to promotional materials. We built their complete e-commerce platform with product customization tools that let customers design their own products, a robust shopping cart system, secure payment processing, and order management backend. The intuitive interface makes ordering custom prints simple for both first-time and returning customers.',
       services: ['E-Commerce', 'Product Customization', 'Order System', 'Payment Integration'],
-      icon: '🎨',
       color: 'from-pink-500 to-fuchsia-600'
     },
     {
       name: 'FC Photo Houston',
       url: 'https://fcphotohouston.com',
+      screenshot: '/images/portfolio/fc-photo-houston.png',
       industry: 'Photography',
       shortDesc: 'Professional photography services capturing life\'s most important moments.',
       description: 'FC Photo Houston captures weddings, events, portraits, and commercial photography with artistic excellence. We created their stunning portfolio website featuring high-resolution image galleries, an integrated booking system for scheduling sessions, and client proofing capabilities where customers can view and select their photos. The elegant design reflects the quality and professionalism of their photography work.',
       services: ['Portfolio Website', 'Booking System', 'Client Galleries', 'Image Optimization'],
-      icon: '📸',
       color: 'from-surface-elevated to-surface-card'
     }
   ]
@@ -422,18 +433,18 @@ export default function Work() {
   ]
 
   const industries = [
-    { name: 'Home Services', icon: '🏠', count: '45+' },
-    { name: 'Healthcare', icon: '⚕️', count: '12+' },
-    { name: 'Restaurants', icon: '🍽️', count: '18+' },
-    { name: 'Retail', icon: '🛒', count: '28+' },
-    { name: 'Real Estate', icon: '🏢', count: '15+' },
-    { name: 'Legal', icon: '⚖️', count: '8+' },
-    { name: 'Fitness', icon: '💪', count: '10+' },
-    { name: 'Education', icon: '📚', count: '14+' },
-    { name: 'Automotive', icon: '🚗', count: '9+' },
-    { name: 'Construction', icon: '🏗️', count: '22+' },
-    { name: 'Landscaping', icon: '🌳', count: '11+' },
-    { name: 'E-Commerce', icon: '📦', count: '16+' }
+    { name: 'Home Services', count: '45+' },
+    { name: 'Healthcare', count: '12+' },
+    { name: 'Restaurants', count: '18+' },
+    { name: 'Retail', count: '28+' },
+    { name: 'Real Estate', count: '15+' },
+    { name: 'Legal', count: '8+' },
+    { name: 'Fitness', count: '10+' },
+    { name: 'Education', count: '14+' },
+    { name: 'Automotive', count: '9+' },
+    { name: 'Construction', count: '22+' },
+    { name: 'Landscaping', count: '11+' },
+    { name: 'E-Commerce', count: '16+' }
   ]
 
   return (
@@ -461,7 +472,7 @@ export default function Work() {
         <div className="relative mx-auto max-w-7xl px-6 py-24 sm:py-32 lg:px-8">
           <div className="mx-auto max-w-3xl text-center">
             <div className="inline-flex items-center rounded-full bg-accent-500/20 px-4 py-2 text-sm font-semibold text-white ring-1 ring-inset ring-accent-500/30 mb-8 animate-fade-in-up">
-              🏆 2,600+ Successful Projects
+              2,600+ Successful Projects
             </div>
             <h1 className="text-5xl font-bold tracking-tight sm:text-7xl animate-fade-in-up animation-delay-200">
               Our Work
@@ -500,22 +511,18 @@ export default function Work() {
         <div className="mx-auto max-w-7xl px-6 lg:px-8">
           <div className="grid grid-cols-2 md:grid-cols-4 gap-8 text-center">
             <div className="animate-fade-in-up">
-              <div className="text-5xl mb-3">📊</div>
               <div className="text-4xl font-bold bg-gradient-to-r from-primary-400 to-accent-400 bg-clip-text text-transparent">2,600+</div>
               <div className="text-sm text-gray-400 mt-2">Projects Completed</div>
             </div>
             <div className="animate-fade-in-up animation-delay-200">
-              <div className="text-5xl mb-3">😊</div>
               <div className="text-4xl font-bold bg-gradient-to-r from-primary-400 to-accent-400 bg-clip-text text-transparent">14+</div>
               <div className="text-sm text-gray-400 mt-2">Years Experience</div>
             </div>
             <div className="animate-fade-in-up animation-delay-400">
-              <div className="text-5xl mb-3">⚡</div>
               <div className="text-4xl font-bold bg-gradient-to-r from-primary-400 to-accent-400 bg-clip-text text-transparent">2 Weeks</div>
               <div className="text-sm text-gray-400 mt-2">Average Project Time</div>
             </div>
             <div className="animate-fade-in-up animation-delay-600">
-              <div className="text-5xl mb-3">⭐</div>
               <div className="text-4xl font-bold bg-gradient-to-r from-primary-400 to-accent-400 bg-clip-text text-transparent">98%</div>
               <div className="text-sm text-gray-400 mt-2">Client Satisfaction</div>
             </div>
@@ -528,7 +535,7 @@ export default function Work() {
         <div className="mx-auto max-w-7xl px-6 lg:px-8">
           <div className="mx-auto max-w-2xl text-center mb-16">
             <div className="inline-flex items-center rounded-full bg-green-500/10 px-4 py-2 text-sm font-semibold text-green-400 mb-4">
-              🌐 Live Portfolio
+              Live Portfolio
             </div>
             <h2 className="text-4xl font-bold tracking-tight text-white sm:text-5xl">
               See Our Work Live
@@ -539,18 +546,29 @@ export default function Work() {
           </div>
 
           <div className="space-y-8">
-            {livePortfolio.map((project, index) => (
+            {livePortfolio.map((project) => (
               <article
                 key={project.name}
                 className="group relative bg-surface-card rounded-3xl shadow-xl shadow-black/20 overflow-hidden border-2 border-surface-border hover:border-primary-300 transition-all"
-                style={{ animationDelay: `${index * 100}ms` }}
               >
                 <div className="md:flex">
-                  {/* Header gradient - side on desktop, top on mobile */}
-                  <div className={`md:w-64 md:min-h-full h-32 md:h-auto bg-gradient-to-br ${project.color} flex items-center justify-center flex-shrink-0`}>
-                    <span className="text-6xl md:text-7xl filter drop-shadow-lg group- transition-transform">
-                      {project.icon}
-                    </span>
+                  {/* Screenshot or monogram header - side on desktop, top on mobile */}
+                  <div className="relative md:w-80 md:min-h-full h-56 md:h-auto flex-shrink-0 overflow-hidden bg-surface-elevated">
+                    {project.screenshot ? (
+                      <Image
+                        src={project.screenshot}
+                        alt={`${project.name} homepage screenshot`}
+                        fill
+                        sizes="(min-width: 768px) 320px, 100vw"
+                        className="object-cover object-top"
+                      />
+                    ) : (
+                      <div className={`absolute inset-0 bg-gradient-to-br ${project.color} flex items-center justify-center`}>
+                        <span className="text-4xl md:text-5xl font-bold text-white/90 tracking-wide">
+                          {getInitials(project.name)}
+                        </span>
+                      </div>
+                    )}
                   </div>
 
                   <div className="p-6 md:p-8 flex-1">
@@ -630,7 +648,7 @@ export default function Work() {
         <div className="mx-auto max-w-7xl px-6 lg:px-8">
           <div className="mx-auto max-w-2xl text-center mb-16">
             <div className="inline-flex items-center rounded-full bg-primary-500/10 px-4 py-2 text-sm font-semibold text-primary-400 mb-4">
-              📈 Case Studies
+              Case Studies
             </div>
             <h2 className="text-4xl font-bold tracking-tight text-white sm:text-5xl">
               Success Stories
@@ -649,7 +667,7 @@ export default function Work() {
                 {/* Industry badge */}
                 <div className="absolute top-6 right-6 z-10">
                   <div className={`px-6 py-3 rounded-full bg-gradient-to-r ${study.color} text-white font-semibold shadow-lg text-lg`}>
-                    {study.icon} {study.industry}
+                    {study.industry}
                   </div>
                 </div>
 
@@ -669,32 +687,23 @@ export default function Work() {
                   {/* Challenge & Solution */}
                   <div className="grid lg:grid-cols-2 gap-8 mb-10">
                     <div className="rounded-2xl bg-red-500/10 p-8 border-l-4 border-red-500">
-                      <div className="flex items-center gap-3 mb-4">
-                        <div className="text-3xl">🎯</div>
-                        <h4 className="text-xl font-bold text-white">The Challenge</h4>
-                      </div>
+                      <h4 className="text-xl font-bold text-white mb-4">The Challenge</h4>
                       <p className="text-gray-300 leading-relaxed">{study.challenge}</p>
                     </div>
                     <div className="rounded-2xl bg-blue-500/10 p-8 border-l-4 border-blue-500">
-                      <div className="flex items-center gap-3 mb-4">
-                        <div className="text-3xl">💡</div>
-                        <h4 className="text-xl font-bold text-white">Our Solution</h4>
-                      </div>
+                      <h4 className="text-xl font-bold text-white mb-4">Our Solution</h4>
                       <p className="text-gray-300 leading-relaxed">{study.solution}</p>
                     </div>
                   </div>
 
                   {/* Results */}
                   <div className="mb-10">
-                    <div className="flex items-center gap-3 mb-6">
-                      <div className="text-4xl">📊</div>
-                      <h4 className="text-2xl font-bold text-white">Results Achieved</h4>
-                    </div>
+                    <h4 className="text-2xl font-bold text-white mb-6">Results Achieved</h4>
                     <div className="grid sm:grid-cols-2 gap-4">
                       {study.results.map((result, i) => (
                         <div key={i} className="flex items-start gap-4 bg-green-500/10 rounded-xl p-6 border border-surface-border">
-                          <div className="flex-shrink-0 w-8 h-8 rounded-full bg-gradient-to-br from-accent-500 to-green-500 flex items-center justify-center text-white font-bold shadow-lg">
-                            ✓
+                          <div className="flex-shrink-0 w-8 h-8 rounded-full bg-gradient-to-br from-accent-500 to-green-500 flex items-center justify-center text-white shadow-lg">
+                            <CheckIcon />
                           </div>
                           <span className="text-white font-semibold leading-relaxed">{result}</span>
                         </div>
@@ -704,10 +713,7 @@ export default function Work() {
 
                   {/* Package Info */}
                   <div className="bg-surface-elevated/70 rounded-2xl p-8 mb-8 border-2 border-surface-border">
-                    <h4 className="text-lg font-bold text-white mb-4 flex items-center gap-2">
-                      <span className="text-2xl">💼</span>
-                      Services Provided
-                    </h4>
+                    <h4 className="text-lg font-bold text-white mb-4">Services Provided</h4>
                     <div className="space-y-3">
                       <div className="flex items-center gap-3">
                         <span className="px-4 py-2 bg-primary-500/10 text-primary-400 rounded-full text-sm font-bold">Core Package</span>
@@ -742,7 +748,7 @@ export default function Work() {
         <div className="mx-auto max-w-7xl px-6 lg:px-8">
           <div className="mx-auto max-w-2xl text-center mb-16">
             <div className="inline-flex items-center rounded-full bg-accent-500/10 px-4 py-2 text-sm font-semibold text-accent-400 mb-4">
-              💬 Client Testimonials
+              Client Testimonials
             </div>
             <h2 className="text-4xl font-bold tracking-tight text-white sm:text-5xl">
               What Our Clients Say
@@ -788,7 +794,7 @@ export default function Work() {
         <div className="mx-auto max-w-7xl px-6 lg:px-8">
           <div className="mx-auto max-w-2xl text-center mb-16">
             <div className="inline-flex items-center rounded-full bg-green-500/10 px-4 py-2 text-sm font-semibold text-green-400 mb-4">
-              🏢 Industries We Serve
+              Industries We Serve
             </div>
             <h2 className="text-4xl font-bold tracking-tight text-white sm:text-5xl">
               Diverse Experience
@@ -799,13 +805,11 @@ export default function Work() {
           </div>
 
           <div className="grid grid-cols-2 gap-6 sm:grid-cols-3 lg:grid-cols-4">
-            {industries.map((industry, index) => (
+            {industries.map((industry) => (
               <div
                 key={industry.name}
                 className="group relative rounded-2xl bg-surface p-8 shadow-lg shadow-black/20 border-2 border-surface-border hover:border-primary-300 transition-all text-center"
-                style={{ animationDelay: `${index * 50}ms` }}
               >
-                <div className="text-5xl mb-4 group- transition-transform">{industry.icon}</div>
                 <p className="font-bold text-white mb-2 text-lg">{industry.name}</p>
                 <p className="text-sm text-primary-600 font-semibold">{industry.count} projects</p>
               </div>
@@ -850,7 +854,7 @@ export default function Work() {
               </Link>
             </div>
             <p className="mt-6 text-sm text-gray-300">
-              🎯 Free consultation • ⚡ Fast turnaround • 💰 Transparent pricing
+              Free consultation &bull; Fast turnaround &bull; Transparent pricing
             </p>
           </div>
         </div>

@@ -58,6 +58,9 @@ migration-data/
 # Vercel
 .vercel
 
+# Playwright MCP snapshots/logs
+.playwright-mcp/
+
 # Python
 __pycache__/
 *.py[cod]
