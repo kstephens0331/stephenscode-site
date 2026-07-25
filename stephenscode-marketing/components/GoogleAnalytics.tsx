@@ -7,6 +7,12 @@ export default async function GoogleAnalytics() {
   const headersList = await headers()
   const nonce = headersList.get('x-nonce') || ''
 
+  // Global Privacy Control: browsers/extensions send this on every request
+  // when the visitor has opted out of sale/sharing of personal information.
+  if (headersList.get('sec-gpc') === '1') {
+    return null
+  }
+
   return (
     <>
       <Script

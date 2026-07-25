@@ -30,6 +30,8 @@ export default function Footer() {
       { name: 'Contact', href: '/contact' },
       { name: 'Pricing', href: '/pricing' },
       { name: 'FAQ', href: '/faq' },
+      { name: 'Security & Trust', href: '/security' },
+      { name: 'Privacy Policy', href: '/privacy' },
     ],
     products: [
       { name: 'SACVPN', href: '/sacvpn' },
