@@ -405,6 +405,9 @@ export default function Work() {
     }
   ]
 
+  const liveSites = livePortfolio.filter((project) => project.screenshot)
+  const internalTools = livePortfolio.filter((project) => !project.screenshot)
+
   const testimonials = [
     {
       quote: 'StephensCode built our complete scheduling and workflow automation platform. The system handles everything from client bookings to automated reminders seamlessly.',
@@ -533,7 +536,7 @@ export default function Work() {
       {/* Live Portfolio Section */}
       <section className="bg-surface py-24 sm:py-32">
         <div className="mx-auto max-w-7xl px-6 lg:px-8">
-          <div className="mx-auto max-w-2xl text-center mb-16">
+          <div className="mx-auto max-w-2xl text-center mb-6">
             <div className="inline-flex items-center rounded-full bg-green-500/10 px-4 py-2 text-sm font-semibold text-green-400 mb-4">
               Live Portfolio
             </div>
@@ -545,84 +548,74 @@ export default function Work() {
             </p>
           </div>
 
-          <div className="space-y-8">
-            {livePortfolio.map((project) => (
+          <p className="mx-auto max-w-2xl text-center text-sm text-gray-500 mb-16">
+            This is a selection of recent projects, not a complete list of everything we've
+            built.
+          </p>
+
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-8">
+            {liveSites.map((project) => (
               <article
                 key={project.name}
-                className="group relative bg-surface-card rounded-3xl shadow-xl shadow-black/20 overflow-hidden border-2 border-surface-border hover:border-primary-300 transition-all"
+                className="group relative bg-surface-card rounded-3xl shadow-xl shadow-black/20 overflow-hidden border-2 border-surface-border hover:border-primary-300 transition-all flex flex-col"
               >
-                <div className="md:flex">
-                  {/* Screenshot or monogram header - side on desktop, top on mobile */}
-                  <div className="relative md:w-80 md:min-h-full h-56 md:h-auto flex-shrink-0 overflow-hidden bg-surface-elevated">
-                    {project.screenshot ? (
-                      <Image
-                        src={project.screenshot}
-                        alt={`${project.name} homepage screenshot`}
-                        fill
-                        sizes="(min-width: 768px) 320px, 100vw"
-                        className="object-cover object-top"
-                      />
-                    ) : (
-                      <div className={`absolute inset-0 bg-gradient-to-br ${project.color} flex items-center justify-center`}>
-                        <span className="text-4xl md:text-5xl font-bold text-white/90 tracking-wide">
-                          {getInitials(project.name)}
-                        </span>
-                      </div>
-                    )}
+                {/* Homepage screenshot - full width, matches the captured 1440x900 ratio so nothing gets cropped */}
+                <a
+                  href={project.url ?? undefined}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="relative block w-full aspect-[8/5] bg-surface-elevated overflow-hidden"
+                >
+                  <Image
+                    src={project.screenshot!}
+                    alt={`${project.name} homepage screenshot`}
+                    fill
+                    sizes="(min-width: 1024px) 50vw, 100vw"
+                    className="object-cover object-top transition-transform duration-500 group-hover:scale-[1.03]"
+                  />
+                </a>
+
+                <div className="p-6 md:p-8 flex-1 flex flex-col">
+                  {/* Industry badge */}
+                  <div className="inline-flex items-center self-start rounded-full bg-surface-elevated px-3 py-1 text-xs font-semibold text-gray-300 mb-3">
+                    {project.industry}
                   </div>
 
-                  <div className="p-6 md:p-8 flex-1">
-                    {/* Industry badge */}
-                    <div className="inline-flex items-center rounded-full bg-surface-elevated px-3 py-1 text-xs font-semibold text-gray-300 mb-3">
-                      {project.industry}
-                    </div>
+                  <h3 className="text-2xl font-bold text-white mb-2 group-hover:text-primary-600 transition-colors">
+                    {project.name}
+                  </h3>
 
-                    <h3 className="text-2xl font-bold text-white mb-2 group-hover:text-primary-600 transition-colors">
-                      {project.name}
-                    </h3>
+                  <p className="text-primary-600 font-medium text-sm mb-4">
+                    {project.shortDesc}
+                  </p>
 
-                    <p className="text-primary-600 font-medium text-sm mb-4">
-                      {project.shortDesc}
-                    </p>
+                  <p className="text-gray-300 mb-6 leading-relaxed">
+                    {project.description}
+                  </p>
 
-                    <p className="text-gray-300 mb-6 leading-relaxed">
-                      {project.description}
-                    </p>
-
-                    {/* Services tags */}
-                    <div className="flex flex-wrap gap-2 mb-6">
-                      {project.services.map((service) => (
-                        <span
-                          key={service}
-                          className="px-3 py-1 bg-primary-500/10 text-primary-400 text-sm font-medium rounded-full"
-                        >
-                          {service}
-                        </span>
-                      ))}
-                    </div>
-
-                    {/* Visit link or Internal Project badge */}
-                    {project.url ? (
-                      <a
-                        href={project.url}
-                        target="_blank"
-                        rel="noopener noreferrer"
-                        className="inline-flex items-center gap-2 px-6 py-3 bg-primary-600 text-white font-bold rounded-lg hover:bg-primary-700 transition-colors"
+                  {/* Services tags */}
+                  <div className="flex flex-wrap gap-2 mb-6">
+                    {project.services.map((service) => (
+                      <span
+                        key={service}
+                        className="px-3 py-1 bg-primary-500/10 text-primary-400 text-sm font-medium rounded-full"
                       >
-                        <span>Visit {project.name}</span>
-                        <svg className="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                          <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14" />
-                        </svg>
-                      </a>
-                    ) : (
-                      <span className="inline-flex items-center gap-2 px-6 py-3 bg-surface-elevated text-gray-300 font-bold rounded-lg">
-                        <svg className="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                          <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 15v2m-6 4h12a2 2 0 002-2v-6a2 2 0 00-2-2H6a2 2 0 00-2 2v6a2 2 0 002 2zm10-10V7a4 4 0 00-8 0v4h8z" />
-                        </svg>
-                        <span>Private / Internal Project</span>
+                        {service}
                       </span>
-                    )}
+                    ))}
                   </div>
+
+                  <a
+                    href={project.url!}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="mt-auto inline-flex items-center gap-2 self-start px-6 py-3 bg-primary-600 text-white font-bold rounded-lg hover:bg-primary-700 transition-colors"
+                  >
+                    <span>Visit {project.name}</span>
+                    <svg className="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14" />
+                    </svg>
+                  </a>
                 </div>
               </article>
             ))}
@@ -639,6 +632,57 @@ export default function Work() {
               <span>Start Your Project</span>
               <span>→</span>
             </Link>
+          </div>
+        </div>
+      </section>
+
+      {/* Internal Tools & Systems Section (projects without a public URL/screenshot) */}
+      <section className="bg-surface-card py-24 sm:py-32">
+        <div className="mx-auto max-w-7xl px-6 lg:px-8">
+          <div className="mx-auto max-w-2xl text-center mb-16">
+            <div className="inline-flex items-center rounded-full bg-primary-500/10 px-4 py-2 text-sm font-semibold text-primary-400 mb-4">
+              Tools &amp; Systems We've Built
+            </div>
+            <h2 className="text-4xl font-bold tracking-tight text-white sm:text-5xl">
+              Behind the Scenes
+            </h2>
+            <p className="mt-4 text-lg leading-8 text-gray-400">
+              Private and internal platforms we've built that don't have a public homepage to
+              show. A selection of recent work, not a complete list.
+            </p>
+          </div>
+
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+            {internalTools.map((project) => (
+              <div
+                key={project.name}
+                className="group relative bg-surface rounded-2xl p-6 shadow-lg shadow-black/20 border-2 border-surface-border hover:border-primary-300 transition-all flex flex-col"
+              >
+                <div className="flex items-center gap-3 mb-4">
+                  <div className={`w-11 h-11 flex-shrink-0 rounded-full bg-gradient-to-br ${project.color} flex items-center justify-center text-white font-bold text-sm`}>
+                    {getInitials(project.name)}
+                  </div>
+                  <div className="inline-flex items-center rounded-full bg-surface-elevated px-3 py-1 text-xs font-semibold text-gray-300">
+                    {project.industry}
+                  </div>
+                </div>
+
+                <h3 className="text-lg font-bold text-white mb-2">{project.name}</h3>
+                <p className="text-primary-600 font-medium text-sm mb-3">{project.shortDesc}</p>
+                <p className="text-gray-300 text-sm leading-relaxed mb-4 flex-1">{project.description}</p>
+
+                <div className="flex flex-wrap gap-2">
+                  {project.services.map((service) => (
+                    <span
+                      key={service}
+                      className="px-2.5 py-1 bg-primary-500/10 text-primary-400 text-xs font-medium rounded-full"
+                    >
+                      {service}
+                    </span>
+                  ))}
+                </div>
+              </div>
+            ))}
           </div>
         </div>
       </section>
