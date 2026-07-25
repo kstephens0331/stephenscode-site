@@ -2,6 +2,7 @@
 
 import { useState } from 'react'
 import Link from 'next/link'
+import { trackEvent } from '@/lib/analytics'
 
 export default function FloatingContactButton() {
   const [isOpen, setIsOpen] = useState(false)
@@ -14,6 +15,7 @@ export default function FloatingContactButton() {
           {/* Call Button */}
           <a
             href="tel:+19363234527"
+            onClick={() => trackEvent('phone_call_click', { link_location: 'floating_contact_button' })}
             className="flex items-center gap-3 rounded-full bg-green-500 pl-4 pr-6 py-3 text-white shadow-lg hover:bg-green-600 transition-all"
           >
             <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">

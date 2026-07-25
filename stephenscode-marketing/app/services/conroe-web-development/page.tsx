@@ -1,6 +1,7 @@
 import Link from 'next/link'
 import type { Metadata } from 'next'
 import Breadcrumbs from '@/components/Breadcrumbs'
+import PhoneLink from '@/components/PhoneLink'
 
 export const metadata: Metadata = {
   title: 'Conroe Web Developer | Flat-Rate Small Business Websites from $250',
@@ -287,13 +288,13 @@ export default function ConroeWebDevelopment() {
               >
                 Get Free Quote
               </Link>
-              <a
-                href="tel:+19363234527"
+              <PhoneLink
+                location="conroe_web_development_page_top"
                 className="w-full sm:w-auto flex items-center justify-center gap-2 rounded-lg border-2 border-surface-border px-8 py-4 text-lg font-bold text-white hover:bg-surface-card/60 transition-all"
               >
                 <span>📞</span>
                 <span>(936) 323-4527</span>
-              </a>
+              </PhoneLink>
             </div>
           </div>
         </div>
@@ -522,13 +523,13 @@ export default function ConroeWebDevelopment() {
               >
                 Get Free Quote
               </Link>
-              <a
-                href="tel:+19363234527"
+              <PhoneLink
+                location="conroe_web_development_page_bottom"
                 className="w-full sm:w-auto flex items-center justify-center gap-2 rounded-lg bg-surface-card/60 px-10 py-5 text-xl font-bold text-white border-2 border-surface-border hover:bg-surface-elevated/80 transition-all"
               >
                 <span>📞</span>
                 <span>(936) 323-4527</span>
-              </a>
+              </PhoneLink>
             </div>
 
             <div className="bg-surface-card/60 rounded-2xl p-6 backdrop-blur-lg border border-surface-border inline-block">

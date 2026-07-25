@@ -2,6 +2,7 @@
 
 import { useState } from 'react'
 import { useForm } from 'react-hook-form'
+import { trackEvent } from '@/lib/analytics'
 
 interface ContactFormData {
   name: string
@@ -42,6 +43,11 @@ export default function ContactForm() {
       if (!response.ok) {
         throw new Error('Failed to send message')
       }
+
+      trackEvent('generate_lead', {
+        form_name: 'contact_form',
+        service_interest: data.service,
+      })
 
       setSubmitSuccess(true)
       reset()

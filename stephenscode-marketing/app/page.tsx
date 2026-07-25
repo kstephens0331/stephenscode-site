@@ -6,6 +6,7 @@ import {
   Shield, Phone, ArrowRight, Check,
   Monitor, ShieldCheck, Lock, KeyRound, Building2,
 } from 'lucide-react'
+import PhoneLink from '@/components/PhoneLink'
 export const metadata: Metadata = {
   alternates: {
     canonical: 'https://www.stephenscode.dev/',
@@ -186,13 +187,13 @@ export default function Home() {
               >
                 See What It Costs
               </Link>
-              <a
-                href="tel:+19363234527"
+              <PhoneLink
+                location="homepage_top"
                 className="inline-flex items-center gap-2 rounded-md px-6 py-3 text-base font-semibold text-gray-400 hover:text-primary-400 transition-colors"
               >
                 <Phone className="h-4 w-4" />
                 (936) 323-4527
-              </a>
+              </PhoneLink>
             </div>
 
             {/* Trust row — facts, plainly stated, separated by hairlines */}
@@ -560,13 +561,13 @@ export default function Home() {
               Get a Flat Quote
               <ArrowRight className="h-4 w-4" />
             </Link>
-            <a
-              href="tel:+19363234527"
+            <PhoneLink
+              location="homepage_bottom"
               className="inline-flex items-center gap-2 rounded-md border border-surface-border px-6 py-3 text-base font-semibold text-white hover:bg-surface-card transition-colors"
             >
               <Phone className="h-4 w-4" />
               (936) 323-4527
-            </a>
+            </PhoneLink>
           </div>
         </div>
       </section>

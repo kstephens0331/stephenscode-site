@@ -1,4 +1,5 @@
 import Link from 'next/link'
+import PhoneLink from '@/components/PhoneLink'
 
 export default function Footer() {
   const navigation = {
@@ -82,7 +83,7 @@ export default function Footer() {
               <p className="text-xs text-gray-300">Founder & CTO</p>
               <div className="mt-2 space-y-1">
                 <p className="text-sm text-gray-300">
-                  <a href="tel:+19363234527" className="hover:text-white">(936) 323-4527</a>
+                  <PhoneLink location="footer" className="hover:text-white">(936) 323-4527</PhoneLink>
                 </p>
                 <p className="text-sm text-gray-300">
                   <a href="mailto:kyle@stephenscode.dev" className="hover:text-white">kyle@stephenscode.dev</a>

@@ -1,6 +1,7 @@
 import Link from 'next/link'
 import type { Metadata } from 'next'
 import { managedITServices, cybersecurityServices, cloudServices, supportServices } from '@/lib/msp-services-data'
+import PhoneLink from '@/components/PhoneLink'
 
 export const metadata: Metadata = {
   title: 'Houston Managed IT Services | $99/User/Mo | 24/7 Support',
@@ -184,12 +185,12 @@ export default function MSPServicesPage() {
                   <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M13 7l5 5m0 0l-5 5m5-5H6" />
                 </svg>
               </Link>
-              <a
-                href="tel:+19363234527"
+              <PhoneLink
+                location="msp_page_top"
                 className="inline-flex items-center gap-2 rounded-lg bg-surface-card/60 px-8 py-4 text-lg font-bold text-white backdrop-blur-lg border-2 border-surface-border hover:bg-surface-elevated/80 transition-all"
               >
                 <span>📞 (936) 323-4527</span>
-              </a>
+              </PhoneLink>
             </div>
           </div>
         </div>
@@ -406,12 +407,12 @@ export default function MSPServicesPage() {
                   <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M13 7l5 5m0 0l-5 5m5-5H6" />
                 </svg>
               </Link>
-              <a
-                href="tel:+19363234527"
+              <PhoneLink
+                location="msp_page_bottom"
                 className="inline-flex items-center gap-2 rounded-lg bg-surface-card/60 px-10 py-5 text-xl font-bold text-white backdrop-blur-lg border-2 border-surface-border hover:bg-surface-elevated/80 transition-all"
               >
                 <span>📞 Call (936) 323-4527</span>
-              </a>
+              </PhoneLink>
             </div>
           </div>
         </div>

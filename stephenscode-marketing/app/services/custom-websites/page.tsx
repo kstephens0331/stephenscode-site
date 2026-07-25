@@ -1,6 +1,7 @@
 import Link from 'next/link'
 import type { Metadata } from 'next'
 import { serviceSchema } from '@/lib/schemas'
+import PhoneLink from '@/components/PhoneLink'
 
 export const metadata: Metadata = {
   title: 'Custom Website Development | From $250 | Houston & Conroe',
@@ -309,12 +310,12 @@ export default function CustomWebsitesPage() {
               >
                 Get Free Quote
               </Link>
-              <a
-                href="tel:+19363234527"
+              <PhoneLink
+                location="custom_websites_page"
                 className="text-base font-semibold leading-7 text-white hover:text-gray-200"
               >
                 Call (936) 323-4527 <span aria-hidden="true">→</span>
-              </a>
+              </PhoneLink>
             </div>
           </div>
         </div>

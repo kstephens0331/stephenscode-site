@@ -1,6 +1,7 @@
 import Link from 'next/link'
 import type { Metadata } from 'next'
 import Breadcrumbs from '@/components/Breadcrumbs'
+import PhoneLink from '@/components/PhoneLink'
 
 export const metadata: Metadata = {
   title: 'Business Automation Houston | Workflow Automation Services',
@@ -246,13 +247,13 @@ export default function BusinessAutomation() {
               >
                 Automate Your Business
               </Link>
-              <a
-                href="tel:+19363234527"
+              <PhoneLink
+                location="business_automation_page_top"
                 className="w-full sm:w-auto flex items-center justify-center gap-2 rounded-lg border-2 border-surface-border px-8 py-4 text-lg font-bold text-white hover:bg-surface-card/60 transition-all"
               >
                 <span>📞</span>
                 <span>(936) 323-4527</span>
-              </a>
+              </PhoneLink>
             </div>
           </div>
         </div>
@@ -463,13 +464,13 @@ export default function BusinessAutomation() {
               >
                 Get Free Workflow Audit
               </Link>
-              <a
-                href="tel:+19363234527"
+              <PhoneLink
+                location="business_automation_page_bottom"
                 className="w-full sm:w-auto flex items-center justify-center gap-2 rounded-lg bg-surface-card/60 px-10 py-5 text-xl font-bold text-white border-2 border-surface-border hover:bg-surface-elevated/80 transition-all"
               >
                 <span>📞</span>
                 <span>(936) 323-4527</span>
-              </a>
+              </PhoneLink>
             </div>
 
             <p className="text-gray-300">

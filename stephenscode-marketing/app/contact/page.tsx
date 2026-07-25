@@ -1,6 +1,7 @@
 import type { Metadata } from 'next'
 import Link from 'next/link'
 import ContactForm from '@/components/ContactForm'
+import PhoneLink from '@/components/PhoneLink'
 
 export const metadata: Metadata = {
   title: 'Contact Conroe Web Developer | Free Quote | Houston TX',
@@ -110,15 +111,15 @@ export default function ContactPage() {
               Get a <span className="font-bold text-accent-400">free consultation</span> and custom quote. <strong className="text-white">Located in Houston, working with clients nationwide.</strong> No obligation, no sales pressure. Let's discuss your project and how we can help bring your vision to life.
             </p>
             <div className="mt-10 flex flex-col sm:flex-row items-center justify-center gap-6 animate-fade-in-up animation-delay-600">
-              <a
-                href="tel:+19363234527"
+              <PhoneLink
+                location="contact_hero"
                 className="group flex items-center gap-3 rounded-lg bg-accent-500 px-8 py-4 text-base font-semibold text-white shadow-lg hover:bg-accent-600 transition-all"
               >
                 <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                   <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z" />
                 </svg>
                 Call (936) 323-4527
-              </a>
+              </PhoneLink>
               <a
                 href="mailto:info@stephenscode.dev"
                 className="flex items-center gap-2 text-base font-semibold leading-7 text-white hover:text-gray-200 transition-colors"
@@ -178,8 +179,8 @@ export default function ContactPage() {
 
               {/* Contact Methods */}
               <div className="space-y-6 mb-10">
-                <a
-                  href="tel:+19363234527"
+                <PhoneLink
+                  location="contact_info_card"
                   className="group flex items-start gap-4 p-6 rounded-2xl bg-surface-card border-2 border-surface-border hover:border-primary-500 hover:shadow-lg transition-all"
                 >
                   <div className="flex-shrink-0 w-12 h-12 rounded-full bg-gradient-to-br from-primary-500 to-accent-500 flex items-center justify-center text-white">
@@ -197,7 +198,7 @@ export default function ContactPage() {
                   <svg className="w-5 h-5 text-gray-500 group-hover:text-primary-400 transition-colors" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                     <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
                   </svg>
-                </a>
+                </PhoneLink>
 
                 <a
                   href="mailto:info@stephenscode.dev"
@@ -509,15 +510,15 @@ export default function ContactPage() {
 
           <div className="mt-12 text-center">
             <p className="text-gray-400 mb-4">Still have questions?</p>
-            <a
-              href="tel:+19363234527"
+            <PhoneLink
+              location="contact_faq_footer"
               className="inline-flex items-center gap-2 rounded-lg bg-primary-600 px-6 py-3 text-base font-semibold text-white shadow-lg hover:bg-primary-700 transition-all"
             >
               <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                 <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z" />
               </svg>
               Call Us Now
-            </a>
+            </PhoneLink>
           </div>
         </div>
       </section>
