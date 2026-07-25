@@ -2,7 +2,7 @@
 
 import { useState } from 'react'
 import { useForm } from 'react-hook-form'
-import { trackEvent } from '@/lib/analytics'
+import { trackEvent, trackConversion } from '@/lib/analytics'
 
 interface ContactFormData {
   name: string
@@ -48,6 +48,7 @@ export default function ContactForm() {
         form_name: 'contact_form',
         service_interest: data.service,
       })
+      trackConversion('leadForm')
 
       setSubmitSuccess(true)
       reset()
