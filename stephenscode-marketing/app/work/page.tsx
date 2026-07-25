@@ -56,118 +56,43 @@ function CheckIcon() {
 export default function Work() {
   const caseStudies = [
     {
-      client: 'ABC Plumbing',
-      industry: 'Home Services',
-      project: 'Standard Website + SEO Boost + Blog Module',
-      challenge: 'Outdated website with no mobile traffic, losing leads to competitors with better online presence.',
-      solution: 'Built a modern, mobile-first website with SEO optimization, local business schema, and a blog for regular content updates. Integrated contact forms and click-to-call buttons throughout.',
+      client: 'Lefty Cartel',
+      industry: 'E-Commerce / Membership',
+      project: 'Complete E-Commerce & Membership Platform',
+      challenge: 'Lefty Cartel launched as a brand-new business with no existing website and no infrastructure to process the recurring memberships their entire model depends on.',
+      solution: 'We built their complete e-commerce and membership platform from scratch -- Stripe-powered subscription billing, a full admin dashboard with analytics, and integrated USPS/UPS shipping -- so they had everything they needed to launch and start signing up members on day one.',
       results: [
-        '156% increase in mobile traffic',
-        '43% increase in contact form submissions',
-        'Ranking #1 for "plumber Conroe TX"',
-        'Average 3-5 leads per week from website'
+        'Started generating revenue within 30 days of launch'
       ],
-      package: 'Standard Website ($850)',
-      addOns: ['SEO Boost ($250/mo)', 'Blog Module ($110)'],
-      timeline: '2 weeks',
-      testimonial: 'Kyle built us exactly what we needed. Our phone hasn\'t stopped ringing since the new site went live. Best investment we\'ve made.',
-      author: 'John M., Owner',
-      color: 'from-primary-500 to-accent-500'
+      services: ['Membership Platform', 'Stripe Subscriptions', 'Admin Dashboard', 'Shipping Integration'],
+      color: 'from-surface-elevated to-surface'
     },
     {
-      client: 'Bella\'s Boutique',
-      industry: 'Retail / E-Commerce',
-      project: 'E-Commerce Website + Advanced Features',
-      challenge: 'Selling on Facebook only, no real online store, losing sales to Amazon and Etsy. Needed a professional storefront.',
-      solution: 'Built a full e-commerce platform with Stripe payment processing, inventory management, and automated email notifications for orders. Mobile-optimized for on-the-go shoppers.',
+      client: 'AMW Air Conditioning',
+      industry: 'HVAC',
+      project: 'Website Rebuild + SEO, GEO & Paid Search Growth',
+      challenge: "AMW Air Conditioning had been in business for about a year but didn't have the online presence or lead flow to support the growth they wanted.",
+      solution: 'We rebuilt their website and layered on SEO and GEO (local) marketing, then launched Google Ads and Local Services Ads campaigns to drive qualified HVAC leads.',
       results: [
-        '$12,000 in online sales first month',
-        '67% of traffic from mobile devices',
-        'Average order value increased 34%',
-        'Reduced time spent managing orders by 80%'
+        '76 Google reviews within their first two years in business',
+        'Hired 2 new employees to keep up with the increase in service demand'
       ],
-      package: 'E-Commerce Website ($1,100)',
-      addOns: ['Email Automation ($85)', 'Payment Processing ($50)'],
-      timeline: '2 weeks',
-      testimonial: 'I was nervous about moving online but Kyle made it so easy. The site pays for itself every single month. I actually enjoy managing my store now!',
-      author: 'Isabella R., Owner',
-      color: 'from-pink-500 to-rose-500'
+      services: ['Website Rebuild', 'SEO', 'GEO / Local Marketing', 'Google Ads', 'Local Services Ads'],
+      color: 'from-cyan-500 to-blue-600'
     },
     {
-      client: 'Summit Landscaping',
-      industry: 'Home Services',
-      project: 'Website Rebuild + Scheduling System',
-      challenge: 'Old website looked unprofessional, no way for customers to book services online, double-booking appointments manually.',
-      solution: 'Complete website redesign with modern branding, photo gallery of past work, and custom booking system that syncs with their calendar. Automated confirmation emails.',
+      client: 'Benefits Builder',
+      industry: 'SaaS / Finance',
+      project: 'Public Website + Full Operating Platform with Automation',
+      challenge: 'Benefits Builder was two years into a new company generating about $1,000 in monthly recurring revenue, with manual processes limiting how much their small team could take on.',
+      solution: 'We built their public website and their entire internal operating platform, automating the workflows needed to run the business day-to-day so the team could grow revenue without growing headcount at the same rate.',
       results: [
-        '89% of customers now book online',
-        'Eliminated double-bookings entirely',
-        '52% increase in booked jobs',
-        'Saves 10+ hours per week on scheduling'
+        'Grew from roughly $1,000 MRR to $52,000 MRR',
+        '60% decrease in admin work',
+        'Entire company now runs on a team of 3'
       ],
-      package: 'Website Rebuild ($350)',
-      addOns: ['Booking Calendar ($90)', 'Email Automation ($85)', 'Photo Gallery ($40)'],
-      timeline: '10 days',
-      testimonial: 'The booking system alone has been a game-changer. We look more professional and save so much time. Highly recommend StephensCode.',
-      author: 'Mike T., Owner',
-      color: 'from-green-500 to-emerald-500'
-    },
-    {
-      client: 'Texas Legal Advisors',
-      industry: 'Professional Services',
-      project: 'Premium Build with Client Portal',
-      challenge: 'Law firm needed secure client portal for document uploads, case updates, and communications. Generic solutions were too expensive or didn\'t fit their needs.',
-      solution: 'Built a custom client portal with secure authentication, document management, case tracking, and messaging system. Professional public-facing website with attorney bios and practice areas.',
-      results: [
-        'Reduced client calls by 60% (self-service portal)',
-        'Improved client satisfaction scores 45%',
-        '100% secure document handling',
-        'Onboarded 200+ clients to the portal'
-      ],
-      package: 'Premium Build ($2,000)',
-      addOns: ['User Login System ($120)', 'Document Vault ($90)', 'Messaging System ($75)'],
-      timeline: '3 weeks',
-      testimonial: 'This is exactly what we envisioned. Our clients love being able to check their case status anytime. Worth every penny.',
-      author: 'Sarah K., Managing Partner',
-      color: 'from-indigo-500 to-purple-500'
-    },
-    {
-      client: 'Fitness First Gym',
-      industry: 'Health & Fitness',
-      project: 'Membership Portal + Subscription Billing',
-      challenge: 'Managing memberships manually with spreadsheets, no way for members to view their account or update payment info, high cancellation rate.',
-      solution: 'Built membership management system with Stripe subscriptions, member portal for account management, class scheduling, and progress tracking. Automated billing and dunning.',
-      results: [
-        'Reduced billing errors to near zero',
-        'Member retention increased 28%',
-        'Saves 15+ hours per week on admin',
-        'Members can self-service 95% of requests'
-      ],
-      package: 'Premium Build ($2,000)',
-      addOns: ['Membership Portal ($200)', 'Subscription Billing ($180)', 'Booking Calendar ($90)'],
-      timeline: '4 weeks',
-      testimonial: 'Kyle understood our unique needs and delivered a system that works perfectly. Our members love it and we\'ve cut admin time in half.',
-      author: 'Carlos M., Owner',
-      color: 'from-orange-500 to-red-500'
-    },
-    {
-      client: 'Green Thumb Nursery',
-      industry: 'Retail / Agriculture',
-      project: 'E-Commerce + Inventory Management',
-      challenge: 'Plant nursery wanted to sell online but inventory changes daily (plants sell out, new arrivals). Needed real-time stock management.',
-      solution: 'Built e-commerce platform with advanced inventory management, low-stock alerts, and easy admin interface for daily updates. Integrated local pickup and delivery options.',
-      results: [
-        '$8,000+ in online sales monthly',
-        'Zero oversold products',
-        'Inventory updates in under 2 minutes',
-        'Expanded customer base 50 miles beyond physical location'
-      ],
-      package: 'E-Commerce Website ($1,100)',
-      addOns: ['Inventory Management ($200)', 'Product Management ($65)', 'Email Automation ($85)'],
-      timeline: '2.5 weeks',
-      testimonial: 'I didn\'t think we could sell plants online with our changing inventory, but Kyle figured it out. Sales have been amazing!',
-      author: 'Linda W., Owner',
-      color: 'from-lime-500 to-green-500'
+      services: ['Full-Stack SaaS', 'QuickBooks Integration', 'Automated Billing', 'Analytics Dashboard'],
+      color: 'from-primary-600 to-primary-800'
     }
   ]
 
@@ -359,8 +284,8 @@ export default function Work() {
       screenshot: '/images/portfolio/amw-air-conditioning.png',
       industry: 'HVAC',
       shortDesc: 'Reliable HVAC services including AC repair, installation, and maintenance plans.',
-      description: 'AMW Air Conditioning delivers reliable heating and cooling solutions for homes and businesses throughout the Houston area. We developed their website with emergency service prominently featured for urgent AC repairs, detailed maintenance plan options for year-round comfort, and online scheduling capabilities. The SEO-optimized content helps them rank for local HVAC searches and connect with customers who need fast, professional service.',
-      services: ['Custom Website', 'Service Booking', 'SEO', 'Emergency Services Page'],
+      description: 'AMW Air Conditioning delivers reliable heating and cooling solutions for homes and businesses throughout the Houston area. We rebuilt their website with emergency service prominently featured for urgent AC repairs, detailed maintenance plan options, and online scheduling, then added SEO, GEO (local) marketing, Google Ads, and Local Services Ads to drive qualified leads. See the full case study below.',
+      services: ['Website Rebuild', 'SEO', 'GEO / Local Marketing', 'Google Ads', 'Local Services Ads'],
       color: 'from-cyan-500 to-blue-600'
     },
     {
@@ -719,13 +644,7 @@ export default function Work() {
                   {/* Header */}
                   <div className="mb-8">
                     <h3 className="text-3xl font-bold text-white mb-3">{study.client}</h3>
-                    <p className="text-lg text-primary-600 font-semibold mb-4">{study.project}</p>
-                    <div className="flex items-center gap-2 text-sm text-gray-400">
-                      <svg className="h-5 w-5 text-accent-500" fill="currentColor" viewBox="0 0 20 20">
-                        <path fillRule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm1-12a1 1 0 10-2 0v4a1 1 0 00.293.707l2.828 2.829a1 1 0 101.415-1.415L11 9.586V6z" clipRule="evenodd" />
-                      </svg>
-                      <span className="font-semibold">Completed in {study.timeline}</span>
-                    </div>
+                    <p className="text-lg text-primary-600 font-semibold">{study.project}</p>
                   </div>
 
                   {/* Challenge & Solution */}
@@ -742,7 +661,7 @@ export default function Work() {
 
                   {/* Results */}
                   <div className="mb-10">
-                    <h4 className="text-2xl font-bold text-white mb-6">Results Achieved</h4>
+                    <h4 className="text-2xl font-bold text-white mb-6">Results</h4>
                     <div className="grid sm:grid-cols-2 gap-4">
                       {study.results.map((result, i) => (
                         <div key={i} className="flex items-start gap-4 bg-green-500/10 rounded-xl p-6 border border-surface-border">
@@ -755,30 +674,19 @@ export default function Work() {
                     </div>
                   </div>
 
-                  {/* Package Info */}
-                  <div className="bg-surface-elevated/70 rounded-2xl p-8 mb-8 border-2 border-surface-border">
+                  {/* Services Provided */}
+                  <div className="bg-surface-elevated/70 rounded-2xl p-8 border-2 border-surface-border">
                     <h4 className="text-lg font-bold text-white mb-4">Services Provided</h4>
-                    <div className="space-y-3">
-                      <div className="flex items-center gap-3">
-                        <span className="px-4 py-2 bg-primary-500/10 text-primary-400 rounded-full text-sm font-bold">Core Package</span>
-                        <span className="text-white font-semibold">{study.package}</span>
-                      </div>
-                      {study.addOns && study.addOns.length > 0 && (
-                        <div className="flex items-start gap-3">
-                          <span className="px-4 py-2 bg-accent-500/10 text-accent-400 rounded-full text-sm font-bold">Add-Ons</span>
-                          <span className="text-white">{study.addOns.join(', ')}</span>
-                        </div>
-                      )}
+                    <div className="flex flex-wrap gap-2">
+                      {study.services.map((service) => (
+                        <span
+                          key={service}
+                          className="px-3 py-1 bg-primary-500/10 text-primary-400 text-sm font-medium rounded-full"
+                        >
+                          {service}
+                        </span>
+                      ))}
                     </div>
-                  </div>
-
-                  {/* Testimonial */}
-                  <div className="relative rounded-2xl bg-surface-elevated/70 p-8 border-l-4 border-accent-500">
-                    <div className="text-5xl text-accent-500 mb-4 opacity-30">"</div>
-                    <p className="text-xl text-white italic mb-4 leading-relaxed">
-                      {study.testimonial}
-                    </p>
-                    <p className="text-base font-bold text-gray-300">-- {study.author}</p>
                   </div>
                 </div>
               </article>
