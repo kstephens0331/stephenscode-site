@@ -353,7 +353,7 @@ At StephensCode, we build websites that:
 - Last for years
 - Don't require constant tinkering
 
-**Starting at $1,500 for plug-and-play sites, $2,500 for custom builds.**
+**Starting at $250 for a fast-turnaround Plug and Play site, $950 for a full custom Standard Website.**
 
 No monthly platform fees. No lock-in. No surprises.
 

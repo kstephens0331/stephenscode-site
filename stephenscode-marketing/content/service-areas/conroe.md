@@ -85,10 +85,10 @@ Being local means:
 I'll tell you exactly what your website will cost before we start. Not a range, not an estimate, not "it depends": an actual number.
 
 - **Plug and Play (4 pages)**: $250
-- **Standard Site (8-12 pages)**: $850
-- **Website Rebuild**: $600
+- **Standard Site (8-12 pages)**: $950
+- **Website Rebuild**: $350
 - **E-Commerce Store**: $1,100
-- **Premium Custom Platform**: Starting at $2,500
+- **Premium Custom Platform**: Starting at $2,000
 
 These prices include design, development, basic SEO optimization, mobile responsiveness, contact forms, analytics setup, and 30 days of post-launch support. No hidden fees, no surprise invoices, no "scope creep" charges.
 

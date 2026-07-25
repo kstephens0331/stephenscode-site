@@ -4,8 +4,8 @@ import { corePackages, premiumBuilds } from '@/lib/services-data'
 import { basicAddOns, advancedAddOns } from '@/lib/addons-data'
 
 export const metadata: Metadata = {
-  title: 'Houston Web Development | Flat-Rate Small Business Websites from $850',
-  description: 'Conroe web developer with flat-rate small business websites from $850. Small business website packages for Houston and The Woodlands. Veteran owned. No hidden fees.',
+  title: 'Houston Web Development | Flat-Rate Small Business Websites from $250',
+  description: 'Conroe web developer with flat-rate small business websites from $250. Small business website packages for Houston and The Woodlands. Veteran owned. No hidden fees.',
   keywords: [
     'affordable web design Houston',
     'Conroe web developer',

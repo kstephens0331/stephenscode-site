@@ -207,8 +207,8 @@ If your business serves this demographic, your website must be professional, inf
 
 **Transparent pricing**: You know exactly what you'll pay before we start:
 - Plug and Play (4 pages): $250
-- Standard Site (8-12 pages): $850
-- Website Rebuild: $600
+- Standard Site (8-12 pages): $950
+- Website Rebuild: $350
 - E-Commerce Store: $1,100
 
 No surprises, no hidden fees, no hourly billing that spirals out of control.

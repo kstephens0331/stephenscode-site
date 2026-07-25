@@ -6,94 +6,16 @@ import {
   Shield, Phone, ArrowRight, Check,
   Monitor, ShieldCheck, Lock, KeyRound, Building2,
 } from 'lucide-react'
-import { organizationSchema } from '@/lib/schemas'
-
 export const metadata: Metadata = {
   alternates: {
-    canonical: 'https://stephenscode.dev/',
+    canonical: 'https://www.stephenscode.dev/',
   },
 }
 
-// Advanced Schema Markup for Homepage
+// Homepage-specific schema. Organization/LocalBusiness/FAQPage are already rendered
+// sitewide by components/LocalBusinessSchema.tsx (via app/layout.tsx) -- duplicating
+// them here would put two conflicting copies of the same entity on this page.
 const homepageSchemas = {
-  organization: organizationSchema,
-  localBusiness: {
-    "@context": "https://schema.org",
-    "@type": "LocalBusiness",
-    "@id": "https://www.stephenscode.dev/#business",
-    "name": "StephensCode LLC",
-    "image": "https://www.stephenscode.dev/logo.png",
-    "telephone": "+1-936-323-4527",
-    "email": "kyle@stephenscode.dev",
-    "address": {
-      "@type": "PostalAddress",
-      "streetAddress": "2378 Strong Horse Dr",
-      "addressLocality": "Conroe",
-      "addressRegion": "TX",
-      "postalCode": "77301",
-      "addressCountry": "US"
-    },
-    "geo": {
-      "@type": "GeoCoordinates",
-      "latitude": "30.3119",
-      "longitude": "-95.4560"
-    },
-    "url": "https://www.stephenscode.dev",
-    "priceRange": "$250-$7500",
-    "openingHoursSpecification": {
-      "@type": "OpeningHoursSpecification",
-      "dayOfWeek": ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday"],
-      "opens": "09:00",
-      "closes": "17:00"
-    },
-    "areaServed": [
-      {
-        "@type": "City",
-        "name": "Houston",
-        "containedIn": { "@type": "State", "name": "Texas" }
-      },
-      {
-        "@type": "City",
-        "name": "Conroe",
-        "containedIn": { "@type": "State", "name": "Texas" }
-      },
-      {
-        "@type": "City",
-        "name": "The Woodlands",
-        "containedIn": { "@type": "State", "name": "Texas" }
-      }
-    ]
-  },
-  faqPage: {
-    "@context": "https://schema.org",
-    "@type": "FAQPage",
-    "mainEntity": [
-      {
-        "@type": "Question",
-        "name": "How much does a custom website cost?",
-        "acceptedAnswer": {
-          "@type": "Answer",
-          "text": "StephensCode offers six flat-rate website tiers, all with 90 days of post-launch support. Starter $250 (3-4 page flyer for brand-new businesses). Basic $500 (campaign or landing site). Standard $950 (full 8-12 page small-business website with CMS, the typical entry tier for established businesses). Advanced $2,000 (custom full-stack with admin portal and KPI dashboard). Business System $5,000 (CRM + portals + booking + payments + automation, replaces agencies and SaaS subscriptions). Enterprise Platform $7,500 and up (multi-tenant, SSO, audit logs, workflow builder). Custom SaaS and platform builds quoted as flat-rate projects above that. No hourly billing, no scope-creep invoices."
-        }
-      },
-      {
-        "@type": "Question",
-        "name": "How long does it take to build a website?",
-        "acceptedAnswer": {
-          "@type": "Answer",
-          "text": "Most websites are completed in 1-2 weeks. Simple sites can be done in 3-5 days, while complex e-commerce or premium builds may take 2-4 weeks."
-        }
-      },
-      {
-        "@type": "Question",
-        "name": "Do you serve businesses outside Houston?",
-        "acceptedAnswer": {
-          "@type": "Answer",
-          "text": "Yes! While we're based in Conroe, TX and serve the greater Houston area, we work with clients nationwide through remote collaboration."
-        }
-      }
-    ]
-  },
   breadcrumb: {
     "@context": "https://schema.org",
     "@type": "BreadcrumbList",
@@ -117,15 +39,6 @@ export default function Home() {
       features: ['3-4 pages', 'Mobile responsive', 'Contact form + email routing', 'Basic on-page SEO', '90 days post-launch support'],
       delivery: '5-7 business days',
       href: '/services/plug-and-play',
-      popular: false,
-    },
-    {
-      name: 'Basic',
-      price: '$500',
-      description: 'Campaign sites, single-product landings, small operations that don’t need a back end. Built to convert.',
-      features: ['5-7 pages', 'Lead form + auto-replies', 'Basic SEO + analytics', '1 round of revisions', '90 days post-launch support'],
-      delivery: '7-10 business days',
-      href: '/contact',
       popular: false,
     },
     {
@@ -168,7 +81,7 @@ export default function Home() {
 
   const stats = [
     { label: 'Years Experience', value: '14+', Icon: Clock },
-    { label: 'Projects Delivered', value: '2,600+', Icon: Rocket },
+    { label: 'Projects Delivered', value: '200+', Icon: Rocket },
     { label: 'API Integrations', value: '200+', Icon: Link2 },
     { label: 'Web Scraping Jobs', value: '500+', Icon: BarChart3 },
   ]
@@ -200,23 +113,23 @@ export default function Home() {
     },
   ]
 
-  const testimonials = [
+  const projectHighlights = [
     {
-      quote: "StephensCode built our complete scheduling and workflow automation platform. The system handles everything from client bookings to automated reminders seamlessly.",
-      author: "CalenFlow Team",
-      company: "CalenFlow",
+      description: "A complete scheduling and workflow automation platform handling client bookings, staff scheduling, and automated reminders end to end.",
+      name: "CalenFlow",
+      note: "Internal platform, built by StephensCode",
       result: "Full automation platform"
     },
     {
-      quote: "Kyle developed our secure VPN management platform with advanced authentication and monitoring. The system is rock-solid and handles our enterprise clients flawlessly.",
-      author: "SACVPN Team",
-      company: "SACVPN",
+      description: "SACVPN is StephensCode's own zero-log enterprise VPN product -- secure remote access, authentication, and monitoring built and operated by our team.",
+      name: "SACVPN",
+      note: "Our own product, built by StephensCode",
       result: "Enterprise-grade security"
     },
     {
-      quote: "Our online gaming safety platform was built exactly to spec. StephensCode delivered a powerful system that streamlines our entire operation.",
-      author: "SentinelForge Team",
-      company: "SentinelForge: Online Gaming Safety",
+      description: "An online gaming safety platform with automated player-behavior monitoring and moderation tools for protecting gaming communities.",
+      name: "SentinelForge",
+      note: "Internal platform, built by StephensCode",
       result: "Platform protecting gamers"
     }
   ]
@@ -229,19 +142,7 @@ export default function Home() {
 
   return (
     <>
-      {/* Advanced Schema Markup */}
-      <script
-        type="application/ld+json"
-        dangerouslySetInnerHTML={{ __html: JSON.stringify(homepageSchemas.organization) }}
-      />
-      <script
-        type="application/ld+json"
-        dangerouslySetInnerHTML={{ __html: JSON.stringify(homepageSchemas.localBusiness) }}
-      />
-      <script
-        type="application/ld+json"
-        dangerouslySetInnerHTML={{ __html: JSON.stringify(homepageSchemas.faqPage) }}
-      />
+      {/* Homepage-specific schema (Organization/LocalBusiness/FAQPage render sitewide via layout.tsx) */}
       <script
         type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: JSON.stringify(homepageSchemas.breadcrumb) }}
@@ -302,7 +203,7 @@ export default function Home() {
               </div>
               <div className="border-l border-primary-500/40 pl-4">
                 <dt className="text-[10px] uppercase tracking-[0.18em] text-gray-500">Projects shipped</dt>
-                <dd className="mt-1.5 text-3xl font-semibold text-white tracking-tight">2,600+</dd>
+                <dd className="mt-1.5 text-3xl font-semibold text-white tracking-tight">200+</dd>
               </div>
               <div className="border-l border-primary-500/40 pl-4">
                 <dt className="text-[10px] uppercase tracking-[0.18em] text-gray-500">Standard site</dt>
@@ -579,26 +480,17 @@ export default function Home() {
           </div>
 
           <div className="grid grid-cols-1 gap-8 lg:grid-cols-3">
-            {testimonials.map((testimonial, index) => (
+            {projectHighlights.map((project, index) => (
               <article key={index} className="bg-surface-elevated rounded-2xl ring-1 ring-surface-border shadow-xl shadow-black/40 p-8 hover:ring-primary-500/50 transition-all">
-                <div className="flex gap-1 mb-4">
-                  {[...Array(5)].map((_, i) => (
-                    <svg key={i} className="h-5 w-5 text-accent-400" fill="currentColor" viewBox="0 0 20 20">
-                      <path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z" />
-                    </svg>
-                  ))}
-                </div>
-                <blockquote className="text-gray-300 italic mb-6 text-lg">
-                  "{testimonial.quote}"
-                </blockquote>
+                <p className="font-bold text-white text-lg mb-2">{project.name}</p>
+                <p className="text-gray-300 mb-6">{project.description}</p>
                 <div className="border-t border-surface-border pt-4">
-                  <p className="font-bold text-white">{testimonial.author}</p>
-                  <p className="text-sm text-gray-400 mb-2">{testimonial.company}</p>
+                  <p className="text-sm text-gray-500 mb-2">{project.note}</p>
                   <div className="inline-flex items-center gap-2 rounded-full bg-emerald-500/15 px-3 py-1 text-xs font-bold text-emerald-400">
                     <svg className="h-4 w-4" fill="currentColor" viewBox="0 0 20 20">
                       <path fillRule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.857-9.809a.75.75 0 00-1.214-.882l-3.483 4.79-1.88-1.88a.75.75 0 10-1.06 1.061l2.5 2.5a.75.75 0 001.137-.089l4-5.5z" clipRule="evenodd" />
                     </svg>
-                    <span>{testimonial.result}</span>
+                    <span>{project.result}</span>
                   </div>
                 </div>
               </article>

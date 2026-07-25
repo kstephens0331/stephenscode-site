@@ -251,8 +251,8 @@ Websites should mention proximity to Katy Mills for location-based searches.
 
 **Transparent flat-rate pricing**:
 - Plug and Play (4 pages): $250
-- Standard Site (8-12 pages): $850
-- Website Rebuild: $600
+- Standard Site (8-12 pages): $950
+- Website Rebuild: $350
 - E-Commerce Store: $1,100
 
 No surprises, no hourly billing that spirals out of control. You know exactly what you'll pay before we start.

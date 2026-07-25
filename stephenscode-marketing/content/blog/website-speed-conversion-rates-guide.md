@@ -42,9 +42,9 @@ Humans are impatient. Here's how load time affects behavior:
 
 **The mental switch:** Around 3 seconds, users start wondering if something's wrong. By 5 seconds, they're hitting the back button.
 
-## Real Data: Speed's Impact on Business Metrics
+## Speed's Impact on Business Metrics
 
-This isn't theoretical. Here's data from real businesses:
+This isn't theoretical. These are widely cited, publicly documented figures from major e-commerce operations:
 
 ### E-commerce Studies
 
@@ -52,22 +52,9 @@ This isn't theoretical. Here's data from real businesses:
 - **Walmart** saw a 2% conversion increase for every 1 second of improvement
 - **COOK** increased conversions by 7% after reducing load time by 0.85 seconds
 
-### Small Business Examples
+### What This Means for a Small Business Site
 
-**Local HVAC Company (Houston Area)**
-- Before: 6.2 second load time, 1.8% conversion rate
-- After: 1.9 second load time, 4.1% conversion rate
-- Result: 128% increase in leads
-
-**Restaurant Website**
-- Before: 8.1 second load time (heavy images)
-- After: 2.3 second load time
-- Result: Online reservations increased by 45%
-
-**Law Firm**
-- Before: 5.4 second load time
-- After: 1.7 second load time
-- Result: Consultation requests up 67%
+The same relationship holds at small-business scale, even if the absolute numbers are smaller: a service business with a slow, image-heavy template site (5+ second load times are common) typically converts a noticeably smaller share of visitors into calls, bookings, or reservations than the same traffic would convert on a fast, well-optimized custom site. The mechanism is the same one Amazon and Walmart measured, it just shows up in fewer total leads instead of fewer total sales.
 
 ## Google Cares About Speed (And You Should Too)
 
@@ -115,7 +102,7 @@ Images typically account for 50-80% of a page's total weight. Common problems:
 - **No compression**: Raw camera files uploaded directly
 - **No lazy loading**: All images load at once
 
-**Example:** A Katy contractor had a gallery page with 24 photos totaling 72MB. After optimization, same page was 3.2MB, 95% smaller, visually identical.
+**Example:** An unoptimized photo gallery page with 24 full-resolution photos can easily total 70MB or more. Proper compression and modern formats (WebP/AVIF) routinely get the same page down to a few megabytes with no visible loss in quality.
 
 ### 2. Too Much JavaScript
 

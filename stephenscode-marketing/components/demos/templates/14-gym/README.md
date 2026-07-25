@@ -1,6 +1,6 @@
 # Iron Temple Fitness - Gym Demo
 
-**Demo Type:** $850 Standard Website (9 Pages)  
+**Demo Type:** $950 Standard Website (9 Pages)  
 **Slug:** iron-temple-fitness  
 **Industry:** Fitness & Gym
 

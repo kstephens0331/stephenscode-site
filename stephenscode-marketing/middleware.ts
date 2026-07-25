@@ -8,12 +8,12 @@ export function middleware(request: NextRequest) {
   // Build CSP header with nonce
   const cspHeader = `
     default-src 'self';
-    script-src 'self' 'unsafe-inline' 'unsafe-eval' https://www.googletagmanager.com https://www.google-analytics.com https://analytics.ahrefs.com;
+    script-src 'self' 'unsafe-inline' 'unsafe-eval' https://www.googletagmanager.com https://www.google-analytics.com https://analytics.ahrefs.com https://googleads.g.doubleclick.net https://www.googleadservices.com;
     style-src 'self' 'unsafe-inline' https://fonts.googleapis.com;
     style-src-elem 'self' 'unsafe-inline' https://fonts.googleapis.com;
     font-src 'self' https://fonts.gstatic.com data:;
     img-src 'self' https: data: blob:;
-    connect-src 'self' https://www.google-analytics.com https://analytics.google.com https://region1.google-analytics.com https://*.google-analytics.com https://stats.g.doubleclick.net https://analytics.ahrefs.com;
+    connect-src 'self' https://www.google-analytics.com https://analytics.google.com https://region1.google-analytics.com https://*.google-analytics.com https://stats.g.doubleclick.net https://analytics.ahrefs.com https://googleads.g.doubleclick.net https://www.googleadservices.com https://www.google.com https://ad.doubleclick.net https://formspree.io;
     frame-src 'self' https://www.google.com;
     frame-ancestors 'self';
     base-uri 'self';

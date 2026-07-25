@@ -166,8 +166,8 @@ export const corePackages: Service[] = [
     ],
     timeline: '3-4 weeks',
     seoKeywords: ['custom website development Houston', 'small business website Conroe', 'professional website design Texas', 'Next.js website development'],
-    metaTitle: 'Custom Website | $850 | Conroe TX',
-    metaDescription: 'Custom website development for small businesses. Fully responsive, SEO-optimized, modern tech stack. $850 flat rate. Houston, Conroe & The Woodlands.',
+    metaTitle: 'Custom Website | $950 | Conroe TX',
+    metaDescription: 'Custom website development for small businesses. Fully responsive, SEO-optimized, modern tech stack. $950 flat rate. Houston, Conroe & The Woodlands.',
   },
   {
     id: 'ecommerce-website',
@@ -235,7 +235,7 @@ export const premiumBuilds: Service[] = [
     price: 2000,
     priceLabel: '$2,000',
     shortDescription: 'Custom full-stack site with admin portal and KPI dashboard. Up to 10 pages plus CMS.',
-    longDescription: `Elevate your business with a premium full-stack web application. Our $2,500 Premium Build is designed for businesses that need more than a website. You need a complete business system. This package includes up to 15 pages, a custom admin portal, analytics dashboard, user management, and advanced features tailored to your specific workflow. Built with enterprise-grade technologies, your premium build will scale with your business and give you competitive advantages in your market.`,
+    longDescription: `Elevate your business with a premium full-stack web application. Our $2,000 Premium Build is designed for businesses that need more than a website. You need a complete business system. This package includes up to 15 pages, a custom admin portal, analytics dashboard, user management, and advanced features tailored to your specific workflow. Built with enterprise-grade technologies, your premium build will scale with your business and give you competitive advantages in your market.`,
     features: [
       'Up to 15 pages included',
       'Advanced full-stack development',
@@ -278,8 +278,8 @@ export const premiumBuilds: Service[] = [
     ],
     timeline: '6-8 weeks',
     seoKeywords: ['custom web application Houston', 'full-stack development Texas', 'admin portal development Conroe', 'business dashboard development'],
-    metaTitle: 'Web App Development | $2,500',
-    metaDescription: 'Custom full-stack web application with admin portal, analytics dashboard, and advanced features. Up to 15 pages. $2,500 flat rate. Houston & Conroe.',
+    metaTitle: 'Web App Development | $2,000',
+    metaDescription: 'Custom full-stack web application with admin portal, analytics dashboard, and advanced features. Up to 15 pages. $2,000 flat rate. Houston & Conroe.',
   },
   {
     id: 'custom-business-platform',

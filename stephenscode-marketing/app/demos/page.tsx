@@ -102,7 +102,7 @@ export default function DemosPage() {
                 ✅
               </div>
               <h3 className="text-lg font-semibold text-white mb-2">Click Around</h3>
-              <p className="text-sm text-gray-400">Navigate pages, open menus, test buttons. Everything works.</p>
+              <p className="text-sm text-gray-400">Navigate pages, open menus, and explore each demo. Most include fully working forms and interactions.</p>
             </div>
             <div className="text-center">
               <div className="mx-auto h-16 w-16 rounded-full bg-primary-500/10 flex items-center justify-center text-3xl mb-4">

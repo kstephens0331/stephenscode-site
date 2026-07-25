@@ -24,6 +24,37 @@ export default function CustomerView({ demo, colors }: CustomerViewProps) {
   const [currentPage, setCurrentPage] = useState('home')
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false)
   const [cart, setCart] = useState<CartItem[]>([])
+  const [contactForm, setContactForm] = useState({ name: '', email: '', message: '' })
+  const [contactSubmitted, setContactSubmitted] = useState(false)
+
+  const handleContactSubmit = async (e: React.FormEvent) => {
+    e.preventDefault()
+    try {
+      const response = await fetch('/api/demo-lead', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({
+          demoName: 'Sweet Dreams Bakery',
+          demoSlug: 'sweet-dreams-bakery',
+          clientName: contactForm.name,
+          clientEmail: contactForm.email,
+          notes: contactForm.message,
+        }),
+      })
+      if (response.ok) {
+        setContactSubmitted(true)
+        setTimeout(() => {
+          setContactSubmitted(false)
+          setContactForm({ name: '', email: '', message: '' })
+        }, 3000)
+      } else {
+        alert('There was an issue sending your message. Please try again.')
+      }
+    } catch (error) {
+      console.error('Contact form error:', error)
+      alert('There was an issue sending your message. Please try again.')
+    }
+  }
 
   const addToCart = (item: Omit<CartItem, 'quantity'>) => {
     setCart(prev => {
@@ -428,14 +459,43 @@ export default function CustomerView({ demo, colors }: CustomerViewProps) {
           </div>
           <div className="bg-white rounded-xl shadow-md p-8">
             <h2 className="text-2xl font-bold text-gray-900 mb-6">Send a Message</h2>
-            <form className="space-y-4">
-              <input type="text" placeholder="Name" className="w-full px-4 py-3 border-2 border-gray-200 rounded-lg" />
-              <input type="email" placeholder="Email" className="w-full px-4 py-3 border-2 border-gray-200 rounded-lg" />
-              <textarea rows={4} placeholder="Message" className="w-full px-4 py-3 border-2 border-gray-200 rounded-lg"></textarea>
-              <button type="submit" className="w-full bg-[var(--color-primary)] text-white py-3 rounded-lg font-semibold hover:bg-opacity-90">
-                Send Message
-              </button>
-            </form>
+            {contactSubmitted ? (
+              <div className="text-center py-8">
+                <div className="text-4xl mb-3">✓</div>
+                <p className="text-lg font-semibold text-gray-900">Message sent!</p>
+                <p className="text-gray-600 mt-2">We'll get back to you soon.</p>
+              </div>
+            ) : (
+              <form className="space-y-4" onSubmit={handleContactSubmit}>
+                <input
+                  type="text"
+                  placeholder="Name"
+                  required
+                  value={contactForm.name}
+                  onChange={(e) => setContactForm({ ...contactForm, name: e.target.value })}
+                  className="w-full px-4 py-3 border-2 border-gray-200 rounded-lg"
+                />
+                <input
+                  type="email"
+                  placeholder="Email"
+                  required
+                  value={contactForm.email}
+                  onChange={(e) => setContactForm({ ...contactForm, email: e.target.value })}
+                  className="w-full px-4 py-3 border-2 border-gray-200 rounded-lg"
+                />
+                <textarea
+                  rows={4}
+                  placeholder="Message"
+                  required
+                  value={contactForm.message}
+                  onChange={(e) => setContactForm({ ...contactForm, message: e.target.value })}
+                  className="w-full px-4 py-3 border-2 border-gray-200 rounded-lg"
+                ></textarea>
+                <button type="submit" className="w-full bg-[var(--color-primary)] text-white py-3 rounded-lg font-semibold hover:bg-opacity-90">
+                  Send Message
+                </button>
+              </form>
+            )}
           </div>
         </div>
       </div>

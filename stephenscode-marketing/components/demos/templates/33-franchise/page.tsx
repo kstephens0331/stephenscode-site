@@ -59,6 +59,36 @@ const FastServeFranchiseNetwork = () => {
   const [dateRange, setDateRange] = useState('30days');
   const [searchTerm, setSearchTerm] = useState('');
   const [selectedCategory, setSelectedCategory] = useState('all');
+  const [contactSubmitted, setContactSubmitted] = useState(false);
+
+  const handleContactSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
+    e.preventDefault();
+    const data = new FormData(e.currentTarget);
+    try {
+      const response = await fetch('/api/demo-lead', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({
+          demoName: 'FastServe Franchise Network',
+          demoSlug: 'fastserve-franchise-network',
+          clientName: data.get('name'),
+          clientEmail: data.get('email'),
+          service: `${data.get('department')} - ${data.get('subject')}`,
+          notes: `Location: ${data.get('location')}\n\n${data.get('message')}`,
+        }),
+      });
+      if (response.ok) {
+        setContactSubmitted(true);
+        e.currentTarget.reset();
+        setTimeout(() => setContactSubmitted(false), 4000);
+      } else {
+        alert('There was an issue sending your message. Please try again.');
+      }
+    } catch (error) {
+      console.error('Contact form error:', error);
+      alert('There was an issue sending your message. Please try again.');
+    }
+  };
 
   // Sample Data
   const locations: Location[] = [
@@ -1434,74 +1464,89 @@ const FastServeFranchiseNetwork = () => {
         <div className="lg:col-span-2">
           <div className="bg-white rounded-lg shadow-lg p-8">
             <h2 className="text-2xl font-bold text-[#bc4749] mb-6">Send a Message</h2>
-            <form className="space-y-4">
-              <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+            {contactSubmitted ? (
+              <div className="text-center py-10">
+                <div className="text-4xl mb-3">✓</div>
+                <p className="text-lg font-semibold text-gray-900">Message sent!</p>
+                <p className="text-gray-600 mt-2">Corporate will get back to you soon.</p>
+              </div>
+            ) : (
+              <form className="space-y-4" onSubmit={handleContactSubmit}>
+                <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+                  <div>
+                    <label className="block text-sm font-semibold text-gray-700 mb-2">Your Name</label>
+                    <input
+                      type="text"
+                      name="name"
+                      required
+                      className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-[#bc4749] focus:border-transparent"
+                      placeholder="John Smith"
+                    />
+                  </div>
+                  <div>
+                    <label className="block text-sm font-semibold text-gray-700 mb-2">Location</label>
+                    <select name="location" className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-[#bc4749] focus:border-transparent">
+                      <option>Select your location</option>
+                      {locations.map(loc => (
+                        <option key={loc.id}>{loc.name}</option>
+                      ))}
+                    </select>
+                  </div>
+                </div>
+
                 <div>
-                  <label className="block text-sm font-semibold text-gray-700 mb-2">Your Name</label>
+                  <label className="block text-sm font-semibold text-gray-700 mb-2">Email</label>
                   <input
-                    type="text"
+                    type="email"
+                    name="email"
+                    required
                     className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-[#bc4749] focus:border-transparent"
-                    placeholder="John Smith"
+                    placeholder="your@email.com"
                   />
                 </div>
+
                 <div>
-                  <label className="block text-sm font-semibold text-gray-700 mb-2">Location</label>
-                  <select className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-[#bc4749] focus:border-transparent">
-                    <option>Select your location</option>
-                    {locations.map(loc => (
-                      <option key={loc.id}>{loc.name}</option>
-                    ))}
+                  <label className="block text-sm font-semibold text-gray-700 mb-2">Department</label>
+                  <select name="department" className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-[#bc4749] focus:border-transparent">
+                    <option>General Inquiry</option>
+                    <option>Operations Support</option>
+                    <option>Technical Support</option>
+                    <option>Marketing</option>
+                    <option>Training</option>
+                    <option>Compliance</option>
+                    <option>Finance</option>
                   </select>
                 </div>
-              </div>
 
-              <div>
-                <label className="block text-sm font-semibold text-gray-700 mb-2">Email</label>
-                <input
-                  type="email"
-                  className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-[#bc4749] focus:border-transparent"
-                  placeholder="your@email.com"
-                />
-              </div>
+                <div>
+                  <label className="block text-sm font-semibold text-gray-700 mb-2">Subject</label>
+                  <input
+                    type="text"
+                    name="subject"
+                    className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-[#bc4749] focus:border-transparent"
+                    placeholder="Brief subject line"
+                  />
+                </div>
 
-              <div>
-                <label className="block text-sm font-semibold text-gray-700 mb-2">Department</label>
-                <select className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-[#bc4749] focus:border-transparent">
-                  <option>General Inquiry</option>
-                  <option>Operations Support</option>
-                  <option>Technical Support</option>
-                  <option>Marketing</option>
-                  <option>Training</option>
-                  <option>Compliance</option>
-                  <option>Finance</option>
-                </select>
-              </div>
+                <div>
+                  <label className="block text-sm font-semibold text-gray-700 mb-2">Message</label>
+                  <textarea
+                    name="message"
+                    rows={6}
+                    required
+                    className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-[#bc4749] focus:border-transparent"
+                    placeholder="How can we help you?"
+                  ></textarea>
+                </div>
 
-              <div>
-                <label className="block text-sm font-semibold text-gray-700 mb-2">Subject</label>
-                <input
-                  type="text"
-                  className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-[#bc4749] focus:border-transparent"
-                  placeholder="Brief subject line"
-                />
-              </div>
-
-              <div>
-                <label className="block text-sm font-semibold text-gray-700 mb-2">Message</label>
-                <textarea
-                  rows={6}
-                  className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-[#bc4749] focus:border-transparent"
-                  placeholder="How can we help you?"
-                ></textarea>
-              </div>
-
-              <button
-                type="submit"
-                className="w-full bg-[#bc4749] text-white px-6 py-4 rounded-lg font-bold text-lg hover:bg-[#a33f41] transition-colors"
-              >
-                Send Message
-              </button>
-            </form>
+                <button
+                  type="submit"
+                  className="w-full bg-[#bc4749] text-white px-6 py-4 rounded-lg font-bold text-lg hover:bg-[#a33f41] transition-colors"
+                >
+                  Send Message
+                </button>
+              </form>
+            )}
           </div>
         </div>
 

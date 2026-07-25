@@ -22,7 +22,7 @@ The good news? Most of these problems are fixable. Often within a few hours. Let
 
 Your website takes more than 3 seconds to load. You might not notice because you've got fast internet, but your customers do. Every second of delay reduces conversions by 7%.
 
-**Real impact:** A Houston plumbing company came to me with a Wix site that took 8.2 seconds to load on mobile. They were getting traffic but almost no calls. After rebuilding to 1.8 seconds, their conversion rate tripled.
+**Real impact:** It's common to see Wix sites for local service businesses taking 7-8+ seconds to load on mobile, driving plenty of traffic but very few calls. Getting that down under 2 seconds is one of the fastest ways to turn existing traffic into leads.
 
 ### Why It Happens
 
@@ -159,7 +159,7 @@ Customers are skeptical. They've been burned before. Your site needs to earn the
 
 ### The Impact
 
-Adding visible Google reviews to a Conroe HVAC company's homepage increased their contact form submissions by 43%. Trust signals work.
+Adding visible Google reviews and testimonials to a homepage is one of the most consistent ways to lift contact form submissions. Trust signals work.
 
 ## Mistake #5: Poor Navigation (Lost Customers = Lost Sales)
 
@@ -464,7 +464,7 @@ Sometimes fixing isn't enough. Consider a rebuild if:
 - Can't update without a developer
 - No room for growth
 
-A custom rebuild ($600-1,100) often costs less than piecemeal fixes while giving you a better foundation.
+A custom rebuild ($350-1,100) often costs less than piecemeal fixes while giving you a better foundation.
 
 ## The Bottom Line
 

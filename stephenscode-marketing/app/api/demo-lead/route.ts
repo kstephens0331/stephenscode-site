@@ -75,18 +75,19 @@ RECOMMENDED FOLLOW-UP:
 Lead captured: ${new Date().toLocaleString('en-US', { timeZone: 'America/Chicago' })} CST
     `.trim()
 
-    // Send email to business owner (YOU)
-    await transporter.sendMail({
-      from: process.env.SMTP_FROM || process.env.SMTP_USER,
-      to: process.env.CONTACT_EMAIL || 'info@stephenscode.dev',
-      subject: `🎯 NEW DEMO LEAD: ${clientName}, interested in "${demoName}" Design`,
-      text: ownerEmailContent,
-      replyTo: clientEmail || clientPhone,
-    })
+    try {
+      // Send email to business owner (YOU)
+      await transporter.sendMail({
+        from: process.env.SMTP_FROM || process.env.SMTP_USER,
+        to: process.env.CONTACT_EMAIL || 'info@stephenscode.dev',
+        subject: `🎯 NEW DEMO LEAD: ${clientName}, interested in "${demoName}" Design`,
+        text: ownerEmailContent,
+        replyTo: clientEmail || clientPhone,
+      })
 
-    // Optional: Send confirmation to client
-    if (clientEmail) {
-      const clientEmailContent = `
+      // Optional: Send confirmation to client
+      if (clientEmail) {
+        const clientEmailContent = `
 Hi ${clientName},
 
 Thank you for your interest in our services! We received your request through our "${demoName}" demo.
@@ -103,21 +104,54 @@ StephensCode Team
 📞 (936) 323-4527
 📧 info@stephenscode.dev
 🌐 stephenscode.dev
-      `.trim()
+        `.trim()
 
-      await transporter.sendMail({
-        from: process.env.SMTP_FROM || process.env.SMTP_USER,
-        to: clientEmail,
-        subject: `Thanks for your interest in StephensCode: ${demoName}`,
-        text: clientEmailContent,
+        await transporter.sendMail({
+          from: process.env.SMTP_FROM || process.env.SMTP_USER,
+          to: clientEmail,
+          subject: `Thanks for your interest in StephensCode: ${demoName}`,
+          text: clientEmailContent,
+        })
+      }
+
+      return NextResponse.json({
+        message: 'Lead captured successfully',
+        success: true
+      }, { status: 200 })
+    } catch (smtpError) {
+      // SMTP isn't configured with working credentials in this environment --
+      // fall back to relaying the lead through Formspree (server-side, so the
+      // page's CSP connect-src restrictions don't apply here) rather than
+      // losing the lead entirely.
+      console.error('SMTP send failed, falling back to Formspree:', smtpError)
+
+      const fallbackResponse = await fetch('https://formspree.io/f/mzzoebvz', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json', Accept: 'application/json' },
+        body: JSON.stringify({
+          _subject: `New demo lead: ${clientName} - "${demoName}"`,
+          demoName,
+          demoPackage,
+          demoUrl: `https://www.stephenscode.dev/demos/${demoSlug}`,
+          clientName,
+          clientPhone,
+          clientEmail: clientEmail || 'Not provided',
+          service: service || 'General inquiry',
+          preferredDate: preferredDate || 'Not specified',
+          preferredTime: preferredTime || 'Not specified',
+          notes: notes || '',
+        }),
       })
+
+      if (!fallbackResponse.ok) {
+        throw new Error(`Formspree fallback failed with status ${fallbackResponse.status}`)
+      }
+
+      return NextResponse.json({
+        message: 'Lead captured successfully',
+        success: true
+      }, { status: 200 })
     }
-
-    return NextResponse.json({
-      message: 'Lead captured successfully',
-      success: true
-    }, { status: 200 })
-
   } catch (error) {
     console.error('Demo lead capture error:', error)
     return NextResponse.json({

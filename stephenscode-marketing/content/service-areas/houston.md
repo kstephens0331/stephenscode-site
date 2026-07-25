@@ -213,10 +213,10 @@ Building websites for Houston businesses requires understanding local factors:
 Big Houston agencies charge big Houston prices, often $10,000+ for a basic business website. We charge fairly:
 
 - **Plug and Play (4 pages)**: $250
-- **Standard Site (8-12 pages)**: $850
-- **Website Rebuild**: $600
+- **Standard Site (8-12 pages)**: $950
+- **Website Rebuild**: $350
 - **E-Commerce Store**: $1,100
-- **Premium Custom Platform**: Starting at $2,500
+- **Premium Custom Platform**: Starting at $2,000
 
 These aren't "introductory" prices or "starting at" estimates that balloon later. These are the actual prices for complete websites including design, development, SEO optimization, mobile responsiveness, and 30 days of support.
 

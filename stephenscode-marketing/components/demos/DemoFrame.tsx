@@ -51,9 +51,21 @@ interface DemoFrameProps {
   demo: Demo
 }
 
+// These showcase demos illustrate the interface/data model but don't have every
+// action wired to a working handler yet -- the instructions banner should say so
+// rather than claim "Everything works!"
+const INTERFACE_PREVIEW_ONLY_SLUGS = new Set([
+  'analytics-dashboard-showcase',
+  'membership-portal-showcase',
+  'crm-system-showcase',
+  'inventory-management-showcase',
+  'workflow-automation-showcase',
+])
+
 export default function DemoFrame({ demo }: DemoFrameProps) {
   const [showInstructions, setShowInstructions] = useState(true)
   const [viewMode, setViewMode] = useState<'customer' | 'admin'>('customer')
+  const isInterfacePreviewOnly = INTERFACE_PREVIEW_ONLY_SLUGS.has(demo.slug)
 
   useEffect(() => {
     // Initialize localStorage for this demo
@@ -278,9 +290,15 @@ export default function DemoFrame({ demo }: DemoFrameProps) {
             <div className="flex items-start gap-4">
               <div className="text-3xl">💡</div>
               <div className="flex-1">
-                <h3 className="font-bold text-primary-300 mb-2">This is a Fully Interactive Demo</h3>
+                <h3 className="font-bold text-primary-300 mb-2">
+                  {isInterfacePreviewOnly ? 'This is an Interface Preview' : 'This is a Fully Interactive Demo'}
+                </h3>
                 <ul className="text-sm text-gray-300 space-y-1">
-                  <li>• Click around, fill out forms, and test all features. Everything works!</li>
+                  {isInterfacePreviewOnly ? (
+                    <li>• Explore the layout and navigation. This preview shows the interface design; the underlying actions (saving, exporting, workflow execution) are illustrative and not wired up in this demo.</li>
+                  ) : (
+                    <li>• Click around, fill out forms, and test all features. Everything works!</li>
+                  )}
                   <li>• Switch between <strong>Customer View</strong> (what your clients see) and <strong>Admin Dashboard</strong> (your control panel)</li>
                   <li>• All data is stored locally and will be cleared when you close this tab</li>
                   <li>• Resize your browser to see the responsive mobile design</li>

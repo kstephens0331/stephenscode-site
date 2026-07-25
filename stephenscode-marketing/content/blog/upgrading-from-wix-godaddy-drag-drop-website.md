@@ -49,7 +49,7 @@ Template builders are notoriously slow because:
 - Their servers are shared with millions of other sites
 - Every "feature" adds more bloat
 
-I recently audited a Wix site for a Houston contractor. It took 7.8 seconds to fully load. Their competitor's custom site? 1.9 seconds. Guess who gets more calls.
+It's common to see Wix sites for local service businesses taking 6-8 seconds to fully load, while a well-built custom site loads in under 2 seconds. That gap directly affects who gets the call when a customer is comparing you to a competitor.
 
 ### 2. You're Paying More Than You Expected
 
@@ -70,7 +70,7 @@ Add it up over 3 years:
 | Squarespace | $40-65/month | $1,440-2,340 |
 | GoDaddy | $35-60/month | $1,260-2,160 |
 
-Meanwhile, a custom website might cost $850-1,500 upfront with optional hosting around $20-50/month. Over 3 years, you often pay LESS for a custom site, and you actually own it.
+Meanwhile, a custom website starts at $250 and a full Standard Website runs $950 upfront, with optional hosting around $20-50/month. Over 3 years, you often pay LESS for a custom site, and you actually own it.
 
 ### 3. Your Site Looks Like Everyone Else's
 
@@ -92,7 +92,7 @@ Template builders limit your SEO in frustrating ways:
 - **Limited header tag customization**
 - **Cookie-cutter meta descriptions**
 
-I've helped dozens of businesses improve their Google rankings simply by moving to a custom platform. One Conroe restaurant jumped from page 4 to page 1 within 90 days after we rebuilt their Squarespace site.
+Moving off a template platform and onto a properly optimized custom site is one of the most reliable ways to improve local search rankings within a few months, simply because you finally have control over the technical SEO elements that matter.
 
 ### 5. You Can't Get the Layout You Need
 
@@ -264,13 +264,13 @@ Here's my honest assessment of when to upgrade vs. when to stay:
 
 Let me be transparent about custom website pricing:
 
-**Website Rebuild** (migrating from template builder): **$600**
+**Website Rebuild** (migrating from template builder): **$350**
 - Same content, new custom design
 - SEO preserved and enhanced
 - Fast, mobile-first development
-- 30 days of support
+- 90 days of post-launch support
 
-**Standard Website** (8-12 pages, more features): **$850**
+**Standard Website** (custom small-business site, more features): **$950**
 - Custom design from scratch
 - Full SEO optimization
 - Contact forms and lead capture

@@ -271,10 +271,10 @@ Sugar Land businesses need websites that match their market's sophistication, bu
 
 **Our pricing:**
 - Plug and Play (4 pages): $250
-- Standard Site (8-12 pages): $850
-- Website Rebuild: $600
+- Standard Site (8-12 pages): $950
+- Website Rebuild: $350
 - E-Commerce Store: $1,100
-- Premium Custom: Starting at $2,500
+- Premium Custom: Starting at $2,000
 
 **What you get:**
 - Custom design (not templates)

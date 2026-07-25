@@ -355,8 +355,8 @@ export const basicAddOns: Service[] = [
     name: 'SEO Boost',
     slug: 'seo-boost',
     category: 'addon-basic',
-    price: 1000,
-    priceLabel: '$1,000',
+    price: 250,
+    priceLabel: '$250/mo',
     shortDescription: 'Ongoing SEO optimization, backlink building, and website performance monitoring ($250/mo)',
     longDescription: `SEO optimization and boost is not a one-time solution. This is an ongoing service that requires continuous monitoring, backlink creation, and SEO optimization of your current website to maintain and improve your search engine rankings over time.
 
@@ -1567,7 +1567,7 @@ export const advancedAddOns: Service[] = [
     slug: 'system-connector',
     category: 'addon-advanced',
     price: 1000,
-    priceLabel: '$120',
+    priceLabel: '$1,000',
     shortDescription: 'Connect your website to accounting, CRM, or other business software',
     longDescription: `Break down data silos and automate workflows by connecting your website to your existing business systems. The System Connector add-on creates seamless integrations between your website and popular business software like QuickBooks, Salesforce, HubSpot, Mailchimp, Zapier, and hundreds of other platforms. Stop manually copying data between systems and let automation handle the tedious work while reducing errors and saving hours every week.
 
@@ -1628,8 +1628,8 @@ export const advancedAddOns: Service[] = [
     ],
     timeline: '4-6 days',
     seoKeywords: ['QuickBooks integration Houston', 'CRM integration Texas', 'business software integration Conroe', 'API integration'],
-    metaTitle: 'System Connector | $120',
-    metaDescription: 'Connect your website to QuickBooks, Salesforce, Mailchimp, and more. Automate data sync and eliminate manual entry. $120 flat rate. Houston & Conroe.',
+    metaTitle: 'System Connector | $1,000',
+    metaDescription: 'Connect your website to QuickBooks, Salesforce, Mailchimp, and more. Automate data sync and eliminate manual entry. $1,000 flat rate. Houston & Conroe.',
   },
   {
     id: 'analytics-dashboard',

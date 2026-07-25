@@ -73,7 +73,7 @@ export default function Footer() {
             </div>
 
             <p className="text-sm leading-6 text-gray-300">
-              Veteran-owned web development company specializing in custom websites, API integration, web scraping, and business automation. 14+ years experience, 2,600+ projects completed.
+              Veteran-owned web development company specializing in custom websites, API integration, web scraping, and business automation. 14+ years experience, 200+ projects completed.
             </p>
 
             {/* Business Signature */}

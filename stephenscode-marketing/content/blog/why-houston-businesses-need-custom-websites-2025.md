@@ -22,13 +22,13 @@ Let me explain why custom websites aren't just better. They're essential for gro
 
 ### 1. The Identity Crisis: Everyone Looks the Same
 
-When you use a template, you're using the same design as thousands of other businesses. I recently searched "plumber website" and found the same Wix template used by 47 different plumbing companies, including three in the Houston metro area.
+When you use a template, you're using the same design as thousands of other businesses. Search for almost any local service category and you'll find the same handful of popular Wix or Squarespace templates reused across dozens of competing businesses, sometimes several in the same metro area.
 
 Your potential customers can't tell you apart from your competitors. In a market as competitive as Houston, with over 2.3 million residents and hundreds of thousands of businesses, standing out is everything.
 
 **The result?** Customers pick based on price alone because they can't see what makes you different. You're forced into a race to the bottom instead of competing on quality and service.
 
-**Real-world impact:** A Katy landscaping company told me they were getting beat on every bid despite having 15 years more experience than competitors. After auditing their Squarespace site, I found it was virtually identical to their main competitor's: same layout, same stock photos, same generic copy. Customers literally couldn't tell them apart.
+**A common pattern we see:** A business owner is convinced they're losing bids purely on price, but when we audit their site, it turns out to be nearly identical to a direct competitor's: same layout, same stock photos, same generic copy. Customers genuinely can't tell them apart.
 
 ### 2. SEO Limitations That Kill Your Visibility
 
@@ -126,7 +126,7 @@ Custom websites are built with SEO baked in from day one. Clean code, fast loadi
 - **Core Web Vitals:** Pass Google's user experience metrics
 - **Mobile-first design:** Optimized for 70%+ of Houston traffic
 
-**Real result:** One Conroe contractor went from 2-3 leads per month to 15-20 per month after switching from Wix to a custom site. That's a 600% increase in lead generation from the same marketing spend.
+Getting these fundamentals right is what separates a site that ranks from one that doesn't, and it's the single biggest lever most template-site owners are leaving untouched.
 
 ### 3. True Scalability: Grows With Your Business
 
@@ -200,9 +200,9 @@ The old model was agencies charging $10,000-$25,000 for basic websites because t
 
 ### Transparent, Flat-Rate Pricing
 
-- **Plug and Play:** $250 for a 4-page site (perfect for starting out)
-- **Standard Website:** $850 for a professional 8-12 page site
-- **Website Rebuild:** $600 to transform your existing site
+- **Plug and Play:** $250 for a fast-turnaround starter site (perfect for starting out)
+- **Standard Website:** $950 for a professional custom small-business site
+- **Website Rebuild:** $350 to modernize your existing site
 - **E-Commerce:** $1,100 for a full online store
 
 ### The Math That Matters
@@ -287,36 +287,23 @@ Generic, one-size-fits-all sites don't cut it anymore. Customers expect experien
    - Can meet in person if needed
    - Accountable to the local community
 
-## Case Study: Template to Custom Transformation
+## Illustrative Example: How the ROI Math Works
 
-**Client:** Local HVAC company in Conroe, TX
+This is a hypothetical model, not a specific client result, but it's a realistic way to think about the numbers for a service business like an HVAC company.
 
-**Before:**
-- Squarespace template
-- $35/month for 3 years ($1,260 total)
-- 8-second load time
-- Page 4 ranking for "HVAC repair Conroe"
-- 5 leads per month
+**Starting point (typical template-site symptoms):**
+- Slow load time (5+ seconds is common on template platforms)
+- Buried in search results for the business's core service + city
+- Few leads relative to search volume
 - No online booking capability
 
-**After:**
-- Custom $850 website with booking add-on ($90)
-- 1.8-second load time
-- Page 1 ranking within 60 days
-- 28 leads per month
-- 60% reduction in phone calls (customers book online)
-- Complete ownership of site and data
+**After moving to a custom site with booking built in:**
+- Sub-2-second load time
+- Improved search ranking over the following weeks as SEO fundamentals take effect
+- More monthly leads from the same traffic, simply because the site converts better
+- Fewer phone calls tied up on basic scheduling because customers can book online
 
-**ROI Calculation:**
-- 23 additional leads per month
-- 40% close rate = 9 new customers
-- Average job value: $450
-- Monthly revenue increase: $4,050
-- Annual revenue increase: $48,600
-- Website cost: $940
-- **ROI: 5,070%**
-
-The site paid for itself in the first week.
+**A simple way to model ROI:** take your average job value, multiply by your close rate, multiply by the number of additional leads per month a better-converting site could realistically generate for your traffic level, and compare that monthly number to a one-time website cost. For most service businesses, even a modest lift in lead volume pays for a Standard Website ($950) well within the first few months.
 
 ## The Bottom Line
 

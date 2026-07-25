@@ -3,8 +3,8 @@ import type { Metadata } from 'next'
 import Breadcrumbs from '@/components/Breadcrumbs'
 
 export const metadata: Metadata = {
-  title: 'Conroe Web Developer | Flat-Rate Small Business Websites from $850',
-  description: 'Conroe web developer serving Houston and The Woodlands. Veteran owned, flat-rate small business websites from $850. Custom websites for small business. Call (936) 323-4527.',
+  title: 'Conroe Web Developer | Flat-Rate Small Business Websites from $250',
+  description: 'Conroe web developer serving Houston and The Woodlands. Veteran owned, flat-rate small business websites from $250. Custom websites for small business. Call (936) 323-4527.',
   keywords: [
     'Conroe web developer',
     'Houston web development',
@@ -20,7 +20,7 @@ export const metadata: Metadata = {
   },
   openGraph: {
     title: 'Conroe Web Developer | Custom Websites for Local Businesses',
-    description: 'Local Conroe web developer. Veteran-owned, 14+ years experience, 2,600+ projects completed.',
+    description: 'Local Conroe web developer. Veteran-owned, 14+ years experience, 200+ projects completed.',
     type: 'website',
   },
 }
@@ -262,7 +262,7 @@ export default function ConroeWebDevelopment() {
             </h1>
 
             <p className="text-xl leading-8 text-gray-200 mb-8">
-              Need a website that actually generates leads for your Conroe business? You've found your local web developer. Based right here in Montgomery County, I've spent 14+ years building websites that help local businesses grow. With 2,600+ completed projects, I understand what Conroe and Houston-area businesses need to succeed online.
+              Need a website that actually generates leads for your Conroe business? You've found your local web developer. Based right here in Montgomery County, I've spent 14+ years building websites that help local businesses grow. With 200+ completed projects, I understand what Conroe and Houston-area businesses need to succeed online.
             </p>
 
             <div className="flex flex-wrap items-center gap-6 mb-10">
@@ -272,7 +272,7 @@ export default function ConroeWebDevelopment() {
               </div>
               <div className="rounded-2xl bg-surface-card/60 px-6 py-4 border border-surface-border">
                 <span className="block text-sm text-gray-200">Projects Completed</span>
-                <span className="text-3xl font-bold text-white">2,600+</span>
+                <span className="text-3xl font-bold text-white">200+</span>
               </div>
               <div className="rounded-2xl bg-surface-card/60 px-6 py-4 border border-surface-border">
                 <span className="block text-sm text-gray-200">Experience</span>
@@ -453,7 +453,7 @@ export default function ConroeWebDevelopment() {
                   </div>
                   <div className="flex justify-between items-center pb-4 border-b border-surface-border">
                     <span className="font-semibold">Standard Custom Website</span>
-                    <span className="text-primary-600 font-bold">$850</span>
+                    <span className="text-primary-600 font-bold">$950</span>
                   </div>
                   <div className="flex justify-between items-center pb-4 border-b border-surface-border">
                     <span className="font-semibold">E-Commerce Website</span>

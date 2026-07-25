@@ -18,11 +18,12 @@
 Custom website development for small businesses with flat-rate, transparent pricing.
 
 **Website Tiers (all include 90 days post-launch support):**
-- Starter: $250 (3-4 page flyer site: brand-new businesses that just need to exist online)
-- Basic: $500 (5-7 page campaign or landing site with lead form)
-- Standard: $950 (8-12 page small-business website with CMS, SEO foundation, GA4. This is the typical entry tier for most small businesses)
-- Advanced: $2,000 (custom full-stack site with admin portal, KPI dashboard, CMS)
-- Business System: $5,000 (CRM + customer/staff portals + booking + Stripe + automation + dashboards + integrations. Replaces agencies and multiple SaaS subscriptions)
+- Plug and Play: $250 (fast-turnaround starter site for brand-new businesses that just need to exist online)
+- Website Rebuild: $350 (modernize an existing outdated or template-based website)
+- Standard Website: $950 (custom small-business website with SEO foundation, GA4. The typical entry tier for most small businesses)
+- E-Commerce Website: $1,100 (online store with product catalog, cart, and secure checkout)
+- Premium Build: $2,000 (custom full-stack site with admin portal and analytics dashboard, up to 15 pages)
+- Custom Business Platform: $5,000 (CRM + customer/staff portals + booking + Stripe + automation + dashboards + integrations. Replaces agencies and multiple SaaS subscriptions)
 - Enterprise Platform: $7,500+ (multi-tenant, SSO, audit logs, workflow builder, CI/staging, roadmap workshop)
 
 **Above the catalog:** custom SaaS Phase 1 builds, profit-share platforms, and custom products are scoped and quoted as flat-rate projects. No hourly billing.
@@ -102,7 +103,7 @@ Remote services available nationwide.
 ## Frequently Asked Questions
 
 **Q: How much does a custom website cost?**
-A: StephensCode has six flat-rate website tiers, all with 90 days of post-launch support. Starter is $250 (3-4 page flyer for brand-new businesses). Basic is $500 (campaign or landing site). Standard is $950 (full 8-12 page small-business website with CMS, the typical entry tier). Advanced is $2,000 (custom full-stack with admin portal and KPI dashboard). Business System is $5,000 (CRM + portals + booking + payments + automation). Enterprise Platform starts at $7,500 (multi-tenant, SSO, audit logs, workflow builder). Custom SaaS and platform builds are quoted as flat-rate projects above the catalog.
+A: StephensCode has flat-rate website tiers, all with 90 days of post-launch support. Plug and Play is $250 (fast-turnaround starter site for brand-new businesses). Website Rebuild is $350 (modernize an existing site). Standard Website is $950 (full custom small-business website, the typical entry tier). E-Commerce Website is $1,100 (online store with cart and checkout). Premium Build is $2,000 (custom full-stack with admin portal and analytics dashboard). Custom Business Platform is $5,000 (CRM + portals + booking + payments + automation). Enterprise Platform starts at $7,500 (multi-tenant, SSO, audit logs, workflow builder). Custom SaaS and platform builds are quoted as flat-rate projects above the catalog.
 
 **Q: Do you provide IT support in Houston?**
 A: Yes, we provide on-site and remote IT support throughout the Houston area with same-day response for critical issues.

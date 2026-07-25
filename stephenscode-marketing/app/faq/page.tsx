@@ -3,7 +3,7 @@ import Link from 'next/link'
 
 export const metadata: Metadata = {
   title: 'FAQ | Conroe Web Developer Questions | Affordable Web Design',
-  description: 'FAQ about Conroe web developer services. Custom website Houston pricing, small business website Texas cost. Veteran owned, flat-rate small business websites from $850.',
+  description: 'FAQ about Conroe web developer services. Custom website Houston pricing, small business website Texas cost. Veteran owned, flat-rate small business websites from $250.',
   keywords: [
     'Conroe web developer',
     'Houston web development',
@@ -15,7 +15,7 @@ export const metadata: Metadata = {
   ],
   openGraph: {
     title: 'FAQ | Conroe Web Developer Questions | Affordable Web Design',
-    description: 'FAQ about Conroe web developer services. Custom website Houston pricing, small business website Texas cost. Veteran owned, flat-rate small business websites from $850.',
+    description: 'FAQ about Conroe web developer services. Custom website Houston pricing, small business website Texas cost. Veteran owned, flat-rate small business websites from $250.',
     url: 'https://www.stephenscode.dev/faq',
     type: 'website',
   },
@@ -35,7 +35,7 @@ const faqs: FAQItem[] = [
   {
     category: 'Pricing & Costs',
     question: 'How much does a custom website cost?',
-    answer: 'Six flat-rate tiers, all with 90 days of post-launch support. Starter $250 (3-4 page flyer for brand-new businesses). Basic $500 (campaign or landing site). Standard $950 (full 8-12 page small-business website with CMS, the typical entry tier). Advanced $2,000 (custom full-stack with admin portal + KPI dashboard). Business System $5,000 (CRM + portals + booking + payments + automation + integrations). Enterprise Platform $7,500+ (multi-tenant + SSO + audit logs + workflow builder). Custom SaaS and platform builds are quoted as flat-rate projects above the catalog. No hidden fees, no hourly billing.'
+    answer: 'Flat-rate tiers, all with 90 days of post-launch support. Plug and Play $250 (fast-turnaround starter site for brand-new businesses). Website Rebuild $350 (modernize an existing site). Standard Website $950 (full custom small-business website, the typical entry tier). E-Commerce Website $1,100 (online store with cart and checkout). Premium Build $2,000 (custom full-stack site with admin portal and analytics dashboard). Custom Business Platform $5,000 (CRM, portals, booking, payments, automation, integrations). Enterprise Platform $7,500+ (multi-tenant, SSO, audit logs, workflow builder). No hidden fees, no hourly billing.'
   },
   {
     category: 'Pricing & Costs',
@@ -163,7 +163,7 @@ const faqs: FAQItem[] = [
   {
     category: 'Custom vs Template',
     question: 'Can you rebuild my existing Wix/Squarespace/WordPress site?',
-    answer: 'Yes! Our Website Rebuild package ($600) is specifically for this. We\'ll migrate your content to a fast, custom-built site while improving design and SEO. Many clients see immediate ranking improvements after switching.'
+    answer: 'Yes! Our Website Rebuild package ($350) is specifically for this. We\'ll migrate your content to a fast, custom-built site while improving design and SEO. Many clients see immediate ranking improvements after switching.'
   },
   {
     category: 'Custom vs Template',

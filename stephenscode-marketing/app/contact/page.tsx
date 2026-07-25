@@ -4,7 +4,7 @@ import ContactForm from '@/components/ContactForm'
 
 export const metadata: Metadata = {
   title: 'Contact Conroe Web Developer | Free Quote | Houston TX',
-  description: 'Contact veteran owned web developer for free quote. Flat-rate small business websites from $850. Custom websites for small business. Call (936) 323-4527.',
+  description: 'Contact veteran owned web developer for free quote. Flat-rate small business websites from $250. Custom websites for small business. Call (936) 323-4527.',
   keywords: [
     'Conroe web developer',
     'Houston web development',
@@ -16,7 +16,7 @@ export const metadata: Metadata = {
   ],
   openGraph: {
     title: 'Contact Conroe Web Developer | Free Quote | Houston TX',
-    description: 'Contact veteran owned web developer for free quote. Flat-rate small business websites from $850. Custom websites for small business.',
+    description: 'Contact veteran owned web developer for free quote. Flat-rate small business websites from $250. Custom websites for small business.',
     url: 'https://www.stephenscode.dev/contact',
     type: 'website',
   },
@@ -25,75 +25,8 @@ export const metadata: Metadata = {
   },
 }
 
-// LocalBusiness schema with complete contact information
-const localBusinessSchema = {
-  "@context": "https://schema.org",
-  "@type": "LocalBusiness",
-  "@id": "https://www.stephenscode.dev/#organization",
-  "name": "StephensCode LLC",
-  "description": "Professional web development and digital solutions for businesses in Houston, Conroe, and throughout Texas.",
-  "url": "https://www.stephenscode.dev",
-  "telephone": "+1-936-323-4527",
-  "email": "kyle@stephenscode.dev",
-  "address": {
-    "@type": "PostalAddress",
-    "streetAddress": "2378 Strong Horse Dr",
-    "addressLocality": "Conroe",
-    "addressRegion": "TX",
-    "postalCode": "77301",
-    "addressCountry": "US"
-  },
-  "geo": {
-    "@type": "GeoCoordinates",
-    "latitude": 30.3119,
-    "longitude": -95.4560
-  },
-  "areaServed": [
-    {
-      "@type": "City",
-      "name": "Houston",
-      "containedIn": {
-        "@type": "State",
-        "name": "Texas"
-      }
-    },
-    {
-      "@type": "City",
-      "name": "Conroe",
-      "containedIn": {
-        "@type": "State",
-        "name": "Texas"
-      }
-    },
-    {
-      "@type": "City",
-      "name": "The Woodlands",
-      "containedIn": {
-        "@type": "State",
-        "name": "Texas"
-      }
-    }
-  ],
-  "openingHoursSpecification": [
-    {
-      "@type": "OpeningHoursSpecification",
-      "dayOfWeek": [
-        "Monday",
-        "Tuesday",
-        "Wednesday",
-        "Thursday",
-        "Friday"
-      ],
-      "opens": "09:00",
-      "closes": "18:00"
-    }
-  ],
-  "priceRange": "$250-$7500",
-  "sameAs": [
-    "https://www.facebook.com/stephenscode",
-    "https://www.linkedin.com/company/stephenscode"
-  ]
-}
+// NOTE: Organization/LocalBusiness schema already renders sitewide via
+// components/LocalBusinessSchema.tsx (app/layout.tsx) -- no page-local copy here.
 
 const faqSchema = {
   "@context": "https://schema.org",
@@ -146,10 +79,6 @@ export default function ContactPage() {
   return (
     <>
       {/* Schema Markup */}
-      <script
-        type="application/ld+json"
-        dangerouslySetInnerHTML={{ __html: JSON.stringify(localBusinessSchema) }}
-      />
       <script
         type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: JSON.stringify(faqSchema) }}
@@ -300,12 +229,12 @@ export default function ContactPage() {
                   </div>
                   <div className="flex-grow">
                     <div className="font-semibold text-white mb-1">Location</div>
-                    <div className="text-lg font-bold text-white">Conroe, TX 77304</div>
+                    <div className="text-lg font-bold text-white">Conroe, TX 77301</div>
                     <div className="text-sm text-gray-400 mt-1">
                       Serving Houston, Conroe, The Woodlands & all of Texas
                     </div>
                     <a
-                      href="https://www.google.com/maps/dir//Conroe+TX+77304"
+                      href="https://www.google.com/maps/dir//Conroe+TX+77301"
                       target="_blank"
                       rel="noopener noreferrer"
                       className="inline-flex items-center gap-1 text-sm font-semibold text-primary-600 hover:text-primary-400 mt-2"
@@ -322,7 +251,7 @@ export default function ContactPage() {
               {/* Google Maps */}
               <div className="mt-8 rounded-2xl overflow-hidden border-2 border-surface-border shadow-lg shadow-black/20">
                 <iframe
-                  src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d110684.96908!2d-95.5560!3d30.3119!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x864731e2f73c2a15%3A0xc6e5b1e2d9e8c!2sConroe%2C%20TX%2077304!5e0!3m2!1sen!2sus!4v1234567890"
+                  src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d110684.96908!2d-95.5560!3d30.3119!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x864731e2f73c2a15%3A0xc6e5b1e2d9e8c!2sConroe%2C%20TX%2077301!5e0!3m2!1sen!2sus!4v1234567890"
                   width="100%"
                   height="300"
                   style={{ border: 0 }}

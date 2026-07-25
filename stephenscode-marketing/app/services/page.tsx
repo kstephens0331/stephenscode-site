@@ -4,8 +4,8 @@ import { corePackages, premiumBuilds } from '@/lib/services-data'
 import { allAddOns } from '@/lib/addons-data'
 
 export const metadata: Metadata = {
-  title: 'Houston Web Development | Flat-Rate Web Design from $850',
-  description: 'Conroe web developer offering custom websites for small business. Flat-rate small business websites from $850. Veteran owned, 14+ years exp. Free quote: (936) 323-4527.',
+  title: 'Houston Web Development | Flat-Rate Web Design from $250',
+  description: 'Conroe web developer offering custom websites for small business. Flat-rate small business websites from $250. Veteran owned, 14+ years exp. Free quote: (936) 323-4527.',
   alternates: {
     canonical: '/services',
   },
@@ -28,7 +28,7 @@ export const metadata: Metadata = {
     'Montgomery County web developer',
   ],
   openGraph: {
-    title: 'Houston Web Design | Flat-Rate Custom Websites from $850',
+    title: 'Houston Web Design | Flat-Rate Custom Websites from $250',
     description: 'Get a professional website built in 1-2 weeks. Flat-rate pricing, no hidden fees. Veteran-owned.',
     url: 'https://www.stephenscode.dev/services',
   },
@@ -123,7 +123,7 @@ export default function ServicesPage() {
       title: 'Transparent Flat-Rate Pricing',
       description: 'Know exactly what you\'ll pay before we start. No hourly rates, no surprise bills, no hidden fees.',
       icon: '💰',
-      stats: 'Sites from $850+'
+      stats: 'Sites from $250+'
     },
     {
       title: 'Fast Turnaround Time',
@@ -220,7 +220,7 @@ export default function ServicesPage() {
             </h1>
 
             <p className="mt-8 text-xl leading-8 text-gray-100 max-w-3xl mx-auto">
-              Conroe web developer offering flat-rate small business websites from $850. Affordable web design for Houston, The Woodlands, and Montgomery County. <strong className="text-white">Veteran owned web developer</strong> with transparent pricing. No hourly rates, no surprises.
+              Conroe web developer offering flat-rate small business websites from $250. Affordable web design for Houston, The Woodlands, and Montgomery County. <strong className="text-white">Veteran owned web developer</strong> with transparent pricing. No hourly rates, no surprises.
             </p>
 
             <div className="mt-12 flex flex-wrap items-center justify-center gap-4">
@@ -458,7 +458,7 @@ export default function ServicesPage() {
               },
               {
                 question: "Can you redesign my existing website?",
-                answer: "Absolutely. Our Website Rebuild package ($600) is specifically designed for businesses with outdated websites. We'll modernize your design, improve performance, enhance SEO, and ensure mobile responsiveness while preserving your brand identity."
+                answer: "Absolutely. Our Website Rebuild package ($350) is specifically designed for businesses with outdated websites. We'll modernize your design, improve performance, enhance SEO, and ensure mobile responsiveness while preserving your brand identity."
               },
               {
                 question: "What's included in the price?",

@@ -214,7 +214,7 @@ We're not the only web developer serving The Woodlands, so why choose us?
 
 **Modern Technology**: We build with Next.js, not outdated WordPress themes. Your site will be fast, secure, and built to modern standards.
 
-**Flat-Rate Pricing**: No hourly billing surprises. You know exactly what you'll pay before we start: $250 for basic sites, $850 for standard, $1,100 for e-commerce.
+**Flat-Rate Pricing**: No hourly billing surprises. You know exactly what you'll pay before we start: $250 for basic sites, $950 for standard, $1,100 for e-commerce.
 
 **Veteran-Owned Values**: As a Marine Corps veteran, I bring discipline, integrity, and accountability to every project. I do what I say I'll do.
 

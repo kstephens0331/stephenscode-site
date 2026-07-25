@@ -70,6 +70,36 @@ const TechProManufacturing = () => {
   const [selectedFacility, setSelectedFacility] = useState('all');
   const [dateRange, setDateRange] = useState('30days');
   const [searchTerm, setSearchTerm] = useState('');
+  const [contactSubmitted, setContactSubmitted] = useState(false);
+
+  const handleContactSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
+    e.preventDefault();
+    const data = new FormData(e.currentTarget);
+    try {
+      const response = await fetch('/api/demo-lead', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({
+          demoName: 'TechPro Manufacturing',
+          demoSlug: 'techpro-manufacturing',
+          clientName: data.get('name'),
+          clientEmail: data.get('email'),
+          service: `${data.get('department')} (${data.get('company')})`,
+          notes: data.get('message'),
+        }),
+      });
+      if (response.ok) {
+        setContactSubmitted(true);
+        e.currentTarget.reset();
+        setTimeout(() => setContactSubmitted(false), 4000);
+      } else {
+        alert('There was an issue sending your message. Please try again.');
+      }
+    } catch (error) {
+      console.error('Contact form error:', error);
+      alert('There was an issue sending your message. Please try again.');
+    }
+  };
 
   // Sample Data
   const products: Product[] = [
@@ -1444,62 +1474,77 @@ const TechProManufacturing = () => {
           <div className="lg:col-span-2">
             <div className="bg-[#0b090a] rounded-lg shadow-xl p-8 border border-gray-800">
               <h2 className="text-2xl font-bold text-white mb-6">Send a Message</h2>
-              <form className="space-y-4">
-                <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+              {contactSubmitted ? (
+                <div className="text-center py-10">
+                  <div className="text-4xl mb-3 text-white">✓</div>
+                  <p className="text-lg font-semibold text-white">Message sent!</p>
+                  <p className="text-gray-400 mt-2">We'll get back to you soon.</p>
+                </div>
+              ) : (
+                <form className="space-y-4" onSubmit={handleContactSubmit}>
+                  <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+                    <div>
+                      <label className="block text-sm font-semibold text-gray-300 mb-2">Name</label>
+                      <input
+                        type="text"
+                        name="name"
+                        required
+                        className="w-full px-4 py-3 bg-[#161a1d] border border-gray-700 rounded-lg text-white focus:ring-2 focus:ring-[#ba181b] focus:border-transparent"
+                        placeholder="Your name"
+                      />
+                    </div>
+                    <div>
+                      <label className="block text-sm font-semibold text-gray-300 mb-2">Company</label>
+                      <input
+                        type="text"
+                        name="company"
+                        className="w-full px-4 py-3 bg-[#161a1d] border border-gray-700 rounded-lg text-white focus:ring-2 focus:ring-[#ba181b] focus:border-transparent"
+                        placeholder="Company name"
+                      />
+                    </div>
+                  </div>
+
                   <div>
-                    <label className="block text-sm font-semibold text-gray-300 mb-2">Name</label>
+                    <label className="block text-sm font-semibold text-gray-300 mb-2">Email</label>
                     <input
-                      type="text"
+                      type="email"
+                      name="email"
+                      required
                       className="w-full px-4 py-3 bg-[#161a1d] border border-gray-700 rounded-lg text-white focus:ring-2 focus:ring-[#ba181b] focus:border-transparent"
-                      placeholder="Your name"
+                      placeholder="your@email.com"
                     />
                   </div>
+
                   <div>
-                    <label className="block text-sm font-semibold text-gray-300 mb-2">Company</label>
-                    <input
-                      type="text"
-                      className="w-full px-4 py-3 bg-[#161a1d] border border-gray-700 rounded-lg text-white focus:ring-2 focus:ring-[#ba181b] focus:border-transparent"
-                      placeholder="Company name"
-                    />
+                    <label className="block text-sm font-semibold text-gray-300 mb-2">Department</label>
+                    <select name="department" className="w-full px-4 py-3 bg-[#161a1d] border border-gray-700 rounded-lg text-white focus:ring-2 focus:ring-[#ba181b] focus:border-transparent">
+                      <option>Sales Inquiry</option>
+                      <option>Technical Support</option>
+                      <option>Quality Assurance</option>
+                      <option>Supplier Relations</option>
+                      <option>General Information</option>
+                    </select>
                   </div>
-                </div>
 
-                <div>
-                  <label className="block text-sm font-semibold text-gray-300 mb-2">Email</label>
-                  <input
-                    type="email"
-                    className="w-full px-4 py-3 bg-[#161a1d] border border-gray-700 rounded-lg text-white focus:ring-2 focus:ring-[#ba181b] focus:border-transparent"
-                    placeholder="your@email.com"
-                  />
-                </div>
+                  <div>
+                    <label className="block text-sm font-semibold text-gray-300 mb-2">Message</label>
+                    <textarea
+                      name="message"
+                      rows={6}
+                      required
+                      className="w-full px-4 py-3 bg-[#161a1d] border border-gray-700 rounded-lg text-white focus:ring-2 focus:ring-[#ba181b] focus:border-transparent"
+                      placeholder="How can we help you?"
+                    ></textarea>
+                  </div>
 
-                <div>
-                  <label className="block text-sm font-semibold text-gray-300 mb-2">Department</label>
-                  <select className="w-full px-4 py-3 bg-[#161a1d] border border-gray-700 rounded-lg text-white focus:ring-2 focus:ring-[#ba181b] focus:border-transparent">
-                    <option>Sales Inquiry</option>
-                    <option>Technical Support</option>
-                    <option>Quality Assurance</option>
-                    <option>Supplier Relations</option>
-                    <option>General Information</option>
-                  </select>
-                </div>
-
-                <div>
-                  <label className="block text-sm font-semibold text-gray-300 mb-2">Message</label>
-                  <textarea
-                    rows={6}
-                    className="w-full px-4 py-3 bg-[#161a1d] border border-gray-700 rounded-lg text-white focus:ring-2 focus:ring-[#ba181b] focus:border-transparent"
-                    placeholder="How can we help you?"
-                  ></textarea>
-                </div>
-
-                <button
-                  type="submit"
-                  className="w-full bg-[#ba181b] text-white px-6 py-4 rounded-lg font-bold text-lg hover:bg-red-700 transition-colors"
-                >
-                  Send Message
-                </button>
-              </form>
+                  <button
+                    type="submit"
+                    className="w-full bg-[#ba181b] text-white px-6 py-4 rounded-lg font-bold text-lg hover:bg-red-700 transition-colors"
+                  >
+                    Send Message
+                  </button>
+                </form>
+              )}
             </div>
           </div>
 
