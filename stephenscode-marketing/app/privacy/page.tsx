@@ -220,8 +220,9 @@ export default function Privacy() {
           </li>
           <li>
             <strong>Support, update, and module requests.</strong> Descriptions of the work
-            you&apos;re requesting, and any files you choose to upload, when you submit an
-            update request or module request through the customer portal.
+            you&apos;re requesting when you submit an update request or module request
+            through the customer portal, and any files you choose to upload with an update
+            request.
           </li>
           <li>
             <strong>Feedback.</strong> If you rate our service below five stars inside the
@@ -455,10 +456,12 @@ export default function Privacy() {
         <p>
           We implement administrative, technical, and physical safeguards designed to protect
           Personal Information from unauthorized access, use, disclosure, alteration, or
-          destruction, including access controls, encrypted transmission (TLS) for data sent
-          to and from the Services, and reliance on payment and infrastructure providers
-          &mdash; including Stripe, Google Cloud/Firebase, and Vercel &mdash; that maintain
-          their own security programs.
+          destruction, including encrypted transmission (TLS) for data sent to and from the
+          Services, and reliance on payment and infrastructure providers &mdash; including
+          Stripe, Google Cloud/Firebase, and Vercel &mdash; that maintain their own security
+          programs. Access controls governing who and what can read or write Personal
+          Information within our own systems are an active, ongoing part of this program, and
+          we continue to strengthen them as our infrastructure evolves.
         </p>
         <p>
           <strong>
