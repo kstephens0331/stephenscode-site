@@ -36,7 +36,7 @@ export default function About() {
   const stats = [
     { label: 'Years of Experience', value: '14+', icon: '📅' },
     { label: 'Projects Completed', value: '200+', icon: '🚀' },
-    { label: 'Happy Clients', value: '150+', icon: '😊' },
+    { label: 'Happy Clients', value: '200+', icon: '😊' },
   ]
 
   const values = [
@@ -199,7 +199,7 @@ export default function About() {
                 </p>
 
                 <p>
-                  What started as building simple websites for local contractors has grown into a full-service web development company serving <span className="font-bold text-white">150+ businesses</span> across Houston, Conroe, The Woodlands, and surrounding areas. We've built everything from $250 starter sites to $7,500 enterprise platforms, always with the same commitment to quality and transparency.
+                  What started as building simple websites for local contractors has grown into a full-service web development company serving <span className="font-bold text-white">200+ businesses</span> across Houston, Conroe, The Woodlands, and surrounding areas. We've built everything from $250 starter sites to $7,500 enterprise platforms, always with the same commitment to quality and transparency.
                 </p>
 
                 <p>
@@ -272,7 +272,7 @@ export default function About() {
               14+ Years of Growth
             </h2>
             <p className="mt-4 text-lg text-gray-400">
-              From humble beginnings to serving 150+ Houston businesses
+              From humble beginnings to serving 200+ Houston businesses
             </p>
           </div>
 

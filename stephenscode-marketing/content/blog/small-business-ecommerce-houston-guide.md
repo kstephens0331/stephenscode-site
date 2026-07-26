@@ -1,6 +1,6 @@
 ---
 title: "E-Commerce for Houston Small Businesses: A Practical Guide to Selling Online"
-date: "2025-01-27"
+date: "2025-12-01"
 author: "Kyle Stephens"
 excerpt: "Ready to sell online? Everything Houston small businesses need to know about e-commerce, payments, and shipping."
 category: "Business"
@@ -10,7 +10,7 @@ readTime: "15 min read"
 
 ## Why Houston Businesses Are Going Online
 
-The Houston retail landscape has changed dramatically. While big-box stores struggle, small businesses that embrace e-commerce are thriving, adding a genuinely new revenue channel and reaching customers well beyond their physical location.
+The [Houston](/service-areas/houston) retail landscape has changed dramatically. While big-box stores struggle, small businesses that embrace e-commerce are thriving, adding a genuinely new revenue channel and reaching customers well beyond their physical location.
 
 E-commerce isn't about replacing your physical presence. It's about extending it. Your store is open when you sleep. Customers can browse when it's convenient for them. And you're not limited to whoever happens to walk by.
 
@@ -272,6 +272,8 @@ Running out of stock loses sales. Overselling creates angry customers. Good inve
 - **Supplier management** for reordering
 - **Sales velocity reports** to predict demand
 
+Our [Inventory Management](/services/inventory-management) add-on covers real-time stock sync across channels if you'd rather not stitch this together yourself.
+
 ### Common Mistakes
 
 - **Not tracking inventory at all** (guessing stock levels)
@@ -391,7 +393,7 @@ Let's be realistic about investment:
 
 ### Website Development
 
-**Custom E-Commerce Site:** $1,100-2,500
+**[Custom E-Commerce Site](/services/ecommerce-website):** $1,100-2,500
 - Product catalog
 - Shopping cart
 - Payment processing

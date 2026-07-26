@@ -3,6 +3,7 @@
 import React, { useState } from 'react';
 import { motion } from 'framer-motion';
 import { Phone, Mail, MapPin, Clock, Send, CheckCircle } from 'lucide-react';
+import { trackEvent, trackConversion } from '@/lib/analytics';
 
 interface ContactPageProps {
   onNavigate: (page: string) => void;
@@ -45,6 +46,12 @@ export default function ContactPage({ onNavigate }: ContactPageProps) {
       });
 
       if (response.ok) {
+        trackEvent('generate_lead', {
+          form_name: 'demo_contact_form',
+          demo_slug: 'lens-light-photography',
+        });
+        trackConversion('leadForm');
+
         setSubmitSuccess(true);
         setFormData({
           name: '',

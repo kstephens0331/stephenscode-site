@@ -1,6 +1,6 @@
 ---
 title: "Mobile-First Web Design: Why It's Non-Negotiable in 2025"
-date: "2025-01-30"
+date: "2025-12-01"
 author: "Kyle Stephens"
 excerpt: "Over 70% of web traffic comes from mobile. Learn why mobile-first design is essential for SEO, conversions, and success in 2025."
 category: "Web Development"
@@ -10,7 +10,7 @@ readTime: "12 min read"
 
 ## The Mobile Reality Check
 
-Let me share something that still surprises many business owners I work with: **over 70% of all web traffic now comes from mobile devices.** In Houston specifically, that number climbs even higher, around 75% for local service searches.
+Let me share something that still surprises many business owners I work with: **over 70% of all web traffic now comes from mobile devices.** In [Houston](/service-areas/houston) specifically, that number climbs even higher, around 75% for local service searches.
 
 Yet I still see businesses launching new websites that look great on desktop but fall apart on mobile. They're literally invisible to three-quarters of their potential customers.
 
@@ -236,7 +236,7 @@ Emulators are helpful, but nothing beats testing on actual phones. Use at least:
 
 ## Building Mobile-First: The Process
 
-When I build a mobile-first site, here's the process:
+When I build a [mobile-first site](/services/standard-website), here's the process:
 
 ### 1. Content Priority
 
@@ -256,7 +256,7 @@ We design the mobile experience first:
 ### 3. Mobile Development
 
 We build the mobile site with:
-- Optimized images (WebP format, proper sizing)
+- [Optimized images](/services/image-optimizer) (WebP format, proper sizing)
 - Minimal JavaScript
 - Fast-loading fonts
 - Progressive enhancement

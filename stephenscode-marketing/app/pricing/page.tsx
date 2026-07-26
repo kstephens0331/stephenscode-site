@@ -210,7 +210,7 @@ export default function PricingPage() {
                 href="/contact"
                 className="group rounded-lg bg-accent-500 px-6 py-3.5 text-base font-semibold text-white shadow-lg hover:bg-accent-600 transition-all"
               >
-                Get Free Quote
+                Get a Flat Quote
                 <span className="inline-block transition-transform group-hover:translate-x-1 ml-2">→</span>
               </Link>
               <PhoneLink
@@ -265,10 +265,10 @@ export default function PricingPage() {
               <span aria-hidden="true" className="font-mono text-primary-500/80">/&gt;</span>
             </div>
             <h2 className="text-3xl font-bold tracking-tight text-white sm:text-4xl">
-              Most small businesses land in this band.
+              Four tiers, one flat price each.
             </h2>
             <p className="mt-4 text-lg leading-8 text-gray-400">
-              Starter through E-Commerce, $250 to $1,100. The Standard tier at $950 is the typical entry for established businesses. Premium tiers below cover Advanced, Business System, and Enterprise Platform builds.
+              Plug and Play starts at $250 for businesses staying on an existing platform. For a business that wants a real, fully custom site built to last, the <span className="font-semibold text-white">$950 Standard tier is where we recommend starting</span>: more pages, deeper SEO, and a foundation the E-Commerce tier ($1,100) and the premium builds below can grow from without a rebuild.
             </p>
           </div>
 
@@ -403,6 +403,15 @@ export default function PricingPage() {
                 </Link>
               </div>
             ))}
+          </div>
+
+          <div className="mt-12 rounded-2xl border border-primary-600/30 bg-surface-card/60 p-8 md:p-10">
+            <h3 className="text-xl font-bold text-white mb-3">
+              These aren't just websites. They're business systems.
+            </h3>
+            <p className="text-gray-300 leading-relaxed">
+              Most freelancers and small studios at the $2,000-$5,000 price point hand you a marketing site and stop there. Our $2,000 Premium Build ships with a custom admin portal, a real-time analytics dashboard, and CRM/accounting integrations built in. Step up to the $5,000 Custom Business Platform and you get a complete CRM, a client login portal, and integrated invoicing and payments, the kind of system most businesses are still stitching together out of three or four separate monthly SaaS subscriptions.
+            </p>
           </div>
         </div>
       </section>
@@ -699,39 +708,26 @@ export default function PricingPage() {
         </div>
       </section>
 
-      {/* Testimonial */}
+      {/* Real Results */}
       <section className="bg-surface-card py-16">
         <div className="mx-auto max-w-4xl px-6 lg:px-8">
           <div className="rounded-3xl bg-surface p-8 md:p-12 shadow-xl border border-surface-border">
-            <div className="flex items-center gap-1 text-accent-500 mb-4">
-              <svg className="w-5 h-5 fill-current" viewBox="0 0 20 20">
-                <path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z" />
-              </svg>
-              <svg className="w-5 h-5 fill-current" viewBox="0 0 20 20">
-                <path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z" />
-              </svg>
-              <svg className="w-5 h-5 fill-current" viewBox="0 0 20 20">
-                <path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z" />
-              </svg>
-              <svg className="w-5 h-5 fill-current" viewBox="0 0 20 20">
-                <path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z" />
-              </svg>
-              <svg className="w-5 h-5 fill-current" viewBox="0 0 20 20">
-                <path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z" />
-              </svg>
+            <div className="inline-flex items-center rounded-full bg-accent-500/15 px-4 py-2 text-sm font-semibold text-accent-400 mb-6">
+              📈 Real Client Result
             </div>
-            <p className="text-lg text-white leading-relaxed mb-6 italic">
-              "The flat-rate pricing made it so easy to plan our budget. We knew exactly what we were getting and what it would cost, no surprises. We started with the Standard package and added a few key features. The whole process was transparent and straightforward."
+            <p className="text-2xl md:text-3xl font-bold text-white leading-snug mb-4">
+              Benefits Builder grew from roughly $1,000 MRR to $52,000 MRR after we built their platform.
             </p>
-            <div className="flex items-center gap-4">
-              <div className="w-12 h-12 rounded-full bg-gradient-to-br from-primary-500 to-accent-500 flex items-center justify-center text-white font-bold text-lg">
-                M
-              </div>
-              <div>
-                <div className="font-semibold text-white">Michael Rodriguez</div>
-                <div className="text-sm text-gray-400">Owner, Rodriguez Construction</div>
-              </div>
-            </div>
+            <p className="text-gray-400 leading-relaxed mb-6">
+              We built their public website and their entire internal operating platform, automating the workflows their small team needed to run the business day to day. Admin work dropped by 60%, and the company now runs on a team of three.
+            </p>
+            <Link
+              href="/work"
+              className="group inline-flex items-center gap-2 text-sm font-semibold text-accent-500 hover:text-accent-400 transition-colors"
+            >
+              See the full case study
+              <span aria-hidden="true" className="inline-block transition-transform group-hover:translate-x-1">→</span>
+            </Link>
           </div>
         </div>
       </section>
@@ -758,7 +754,7 @@ export default function PricingPage() {
                 href="/contact"
                 className="group rounded-lg bg-surface-card px-8 py-4 text-base font-semibold text-white shadow-2xl hover:bg-surface-elevated transition-all"
               >
-                Get Your Free Quote
+                Get a Flat Quote
                 <span className="inline-block transition-transform group-hover:translate-x-1 ml-2">→</span>
               </Link>
               <PhoneLink

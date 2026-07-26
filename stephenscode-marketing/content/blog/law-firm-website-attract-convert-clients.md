@@ -119,7 +119,7 @@ Essential contact features:
 - **Click-to-call phone number**: Especially critical on mobile.
 - **Contact form on every page**: Not just the contact page.
 - **Live chat for immediate questions**: Modern expectation.
-- **Online consultation scheduling**: Let them book when convenient.
+- **[Online consultation scheduling](/services/appointment-booking)**: Let them book when convenient.
 - **Office location with map and directions**: Easy to find you.
 - **After-hours contact information**: Legal emergencies don't follow business hours.
 - **Multiple office locations clearly listed**: If applicable.
@@ -168,7 +168,7 @@ Differentiation factors might include:
 - **Proven track record of significant results**: Numbers speak loudly.
 - **Personalized attention and communication**: You answer calls, not staff.
 - **Transparent fee structures**: No surprises on billing.
-- **Bilingual services or cultural competency**: Serving specific communities.
+- **[Bilingual services](/services/multi-language) or cultural competency**: Serving specific communities.
 - **Convenient locations or flexible meeting options**: Video consultations, weekend hours.
 - **Free consultations or case evaluations**: Lower barrier to entry.
 
@@ -255,7 +255,7 @@ Local SEO strategies:
 - **Client reviews on Google and legal review sites**: Reviews boost rankings.
 - **Local link building and community involvement**: Build local authority.
 
-Strong local SEO ensures your firm appears when potential clients search for legal help in your area. The firms on the first page of Google get the calls.
+Strong local SEO ensures your firm appears when potential clients search for legal help in your area. The firms on the first page of Google get the calls. Most firms handle this with an ongoing [local SEO service](/services/seo-boost) rather than treating it as a one-time setup task.
 
 ## What to Look for in a Law Firm Web Developer
 
@@ -279,4 +279,4 @@ The law firms winning in 2025 are the ones with client-focused websites that bui
 
 ---
 
-*Ready to attract more clients with a professional law firm website? [Contact StephensCode](/contact) for a free consultation. We'll show you exactly what your website needs to generate more consultations and grow your practice, with legal ethics compliance, transparent pricing, and expert support.*
+*A potential client at 11 PM shouldn't have to wait until Monday to reach your firm. [Contact StephensCode](/contact) and let's talk through what your practice areas, your bar's advertising rules, and your caseload actually require from a website built to convert consultations, not just look credible.*

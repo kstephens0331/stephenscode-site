@@ -1,6 +1,6 @@
 ---
 title: "The True Cost of DIY Websites: What Wix, Squarespace & GoDaddy Don't Tell You"
-date: "2025-02-05"
+date: "2025-12-10"
 author: "Kyle Stephens"
 excerpt: "DIY website builders promise cheap, easy sites. But hidden costs in time, money, and lost business often make them expensive."
 category: "Web Development"
@@ -182,7 +182,7 @@ With DIY builders, you're renting space on their platform. You don't own:
 Let's say you outgrow Wix and want a professional site. Your options:
 
 1. **Start from scratch**: Your design, content structure, and SEO history don't transfer
-2. **Pay for migration services**: $500-2,000 to extract and rebuild
+2. **Pay for [migration services](/services/website-rebuild)**: $500-2,000 to extract and rebuild
 3. **Stay stuck**: Keep paying for a platform that doesn't serve you
 
 **Compare to a custom site:** You own everything. Host it anywhere. Change developers anytime. Full control forever.
@@ -282,7 +282,7 @@ Yes, higher upfront. But:
 - Built for your specific needs
 - Proper SEO foundation
 - Fast, optimized performance
-- Professional design that converts
+- [Professional design that converts](/work)
 - Lasts 5-10 years with maintenance
 
 ### 5-Year Cost Comparison
@@ -353,7 +353,7 @@ At StephensCode, we build websites that:
 - Last for years
 - Don't require constant tinkering
 
-**Starting at $250 for a fast-turnaround Plug and Play site, $950 for a full custom Standard Website.**
+**Starting at $250 for a fast-turnaround Plug and Play site, $950 for a full custom [Standard Website](/services/standard-website).**
 
 No monthly platform fees. No lock-in. No surprises.
 

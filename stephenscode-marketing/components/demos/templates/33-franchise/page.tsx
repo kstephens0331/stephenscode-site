@@ -9,6 +9,7 @@ import {
   Globe, Phone, Mail, ChevronDown, PieChart, ShoppingCart, Truck,
   ClipboardCheck, UserCheck, Store, LayoutDashboard, Video, MessageSquare
 } from 'lucide-react';
+import { trackEvent, trackConversion } from '@/lib/analytics';
 
 type Page = 'home' | 'locations' | 'franchise-portal' | 'admin' | 'inventory' |
             'reporting' | 'training' | 'marketing' | 'resources' | 'contact';
@@ -86,6 +87,12 @@ const FastServeFranchiseNetwork = ({ viewMode }: FastServeFranchiseNetworkProps 
         }),
       });
       if (response.ok) {
+        trackEvent('generate_lead', {
+          form_name: 'demo_contact_form',
+          demo_slug: 'fastserve-franchise-network',
+        });
+        trackConversion('leadForm');
+
         setContactSubmitted(true);
         e.currentTarget.reset();
         setTimeout(() => setContactSubmitted(false), 4000);

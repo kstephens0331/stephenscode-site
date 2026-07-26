@@ -59,7 +59,7 @@ For e-commerce sites, slow LCP directly translates to lost sales. For service bu
 
 ### How to Improve LCP
 
-**Optimize images:** Images are usually the largest elements on a page. Compress images without losing quality, use modern formats like WebP, and implement lazy loading for images below the fold (not immediately visible).
+**Optimize images:** Images are usually the largest elements on a page. Compress images without losing quality, use modern formats like WebP, and implement lazy loading for images below the fold (not immediately visible). If you'd rather not manage this manually every time you add a photo, an [image optimization add-on](/services/image-optimizer) handles compression and format conversion automatically.
 
 **Upgrade hosting:** Cheap shared hosting kills performance. Your hosting provider matters more than most business owners realize. Invest in quality hosting with fast servers and a CDN (Content Delivery Network) that serves content from locations near your visitors.
 
@@ -149,7 +149,7 @@ The ranking impact follows a clear logic:
 - Higher rankings = more organic traffic
 - More traffic = more leads and sales
 
-If your competitors have better Core Web Vitals scores, they're ranking above you in search results, capturing the customers who would otherwise find you. You might have better content, better prices, better service, but if your site is slower, you're invisible.
+If your competitors have better Core Web Vitals scores, they're ranking above you in search results, capturing the customers who would otherwise find you. You might have better content, better prices, better service, but if your site is slower, you're invisible. Pairing performance fixes with an ongoing [SEO service](/services/seo-boost) makes sure speed gains actually translate into ranking gains.
 
 Google has been clear that user experience is a priority. They want to send searchers to sites that provide excellent experiences, and Core Web Vitals are their primary measurement of that experience.
 
@@ -240,7 +240,7 @@ Others require technical expertise:
 - You're losing rankings to faster competitors
 - Your bounce rate is high and conversion rate is low
 
-A professional developer can diagnose the specific issues causing poor performance and implement technical fixes that dramatically improve your scores.
+A professional developer can diagnose the specific issues causing poor performance and implement technical fixes that dramatically improve your scores. Check our [pricing](/pricing) for what a performance-focused rebuild or audit typically involves.
 
 ## Core Web Vitals Best Practices for Business Owners
 
@@ -288,4 +288,4 @@ The businesses winning online in 2025 are the ones with fast, responsive, stable
 
 ---
 
-*Ready to improve your Core Web Vitals and boost your search rankings? [Contact StephensCode](/contact) for a free website performance audit. We'll show you exactly what's slowing down your site and how to fix it, with transparent pricing, fast turnaround, and measurable results.*
+*If you've never actually run your site through PageSpeed Insights, that's the first place to start, and we're happy to walk through the results with you. [Contact StephensCode](/contact) for a plain-English breakdown of what's dragging down your LCP, INP, and CLS scores, and what it would take to fix each one.*

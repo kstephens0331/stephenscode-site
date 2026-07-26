@@ -1,6 +1,7 @@
 'use client';
 
 import { useState } from 'react';
+import { trackEvent, trackConversion } from '@/lib/analytics';
 
 interface ContactPageProps {
   onNavigate: (page: string) => void;
@@ -40,6 +41,12 @@ export default function ContactPage({ onNavigate }: ContactPageProps) {
       });
 
       if (response.ok) {
+        trackEvent('generate_lead', {
+          form_name: 'demo_contact_form',
+          demo_slug: 'sparkle-clean-services',
+        });
+        trackConversion('leadForm');
+
         setSubmitStatus('success');
         setFormData({
           name: '',

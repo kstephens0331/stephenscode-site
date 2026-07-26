@@ -2,6 +2,7 @@
 
 import { useState } from 'react';
 import { motion } from 'framer-motion';
+import { trackEvent, trackConversion } from '@/lib/analytics';
 
 export default function CustomSolutionsForm() {
   const [formData, setFormData] = useState({
@@ -41,6 +42,12 @@ export default function CustomSolutionsForm() {
       });
 
       if (response.ok) {
+        trackEvent('generate_lead', {
+          form_name: 'custom_solutions_form',
+          service_interest: formData.projectType,
+        });
+        trackConversion('leadForm');
+
         setStatus('success');
         setFormData({
           name: '',

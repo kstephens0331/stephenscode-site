@@ -51,14 +51,7 @@ interface Client {
   samplePages?: string[] // Example page paths to show scope of work
 }
 
-const partners: Partner[] = [
-  {
-    name: 'DesignRush',
-    description: 'Featured in Top Texas Web Development Companies',
-    url: 'https://www.designrush.com/agency/web-development-companies/texas',
-    category: 'directory',
-  },
-]
+const partners: Partner[] = []
 
 const clients: Client[] = [
   {
@@ -216,6 +209,36 @@ const clients: Client[] = [
     services: ['Custom Website', 'Audio Player', 'Newsletter Integration', 'Episode Archive'],
     pageCount: 12,
     samplePages: ['/', '/episodes', '/series', '/about', '/subscribe'],
+  },
+  {
+    name: 'Chim-Tex Construction',
+    shortName: 'Chim-Tex',
+    description: 'Houston fireplace and chimney construction company offering full-trade installation, custom builds, and repair services.',
+    longDescription: 'Chim-Tex Construction is a Houston-based fireplace specialist handling new fireplace installations, custom builds, outdoor and patio fireplaces, and chimney repair and inspection. We built their website to present their in-house trade capabilities, including masonry, welding, plumbing, electrical, roofing, framing, sheetrock, and tile work, along with service area coverage across the Houston metro and other Texas cities.',
+    url: 'https://chimtx.com',
+    industry: 'Construction / Fireplace Specialist',
+    location: 'Houston, TX',
+    services: ['Custom Website', 'Service Area Pages', 'Project Gallery', 'Contact Forms'],
+  },
+  {
+    name: 'Falcon Environmental Solutions',
+    shortName: 'Falcon Environmental',
+    description: 'Houston-based pollution control and emissions systems provider serving industrial clients nationwide.',
+    longDescription: 'Falcon Environmental Solutions provides pollution control equipment services out of Houston, including burner tuning, combustion optimization, NFPA 86 compliance inspections, and controls upgrades for thermal oxidizers, regenerative thermal oxidizers, catalytic oxidizers, scrubbers, and flare systems. We built their website to present their service lines and the FalconWatch remote monitoring platform to plant operators and environmental compliance teams nationwide.',
+    url: 'https://falconenviro.com',
+    industry: 'Industrial / Environmental Services',
+    location: 'Houston, TX',
+    services: ['Custom Website', 'Service Pages', 'SEO Optimization', 'Contact Forms'],
+  },
+  {
+    name: 'Lotus Sweet Treats',
+    shortName: 'Lotus Sweet Treats',
+    description: 'Richmond, Texas bakery specializing in hand-rolled cake pops, baklava, and custom sweet treats with online ordering.',
+    longDescription: 'Lotus Sweet Treats is a Richmond, Texas bakery known for hand-rolled cake pops, baklava, custom photo and logo cake pops, seasonal treats, and pet-friendly bark pops and dog biscuits. We built their e-commerce website with online ordering, a shopping cart, and customer account sign-in, set up for local pickup and delivery.',
+    url: 'https://lotussweettreats.com',
+    industry: 'Food & Beverage / Bakery',
+    location: 'Richmond, TX',
+    services: ['E-Commerce', 'Online Ordering', 'Custom Website', 'Mobile Responsive'],
   },
 ]
 

@@ -3,6 +3,7 @@
 import { useState } from 'react'
 import type { Demo } from '@/lib/demos-data'
 import type { ColorPalette } from '@/lib/demo-colors'
+import { trackEvent, trackConversion } from '@/lib/analytics'
 import { ShoppingCart, User, Menu, X, Search, Cake, Heart, Phone, Mail, MapPin, Clock, ChevronRight, Star, ShoppingBag, Package, Truck, CreditCard, Calendar } from 'lucide-react'
 
 interface CustomerViewProps {
@@ -42,6 +43,12 @@ export default function CustomerView({ demo, colors }: CustomerViewProps) {
         }),
       })
       if (response.ok) {
+        trackEvent('generate_lead', {
+          form_name: 'demo_contact_form',
+          demo_slug: 'sweet-dreams-bakery',
+        })
+        trackConversion('leadForm')
+
         setContactSubmitted(true)
         setTimeout(() => {
           setContactSubmitted(false)

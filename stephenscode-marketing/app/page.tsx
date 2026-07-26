@@ -146,7 +146,7 @@ export default function Home() {
             </h1>
 
             <p className="mt-10 max-w-2xl text-lg leading-8 text-gray-300 animate-fade-in-up animation-delay-400">
-              StephensCode is a veteran-owned web development company in Conroe, Texas that builds custom websites and business software at a flat, upfront price. I&apos;m Kyle. I&apos;ve been doing this for small businesses for 14 years. You get a flat quote up front, you get the site you paid for, and you get my cell number if anything breaks. That&apos;s it. No ongoing-fee games, no agency layers.
+              StephensCode is a veteran-owned web development company in Conroe, Texas that builds custom websites and business software at a flat, upfront price. I&apos;m Kyle. I&apos;ve been doing this for small businesses for 14 years. Most of my clients are small, local service businesses across the Houston metro who need a real website or business system without paying agency overhead. You get a flat quote up front, you get the site you paid for, and you get my cell number if anything breaks. That&apos;s it. No ongoing-fee games, no agency layers.
             </p>
 
             <div className="mt-12 flex flex-wrap items-center gap-3 animate-fade-in-up animation-delay-600">
@@ -205,7 +205,7 @@ export default function Home() {
               <span aria-hidden="true" className="font-mono text-primary-500/80">/&gt;</span>
             </div>
             <h2 className="text-3xl font-bold tracking-tight text-white sm:text-4xl">
-              Fourteen years. Twenty-six hundred sites.
+              Fourteen years. Two hundred-plus sites.
             </h2>
           </div>
           <div className="grid grid-cols-2 gap-8 lg:grid-cols-4">
@@ -311,7 +311,7 @@ export default function Home() {
                 href="/contact"
                 className="inline-flex items-center gap-2 rounded-md bg-primary-500 px-5 py-2.5 text-sm font-semibold text-white hover:bg-primary-600 transition-colors"
               >
-                Scope my project
+                Get a Flat Quote
                 <ArrowRight className="h-3.5 w-3.5" />
               </Link>
               <Link
@@ -475,7 +475,24 @@ export default function Home() {
             ))}
           </div>
 
-          <div className="mt-12 text-center">
+          {/* Client proof callout -- real, quantified client outcomes, not just internal tooling */}
+          <div className="mx-auto mt-10 max-w-4xl rounded-2xl border border-primary-500/30 bg-surface-elevated p-8 text-center">
+            <h3 className="text-lg font-semibold text-white">Real client results, not just internal products</h3>
+            <p className="mt-3 text-sm leading-6 text-gray-400">
+              <strong className="text-white">AMW Air Conditioning</strong> picked up 76 Google reviews within their first two years and hired 2 new employees to keep up with demand. <strong className="text-white">Benefits Builder</strong> grew from roughly $1,000 MRR to $52,000 MRR after we built out their full operating platform.
+            </p>
+            <div className="mt-5">
+              <Link
+                href="/work"
+                className="inline-flex items-center gap-2 text-sm font-semibold text-primary-400 hover:text-primary-300 transition-colors"
+              >
+                Read the full case studies
+                <ArrowRight className="h-3.5 w-3.5" />
+              </Link>
+            </div>
+          </div>
+
+          <div className="mt-8 text-center">
             <Link
               href="/work"
               className="inline-flex items-center gap-2 rounded-md border border-surface-border px-6 py-3 text-base font-semibold text-white hover:border-primary-500/60 hover:bg-surface transition-colors"

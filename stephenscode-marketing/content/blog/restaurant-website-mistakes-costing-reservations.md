@@ -1,6 +1,6 @@
 ---
 title: "7 Restaurant Website Mistakes That Are Costing You Reservations"
-date: "2025-03-30"
+date: "2025-12-24"
 author: "Kyle Stephens"
 excerpt: "Your restaurant's website is turning away hungry customers. Here are the mistakes killing your online reservations and how to fix them."
 category: "Web Development"
@@ -14,7 +14,7 @@ Someone searches "Italian restaurant Houston" and finds your website. They're hu
 
 But they land on your homepage and can't find the menu. When they finally click "Menu," a PDF downloads that they have to pinch and zoom to read on their phone. Frustrated, they go back to Google and pick your competitor instead.
 
-This happens thousands of times every week across Houston. And most restaurant owners never realize their website is the problem.
+This happens thousands of times every week across [Houston](/service-areas/houston). And most restaurant owners never realize their website is the problem.
 
 ## Mistake #1: PDF Menus
 
@@ -186,7 +186,7 @@ $200-500 for a professional photo session yields images you'll use for years.
 
 ## Local SEO: Getting Found When People Are Hungry
 
-Your website is only useful if people find it.
+Your website is only useful if people find it, and staying visible takes ongoing [local SEO](/services/seo-boost) work, not a one-time setup.
 
 ### Google Business Profile (Critical)
 - Claim and verify your listing
@@ -232,6 +232,8 @@ Your website is only useful if people find it.
 - Payback period: 1-2 months
 
 ## What Restaurant Websites Should Cost
+
+See our [pricing page](/pricing) for the current flat-rate packages we offer.
 
 **Template Solution:** $500-1,500
 - WordPress theme or Squarespace

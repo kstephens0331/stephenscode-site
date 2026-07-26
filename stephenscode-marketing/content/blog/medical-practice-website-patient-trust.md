@@ -38,7 +38,7 @@ Practices that invest in professional websites see measurable results: more appo
 
 ### 1. HIPAA-Compliant Online Appointment Booking
 
-Patients want to book appointments on their schedule, not yours. An 8 AM to 5 PM phone line doesn't work for patients who work those same hours. Online booking removes friction and captures appointments 24/7, even when your office is closed.
+Patients want to book appointments on their schedule, not yours. An 8 AM to 5 PM phone line doesn't work for patients who work those same hours. [Online booking](/services/appointment-booking) removes friction and captures appointments 24/7, even when your office is closed.
 
 Think about your patients' lives. They're working professionals who can't step away to make personal calls. They're parents who finally have a quiet moment at 9 PM after the kids are asleep. They're people who hate making phone calls and prefer to handle things digitally. Without online booking, you're excluding all of these potential patients.
 
@@ -142,7 +142,7 @@ Essential patient portal features:
 - **Bill payment and insurance information**: Manage financial aspects easily.
 - **Health tracking and reminders**: Wellness features add value.
 
-Make portal login prominent on every page. The easier it is to access, the more patients will use it, reducing phone calls and improving satisfaction. A portal link buried in your footer will get minimal usage.
+Make portal login prominent on every page. The easier it is to access, the more patients will use it, reducing phone calls and improving satisfaction. A portal link buried in your footer will get minimal usage. A [secure patient dashboard](/services/customer-dashboard) built around this workflow keeps records, messages, and billing in one place instead of scattered across separate tools.
 
 ### 8. Trust Signals and Social Proof
 
@@ -187,7 +187,7 @@ Patients can spot fake stock photos instantly. Those perfect-looking "doctors" w
 Make your phone number, address, and contact form prominent on every page. Don't make patients hunt for how to reach you. If someone is sick or worried, the last thing they want is a scavenger hunt for your phone number.
 
 **Mistake #3: Ignoring Local SEO**
-Most patients search for providers near them. Optimize for "doctor near me," "[specialty] in [city]," and location-specific searches. Claim your Google Business Profile and keep it updated with current information.
+Most patients search for providers near them. Optimize for "doctor near me," "[specialty] in [city]," and location-specific searches. Claim your Google Business Profile and keep it updated with current information. An ongoing [local SEO service](/services/seo-boost) keeps this current instead of it slipping between patient visits.
 
 **Mistake #4: No Clear Call-to-Action**
 Every page should guide patients toward booking an appointment or contacting your office. Don't leave them wondering what to do next. "Request Appointment" buttons should be visible without scrolling.
@@ -248,4 +248,4 @@ The practices winning in 2025 are the ones with modern, patient-centered website
 
 ---
 
-*Ready to build a website that grows your practice? [Contact StephensCode](/contact) for a free consultation. We'll show you exactly what your medical practice website needs to attract more patients and build lasting trust, with HIPAA compliance, transparent pricing, and expert support.*
+*Your waiting room already reflects the standard of care you provide. Your website should too. [Contact StephensCode](/contact) and we'll walk through what HIPAA-compliant booking, patient resources, and portal access would look like for your practice specifically.*

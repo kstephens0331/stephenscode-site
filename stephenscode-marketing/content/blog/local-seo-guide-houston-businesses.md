@@ -1,6 +1,6 @@
 ---
 title: "Local SEO for Houston Businesses: The Complete 2025 Guide"
-date: "2025-01-28"
+date: "2025-11-18"
 author: "Kyle Stephens"
 excerpt: "Dominate local search results in Houston. Step-by-step guide to Google Business Profile, local keywords, citations, and reviews."
 category: "SEO"
@@ -12,7 +12,7 @@ readTime: "16 min read"
 
 Here's a statistic that should shape your entire marketing strategy: **46% of all Google searches have local intent.** People aren't just browsing. They're looking for businesses near them, ready to buy.
 
-And Houston is a massive market. The Greater Houston area has 7+ million people actively searching for local services. "HVAC repair Houston" gets 3,600 searches per month. "Plumber near me" gets 8,100. "Best restaurants in The Woodlands" gets 1,900.
+And Houston is a massive market. The [Greater Houston area](/service-areas/houston) has 7+ million people actively searching for local services. "HVAC repair Houston" gets 3,600 searches per month. "Plumber near me" gets 8,100. "Best restaurants in [The Woodlands](/service-areas/the-woodlands)" gets 1,900.
 
 These aren't just numbers. They're potential customers, searching right now, ready to spend money. The only question is whether they find you or your competitors.
 
@@ -665,7 +665,7 @@ I build websites specifically optimized for local search. Every site includes:
 - Fast loading speeds
 - Google Analytics setup
 
-For existing sites, I offer local SEO audits and implementation.
+For existing sites, I offer [local SEO audits and implementation](/services/seo-boost).
 
 **Call (936) 323-4527 or visit [stephenscode.dev/contact](https://www.stephenscode.dev/contact) to discuss your local SEO strategy.**
 

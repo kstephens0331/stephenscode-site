@@ -1,6 +1,6 @@
 ---
 title: "Why Veteran-Owned Businesses Deserve Your Trust (And Your Business)"
-date: "2025-02-10"
+date: "2025-12-10"
 author: "Kyle Stephens"
 excerpt: "Veteran-owned businesses bring military discipline and integrity to every project. Here's why hiring a veteran is smart business."
 category: "Business"
@@ -18,7 +18,7 @@ Here's what military service instills that benefits you as a customer:
 
 In the military, you don't get to quit when things get hard. You adapt, overcome, and complete the mission.
 
-This translates directly to business. When I take on a project, I don't abandon it when complications arise. I find solutions. Your website launch, your business automation, your custom dashboard. It gets done. Period.
+This translates directly to business. When I take on a project, I don't abandon it when complications arise. I find solutions. Your website launch, your [business automation](/services/business-automation), your custom dashboard. It gets done. Period.
 
 **What this means for you:** Your project won't be left half-finished or pushed to the back burner when something "more important" comes along.
 
@@ -98,7 +98,7 @@ By the time someone leaves the military, they've likely led teams, managed budge
 
 ### "It's charity to hire a veteran business"
 
-Hiring a veteran-owned business isn't charity. It's recognizing that military experience develops valuable business skills. You're not doing us a favor. You're making a smart business decision.
+Hiring a veteran-owned business isn't charity. It's recognizing that military experience develops valuable business skills. You're not doing us a favor. You're making a smart business decision. Take a look at our [client work](/work) if you want to see what that looks like in practice.
 
 ## How to Verify Veteran-Owned Status
 
@@ -127,7 +127,7 @@ I served in the United States Marine Corps before transitioning to web developme
 When you work with me:
 - **Projects get completed**: I don't abandon work mid-stream
 - **Communication is clear**: You'll never wonder what's happening
-- **Pricing is transparent**: No hidden fees or surprise charges
+- **Pricing is transparent**: No hidden fees or surprise charges, and every package on our [pricing page](/pricing) is flat-rate from the start
 - **Quality is standard**: Every project gets my full attention
 
 I've been building websites and business solutions for 14+ years. The military taught me how to execute. Experience taught me how to build.

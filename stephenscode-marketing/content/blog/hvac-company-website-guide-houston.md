@@ -1,6 +1,6 @@
 ---
 title: "Why Your HVAC Company Needs a Professional Website (Not a DIY Template)"
-date: "2025-03-15"
+date: "2025-12-24"
 author: "Kyle Stephens"
 excerpt: "HVAC companies lose thousands in leads to competitors with better websites. Here's what your website needs to capture emergency calls."
 category: "Web Development"
@@ -22,7 +22,7 @@ Your company shows up in the results. Great. But then they click through to your
 
 They hit the back button and call your competitor instead.
 
-**This happens hundreds of times per month across Houston.** And most HVAC company owners never know they're losing these leads.
+**This happens hundreds of times per month across [Houston](/service-areas/houston).** And most HVAC company owners never know they're losing these leads.
 
 ## What HVAC Customers Actually Need From Your Website
 
@@ -127,7 +127,7 @@ Based on building websites for service businesses, here's what converts visitors
 ### Must-Have Features:
 1. **Mobile-responsive design** (60%+ of searches are mobile)
 2. **Click-to-call buttons** on every page
-3. **Online scheduling** for non-emergency appointments
+3. **[Online scheduling](/services/appointment-booking)** for non-emergency appointments
 4. **Service area pages** with local keywords
 5. **Fast loading** (under 3 seconds)
 6. **SSL certificate** (the padlock in the browser)
@@ -150,7 +150,7 @@ Based on building websites for service businesses, here's what converts visitors
 
 ## Local SEO: Getting Found in Houston
 
-Having a great website means nothing if no one finds it. For HVAC companies, local SEO is everything:
+Having a great website means nothing if no one finds it. For HVAC companies, [local SEO](/services/seo-boost) is everything:
 
 ### Google Business Profile (Critical)
 - Claim and verify your listing

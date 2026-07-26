@@ -1,6 +1,6 @@
 ---
 title: "How to Choose the Right Web Developer for Your Small Business"
-date: "2025-02-08"
+date: "2025-12-10"
 author: "Kyle Stephens"
 excerpt: "Not all web developers are equal. Learn the red flags, green flags, and essential questions to ask before hiring someone to build your business website."
 category: "Business"
@@ -153,6 +153,8 @@ Good developers are proud of their work and organize it for easy viewing. Look f
 - Projects similar to what you need
 - Case studies explaining the work
 
+For a sense of what that should look like, see [our own project gallery](/work).
+
 ### 2. They Ask Smart Questions
 
 Questions like:
@@ -271,7 +273,7 @@ Before reaching out to anyone:
 
 Find 3-5 potential developers through:
 - Referrals from other business owners
-- Google searches (local terms like "web developer Houston")
+- Google searches (local terms like "web developer [Houston](/service-areas/houston)")
 - Industry directories (DesignRush, Clutch, etc.)
 - LinkedIn
 - Local business groups
@@ -312,7 +314,7 @@ Balance:
 
 ## Price vs. Value: What You're Really Paying For
 
-The cheapest option is rarely the best value. Consider:
+The cheapest option is rarely the best value. For reference, here's how our own [flat-rate packages](/pricing) break down. Consider:
 
 ### A $500 Website Might Cost You:
 - $500 upfront

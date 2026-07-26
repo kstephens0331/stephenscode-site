@@ -115,7 +115,7 @@ Inventory management features:
 - **Integration with your POS system**: If you have physical stores, systems must sync.
 - **Inventory alerts for restocking**: Get notified when items need reordering.
 
-If you sell both online and in-store, your systems must sync to prevent overselling the same inventory twice. This integration is critical.
+If you sell both online and in-store, your systems must sync to prevent overselling the same inventory twice. This integration is critical, which is why a dedicated [inventory management system](/services/inventory-management) is worth the investment once you're managing stock across more than one channel.
 
 ### 6. Shipping and Fulfillment Strategy
 
@@ -192,7 +192,7 @@ Not all e-commerce platforms are created equal. Your choice depends on your prod
 - Requires ongoing developer support
 - Best for: Established businesses with unique requirements standard platforms can't meet
 
-For most retail stores, Shopify or WooCommerce provides everything you need at reasonable cost. Don't over-engineer your first e-commerce site.
+For most retail stores, Shopify or WooCommerce provides everything you need at reasonable cost. Don't over-engineer your first e-commerce site. Once you outgrow the basics, features like variants, wishlists, and abandoned cart recovery are available as an [advanced e-commerce upgrade](/services/advanced-ecommerce) rather than a full platform migration.
 
 ## Payment Processing: What You Need to Know
 
@@ -222,7 +222,7 @@ E-commerce SEO essentials:
 - **Fast page loading speed**: Google considers speed a ranking factor.
 - **Mobile optimization**: Google uses mobile-first indexing.
 
-Don't neglect local SEO if you have a physical store. Optimize for "[product] near me" and "[product] in [city]" searches to capture customers who want local options.
+Don't neglect local SEO if you have a physical store. Optimize for "[product] near me" and "[product] in [city]" searches to capture customers who want local options. If your storefront is in the Houston area, our [Houston service area page](/service-areas/houston) has more on what that local search presence should look like.
 
 ## Common E-Commerce Mistakes Retail Stores Make
 
@@ -301,4 +301,4 @@ Don't let technical intimidation or logistics concerns hold you back. E-commerce
 
 ---
 
-*Ready to launch your online store? [Contact StephensCode](/contact) for a free consultation. We'll show you exactly what your retail e-commerce store needs to generate sales and grow your business, with platform recommendations, transparent pricing, and expert support.*
+*Not sure whether Shopify, WooCommerce, or something custom is the right call for your shelves and SKUs? That's exactly the kind of question worth a real conversation. [Contact StephensCode](/contact) and tell us what you sell, we'll tell you the platform and features that actually fit.*

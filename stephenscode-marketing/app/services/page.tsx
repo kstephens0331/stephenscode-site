@@ -260,7 +260,7 @@ export default function ServicesPage() {
           <div className="mx-auto max-w-4xl text-center">
             <div className="mb-8 inline-flex items-center gap-3 rounded-full bg-surface-card/60 px-6 py-3 text-sm font-semibold backdrop-blur-lg border border-surface-border shadow-2xl">
               <span className="text-2xl">🌐</span>
-              <span>47 Service Packages & Add-Ons</span>
+              <span>49 Service Packages & Add-Ons</span>
             </div>
 
             <h1 className="text-5xl font-bold tracking-tight sm:text-7xl mb-8">
@@ -278,6 +278,15 @@ export default function ServicesPage() {
                 className="group inline-flex items-center gap-2 rounded-lg bg-accent-500 px-8 py-4 text-lg font-bold text-white shadow-2xl hover:bg-accent-600 transition-all"
               >
                 <span>View All Pricing</span>
+                <svg className="w-5 h-5 group-hover:translate-x-1 transition-transform" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M13 7l5 5m0 0l-5 5m5-5H6" />
+                </svg>
+              </Link>
+              <Link
+                href="/contact"
+                className="group inline-flex items-center gap-2 rounded-lg bg-primary-600 px-8 py-4 text-lg font-bold text-white shadow-2xl hover:bg-primary-700 transition-all"
+              >
+                <span>Get a Flat Quote</span>
                 <svg className="w-5 h-5 group-hover:translate-x-1 transition-transform" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                   <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M13 7l5 5m0 0l-5 5m5-5H6" />
                 </svg>
@@ -370,7 +379,7 @@ export default function ServicesPage() {
                   href="/pricing"
                   className="inline-flex items-center gap-2 rounded-lg bg-primary-600 px-8 py-4 text-lg font-bold text-white shadow-lg hover:bg-primary-700 transition-all"
                 >
-                  <span>View All 40 Add-Ons</span>
+                  <span>View All 41 Add-Ons</span>
                   <span>→</span>
                 </Link>
               </div>
@@ -539,7 +548,7 @@ export default function ServicesPage() {
               Let's Build Something Great
             </h2>
             <p className="mx-auto max-w-2xl text-xl leading-8 text-gray-200 mb-12">
-              Choose from 47 service packages or let us create a custom solution for your business. Free consultation, transparent pricing, fast delivery.
+              Choose from 49 service packages or let us create a custom solution for your business. Free consultation, transparent pricing, fast delivery.
             </p>
             <div className="flex flex-wrap items-center justify-center gap-4">
               <Link

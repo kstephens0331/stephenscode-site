@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import { Phone, Mail, MapPin, Clock, Send, CheckCircle, AlertCircle } from 'lucide-react';
+import { trackEvent, trackConversion } from '@/lib/analytics';
 
 interface ContactPageProps {
   onNavigate: (page: string) => void;
@@ -62,6 +63,12 @@ export default function ContactPage({ onNavigate, colors }: ContactPageProps) {
       if (!response.ok) {
         throw new Error('Failed to submit form');
       }
+
+      trackEvent('generate_lead', {
+        form_name: 'demo_contact_form',
+        demo_slug: 'fixit-fast-handyman',
+      });
+      trackConversion('leadForm');
 
       setSubmitStatus('success');
       setFormData({

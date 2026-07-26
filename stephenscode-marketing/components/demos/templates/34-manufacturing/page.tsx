@@ -10,6 +10,7 @@ import {
   Mail, MapPin, ChevronRight, ChevronDown, DollarSign, PieChart,
   LineChart, Building, Wrench, HardHat, ListChecks, FileBarChart
 } from 'lucide-react';
+import { trackEvent, trackConversion } from '@/lib/analytics';
 
 type Page = 'home' | 'products' | 'b2b-portal' | 'production' | 'inventory' |
             'quality-control' | 'orders' | 'suppliers' | 'analytics' | 'contact';
@@ -98,6 +99,12 @@ const TechProManufacturing = ({ viewMode }: TechProManufacturingProps = {}) => {
         }),
       });
       if (response.ok) {
+        trackEvent('generate_lead', {
+          form_name: 'demo_contact_form',
+          demo_slug: 'techpro-manufacturing',
+        });
+        trackConversion('leadForm');
+
         setContactSubmitted(true);
         e.currentTarget.reset();
         setTimeout(() => setContactSubmitted(false), 4000);

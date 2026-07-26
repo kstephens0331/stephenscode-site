@@ -1,6 +1,6 @@
 ---
 title: "Plumbing Website Essentials: What Makes Customers Call You Instead of Competitors"
-date: "2025-03-20"
+date: "2025-12-24"
 author: "Kyle Stephens"
 excerpt: "Plumbers with professional websites book 3x more jobs. Learn what features actually convert panicked homeowners into paying customers."
 category: "Web Development"
@@ -69,7 +69,7 @@ Include:
 - **Zip codes** you cover
 - **Response times** by area if they vary
 
-Create individual pages for major service areas. "Plumber in The Woodlands" is a different search than "Plumber in Conroe", and you want to rank for both.
+Create individual pages for major service areas. "Plumber in [The Woodlands](/service-areas/the-woodlands)" is a different search than "Plumber in [Conroe](/service-areas/conroe)", and you want to rank for both.
 
 ### 4. Trust Signals That Plumbing Customers Need
 
@@ -186,7 +186,7 @@ A plumber doing $50K/month in revenue with a bad website is probably leaving $5K
 
 ## Local SEO: Getting Found When It Matters
 
-Your website is useless if no one finds it. For plumbers, local SEO is the game:
+Your website is useless if no one finds it. For plumbers, [local SEO](/services/seo-boost) is the game:
 
 ### Google Business Profile (Non-Negotiable)
 - Claim and verify immediately

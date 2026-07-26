@@ -1,5 +1,6 @@
 import React from 'react';
 import { Mail, Phone, MapPin, Clock, Send, CheckCircle, MessageCircle, Calendar, Users, ArrowRight } from 'lucide-react';
+import { trackEvent, trackConversion } from '@/lib/analytics';
 
 interface ContactPageProps {
   onNavigate: (page: 'home' | 'subjects' | 'about' | 'contact') => void;
@@ -35,6 +36,12 @@ export default function ContactPage({ onNavigate }: ContactPageProps) {
       });
 
       if (response.ok) {
+        trackEvent('generate_lead', {
+          form_name: 'demo_contact_form',
+          demo_slug: 'smart-start-tutoring',
+        });
+        trackConversion('leadForm');
+
         setSubmitStatus('success');
         setFormData({
           name: '',

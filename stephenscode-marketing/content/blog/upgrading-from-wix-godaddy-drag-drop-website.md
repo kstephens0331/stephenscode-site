@@ -1,6 +1,6 @@
 ---
 title: "Time to Upgrade? Signs Your Wix, GoDaddy, or Squarespace Site Is Holding You Back"
-date: "2025-01-29"
+date: "2025-12-01"
 author: "Kyle Stephens"
 excerpt: "Drag-and-drop website builders were great to start. But they may be costing you customers now. Learn when it's time to upgrade."
 category: "Web Development"
@@ -264,20 +264,20 @@ Here's my honest assessment of when to upgrade vs. when to stay:
 
 Let me be transparent about custom website pricing:
 
-**Website Rebuild** (migrating from template builder): **$350**
+**[Website Rebuild](/services/website-rebuild)** (migrating from template builder): **$350**
 - Same content, new custom design
 - SEO preserved and enhanced
 - Fast, mobile-first development
 - 90 days of post-launch support
 
-**Standard Website** (custom small-business site, more features): **$950**
+**[Standard Website](/services/standard-website)** (custom small-business site, more features): **$950**
 - Custom design from scratch
 - Full SEO optimization
 - Contact forms and lead capture
 - Blog or news section
 - Google Analytics setup
 
-**E-Commerce Site**: **$1,100**
+**[E-Commerce Site](/services/ecommerce-website)**: **$1,100**
 - Everything above plus
 - Product catalog
 - Shopping cart and checkout

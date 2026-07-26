@@ -44,7 +44,7 @@ Your mobile experience should actually be *better* than your desktop experience 
 
 ### 2. Online Appointment Booking System
 
-Customers want to book appointments when it's convenient for them, which is often outside your business hours. An online booking system captures appointments 24/7, even when your shop is closed.
+Customers want to book appointments when it's convenient for them, which is often outside your business hours. An [online booking system](/services/appointment-booking) captures appointments 24/7, even when your shop is closed.
 
 Think about your typical customer. They're busy professionals who realize their car needs service but can't call during work hours. Or they're a parent who finally gets a moment to handle the car issue after the kids are in bed at 9 PM. Without online booking, you're forcing them to either remember to call tomorrow or just go with the competitor who lets them book right now.
 
@@ -169,7 +169,7 @@ Generic stock photos of mechanics scream "template website." Customers can spot 
 Nothing kills trust faster than wrong hours, disconnected phone numbers, or outdated pricing. If your website still mentions a 2019 promotion or shows holiday hours from last year, customers wonder what else might be wrong. Keep your information current.
 
 **Mistake #4: Ignoring Local SEO**
-If you're not optimizing for "auto repair near me" and location-specific searches, you're invisible to local customers. Local SEO isn't complicated, but it requires intentional effort: claiming your Google Business Profile, building local citations, and creating location-specific content.
+If you're not optimizing for "auto repair near me" and location-specific searches, you're invisible to local customers. Local SEO isn't complicated, but it requires intentional effort: claiming your Google Business Profile, building local citations, and creating location-specific content. An ongoing [local SEO service](/services/seo-boost) handles this work for you month over month instead of it becoming another task on your plate.
 
 **Mistake #5: No Mobile Optimization**
 A desktop-only website in 2025 is business suicide for auto repair shops. Mobile is where your customers are, especially when they need emergency help. If your site isn't mobile-optimized, you're turning away the majority of your potential customers.
@@ -186,7 +186,7 @@ Average auto repair shop results after a website upgrade:
 - Higher average ticket values from better-educated customers
 - Reduced phone time answering basic questions
 
-Let's do the math. If your average repair ticket is $300 and you capture just 10 additional customers per month from better online presence, that's $3,000 in monthly revenue, $36,000 annually. Most professional websites cost between $2,000 and $5,000 and pay for themselves in the first 2-3 months.
+Let's do the math. If your average repair ticket is $300 and you capture just 10 additional customers per month from better online presence, that's $3,000 in monthly revenue, $36,000 annually. Most professional websites cost between $2,000 and $5,000 (see current [pricing and packages](/pricing)) and pay for themselves in the first 2-3 months.
 
 And that's just looking at new customers. A professional website also improves retention by making it easy for existing customers to book their next service, reducing the friction that sends them to competitors.
 
@@ -213,4 +213,4 @@ Don't let an outdated website cost you another customer.
 
 ---
 
-*Ready to turn your website into your best employee? [Contact StephensCode](/contact) for a free consultation. We'll show you exactly what your auto repair website needs to capture more customers and grow your business, with transparent pricing, fast turnaround, and no surprises.*
+*Stop losing stranded, stressed-out drivers to the shop down the road with the faster website. [Contact StephensCode](/contact) and tell us about your shop. We'll walk you through what an appointment-ready, mobile-fast site would look like for your bays, your hours, and your budget, no pressure, no jargon, just a straight answer on what it takes to get more cars in the lot.*

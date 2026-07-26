@@ -1,5 +1,6 @@
 import React from 'react';
 import { GraduationCap, Users, Award, TrendingUp, BookOpen, Calculator, Beaker, FileText, Globe, Code, Clock, CheckCircle, Star, ArrowRight, Calendar, Target } from 'lucide-react';
+import { trackEvent, trackConversion } from '@/lib/analytics';
 
 interface HomePageProps {
   onNavigate: (page: 'home' | 'subjects' | 'about' | 'contact') => void;
@@ -83,6 +84,12 @@ export default function HomePage({ onNavigate }: HomePageProps) {
       });
 
       if (response.ok) {
+        trackEvent('generate_lead', {
+          form_name: 'demo_consultation_form',
+          demo_slug: 'smart-start-tutoring',
+        });
+        trackConversion('leadForm');
+
         setSubmitStatus('success');
         setFormData({ name: '', email: '', phone: '', subject: '', gradeLevel: '' });
         setTimeout(() => setShowConsultForm(false), 2000);

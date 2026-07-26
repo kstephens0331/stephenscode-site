@@ -1,6 +1,6 @@
 ---
 title: "Website Speed and Conversion Rates: The Complete Guide for Small Business Owners"
-date: "2025-01-25"
+date: "2025-11-18"
 author: "Kyle Stephens"
 excerpt: "Every second of page load time costs you customers and revenue. Learn exactly how website speed impacts your bottom line and the specific steps to fix it."
 category: "Web Development"
@@ -102,7 +102,7 @@ Images typically account for 50-80% of a page's total weight. Common problems:
 - **No compression**: Raw camera files uploaded directly
 - **No lazy loading**: All images load at once
 
-**Example:** An unoptimized photo gallery page with 24 full-resolution photos can easily total 70MB or more. Proper compression and modern formats (WebP/AVIF) routinely get the same page down to a few megabytes with no visible loss in quality.
+**Example:** An unoptimized photo gallery page with 24 full-resolution photos can easily total 70MB or more. Proper compression and modern formats (WebP/AVIF) routinely get the same page down to a few megabytes with no visible loss in quality. If you'd rather not manage this by hand, our [Image Optimizer](/services/image-optimizer) add-on handles compression and modern formats automatically.
 
 ### 2. Too Much JavaScript
 
@@ -250,7 +250,7 @@ For speed, modern options win:
 - **Hugo**: Blazing fast for simple sites
 - **Custom HTML/CSS**: No overhead at all
 
-Template builders (Wix, Squarespace) will always be slower due to platform overhead.
+Template builders (Wix, Squarespace) will always be slower due to platform overhead. Every [Standard Website](/services/standard-website) and higher tier we build starts on this modern stack instead of a template.
 
 **2. Static Site Generation**
 
@@ -488,7 +488,7 @@ Consider hiring a developer if:
 
 **Potential monthly revenue increase:** $1,000-5,000+
 
-The math usually makes sense.
+The math usually makes sense. See our [pricing](/pricing) for full website and add-on rates.
 
 ## The Bottom Line
 

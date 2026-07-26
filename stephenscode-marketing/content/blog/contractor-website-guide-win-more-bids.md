@@ -1,6 +1,6 @@
 ---
 title: "Contractor Website Guide: How to Win More Bids With Your Online Presence"
-date: "2025-03-25"
+date: "2025-12-24"
 author: "Kyle Stephens"
 excerpt: "General contractors lose jobs to competitors with better websites. Here's how your online presence can help you win more bids and bigger projects."
 category: "Web Development"
@@ -52,6 +52,8 @@ This is non-negotiable for contractors. Your portfolio should include:
 - Consistent lighting and angles
 - Show details that demonstrate craftsmanship
 - Include wide shots and close-ups
+
+If you want a sense of how a real portfolio should be organized and presented, look at how we lay out [our own client work](/work).
 
 ### 2. Clear Service Descriptions
 
@@ -234,7 +236,7 @@ This deserves its own section because it's that important.
 
 ## Local SEO for Contractors
 
-Getting found online requires more than just having a website:
+Getting found online requires more than just having a website. It takes consistent [local SEO](/services/seo-boost) work to keep you ranked ahead of competitors:
 
 ### Google Business Profile
 - Complete every section
@@ -287,6 +289,8 @@ Getting found online requires more than just having a website:
 - Manufacturer partnerships
 
 ## What Your Contractor Website Should Cost
+
+For an exact breakdown of current packages and pricing, check our [pricing page](/pricing).
 
 **Budget Tiers:**
 

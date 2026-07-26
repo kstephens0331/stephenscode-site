@@ -342,24 +342,6 @@ export default function Work() {
 
   const testimonials = [
     {
-      quote: 'StephensCode built our complete scheduling and workflow automation platform. The system handles everything from client bookings to automated reminders seamlessly.',
-      author: 'CalenFlow Team',
-      company: 'CalenFlow',
-      rating: 5
-    },
-    {
-      quote: 'Kyle developed our secure VPN management platform with advanced authentication and monitoring. The system is rock-solid and handles our enterprise clients flawlessly.',
-      author: 'SACVPN Team',
-      company: 'SACVPN',
-      rating: 5
-    },
-    {
-      quote: 'Our online gaming safety platform was built exactly to spec. StephensCode delivered a powerful system that streamlines our entire operation protecting gamers.',
-      author: 'SentinelForge Team',
-      company: 'SentinelForge: Online Gaming Safety Platform',
-      rating: 5
-    },
-    {
       quote: 'The photography portfolio and booking system Kyle built has transformed how we manage our business. Beautiful design, flawless functionality.',
       author: 'FC Photo Team',
       company: 'FC Photo Houston',
@@ -368,18 +350,18 @@ export default function Work() {
   ]
 
   const industries = [
-    { name: 'Home Services', count: '45+' },
-    { name: 'Healthcare', count: '12+' },
-    { name: 'Restaurants', count: '18+' },
-    { name: 'Retail', count: '28+' },
-    { name: 'Real Estate', count: '15+' },
-    { name: 'Legal', count: '8+' },
-    { name: 'Fitness', count: '10+' },
-    { name: 'Education', count: '14+' },
-    { name: 'Automotive', count: '9+' },
-    { name: 'Construction', count: '22+' },
-    { name: 'Landscaping', count: '11+' },
-    { name: 'E-Commerce', count: '16+' }
+    { name: 'Home Services' },
+    { name: 'Healthcare' },
+    { name: 'Restaurants' },
+    { name: 'Retail' },
+    { name: 'Real Estate' },
+    { name: 'Legal' },
+    { name: 'Fitness' },
+    { name: 'Education' },
+    { name: 'Automotive' },
+    { name: 'Construction' },
+    { name: 'Landscaping' },
+    { name: 'E-Commerce' }
   ]
 
   return (
@@ -407,7 +389,7 @@ export default function Work() {
         <div className="relative mx-auto max-w-7xl px-6 py-24 sm:py-32 lg:px-8">
           <div className="mx-auto max-w-3xl text-center">
             <div className="inline-flex items-center rounded-full bg-accent-500/20 px-4 py-2 text-sm font-semibold text-white ring-1 ring-inset ring-accent-500/30 mb-8 animate-fade-in-up">
-              200+ Successful Projects
+              200+ Projects Completed
             </div>
             <h1 className="text-5xl font-bold tracking-tight sm:text-7xl animate-fade-in-up animation-delay-200">
               Our Work
@@ -420,7 +402,7 @@ export default function Work() {
                 href="/contact"
                 className="group rounded-lg bg-accent-500 px-8 py-4 text-base font-semibold text-white shadow-lg hover:bg-accent-600 transition-all"
               >
-                Start Your Project
+                Get a Flat Quote
                 <span className="inline-block transition-transform group-hover:translate-x-1 ml-2">→</span>
               </Link>
               <Link
@@ -561,7 +543,7 @@ export default function Work() {
               href="/contact"
               className="inline-flex items-center gap-2 rounded-lg bg-primary-600 px-8 py-4 text-lg font-bold text-white shadow-lg hover:bg-primary-700 transition-all"
             >
-              <span>Start Your Project</span>
+              <span>Get a Flat Quote</span>
               <span>→</span>
             </Link>
           </div>
@@ -717,7 +699,7 @@ export default function Work() {
             </p>
           </div>
 
-          <div className="grid grid-cols-1 gap-8 lg:grid-cols-2">
+          <div className="grid grid-cols-1 gap-8 max-w-2xl mx-auto">
             {testimonials.map((testimonial, index) => (
               <div
                 key={index}
@@ -769,8 +751,7 @@ export default function Work() {
                 key={industry.name}
                 className="group relative rounded-2xl bg-surface p-8 shadow-lg shadow-black/20 border-2 border-surface-border hover:border-primary-300 transition-all text-center"
               >
-                <p className="font-bold text-white mb-2 text-lg">{industry.name}</p>
-                <p className="text-sm text-primary-600 font-semibold">{industry.count} projects</p>
+                <p className="font-bold text-white text-lg">{industry.name}</p>
               </div>
             ))}
           </div>
@@ -792,14 +773,14 @@ export default function Work() {
               Ready to Get Started?
             </h2>
             <p className="mx-auto mt-6 max-w-xl text-lg leading-8 text-gray-200">
-              Join 200+ satisfied clients. Let's build something great together with transparent pricing and proven results.
+              200+ projects completed. Let's build something great together with transparent pricing and proven results.
             </p>
             <div className="mt-10 flex flex-col sm:flex-row items-center justify-center gap-6">
               <Link
                 href="/contact"
                 className="group rounded-lg bg-surface-card px-8 py-4 text-base font-semibold text-white shadow-2xl hover:bg-surface-elevated transition-all"
               >
-                Start Your Project
+                Get a Flat Quote
                 <span className="inline-block transition-transform group-hover:translate-x-1 ml-2">→</span>
               </Link>
               <Link

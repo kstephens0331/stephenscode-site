@@ -3,6 +3,7 @@
 import { useState } from 'react'
 import type { Demo } from '@/lib/demos-data'
 import type { ColorPalette } from '@/lib/demo-colors'
+import { trackEvent, trackConversion } from '@/lib/analytics'
 import Layout from './components/Layout'
 import HomePage from './pages/HomePage'
 import ServicesPage from './pages/ServicesPage'
@@ -131,6 +132,12 @@ export default function CustomerView({ demo, colors }: CustomerViewProps) {
       })
 
       if (response.ok) {
+        trackEvent('generate_lead', {
+          form_name: 'demo_booking_form',
+          demo_slug: 'classic-cuts-barbershop',
+        })
+        trackConversion('leadForm')
+
         setSubmitted(true)
         setTimeout(() => {
           setShowBooking(false)

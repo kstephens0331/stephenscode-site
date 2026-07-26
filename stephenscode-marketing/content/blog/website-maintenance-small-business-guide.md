@@ -1,6 +1,6 @@
 ---
 title: "Website Maintenance: What Small Businesses Actually Need (And What They Don't)"
-date: "2025-01-26"
+date: "2025-12-01"
 author: "Kyle Stephens"
 excerpt: "Your website needs maintenance, but how much? Learn what actually matters for security, performance, and SEO, plus what's just upselling by web agencies."
 category: "Web Development"
@@ -76,11 +76,11 @@ Sites built with Next.js, Hugo, or plain HTML.
 - Annually: Domain renewal
 - As needed: Minor framework updates
 
-**This is what I build for most clients.** The maintenance burden is dramatically lower.
+**This is what I build for most [custom website](/services/custom-websites) clients.** The maintenance burden is dramatically lower.
 
 ### E-Commerce Sites: Medium-High Maintenance
 
-Online stores have specific needs.
+[Online stores](/services/ecommerce-website) have specific needs.
 
 **Additional considerations:**
 
@@ -262,6 +262,8 @@ Typical pricing for small business websites:
 - Priority support (same-day response)
 - Quarterly SEO review
 - Monthly analytics review
+
+Full details and sign-up options for these tiers are on the [Maintenance Plan](/services/maintenance-plan) page.
 
 ## Red Flags in Maintenance Offerings
 

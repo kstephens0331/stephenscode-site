@@ -1,6 +1,6 @@
 ---
 title: "10 Website Mistakes That Are Killing Your Small Business (And How to Fix Them)"
-date: "2025-01-20"
+date: "2025-11-18"
 author: "Kyle Stephens"
 excerpt: "Your website might be driving customers away. Discover the 10 most common mistakes small businesses make and how to fix them fast."
 category: "Web Development"
@@ -42,7 +42,7 @@ Your website takes more than 3 seconds to load. You might not notice because you
 
 **Longer-term fixes:**
 - Switch to better hosting (I recommend Vercel for Next.js sites)
-- Rebuild on a faster platform if you're on Wix/Squarespace
+- [Rebuild](/services/website-rebuild) on a faster platform if you're on Wix/Squarespace
 - Implement lazy loading for images below the fold
 - Minimize JavaScript and CSS files
 
@@ -111,6 +111,8 @@ Your website looks great on your desktop but terrible on phones. Text is too sma
 5. **Click-to-call**: Phone numbers dial when tapped
 6. **Simplified navigation**: Hamburger menu that works
 7. **Fast loading**: Mobile users are often on slower connections
+
+This is baked into every [custom website](/services/custom-websites) I build, so if your current platform can't fix these issues on its own, that's often the real signal it's time for a rebuild instead of another patch.
 
 **Test your site:**
 - Use Google's Mobile-Friendly Test
@@ -464,7 +466,7 @@ Sometimes fixing isn't enough. Consider a rebuild if:
 - Can't update without a developer
 - No room for growth
 
-A custom rebuild ($350-1,100) often costs less than piecemeal fixes while giving you a better foundation.
+A custom rebuild -- typically $350 to $1,100 depending on scope, see our [pricing](/pricing) for the full breakdown -- often costs less than piecemeal fixes while giving you a better foundation.
 
 ## The Bottom Line
 
