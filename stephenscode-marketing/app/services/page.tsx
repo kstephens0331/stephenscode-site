@@ -5,7 +5,7 @@ import { allAddOns } from '@/lib/addons-data'
 
 export const metadata: Metadata = {
   title: 'Houston Web Development | Flat-Rate Web Design from $250',
-  description: 'Conroe web developer offering flat-rate custom websites from $250 for small businesses. Veteran owned, 14+ years experience. Free quote available.',
+  description: 'Conroe web developer offering flat-rate custom websites from $250. Veteran owned, 14+ years experience. Call (936) 323-4527.',
   alternates: {
     canonical: '/services',
   },
@@ -32,6 +32,12 @@ export const metadata: Metadata = {
     title: 'Houston Web Design | Flat-Rate Custom Websites from $250',
     description: 'Get a professional website built in 1-2 weeks. Flat-rate pricing, no hidden fees. Veteran-owned.',
     url: 'https://www.stephenscode.dev/services',
+  },
+  twitter: {
+    card: 'summary_large_image',
+    title: 'Houston Web Design | Flat-Rate Custom Websites from $250',
+    description: 'Get a professional website built in 1-2 weeks. Flat-rate pricing, no hidden fees. Veteran-owned.',
+    images: ['/twitter-image'],
   },
 }
 
@@ -72,13 +78,61 @@ const serviceSchema = {
               "name": "Standard Website",
               "description": "Professional 8-12 page business website"
             },
-            "price": "850",
+            "price": "950",
             "priceCurrency": "USD"
           }
         ]
       }
     ]
   }
+}
+
+const servicesFaqs = [
+  {
+    question: 'How much does a custom website cost?',
+    answer: 'Seven flat-rate tiers with 90 days post-launch support on every one. Plug and Play $250 (3-4 page flyer for brand-new businesses), Website Rebuild $350 (refresh or rebuild on your existing platform), Standard Website $950 (custom 8-12 page small-business site, the typical entry tier), E-Commerce Website $1,100 (Standard features plus online store and payments), Premium Build $2,000 (custom full-stack site with admin portal and KPI dashboard), Custom Business Platform $5,000 (CRM, client portals, and automation), Enterprise Platform $7,500+ (large-scale platform with admin system and staff roles). Larger custom SaaS and enterprise builds are quoted above the catalog. No hourly billing.',
+  },
+  {
+    question: 'How long does it take to build a website?',
+    answer: "Plug and Play takes 1 week, Website Rebuild 2 weeks, Standard Website 3-4 weeks, E-Commerce Website 4-6 weeks, Premium Build 6-8 weeks, Custom Business Platform 10-12 weeks, and Enterprise Platform 12-16 weeks. We'll give you an exact timeline during your free consultation.",
+  },
+  {
+    question: 'Do you offer website hosting?',
+    answer: 'Yes! We offer managed hosting starting at $29/month which includes SSL certificates, daily backups, security monitoring, and unlimited support. Hosting is optional. We can also deploy to your existing hosting or platforms like Vercel, Netlify, or your own servers.',
+  },
+  {
+    question: 'Can you redesign my existing website?',
+    answer: "Absolutely. Our Website Rebuild package ($350) is specifically designed for businesses with outdated websites. We'll modernize your design, improve performance, enhance SEO, and ensure mobile responsiveness while preserving your brand identity.",
+  },
+  {
+    question: "What's included in the price?",
+    answer: "All packages include custom design, responsive development, basic SEO setup, contact forms, Google Analytics integration, and 90 days of post-launch support. E-commerce packages include payment processing setup. We don't nickel-and-dime. What we quote is what you pay.",
+  },
+  {
+    question: "Do I own my website after it's built?",
+    answer: 'Yes, 100%. You own all code, content, and design assets. Unlike template website builders that hold your site hostage, we build on open platforms and provide full source code. You can host it anywhere and modify it however you want.',
+  },
+  {
+    question: 'Do you work with clients outside Houston?',
+    answer: "Yes! While we're based in Conroe and serve the Houston area with in-person meetings, we work with clients nationwide through video calls, screen sharing, and collaborative tools. About 40% of our clients are outside Texas.",
+  },
+  {
+    question: 'What technologies do you use?',
+    answer: 'We use modern, industry-standard technologies: React/Next.js for frontend, Node.js or Python for backend, PostgreSQL or Firebase for databases, and Tailwind CSS for styling. We choose the best tools for each project rather than forcing one-size-fits-all solutions.',
+  },
+]
+
+const servicesFaqSchema = {
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": servicesFaqs.map((faq) => ({
+    "@type": "Question",
+    "name": faq.question,
+    "acceptedAnswer": {
+      "@type": "Answer",
+      "text": faq.answer,
+    },
+  })),
 }
 
 export default function ServicesPage() {
@@ -188,6 +242,10 @@ export default function ServicesPage() {
       <script
         type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: JSON.stringify(serviceSchema) }}
+      />
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(servicesFaqSchema) }}
       />
 
       {/* Hero Section with Advanced Design */}
@@ -434,40 +492,7 @@ export default function ServicesPage() {
           </div>
 
           <div className="space-y-6">
-            {[
-              {
-                question: "How much does a custom website cost?",
-                answer: "Seven flat-rate tiers with 90 days post-launch support on every one. Plug and Play $250 (3-4 page flyer for brand-new businesses), Website Rebuild $350 (refresh or rebuild on your existing platform), Standard Website $950 (custom 8-12 page small-business site, the typical entry tier), E-Commerce Website $1,100 (Standard features plus online store and payments), Premium Build $2,000 (custom full-stack site with admin portal and KPI dashboard), Custom Business Platform $5,000 (CRM, client portals, and automation), Enterprise Platform $7,500+ (large-scale platform with admin system and staff roles). Larger custom SaaS and enterprise builds are quoted above the catalog. No hourly billing."
-              },
-              {
-                question: "How long does it take to build a website?",
-                answer: "Most projects are completed in 1-2 weeks. Plug and Play sites can be ready in 3-5 days. Standard websites take 1-2 weeks. Complex e-commerce or custom platforms may take 2-4 weeks. We'll give you an accurate timeline during your free consultation."
-              },
-              {
-                question: "Do you offer website hosting?",
-                answer: "Yes! We offer managed hosting starting at $29/month which includes SSL certificates, daily backups, security monitoring, and unlimited support. Hosting is optional. We can also deploy to your existing hosting or platforms like Vercel, Netlify, or your own servers."
-              },
-              {
-                question: "Can you redesign my existing website?",
-                answer: "Absolutely. Our Website Rebuild package ($350) is specifically designed for businesses with outdated websites. We'll modernize your design, improve performance, enhance SEO, and ensure mobile responsiveness while preserving your brand identity."
-              },
-              {
-                question: "What's included in the price?",
-                answer: "All packages include custom design, responsive development, basic SEO setup, contact forms, Google Analytics integration, and 90 days of post-launch support. E-commerce packages include payment processing setup. We don't nickel-and-dime. What we quote is what you pay."
-              },
-              {
-                question: "Do I own my website after it's built?",
-                answer: "Yes, 100%. You own all code, content, and design assets. Unlike template website builders that hold your site hostage, we build on open platforms and provide full source code. You can host it anywhere and modify it however you want."
-              },
-              {
-                question: "Do you work with clients outside Houston?",
-                answer: "Yes! While we're based in Conroe and serve the Houston area with in-person meetings, we work with clients nationwide through video calls, screen sharing, and collaborative tools. About 40% of our clients are outside Texas."
-              },
-              {
-                question: "What technologies do you use?",
-                answer: "We use modern, industry-standard technologies: React/Next.js for frontend, Node.js or Python for backend, PostgreSQL or Firebase for databases, and Tailwind CSS for styling. We choose the best tools for each project rather than forcing one-size-fits-all solutions."
-              }
-            ].map((faq, index) => (
+            {servicesFaqs.map((faq, index) => (
               <details
                 key={index}
                 className="group rounded-2xl border-2 border-surface-border bg-surface-card hover:border-primary-300 transition-colors"

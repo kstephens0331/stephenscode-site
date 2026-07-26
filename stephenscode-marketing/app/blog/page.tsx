@@ -21,6 +21,12 @@ export const metadata: Metadata = {
     type: 'website',
     images: ['/opengraph-image'],
   },
+  twitter: {
+    card: 'summary_large_image',
+    title: 'Blog | Web Development Tips & Houston Business Growth',
+    description: 'Expert insights on web development, SEO, and business automation. Tips and strategies for Houston small businesses to grow online.',
+    images: ['/twitter-image'],
+  },
   alternates: {
     canonical: 'https://www.stephenscode.dev/blog',
   },

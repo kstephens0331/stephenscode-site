@@ -17,6 +17,12 @@ export const metadata: Metadata = {
     url: 'https://www.stephenscode.dev/services/custom-websites',
     type: 'website',
   },
+  twitter: {
+    card: 'summary_large_image',
+    title: 'Custom Website Development | From $250 | Houston & Conroe',
+    description: 'Professional custom website development for Houston businesses. Responsive design, SEO-optimized, mobile-friendly. Flat-rate pricing from $250.',
+    images: ['/twitter-image'],
+  },
 }
 
 export default function CustomWebsitesPage() {
@@ -257,7 +263,7 @@ export default function CustomWebsitesPage() {
               href="/pricing"
               className="text-base font-semibold text-primary-600 hover:text-primary-400"
             >
-              View all 55+ add-ons <span aria-hidden="true">→</span>
+              View all 40+ add-ons <span aria-hidden="true">→</span>
             </Link>
           </div>
         </div>

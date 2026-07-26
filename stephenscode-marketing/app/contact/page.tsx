@@ -22,6 +22,12 @@ export const metadata: Metadata = {
     url: 'https://www.stephenscode.dev/contact',
     type: 'website',
   },
+  twitter: {
+    card: 'summary_large_image',
+    title: 'Contact Conroe Web Developer | Free Quote | Houston TX',
+    description: 'Contact veteran owned web developer for free quote. Flat-rate small business websites from $250. Custom websites for small business.',
+    images: ['/twitter-image'],
+  },
   alternates: {
     canonical: 'https://www.stephenscode.dev/contact',
   },
@@ -35,7 +41,7 @@ export const metadata: Metadata = {
 const contactFaqs = [
   {
     question: 'How long does a typical project take?',
-    answer: 'Simple websites (Plug and Play, Website Rebuild) take 1-2 weeks. Standard custom websites take 3-4 weeks. E-commerce sites take 4-6 weeks. Premium builds range from 6-16 weeks depending on complexity. Each service page shows the estimated timeline.',
+    answer: 'Plug and Play takes 1 week, Website Rebuild 2 weeks, Standard Website 3-4 weeks, E-Commerce Website 4-6 weeks, Premium Build 6-8 weeks, Custom Business Platform 10-12 weeks, and Enterprise Platform 12-16 weeks. Each service page shows the exact timeline.',
   },
   {
     question: 'Do you require payment upfront?',
@@ -43,7 +49,7 @@ const contactFaqs = [
   },
   {
     question: 'Do you offer ongoing maintenance?',
-    answer: 'Yes! Our Maintenance Plan add-on ($50-75/mo) includes updates, security monitoring, backups, and minor changes. We also offer hourly support for larger updates or changes outside the maintenance scope.',
+    answer: 'Yes! Our Maintenance Plan add-on ($50-100/mo) includes updates, security monitoring, backups, and minor changes. We also offer hourly support for larger updates or changes outside the maintenance scope.',
   },
   {
     question: 'Can you work with my existing website?',
@@ -305,7 +311,7 @@ export default function ContactPage() {
                   <div className="text-3xl mb-3">⭐</div>
                   <h3 className="font-bold text-white mb-2">14+ Years Experience</h3>
                   <p className="text-sm text-gray-400 leading-relaxed">
-                    Proven track record with 200+ successful projects and 98% client satisfaction.
+                    Proven track record with 200+ successful projects across Houston and Conroe.
                   </p>
                 </div>
               </div>

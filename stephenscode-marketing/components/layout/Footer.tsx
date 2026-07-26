@@ -87,7 +87,7 @@ export default function Footer() {
                   <PhoneLink location="footer" className="hover:text-white">(936) 323-4527</PhoneLink>
                 </p>
                 <p className="text-sm text-gray-300">
-                  <a href="mailto:kyle@stephenscode.dev" className="hover:text-white">kyle@stephenscode.dev</a>
+                  <a href="mailto:info@stephenscode.dev" className="hover:text-white">info@stephenscode.dev</a>
                 </p>
               </div>
             </div>

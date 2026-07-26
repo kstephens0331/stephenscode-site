@@ -15,7 +15,7 @@
 
 ### Basic Add-Ons (20/20) - 100% Complete
 1. ✅ Email Setup - $25
-2. ✅ Maintenance Plan - $50-75/mo
+2. ✅ Maintenance Plan - $50-100/mo
 3. ✅ Form Generator - $100
 4. ✅ Accounting Module - $150
 5. ✅ Customer Dashboard - $160

@@ -25,6 +25,12 @@ export const metadata: Metadata = {
     description: 'Professional web scraping services. Lead generation, pricing data, market research.',
     type: 'website',
   },
+  twitter: {
+    card: 'summary_large_image',
+    title: 'Web Scraping Services | Custom Data Extraction Solutions',
+    description: 'Professional web scraping services. Lead generation, pricing data, market research.',
+    images: ['/twitter-image'],
+  },
 }
 
 // Schema markup for the page
@@ -207,7 +213,7 @@ export default function WebScraping() {
           <div className="mx-auto max-w-4xl">
             <div className="inline-flex items-center gap-3 rounded-full bg-surface-card/60 px-6 py-3 text-sm font-semibold backdrop-blur-lg border border-surface-border mb-8">
               <span className="text-2xl">📊</span>
-              <span>500+ Web Scraping Projects Completed</span>
+              <span>200+ Projects Completed</span>
             </div>
 
             <h1 className="text-5xl font-bold tracking-tight sm:text-6xl mb-6">
@@ -216,13 +222,13 @@ export default function WebScraping() {
             </h1>
 
             <p className="text-xl leading-8 text-gray-200 mb-8">
-              Need data that's trapped on websites? Lead lists, competitor prices, market research, real estate listings. I can extract and structure it for you. With 500+ web scraping projects completed, I've tackled everything from simple directory scrapes to complex JavaScript-heavy sites.
+              Need data that's trapped on websites? Lead lists, competitor prices, market research, real estate listings. I can extract and structure it for you, from simple directory scrapes to complex JavaScript-heavy sites.
             </p>
 
             <div className="flex flex-wrap items-center gap-6 mb-10">
               <div className="rounded-2xl bg-accent-500/20 px-6 py-4 border border-accent-500/30">
                 <span className="block text-sm text-gray-200">Projects Completed</span>
-                <span className="text-3xl font-bold text-white">500+</span>
+                <span className="text-3xl font-bold text-white">200+</span>
               </div>
               <div className="rounded-2xl bg-surface-card/60 px-6 py-4 border border-surface-border">
                 <span className="block text-sm text-gray-200">Technologies</span>
@@ -325,7 +331,7 @@ export default function WebScraping() {
 
             <div className="prose prose-lg prose-invert max-w-none text-gray-300">
               <p className="mb-6">
-                With <strong>500+ web scraping projects</strong> completed, I've developed scrapers for every imaginable scenario. Simple static sites, complex JavaScript-rendered applications, sites with anti-bot measures, each presents unique challenges I've learned to overcome.
+                Across <strong>200+ completed projects</strong>, I've developed scrapers for every imaginable scenario. Simple static sites, complex JavaScript-rendered applications, sites with anti-bot measures, each presents unique challenges I've learned to overcome.
               </p>
 
               <div className="bg-surface-card rounded-2xl p-8 my-8">
@@ -512,7 +518,7 @@ export default function WebScraping() {
             </div>
 
             <p className="text-gray-300">
-              <a href="mailto:kyle@stephenscode.dev" className="hover:text-white underline">kyle@stephenscode.dev</a>
+              <a href="mailto:info@stephenscode.dev" className="hover:text-white underline">info@stephenscode.dev</a>
             </p>
           </div>
         </div>

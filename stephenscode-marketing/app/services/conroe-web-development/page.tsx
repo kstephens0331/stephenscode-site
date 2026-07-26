@@ -25,6 +25,12 @@ export const metadata: Metadata = {
     description: 'Local Conroe web developer. Veteran-owned, 14+ years experience, 200+ projects completed.',
     type: 'website',
   },
+  twitter: {
+    card: 'summary_large_image',
+    title: 'Conroe Web Developer | Custom Websites for Local Businesses',
+    description: 'Local Conroe web developer. Veteran-owned, 14+ years experience, 200+ projects completed.',
+    images: ['/twitter-image'],
+  },
 }
 
 // Schema markup for the page
@@ -529,7 +535,7 @@ export default function ConroeWebDevelopment() {
               <p className="text-gray-300 text-sm">Founder & CTO</p>
               <p className="text-gray-300 text-sm">StephensCode LLC (Veteran-Owned)</p>
               <p className="text-gray-300 text-sm mt-2">
-                <a href="mailto:kyle@stephenscode.dev" className="hover:text-white">kyle@stephenscode.dev</a>
+                <a href="mailto:info@stephenscode.dev" className="hover:text-white">info@stephenscode.dev</a>
               </p>
             </div>
           </div>

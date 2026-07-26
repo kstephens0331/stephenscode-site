@@ -22,6 +22,12 @@ export const metadata: Metadata = {
     url: 'https://www.stephenscode.dev/security',
     type: 'website',
   },
+  twitter: {
+    card: 'summary_large_image',
+    title: 'Security & Trust',
+    description: 'Controls aligned to SOC 2 and ISO 27001, HIPAA-aligned safeguards, and BAAs available for healthcare engagements.',
+    images: ['/twitter-image'],
+  },
   alternates: {
     canonical: 'https://www.stephenscode.dev/security',
   },

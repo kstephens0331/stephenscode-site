@@ -34,6 +34,12 @@ export async function generateMetadata({ params }: MSPPageProps): Promise<Metada
       url: `https://www.stephenscode.dev/msp/${slug}`,
       type: 'website',
     },
+    twitter: {
+      card: 'summary_large_image',
+      title: service.metaTitle,
+      description: service.metaDescription,
+      images: ['/twitter-image'],
+    },
   }
 }
 

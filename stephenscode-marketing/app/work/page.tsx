@@ -21,6 +21,12 @@ export const metadata: Metadata = {
     url: 'https://www.stephenscode.dev/work',
     type: 'website',
   },
+  twitter: {
+    card: 'summary_large_image',
+    title: 'Web Development Portfolio | Custom Websites Houston | Case Studies',
+    description: 'Conroe web developer portfolio. Custom website Houston examples, small business website Texas case studies. Veteran owned web developer with 200+ projects.',
+    images: ['/twitter-image'],
+  },
   alternates: {
     canonical: 'https://www.stephenscode.dev/work',
   },
@@ -452,8 +458,8 @@ export default function Work() {
               <div className="text-sm text-gray-400 mt-2">Average Project Time</div>
             </div>
             <div className="animate-fade-in-up animation-delay-600">
-              <div className="text-4xl font-bold bg-gradient-to-r from-primary-400 to-accent-400 bg-clip-text text-transparent">98%</div>
-              <div className="text-sm text-gray-400 mt-2">Client Satisfaction</div>
+              <div className="text-4xl font-bold bg-gradient-to-r from-primary-400 to-accent-400 bg-clip-text text-transparent">0%</div>
+              <div className="text-sm text-gray-400 mt-2">Hidden Fees</div>
             </div>
           </div>
         </div>

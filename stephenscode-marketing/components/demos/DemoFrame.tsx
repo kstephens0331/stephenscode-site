@@ -62,10 +62,24 @@ const INTERFACE_PREVIEW_ONLY_SLUGS = new Set([
   'workflow-automation-showcase',
 ])
 
+// These templates are single-view (no separate admin dashboard exists in the
+// underlying component) -- the Customer View/Admin Dashboard toggle has nothing
+// to switch to, so it's hidden rather than shown as a dead control.
+const NO_VIEW_TOGGLE_SLUGS = new Set([
+  'hoppy-trails-craft-beer',
+  'urban-jungle-plant-shop',
+  'roasted-perfection-coffee',
+  'happy-paws-pet-supplies',
+  'elite-property-management',
+  'premier-staffing-solutions',
+  'celebration-events-company',
+])
+
 export default function DemoFrame({ demo }: DemoFrameProps) {
   const [showInstructions, setShowInstructions] = useState(true)
   const [viewMode, setViewMode] = useState<'customer' | 'admin'>('customer')
   const isInterfacePreviewOnly = INTERFACE_PREVIEW_ONLY_SLUGS.has(demo.slug)
+  const hasViewToggle = !demo.isRealClient && !NO_VIEW_TOGGLE_SLUGS.has(demo.slug)
 
   useEffect(() => {
     // Initialize localStorage for this demo
@@ -240,8 +254,8 @@ export default function DemoFrame({ demo }: DemoFrameProps) {
               </div>
             </div>
 
-            {/* Center: View Mode Toggle (not applicable to real-client redirect cards) */}
-            {!demo.isRealClient && (
+            {/* Center: View Mode Toggle (not applicable to real-client redirect cards or single-view templates) */}
+            {hasViewToggle && (
               <div className="flex items-center gap-2 bg-gray-800 rounded-lg p-1">
                 <button
                   onClick={() => setViewMode('customer')}
@@ -303,7 +317,9 @@ export default function DemoFrame({ demo }: DemoFrameProps) {
                   ) : (
                     <li>• Click around, fill out forms, and test all features. Everything works!</li>
                   )}
-                  <li>• Switch between <strong>Customer View</strong> (what your clients see) and <strong>Admin Dashboard</strong> (your control panel)</li>
+                  {hasViewToggle && (
+                    <li>• Switch between <strong>Customer View</strong> (what your clients see) and <strong>Admin Dashboard</strong> (your control panel)</li>
+                  )}
                   <li>• All data is stored locally and will be cleared when you close this tab</li>
                   <li>• Resize your browser to see the responsive mobile design</li>
                 </ul>

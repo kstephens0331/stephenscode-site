@@ -14,74 +14,62 @@ export default function sitemap(): MetadataRoute.Sitemap {
   const corePagesHigh: MetadataRoute.Sitemap = [
     {
       url: `${baseUrl}`,
-      lastModified: currentDate,
       changeFrequency: 'daily',
       priority: 1.0,
     },
     {
       url: `${baseUrl}/services`,
-      lastModified: currentDate,
       changeFrequency: 'weekly',
       priority: 0.95,
     },
     // Specialized service pages - high priority for SEO
     {
       url: `${baseUrl}/services/conroe-web-development`,
-      lastModified: currentDate,
       changeFrequency: 'weekly',
       priority: 0.95,
     },
     {
       url: `${baseUrl}/services/api-integration`,
-      lastModified: currentDate,
       changeFrequency: 'weekly',
       priority: 0.95,
     },
     {
       url: `${baseUrl}/services/web-scraping`,
-      lastModified: currentDate,
       changeFrequency: 'weekly',
       priority: 0.95,
     },
     {
       url: `${baseUrl}/services/business-automation`,
-      lastModified: currentDate,
       changeFrequency: 'weekly',
       priority: 0.95,
     },
     {
       url: `${baseUrl}/services/custom-websites`,
-      lastModified: currentDate,
       changeFrequency: 'weekly',
       priority: 0.95,
     },
     {
       url: `${baseUrl}/msp`,
-      lastModified: currentDate,
       changeFrequency: 'weekly',
       priority: 0.95,
     },
     {
       url: `${baseUrl}/pricing`,
-      lastModified: currentDate,
       changeFrequency: 'weekly',
       priority: 0.95,
     },
     {
       url: `${baseUrl}/sacvpn`,
-      lastModified: currentDate,
       changeFrequency: 'monthly',
       priority: 0.9,
     },
     {
       url: `${baseUrl}/contact`,
-      lastModified: currentDate,
       changeFrequency: 'monthly',
       priority: 0.9,
     },
     {
       url: `${baseUrl}/faq`,
-      lastModified: currentDate,
       changeFrequency: 'monthly',
       priority: 0.85,
     },
@@ -91,58 +79,59 @@ export default function sitemap(): MetadataRoute.Sitemap {
   const importantPages: MetadataRoute.Sitemap = [
     {
       url: `${baseUrl}/about`,
-      lastModified: currentDate,
       changeFrequency: 'monthly',
       priority: 0.85,
     },
     {
       url: `${baseUrl}/work`,
-      lastModified: currentDate,
       changeFrequency: 'weekly',
       priority: 0.85,
     },
     {
       url: `${baseUrl}/partners`,
-      lastModified: currentDate,
       changeFrequency: 'monthly',
       priority: 0.85,
     },
     {
       url: `${baseUrl}/demos`,
-      lastModified: currentDate,
       changeFrequency: 'weekly',
       priority: 0.85,
     },
     {
       url: `${baseUrl}/custom-solutions`,
-      lastModified: currentDate,
       changeFrequency: 'monthly',
       priority: 0.85,
     },
     {
       url: `${baseUrl}/pricing/add-ons`,
-      lastModified: currentDate,
       changeFrequency: 'weekly',
       priority: 0.8,
     },
     {
       url: `${baseUrl}/blog`,
-      lastModified: currentDate,
       changeFrequency: 'daily',
       priority: 0.8,
     },
     {
       url: `${baseUrl}/service-areas`,
-      lastModified: currentDate,
       changeFrequency: 'monthly',
       priority: 0.8,
+    },
+    {
+      url: `${baseUrl}/security`,
+      changeFrequency: 'monthly',
+      priority: 0.7,
+    },
+    {
+      url: `${baseUrl}/privacy`,
+      changeFrequency: 'yearly',
+      priority: 0.5,
     },
   ]
 
   // Service area pages (0.85) - Local SEO pages
   const serviceAreaPages: MetadataRoute.Sitemap = serviceAreas.map((area) => ({
     url: `${baseUrl}/service-areas/${area.slug}`,
-    lastModified: currentDate,
     changeFrequency: 'monthly' as const,
     priority: 0.85,
   }))
@@ -151,7 +140,6 @@ export default function sitemap(): MetadataRoute.Sitemap {
   const allServices = [...corePackages, ...premiumBuilds]
   const servicePages: MetadataRoute.Sitemap = allServices.map((service) => ({
     url: `${baseUrl}/services/${service.slug}`,
-    lastModified: currentDate,
     changeFrequency: 'weekly' as const,
     priority: service.category === 'core' ? 0.9 : 0.85,
   }))
@@ -159,7 +147,6 @@ export default function sitemap(): MetadataRoute.Sitemap {
   // Add-on service pages (0.7) - Individual add-on offerings
   const addOnPages: MetadataRoute.Sitemap = allAddOns.map((addon) => ({
     url: `${baseUrl}/services/${addon.slug}`,
-    lastModified: currentDate,
     changeFrequency: 'weekly' as const,
     priority: 0.7,
   }))
@@ -167,7 +154,6 @@ export default function sitemap(): MetadataRoute.Sitemap {
   // MSP service pages (0.85) - IT services
   const mspServicePages: MetadataRoute.Sitemap = allMSPServices.map((service) => ({
     url: `${baseUrl}/msp/${service.slug}`,
-    lastModified: currentDate,
     changeFrequency: 'weekly' as const,
     priority: 0.85,
   }))
@@ -175,7 +161,6 @@ export default function sitemap(): MetadataRoute.Sitemap {
   // Demo pages (0.7) - Portfolio/demo showcases
   const demoPages: MetadataRoute.Sitemap = allDemos.map((demo) => ({
     url: `${baseUrl}/demos/${demo.slug}`,
-    lastModified: currentDate,
     changeFrequency: 'monthly' as const,
     priority: 0.7,
   }))
@@ -193,7 +178,6 @@ export default function sitemap(): MetadataRoute.Sitemap {
   const blogCategories = ['web-development', 'seo', 'business', 'ecommerce']
   const blogCategoryPages: MetadataRoute.Sitemap = blogCategories.map((category) => ({
     url: `${baseUrl}/blog/category/${category}`,
-    lastModified: currentDate,
     changeFrequency: 'weekly' as const,
     priority: 0.7,
   }))

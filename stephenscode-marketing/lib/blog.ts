@@ -17,6 +17,7 @@ export interface BlogPost {
   tags: string[]
   image?: string
   readTime?: string
+  modified?: string
 }
 
 export interface BlogPostMetadata {
@@ -29,6 +30,7 @@ export interface BlogPostMetadata {
   tags: string[]
   image?: string
   readTime?: string
+  modified?: string
 }
 
 // Ensure the blog directory exists
@@ -64,6 +66,7 @@ export function getAllPosts(): BlogPostMetadata[] {
         tags: data.tags || [],
         image: data.image || '',
         readTime: data.readTime || '5 min read',
+        modified: data.modified || data.date || '',
       }
     })
 
@@ -102,6 +105,7 @@ export async function getPostBySlug(slug: string): Promise<BlogPost | null> {
       tags: data.tags || [],
       image: data.image || '',
       readTime: data.readTime || '5 min read',
+      modified: data.modified || data.date || '',
     }
   } catch (error) {
     return null

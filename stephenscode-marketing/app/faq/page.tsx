@@ -20,6 +20,12 @@ export const metadata: Metadata = {
     url: 'https://www.stephenscode.dev/faq',
     type: 'website',
   },
+  twitter: {
+    card: 'summary_large_image',
+    title: 'FAQ | Conroe Web Developer Questions | Affordable Web Design',
+    description: 'FAQ about Conroe web developer services: Houston website pricing, small business costs, and flat-rate websites from $250.',
+    images: ['/twitter-image'],
+  },
   alternates: {
     canonical: 'https://www.stephenscode.dev/faq',
   },
@@ -31,12 +37,22 @@ interface FAQItem {
   category: string
 }
 
+const pricingTiersList = [
+  'Plug and Play $250 -- fast-turnaround starter site for brand-new businesses',
+  'Website Rebuild $350 -- modernize an existing site',
+  'Standard Website $950 -- full custom small-business website, the typical entry tier',
+  'E-Commerce Website $1,100 -- online store with cart and checkout',
+  'Premium Build $2,000 -- custom full-stack site with admin portal and analytics dashboard',
+  'Custom Business Platform $5,000 -- CRM, portals, booking, payments, automation, integrations',
+  'Enterprise Platform $7,500+ -- multi-tenant, SSO, audit logs, workflow builder',
+]
+
 const faqs: FAQItem[] = [
   // Pricing & Cost Questions
   {
     category: 'Pricing & Costs',
     question: 'How much does a custom website cost?',
-    answer: 'Flat-rate tiers, all with 90 days of post-launch support. Plug and Play $250 (fast-turnaround starter site for brand-new businesses). Website Rebuild $350 (modernize an existing site). Standard Website $950 (full custom small-business website, the typical entry tier). E-Commerce Website $1,100 (online store with cart and checkout). Premium Build $2,000 (custom full-stack site with admin portal and analytics dashboard). Custom Business Platform $5,000 (CRM, portals, booking, payments, automation, integrations). Enterprise Platform $7,500+ (multi-tenant, SSO, audit logs, workflow builder). No hidden fees, no hourly billing.'
+    answer: 'Custom websites cost $250 to $7,500+, across seven flat-rate tiers, all with 90 days of post-launch support and no hidden fees or hourly billing: Plug and Play $250 (fast-turnaround starter site for brand-new businesses), Website Rebuild $350 (modernize an existing site), Standard Website $950 (full custom small-business website, the typical entry tier), E-Commerce Website $1,100 (online store with cart and checkout), Premium Build $2,000 (custom full-stack site with admin portal and analytics dashboard), Custom Business Platform $5,000 (CRM, portals, booking, payments, automation, integrations), Enterprise Platform $7,500+ (multi-tenant, SSO, audit logs, workflow builder).'
   },
   {
     category: 'Pricing & Costs',
@@ -68,7 +84,7 @@ const faqs: FAQItem[] = [
   {
     category: 'Timeline & Process',
     question: 'How long does it take to build a website?',
-    answer: 'Plug and Play sites: 3-5 days. Standard websites: 1-2 weeks. Website rebuilds: 1-2 weeks. E-commerce: 2-3 weeks. Premium platforms: 3-6 weeks. These timelines assume prompt feedback and content delivery from you.'
+    answer: 'Plug and Play: 1 week. Website Rebuild: 2 weeks. Standard Website: 3-4 weeks. E-Commerce Website: 4-6 weeks. Premium Build: 6-8 weeks. Custom Business Platform: 10-12 weeks. Enterprise Platform: 12-16 weeks. These timelines assume prompt feedback and content delivery from you.'
   },
   {
     category: 'Timeline & Process',
@@ -198,7 +214,7 @@ const faqs: FAQItem[] = [
   {
     category: 'Support & Maintenance',
     question: 'What happens after my website launches?',
-    answer: 'You get 90 days of free support for questions and minor tweaks. After that, you can handle it yourself, hire us for specific updates, or sign up for a monthly maintenance plan ($50-75/month depending on needs).'
+    answer: 'You get 90 days of free support for questions and minor tweaks. After that, you can handle it yourself, hire us for specific updates, or sign up for a monthly maintenance plan ($50-100/month depending on needs).'
   },
   {
     category: 'Support & Maintenance',
@@ -326,18 +342,25 @@ export default function FAQPage() {
               <h2 className="text-2xl font-bold text-white mb-8 pb-4 border-b border-surface-border">
                 {category}
               </h2>
-              <dl className="space-y-8">
+              <div className="space-y-8">
                 {categoryFaqs.map((faq, index) => (
                   <div key={index} className="bg-surface-card rounded-lg p-6">
-                    <dt className="text-lg font-semibold text-white mb-3">
+                    <h3 className="text-lg font-semibold text-white mb-3">
                       {faq.question}
-                    </dt>
-                    <dd className="text-gray-400 leading-7">
+                    </h3>
+                    <p className="text-gray-400 leading-7">
                       {faq.answer}
-                    </dd>
+                    </p>
+                    {faq.question === 'How much does a custom website cost?' && (
+                      <ul className="mt-3 list-disc list-inside space-y-1 text-gray-400 text-sm leading-6">
+                        {pricingTiersList.map((tier) => (
+                          <li key={tier}>{tier}</li>
+                        ))}
+                      </ul>
+                    )}
                   </div>
                 ))}
-              </dl>
+              </div>
             </div>
           ))}
         </div>

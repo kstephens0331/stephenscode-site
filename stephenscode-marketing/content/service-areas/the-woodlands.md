@@ -236,4 +236,4 @@ Ready to upgrade your Woodlands business website? Here's the process:
 
 The Woodlands market rewards quality. Let's build a website that matches the standards your customers expect.
 
-Contact us today at (936) 323-4527 or kyle@stephenscode.dev to schedule your free consultation.
+Contact us today at (936) 323-4527 or info@stephenscode.dev to schedule your free consultation.

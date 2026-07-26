@@ -23,6 +23,12 @@ export const metadata: Metadata = {
     url: 'https://www.stephenscode.dev/partners',
     type: 'website',
   },
+  twitter: {
+    card: 'summary_large_image',
+    title: 'Our Portfolio & Client Projects',
+    description: 'View websites we\'ve built for Houston-area businesses. Real projects, real results.',
+    images: ['/twitter-image'],
+  },
 }
 
 interface Partner {

@@ -200,6 +200,6 @@ You've got questions. Let's answer them.
 
 **Transparent pricing.** You'll know exactly what it costs before we start.
 
-Call (936) 323-4527 or email kyle@stephenscode.dev to schedule a conversation. Or stop by. I'm probably at my desk.
+Call (936) 323-4527 or email info@stephenscode.dev to schedule a conversation. Or stop by. I'm probably at my desk.
 
 Let's build something great for your Conroe business.

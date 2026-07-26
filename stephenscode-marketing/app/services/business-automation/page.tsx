@@ -24,6 +24,12 @@ export const metadata: Metadata = {
     description: 'Stop wasting time on repetitive tasks. Custom automation with Zapier, n8n, Make, and custom solutions.',
     type: 'website',
   },
+  twitter: {
+    card: 'summary_large_image',
+    title: 'Business Automation Services | Streamline Your Operations',
+    description: 'Stop wasting time on repetitive tasks. Custom automation with Zapier, n8n, Make, and custom solutions.',
+    images: ['/twitter-image'],
+  },
 }
 
 // Schema markup for the page
@@ -472,7 +478,7 @@ export default function BusinessAutomation() {
             </div>
 
             <p className="text-gray-300">
-              <a href="mailto:kyle@stephenscode.dev" className="hover:text-white underline">kyle@stephenscode.dev</a>
+              <a href="mailto:info@stephenscode.dev" className="hover:text-white underline">info@stephenscode.dev</a>
             </p>
           </div>
         </div>

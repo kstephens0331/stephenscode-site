@@ -41,6 +41,12 @@ export async function generateMetadata({ params }: ServicePageProps): Promise<Me
       url: `https://www.stephenscode.dev/services/${slug}`,
       type: 'website',
     },
+    twitter: {
+      card: 'summary_large_image',
+      title: service.metaTitle,
+      description: service.metaDescription,
+      images: ['/twitter-image'],
+    },
   }
 }
 
@@ -51,6 +57,8 @@ export default async function ServiceDetailPage({ params }: ServicePageProps) {
   if (!service) {
     notFound()
   }
+
+  const priceRange = service.priceLabel.match(/\$(\d+)\s*-\s*\$?(\d+)\/mo/)
 
   const serviceSchema = {
     '@context': 'https://schema.org',
@@ -64,7 +72,19 @@ export default async function ServiceDetailPage({ params }: ServicePageProps) {
       '@type': 'State',
       name: 'Texas',
     },
-    offers: service.price > 0
+    offers: priceRange
+      ? {
+          '@type': 'Offer',
+          priceSpecification: {
+            '@type': 'PriceSpecification',
+            minPrice: Number(priceRange[1]),
+            maxPrice: Number(priceRange[2]),
+            priceCurrency: 'USD',
+            unitText: 'per month',
+          },
+          url: `https://www.stephenscode.dev/services/${slug}`,
+        }
+      : service.price > 0
       ? {
           '@type': 'Offer',
           price: service.price,
@@ -79,12 +99,33 @@ export default async function ServiceDetailPage({ params }: ServicePageProps) {
 
   const related = allServices.filter((s) => s.slug !== slug).slice(0, 3)
 
+  const faqSchema = service.faqs && service.faqs.length > 0
+    ? {
+        '@context': 'https://schema.org',
+        '@type': 'FAQPage',
+        mainEntity: service.faqs.map((faq) => ({
+          '@type': 'Question',
+          name: faq.question,
+          acceptedAnswer: {
+            '@type': 'Answer',
+            text: faq.answer,
+          },
+        })),
+      }
+    : null
+
   return (
     <>
       <script
         type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: JSON.stringify(serviceSchema) }}
       />
+      {faqSchema && (
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{ __html: JSON.stringify(faqSchema) }}
+        />
+      )}
 
       <Breadcrumbs
         items={[
@@ -196,6 +237,23 @@ export default async function ServiceDetailPage({ params }: ServicePageProps) {
           </div>
         </div>
       </section>
+
+      {/* FAQ */}
+      {service.faqs && service.faqs.length > 0 && (
+        <section className="bg-surface py-16 sm:py-24">
+          <div className="mx-auto max-w-4xl px-6 lg:px-8">
+            <h2 className="text-2xl font-bold text-white mb-8">Frequently Asked Questions</h2>
+            <div className="space-y-6">
+              {service.faqs.map((faq) => (
+                <div key={faq.question} className="rounded-xl border border-surface-border bg-surface-card p-6">
+                  <h3 className="text-lg font-semibold text-white mb-2">{faq.question}</h3>
+                  <p className="text-gray-400 leading-relaxed">{faq.answer}</p>
+                </div>
+              ))}
+            </div>
+          </div>
+        </section>
+      )}
 
       {/* Related services */}
       {related.length > 0 && (

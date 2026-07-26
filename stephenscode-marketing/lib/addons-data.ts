@@ -54,6 +54,24 @@ export const basicAddOns: Service[] = [
     seoKeywords: ['professional email setup Houston', 'business email configuration Conroe', 'domain email setup Texas', 'Google Workspace setup'],
     metaTitle: 'Professional Email Setup | $25',
     metaDescription: 'Professional email setup for your domain. Branded addresses, DNS records, spam filtering, and device setup. $25 flat rate in Houston & Conroe.',
+  faqs: [
+    {
+      "question": "What exactly is included in the $25 Email Setup add-on?",
+      "answer": "For a flat $25, we configure professional email hosting on your domain (Google Workspace, Microsoft 365, or another provider), set up the complete DNS record chain (MX, SPF, DKIM, and DMARC), create up to 5 email accounts, and help you get everything working on your phone and computer. You also get spam filter configuration and a basic signature template."
+    },
+    {
+      "question": "How long does it take to get my professional email working?",
+      "answer": "Most Email Setup jobs are completed in 1-2 days. The bulk of that time is DNS propagation after we publish the MX, SPF, DKIM, and DMARC records, not hands-on work, so once your domain access is confirmed the setup itself moves quickly."
+    },
+    {
+      "question": "I only have a domain right now with no email at all -- does this still apply?",
+      "answer": "Yes, this is exactly the scenario it's built for. Whether you're setting up email for the first time on a brand-new domain, migrating from an existing provider, or just tired of running your business off a Gmail or Yahoo address, we handle the hosting configuration and DNS setup from scratch."
+    },
+    {
+      "question": "What if I need more than 5 email accounts or a full website build too?",
+      "answer": "The $25 price covers configuration and up to 5 mailboxes; additional accounts can be added beyond that. Email Setup is also commonly bundled in with a new website build so your domain, hosting, and business email all get provisioned together in one pass instead of as separate projects."
+    }
+  ],
   },
   {
     id: 'maintenance-plan',
@@ -61,7 +79,7 @@ export const basicAddOns: Service[] = [
     slug: 'maintenance-plan',
     category: 'addon-basic',
     price: 50,
-    priceLabel: '$50-$75/mo',
+    priceLabel: '$50-$100/mo',
     shortDescription: 'Ongoing website maintenance, updates, and support',
     longDescription: `Keep your website running smoothly, securely, and optimally with our comprehensive Maintenance Plan. For a low monthly fee starting at just $50, we handle all the technical aspects of keeping your website healthy while you focus on running your business. No more worrying about security vulnerabilities, broken links, outdated content, or technical issues. We've got you covered.
 
@@ -110,6 +128,24 @@ export const basicAddOns: Service[] = [
     seoKeywords: ['website maintenance Houston', 'website support plan Texas', 'ongoing website management Conroe', 'WordPress maintenance'],
     metaTitle: 'Website Maintenance | From $50/mo',
     metaDescription: 'Website maintenance and support with updates, security monitoring, daily backups, and priority support. From $50/month in Houston & Conroe.',
+  faqs: [
+    {
+      "question": "How much does the Maintenance Plan cost, and what's included?",
+      "answer": "The Maintenance Plan runs $50 to $100 per month depending on the coverage level you choose. Every tier includes monthly software and plugin updates, 24/7 security monitoring, daily automated backups with 30-day retention, 99.9% uptime monitoring, and up to 2 hours of content updates per month."
+    },
+    {
+      "question": "I already get 90 days of support after launch. Do I still need this?",
+      "answer": "The post-launch support window included on our core and premium builds covers issues tied to the original build for a limited time. The Maintenance Plan is an ongoing monthly service that picks up where that window ends, keeping software updated, backups running, and your site monitored for as long as it's live."
+    },
+    {
+      "question": "What happens if I need more than 2 hours of content updates in a month?",
+      "answer": "The 2 hours per month is the baseline covered by the flat monthly fee. Anything beyond that is scoped and quoted separately, since the Maintenance Plan is built for routine upkeep rather than larger content or feature work."
+    },
+    {
+      "question": "How fast is support if something on my site breaks?",
+      "answer": "Maintenance Plan customers get priority technical support with a 4-hour response time, backed by 24/7 monitoring and monthly performance and security reports. That combination means issues like a failed update or a broken link are typically caught and fixed before visitors ever notice."
+    }
+  ],
   },
   {
     id: 'form-generator',
@@ -171,6 +207,24 @@ export const basicAddOns: Service[] = [
     seoKeywords: ['custom form builder Houston', 'contact form development Texas', 'web form creation Conroe', 'form validation'],
     metaTitle: 'Custom Form Generator | $100',
     metaDescription: 'Custom form builder with validation, spam protection, and email notifications. Contact forms, quotes, and applications. $100 in Houston & Conroe.',
+  faqs: [
+    {
+      "question": "How much does the Form Generator add-on cost and what's included?",
+      "answer": "The Form Generator is a flat $100 one-time add-on, no hourly billing. It includes a custom-built form (contact, quote request, application, survey, or similar) with advanced field validation, spam protection via honeypot and reCAPTCHA, custom email notification templates, and a fully mobile-responsive design integrated directly into your site."
+    },
+    {
+      "question": "How long does it take to build a custom form?",
+      "answer": "Typical turnaround is 3-5 days once the fields, logic, and notification requirements are confirmed. Since it's a flat-rate add-on, the $100 price doesn't change based on complexity within that scope."
+    },
+    {
+      "question": "Can the form handle multi-step logic, file uploads, or conditional fields?",
+      "answer": "Yes. The Form Generator supports multi-step forms, conditional logic that shows or hides fields based on earlier answers, and file uploads with restrictions (for example, resume attachments on a job application form). Submissions can also be saved to a database for later review if you want that option."
+    },
+    {
+      "question": "Is this different from the basic contact form that comes with my website package?",
+      "answer": "Yes. A standard package typically ships with a simple contact form, while the Form Generator add-on replaces or extends it with advanced validation, auto-responder emails, success-page redirects, and field pre-population, built around whatever data you actually need to collect, such as quote requests, job applications, or event registrations."
+    }
+  ],
   },
   {
     id: 'accounting-module',
@@ -231,6 +285,24 @@ export const basicAddOns: Service[] = [
     seoKeywords: ['accounting module Houston', 'expense tracking software Texas', 'small business accounting Conroe', 'financial management system'],
     metaTitle: 'Accounting Module | $150',
     metaDescription: 'Accounting module for small businesses. Track expenses, revenue, invoices, and financial reports. No monthly fees. $150 in Houston & Conroe.',
+  faqs: [
+    {
+      "question": "How much does the Accounting Module cost, and is it a one-time fee or a subscription?",
+      "answer": "The Accounting Module is a flat $150 one-time add-on, not a recurring subscription like QuickBooks or similar software. Once it's built into your website or admin portal, you get expense tracking, revenue tracking, and reporting tools with no ongoing software fees."
+    },
+    {
+      "question": "How long does it take to get the Accounting Module added to my site?",
+      "answer": "Typical turnaround is 5-7 days. Since it integrates directly into your existing website or business portal, there's no separate account setup, software installation, or IT process to coordinate."
+    },
+    {
+      "question": "What can I actually do with it, and who is it built for?",
+      "answer": "It covers expense tracking with categories, revenue/income tracking, invoice management, profit and loss reports, recurring transactions, vendor management, receipt uploads, and CSV/Excel export for tax time. It's built for freelancers, contractors, consultants, and small service businesses that want simple income and expense visibility without enterprise accounting software."
+    },
+    {
+      "question": "Does this replace QuickBooks or sync live with my bank account?",
+      "answer": "No. It's a lightweight tracking tool, not a full accounting platform or live bank feed. You log income and expenses, categorize them, and use the bank reconciliation tracking feature to match them against your own records, then export tax-ready reports to CSV or Excel for your accountant."
+    }
+  ],
   },
   {
     id: 'customer-dashboard',
@@ -290,6 +362,24 @@ export const basicAddOns: Service[] = [
     seoKeywords: ['customer portal Houston', 'client dashboard Texas', 'customer login system Conroe', 'client self-service portal'],
     metaTitle: 'Customer Dashboard | $160',
     metaDescription: 'Customer dashboard for tracking projects, quotes, invoices, and support tickets. 24/7 client self-service access. $160 in Houston & Conroe.',
+  faqs: [
+    {
+      "question": "What's included in the Customer Dashboard add-on for $160?",
+      "answer": "For a flat $160, you get a secure client login portal with a personalized dashboard per client, covering job and project tracking, quote viewing with digital acceptance, invoice access with payment history, and support ticket submission. It also includes a document library, communication history, email notifications, search/filtering, and custom branding to match your business."
+    },
+    {
+      "question": "How long does it take to launch?",
+      "answer": "The Customer Dashboard typically takes 5-7 days to build, which covers the login/authentication setup, custom branding, and mobile-responsive design before your clients get access."
+    },
+    {
+      "question": "Will this actually cut down on support calls and emails?",
+      "answer": "That's the core purpose of the add-on. Instead of your team re-sending invoices or answering repeat status questions, clients log into their own dashboard to check project status, view quotes and invoices, and submit tickets directly, which frees your team to focus on billable work."
+    },
+    {
+      "question": "Can each client only see their own jobs and documents?",
+      "answer": "Yes, each client gets their own personalized dashboard scoped to their jobs, quotes, invoices, and documents, and role-based permissions can be added if you need finer control over who sees what."
+    }
+  ],
   },
   {
     id: 'pdf-generator',
@@ -349,6 +439,24 @@ export const basicAddOns: Service[] = [
     seoKeywords: ['PDF generator Houston', 'automated invoice creation Texas', 'quote generator Conroe', 'document automation'],
     metaTitle: 'PDF Generator | $120',
     metaDescription: 'Automated PDF generator for invoices, quotes, reports, and contracts. Custom templates with branding and email delivery. $120 flat rate. Houston & Conroe.',
+  faqs: [
+    {
+      "question": "What does the PDF Generator add-on actually create for us?",
+      "answer": "It's a system that automatically pulls data from your website or admin panel and generates professional, branded PDFs -- invoices, quotes, proposals, reports, contracts, receipts, packing slips, and statements. Templates are custom-built to match your branding, with automatic calculations for subtotals, taxes, and totals, plus optional email delivery straight to the client."
+    },
+    {
+      "question": "How much does it cost and how long does setup take?",
+      "answer": "The PDF Generator is a flat $120 add-on with a 4-6 day build timeline. That covers the PDF generation system itself, your custom templates, email integration, and a guide for editing templates yourself later."
+    },
+    {
+      "question": "Can PDFs be generated automatically, or do I have to click a button every time?",
+      "answer": "Both options are supported. PDFs can generate on-demand when you click a button, automatically when a trigger occurs (like a completed order), or on a schedule (like monthly reports), then be emailed to clients, saved to a document library, or both."
+    },
+    {
+      "question": "Do I need a developer every time I want to change a template?",
+      "answer": "No. You retain full control over your PDF templates and can update branding, layout, or fields yourself at any time without needing developer help. This makes it a good fit for any business that regularly sends invoices, quotes, or reports and wants to stop manually building them in Word."
+    }
+  ],
   },
   {
     id: 'seo-boost',
@@ -408,6 +516,24 @@ export const basicAddOns: Service[] = [
     seoKeywords: ['SEO optimization Houston', 'local SEO Conroe', 'search engine optimization Texas', 'schema markup Houston'],
     metaTitle: 'SEO Boost Service | $250/mo',
     metaDescription: 'Ongoing SEO optimization with backlink building, ranking monitoring, and monthly performance reports. $250/mo in Houston & Conroe.',
+  faqs: [
+    {
+      "question": "Is SEO Boost a one-time purchase or an ongoing subscription?",
+      "answer": "SEO Boost is billed monthly at $250/mo, not a one-time fee. It runs on an ongoing basis because search rankings require continuous backlink building, monitoring, and optimization to maintain and grow -- stopping the work typically means competitors catch up over time."
+    },
+    {
+      "question": "What do I actually get for $250 each month?",
+      "answer": "Each month includes new backlink acquisition from authoritative domains, ranking and traffic monitoring, ongoing on-page work (meta tag optimization, image alt text, internal linking, schema markup), Core Web Vitals checks, Google Search Console and Analytics management, and a written monthly performance report."
+    },
+    {
+      "question": "How soon will I see ranking improvements?",
+      "answer": "Since this is a monthly, ongoing engagement rather than a fixed project, there's no single delivery date -- you'll receive a performance report every month showing ranking changes, traffic movement, and backlinks acquired so progress is visible as it compounds."
+    },
+    {
+      "question": "Who is SEO Boost a good fit for?",
+      "answer": "It's built for local businesses in the Houston/Conroe area, service providers wanting more inbound leads, e-commerce sites that need more organic traffic, and any existing site with flat or declining rankings that needs consistent, hands-on optimization rather than a one-time tweak."
+    }
+  ],
   },
   {
     id: 'image-optimizer',
@@ -463,6 +589,24 @@ export const basicAddOns: Service[] = [
     seoKeywords: ['image optimization Houston', 'WebP conversion Texas', 'website speed optimization Conroe', 'image compression'],
     metaTitle: 'Image Optimizer | $90',
     metaDescription: 'Automatic image optimization and WebP conversion. Reduce image sizes 50-80% for faster load times and better rankings. $90 in Houston & Conroe.',
+  faqs: [
+    {
+      "question": "What exactly does the $90 Image Optimizer include?",
+      "answer": "It covers a one-time bulk optimization of every existing image on your site, plus setup of WebP conversion, lazy loading, and responsive image sizing. We also configure automatic optimization for any images you upload after that, so new product photos or blog images get compressed and converted without extra manual work."
+    },
+    {
+      "question": "How much smaller will my images actually get?",
+      "answer": "Most sites see a 50-80% reduction in image file size with no visible drop in quality, largely from converting to WebP, which runs 25-35% smaller than equivalent JPEG or PNG files. Since images typically account for 60-80% of a page's total size, that translates directly into faster load times."
+    },
+    {
+      "question": "How long does the optimization take to set up?",
+      "answer": "The Image Optimizer takes 2-3 days to implement, including compressing and converting your existing image library and configuring the automatic pipeline for future uploads."
+    },
+    {
+      "question": "Is this a one-time fix or does it keep working after launch?",
+      "answer": "Both. It's a flat $90 one-time charge that optimizes everything currently on your site, but the automation stays in place permanently -- any images you add later are compressed and converted to WebP automatically, so you don't have to re-run this add-on down the road."
+    }
+  ],
   },
   {
     id: 'content-scheduler',
@@ -522,6 +666,24 @@ export const basicAddOns: Service[] = [
     seoKeywords: ['content scheduler Houston', 'blog scheduling Texas', 'content calendar automation Conroe', 'scheduled posts'],
     metaTitle: 'Content Scheduler | $115',
     metaDescription: 'Schedule blog posts and content in advance with automated publishing. Visual calendar and email notifications. $115 flat rate in Houston & Conroe.',
+  faqs: [
+    {
+      "question": "How much does the Content Scheduler add-on cost and how long does setup take?",
+      "answer": "The Content Scheduler is a flat $115 add-on with a 4-5 day turnaround. That covers the scheduling system, the visual calendar interface, automated publishing, and the notification setup on your site."
+    },
+    {
+      "question": "How is this different from just publishing a blog post whenever I have time?",
+      "answer": "Instead of logging in and hitting publish on the day content goes live, you write posts, promotions, or announcements whenever it's convenient and set a future publish date and time. The system publishes automatically, supports recurring content and expiration dates for time-limited offers, and sends email notifications when something goes live."
+    },
+    {
+      "question": "Can I schedule a batch of content at once, like a month of blog posts or a holiday promotion?",
+      "answer": "Yes, that is the main use case. Bulk scheduling and a visual calendar let you write several pieces in one sitting, assign each a publish date, and let them roll out automatically over the following days, weeks, or months."
+    },
+    {
+      "question": "Does this work for more than blog posts, and does it help with SEO?",
+      "answer": "It works for any content type on the site, including announcements, product launches, promotions, and news updates, with category and tag scheduling and timezone support so dates are accurate. Published content also carries SEO-ready timestamps, which supports the consistent publishing frequency search engines favor."
+    }
+  ],
   },
   {
     id: 'review-aggregator',
@@ -580,6 +742,24 @@ export const basicAddOns: Service[] = [
     seoKeywords: ['review aggregator Houston', 'display Google reviews Texas', 'review widget Conroe', 'testimonial display'],
     metaTitle: 'Review Aggregator | $130',
     metaDescription: 'Collect and display reviews from Google, Facebook, and Yelp on your website. Build trust with rich snippet eligibility. $130 in Houston & Conroe.',
+  faqs: [
+    {
+      "question": "What does the $130 Review Aggregator add-on actually include?",
+      "answer": "It pulls your existing reviews from Google, Facebook, Yelp, and other platforms into one display on your site, with star ratings, filtering/sorting, and a responsive carousel or grid layout. It also includes schema markup for rich snippet eligibility, basic moderation tools, a review request widget, and an analytics dashboard. Turnaround is 5-6 days."
+    },
+    {
+      "question": "Will this show my star rating in Google search results?",
+      "answer": "It can. The reviews are displayed with proper schema markup, which is what allows search engines to show star ratings as rich snippets next to your listing. Whether Google actually renders the rich snippet depends on Google's own indexing decisions, but the markup needed to be eligible is included."
+    },
+    {
+      "question": "Does this create or generate reviews for my business?",
+      "answer": "No. It only aggregates and displays reviews customers have already left on platforms like Google, Facebook, and Yelp. The review request widget helps you prompt existing customers to leave new reviews on those platforms, but nothing is fabricated or posted on your behalf."
+    },
+    {
+      "question": "How does this fit with the rest of my site build?",
+      "answer": "As a $130 basic add-on, it's meant to layer onto a core or premium site package (or an existing site) rather than stand alone. Since it syncs automatically once connected, it keeps updating with new reviews on its own after the 5-6 day setup, with no manual upkeep required from you."
+    }
+  ],
   },
   {
     id: 'blog-module',
@@ -641,6 +821,24 @@ export const basicAddOns: Service[] = [
     seoKeywords: ['blog module Houston', 'WordPress alternative Texas', 'custom blog development Conroe', 'content management'],
     metaTitle: 'Blog Module | $110',
     metaDescription: 'Full-featured blog module with categories, tags, SEO optimization, and author profiles. Start content marketing easily. $110 flat rate. Houston & Conroe.',
+  faqs: [
+    {
+      "question": "What exactly is included in the $110 Blog Module?",
+      "answer": "For $110 you get a complete blog management system with category and tag organization, SEO-optimized post templates, author profiles, featured images, excerpt and full-post views, related-post suggestions, search, date/category/tag archive pages, RSS feed generation, social sharing buttons, reading time estimates, and mobile-responsive layouts. An optional comment system (Disqus or native) can be included as well."
+    },
+    {
+      "question": "How long does it take to add a blog to my existing site?",
+      "answer": "The Blog Module typically takes 4-5 days to implement. Since it's a flat-rate add-on, that price and timeline is fixed regardless of how many categories or tags your blog structure needs."
+    },
+    {
+      "question": "Will the blog match my current site's design, and does it help with SEO?",
+      "answer": "Yes, the blog integrates with your existing website design so it matches your branding rather than looking bolted on. Every post ships with proper meta tags, schema markup for articles, optimized URLs, breadcrumb navigation, and correct heading hierarchy so content has a real shot at ranking for long-tail keywords."
+    },
+    {
+      "question": "Do I need to write the blog content myself?",
+      "answer": "The Blog Module only covers the technical publishing system (structure, SEO, templates, and the writing interface), not ongoing content creation. You can write posts yourself, hire a writer, or use AI assistance; the module handles categories, tags, archives, and all the backend SEO details so you can just focus on publishing."
+    }
+  ],
   },
   {
     id: 'faq-manager',
@@ -698,6 +896,24 @@ export const basicAddOns: Service[] = [
     seoKeywords: ['FAQ page Houston', 'FAQ schema markup Texas', 'frequently asked questions Conroe', 'FAQ rich snippets'],
     metaTitle: 'FAQ Manager | $85',
     metaDescription: 'Organized FAQ section with search, categories, and schema markup for rich snippets. Reduce support inquiries. $85 flat rate. Houston & Conroe.',
+  faqs: [
+    {
+      "question": "What does the $85 FAQ Manager add-on include?",
+      "answer": "For a flat $85, you get a fully organized FAQ section with category organization, powerful search functionality, and your choice of accordion or list display. It also includes FAQ schema markup for Google rich snippets, related questions suggestions, view count tracking, and an easy admin interface for adding or editing FAQs yourself."
+    },
+    {
+      "question": "How long does it take to add FAQ Manager to my site?",
+      "answer": "Turnaround is 3-4 days from the time you provide (or approve) your initial FAQ content. That covers building the category structure, search, schema markup, and your first batch of questions and answers."
+    },
+    {
+      "question": "Will my FAQ answers actually show up in Google search results?",
+      "answer": "The FAQ Manager includes proper schema markup, which makes your Q&A eligible for Google's FAQ rich snippet format, meaning your answer can appear directly in search results above the standard listing. This depends on Google's own eligibility rules, but the technical implementation needed to qualify is included."
+    },
+    {
+      "question": "Can I update or add new FAQs myself after launch, or does it need a developer?",
+      "answer": "No developer needed. FAQ Manager comes with an easy-to-use admin interface so you can add, edit, categorize, and reorganize questions on your own, and you can link specific FAQs from other pages on your site as needed."
+    }
+  ],
   },
   {
     id: 'multi-language',
@@ -755,6 +971,24 @@ export const basicAddOns: Service[] = [
     seoKeywords: ['multilingual website Houston', 'Spanish website translation Texas', 'multi-language site Conroe', 'bilingual website'],
     metaTitle: 'Multi-Language Support | $140',
     metaDescription: 'Add multiple languages to your website with proper SEO. Spanish, French, or any language. Reach broader markets. $140 for 2 languages. Houston & Conroe.',
+  faqs: [
+    {
+      "question": "What exactly do I get for the $140 price?",
+      "answer": "The $140 flat rate covers a full multi-language setup for your primary language plus one additional language, including a language switcher interface, SEO-friendly URL structure (like /en/ and /es/), hreflang tag implementation, and a translation management interface. If you need Arabic or Hebrew, RTL (right-to-left) layout support is included as well."
+    },
+    {
+      "question": "Do I need to provide the translations myself?",
+      "answer": "It's flexible. You can supply your own translations (recommended for accuracy), we can integrate with a professional translation service, or use AI-assisted translation with human review. Either way, we handle the technical structure so you just provide the content for each language."
+    },
+    {
+      "question": "What if I want more than two languages?",
+      "answer": "The base $140 price includes your primary language plus one additional language. Each additional language beyond that is $75, so a three-language site (for example English, Spanish, and Vietnamese) would run $140 plus $75."
+    },
+    {
+      "question": "Will adding another language hurt my SEO?",
+      "answer": "No, it's built to help it. Each language gets its own indexed URL, proper canonical tags, hreflang tags telling Google which version to show which users, and a language-specific sitemap, so each version can rank on its own for that language's searches. Turnaround for the initial setup is typically 5 to 7 days."
+    }
+  ],
   },
   {
     id: 'appointment-booking',
@@ -815,6 +1049,24 @@ export const basicAddOns: Service[] = [
     seoKeywords: ['appointment booking Houston', 'online scheduling Texas', 'appointment system Conroe', 'booking calendar'],
     metaTitle: 'Appointment Booking | $150',
     metaDescription: 'Online appointment booking with calendar sync, automatic reminders, and payment options. Reduce no-shows and save time. $150 flat rate. Houston & Conroe.',
+  faqs: [
+    {
+      "question": "What's included in the $150 Appointment Booking add-on?",
+      "answer": "You get a real-time availability calendar, service type and staff member selection, automatic email and SMS reminders, Google Calendar and Outlook sync, buffer time and blocked time management, recurring appointment support, and a customer portal for managing bookings. Waitlist management and timezone support are also included, and optional online payment collection can be added during booking."
+    },
+    {
+      "question": "How long does it take to add appointment booking to my site?",
+      "answer": "Setup typically takes 5-7 days. That covers configuring your availability rules, service types, staff calendars, and reminder automation before it goes live on your site."
+    },
+    {
+      "question": "Can it actually reduce no-shows, or is that just marketing?",
+      "answer": "The system sends automatic email reminders 24 hours out and optional SMS reminders 2 hours before each appointment, and customers can confirm, reschedule, or cancel with one click. If a slot opens up from a cancellation, it becomes available to other customers automatically, which is what cuts down on no-shows and wasted time slots."
+    },
+    {
+      "question": "Is this a good fit for my type of business?",
+      "answer": "It's built for any business that schedules client time: consultants and coaches, healthcare providers, salons and spas, repair and maintenance services, professional services like legal or accounting, fitness trainers, and tutors. If you're currently booking appointments by phone or email, this add-on replaces that manual back-and-forth with 24/7 self-service booking."
+    }
+  ],
   },
   {
     id: 'social-media-feeds',
@@ -872,6 +1124,24 @@ export const basicAddOns: Service[] = [
     seoKeywords: ['social media feed Houston', 'Instagram feed website Texas', 'social feed integration Conroe', 'embed social media'],
     metaTitle: 'Social Media Feeds | $95',
     metaDescription: 'Display Instagram, Facebook, and Twitter feeds on your website. Keep content fresh and grow your following. $95 flat rate in Houston & Conroe.',
+  faqs: [
+    {
+      "question": "How much does the Social Media Feeds add-on cost and what platforms does it support?",
+      "answer": "Social Media Feeds is a flat $95 add-on that pulls in content from Instagram, Facebook, Twitter, LinkedIn, or YouTube. You choose which platform (or combination) to display, and the feed updates automatically as you post."
+    },
+    {
+      "question": "How long does it take to add a social feed to my site?",
+      "answer": "Turnaround is typically 3-4 days. That covers connecting your chosen platform(s), setting up the display layout, and configuring automatic updates so new posts appear on your site without any manual work."
+    },
+    {
+      "question": "Can I control what shows up in the feed and how it looks?",
+      "answer": "Yes. You can pick a grid, carousel, or list layout, limit how many posts display, filter by hashtag or content type, and apply custom styling to match your brand. Moderation tools also let you hide specific posts if needed."
+    },
+    {
+      "question": "Who is this add-on best suited for?",
+      "answer": "It works well for any business with an active social presence, such as restaurants sharing food photos, retailers showing products, service businesses displaying completed work, or event venues and real estate agents posting listings. It keeps your site looking current while encouraging visitors to follow your social accounts."
+    }
+  ],
   },
   {
     id: 'newsletter-signup',
@@ -929,6 +1199,24 @@ export const basicAddOns: Service[] = [
     seoKeywords: ['newsletter signup Houston', 'email list building Texas', 'Mailchimp integration Conroe', 'email marketing'],
     metaTitle: 'Newsletter Signup | $75',
     metaDescription: 'Professional newsletter signup forms integrated with Mailchimp, ConvertKit, and more. Build your email list effectively. $75 flat rate. Houston & Conroe.',
+  faqs: [
+    {
+      "question": "What do I get for the $75 Newsletter Signup add-on?",
+      "answer": "For a flat $75 you get professional, mobile-responsive signup forms wired directly into your email marketing platform, with double opt-in, GDPR compliance features, custom confirmation messages, and a redirect to a thank-you page. It also includes segment tagging so you can see which page or campaign drove each signup, plus basic conversion analytics."
+    },
+    {
+      "question": "How long does it take to set up, and does it slow down my site launch?",
+      "answer": "The Newsletter Signup module typically takes 2-3 days to implement. It is an add-on module, so it is scoped and built separately from your core site build and can be added at launch or afterward without holding up your main project timeline."
+    },
+    {
+      "question": "Which email marketing platforms does this connect to?",
+      "answer": "It integrates with Mailchimp, ConvertKit, MailerLite, ActiveCampaign, and similar popular email services, so subscribers who sign up through your site are added directly to your existing list and any automations you already have set up there."
+    },
+    {
+      "question": "Can I run more than one signup form in different spots on my site?",
+      "answer": "Yes. The module supports multiple form types, embedded, popup, slide-in, and footer, so you can place forms in a homepage hero, blog sidebar, exit-intent popup, or footer, each tagged separately so you know exactly which placement is driving signups. A/B testing is also included if you want to compare form variations."
+    }
+  ],
   },
   {
     id: 'event-calendar',
@@ -990,6 +1278,24 @@ export const basicAddOns: Service[] = [
     seoKeywords: ['event calendar Houston', 'event registration Texas', 'event management Conroe', 'calendar system'],
     metaTitle: 'Event Calendar | $135',
     metaDescription: 'Event calendar with registration, payments, and reminders. Promote events with Google schema markup. $135 flat rate in Houston & Conroe.',
+  faqs: [
+    {
+      "question": "What does the $135 Event Calendar add-on actually include?",
+      "answer": "It's a full event management system, not just a static list of dates. You get a visual calendar with month/week/day views, detailed event pages with descriptions and images, online registration with capacity limits, automatic confirmation and reminder emails, calendar export (Google Calendar/iCal), recurring event support, and category/search filtering for visitors."
+    },
+    {
+      "question": "Can it collect payment for ticketed events?",
+      "answer": "Yes. Payment collection for paid events is built in as an optional feature, alongside the free-event registration flow, so the same calendar can handle both ticketed workshops and no-cost community meetings without a separate checkout system."
+    },
+    {
+      "question": "Will my events show up in Google search results?",
+      "answer": "The Event Calendar includes schema markup for event rich snippets, so your events can appear directly in Google search and Google Maps with date, time, location, and ticket price visible. That extra visibility tends to drive more traffic than a plain search listing, which matters for anyone promoting events in the Houston and Conroe area."
+    },
+    {
+      "question": "Who is this add-on best suited for?",
+      "answer": "It's built for anyone with recurring or one-off events to promote: venues, nonprofits running fundraisers, fitness studios with class schedules, educational institutions running workshops, and religious or community organizations with regular services or meetings. At $135 as an add-on, it slots into any core or premium website build rather than requiring a separate platform."
+    }
+  ],
   },
   {
     id: 'chat-widget',
@@ -1047,6 +1353,24 @@ export const basicAddOns: Service[] = [
     seoKeywords: ['live chat Houston', 'chatbot integration Texas', 'website chat Conroe', 'customer support chat'],
     metaTitle: 'Chat Widget | $100',
     metaDescription: 'Add live chat or AI chatbot to your website. Instant customer support and higher conversions. Intercom, Drift, or Tawk.to. $100 flat rate. Houston & Conroe.',
+  faqs: [
+    {
+      "question": "How much does Chat Widget Integration cost and how long does it take?",
+      "answer": "Chat Widget Integration is a flat $100 add-on with a 2-3 day turnaround. That covers setup and integration of your chosen chat platform, custom styling, and analytics configuration, no hourly billing."
+    },
+    {
+      "question": "Do I get a live chat, an AI chatbot, or both?",
+      "answer": "You choose the setup that fits your business: pure AI chatbot that answers FAQ-type questions automatically, live chat routed to a human agent, or a hybrid where the bot handles routine questions and escalates anything complex to your team."
+    },
+    {
+      "question": "Which chat platforms can you integrate?",
+      "answer": "We set up widgets on platforms like Intercom, Drift, Tawk.to, or Crisp, matched to your budget and feature needs, then style the chat bubble and position it to fit your site's design."
+    },
+    {
+      "question": "What else comes with the widget besides the chat window itself?",
+      "answer": "The add-on also includes proactive chat triggers, offline message collection when no one is available, saved chat transcripts, mobile-optimized display, department routing for larger teams, and basic usage/conversion analytics."
+    }
+  ],
   },
   {
     id: 'popup-lead-capture',
@@ -1105,6 +1429,24 @@ export const basicAddOns: Service[] = [
     seoKeywords: ['exit popup Houston', 'lead capture popup Texas', 'email popup Conroe', 'conversion optimization'],
     metaTitle: 'Pop-Up Lead Capture | $90',
     metaDescription: 'Exit-intent and strategic popups for email capture and promotions. Increase signups 300%+. Non-annoying, mobile-friendly. $90 flat rate. Houston & Conroe.',
+  faqs: [
+    {
+      "question": "How much does the Pop-Up Lead Capture add-on cost and how long does it take?",
+      "answer": "The Pop-Up Lead Capture add-on is a flat $90, with a typical turnaround of 2-3 days. That covers setup of the popup system, trigger configuration, custom design, email integration, and analytics tracking, no hourly billing involved."
+    },
+    {
+      "question": "What triggers can be used to show the popup, and won't it annoy visitors?",
+      "answer": "You can choose from exit-intent detection (fires when a visitor's mouse moves toward closing the tab), time-based triggers, or scroll-depth triggers, and target specific pages. Frequency control keeps the popup from repeatedly showing to the same visitor, and everything is built mobile-responsive so it stays in line with best-practice, non-intrusive design rather than the aggressive popups people are used to disliking."
+    },
+    {
+      "question": "Does the popup connect to my email list, and can I track how well it's converting?",
+      "answer": "Yes, email service integration is included so captured addresses flow into your list, and you get conversion analytics to see how the popup is performing. A/B testing capability is also included if you want to compare different offers or designs."
+    },
+    {
+      "question": "Who is this add-on best suited for?",
+      "answer": "It fits e-commerce stores running first-order discount offers, content or service businesses building an email list, SaaS companies pushing free trials, and B2B companies offering guides or whitepapers. Since it's an add-on rather than a full package, it's meant to be paired with an existing website build."
+    }
+  ],
   },
   {
     id: 'simple-ecommerce',
@@ -1163,6 +1505,24 @@ export const basicAddOns: Service[] = [
     seoKeywords: ['simple ecommerce Houston', 'basic online store Texas', 'Stripe checkout Conroe', 'small product catalog'],
     metaTitle: 'Simple eCommerce | $225',
     metaDescription: 'Add basic e-commerce to your website. Product pages, cart, and secure Stripe checkout for up to 20 items. No monthly fees. $225 flat rate. Houston & Conroe.',
+  faqs: [
+    {
+      "question": "How much does the Simple eCommerce add-on cost and what's the item limit?",
+      "answer": "Simple eCommerce is a flat $225 add-on that supports up to 20 products or service packages. It includes product pages with descriptions, images, and pricing, plus a shopping cart and secure Stripe checkout. For sellers with larger catalogs, a full e-commerce build would be a better fit than this add-on."
+    },
+    {
+      "question": "How long does it take to add Simple eCommerce to my site?",
+      "answer": "Turnaround is typically 4-5 days from approval. That covers building your product pages, wiring up the shopping cart, and configuring Stripe payment processing with automatic tax calculation for your location."
+    },
+    {
+      "question": "Are there any recurring fees beyond the $225?",
+      "answer": "No monthly platform fees like you'd pay with Shopify or WooCommerce. The only ongoing cost is Stripe's standard processing fee (2.9% plus 30 cents per transaction), since payments run through your own Stripe account."
+    },
+    {
+      "question": "Who is this add-on actually built for?",
+      "answer": "It's designed for businesses selling a small, defined set of offerings rather than a full storefront, things like 3-5 service tiers, digital downloads, event tickets, memberships, or a small physical product catalog. It includes basic inventory tracking, order confirmation emails, admin notifications, and order history, so you get a real checkout flow without the overhead of a full e-commerce platform."
+    }
+  ],
   },
 ]
 
@@ -1237,6 +1597,24 @@ export const advancedAddOns: Service[] = [
     seoKeywords: ['quote calculator Houston', 'pricing calculator Texas', 'automated quote system Conroe', 'interactive estimator'],
     metaTitle: 'Quote Builder | $150',
     metaDescription: 'Interactive quote builder with real-time pricing and PDF generation. Automate quotes and qualify leads faster. $150 in Houston & Conroe.',
+  faqs: [
+    {
+      "question": "What does the Dynamic Quote Builder add-on cost and how long does it take?",
+      "answer": "The Dynamic Quote Builder is a flat $150 add-on with a 5-7 day build timeline. That covers the interactive calculator interface, PDF generation system, email automation, lead capture integration, and an analytics dashboard, plus a pricing configuration guide so you can adjust rules yourself afterward."
+    },
+    {
+      "question": "How does the calculator handle complex or conditional pricing?",
+      "answer": "You define the pricing structure with checkboxes, dropdowns, and sliders, and the builder supports base pricing plus optional add-ons, quantity-based calculations, and conditional logic that shows or hides options based on earlier selections. You can also set custom rules and automatic discounts, such as a percentage off when a customer selects a premium package with several add-ons."
+    },
+    {
+      "question": "What happens after a customer builds a quote?",
+      "answer": "Once a customer finishes their selections, the tool generates a professional PDF quote with your branding and itemized pricing, and delivers it instantly by email to both the customer and your team. Lead capture is built in, so you get the customer's contact details along with their exact requirements before you ever pick up the phone."
+    },
+    {
+      "question": "Who is this add-on a good fit for?",
+      "answer": "It is built for businesses with variable, selection-based pricing rather than a single flat rate, such as contractors giving project estimates, agencies with tiered service packages, event planners assembling custom packages, or consultants quoting engagement scope. It works as a standalone module or paired with a new website build."
+    }
+  ],
   },
   {
     id: 'staff-role-controls',
@@ -1302,6 +1680,24 @@ export const advancedAddOns: Service[] = [
     seoKeywords: ['role based access control Houston', 'user permissions Texas', 'staff access management Conroe', 'RBAC system'],
     metaTitle: 'Staff Role Controls | $130',
     metaDescription: 'Define user roles and access levels with granular permissions and activity logging. Protect sensitive data. $130 flat rate in Houston & Conroe.',
+  faqs: [
+    {
+      "question": "What exactly does Staff Role Controls add to my site or admin system?",
+      "answer": "It adds role-based access control (RBAC) so you can define what each team member can see and do. You get pre-configured common roles (Admin, Manager, Editor, Viewer, etc.) plus unlimited custom roles, with granular permissions down to the page, data, and action (create/read/update/delete) level."
+    },
+    {
+      "question": "How much does it cost and how long does it take to add?",
+      "answer": "Staff Role Controls is a flat $130 add-on with a 4-6 day turnaround. There's no hourly billing, so that price covers building out the role hierarchy, permission configuration, and the activity logging that goes with it."
+    },
+    {
+      "question": "Can I restrict access by department, location, or even IP address?",
+      "answer": "Yes. Beyond basic role permissions, this module supports location or department-based access, time-based restrictions, and IP address restrictions for sensitive areas, so you can lock down access as tightly as your business needs."
+    },
+    {
+      "question": "Does it track who made changes, and is that useful for compliance?",
+      "answer": "Yes, the module includes activity logging that records who accessed what and what changes they made, which helps with troubleshooting accidental deletions and gives compliance-heavy industries (like those needing HIPAA or SOC 2 documentation) an audit trail."
+    }
+  ],
   },
   {
     id: 'job-ticketing-system',
@@ -1368,6 +1764,24 @@ export const advancedAddOns: Service[] = [
     seoKeywords: ['ticketing system Houston', 'work order management Texas', 'support ticket software Conroe', 'job tracking'],
     metaTitle: 'Job Ticketing System | $140',
     metaDescription: 'Track work orders, support tickets, and tasks from creation to completion. Time tracking and SLA monitoring included. $140 in Houston & Conroe.',
+  faqs: [
+    {
+      "question": "What exactly is included in the $140 Job Ticketing System add-on?",
+      "answer": "You get a full ticket management system with multi-source ticket creation (web forms, email, manual entry, or API), automatic ticket numbering, team assignment, priority levels, and status tracking. It also includes due date alerts, file attachments, time tracking, SLA monitoring, a customer portal, a reporting dashboard, and a team training guide."
+    },
+    {
+      "question": "How long does it take to set up?",
+      "answer": "The Job Ticketing System typically takes 5-7 days to implement, covering the assignment workflows, customer portal, and reporting dashboard along with training your team on how to use it."
+    },
+    {
+      "question": "Can customers see the status of their own tickets?",
+      "answer": "Yes. The system includes a customer portal so customers can check ticket status anytime, receive automatic updates when status changes, and add comments to existing tickets, which cuts down on 'what's the status' emails and calls to your team."
+    },
+    {
+      "question": "Who is this add-on built for?",
+      "answer": "It fits service businesses, IT support teams, maintenance companies, and agencies managing client work, anywhere tasks are currently tracked in spreadsheets or scattered emails. Common uses include IT support tickets, customer support requests, maintenance work orders, field service tracking, project task management, and quality control issues."
+    }
+  ],
   },
   {
     id: 'file-upload-signing',
@@ -1432,6 +1846,24 @@ export const advancedAddOns: Service[] = [
     seoKeywords: ['e-signature Houston', 'document signing Texas', 'file upload system Conroe', 'electronic signature'],
     metaTitle: 'File Upload & E-Sign | $100',
     metaDescription: 'Secure file upload and e-signature system with legally binding signatures and audit trails. No printing needed. $100 in Houston & Conroe.',
+  faqs: [
+    {
+      "question": "How much does File Upload & Signing cost and what's the turnaround time?",
+      "answer": "This add-on is a flat $100 with a build timeline of 4-5 days. As with all StephensCode pricing, there's no hourly billing or surprise fees -- $100 covers the upload interface, e-signature system, and workflow automation as scoped."
+    },
+    {
+      "question": "Are the e-signatures actually legally binding?",
+      "answer": "Yes. The implementation is built to comply with the ESIGN Act and UETA, which govern electronic signatures in all 50 states. Each signature capture logs the signer's full name, date and time, IP address, and consent to sign electronically, creating a defensible record if it's ever challenged."
+    },
+    {
+      "question": "Can documents route to more than one person for signing?",
+      "answer": "Yes -- the system supports multi-party signing workflows, so a document can go to a client first, then automatically notify a manager or legal reviewer once each prior signer completes their step. Automated email reminders go out for anything still unsigned, and completed documents are stored with a full audit trail of who opened and signed what, and when."
+    },
+    {
+      "question": "What if we already use DocuSign or Adobe Sign?",
+      "answer": "That's fine -- the module can integrate with DocuSign or Adobe Sign if you'd rather keep signing on a platform you already use, instead of relying solely on the built-in e-signature capture. Either way you still get the upload interface, document templates, and audit logging as part of the $100 build."
+    }
+  ],
   },
   {
     id: 'multi-location',
@@ -1496,6 +1928,24 @@ export const advancedAddOns: Service[] = [
     seoKeywords: ['multi-location website Houston', 'franchise website Texas', 'location finder Conroe', 'multi-store management'],
     metaTitle: 'Multi-Location Support | $175',
     metaDescription: 'Manage multiple business locations from one system. Location finder and local SEO for franchises and chains. $175 in Houston & Conroe.',
+  faqs: [
+    {
+      "question": "How much does Multi-Location Support cost and what does it include?",
+      "answer": "Multi-Location Support is a flat $175 add-on. It includes unlimited location profiles, location-specific landing pages, an interactive location finder with map and distance search, per-location staff and inventory management, a corporate dashboard for cross-location visibility, and local SEO setup (schema markup and Google My Business sync) for each address."
+    },
+    {
+      "question": "How long does it take to set up?",
+      "answer": "Turnaround is 6 to 8 days. That covers building the location management system, the location finder, individual location pages, the corporate dashboard, and the local SEO configuration for each site."
+    },
+    {
+      "question": "Can each location have its own hours, staff, and pricing while still looking like one brand?",
+      "answer": "Yes. Each location gets its own address, hours, phone number, staff assignments, and optional location-specific pricing or inventory, but the pages stay within your overall brand guidelines and are managed centrally through the corporate dashboard. Role-based access also lets staff at each location see only their own location's data."
+    },
+    {
+      "question": "Who is this add-on built for?",
+      "answer": "It fits franchise operations, retail chains, medical practices with multiple clinics, restaurants with several locations, and any service or professional business with more than one physical address. It scales from two locations up to hundreds without added setup complexity."
+    }
+  ],
   },
   {
     id: 'rewards-tracker',
@@ -1560,6 +2010,24 @@ export const advancedAddOns: Service[] = [
     seoKeywords: ['loyalty program Houston', 'rewards system Texas', 'customer loyalty Conroe', 'points program'],
     metaTitle: 'Customer Rewards | $90',
     metaDescription: 'Points-based customer loyalty program. Increase retention and repeat business. Customizable rewards and earning methods. $90 flat rate. Houston & Conroe.',
+  faqs: [
+    {
+      "question": "How much does the Customer Rewards Tracker cost and how long does it take to build?",
+      "answer": "The Customer Rewards Tracker is a flat $90 add-on with a 4-5 day build timeline. Since StephensCode bills flat-rate with no hourly charges, that $90 covers the full point-tracking system, customer dashboard, and admin tools as scoped, with no surprise fees."
+    },
+    {
+      "question": "Can I control how customers earn points and what the rewards are?",
+      "answer": "Yes, both are fully customizable. You set earning rules (per dollar spent, bonus points for specific products, referrals, reviews, or custom actions) and define the reward catalog yourself, whether that is dollar-value discounts, free items, percentage-off coupons, or VIP perks tied to tiered bronze/silver/gold levels."
+    },
+    {
+      "question": "What's actually included in the $90 price?",
+      "answer": "You get the point accumulation and tracking engine, a customer-facing dashboard showing balances and available rewards, a redemption catalog, point expiration and bonus-promotion support, referral and birthday bonus tracking, admin tools to manually award or deduct points, and program participation/ROI reporting."
+    },
+    {
+      "question": "Is this add-on a good fit for my type of business?",
+      "answer": "It works best for businesses with repeat customers, such as retail stores, restaurants and cafes, gyms, professional services, and other quick-service or service-based businesses. It can run on top of most sites since it is built as a standalone add-on module rather than requiring a specific core package."
+    }
+  ],
   },
   {
     id: 'system-connector',
@@ -1630,6 +2098,24 @@ export const advancedAddOns: Service[] = [
     seoKeywords: ['QuickBooks integration Houston', 'CRM integration Texas', 'business software integration Conroe', 'API integration'],
     metaTitle: 'System Connector | $1,000',
     metaDescription: 'Connect your website to QuickBooks, Salesforce, Mailchimp, and more. Automate data sync and eliminate manual entry. $1,000 flat rate. Houston & Conroe.',
+  faqs: [
+    {
+      "question": "How much does the System Connector cost and how long does setup take?",
+      "answer": "The System Connector is a flat $1,000 add-on with a 4-6 day turnaround. That covers integration setup and configuration, custom field mapping, an error notification system, a sync logging dashboard, and documentation and testing -- no hourly billing or open-ended scope."
+    },
+    {
+      "question": "What business software can it connect my website to?",
+      "answer": "It integrates with popular platforms like QuickBooks, Salesforce, HubSpot, Mailchimp, Google Sheets, Shopify/WooCommerce, Slack, Calendly/Acuity, and Zapier (which itself opens the door to thousands of other apps). Depending on the target platform, the connection is built as an API integration, a webhook, or a file-based (CSV/JSON/XML) sync."
+    },
+    {
+      "question": "Does data only flow one way, and how is it kept secure?",
+      "answer": "Sync is bidirectional -- for example, a website order can create a QuickBooks invoice and add a CRM contact, while changes made in your accounting or CRM system can flow back to update the site. Connections use encrypted HTTPS/TLS, OAuth 2.0 where the platform supports it, credentials stored as environment variables rather than in code, and optional IP whitelisting."
+    },
+    {
+      "question": "What happens if a sync fails, and who is this add-on meant for?",
+      "answer": "Failed syncs (from network issues, API limits, or bad data) trigger an immediate notification with a clear explanation, are recorded in the sync logging dashboard, and are retried automatically, with a manual retry option available too. It's built for businesses already running tools like QuickBooks, Salesforce, or Mailchimp that want to stop manually re-entering the same data across systems."
+    }
+  ],
   },
   {
     id: 'analytics-dashboard',
@@ -1700,6 +2186,24 @@ export const advancedAddOns: Service[] = [
     seoKeywords: ['analytics dashboard Houston', 'business intelligence Texas', 'KPI tracking Conroe', 'custom dashboard development'],
     metaTitle: 'Analytics Dashboard | $150',
     metaDescription: 'Custom analytics dashboard with real-time KPI tracking and data visualization. Make smarter data-driven business decisions. $150 in Houston & Conroe.',
+  faqs: [
+    {
+      "question": "What exactly is included in the $150 Analytics Dashboard add-on?",
+      "answer": "You get a custom-built dashboard with real-time data visualization, custom KPI tracking tied to your business (not generic traffic stats), interactive charts and graphs, automated reports, and a mobile-responsive interface. It is delivered in 5-7 days and includes the data source integrations needed to pull your numbers into one screen instead of five separate logins."
+    },
+    {
+      "question": "How is this different from just using Google Analytics?",
+      "answer": "Google Analytics only shows website traffic. This dashboard goes deeper by consolidating sales performance, customer behavior, inventory, marketing ROI, and other business-specific KPIs into one real-time view, with data pulled from sources like your e-commerce platform, CRM, Google Ads, Mailchimp, and QuickBooks. It is built around the metrics that actually run your business, not just visits and page views."
+    },
+    {
+      "question": "Can it pull data from the tools I already use?",
+      "answer": "Yes. It is designed to integrate with common systems including e-commerce or POS platforms, CRMs, Google Ads and Facebook, Mailchimp, Google Analytics, inventory management software, QuickBooks, and any other system with an API or database connection. Update frequency (real-time versus hourly or daily) is configured based on your data sources and needs."
+    },
+    {
+      "question": "Who should add this, and does it work with any StephensCode package?",
+      "answer": "It fits e-commerce businesses, service companies, agencies managing multiple clients, retail and restaurant operators, and any business making decisions on gut feeling instead of real numbers. As an add-on priced at $150 with a 5-7 day build, it layers onto your existing site or system rather than requiring a specific tier, so it can be added alongside whichever core or premium package you already have."
+    }
+  ],
   },
   {
     id: 'onboarding-wizard',
@@ -1770,6 +2274,24 @@ export const advancedAddOns: Service[] = [
     seoKeywords: ['user onboarding Houston', 'onboarding wizard Texas', 'customer setup Conroe', 'guided onboarding'],
     metaTitle: 'Onboarding Wizard | $110',
     metaDescription: 'Step-by-step onboarding wizard for new users. Improve activation rates and reduce churn with guided setup and progress tracking. $110 in Houston & Conroe.',
+  faqs: [
+    {
+      "question": "What exactly do I get with the Onboarding Wizard add-on for $110?",
+      "answer": "You get a multi-step guided setup flow for new users or customers, with progress indicators, skip/back navigation, contextual help and tooltips, smart defaults with validation, and a mobile-responsive interface. It also includes analytics integration so you can see completion rates and where users drop off."
+    },
+    {
+      "question": "How long does it take to build a custom onboarding wizard?",
+      "answer": "Timeline is 4-5 days. That covers designing the step sequence for your specific product, wiring up validation and any conditional logic, and connecting it to your existing account or database setup."
+    },
+    {
+      "question": "Can a user stop partway through onboarding and pick up later?",
+      "answer": "Yes -- save and resume is part of the build, along with email reminders for users who abandon the flow before finishing. Progress is saved automatically so switching devices or closing the browser mid-setup does not lose their place."
+    },
+    {
+      "question": "What kinds of sites or systems is this add-on meant for?",
+      "answer": "It is built as an add-on layered onto an existing site or portal (category: advanced add-ons), commonly used for SaaS platform setup, client onboarding for service businesses, e-commerce vendor registration, membership site enrollment, CRM configuration, or product trial sign-up. It is priced and built separately from a core site build, flat rate, no hourly billing."
+    }
+  ],
   },
   {
     id: 'ai-content-assistant',
@@ -1844,6 +2366,24 @@ export const advancedAddOns: Service[] = [
     seoKeywords: ['AI content writing Houston', 'content generation Texas', 'AI copywriting Conroe', 'automated content creation'],
     metaTitle: 'AI Content Assistant | $175',
     metaDescription: 'AI-powered content assistant for blogs, products, and marketing. Create content 10x faster while maintaining quality. $175 flat rate. Houston & Conroe.',
+  faqs: [
+    {
+      "question": "How much does the AI Content Assistant add-on cost and what's the setup timeline?",
+      "answer": "The AI Content Assistant is a flat $175, with setup typically completed in 5 to 7 days. That covers configuring the tool, training it on your brand voice, and building out your template library, no hourly billing involved."
+    },
+    {
+      "question": "What exactly is included for $175?",
+      "answer": "You get the AI content generation tool itself, brand voice configuration based on samples of your existing content and tone preferences, a reusable template library, SEO optimization features (keyword suggestions and meta descriptions), and an analytics dashboard to track usage and content output."
+    },
+    {
+      "question": "Does it just write generic AI content, or does it match how my business actually sounds?",
+      "answer": "It's built to learn your brand voice rather than output generic text. You provide examples of existing content, set tone preferences (professional, casual, technical, friendly), and define terminology to use or avoid, and the assistant adapts its drafts to match, covering blog posts, product descriptions, email campaigns, social content, and website copy."
+    },
+    {
+      "question": "Who is this add-on actually useful for?",
+      "answer": "It's aimed at businesses with an ongoing content need but limited time to produce it: active blogs, e-commerce stores with large product catalogs, service businesses building thought leadership, or anyone publishing email and social content regularly. It works alongside any core or premium website tier as a $175 add-on."
+    }
+  ],
   },
   {
     id: 'membership-portal',
@@ -1920,6 +2460,24 @@ export const advancedAddOns: Service[] = [
     seoKeywords: ['membership site Houston', 'subscription portal Texas', 'member management Conroe', 'membership platform'],
     metaTitle: 'Membership Portal | $200',
     metaDescription: 'Membership portal with subscription billing and gated content. Build recurring revenue with tiered membership access. $200 flat rate in Houston & Conroe.',
+  faqs: [
+    {
+      "question": "What does the $200 Membership Portal add-on actually include?",
+      "answer": "It covers member registration and authentication, a subscription billing system integrated with Stripe or PayPal, content access control by tier, a member dashboard, and the admin interface for managing content and members. It is built as an add-on to an existing site, not a standalone platform, so it plugs into the site structure you already have."
+    },
+    {
+      "question": "How long does it take to build?",
+      "answer": "The Membership Portal add-on has a 6-8 day build timeline. That covers setting up membership tiers, wiring up subscription billing, and configuring access control on your gated content."
+    },
+    {
+      "question": "Can I offer multiple membership tiers, free trials, or lifetime access?",
+      "answer": "Yes. The system supports multiple tiers (for example bronze, silver, gold) with different access levels, monthly or annual billing, free trials, and one-time lifetime membership options, all handled through the same billing integration."
+    },
+    {
+      "question": "How does drip content and access control work?",
+      "answer": "Access control is granular: you can gate entire pages or sections, show different content per tier, allow limited free previews, and drip-release content over time so members get one module or lesson at a time instead of everything at once. That staged release is commonly used to keep subscribers active longer."
+    }
+  ],
   },
   {
     id: 'lms',
@@ -1996,6 +2554,24 @@ export const advancedAddOns: Service[] = [
     seoKeywords: ['LMS development Houston', 'online course platform Texas', 'learning management system Conroe', 'course creation'],
     metaTitle: 'Learning Management | $250',
     metaDescription: 'Learning Management System with courses, quizzes, certificates, and progress tracking. Monetize online education. $250 flat rate in Houston & Conroe.',
+  faqs: [
+    {
+      "question": "What's included in the $250 LMS add-on?",
+      "answer": "It's a complete learning management system built into your site, including a course builder for structured modules and lessons, video lesson delivery, quizzes with automatic grading, progress tracking, certificate generation, discussion forums, student enrollment, and analytics on completion rates. It also supports drip content scheduling and multiple courses, so you can run more than one program from the same platform."
+    },
+    {
+      "question": "How long does it take to build the LMS?",
+      "answer": "Typically 8 to 10 days. That covers the course builder, video delivery, quiz/assessment engine with auto-grading, certificate generator, and student dashboard, all included in the flat $250 price with no hourly billing."
+    },
+    {
+      "question": "Can I actually sell courses and issue certificates through it, or is this just a content viewer?",
+      "answer": "It's built for monetized, credentialed education, not just static content. You get enrollment management, drip-fed content release, quizzes with pass/fail scoring, and automatically generated completion certificates with your branding, student name, course name, and date -- so students have something to show for finishing."
+    },
+    {
+      "question": "Who is this add-on actually built for?",
+      "answer": "It fits corporate trainers, coaches, consultants, subject matter experts, and certification bodies who want to package expertise into scalable courses rather than teaching one-on-one. As an add-on, it's built on top of one of the core or premium site tiers, which also carry 90 days of post-launch support."
+    }
+  ],
   },
   {
     id: 'inventory-management',
@@ -2076,6 +2652,24 @@ export const advancedAddOns: Service[] = [
     seoKeywords: ['inventory management Houston', 'stock tracking system Texas', 'inventory software Conroe', 'warehouse management'],
     metaTitle: 'Inventory Management | $200',
     metaDescription: 'Complete inventory management with real-time tracking, reorder alerts, and multi-location support. Optimize stock levels. $200 flat rate. Houston & Conroe.',
+  faqs: [
+    {
+      "question": "How much does the Inventory Management add-on cost and what does it include?",
+      "answer": "It's a flat $200, no hourly billing. That covers real-time stock level tracking, reorder point alerts, purchase order management, supplier management, SKU and barcode tracking, and reporting on low stock, overstock, and inventory valuation."
+    },
+    {
+      "question": "How long does it take to add Inventory Management to my site?",
+      "answer": "Typically 6-8 days. That timeframe covers building the tracking system, reorder alerts, purchase order module, and reporting dashboard, and connecting it to your existing product catalog."
+    },
+    {
+      "question": "Can it keep stock in sync if I sell on my website, Amazon, and eBay at the same time?",
+      "answer": "Yes. Sales channel synchronization updates available inventory across your website and any connected marketplaces the moment a sale happens on one of them, so you don't oversell an item that already sold out elsewhere."
+    },
+    {
+      "question": "Does it handle multiple warehouses or store locations, and does it help me decide what to reorder?",
+      "answer": "Yes to both. Multi-location support lets you view stock by warehouse or store, transfer inventory between locations, and set location-specific reorder points, while demand forecasting looks at your sales history to suggest order quantities instead of leaving you to guess."
+    }
+  ],
   },
   {
     id: 'subscription-billing',
@@ -2154,6 +2748,24 @@ export const advancedAddOns: Service[] = [
     seoKeywords: ['subscription billing Houston', 'recurring payments Texas', 'SaaS billing Conroe', 'subscription management'],
     metaTitle: 'Subscription Billing | $180',
     metaDescription: 'Subscription billing with recurring payments, plan management, and failed payment recovery. Build predictable revenue. $180 in Houston & Conroe.',
+  faqs: [
+    {
+      "question": "What does the $180 Subscription Billing add-on include?",
+      "answer": "For a flat $180, you get a full recurring billing system: automated charges on schedule, multiple subscription tiers, trial period management, prorated upgrade/downgrade handling, invoice generation, and sales tax calculation. It also includes a customer self-service portal so subscribers can update payment methods, view billing history, and manage or cancel their own plans."
+    },
+    {
+      "question": "How long does it take to build and how does dunning (failed payment recovery) work?",
+      "answer": "This add-on typically takes 6-8 days to implement. Once live, failed charges (expired cards, insufficient funds) trigger automatic retries on a smart schedule and customer notification emails with one-click payment update links, rather than immediately canceling the subscription."
+    },
+    {
+      "question": "Do I need an existing site or system for this to work, and does it handle multiple pricing tiers?",
+      "answer": "Yes -- it integrates with a payment processor like Stripe and connects to your existing site to control access based on subscription status. It supports multiple tiers (for example Basic, Pro, Enterprise) with different pricing and features, monthly or annual billing, and usage-based or quantity-based pricing options."
+    },
+    {
+      "question": "Who is this add-on built for?",
+      "answer": "It fits any business moving to recurring revenue: SaaS platforms, membership or content sites with premium access, service businesses with ongoing plans, subscription boxes, and software licensing. If you want predictable monthly revenue instead of one-off payments, this is the add-on that makes it automatic."
+    }
+  ],
   },
   {
     id: 'advanced-ecommerce',
@@ -2232,6 +2844,24 @@ export const advancedAddOns: Service[] = [
     seoKeywords: ['advanced eCommerce Houston', 'online store features Texas', 'eCommerce optimization Conroe', 'abandoned cart recovery'],
     metaTitle: 'Advanced eCommerce | $250',
     metaDescription: 'Advanced eCommerce with product variants, wishlists, reviews, and abandoned cart recovery. Increase sales and conversions. $250 flat rate. Houston & Conroe.',
+  faqs: [
+    {
+      "question": "What exactly do I get for the $250 Advanced eCommerce add-on?",
+      "answer": "For a flat $250, it layers conversion-focused features onto an existing store: product variants (size, color, material), wishlists, product reviews and ratings, abandoned cart recovery, product recommendations, advanced search and filtering, inventory tracked per variant, customer accounts, and analytics/reporting. Deliverables specifically include the variant system, wishlist functionality, review/rating system, abandoned cart automation, and a recommendation engine."
+    },
+    {
+      "question": "How long does this add-on take to build?",
+      "answer": "Timeline is 8-10 days. That covers building out the variant, wishlist, review, and cart-recovery systems on top of your store, not building the store itself."
+    },
+    {
+      "question": "Do I need an existing eCommerce site first, or does this replace one?",
+      "answer": "This is an add-on, not a standalone store -- it attaches to an existing or in-progress eCommerce build and upgrades it with variants, reviews, wishlists, and cart recovery. If you don't have a store yet, you'd start with one of the core or premium eCommerce packages and add this on top."
+    },
+    {
+      "question": "Is this worth it for a small store, or mainly for bigger catalogs?",
+      "answer": "It pays off most once you have multiple product variants (like sizes or colors), a catalog big enough that search and filtering matter, or you're losing sales to cart abandonment -- fashion/apparel stores and growing catalogs are the main use cases named for it. A single-product store just starting out likely doesn't need it at launch, but it's a clean addition once the catalog grows."
+    }
+  ],
   },
   {
     id: 'api-integration-hub',
@@ -2310,6 +2940,24 @@ export const advancedAddOns: Service[] = [
     seoKeywords: ['API integration Houston', 'integration management Texas', 'API hub Conroe', 'third-party integrations'],
     metaTitle: 'API Integration Hub | $160',
     metaDescription: 'Centralized API integration hub with monitoring, logging, and credential management. Connect all your business tools. $160 flat rate. Houston & Conroe.',
+  faqs: [
+    {
+      "question": "What do I actually get for the $160 price?",
+      "answer": "A centralized integration platform: secure encrypted credential storage, a health monitoring dashboard with real-time status indicators, request/response logging for debugging, rate limit management with automatic retries, webhook receivers for inbound data, and pre-built templates for common services. Delivery is 5-7 days as a flat $160 add-on, no hourly billing."
+    },
+    {
+      "question": "Which third-party services can the hub connect to?",
+      "answer": "It ships with templates for the categories most businesses use: payment processors like Stripe, PayPal, and Square, communication tools like SendGrid and Twilio, shipping carriers like UPS, FedEx, and ShipStation, CRM platforms like Salesforce and HubSpot, accounting tools like QuickBooks and Xero, and marketing platforms like Mailchimp. Templates cut setup time from days to hours since the standard endpoints and auth methods are already built."
+    },
+    {
+      "question": "Do I need this if I only have one or two integrations?",
+      "answer": "Not necessarily. A single integration, like Stripe for checkout, is usually handled directly within your site build. The Integration Hub earns its cost once you're juggling three or more separate services and need one dashboard for credential storage, health monitoring, and error logs instead of scattered, unmonitored connections."
+    },
+    {
+      "question": "How does it handle credential security and failed API calls?",
+      "answer": "Credentials are stored in encrypted environment variables (never hardcoded), with separate sets supported for development, staging, and production. Failed requests get automatic retries with exponential backoff, and rate limit tracking queues or spaces out calls so you don't get cut off by API quotas during busy periods."
+    }
+  ],
   },
   {
     id: 'workflow-automation',
@@ -2390,6 +3038,24 @@ export const advancedAddOns: Service[] = [
     seoKeywords: ['workflow automation Houston', 'business process automation Texas', 'automated workflows Conroe', 'task automation'],
     metaTitle: 'Workflow Automation | $150',
     metaDescription: 'Workflow automation with triggers, conditions, and actions. Eliminate manual work and save time with automated processes. $150 flat rate. Houston & Conroe.',
+  faqs: [
+    {
+      "question": "What does Workflow Automation cost and how long does it take to set up?",
+      "answer": "Workflow Automation is a $150 flat-rate add-on with a 5-7 day build timeline. It's built on top of your existing site or system, so no hourly billing or ongoing subscription is required just to get workflows running."
+    },
+    {
+      "question": "How does the automation actually work -- do I need to write code?",
+      "answer": "No coding is required. It uses a trigger-condition-action model with a visual, drag-and-drop workflow builder: a trigger starts things (like a new order or form submission), conditions add logic (like order value or customer type), and actions carry out the steps (send an email, create a record, generate a document, call an API)."
+    },
+    {
+      "question": "What kinds of tasks can this automate for my business?",
+      "answer": "Common examples include order processing (confirmation emails, invoice creation, fulfillment notifications), lead nurture sequences, data sync between systems, document and report generation, and scheduled recurring tasks like monthly reports or renewal reminders. Workflows can chain multiple actions together to cover multi-step processes end to end."
+    },
+    {
+      "question": "Can workflows connect to the other tools and systems I already use?",
+      "answer": "Yes -- workflows can integrate with your database, CRM, email service, payment processor, accounting software, calendar, and any other system with an API, so actions in one tool can trigger updates in another. Each workflow also comes with monitoring and logging (run history, success/failure rates, and automatic retries) so you can see exactly what's running and catch failures quickly."
+    }
+  ],
   },
   {
     id: 'advanced-crm',
@@ -2472,6 +3138,24 @@ export const advancedAddOns: Service[] = [
     seoKeywords: ['CRM development Houston', 'custom CRM Texas', 'sales pipeline software Conroe', 'customer management system'],
     metaTitle: 'Advanced CRM | $210',
     metaDescription: 'Advanced CRM with sales pipeline, contact management, and automation. Build stronger customer relationships and close more deals. $210 in Houston & Conroe.',
+  faqs: [
+    {
+      "question": "What's included in the $210 Advanced CRM add-on?",
+      "answer": "For a flat $210, you get a complete CRM platform built into your site: contact and company management, a visual sales pipeline (Lead, Qualified, Proposal, Negotiation, Closed Won/Lost), activity logging, deal management, sales automation, email integration, and a reporting dashboard. It is delivered as a system you own outright, with custom fields and workflows matched to your actual sales process."
+    },
+    {
+      "question": "How long does the Advanced CRM take to build?",
+      "answer": "Turnaround is 7-10 days. That covers the pipeline module, contact management system, activity tracking, and reporting dashboard as one integrated deliverable, not a phased rollout."
+    },
+    {
+      "question": "Does this replace something like Salesforce or HubSpot?",
+      "answer": "Yes -- that's the point of it. Instead of paying recurring monthly fees for a generic CRM, you get a custom system built around your specific sales stages and integrated directly with your existing website and business tools, with no subscription."
+    },
+    {
+      "question": "Who is the Advanced CRM add-on built for?",
+      "answer": "It fits B2B companies with sales teams, service businesses managing client relationships, agencies juggling multiple clients, and any business where follow-up discipline and pipeline visibility directly affect revenue. If deals move through defined stages and need tracking from lead to close, this add-on is built for that workflow."
+    }
+  ],
   },
   {
     id: 'employee-scheduling',
@@ -2554,6 +3238,24 @@ export const advancedAddOns: Service[] = [
     seoKeywords: ['employee scheduling Houston', 'shift management software Texas', 'staff scheduling Conroe', 'workforce management'],
     metaTitle: 'Employee Scheduling | $180',
     metaDescription: 'Complete employee scheduling with shift management, time tracking, and mobile access. Optimize labor costs and coverage. $180 flat rate. Houston & Conroe.',
+  faqs: [
+    {
+      "question": "What's included in the $180 Employee Scheduling add-on?",
+      "answer": "You get a drag-and-drop schedule builder, employee availability management, time-off request and approval workflows, shift swapping, time and attendance tracking, labor cost forecasting, compliance alerts, and mobile app access, all for a flat $180. Deliverables include the scheduling platform, an employee portal, a manager dashboard, and mobile apps, so both managers and staff can see and manage shifts from day one."
+    },
+    {
+      "question": "How does this prevent scheduling conflicts and understaffing?",
+      "answer": "The system checks employee availability and existing assignments as schedules are built, flagging double-bookings, understaffed shifts, and compliance risks like missed breaks or excess hours before you publish. It also blocks time off that's already been approved from being scheduled over, so those errors get caught automatically instead of after the schedule goes out."
+    },
+    {
+      "question": "How long does setup take and when can my team start using it?",
+      "answer": "Employee Scheduling has a 6-8 day build timeline. That covers configuring the drag-and-drop builder, availability and time-off workflows, shift swapping, time tracking, and mobile access so managers and staff can start using it right away."
+    },
+    {
+      "question": "Is this a good fit for my type of business?",
+      "answer": "It's built for restaurants, retail stores, healthcare facilities, hospitality, fitness centers, call centers, warehouses, and any business managing hourly workers or 24/7 shift coverage. If you're currently juggling spreadsheets or paper schedules to handle availability, time-off, and shift swaps, this add-on replaces that manual process with one system."
+    }
+  ],
   },
   {
     id: 'document-portal',
@@ -2636,6 +3338,24 @@ export const advancedAddOns: Service[] = [
     seoKeywords: ['secure document portal Houston', 'client portal Texas', 'document sharing Conroe', 'e-signature platform'],
     metaTitle: 'Document Portal | $190',
     metaDescription: 'Secure client document portal with file sharing, e-signatures, and access controls. Professional document management. $190 flat rate. Houston & Conroe.',
+  faqs: [
+    {
+      "question": "How much does the Secure Document Portal add-on cost?",
+      "answer": "The Secure Document Portal is a flat $190 add-on to any core or premium website package. There's no hourly billing or recurring platform fee baked into that price -- it's a one-time build cost added to your project."
+    },
+    {
+      "question": "How long does it take to add a document portal to my site?",
+      "answer": "Build time is typically 6-8 days on top of your main site timeline. That covers the client login system, upload/download workflows, e-signature setup, and admin dashboard configuration."
+    },
+    {
+      "question": "What can clients actually do inside the portal?",
+      "answer": "Clients log in to a branded, access-controlled area where they can upload and download files, sign documents electronically, respond to specific file requests, and see version history on anything that's been revised. Notifications alert them when new documents are ready or a signature is needed, so you're not chasing them over email."
+    },
+    {
+      "question": "Who is this add-on built for?",
+      "answer": "It's aimed at businesses that currently move sensitive files over email -- accounting and law firms, healthcare providers, real estate agents, consultants, contractors, and insurance agents. If you're emailing contracts, tax forms, or patient/client records back and forth, this replaces that with audit trails, folder organization, and access controls suited to compliance needs."
+    }
+  ],
   },
   {
     id: 'enterprise-vpn',
@@ -2700,6 +3420,24 @@ export const advancedAddOns: Service[] = [
     seoKeywords: ['enterprise VPN Houston', 'business VPN Texas', 'secure VPN Conroe', 'SACVPN setup', 'corporate VPN solution'],
     metaTitle: 'Enterprise VPN (SACVPN)',
     metaDescription: 'Enterprise-grade VPN security for your business via SACVPN. Military-grade encryption, team management, compliance ready. Pricing varies by company size.',
+  faqs: [
+    {
+      "question": "How much does Enterprise VPN (SACVPN) cost?",
+      "answer": "Unlike our flat-rate website packages, SACVPN pricing is set by SACVPN itself and varies based on your company size and number of users, so it is listed as See Pricing rather than a fixed number. You can check current plans at sacvpn.com, or contact us and we will help you figure out the right tier and handle the setup."
+    },
+    {
+      "question": "What do you actually set up for us versus what SACVPN provides?",
+      "answer": "SACVPN provides the underlying VPN service (AES-256 encryption, global server network, zero-log policy), and StephensCode handles the business side: creating your SACVPN business account, setting up user accounts for each team member, configuring the admin dashboard, and installing the VPN on every device across platforms. We also provide security policy documentation and training materials so your team knows how to use it."
+    },
+    {
+      "question": "How long does setup take?",
+      "answer": "Turnaround is 1-2 days for full setup, covering the business account, individual user accounts, admin dashboard configuration, and device installation across your team's devices. Ongoing configuration support is included after the initial rollout."
+    },
+    {
+      "question": "Who needs this add-on?",
+      "answer": "It's built for businesses that need to secure remote workforce access, protect client confidentiality (law firms, healthcare, financial services), or meet regulatory requirements like HIPAA or PCI-DSS. It's also useful for protecting employees on public Wi-Fi while traveling or working from branch offices."
+    }
+  ],
   },
 ]
 

@@ -283,7 +283,7 @@ Built on a staging server for your review. Tested across devices, optimized for 
 We launch your site, set up analytics, and train you on any content management features.
 
 **6. Ongoing Support**
-30 days free support included. Optional maintenance plans starting at $50/month.
+90 days of free post-launch support included. Optional maintenance plans starting at $50/month.
 
 **Timeline**: Most Katy business websites complete in 1-2 weeks.
 
@@ -329,6 +329,6 @@ Katy's growth creates opportunity, but only for businesses that show up in searc
 
 **Professional results** without agency prices.
 
-Call (936) 323-4527 or email kyle@stephenscode.dev.
+Call (936) 323-4527 or email info@stephenscode.dev.
 
 Let's build a website that captures Katy's growth for your business.

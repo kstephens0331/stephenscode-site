@@ -385,7 +385,6 @@ At StephensCode, we build custom websites for small businesses with:
 - Clear communication throughout
 - 14+ years of experience
 - Ongoing support included
-- 100% satisfaction focus
 
 **Call (936) 323-4527 or visit [stephenscode.dev/contact](https://www.stephenscode.dev/contact) to discuss your project.**
 

@@ -34,10 +34,10 @@ export default function Home() {
       popular: true,
     },
     {
-      name: 'Advanced',
+      name: 'Premium Build',
       price: '$2,000',
       description: 'Custom full-stack site with an admin behind it. See your leads, customers, and KPIs, not just publish pages.',
-      features: ['Custom full-stack, up to 10 pages', 'Admin portal + KPI dashboard (lite)', 'CMS, conversion-focused UX', 'SEO + GA4 events', '2 rounds of revisions', '90 days post-launch support'],
+      features: ['Custom full-stack, up to 15 pages', 'Admin portal + KPI dashboard (lite)', 'CMS, conversion-focused UX', 'SEO + GA4 events', '2 rounds of revisions', '90 days post-launch support'],
       delivery: '2-3 weeks',
       href: '/services/premium-build',
       popular: false,
@@ -66,7 +66,7 @@ export default function Home() {
     { label: 'Years Experience', value: '14+', Icon: Clock },
     { label: 'Projects Delivered', value: '200+', Icon: Rocket },
     { label: 'API Integrations', value: '200+', Icon: Link2 },
-    { label: 'Web Scraping Jobs', value: '500+', Icon: BarChart3 },
+    { label: 'Flat-Rate Pricing Tiers', value: '7', Icon: BarChart3 },
   ]
 
   const processSteps = [
@@ -146,7 +146,7 @@ export default function Home() {
             </h1>
 
             <p className="mt-10 max-w-2xl text-lg leading-8 text-gray-300 animate-fade-in-up animation-delay-400">
-              I&apos;m Kyle. I&apos;ve been building websites and custom software for small businesses out of Conroe, Texas for 14 years. You get a flat quote up front, you get the site you paid for, and you get my cell number if anything breaks. That&apos;s it. No ongoing-fee games, no agency layers.
+              StephensCode is a veteran-owned web development company in Conroe, Texas that builds custom websites and business software at a flat, upfront price. I&apos;m Kyle. I&apos;ve been doing this for small businesses for 14 years. You get a flat quote up front, you get the site you paid for, and you get my cell number if anything breaks. That&apos;s it. No ongoing-fee games, no agency layers.
             </p>
 
             <div className="mt-12 flex flex-wrap items-center gap-3 animate-fade-in-up animation-delay-600">
@@ -289,6 +289,7 @@ export default function Home() {
                   <span className="text-xs uppercase tracking-wider text-gray-500">Delivery {pkg.delivery}</span>
                   <Link
                     href={pkg.href}
+                    aria-label={`Learn more about ${pkg.name}`}
                     className="inline-flex items-center gap-1 text-sm font-semibold text-primary-400 hover:text-primary-300 transition-colors"
                   >
                     Learn more

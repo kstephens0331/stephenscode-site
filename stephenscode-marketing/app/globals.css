@@ -21,16 +21,18 @@ body {
     text-wrap: balance;
   }
   .animate-fade-in-up {
-    animation: fadeInUp 0.5s ease-out forwards;
+    animation: fadeInUp 0.35s ease-out forwards;
     opacity: 0;
   }
   .animate-fade-in {
     animation: fadeIn 0.2s ease-out;
   }
-  .animation-delay-200 { animation-delay: 0.15s; }
-  .animation-delay-400 { animation-delay: 0.3s; }
-  .animation-delay-600 { animation-delay: 0.45s; }
-  .animation-delay-800 { animation-delay: 0.6s; }
+  /* Kept short so above-the-fold content finishes painting quickly (Speed Index) --
+     tight stagger still reads as intentional without leaving content at opacity:0 for long. */
+  .animation-delay-200 { animation-delay: 0.05s; }
+  .animation-delay-400 { animation-delay: 0.1s; }
+  .animation-delay-600 { animation-delay: 0.15s; }
+  .animation-delay-800 { animation-delay: 0.2s; }
 
   /* Single restrained card hover used across the site. 2px lift, border
      color shift to the brand red-orange. Subtle, intentional, not flashy. */

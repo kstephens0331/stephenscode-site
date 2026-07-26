@@ -24,6 +24,12 @@ export const metadata: Metadata = {
     description: 'Expert API integration with 200+ projects completed. REST, SOAP, GraphQL.',
     type: 'website',
   },
+  twitter: {
+    card: 'summary_large_image',
+    title: 'API Integration Services | Connect Your Business Systems',
+    description: 'Expert API integration with 200+ projects completed. REST, SOAP, GraphQL.',
+    images: ['/twitter-image'],
+  },
 }
 
 // Schema markup for the page
@@ -457,7 +463,7 @@ export default function APIIntegration() {
             </div>
 
             <p className="text-gray-300">
-              <a href="mailto:kyle@stephenscode.dev" className="hover:text-white underline">kyle@stephenscode.dev</a>
+              <a href="mailto:info@stephenscode.dev" className="hover:text-white underline">info@stephenscode.dev</a>
             </p>
           </div>
         </div>

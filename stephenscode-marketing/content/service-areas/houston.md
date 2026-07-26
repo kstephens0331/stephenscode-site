@@ -246,6 +246,6 @@ Houston business owners: you don't need to overpay for a bloated agency or settl
 
 **Clear pricing**: You'll know the exact cost before deciding anything.
 
-Call (936) 323-4527 or email kyle@stephenscode.dev.
+Call (936) 323-4527 or email info@stephenscode.dev.
 
 We're just up I-45, and we'd be happy to come to you.

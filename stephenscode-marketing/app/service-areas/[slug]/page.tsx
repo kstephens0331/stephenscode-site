@@ -22,8 +22,8 @@ export async function generateMetadata({ params }: ServiceAreaPageProps): Promis
   }
 
   return {
-    title: `${area.name} Web Developer | Websites from $250 | StephensCode`,
-    description: `Web developer serving ${area.name}, TX. Flat-rate custom websites from $250, fast turnaround, no hidden fees. Veteran-owned, 14+ years experience.`,
+    title: `${area.name} Web Developer | Websites from $250`,
+    description: `Web developer serving ${area.name}, TX. Flat-rate custom websites from $250, no hidden fees. Veteran-owned. Call (936) 323-4527.`,
     alternates: {
       canonical: `/service-areas/${slug}`,
     },
@@ -41,6 +41,12 @@ export async function generateMetadata({ params }: ServiceAreaPageProps): Promis
       url: `https://www.stephenscode.dev/service-areas/${slug}`,
       type: 'website',
     },
+    twitter: {
+      card: 'summary_large_image',
+      title: `${area.name} Web Developer | Custom Websites from $250`,
+      description: `Professional websites for ${area.name} businesses. Flat-rate pricing, fast turnaround, veteran-owned.`,
+      images: ['/twitter-image'],
+    },
   }
 }
 
@@ -56,14 +62,14 @@ export default async function ServiceAreaPage({ params }: ServiceAreaPageProps) 
 
   const localSchema = {
     '@context': 'https://schema.org',
-    '@type': 'WebPage',
+    '@type': 'Service',
     name: `Web Development Services in ${area.name}, TX`,
     description: `Professional web development, SEO, and e-commerce services for businesses in ${area.name}, Texas. Custom websites starting at $250.`,
     url: `https://www.stephenscode.dev/service-areas/${slug}`,
     provider: {
       '@id': 'https://www.stephenscode.dev/#organization',
     },
-    about: {
+    areaServed: {
       '@type': 'City',
       name: area.name,
       containedInPlace: {

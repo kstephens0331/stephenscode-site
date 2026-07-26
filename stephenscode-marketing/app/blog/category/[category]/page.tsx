@@ -29,15 +29,15 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
 
   if (!categoryName) {
     return {
-      title: 'Category Not Found | StephensCode Blog',
+      title: 'Category Not Found',
     }
   }
 
   const titles: { [key: string]: string } = {
-    'Web Development': 'Web Development Tips & Best Practices | StephensCode Blog',
-    'SEO': 'SEO Strategies & Local Search Tips | StephensCode Blog',
-    'Business': 'Small Business Growth & Marketing Tips | StephensCode Blog',
-    'E-Commerce': 'E-Commerce Tips & Online Store Guides | StephensCode Blog',
+    'Web Development': 'Web Development Tips & Best Practices',
+    'SEO': 'SEO Strategies & Local Search Tips',
+    'Business': 'Small Business Growth & Marketing Tips',
+    'E-Commerce': 'E-Commerce Tips & Online Store Guides',
   }
 
   const descriptions: { [key: string]: string } = {
@@ -47,10 +47,29 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
     'E-Commerce': 'E-commerce strategies, online store optimization, and sales conversion tips for Houston retailers. Build and grow your online store.',
   }
 
+  const title = titles[categoryName] || `${categoryName} Articles`
+  const description = descriptions[categoryName] || `Browse ${categoryName} articles from StephensCode`
+
   return {
-    title: titles[categoryName] || `${categoryName} | StephensCode Blog`,
-    description: descriptions[categoryName] || `Browse ${categoryName} articles from StephensCode`,
+    title,
+    description,
     keywords: [`${categoryName.toLowerCase()}`, 'Houston web development', 'small business tips', 'digital marketing'],
+    alternates: {
+      canonical: `/blog/category/${category}`,
+    },
+    openGraph: {
+      title: `${title} | StephensCode Blog`,
+      description,
+      url: `https://www.stephenscode.dev/blog/category/${category}`,
+      type: 'website',
+      images: ['/opengraph-image'],
+    },
+    twitter: {
+      card: 'summary_large_image',
+      title: `${title} | StephensCode Blog`,
+      description,
+      images: ['/twitter-image'],
+    },
   }
 }
 

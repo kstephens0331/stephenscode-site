@@ -122,7 +122,7 @@ I do not build cookie-cutter sites for downtown Willis businesses. If your shop 
 
 ## Why Work with a Developer in Conroe
 
-I am in Conroe. Willis is next door. I drive through Willis on I-45 multiple times a week. When you call me at (936) 323-4527, you are calling someone who knows your town, knows your market, and can be at your business in fifteen minutes if we need to meet in person.
+I am in Conroe. Willis is next door. I drive through Willis on I-45 multiple times a week. When you call me at (936) 323-4527, you are calling someone who knows your town, knows your market, and can be at your business in about ten minutes if we need to meet in person.
 
 More importantly, I understand what Willis businesses need because I work with businesses like yours every day. You do not need a $15,000 website from a Houston agency. You do not need a marketing firm with a fancy pitch deck and a monthly retainer that costs more than your rent. You need a clean, professional website that shows up in Google and makes your phone ring. That is what I build.
 

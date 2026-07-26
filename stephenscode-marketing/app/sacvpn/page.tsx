@@ -20,6 +20,12 @@ export const metadata: Metadata = {
     url: 'https://www.stephenscode.dev/sacvpn',
     type: 'website',
   },
+  twitter: {
+    card: 'summary_large_image',
+    title: 'SACVPN | Enterprise-Grade VPN Security',
+    description: 'SACVPN provides enterprise-grade VPN security for businesses. Secure your remote workforce and protect sensitive data with military-grade encryption.',
+    images: ['/twitter-image'],
+  },
   alternates: {
     canonical: 'https://www.stephenscode.dev/sacvpn',
   },

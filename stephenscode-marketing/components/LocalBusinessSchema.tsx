@@ -38,18 +38,24 @@ export default function LocalBusinessSchema() {
     },
   }
 
-  // Main Organization Schema
+  // Main Organization + LocalBusiness Schema
+  // Combined into one entity (single @id) since this is one physical business playing both
+  // roles -- keeping them as two separate, unlinked @ids fragments the entity graph.
   const organizationSchema = {
     '@context': 'https://schema.org',
-    '@type': 'Organization',
+    '@type': ['Organization', 'LocalBusiness'],
     '@id': 'https://www.stephenscode.dev/#organization',
     name: 'StephensCode LLC',
     alternateName: ['StephensCode', 'StephensCode Web Development', 'StephensCode MSP'],
     description: 'Veteran-owned web development company specializing in custom websites, API integration, web scraping, and business automation. 14+ years experience, 200+ completed projects.',
     url: 'https://www.stephenscode.dev',
     logo: 'https://www.stephenscode.dev/images/logo.png',
+    image: 'https://www.stephenscode.dev/images/logo.png',
     telephone: '+1-936-323-4527',
-    email: 'kyle@stephenscode.dev',
+    email: 'info@stephenscode.dev',
+    priceRange: '$$',
+    paymentAccepted: ['Cash', 'Credit Card', 'Debit Card', 'Bank Transfer', 'ACH'],
+    currenciesAccepted: 'USD',
     founder: { '@id': 'https://www.stephenscode.dev/#kyle-stephens' },
     foundingDate: '2011',
     additionalType: 'https://schema.org/VeteranOwned',
@@ -68,24 +74,57 @@ export default function LocalBusinessSchema() {
     },
     geo: {
       '@type': 'GeoCoordinates',
-      latitude: 30.3119,
-      longitude: -95.4561,
+      latitude: 30.2855,
+      longitude: -95.4103,
     },
+    openingHoursSpecification: [
+      {
+        '@type': 'OpeningHoursSpecification',
+        dayOfWeek: ['Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday'],
+        opens: '08:00',
+        closes: '18:00',
+      },
+    ],
     areaServed: [
       { '@type': 'City', name: 'Conroe' },
       { '@type': 'City', name: 'The Woodlands' },
       { '@type': 'AdministrativeArea', name: 'Montgomery County' },
       { '@type': 'City', name: 'Houston', '@id': 'https://www.wikidata.org/wiki/Q16555' },
+      { '@type': 'City', name: 'Magnolia' },
+      { '@type': 'City', name: 'Montgomery' },
+      { '@type': 'City', name: 'Willis' },
+      { '@type': 'City', name: 'Pinehurst' },
+      { '@type': 'City', name: 'Shenandoah' },
+      { '@type': 'City', name: 'Oak Ridge North' },
+      { '@type': 'City', name: 'Panorama Village' },
+      { '@type': 'City', name: 'Cut and Shoot' },
+      { '@type': 'City', name: 'New Caney' },
+      { '@type': 'City', name: 'Porter' },
+      { '@type': 'City', name: 'Splendora' },
       { '@type': 'City', name: 'Spring' },
       { '@type': 'City', name: 'Tomball' },
-      { '@type': 'City', name: 'Magnolia' },
-      { '@type': 'City', name: 'Willis' },
-      { '@type': 'City', name: 'Montgomery' },
-      { '@type': 'City', name: 'Katy' },
-      { '@type': 'City', name: 'Sugar Land' },
-      { '@type': 'City', name: 'Pearland' },
       { '@type': 'City', name: 'Cypress' },
       { '@type': 'City', name: 'Humble' },
+      { '@type': 'City', name: 'Kingwood' },
+      { '@type': 'City', name: 'Atascocita' },
+      { '@type': 'City', name: 'Midtown Houston' },
+      { '@type': 'City', name: 'The Heights' },
+      { '@type': 'City', name: 'Montrose' },
+      { '@type': 'City', name: 'Downtown Houston' },
+      { '@type': 'City', name: 'Galleria / Uptown Houston' },
+      { '@type': 'City', name: 'Memorial' },
+      { '@type': 'City', name: 'Energy Corridor' },
+      { '@type': 'City', name: 'West University Place' },
+      { '@type': 'City', name: 'Bellaire' },
+      { '@type': 'City', name: 'Katy' },
+      { '@type': 'City', name: 'Sugar Land' },
+      { '@type': 'City', name: 'Missouri City' },
+      { '@type': 'City', name: 'Richmond' },
+      { '@type': 'City', name: 'Pearland' },
+      { '@type': 'City', name: 'League City' },
+      { '@type': 'City', name: 'Friendswood' },
+      { '@type': 'City', name: 'Webster' },
+      { '@type': 'City', name: 'Huntsville' },
       { '@type': 'State', name: 'Texas' },
     ],
     knowsAbout: [
@@ -109,45 +148,7 @@ export default function LocalBusinessSchema() {
     ],
     sameAs: [
       'https://www.linkedin.com/company/stephenscode',
-      'https://github.com/stephenscode',
       'https://www.facebook.com/stephenscodedev',
-      'https://sacvpn.com',
-    ],
-  }
-
-  // Local Business Schema for Houston-area services
-  const localBusinessSchema = {
-    '@context': 'https://schema.org',
-    '@type': 'LocalBusiness',
-    '@id': 'https://www.stephenscode.dev/#localbusiness',
-    name: 'StephensCode',
-    image: 'https://www.stephenscode.dev/images/logo.png',
-    telephone: '+1-936-323-4527',
-    email: 'kyle@stephenscode.dev',
-    url: 'https://www.stephenscode.dev',
-    priceRange: '$$',
-    paymentAccepted: ['Cash', 'Credit Card', 'Debit Card', 'Bank Transfer', 'ACH'],
-    currenciesAccepted: 'USD',
-    address: {
-      '@type': 'PostalAddress',
-      streetAddress: '2378 Strong Horse Dr',
-      addressLocality: 'Conroe',
-      addressRegion: 'TX',
-      postalCode: '77301',
-      addressCountry: 'US',
-    },
-    geo: {
-      '@type': 'GeoCoordinates',
-      latitude: 30.3119,
-      longitude: -95.4561,
-    },
-    openingHoursSpecification: [
-      {
-        '@type': 'OpeningHoursSpecification',
-        dayOfWeek: ['Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday'],
-        opens: '08:00',
-        closes: '18:00',
-      },
     ],
   }
 
@@ -278,7 +279,7 @@ export default function LocalBusinessSchema() {
   // NOTE: FAQPage schema intentionally lives only on /faq (app/faq/page.tsx), not here --
   // this component renders on every route, and a sitewide FAQPage block does not match
   // the visible content on most pages.
-  const schemas = [webSiteSchema, organizationSchema, founderPersonSchema, localBusinessSchema, webDevServiceSchema, mspServiceSchema, vpnServiceSchema]
+  const schemas = [webSiteSchema, organizationSchema, founderPersonSchema, webDevServiceSchema, mspServiceSchema, vpnServiceSchema]
 
   return (
     <>

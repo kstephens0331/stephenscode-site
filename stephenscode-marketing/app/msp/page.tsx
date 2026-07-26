@@ -35,6 +35,12 @@ export const metadata: Metadata = {
     description: '24/7 monitoring, cybersecurity, and helpdesk support. No long-term contracts. Veteran-owned MSP.',
     url: 'https://www.stephenscode.dev/msp',
   },
+  twitter: {
+    card: 'summary_large_image',
+    title: 'Houston Managed IT Services | From $99/User/Month',
+    description: '24/7 monitoring, cybersecurity, and helpdesk support. No long-term contracts. Veteran-owned MSP.',
+    images: ['/twitter-image'],
+  },
 }
 
 const mspSchema = {
@@ -50,6 +56,54 @@ const mspSchema = {
     { "@type": "City", "name": "The Woodlands" },
     { "@type": "City", "name": "Spring" }
   ]
+}
+
+const mspFaqs = [
+  {
+    question: 'What is included in managed IT services?',
+    answer: 'Our managed IT services include 24/7 system monitoring, helpdesk support, cybersecurity protection (antivirus, firewall, threat detection), backup and disaster recovery, Microsoft 365 management, patch management, and strategic IT consulting. The specific features depend on your plan: Essential IT ($99/user), Business Pro ($129/user), or Complete IT ($179/user).',
+  },
+  {
+    question: 'How much do managed IT services cost?',
+    answer: 'We offer transparent per-user pricing: Essential IT at $99/user/month, Business Pro at $129/user/month, and Complete IT at $179/user/month. Enterprise pricing is custom for organizations with 50+ users. This predictable pricing replaces unpredictable hourly IT bills with a fixed monthly cost.',
+  },
+  {
+    question: 'What areas do you provide IT support?',
+    answer: "We provide on-site IT support throughout the Houston metropolitan area including Conroe, The Woodlands, Spring, Tomball, Katy, Sugar Land, Pearland, Cypress, and Humble. Remote support is available nationwide for clients who don't need physical on-site visits.",
+  },
+  {
+    question: 'How fast is your response time?',
+    answer: 'We guarantee response times based on issue severity: Critical issues (system down) get immediate response with a 2-hour resolution target. High priority issues get 4-hour response. Standard requests are addressed within 8 business hours. Our 24/7 monitoring often catches and resolves issues before you notice them.',
+  },
+  {
+    question: 'Do you provide cybersecurity services?',
+    answer: 'Yes, cybersecurity is core to our managed IT services. All plans include email security, antivirus, and firewall management. Higher tiers add endpoint detection and response (EDR), dark web monitoring, security awareness training, and SIEM (Security Information and Event Management). We also offer standalone Advanced Threat Protection services.',
+  },
+  {
+    question: 'Can you support our Microsoft 365 environment?',
+    answer: "Absolutely. We're Microsoft 365 specialists. We handle user provisioning, license management, email configuration, SharePoint administration, Teams setup, security policies, and ongoing optimization. We can also migrate you to Microsoft 365 if you're on legacy systems.",
+  },
+  {
+    question: "What's the difference between MSP and break-fix IT?",
+    answer: "Break-fix IT means you call someone when something breaks, pay hourly, and hope they're available. Managed IT (MSP) means proactive monitoring, maintenance, and support for a flat monthly fee. We catch problems before they cause downtime, and you get predictable IT costs instead of surprise repair bills.",
+  },
+  {
+    question: 'How do we get started with managed IT services?',
+    answer: "Start with a free IT assessment. We'll evaluate your current infrastructure, identify vulnerabilities, and recommend the right service level. There's no obligation, just honest advice about your IT needs. If you decide to move forward, onboarding typically takes 1-2 weeks.",
+  },
+]
+
+const mspFaqSchema = {
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": mspFaqs.map((faq) => ({
+    "@type": "Question",
+    "name": faq.question,
+    "acceptedAnswer": {
+      "@type": "Answer",
+      "text": faq.answer,
+    },
+  })),
 }
 
 export default function MSPServicesPage() {
@@ -119,7 +173,7 @@ export default function MSPServicesPage() {
     { value: '99.9%', label: 'Uptime SLA' },
     { value: '< 2hr', label: 'Response Time' },
     { value: '24/7', label: 'Monitoring' },
-    { value: '100%', label: 'Customer Satisfaction' }
+    { value: 'No Contracts', label: 'Month-to-Month' }
   ]
 
   return (
@@ -127,6 +181,10 @@ export default function MSPServicesPage() {
       <script
         type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: JSON.stringify(mspSchema) }}
+      />
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(mspFaqSchema) }}
       />
 
       {/* Hero Section */}
@@ -304,40 +362,7 @@ export default function MSPServicesPage() {
           </div>
 
           <div className="space-y-6">
-            {[
-              {
-                question: "What is included in managed IT services?",
-                answer: "Our managed IT services include 24/7 system monitoring, helpdesk support, cybersecurity protection (antivirus, firewall, threat detection), backup and disaster recovery, Microsoft 365 management, patch management, and strategic IT consulting. The specific features depend on your plan: Essential IT ($99/user), Business Pro ($129/user), or Complete IT ($179/user)."
-              },
-              {
-                question: "How much do managed IT services cost?",
-                answer: "We offer transparent per-user pricing: Essential IT at $99/user/month, Business Pro at $129/user/month, and Complete IT at $179/user/month. Enterprise pricing is custom for organizations with 50+ users. This predictable pricing replaces unpredictable hourly IT bills with a fixed monthly cost."
-              },
-              {
-                question: "What areas do you provide IT support?",
-                answer: "We provide on-site IT support throughout the Houston metropolitan area including Conroe, The Woodlands, Spring, Tomball, Katy, Sugar Land, Pearland, Cypress, and Humble. Remote support is available nationwide for clients who don't need physical on-site visits."
-              },
-              {
-                question: "How fast is your response time?",
-                answer: "We guarantee response times based on issue severity: Critical issues (system down) get immediate response with a 2-hour resolution target. High priority issues get 4-hour response. Standard requests are addressed within 8 business hours. Our 24/7 monitoring often catches and resolves issues before you notice them."
-              },
-              {
-                question: "Do you provide cybersecurity services?",
-                answer: "Yes, cybersecurity is core to our managed IT services. All plans include email security, antivirus, and firewall management. Higher tiers add endpoint detection and response (EDR), dark web monitoring, security awareness training, and SIEM (Security Information and Event Management). We also offer standalone Advanced Threat Protection services."
-              },
-              {
-                question: "Can you support our Microsoft 365 environment?",
-                answer: "Absolutely. We're Microsoft 365 specialists. We handle user provisioning, license management, email configuration, SharePoint administration, Teams setup, security policies, and ongoing optimization. We can also migrate you to Microsoft 365 if you're on legacy systems."
-              },
-              {
-                question: "What's the difference between MSP and break-fix IT?",
-                answer: "Break-fix IT means you call someone when something breaks, pay hourly, and hope they're available. Managed IT (MSP) means proactive monitoring, maintenance, and support for a flat monthly fee. We catch problems before they cause downtime, and you get predictable IT costs instead of surprise repair bills."
-              },
-              {
-                question: "How do we get started with managed IT services?",
-                answer: "Start with a free IT assessment. We'll evaluate your current infrastructure, identify vulnerabilities, and recommend the right service level. There's no obligation, just honest advice about your IT needs. If you decide to move forward, onboarding typically takes 1-2 weeks."
-              }
-            ].map((faq, index) => (
+            {mspFaqs.map((faq, index) => (
               <details
                 key={index}
                 className="group rounded-2xl border-2 border-surface-border bg-surface-card hover:border-red-300 transition-colors"

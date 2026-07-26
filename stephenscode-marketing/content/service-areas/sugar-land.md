@@ -283,7 +283,7 @@ Sugar Land businesses need websites that match their market's sophistication, bu
 - Mobile optimization
 - Local SEO setup
 - Analytics integration
-- 30 days support
+- 90 days post-launch support
 
 **Why choose us:**
 - **Direct developer communication**: No account managers or coordinators
@@ -310,7 +310,7 @@ Built on staging server. We test across devices and optimize for performance.
 We launch, set up analytics, and train you on content management.
 
 **6. Support**
-30 days free support. Optional maintenance plans available ($50-$150/month).
+90 days of free post-launch support. Optional maintenance plans available ($50-$100/month).
 
 **Timeline**: Most Sugar Land sites complete in 1-2 weeks.
 
@@ -354,6 +354,6 @@ Sugar Land customers have high expectations. Your website must meet them.
 
 **Professional results** at fair prices.
 
-Call (936) 323-4527 or email kyle@stephenscode.dev.
+Call (936) 323-4527 or email info@stephenscode.dev.
 
 Let's build a website worthy of Sugar Land's market.

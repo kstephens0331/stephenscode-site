@@ -32,6 +32,12 @@ export const metadata: Metadata = {
     url: 'https://www.stephenscode.dev/pricing',
     type: 'website',
   },
+  twitter: {
+    card: 'summary_large_image',
+    title: 'Houston Web Development | Seven Flat-Rate Website Tiers, $250 to $7,500+',
+    description: 'Seven flat-rate website tiers from $250 to $7,500+, all with 90 days post-launch support. Standard small business sites start at $950. No hourly billing.',
+    images: ['/twitter-image'],
+  },
   alternates: {
     canonical: 'https://www.stephenscode.dev/pricing',
   },
@@ -49,12 +55,12 @@ const pricingSchema = {
         "@type": "Offer",
         "name": pkg.name,
         "description": pkg.shortDescription,
-        "price": pkg.priceLabel.replace('$', '').replace('+', '').replace(',', ''),
-        "priceCurrency": "USD",
+        ...(pkg.price > 0
+          ? { "price": pkg.priceLabel.replace('$', '').replace('+', '').replace(',', ''), "priceCurrency": "USD" }
+          : {}),
         "availability": "https://schema.org/InStock",
         "seller": {
-          "@type": "Organization",
-          "name": "StephensCode LLC"
+          "@id": "https://www.stephenscode.dev/#organization"
         }
       }
     })),
@@ -65,55 +71,100 @@ const pricingSchema = {
         "@type": "Offer",
         "name": pkg.name,
         "description": pkg.shortDescription,
-        "price": pkg.priceLabel.replace('$', '').replace('+', '').replace(',', ''),
-        "priceCurrency": "USD",
+        ...(pkg.price > 0
+          ? { "price": pkg.priceLabel.replace('$', '').replace('+', '').replace(',', ''), "priceCurrency": "USD" }
+          : {}),
         "availability": "https://schema.org/InStock",
         "seller": {
-          "@type": "Organization",
-          "name": "StephensCode LLC"
+          "@id": "https://www.stephenscode.dev/#organization"
         }
       }
     }))
   ]
 }
 
+const pricingFaqs = [
+  {
+    question: 'Why do you use flat-rate pricing instead of hourly rates?',
+    answer: "Flat-rate pricing provides complete transparency and eliminates surprises. You know the exact cost upfront, can budget accurately, and we focus on delivering quality rather than padding hours. Our incentives are aligned: we succeed when you succeed.",
+  },
+  {
+    question: 'Can I combine packages with add-ons?',
+    answer: 'Absolutely! Our pricing is modular: start with any core package or premium build, then add any combination of our 40+ add-ons to customize your website to your exact needs and budget.',
+  },
+  {
+    question: 'Are there any hidden fees or recurring costs?',
+    answer: 'No hidden fees ever. The price you see is what you pay. Hosting and domain are separate ($120/year) and clearly stated. All maintenance and updates are included in your package.',
+  },
+  {
+    question: 'What is included in the timeline?',
+    answer: "Each package lists its timeline from project start to completion. This includes design, development, revisions, testing, and launch. We provide regular updates throughout and ensure you're 100% satisfied before going live.",
+  },
+  {
+    question: 'Do you require payment upfront?',
+    answer: 'We typically split payments: 50% to start the project, and 50% upon completion before launch. For larger projects over $3,000, we can discuss milestone-based payments to make it more manageable for your cash flow.',
+  },
+  {
+    question: 'What technologies do you use?',
+    answer: 'We use modern, industry-standard technologies: Next.js and React for frontend, Node.js and Python for backend, PostgreSQL and Firebase for databases, and deploy on reliable platforms like Vercel and Railway. All code is production-ready and follows best practices.',
+  },
+  {
+    question: 'How many revisions are included?',
+    answer: "Each package includes a specific number of revision rounds (listed in the package details). Typically 1-3 rounds depending on the package size. We want you 100% satisfied, so we'll work with you to get it right. Major scope changes may require additional fees.",
+  },
+  {
+    question: 'Do you offer ongoing maintenance and support?',
+    answer: 'Yes! We offer optional maintenance plans starting at $50-100/month that include updates, security monitoring, backups, and minor content changes. We also provide hourly support for larger updates or changes outside the maintenance scope.',
+  },
+  {
+    question: 'What about hosting and domain costs?',
+    answer: "Hosting and domain registration are typically around $120/year total and are billed separately. We handle all setup and configuration. You own your domain and can transfer hosting if needed. We recommend reliable providers we've used for years.",
+  },
+  {
+    question: 'Can I see examples of your work before committing?',
+    answer: 'Absolutely! Visit our Demos page to explore 40+ fully interactive website examples across all our packages and industries. You can click around and test every feature.',
+  },
+  {
+    question: "What if I need custom features not listed?",
+    answer: "No problem! We can build custom features tailored to your specific needs. Just let us know what you're looking for during the consultation, and we'll provide a clear quote for the additional functionality.",
+  },
+  {
+    question: 'Do you provide training on how to update my website?',
+    answer: "Yes! Every package includes training documentation and a walkthrough session so you can confidently update content, images, and other elements yourself. We'll teach you everything you need to know, and we're always available if you need help.",
+  },
+  {
+    question: 'What happens if I want to add features later?',
+    answer: "Your website is built to grow with your business. You can add any of our 40+ add-ons at any time, or request custom features. We'll provide clear pricing and can typically add new features within 1-2 weeks.",
+  },
+  {
+    question: 'Are your websites mobile-friendly and SEO-optimized?',
+    answer: '100% yes! Every website we build is fully responsive (works perfectly on phones, tablets, and desktops) and includes foundational SEO optimization: meta tags, structured data, sitemaps, fast load times, and clean URLs. This is standard in every package.',
+  },
+  {
+    question: 'Will I own the website and all the code?',
+    answer: "Yes! Once the project is completed and paid for, you own 100% of the website, domain, content, and code. We'll provide access to everything, and you're free to maintain it yourself or hire anyone else in the future.",
+  },
+  {
+    question: "What if I'm not happy with the final result?",
+    answer: "We include multiple revision rounds to ensure you're satisfied. We won't launch until you approve everything, and if something isn't working for you afterward, we'll make it right or discuss options.",
+  },
+  {
+    question: 'Do you work with clients outside Houston?',
+    answer: "Yes! While we're based in Houston and serve the local area, we work with clients nationwide through remote collaboration via video calls, screen sharing, and project management tools. Location is no barrier to great results.",
+  },
+]
+
 const faqSchema = {
   "@context": "https://schema.org",
   "@type": "FAQPage",
-  "mainEntity": [
-    {
-      "@type": "Question",
-      "name": "Why do you use flat-rate pricing instead of hourly rates?",
-      "acceptedAnswer": {
-        "@type": "Answer",
-        "text": "Flat-rate pricing provides complete transparency and eliminates surprises. You know the exact cost upfront, can budget accurately, and we focus on delivering quality rather than padding hours. Our incentives are aligned: we succeed when you succeed."
-      }
+  "mainEntity": pricingFaqs.map((faq) => ({
+    "@type": "Question",
+    "name": faq.question,
+    "acceptedAnswer": {
+      "@type": "Answer",
+      "text": faq.answer,
     },
-    {
-      "@type": "Question",
-      "name": "Can I combine packages with add-ons?",
-      "acceptedAnswer": {
-        "@type": "Answer",
-        "text": "Absolutely! Our pricing is modular: start with any core package or premium build, then add any combination of our 40+ add-ons to customize your website to your exact needs and budget."
-      }
-    },
-    {
-      "@type": "Question",
-      "name": "Are there any hidden fees or recurring costs?",
-      "acceptedAnswer": {
-        "@type": "Answer",
-        "text": "No hidden fees ever. The price you see is what you pay. Hosting and domain are separate ($120/year) and clearly stated. All maintenance and updates are included in your package."
-      }
-    },
-    {
-      "@type": "Question",
-      "name": "What is included in the timeline?",
-      "acceptedAnswer": {
-        "@type": "Answer",
-        "text": "Each package lists its timeline from project start to completion. This includes design, development, revisions, testing, and launch. We provide regular updates throughout and ensure you're 100% satisfied before going live."
-      }
-    }
-  ]
+  })),
 }
 
 export default function PricingPage() {
@@ -197,8 +248,8 @@ export default function PricingPage() {
               <div className="text-sm text-gray-400 mt-2">Hidden Fees</div>
             </div>
             <div className="animate-fade-in-up animation-delay-600">
-              <div className="text-4xl font-bold text-primary-200">8</div>
-              <div className="text-sm text-gray-400 mt-2">Package Options</div>
+              <div className="text-4xl font-bold text-primary-200">7</div>
+              <div className="text-sm text-gray-400 mt-2">Flat-Rate Tiers</div>
             </div>
           </div>
         </div>
@@ -627,159 +678,22 @@ export default function PricingPage() {
 
           <div className="mx-auto max-w-3xl">
             <div className="space-y-6">
-              {/* FAQ Items */}
-              <div className="rounded-2xl border border-surface-border bg-surface-card p-8 hover:border-primary-300 transition-colors">
-                <h3 className="text-lg font-bold text-white mb-3">
-                  Why do you use flat-rate pricing instead of hourly rates?
-                </h3>
-                <p className="text-gray-400 leading-relaxed">
-                  Flat-rate pricing provides complete transparency and eliminates surprises. You know the exact cost upfront, can budget accurately, and we focus on delivering quality rather than padding hours. Our incentives are aligned: we succeed when you succeed.
-                </p>
-              </div>
-
-              <div className="rounded-2xl border border-surface-border bg-surface-card p-8 hover:border-primary-300 transition-colors">
-                <h3 className="text-lg font-bold text-white mb-3">
-                  Can I combine packages with add-ons?
-                </h3>
-                <p className="text-gray-400 leading-relaxed">
-                  Absolutely! Our pricing is modular: start with any core package or premium build, then add any combination of our 40+ add-ons to customize your website to your exact needs and budget.
-                </p>
-              </div>
-
-              <div className="rounded-2xl border border-surface-border bg-surface-card p-8 hover:border-primary-300 transition-colors">
-                <h3 className="text-lg font-bold text-white mb-3">
-                  Are there any hidden fees or recurring costs?
-                </h3>
-                <p className="text-gray-400 leading-relaxed">
-                  No hidden fees ever. The price you see is what you pay. Hosting and domain are separate ($120/year) and clearly stated. All maintenance and updates are included in your package.
-                </p>
-              </div>
-
-              <div className="rounded-2xl border border-surface-border bg-surface-card p-8 hover:border-primary-300 transition-colors">
-                <h3 className="text-lg font-bold text-white mb-3">
-                  What is included in the timeline?
-                </h3>
-                <p className="text-gray-400 leading-relaxed">
-                  Each package lists its timeline from project start to completion. This includes design, development, revisions, testing, and launch. We provide regular updates throughout and ensure you're 100% satisfied before going live.
-                </p>
-              </div>
-
-              <div className="rounded-2xl border border-surface-border bg-surface-card p-8 hover:border-primary-300 transition-colors">
-                <h3 className="text-lg font-bold text-white mb-3">
-                  Do you require payment upfront?
-                </h3>
-                <p className="text-gray-400 leading-relaxed">
-                  We typically split payments: 50% to start the project, and 50% upon completion before launch. For larger projects over $3,000, we can discuss milestone-based payments to make it more manageable for your cash flow.
-                </p>
-              </div>
-
-              <div className="rounded-2xl border border-surface-border bg-surface-card p-8 hover:border-primary-300 transition-colors">
-                <h3 className="text-lg font-bold text-white mb-3">
-                  What technologies do you use?
-                </h3>
-                <p className="text-gray-400 leading-relaxed">
-                  We use modern, industry-standard technologies: Next.js and React for frontend, Node.js and Python for backend, PostgreSQL and Firebase for databases, and deploy on reliable platforms like Vercel and Railway. All code is production-ready and follows best practices.
-                </p>
-              </div>
-
-              <div className="rounded-2xl border border-surface-border bg-surface-card p-8 hover:border-primary-300 transition-colors">
-                <h3 className="text-lg font-bold text-white mb-3">
-                  How many revisions are included?
-                </h3>
-                <p className="text-gray-400 leading-relaxed">
-                  Each package includes a specific number of revision rounds (listed in the package details). Typically 1-3 rounds depending on the package size. We want you 100% satisfied, so we'll work with you to get it right. Major scope changes may require additional fees.
-                </p>
-              </div>
-
-              <div className="rounded-2xl border border-surface-border bg-surface-card p-8 hover:border-primary-300 transition-colors">
-                <h3 className="text-lg font-bold text-white mb-3">
-                  Do you offer ongoing maintenance and support?
-                </h3>
-                <p className="text-gray-400 leading-relaxed">
-                  Yes! We offer optional maintenance plans starting at $50-75/month that include updates, security monitoring, backups, and minor content changes. We also provide hourly support for larger updates or changes outside the maintenance scope.
-                </p>
-              </div>
-
-              <div className="rounded-2xl border border-surface-border bg-surface-card p-8 hover:border-primary-300 transition-colors">
-                <h3 className="text-lg font-bold text-white mb-3">
-                  What about hosting and domain costs?
-                </h3>
-                <p className="text-gray-400 leading-relaxed">
-                  Hosting and domain registration are typically around $120/year total and are billed separately. We handle all setup and configuration. You own your domain and can transfer hosting if needed. We recommend reliable providers we've used for years.
-                </p>
-              </div>
-
-              <div className="rounded-2xl border border-surface-border bg-surface-card p-8 hover:border-primary-300 transition-colors">
-                <h3 className="text-lg font-bold text-white mb-3">
-                  Can I see examples of your work before committing?
-                </h3>
-                <p className="text-gray-400 leading-relaxed">
-                  Absolutely! Visit our <Link href="/demos" className="text-primary-600 font-semibold hover:text-primary-400">Demos page</Link> to explore 40+ fully interactive website examples across all our packages and industries. You can click around and test every feature.
-                </p>
-              </div>
-
-              <div className="rounded-2xl border border-surface-border bg-surface-card p-8 hover:border-primary-300 transition-colors">
-                <h3 className="text-lg font-bold text-white mb-3">
-                  What if I need custom features not listed?
-                </h3>
-                <p className="text-gray-400 leading-relaxed">
-                  No problem! We can build custom features tailored to your specific needs. Just let us know what you're looking for during the consultation, and we'll provide a clear quote for the additional functionality.
-                </p>
-              </div>
-
-              <div className="rounded-2xl border border-surface-border bg-surface-card p-8 hover:border-primary-300 transition-colors">
-                <h3 className="text-lg font-bold text-white mb-3">
-                  Do you provide training on how to update my website?
-                </h3>
-                <p className="text-gray-400 leading-relaxed">
-                  Yes! Every package includes training documentation and a walkthrough session so you can confidently update content, images, and other elements yourself. We'll teach you everything you need to know, and we're always available if you need help.
-                </p>
-              </div>
-
-              <div className="rounded-2xl border border-surface-border bg-surface-card p-8 hover:border-primary-300 transition-colors">
-                <h3 className="text-lg font-bold text-white mb-3">
-                  What happens if I want to add features later?
-                </h3>
-                <p className="text-gray-400 leading-relaxed">
-                  Your website is built to grow with your business. You can add any of our 40+ add-ons at any time, or request custom features. We'll provide clear pricing and can typically add new features within 1-2 weeks.
-                </p>
-              </div>
-
-              <div className="rounded-2xl border border-surface-border bg-surface-card p-8 hover:border-primary-300 transition-colors">
-                <h3 className="text-lg font-bold text-white mb-3">
-                  Are your websites mobile-friendly and SEO-optimized?
-                </h3>
-                <p className="text-gray-400 leading-relaxed">
-                  100% yes! Every website we build is fully responsive (works perfectly on phones, tablets, and desktops) and includes foundational SEO optimization: meta tags, structured data, sitemaps, fast load times, and clean URLs. This is standard in every package.
-                </p>
-              </div>
-
-              <div className="rounded-2xl border border-surface-border bg-surface-card p-8 hover:border-primary-300 transition-colors">
-                <h3 className="text-lg font-bold text-white mb-3">
-                  Will I own the website and all the code?
-                </h3>
-                <p className="text-gray-400 leading-relaxed">
-                  Yes! Once the project is completed and paid for, you own 100% of the website, domain, content, and code. We'll provide access to everything, and you're free to maintain it yourself or hire anyone else in the future.
-                </p>
-              </div>
-
-              <div className="rounded-2xl border border-surface-border bg-surface-card p-8 hover:border-primary-300 transition-colors">
-                <h3 className="text-lg font-bold text-white mb-3">
-                  What if I'm not happy with the final result?
-                </h3>
-                <p className="text-gray-400 leading-relaxed">
-                  We include multiple revision rounds to ensure you're satisfied. We won't launch until you approve everything. Our 98% client satisfaction rate shows we get it right, but if something isn't working for you, we'll make it right or discuss options.
-                </p>
-              </div>
-
-              <div className="rounded-2xl border border-surface-border bg-surface-card p-8 hover:border-primary-300 transition-colors">
-                <h3 className="text-lg font-bold text-white mb-3">
-                  Do you work with clients outside Houston?
-                </h3>
-                <p className="text-gray-400 leading-relaxed">
-                  Yes! While we're based in Houston and serve the local area, we work with clients nationwide through remote collaboration via video calls, screen sharing, and project management tools. Location is no barrier to great results.
-                </p>
-              </div>
+              {pricingFaqs.map((faq) => (
+                <div key={faq.question} className="rounded-2xl border border-surface-border bg-surface-card p-8 hover:border-primary-300 transition-colors">
+                  <h3 className="text-lg font-bold text-white mb-3">
+                    {faq.question}
+                  </h3>
+                  <p className="text-gray-400 leading-relaxed">
+                    {faq.question.startsWith('Can I see examples') ? (
+                      <>
+                        Absolutely! Visit our <Link href="/demos" className="text-primary-600 font-semibold hover:text-primary-400">Demos page</Link> to explore 40+ fully interactive website examples across all our packages and industries. You can click around and test every feature.
+                      </>
+                    ) : (
+                      faq.answer
+                    )}
+                  </p>
+                </div>
+              ))}
             </div>
           </div>
         </div>

@@ -239,7 +239,7 @@ Built on a staging server for your review. We test everything across devices and
 We launch, connect analytics, and train you on any content management features.
 
 **6. Support**
-30 days free support included. Optional maintenance plans available starting at $50/month.
+90 days of free post-launch support included. Optional maintenance plans available starting at $50/month.
 
 **Timeline**: Most Spring business websites completed in 1-2 weeks.
 
@@ -285,6 +285,6 @@ You don't need a $10,000 agency website. You need a professional, effective site
 
 **Transparent pricing** from the start.
 
-Call (936) 323-4527 or email kyle@stephenscode.dev to discuss your project.
+Call (936) 323-4527 or email info@stephenscode.dev to discuss your project.
 
 Let's build a website that actually generates business for your Spring company.

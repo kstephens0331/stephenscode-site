@@ -3,8 +3,8 @@ import Link from 'next/link'
 import PhoneLink from '@/components/PhoneLink'
 
 export const metadata: Metadata = {
-  title: 'Veteran Owned Web Developer | About StephensCode | Houston TX',
-  description: 'Veteran owned web developer in Conroe, TX. 14+ years of Houston web development experience building affordable custom websites for small businesses.',
+  title: 'Veteran Owned Web Developer | About Us | Houston TX',
+  description: 'Veteran owned web developer in Conroe, TX. 14+ years building affordable custom websites for small businesses. Call (936) 323-4527.',
   keywords: [
     'veteran owned web developer',
     'Conroe web developer',
@@ -16,72 +16,20 @@ export const metadata: Metadata = {
   ],
   openGraph: {
     images: ['/opengraph-image'],
-    title: 'Veteran Owned Web Developer | About StephensCode | Houston TX',
+    title: 'Veteran Owned Web Developer | About Us | Houston TX',
     description: 'Veteran owned web developer in Conroe TX. 14+ years Houston web development experience. Affordable web design, custom websites for small business.',
     url: 'https://www.stephenscode.dev/about',
     type: 'website',
   },
+  twitter: {
+    card: 'summary_large_image',
+    title: 'Veteran Owned Web Developer | About Us | Houston TX',
+    description: 'Veteran owned web developer in Conroe TX. 14+ years Houston web development experience. Affordable web design, custom websites for small business.',
+    images: ['/twitter-image'],
+  },
   alternates: {
     canonical: 'https://www.stephenscode.dev/about',
   },
-}
-
-// Person schema for Kyle Stephens
-const personSchema = {
-  "@context": "https://schema.org",
-  "@type": "Person",
-  "name": "Kyle Stephens",
-  "jobTitle": "Founder & Lead Developer",
-  "worksFor": {
-    "@type": "Organization",
-    "name": "StephensCode LLC"
-  },
-  "alumniOf": {
-    "@type": "EducationalOrganization",
-    "name": "Information Technology Program"
-  },
-  "description": "U.S. military veteran with 14+ years of web development experience. Founder of StephensCode, serving Houston businesses with transparent pricing and military values.",
-  "knowsAbout": [
-    "Web Development",
-    "React",
-    "Next.js",
-    "E-commerce",
-    "Business Automation",
-    "Custom Software"
-  ],
-  "address": {
-    "@type": "PostalAddress",
-    "addressLocality": "Conroe",
-    "addressRegion": "TX",
-    "addressCountry": "US"
-  }
-}
-
-// Organization schema
-const organizationSchema = {
-  "@context": "https://schema.org",
-  "@type": "Organization",
-  "name": "StephensCode LLC",
-  "foundingDate": "2011",
-  "founder": {
-    "@type": "Person",
-    "name": "Kyle Stephens"
-  },
-  "description": "Veteran-owned web development company providing transparent, flat-rate web development services to Houston businesses since 2011.",
-  "address": {
-    "@type": "PostalAddress",
-    "streetAddress": "2378 Strong Horse Dr",
-    "addressLocality": "Conroe",
-    "addressRegion": "TX",
-    "postalCode": "77301",
-    "addressCountry": "US"
-  },
-  "areaServed": {
-    "@type": "State",
-    "name": "Texas"
-  },
-  "numberOfEmployees": "1-10",
-  "slogan": "Military values. Honest pricing. Quality work."
 }
 
 export default function About() {
@@ -89,7 +37,6 @@ export default function About() {
     { label: 'Years of Experience', value: '14+', icon: '📅' },
     { label: 'Projects Completed', value: '200+', icon: '🚀' },
     { label: 'Happy Clients', value: '150+', icon: '😊' },
-    { label: 'Client Satisfaction', value: '98%', icon: '⭐' },
   ]
 
   const values = [
@@ -154,15 +101,7 @@ export default function About() {
 
   return (
     <>
-      {/* Schema Markup */}
-      <script
-        type="application/ld+json"
-        dangerouslySetInnerHTML={{ __html: JSON.stringify(personSchema) }}
-      />
-      <script
-        type="application/ld+json"
-        dangerouslySetInnerHTML={{ __html: JSON.stringify(organizationSchema) }}
-      />
+      {/* Entity schema (Person/Organization) is provided sitewide by components/LocalBusinessSchema.tsx */}
 
       {/* Hero Section */}
       <section className="relative bg-gradient-to-br from-black via-surface to-surface-card text-white overflow-hidden">
@@ -219,7 +158,7 @@ export default function About() {
       {/* Stats Section */}
       <section className="bg-surface py-16 border-b border-surface-border">
         <div className="mx-auto max-w-7xl px-6 lg:px-8">
-          <div className="grid grid-cols-2 md:grid-cols-4 gap-8">
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
             {stats.map((stat, index) => (
               <div
                 key={stat.label}
@@ -438,7 +377,7 @@ export default function About() {
                 {/* Bio */}
                 <div className="flex-grow text-center lg:text-left">
                   <h3 className="text-3xl font-bold text-white mb-2">Kyle Stephens</h3>
-                  <p className="text-xl font-semibold text-primary-600 mb-6">Founder & Lead Developer</p>
+                  <p className="text-xl font-semibold text-primary-600 mb-6">Founder & CTO</p>
 
                   <p className="text-lg text-gray-400 leading-relaxed mb-6">
                     U.S. military veteran with 14+ years of web development experience. B.S. in Information Technology. Passionate about helping Houston small businesses succeed online with transparent pricing and quality work.

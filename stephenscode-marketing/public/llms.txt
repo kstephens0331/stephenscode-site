@@ -9,7 +9,7 @@
 - **Founder**: Kyle Stephens (Marine Corps Veteran)
 - **Location**: Conroe, TX (serving Houston metro area)
 - **Phone**: (936) 323-4527
-- **Email**: kyle@stephenscode.dev
+- **Email**: info@stephenscode.dev
 - **Website**: https://www.stephenscode.dev
 
 ## Services
@@ -71,19 +71,24 @@ Zero-log enterprise VPN solution for businesses.
 
 ## Service Area
 
-Primary service area for on-site support:
-- Houston, TX
-- Conroe, TX
-- The Woodlands, TX
-- Spring, TX
-- Tomball, TX
-- Katy, TX
-- Sugar Land, TX
-- Pearland, TX
-- Cypress, TX
-- Humble, TX
+Primary service area for on-site support: 38 communities across the Greater Houston metro area, listed at https://www.stephenscode.dev/service-areas.
+
+- Montgomery County (HQ): Conroe, The Woodlands, Magnolia, Montgomery, Willis, Pinehurst, Shenandoah, Oak Ridge North, Panorama Village, Cut and Shoot, New Caney, Porter, Splendora
+- North Houston Suburbs: Spring, Tomball, Cypress, Humble, Kingwood, Atascocita
+- Houston Neighborhoods: Houston, Midtown Houston, The Heights, Montrose, Downtown Houston, Galleria/Uptown Houston, Memorial, Energy Corridor, West University Place, Bellaire
+- Fort Bend County: Katy, Sugar Land, Missouri City, Richmond
+- Galveston Bay Area: Pearland, League City, Friendswood, Webster
+- Outlying: Huntsville
 
 Remote services available nationwide.
+
+## Live Demos
+
+40+ fully interactive website demos across every industry and pricing tier at https://www.stephenscode.dev/demos, including admin dashboards, customer portals, and booking/e-commerce flows visitors can click through.
+
+## Add-On Modules
+
+40+ flat-rate add-on modules (e.g. maintenance plans, booking systems, CRM, inventory management, AI content tools) that layer onto any website tier, listed at https://www.stephenscode.dev/pricing/add-ons.
 
 ## Why Choose StephensCode
 
@@ -96,7 +101,7 @@ Remote services available nationwide.
 ## Contact Information
 
 - **Phone**: (936) 323-4527
-- **Email**: kyle@stephenscode.dev
+- **Email**: info@stephenscode.dev
 - **Address**: 2378 Strong Horse Dr, Conroe, TX 77301
 - **Hours**: Monday-Friday, 8:00 AM - 6:00 PM CT
 

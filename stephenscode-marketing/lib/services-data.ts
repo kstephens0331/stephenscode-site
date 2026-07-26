@@ -18,6 +18,7 @@ export interface Service {
   seoKeywords: string[]
   metaTitle: string
   metaDescription: string
+  faqs?: { question: string; answer: string }[]
 }
 
 export const corePackages: Service[] = [
@@ -67,6 +68,24 @@ export const corePackages: Service[] = [
     seoKeywords: ['WIX website design', 'GoDaddy website redesign', 'affordable website design Houston', 'small business website Conroe'],
     metaTitle: 'Plug & Play Website | $250',
     metaDescription: 'Professional website design for WIX, GoDaddy, and similar platforms. Custom design on your platform for $250. Houston, Conroe & The Woodlands.',
+  faqs: [
+    {
+      "question": "What is the Plug and Play package, and does it replace my current website builder?",
+      "answer": "No -- Plug and Play keeps you on the platform you already use (WIX, GoDaddy, Squarespace, or Weebly) and gives it a professional custom design instead of migrating you to a new system. It's built for businesses who like their current builder but not their current look."
+    },
+    {
+      "question": "How much does it cost and how long does it take?",
+      "answer": "Plug and Play is a flat $250 with a typical turnaround of about 1 week. That includes design, up to 5 pages, and one round of revisions before launch."
+    },
+    {
+      "question": "What's included for $250?",
+      "answer": "You get a custom design across up to 5 pages (Home, About, Services, Contact, etc.), a mobile-responsive layout, basic SEO setup, contact form integration, social media links, Google Analytics setup, image optimization, and one round of revisions. You'll also get a quick training walkthrough on updating content yourself."
+    },
+    {
+      "question": "Who is this package best suited for?",
+      "answer": "It's aimed at small businesses, startups, local service providers (HVAC, plumbing, landscaping), and freelancers who already have a WIX or GoDaddy-style site and just need it to look and function like a professional build without the cost or complexity of a full custom rebuild."
+    }
+  ],
   },
   {
     id: 'website-rebuild',
@@ -116,6 +135,24 @@ export const corePackages: Service[] = [
     seoKeywords: ['website rebuild Houston', 'website redesign Conroe', 'modernize website Texas', 'website refresh services'],
     metaTitle: 'Website Rebuild | $350',
     metaDescription: 'Complete website rebuild service. Modernize your outdated site with mobile-responsive design and SEO optimization. $350 flat rate. Houston & Conroe.',
+  faqs: [
+    {
+      "question": "What does the $350 Website Rebuild actually include?",
+      "answer": "For a flat $350 you get a complete redesign of your existing site: your current content migrated and reorganized, a modern mobile-first layout, speed and SEO improvements, broken link fixes, image optimization, and updated contact forms. Two rounds of revisions and 2 weeks of post-launch support are included, and you get training documentation so you know how to manage the new site."
+    },
+    {
+      "question": "Do I need to give you a new domain or start over with content?",
+      "answer": "No. This service is built for businesses that already have a website and just need it modernized -- your existing domain and content carry over. We migrate and reorganize what you already have rather than writing everything from scratch, which is what keeps the price and timeline down compared to a full custom build."
+    },
+    {
+      "question": "How long does a rebuild take, and is this different from the Plug and Play package?",
+      "answer": "A Website Rebuild typically takes about 2 weeks from start to finish. It's a step up from the Plug and Play tier -- rather than a quick platform refresh, it's a full redesign with content migration, speed optimization, and SEO work, plus a longer 2-week support window after launch."
+    },
+    {
+      "question": "Is my site a good fit for a rebuild versus a brand-new custom site?",
+      "answer": "If your current site is 5+ years old, performs poorly on mobile, has declining traffic, or just no longer matches your brand, a rebuild is usually the right call since it reuses your existing platform and content. If you're outgrowing your platform entirely or need custom functionality beyond a redesign, one of our higher core or premium tiers would be a better fit."
+    }
+  ],
   },
   {
     id: 'standard-website',
@@ -168,6 +205,24 @@ export const corePackages: Service[] = [
     seoKeywords: ['custom website development Houston', 'small business website Conroe', 'professional website design Texas', 'Next.js website development'],
     metaTitle: 'Custom Website | $950 | Conroe TX',
     metaDescription: 'Custom website development for small businesses. Fully responsive, SEO-optimized, modern tech stack. $950 flat rate. Houston, Conroe & The Woodlands.',
+  faqs: [
+    {
+      "question": "What's included in the $950 Standard Website package?",
+      "answer": "You get a fully custom-built site of up to 6 pages (Home, About, Services, Portfolio, Contact, etc.), built on a modern React/Next.js stack rather than a template. It includes responsive mobile design, a contact form with email notifications, Google Analytics integration, SSL setup, advanced SEO optimization, and three rounds of revisions."
+    },
+    {
+      "question": "How long does the Standard Website take to build?",
+      "answer": "The typical timeline is 3-4 weeks from kickoff to launch. Because it's flat-rate and custom-coded (not assembled from a page builder), the timeline covers real design and development work rather than just configuring a template."
+    },
+    {
+      "question": "Do I own the code, and what happens after launch?",
+      "answer": "Yes, you receive the full source code and documentation with no platform lock-in. It also includes 90 days of post-launch support, so if something needs adjusting after you go live, that's covered as part of the flat $950 rate, not billed hourly."
+    },
+    {
+      "question": "How is this different from the E-Commerce Website package?",
+      "answer": "The Standard Website is built for businesses that need a strong informational presence, not online sales. If you need to actually sell products or services online, the E-Commerce Website tier ($1,100) builds on this same foundation and adds Stripe payment processing, a product catalog, and shopping cart functionality."
+    }
+  ],
   },
   {
     id: 'ecommerce-website',
@@ -223,18 +278,36 @@ export const corePackages: Service[] = [
     seoKeywords: ['e-commerce website development Houston', 'online store development Texas', 'Stripe integration Conroe', 'custom shopping cart development'],
     metaTitle: 'E-Commerce Website | $1,100',
     metaDescription: 'Complete e-commerce website with Stripe payments, inventory management, and secure checkout. No monthly platform fees. $1,100 flat rate. Houston & Conroe.',
+  faqs: [
+    {
+      "question": "What exactly do I get for the $1,100 flat rate?",
+      "answer": "The E-Commerce Website package includes everything in the Standard Website tier plus a full online store: Stripe payment gateway integration, a product catalog for up to 50 products initially, shopping cart and secure checkout, order management, basic inventory tracking, sales tax calculation, and a shipping calculator. It's a one-time flat fee, not a monthly subscription."
+    },
+    {
+      "question": "How long does it take to launch an online store?",
+      "answer": "Typical turnaround is 4-6 weeks, which is longer than the Standard Website timeline because of the added Stripe integration, product catalog setup, and checkout/order testing involved in a working store."
+    },
+    {
+      "question": "What if I have more than 50 products?",
+      "answer": "The base package is scoped for an initial catalog of up to 50 products, which covers most small retailers and service businesses launching their first online store. Larger catalogs can be scoped as a custom add-on since product volume affects setup and testing time."
+    },
+    {
+      "question": "How is this different from just using Shopify or a WooCommerce plugin?",
+      "answer": "You get a fully custom-built store with no recurring monthly platform fees and typically lower transaction costs than Shopify, plus full ownership of the code and design. It also comes with 60 days of post-launch support and training on managing your products and orders after handoff."
+    }
+  ],
   },
 ]
 
 export const premiumBuilds: Service[] = [
   {
     id: 'premium-build',
-    name: 'Advanced',
+    name: 'Premium Build',
     slug: 'premium-build',
     category: 'premium',
     price: 2000,
     priceLabel: '$2,000',
-    shortDescription: 'Custom full-stack site with admin portal and KPI dashboard. Up to 10 pages plus CMS.',
+    shortDescription: 'Custom full-stack site with admin portal and KPI dashboard. Up to 15 pages plus CMS.',
     longDescription: `Elevate your business with a premium full-stack web application. Our $2,000 Premium Build is designed for businesses that need more than a website. You need a complete business system. This package includes up to 15 pages, a custom admin portal, analytics dashboard, user management, and advanced features tailored to your specific workflow. Built with enterprise-grade technologies, your premium build will scale with your business and give you competitive advantages in your market.`,
     features: [
       'Up to 15 pages included',
@@ -278,8 +351,26 @@ export const premiumBuilds: Service[] = [
     ],
     timeline: '6-8 weeks',
     seoKeywords: ['custom web application Houston', 'full-stack development Texas', 'admin portal development Conroe', 'business dashboard development'],
-    metaTitle: 'Web App Development | $2,000',
+    metaTitle: 'Premium Build | $2,000',
     metaDescription: 'Custom full-stack web application with admin portal, analytics dashboard, and advanced features. Up to 15 pages. $2,000 flat rate. Houston & Conroe.',
+  faqs: [
+    {
+      "question": "What exactly do I get for the $2,000 Premium Build price?",
+      "answer": "For a flat $2,000 you get a custom full-stack web application of up to 15 pages, including a custom admin portal, a real-time analytics dashboard, user role management, and database design and optimization. It also covers advanced authentication, email automation, file upload/management, and custom integrations like CRM or accounting software if your workflow needs them. There is no hourly billing and revisions are unlimited during the development phase."
+    },
+    {
+      "question": "How is the Premium Build different from a standard website package?",
+      "answer": "A standard site build gets you pages and content, while the Premium Build adds the business systems layer on top: a custom admin portal, a KPI/analytics dashboard with real-time data, and role-based user management. It is built for businesses that need more than a marketing site, such as an internal tool, client portal, or a system with its own data workflows. API development is included if your project requires one."
+    },
+    {
+      "question": "How long does a Premium Build take to launch?",
+      "answer": "The typical timeline is 6-8 weeks from kickoff to launch. Because it includes custom admin portal and dashboard work, database design, and any needed API development, it takes longer than a standard site build, but you get unlimited revisions during that development window so the final system matches your actual workflow."
+    },
+    {
+      "question": "What kind of support do I get after launch?",
+      "answer": "Every Premium Build includes 90 days of post-launch support, plus training and documentation so your team can operate the admin portal, dashboard, and user management system confidently. This covers fixing issues that surface after go-live, not ongoing feature work, so businesses that expect frequent future changes often pair it with one of our maintenance add-ons."
+    }
+  ],
   },
   {
     id: 'custom-business-platform',
@@ -336,6 +427,24 @@ export const premiumBuilds: Service[] = [
     seoKeywords: ['custom CRM development Houston', 'business management system Texas', 'custom business platform Conroe', 'client portal development'],
     metaTitle: 'Business Platform | $5,000',
     metaDescription: 'Build a complete custom business platform with CRM, client portals, project management, and integrations. Up to 25 pages. $5,000 flat rate. Houston & Conroe.',
+  faqs: [
+    {
+      "question": "What exactly do we get for the $5,000 flat rate?",
+      "answer": "Up to 25 pages plus a full custom business platform: a CRM, a client portal with its own login system, project/job management, invoicing and payments, email automation, document management, and API integrations (accounting, email, etc.). Multi-user access with roles, advanced reporting, automated workflows, and a notification system are all included, and you own the entire system outright rather than renting it."
+    },
+    {
+      "question": "How long does a build like this take, and what support comes after launch?",
+      "answer": "Typical timeline is 10-12 weeks given the number of connected modules (CRM, portal, invoicing, integrations, etc.) that have to be built and tested together. This package includes comprehensive training plus 6 months of support and updates after launch, longer than the standard 90-day window on other tiers."
+    },
+    {
+      "question": "How is this different from just paying for CRM/project-management SaaS tools?",
+      "answer": "Instead of stacking monthly subscriptions for a CRM, client portal, invoicing tool, and project manager separately, this consolidates all of it into one platform built specifically around your workflow. You get full data ownership and control, and the flat $5,000 replaces ongoing SaaS fees with a one-time build cost."
+    },
+    {
+      "question": "Who is this package the right fit for?",
+      "answer": "It's built for agencies managing multiple client projects, service businesses with complex operational workflows, and growing companies that are tired of juggling several disconnected SaaS tools. If your business needs custom processes or is outgrowing off-the-shelf software, this tier is designed to scale with you."
+    }
+  ],
   },
   {
     id: 'enterprise-platform',
@@ -392,6 +501,24 @@ export const premiumBuilds: Service[] = [
     seoKeywords: ['enterprise web development Houston', 'custom enterprise platform Texas', 'business automation platform Conroe', 'enterprise software development'],
     metaTitle: 'Enterprise Platform | $7,500',
     metaDescription: 'Enterprise-grade platform with admin systems, workflow automation, and advanced analytics. Up to 40 pages included. $7,500 flat rate. Houston, Conroe & The Woodlands.',
+  faqs: [
+    {
+      "question": "What exactly do we get for $7,500, and how is it different from the other premium tiers?",
+      "answer": "The Enterprise Platform is the top premium tier: up to 40 pages with an advanced admin system, complex staff role management, multi-location/multi-tenant support, and workflow automation baked in. It goes further than the $2,000, $5,000, and $7,500-adjacent lower tiers by adding a comprehensive reporting suite, advanced BI/analytics, and white-label capabilities for organizations running more than one brand or location."
+    },
+    {
+      "question": "How long does a project like this take?",
+      "answer": "Enterprise Platform builds run 12 to 16 weeks. That longer timeline reflects the scope: staff role architecture, multi-location logic, automated workflows, and API integrations with your existing business tools all need to be designed and tested, not just styled."
+    },
+    {
+      "question": "Do we need multiple locations or a lot of staff to justify this tier?",
+      "answer": "It is built for that use case, but the core driver is complexity, not headcount. It fits established organizations that need multi-location or multi-tenant support, layered staff permissions, and automated reporting -- if you only need a single admin login and basic CRM, the $5,000 tier is likely a better fit and lower cost."
+    },
+    {
+      "question": "Does this include ongoing support after launch, or is that separate?",
+      "answer": "As a premium tier build, it includes the standard 90 days of post-launch support at no extra charge for fixes and adjustments. Ongoing maintenance, hosting, and any further custom development beyond that window are handled as separate flat-rate add-ons, never hourly billing."
+    }
+  ],
   },
   {
     id: 'enterprise-custom',
@@ -450,6 +577,24 @@ export const premiumBuilds: Service[] = [
     seoKeywords: ['enterprise software development Houston', 'custom enterprise solutions Texas', 'government website development', 'large scale web development'],
     metaTitle: 'Enterprise Development | Custom Quote',
     metaDescription: 'Large-scale enterprise solutions with mobile apps, 40+ pages, and government-grade security. Custom quotes from $15,000. Houston & Conroe.',
+  faqs: [
+    {
+      "question": "How much does an Enterprise Custom project cost?",
+      "answer": "There's no flat rate for Enterprise Custom because scope varies too much project to project. These builds typically start at $15,000+ and are quoted individually once we understand your exact requirements, whether that's mobile apps, complex integrations, or compliance needs."
+    },
+    {
+      "question": "How long does an Enterprise Custom build take?",
+      "answer": "Timeline is scoped per project rather than fixed, since a native mobile app or a multi-tenant SaaS platform takes very different amounts of time to build. As part of the engagement you get a comprehensive scoping document with a custom development timeline before work starts."
+    },
+    {
+      "question": "When do I need Enterprise Custom instead of the standard Enterprise Platform package?",
+      "answer": "If your project needs more than 40 pages, native iOS/Android apps, custom AI/ML features, multi-tenant SaaS architecture, or government/HIPAA/SOC2-grade compliance, it exceeds what the standard Enterprise Platform tier covers. Enterprise Custom is built for city/municipal sites, large corporations, healthcare organizations, financial institutions, and SaaS products with these advanced requirements."
+    },
+    {
+      "question": "Do I own the code, and is ongoing support included?",
+      "answer": "Yes -- you get full ownership of all code and IP, delivered with complete documentation and training. Custom support and maintenance agreements, including SLA and uptime guarantees where needed, are built into the scope alongside a dedicated project manager for the engagement."
+    }
+  ],
   },
 ]
 

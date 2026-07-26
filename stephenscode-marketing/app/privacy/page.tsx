@@ -24,6 +24,12 @@ export const metadata: Metadata = {
     url: 'https://www.stephenscode.dev/privacy',
     type: 'website',
   },
+  twitter: {
+    card: 'summary_large_image',
+    title: 'Privacy Policy',
+    description: 'How StephensCode LLC collects, uses, discloses, and protects your Personal Information, and how to exercise your privacy rights.',
+    images: ['/twitter-image'],
+  },
   alternates: {
     canonical: 'https://www.stephenscode.dev/privacy',
   },

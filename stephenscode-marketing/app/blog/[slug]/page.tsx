@@ -39,6 +39,7 @@ export async function generateMetadata({ params }: BlogPostPageProps): Promise<M
       description: post.excerpt,
       type: 'article',
       publishedTime: post.date,
+      modifiedTime: post.modified || post.date,
       authors: [post.author],
       url: `https://www.stephenscode.dev/blog/${slug}`,
       images: ['/opengraph-image'],
@@ -65,8 +66,33 @@ export default async function BlogPostPage({ params }: BlogPostPageProps) {
     .filter(p => p.slug !== slug && p.category === post.category)
     .slice(0, 3)
 
+  const blogPostingSchema = {
+    '@context': 'https://schema.org',
+    '@type': 'BlogPosting',
+    headline: post.title,
+    description: post.excerpt,
+    image: post.image || 'https://www.stephenscode.dev/opengraph-image',
+    datePublished: post.date,
+    dateModified: post.modified || post.date,
+    author: {
+      '@id': 'https://www.stephenscode.dev/#kyle-stephens',
+    },
+    publisher: {
+      '@id': 'https://www.stephenscode.dev/#organization',
+    },
+    mainEntityOfPage: {
+      '@type': 'WebPage',
+      '@id': `https://www.stephenscode.dev/blog/${slug}`,
+    },
+  }
+
   return (
     <>
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(blogPostingSchema) }}
+      />
+
       {/* Breadcrumbs */}
       <Breadcrumbs
         items={[
@@ -109,7 +135,7 @@ export default async function BlogPostPage({ params }: BlogPostPageProps) {
               </div>
               <div>
                 <p className="font-semibold">{post.author}</p>
-                <p className="text-sm text-gray-200">Founder & Lead Developer</p>
+                <p className="text-sm text-gray-200">Founder & CTO</p>
               </div>
             </div>
           </div>
