@@ -399,7 +399,7 @@ export default function APIIntegration() {
                 </div>
                 <div className="bg-surface-card rounded-xl p-6">
                   <h3 className="text-lg font-bold text-white mb-2">Flexible Engagement</h3>
-                  <p className="text-gray-400">One-time project? Ongoing support? Retainer? We structure the engagement to match your needs.</p>
+                  <p className="text-gray-400">One-time project? Ongoing support? Monthly plan? We structure the engagement to match your needs.</p>
                 </div>
                 <div className="bg-surface-card rounded-xl p-6">
                   <h3 className="text-lg font-bold text-white mb-2">Long-term Partnership</h3>

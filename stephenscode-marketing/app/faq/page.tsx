@@ -136,7 +136,7 @@ const faqs: FAQItem[] = [
   {
     category: 'SEO & Marketing',
     question: 'Do you offer ongoing SEO services?',
-    answer: 'Our packages include basic SEO setup. For ongoing SEO (content creation, link building, local citations, keyword research), we can discuss a monthly retainer. Many clients see great results from just the foundational setup.'
+    answer: 'Our packages include basic SEO setup. For ongoing SEO (content creation, link building, local citations, keyword research), we can discuss a monthly plan. Many clients see great results from just the foundational setup.'
   },
   {
     category: 'SEO & Marketing',

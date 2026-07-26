@@ -2111,7 +2111,7 @@ export const advancedAddOns: Service[] = [
 
     Integration with your product or service automates access control. Grant access when subscriptions are active, restrict access when payment fails or subscription cancels, adjust feature access based on plan tier, and handle access immediately when changes occur. The subscription state directly controls what customers can access, ensuring only paying subscribers receive value.
 
-    Perfect for SaaS platforms with monthly pricing, membership sites with subscription access, service businesses with retainer or membership models, content platforms with premium subscriptions, subscription box businesses, online tools and software, coaching or consulting with ongoing programs, and any business model where recurring revenue makes sense. The Subscription Billing system transforms unpredictable transaction revenue into predictable recurring revenue streams that grow over time.`,
+    Perfect for SaaS platforms with monthly pricing, membership sites with subscription access, service businesses with recurring-plan or membership models, content platforms with premium subscriptions, subscription box businesses, online tools and software, coaching or consulting with ongoing programs, and any business model where recurring revenue makes sense. The Subscription Billing system transforms unpredictable transaction revenue into predictable recurring revenue streams that grow over time.`,
     features: [
       'Recurring automatic billing',
       'Multiple subscription tiers',
@@ -2137,7 +2137,7 @@ export const advancedAddOns: Service[] = [
     useCases: [
       'SaaS subscription pricing',
       'Membership site access',
-      'Service retainers',
+      'Service recurring plans',
       'Subscription boxes',
       'Software licensing',
       'Online tool subscriptions',

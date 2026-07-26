@@ -456,7 +456,7 @@ export default function WebScraping() {
                   <p className="text-primary-600 font-bold">From $500</p>
                 </div>
                 <div className="bg-surface rounded-xl p-6 shadow-md">
-                  <h3 className="text-xl font-bold text-white mb-2">Maintenance Retainer</h3>
+                  <h3 className="text-xl font-bold text-white mb-2">Maintenance Plan</h3>
                   <p className="text-gray-400 mb-4">Ongoing maintenance when sites change. Priority support and updates.</p>
                   <p className="text-primary-600 font-bold">From $100/month</p>
                 </div>

@@ -170,7 +170,7 @@ export default function Home() {
             </h1>
 
             <p className="mt-10 max-w-2xl text-lg leading-8 text-gray-300 animate-fade-in-up animation-delay-400">
-              I&apos;m Kyle. I&apos;ve been building websites and custom software for small businesses out of Conroe, Texas for 14 years. You get a flat quote up front, you get the site you paid for, and you get my cell number if anything breaks. That&apos;s it. No retainer games, no agency layers.
+              I&apos;m Kyle. I&apos;ve been building websites and custom software for small businesses out of Conroe, Texas for 14 years. You get a flat quote up front, you get the site you paid for, and you get my cell number if anything breaks. That&apos;s it. No ongoing-fee games, no agency layers.
             </p>
 
             <div className="mt-12 flex flex-wrap items-center gap-3 animate-fade-in-up animation-delay-600">
@@ -264,7 +264,7 @@ export default function Home() {
               Pick a tier. That&apos;s the price.
             </h2>
             <p className="mt-4 text-lg leading-8 text-gray-400">
-              Every package is one number, paid up front (or split). No hourly billing, no scope-creep invoices, no retainer required.
+              Every package is one number, paid up front (or split). No hourly billing, no scope-creep invoices, no ongoing fees required.
             </p>
           </div>
 
@@ -437,7 +437,7 @@ export default function Home() {
               Four steps from call to launch.
             </h2>
             <p className="mt-4 text-lg leading-8 text-gray-400">
-              Consultation, flat quote, build, hand-off. No status meetings. No retainer.
+              Consultation, flat quote, build, hand-off. No status meetings. No ongoing fees.
             </p>
           </div>
 

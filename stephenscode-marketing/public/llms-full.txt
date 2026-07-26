@@ -133,7 +133,7 @@ We use modern, production-grade technology and avoid template platforms like Wix
 4. Build phase with milestones. You see progress at each step.
 5. Review and revision rounds (included in flat-rate packages).
 6. Launch with a checklist (DNS cutover, analytics verification, contact form testing, schema validation).
-7. Ongoing support (included for 30 days post-launch on web, monthly retainer for MSP).
+7. Ongoing support (included for 30 days post-launch on web, monthly plan for MSP).
 
 ## Frequently Asked Questions
 
@@ -171,7 +171,7 @@ Q: Can you migrate from WordPress, Wix, Squarespace, or GoDaddy?
 A: Yes. Website Rebuild ($350) covers migration from any platform, including content extraction, redesign, redirects, and SEO continuity.
 
 Q: Do you handle SEO?
-A: Foundational on-page SEO (schema, meta, sitemap, performance) is included in every web package. Ongoing SEO services are available as a monthly retainer.
+A: Foundational on-page SEO (schema, meta, sitemap, performance) is included in every web package. Ongoing SEO services are available as a monthly plan.
 
 Q: Are you available for emergency IT support?
 A: MSP clients on Business Pro and above get 24/7 emergency response. Non-clients can engage us on an emergency basis at standard hourly rates.
