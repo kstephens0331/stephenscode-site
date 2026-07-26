@@ -3,6 +3,7 @@ const Stripe = require('stripe');
 const cors = require('cors');
 const dotenv = require('dotenv');
 const admin = require('firebase-admin');
+const { TIERS, PLAN_TYPES, getTier, getStripeProductId } = require('./lib/pricing-catalog');
 
 dotenv.config();
 
@@ -19,10 +20,43 @@ const stripe = new Stripe(process.env.STRIPE_SECRET_KEY);
 
 const app = express();
 
-// CORS for all routes
-app.use(cors());
+// CORS: allowlist real StephensCode origins only, not every origin on the internet.
+const ALLOWED_ORIGINS = (process.env.ALLOWED_ORIGINS || 'https://www.stephenscode.dev,https://stephenscode.dev,https://customer.stephenscode.dev')
+  .split(',')
+  .map((o) => o.trim())
+  .filter(Boolean);
 
-// Webhook route MUST come before express.json() — needs raw body for signature verification
+app.use(cors({
+  origin(origin, callback) {
+    // Allow non-browser requests (curl, server-to-server health checks) with no Origin header.
+    if (!origin || ALLOWED_ORIGINS.includes(origin)) return callback(null, true);
+    callback(new Error('Not allowed by CORS'));
+  },
+}));
+
+function requireAdminSecret(req, res, next) {
+  const provided = req.headers['x-admin-secret'];
+  if (!process.env.ADMIN_API_SECRET || provided !== process.env.ADMIN_API_SECRET) {
+    return res.status(401).json({ error: 'Unauthorized.' });
+  }
+  next();
+}
+
+function computeInstallmentPreview(priceUsd, months) {
+  const baseCents = Math.round(priceUsd * 100);
+  const downPaymentCents = Math.round(baseCents * 0.2);
+  const remainingCents = baseCents - downPaymentCents;
+  const monthlyCents = Math.floor(remainingCents / months);
+  const firstMonthCents = monthlyCents + (remainingCents - monthlyCents * months);
+  return {
+    downPaymentUsd: downPaymentCents / 100,
+    firstMonthUsd: firstMonthCents / 100,
+    monthlyUsd: monthlyCents / 100,
+    months,
+  };
+}
+
+// Webhook route MUST come before express.json() -- needs raw body for signature verification
 app.post('/api/webhook', express.raw({ type: 'application/json' }), async (req, res) => {
   const sig = req.headers['stripe-signature'];
   let event;
@@ -43,26 +77,117 @@ app.post('/api/webhook', express.raw({ type: 'application/json' }), async (req, 
       // One-time payment completed via Checkout
       case 'checkout.session.completed': {
         const session = event.data.object;
-        const uid = session.metadata?.uid;
-        const newPlan = session.metadata?.newPlan;
+        const meta = session.metadata || {};
+
+        if (meta.source === 'marketing-checkout') {
+          const orderId = session.id;
+          const email = session.customer_details?.email || session.customer_email || null;
+          const base = {
+            tierSlug: meta.tierSlug,
+            planType: meta.planType,
+            email,
+            stripeCustomerId: session.customer || null,
+            stripeSessionId: session.id,
+            amountPaidCents: session.amount_total,
+            currency: session.currency || 'usd',
+            createdAt: admin.firestore.FieldValue.serverTimestamp(),
+          };
+
+          if (meta.planType === 'full') {
+            await db.collection('orders').doc(orderId).set({
+              ...base,
+              status: 'paid_in_full',
+              totalCents: session.amount_total,
+            });
+          } else if (meta.planType === 'deposit50') {
+            const remainderCents = parseInt(meta.remainderCents, 10) || 0;
+            await db.collection('orders').doc(orderId).set({
+              ...base,
+              status: 'deposit_paid',
+              remainderCents,
+              totalCents: session.amount_total + remainderCents,
+            });
+          } else if (meta.planType === 'installment6' || meta.planType === 'installment12') {
+            const months = parseInt(meta.installmentMonths, 10);
+            const monthlyCents = parseInt(meta.installmentMonthlyCents, 10);
+            const firstAdjustmentCents = parseInt(meta.installmentLastAdjustmentCents, 10) || 0;
+            const productId = meta.productId;
+
+            let subscriptionId = null;
+            try {
+              const phases = [
+                {
+                  items: [{
+                    price_data: {
+                      currency: 'usd',
+                      product: productId,
+                      unit_amount: monthlyCents + firstAdjustmentCents,
+                      recurring: { interval: 'month' },
+                    },
+                    quantity: 1,
+                  }],
+                  iterations: 1,
+                },
+              ];
+              if (months > 1) {
+                phases.push({
+                  items: [{
+                    price_data: {
+                      currency: 'usd',
+                      product: productId,
+                      unit_amount: monthlyCents,
+                      recurring: { interval: 'month' },
+                    },
+                    quantity: 1,
+                  }],
+                  iterations: months - 1,
+                });
+              }
+
+              const schedule = await stripe.subscriptionSchedules.create({
+                customer: session.customer,
+                start_date: 'now',
+                end_behavior: 'cancel',
+                phases,
+              });
+              subscriptionId = schedule.subscription || null;
+            } catch (scheduleErr) {
+              console.error('Failed to create installment subscription schedule:', scheduleErr);
+            }
+
+            await db.collection('orders').doc(orderId).set({
+              ...base,
+              status: subscriptionId ? 'downpayment_paid' : 'downpayment_paid_schedule_failed',
+              subscriptionId,
+              installmentMonths: months,
+              installmentMonthlyCents: monthlyCents,
+              totalCents: session.amount_total + monthlyCents * (months - 1) + (monthlyCents + firstAdjustmentCents),
+            });
+          }
+
+          console.log(`Marketing checkout order stored: ${orderId} (${meta.tierSlug}, ${meta.planType})`);
+          break;
+        }
+
+        // Existing customer-portal upgrade flow (UpgradePlan.jsx)
+        const uid = meta.uid;
+        const newPlan = meta.newPlan;
 
         if (uid) {
-          // Update customer plan
           await db.collection('customers').doc(uid).update({
             currentPlan: newPlan,
             lastPayment: new Date().toISOString(),
             stripeCustomerId: session.customer || null,
           });
 
-          // Store the transaction
           await db.collection('customers').doc(uid).collection('transactions').add({
             type: 'checkout',
             stripeSessionId: session.id,
             stripeCustomerId: session.customer || null,
             stripePaymentIntentId: session.payment_intent || null,
-            amount: session.amount_total, // in cents
+            amount: session.amount_total,
             currency: session.currency || 'usd',
-            status: session.payment_status, // 'paid', 'unpaid', 'no_payment_required'
+            status: session.payment_status,
             plan: newPlan,
             customerEmail: session.customer_details?.email || session.customer_email || null,
             createdAt: admin.firestore.FieldValue.serverTimestamp(),
@@ -80,7 +205,6 @@ app.post('/api/webhook', express.raw({ type: 'application/json' }), async (req, 
         const customerId = charge.customer;
 
         if (customerId) {
-          // Look up customer in Firestore by stripeCustomerId
           const customerSnap = await db.collection('customers')
             .where('stripeCustomerId', '==', customerId)
             .limit(1)
@@ -137,10 +261,37 @@ app.post('/api/webhook', express.raw({ type: 'application/json' }), async (req, 
         break;
       }
 
-      // Subscription invoice paid (recurring billing)
+      // Subscription invoice paid (recurring billing -- also drives installment-plan progress)
       case 'invoice.paid': {
         const invoice = event.data.object;
         const invoiceCustomerId = invoice.customer;
+
+        if (invoice.subscription) {
+          const orderSnap = await db.collection('orders')
+            .where('subscriptionId', '==', invoice.subscription)
+            .limit(1)
+            .get();
+
+          if (!orderSnap.empty) {
+            const orderDoc = orderSnap.docs[0];
+            await orderDoc.ref.collection('installmentPayments').add({
+              stripeInvoiceId: invoice.id,
+              amountPaidCents: invoice.amount_paid,
+              status: 'paid',
+              createdAt: admin.firestore.FieldValue.serverTimestamp(),
+              stripeCreatedAt: new Date(invoice.created * 1000).toISOString(),
+            });
+          }
+        }
+
+        // A manually-sent remainder invoice for a deposit50 order being paid
+        const remainderOrderSnap = await db.collection('orders')
+          .where('remainderInvoiceId', '==', invoice.id)
+          .limit(1)
+          .get();
+        if (!remainderOrderSnap.empty) {
+          await remainderOrderSnap.docs[0].ref.update({ status: 'paid_in_full' });
+        }
 
         if (invoiceCustomerId) {
           const customerSnap = await db.collection('customers')
@@ -174,6 +325,23 @@ app.post('/api/webhook', express.raw({ type: 'application/json' }), async (req, 
       case 'invoice.payment_failed': {
         const failedInvoice = event.data.object;
         const failedCustomerId = failedInvoice.customer;
+
+        if (failedInvoice.subscription) {
+          const orderSnap = await db.collection('orders')
+            .where('subscriptionId', '==', failedInvoice.subscription)
+            .limit(1)
+            .get();
+          if (!orderSnap.empty) {
+            await orderSnap.docs[0].ref.update({ status: 'installment_payment_failed' });
+            await orderSnap.docs[0].ref.collection('installmentPayments').add({
+              stripeInvoiceId: failedInvoice.id,
+              amountDueCents: failedInvoice.amount_due,
+              status: 'failed',
+              createdAt: admin.firestore.FieldValue.serverTimestamp(),
+              stripeCreatedAt: new Date(failedInvoice.created * 1000).toISOString(),
+            });
+          }
+        }
 
         if (failedCustomerId) {
           const customerSnap = await db.collection('customers')
@@ -215,10 +383,10 @@ app.post('/api/webhook', express.raw({ type: 'application/json' }), async (req, 
 
           if (!customerSnap.empty) {
             const customerDoc = customerSnap.docs[0];
-            const action = event.type.split('.').pop(); // 'created', 'updated', 'deleted'
+            const action = event.type.split('.').pop();
 
             await customerDoc.ref.update({
-              subscriptionStatus: subscription.status, // 'active', 'canceled', 'past_due', etc.
+              subscriptionStatus: subscription.status,
               subscriptionId: subscription.id,
             });
 
@@ -234,6 +402,17 @@ app.post('/api/webhook', express.raw({ type: 'application/json' }), async (req, 
               createdAt: admin.firestore.FieldValue.serverTimestamp(),
               stripeCreatedAt: new Date(subscription.created * 1000).toISOString(),
             });
+          }
+        }
+
+        // Mark an installment order complete once its schedule-driven subscription ends normally.
+        if (event.type === 'customer.subscription.deleted') {
+          const orderSnap = await db.collection('orders')
+            .where('subscriptionId', '==', subscription.id)
+            .limit(1)
+            .get();
+          if (!orderSnap.empty && subscription.status === 'canceled') {
+            await orderSnap.docs[0].ref.update({ status: 'paid_in_full' });
           }
         }
         break;
@@ -253,41 +432,171 @@ app.post('/api/webhook', express.raw({ type: 'application/json' }), async (req, 
 // JSON parsing for all other routes (AFTER webhook route)
 app.use(express.json());
 
-// Create Stripe Checkout Session with Price Mapping
-app.post('/api/create-checkout-session', async (req, res) => {
-  const { uid, newPlan, email } = req.body;
+// Real catalog + pricing preview for the 7 self-serve checkout tiers
+app.get('/api/checkout/tiers', (req, res) => {
+  const tiers = TIERS.map((t) => ({
+    slug: t.slug,
+    name: t.name,
+    priceUsd: t.priceUsd,
+    plans: {
+      full: { totalUsd: t.priceUsd },
+      deposit50: { depositUsd: t.priceUsd / 2, remainderUsd: t.priceUsd / 2 },
+      installment6: computeInstallmentPreview(t.priceUsd, 6),
+      installment12: computeInstallmentPreview(t.priceUsd, 12),
+    },
+  }));
+  res.json({ tiers });
+});
 
-  const priceMap = {
-    'Standard Website': 'price_12345',
-    'E-Commerce Website': 'price_67890',
-    '$5,000 Premium Build': 'price_abcde',
-    '$8,500 Agency Replacement': 'price_fghij',
-    '$10,000 Enterprise Platform': 'price_klmno',
-    'Email Setup': 'price_11111',
-    'Maintenance Plan': 'price_22222',
-    'Form Generator': 'price_33333',
-    'Accounting Module': 'price_44444',
-    'Customer Dashboard': 'price_55555',
-    'PDF Generator': 'price_66666',
-    'SEO Boost': 'price_77777',
-    'Dynamic Quote Builder': 'price_88888',
-    'Staff Role Controls': 'price_99999',
-    'Job Ticketing System': 'price_101010',
-    'File Upload & Signing': 'price_111213',
-    'Multi-Location Support': 'price_121314',
-    'Customer Rewards Tracker': 'price_131415',
-    'System Connector': 'price_141516',
-    'Analytics Dashboard': 'price_151617',
-    'Onboarding Wizard': 'price_161718'
-  };
+// Create a real self-serve checkout session for one of the 7 tiers, in one of 4 payment plans:
+// full, deposit50 (50% now / 50% invoiced on completion), installment6 or installment12
+// (20% down now, remainder split evenly over 6 or 12 monthly charges via a Subscription Schedule).
+app.post('/api/checkout/session', async (req, res) => {
+  const { tierSlug, planType, email, uid } = req.body;
 
-  const priceId = priceMap[newPlan];
-  if (!priceId) {
-    return res.status(400).json({ error: 'Invalid plan selected.' });
+  const tier = getTier(tierSlug);
+  if (!tier) {
+    return res.status(400).json({ error: 'Invalid tier selected.' });
+  }
+  if (!PLAN_TYPES.includes(planType)) {
+    return res.status(400).json({ error: 'Invalid payment plan selected.' });
+  }
+  if (!email) {
+    return res.status(400).json({ error: 'Email is required.' });
+  }
+
+  const productId = getStripeProductId(tierSlug);
+  if (!productId) {
+    return res.status(500).json({
+      error: 'Checkout catalog is not initialized. Run scripts/create-stripe-catalog.js once with a real STRIPE_SECRET_KEY set.',
+    });
+  }
+
+  const successUrl = process.env.CHECKOUT_SUCCESS_URL || 'https://www.stephenscode.dev/checkout/success';
+  const cancelUrl = process.env.CHECKOUT_CANCEL_URL || 'https://www.stephenscode.dev/pricing';
+  const baseCents = Math.round(tier.priceUsd * 100);
+
+  try {
+    const sessionParams = {
+      mode: 'payment',
+      success_url: `${successUrl}?session_id={CHECKOUT_SESSION_ID}`,
+      cancel_url: cancelUrl,
+      customer_email: email,
+    };
+
+    if (planType === 'full') {
+      sessionParams.line_items = [{
+        price_data: { currency: 'usd', product: productId, unit_amount: baseCents },
+        quantity: 1,
+      }];
+      sessionParams.metadata = { source: 'marketing-checkout', tierSlug, planType, uid: uid || '' };
+    } else if (planType === 'deposit50') {
+      const depositCents = Math.round(baseCents / 2);
+      sessionParams.line_items = [{
+        price_data: { currency: 'usd', product: productId, unit_amount: depositCents },
+        quantity: 1,
+      }];
+      sessionParams.metadata = {
+        source: 'marketing-checkout', tierSlug, planType, uid: uid || '',
+        remainderCents: String(baseCents - depositCents),
+      };
+    } else {
+      const months = planType === 'installment6' ? 6 : 12;
+      const downPaymentCents = Math.round(baseCents * 0.2);
+      const remainingCents = baseCents - downPaymentCents;
+      const monthlyCents = Math.floor(remainingCents / months);
+      const lastAdjustmentCents = remainingCents - monthlyCents * months;
+
+      sessionParams.line_items = [{
+        price_data: { currency: 'usd', product: productId, unit_amount: downPaymentCents },
+        quantity: 1,
+      }];
+      sessionParams.metadata = {
+        source: 'marketing-checkout', tierSlug, planType, uid: uid || '', productId,
+        installmentMonths: String(months),
+        installmentMonthlyCents: String(monthlyCents),
+        installmentLastAdjustmentCents: String(lastAdjustmentCents),
+      };
+      // Force a real Stripe Customer object so the webhook can attach a Subscription Schedule to it.
+      sessionParams.customer_creation = 'always';
+    }
+
+    const session = await stripe.checkout.sessions.create(sessionParams);
+    res.json({ url: session.url });
+  } catch (err) {
+    console.error('Checkout session error:', err);
+    res.status(500).json({ error: 'Failed to create checkout session.' });
+  }
+});
+
+// Admin-only: invoice the remaining 50% for a deposit50 order once the project is complete.
+app.post('/api/checkout/collect-remainder', requireAdminSecret, async (req, res) => {
+  const { orderId } = req.body;
+  if (!orderId) {
+    return res.status(400).json({ error: 'orderId is required.' });
   }
 
   try {
-    // Find or create a Stripe customer so transactions link together
+    const orderDoc = await db.collection('orders').doc(orderId).get();
+    if (!orderDoc.exists) {
+      return res.status(404).json({ error: 'Order not found.' });
+    }
+
+    const order = orderDoc.data();
+    if (order.status !== 'deposit_paid') {
+      return res.status(400).json({ error: `Order status is '${order.status}', expected 'deposit_paid'.` });
+    }
+    if (!order.stripeCustomerId) {
+      return res.status(400).json({ error: 'Order has no Stripe customer to invoice.' });
+    }
+
+    await stripe.invoiceItems.create({
+      customer: order.stripeCustomerId,
+      amount: order.remainderCents,
+      currency: 'usd',
+      description: `${order.tierSlug} -- remaining balance`,
+    });
+
+    const invoice = await stripe.invoices.create({
+      customer: order.stripeCustomerId,
+      collection_method: 'send_invoice',
+      days_until_due: 7,
+      auto_advance: true,
+    });
+    await stripe.invoices.finalizeInvoice(invoice.id);
+    await stripe.invoices.sendInvoice(invoice.id);
+
+    await orderDoc.ref.update({ status: 'remainder_invoiced', remainderInvoiceId: invoice.id });
+    res.json({ success: true, invoiceId: invoice.id, hostedInvoiceUrl: invoice.hosted_invoice_url });
+  } catch (err) {
+    console.error('Collect-remainder error:', err);
+    res.status(500).json({ error: 'Failed to invoice remainder.' });
+  }
+});
+
+// Legacy customer-portal upgrade endpoint (UpgradePlan.jsx). Kept working, now backed by the
+// same real tier catalog instead of placeholder Stripe Price IDs -- but this path only ever
+// supports a single full-amount charge (it predates the multi-plan-type checkout above).
+app.post('/api/create-checkout-session', async (req, res) => {
+  const { uid, newPlan, email } = req.body;
+
+  const legacyPlanToSlug = {
+    'Standard Website': 'standard-website',
+    'E-Commerce Website': 'ecommerce-website',
+    'Premium Build': 'premium-build',
+    'Custom Business Platform': 'custom-business-platform',
+    'Enterprise Platform': 'enterprise-platform',
+  };
+
+  const slug = legacyPlanToSlug[newPlan];
+  const tier = slug && getTier(slug);
+  const productId = slug && getStripeProductId(slug);
+
+  if (!tier || !productId) {
+    return res.status(400).json({ error: 'Invalid or unsupported plan selected.' });
+  }
+
+  try {
     let stripeCustomerId = null;
     if (uid) {
       const customerDoc = await db.collection('customers').doc(uid).get();
@@ -306,15 +615,16 @@ app.post('/api/create-checkout-session', async (req, res) => {
     }
 
     const sessionParams = {
-      payment_method_types: ['card'],
       mode: 'payment',
-      line_items: [{ price: priceId, quantity: 1 }],
+      line_items: [{
+        price_data: { currency: 'usd', product: productId, unit_amount: Math.round(tier.priceUsd * 100) },
+        quantity: 1,
+      }],
       success_url: 'https://customer.stephenscode.dev/upgrade-success',
       cancel_url: 'https://customer.stephenscode.dev/upgrade-cancel',
       metadata: { uid, newPlan },
     };
 
-    // Attach Stripe customer if we have one
     if (stripeCustomerId) {
       sessionParams.customer = stripeCustomerId;
     } else if (email) {
@@ -335,7 +645,6 @@ app.get('/api/transactions/:uid', async (req, res) => {
   const { limit = 50, source = 'auto' } = req.query;
 
   try {
-    // Try Firestore first
     if (source !== 'stripe') {
       const transactionsSnap = await db.collection('customers').doc(uid)
         .collection('transactions')
@@ -358,7 +667,6 @@ app.get('/api/transactions/:uid', async (req, res) => {
       }
     }
 
-    // Fallback: Pull directly from Stripe API
     const customerDoc = await db.collection('customers').doc(uid).get();
     const stripeCustomerId = customerDoc.data()?.stripeCustomerId;
 
@@ -371,7 +679,6 @@ app.get('/api/transactions/:uid', async (req, res) => {
       });
     }
 
-    // Pull charges from Stripe
     const charges = await stripe.charges.list({
       customer: stripeCustomerId,
       limit: parseInt(limit),
@@ -414,7 +721,6 @@ app.get('/api/billing-summary/:uid', async (req, res) => {
 
     const customerData = customerDoc.data();
 
-    // Get all successful transactions
     const transactionsSnap = await db.collection('customers').doc(uid)
       .collection('transactions')
       .where('status', 'in', ['succeeded', 'paid'])
@@ -428,7 +734,7 @@ app.get('/api/billing-summary/:uid', async (req, res) => {
       currentPlan: customerData.currentPlan || null,
       subscriptionStatus: customerData.subscriptionStatus || null,
       stripeCustomerId: customerData.stripeCustomerId || null,
-      totalSpent: totalSpent, // in cents
+      totalSpent: totalSpent,
       totalSpentFormatted: `$${(totalSpent / 100).toFixed(2)}`,
       transactionCount: transactions.length,
       lastPayment: transactions[0]?.stripeCreatedAt || customerData.lastPayment || null,
@@ -444,5 +750,5 @@ app.get('/api/health', (req, res) => {
   res.json({ status: 'ok', timestamp: new Date().toISOString() });
 });
 
-// Start the server
-app.listen(3000, () => console.log('Backend server running on port 3000'));
+const PORT = process.env.PORT || 3000;
+app.listen(PORT, () => console.log(`Backend server running on port ${PORT}`));
