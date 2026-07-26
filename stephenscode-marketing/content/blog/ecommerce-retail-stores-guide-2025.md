@@ -2,7 +2,7 @@
 title: "E-Commerce for Retail Stores: Your Complete Guide to Selling Online in 2025"
 date: "2025-12-27"
 author: "Kyle Stephens"
-excerpt: "Your retail store doesn't have to be limited by geography or business hours. Here's everything you need to know to successfully launch and grow your e-commerce presence."
+excerpt: "Your retail store isn't limited by geography or business hours. Here's what you need to know to launch and grow your e-commerce presence."
 category: "E-Commerce"
 tags: ["e-commerce", "retail", "online selling", "Shopify", "WooCommerce", "small business", "Houston"]
 readTime: "14 min read"

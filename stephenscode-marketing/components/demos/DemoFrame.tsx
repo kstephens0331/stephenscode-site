@@ -174,11 +174,11 @@ export default function DemoFrame({ demo }: DemoFrameProps) {
     // Premium Build demos (24-29)
     } else if (demo.slug === 'gourmet-kitchen-restaurant') {
       return <RestaurantDemo demo={demo} viewMode={viewMode} />
-    } else if (demo.slug === 'cars-collision-refinish' || demo.slug === 'buildright-construction') {
+    } else if (demo.slug === 'terracotta-construction') {
       return <ConstructionDemo demo={demo} viewMode={viewMode} />
     } else if (demo.slug === 'healthfirst-medical-group') {
       return <MedicalDemo demo={demo} viewMode={viewMode} />
-    } else if (demo.slug === 'terracotta-construction' || demo.slug === 'precision-auto-repair') {
+    } else if (demo.slug === 'cars-collision-refinish') {
       return <AutoRepairDemo demo={demo} viewMode={viewMode} />
     } else if (demo.slug === 'serenity-spa-wellness') {
       return <SpaDemo demo={demo} viewMode={viewMode} />
@@ -240,38 +240,42 @@ export default function DemoFrame({ demo }: DemoFrameProps) {
               </div>
             </div>
 
-            {/* Center: View Mode Toggle */}
-            <div className="flex items-center gap-2 bg-gray-800 rounded-lg p-1">
-              <button
-                onClick={() => setViewMode('customer')}
-                className={`px-4 py-2 rounded text-sm font-semibold transition-colors ${
-                  viewMode === 'customer'
-                    ? 'bg-primary-600 text-white'
-                    : 'text-gray-400 hover:text-white'
-                }`}
-              >
-                👤 Customer View
-              </button>
-              <button
-                onClick={() => setViewMode('admin')}
-                className={`px-4 py-2 rounded text-sm font-semibold transition-colors ${
-                  viewMode === 'admin'
-                    ? 'bg-accent-500 text-white'
-                    : 'text-gray-400 hover:text-white'
-                }`}
-              >
-                🔐 Admin Dashboard
-              </button>
-            </div>
+            {/* Center: View Mode Toggle (not applicable to real-client redirect cards) */}
+            {!demo.isRealClient && (
+              <div className="flex items-center gap-2 bg-gray-800 rounded-lg p-1">
+                <button
+                  onClick={() => setViewMode('customer')}
+                  className={`px-4 py-2 rounded text-sm font-semibold transition-colors ${
+                    viewMode === 'customer'
+                      ? 'bg-primary-600 text-white'
+                      : 'text-gray-400 hover:text-white'
+                  }`}
+                >
+                  👤 Customer View
+                </button>
+                <button
+                  onClick={() => setViewMode('admin')}
+                  className={`px-4 py-2 rounded text-sm font-semibold transition-colors ${
+                    viewMode === 'admin'
+                      ? 'bg-accent-500 text-white'
+                      : 'text-gray-400 hover:text-white'
+                  }`}
+                >
+                  🔐 Admin Dashboard
+                </button>
+              </div>
+            )}
 
             {/* Right: Actions */}
             <div className="flex items-center gap-3">
-              <button
-                onClick={() => setShowInstructions(!showInstructions)}
-                className="text-sm font-semibold hover:text-accent-400 transition-colors"
-              >
-                {showInstructions ? '✕ Hide' : 'ℹ️ Show'} Instructions
-              </button>
+              {!demo.isRealClient && (
+                <button
+                  onClick={() => setShowInstructions(!showInstructions)}
+                  className="text-sm font-semibold hover:text-accent-400 transition-colors"
+                >
+                  {showInstructions ? '✕ Hide' : 'ℹ️ Show'} Instructions
+                </button>
+              )}
               <Link
                 href="/contact"
                 className="bg-accent-500 hover:bg-accent-600 px-4 py-2 rounded-lg text-sm font-semibold transition-colors"
@@ -283,8 +287,8 @@ export default function DemoFrame({ demo }: DemoFrameProps) {
         </div>
       </div>
 
-      {/* Instructions Banner */}
-      {showInstructions && (
+      {/* Instructions Banner (not applicable to real-client redirect cards) */}
+      {showInstructions && !demo.isRealClient && (
         <div className="bg-primary-950/50 border-b border-primary-800/30">
           <div className="max-w-7xl mx-auto px-4 py-4">
             <div className="flex items-start gap-4">

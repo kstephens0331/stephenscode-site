@@ -16,6 +16,7 @@ export const metadata: Metadata = {
     'The Woodlands web developer'
   ],
   openGraph: {
+    images: ['/opengraph-image'],
     title: 'Contact Conroe Web Developer | Free Quote | Houston TX',
     description: 'Contact veteran owned web developer for free quote. Flat-rate small business websites from $250. Custom websites for small business.',
     url: 'https://www.stephenscode.dev/contact',
@@ -29,51 +30,78 @@ export const metadata: Metadata = {
 // NOTE: Organization/LocalBusiness schema already renders sitewide via
 // components/LocalBusinessSchema.tsx (app/layout.tsx) -- no page-local copy here.
 
+// Single source of truth for this page's FAQ -- rendered below AND used to build
+// faqSchema, so the two can never drift out of sync with each other again.
+const contactFaqs = [
+  {
+    question: 'How long does a typical project take?',
+    answer: 'Simple websites (Plug and Play, Website Rebuild) take 1-2 weeks. Standard custom websites take 3-4 weeks. E-commerce sites take 4-6 weeks. Premium builds range from 6-16 weeks depending on complexity. Each service page shows the estimated timeline.',
+  },
+  {
+    question: 'Do you require payment upfront?',
+    answer: "We typically split payments: 50% to start, 50% on completion. For larger projects, we can discuss milestone-based payments. We're flexible and want to work within your budget and cash flow.",
+  },
+  {
+    question: 'Do you offer ongoing maintenance?',
+    answer: 'Yes! Our Maintenance Plan add-on ($50-75/mo) includes updates, security monitoring, backups, and minor changes. We also offer hourly support for larger updates or changes outside the maintenance scope.',
+  },
+  {
+    question: 'Can you work with my existing website?',
+    answer: 'Absolutely! Our Website Rebuild package ($350) is perfect for refreshing existing sites. We can also add features to existing sites or migrate you to a better platform if needed.',
+  },
+  {
+    question: 'Do you only work with local businesses?',
+    answer: "While we're based in Conroe and love working with Houston-area businesses, we work with clients anywhere in the US. All communication can happen via phone, video call, and email.",
+  },
+  {
+    question: 'What information should I have ready for the consultation?',
+    answer: "It helps to have an idea of your business goals, target audience, desired features, and budget range. But don't worry if you're not sure yet, we'll guide you through the process and help you figure out exactly what you need.",
+  },
+  {
+    question: 'How quickly can we get started?',
+    answer: "Once we agree on the scope and you've made the initial payment, we can typically start within 1-3 business days. Rush projects may be available for an additional fee if our schedule permits.",
+  },
+  {
+    question: 'What happens after I submit the contact form?',
+    answer: "We'll respond within 24 hours (usually much faster). We'll schedule a free consultation call to discuss your project, answer questions, and provide a custom quote if needed. No pressure, no obligation.",
+  },
+  {
+    question: 'Do you offer free consultations?',
+    answer: "Yes! Every initial consultation is 100% free with zero obligation. We'll discuss your needs, explain your options, and provide honest advice, even if we're not the right fit for your project.",
+  },
+  {
+    question: "Can I see examples of similar projects you've built?",
+    answer: 'Absolutely! Check out our Demos page with 40+ live examples, or visit our Work page to see real client projects.',
+  },
+  {
+    question: "What if I'm not sure what package I need?",
+    answer: "That's perfectly fine! During the free consultation, we'll discuss your business needs and recommend the package and add-ons that best fit your goals and budget. We'll explain all your options clearly.",
+  },
+  {
+    question: 'Do you provide hosting and domain registration?',
+    answer: "Yes! We can handle domain registration and hosting setup for you (approximately $120/year total). We'll recommend reliable providers and handle all technical configuration so you don't have to worry about it.",
+  },
+  {
+    question: 'Will I be able to update the website myself?',
+    answer: "Yes! We build websites that you can easily update yourself. We provide training and documentation, and we're always here if you need help. Or you can use our maintenance plans and we'll handle updates for you.",
+  },
+  {
+    question: 'What makes StephensCode different from other web developers?',
+    answer: 'We combine military discipline with transparent flat-rate pricing, fast turnaround, and 14+ years of experience. No sales pressure, no hidden fees, just honest work delivered on time.',
+  },
+]
+
 const faqSchema = {
-  "@context": "https://schema.org",
-  "@type": "FAQPage",
-  "mainEntity": [
-    {
-      "@type": "Question",
-      "name": "How long does a typical web development project take?",
-      "acceptedAnswer": {
-        "@type": "Answer",
-        "text": "Simple websites (Plug and Play, Website Rebuild) take 1-2 weeks. Standard custom websites take 3-4 weeks. E-commerce sites take 4-6 weeks. Premium builds range from 6-16 weeks depending on complexity. Each service page shows the estimated timeline."
-      }
+  '@context': 'https://schema.org',
+  '@type': 'FAQPage',
+  mainEntity: contactFaqs.map((faq) => ({
+    '@type': 'Question',
+    name: faq.question,
+    acceptedAnswer: {
+      '@type': 'Answer',
+      text: faq.answer,
     },
-    {
-      "@type": "Question",
-      "name": "Do you require payment upfront?",
-      "acceptedAnswer": {
-        "@type": "Answer",
-        "text": "We typically split payments: 50% to start, 50% on completion. For larger projects, we can discuss milestone-based payments. We're flexible and want to work within your budget and cash flow."
-      }
-    },
-    {
-      "@type": "Question",
-      "name": "Do you offer ongoing website maintenance?",
-      "acceptedAnswer": {
-        "@type": "Answer",
-        "text": "Yes! Our Maintenance Plan add-on ($50-75/mo) includes updates, security monitoring, backups, and minor changes. We also offer hourly support for larger updates or changes outside the maintenance scope."
-      }
-    },
-    {
-      "@type": "Question",
-      "name": "Can you work with my existing website?",
-      "acceptedAnswer": {
-        "@type": "Answer",
-        "text": "Absolutely! Our Website Rebuild package ($350) is perfect for refreshing existing sites. We can also add features to existing sites or migrate you to a better platform if needed."
-      }
-    },
-    {
-      "@type": "Question",
-      "name": "Do you only work with local Houston businesses?",
-      "acceptedAnswer": {
-        "@type": "Answer",
-        "text": "While we're based in Conroe and love working with Houston-area businesses, we work with clients anywhere in the US. All communication can happen via phone, video call, and email."
-      }
-    }
-  ]
+  })),
 }
 
 export default function ContactPage() {
@@ -381,131 +409,20 @@ export default function ContactPage() {
           </div>
 
           <div className="mx-auto max-w-3xl space-y-6">
-            <div className="rounded-2xl border border-surface-border bg-surface-card p-8 hover:border-primary-300 transition-colors">
-              <h3 className="text-lg font-bold text-white mb-3">
-                How long does a typical project take?
-              </h3>
-              <p className="text-gray-400 leading-relaxed">
-                Simple websites (Plug and Play, Website Rebuild) take 1-2 weeks. Standard custom websites take 3-4 weeks. E-commerce sites take 4-6 weeks. Premium builds range from 6-16 weeks depending on complexity. Each service page shows the estimated timeline.
-              </p>
-            </div>
-
-            <div className="rounded-2xl border border-surface-border bg-surface-card p-8 hover:border-primary-300 transition-colors">
-              <h3 className="text-lg font-bold text-white mb-3">
-                Do you require payment upfront?
-              </h3>
-              <p className="text-gray-400 leading-relaxed">
-                We typically split payments: 50% to start, 50% on completion. For larger projects, we can discuss milestone-based payments. We're flexible and want to work within your budget and cash flow.
-              </p>
-            </div>
-
-            <div className="rounded-2xl border border-surface-border bg-surface-card p-8 hover:border-primary-300 transition-colors">
-              <h3 className="text-lg font-bold text-white mb-3">
-                Do you offer ongoing maintenance?
-              </h3>
-              <p className="text-gray-400 leading-relaxed">
-                Yes! Our Maintenance Plan add-on ($50-75/mo) includes updates, security monitoring, backups, and minor changes. We also offer hourly support for larger updates or changes outside the maintenance scope.
-              </p>
-            </div>
-
-            <div className="rounded-2xl border border-surface-border bg-surface-card p-8 hover:border-primary-300 transition-colors">
-              <h3 className="text-lg font-bold text-white mb-3">
-                Can you work with my existing website?
-              </h3>
-              <p className="text-gray-400 leading-relaxed">
-                Absolutely! Our Website Rebuild package ($350) is perfect for refreshing existing sites. We can also add features to existing sites or migrate you to a better platform if needed.
-              </p>
-            </div>
-
-            <div className="rounded-2xl border border-surface-border bg-surface-card p-8 hover:border-primary-300 transition-colors">
-              <h3 className="text-lg font-bold text-white mb-3">
-                Do you only work with local businesses?
-              </h3>
-              <p className="text-gray-400 leading-relaxed">
-                While we're based in Conroe and love working with Houston-area businesses, we work with clients anywhere in the US. All communication can happen via phone, video call, and email.
-              </p>
-            </div>
-
-            <div className="rounded-2xl border border-surface-border bg-surface-card p-8 hover:border-primary-300 transition-colors">
-              <h3 className="text-lg font-bold text-white mb-3">
-                What information should I have ready for the consultation?
-              </h3>
-              <p className="text-gray-400 leading-relaxed">
-                It helps to have an idea of your business goals, target audience, desired features, and budget range. But don't worry if you're not sure yet, we'll guide you through the process and help you figure out exactly what you need.
-              </p>
-            </div>
-
-            <div className="rounded-2xl border border-surface-border bg-surface-card p-8 hover:border-primary-300 transition-colors">
-              <h3 className="text-lg font-bold text-white mb-3">
-                How quickly can we get started?
-              </h3>
-              <p className="text-gray-400 leading-relaxed">
-                Once we agree on the scope and you've made the initial payment, we can typically start within 1-3 business days. Rush projects may be available for an additional fee if our schedule permits.
-              </p>
-            </div>
-
-            <div className="rounded-2xl border border-surface-border bg-surface-card p-8 hover:border-primary-300 transition-colors">
-              <h3 className="text-lg font-bold text-white mb-3">
-                What happens after I submit the contact form?
-              </h3>
-              <p className="text-gray-400 leading-relaxed">
-                We'll respond within 24 hours (usually much faster). We'll schedule a free consultation call to discuss your project, answer questions, and provide a custom quote if needed. No pressure, no obligation.
-              </p>
-            </div>
-
-            <div className="rounded-2xl border border-surface-border bg-surface-card p-8 hover:border-primary-300 transition-colors">
-              <h3 className="text-lg font-bold text-white mb-3">
-                Do you offer free consultations?
-              </h3>
-              <p className="text-gray-400 leading-relaxed">
-                Yes! Every initial consultation is 100% free with zero obligation. We'll discuss your needs, explain your options, and provide honest advice, even if we're not the right fit for your project.
-              </p>
-            </div>
-
-            <div className="rounded-2xl border border-surface-border bg-surface-card p-8 hover:border-primary-300 transition-colors">
-              <h3 className="text-lg font-bold text-white mb-3">
-                Can I see examples of similar projects you've built?
-              </h3>
-              <p className="text-gray-400 leading-relaxed">
-                Absolutely! Check out our <Link href="/demos" className="text-primary-600 font-semibold hover:text-primary-400">Demos page</Link> with 40+ live examples, or visit our <Link href="/work" className="text-primary-600 font-semibold hover:text-primary-400">Work page</Link> to see real client projects with testimonials.
-              </p>
-            </div>
-
-            <div className="rounded-2xl border border-surface-border bg-surface-card p-8 hover:border-primary-300 transition-colors">
-              <h3 className="text-lg font-bold text-white mb-3">
-                What if I'm not sure what package I need?
-              </h3>
-              <p className="text-gray-400 leading-relaxed">
-                That's perfectly fine! During the free consultation, we'll discuss your business needs and recommend the package and add-ons that best fit your goals and budget. We'll explain all your options clearly.
-              </p>
-            </div>
-
-            <div className="rounded-2xl border border-surface-border bg-surface-card p-8 hover:border-primary-300 transition-colors">
-              <h3 className="text-lg font-bold text-white mb-3">
-                Do you provide hosting and domain registration?
-              </h3>
-              <p className="text-gray-400 leading-relaxed">
-                Yes! We can handle domain registration and hosting setup for you (approximately $120/year total). We'll recommend reliable providers and handle all technical configuration so you don't have to worry about it.
-              </p>
-            </div>
-
-            <div className="rounded-2xl border border-surface-border bg-surface-card p-8 hover:border-primary-300 transition-colors">
-              <h3 className="text-lg font-bold text-white mb-3">
-                Will I be able to update the website myself?
-              </h3>
-              <p className="text-gray-400 leading-relaxed">
-                Yes! We build websites that you can easily update yourself. We provide training and documentation, and we're always here if you need help. Or you can use our maintenance plans and we'll handle updates for you.
-              </p>
-            </div>
-
-            <div className="rounded-2xl border border-surface-border bg-surface-card p-8 hover:border-primary-300 transition-colors">
-              <h3 className="text-lg font-bold text-white mb-3">
-                What makes StephensCode different from other web developers?
-              </h3>
-              <p className="text-gray-400 leading-relaxed">
-                We combine military discipline with transparent flat-rate pricing, fast turnaround, and 14+ years of experience. No sales pressure, no hidden fees, just honest work delivered on time. Our 98% client satisfaction rate speaks for itself.
-              </p>
-            </div>
+            {contactFaqs.map((faq) => (
+              <div key={faq.question} className="rounded-2xl border border-surface-border bg-surface-card p-8 hover:border-primary-300 transition-colors">
+                <h3 className="text-lg font-bold text-white mb-3">{faq.question}</h3>
+                <p className="text-gray-400 leading-relaxed">
+                  {faq.question.startsWith("Can I see examples") ? (
+                    <>
+                      Absolutely! Check out our <Link href="/demos" className="text-primary-600 font-semibold hover:text-primary-400">Demos page</Link> with 40+ live examples, or visit our <Link href="/work" className="text-primary-600 font-semibold hover:text-primary-400">Work page</Link> to see real client projects.
+                    </>
+                  ) : (
+                    faq.answer
+                  )}
+                </p>
+              </div>
+            ))}
           </div>
 
           <div className="mt-12 text-center">

@@ -2,7 +2,7 @@
 title: "Core Web Vitals Explained for Business Owners: Why Your Website Speed Matters"
 date: "2025-12-27"
 author: "Kyle Stephens"
-excerpt: "Your website's performance directly impacts your bottom line. Here's everything you need to know about Core Web Vitals and why they're critical for your business success."
+excerpt: "Your website's performance directly impacts your bottom line. Here's what you need to know about Core Web Vitals and why they matter for your business."
 category: "SEO"
 tags: ["Core Web Vitals", "page speed", "SEO", "website performance", "Google ranking", "small business"]
 readTime: "13 min read"

@@ -18,7 +18,7 @@ The challenge? Most medical practice websites fail at this critical task. Outdat
 
 ## Why Your Medical Practice Website Is Your Most Important Marketing Tool
 
-Healthcare has fundamentally changed over the past decade. Patients no longer rely solely on insurance directories or referrals from friends. They research providers online first. Studies show that 77% of patients use search engines before booking a medical appointment.
+Healthcare has fundamentally changed over the past decade. Patients no longer rely solely on insurance directories or referrals from friends. Most research providers with a search engine before ever booking an appointment.
 
 Think about the modern patient journey. They wake up with concerning symptoms. Before calling anyone, they Google their symptoms, then they search for providers who treat those conditions in their area. They look at websites, read reviews, and make decisions based on what they find online, all before ever picking up the phone.
 

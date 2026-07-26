@@ -1,6 +1,6 @@
 'use client';
 
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import {
   Factory, Package, Users, TrendingUp, BarChart3, ShoppingBag,
   Truck, Settings, CheckCircle2, AlertTriangle, Clock, Calendar,
@@ -63,14 +63,23 @@ interface QualityCheck {
   total: number;
 }
 
-const TechProManufacturing = () => {
-  const [currentPage, setCurrentPage] = useState<Page>('home');
-  const [userRole, setUserRole] = useState<UserRole>('guest');
+interface TechProManufacturingProps {
+  viewMode?: 'customer' | 'admin';
+}
+
+const TechProManufacturing = ({ viewMode }: TechProManufacturingProps = {}) => {
+  const [currentPage, setCurrentPage] = useState<Page>(viewMode === 'admin' ? 'analytics' : 'home');
+  const [userRole, setUserRole] = useState<UserRole>(viewMode === 'admin' ? 'admin' : 'guest');
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
   const [selectedFacility, setSelectedFacility] = useState('all');
   const [dateRange, setDateRange] = useState('30days');
   const [searchTerm, setSearchTerm] = useState('');
   const [contactSubmitted, setContactSubmitted] = useState(false);
+
+  useEffect(() => {
+    setCurrentPage(viewMode === 'admin' ? 'analytics' : 'home');
+    setUserRole(viewMode === 'admin' ? 'admin' : 'guest');
+  }, [viewMode]);
 
   const handleContactSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();

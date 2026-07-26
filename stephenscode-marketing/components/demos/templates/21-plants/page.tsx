@@ -108,7 +108,7 @@ const UrbanJunglePlantShop = () => {
       category: 'Vining',
       difficulty: 'Easy',
       price: 24.99,
-      image: 'https://images.unsplash.com/photo-1614594895304-fe7116ac3b44?w=400&h=600&fit=crop',
+      image: 'https://images.unsplash.com/photo-1521334884684-d80222895322?w=400&h=600&fit=crop',
       description: 'Trailing vine with heart-shaped variegated leaves.',
       light: 'Medium',
       water: 'Medium',

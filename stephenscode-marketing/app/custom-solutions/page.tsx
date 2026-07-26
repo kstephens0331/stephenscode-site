@@ -8,8 +8,11 @@ import CustomSolutionsForm from '@/components/custom-solutions/CustomSolutionsFo
 import SuccessStories from '@/components/custom-solutions/SuccessStories';
 
 export const metadata: Metadata = {
-  title: 'Custom Solutions: SaaS, Web Apps, Scrapers & More | StephensCode',
-  description: 'Need a custom software solution? We build SaaS platforms, web applications, data scrapers, and bespoke tools tailored to your business. Flat-rate pricing based on $50/hour estimates.',
+  title: 'Custom Solutions: SaaS, Web Apps, Scrapers & More',
+  description: 'Need a custom software solution? We build SaaS platforms, web apps, data scrapers, and bespoke tools tailored to your business, flat-rate priced.',
+  alternates: {
+    canonical: '/custom-solutions',
+  },
   openGraph: {
     title: 'Custom Solutions: SaaS, Web Apps, Scrapers & More',
     description: 'We build SaaS platforms, web applications, data scrapers, and bespoke tools tailored to your business. Flat-rate pricing based on $50/hour estimates.',

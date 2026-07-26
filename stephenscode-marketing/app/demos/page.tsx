@@ -7,16 +7,21 @@ export const metadata: Metadata = {
   title: 'Website Demos | Custom Website Houston Examples | Small Business',
   description: 'Conroe web developer demos. Custom website Houston examples, small business website Texas showcases. 40+ live demos from veteran owned web developer.',
   keywords: ['Conroe web developer', 'Houston web development', 'custom website Houston', 'small business website Texas', 'affordable web design Houston', 'veteran owned web developer'],
+  alternates: {
+    canonical: '/demos',
+  },
   openGraph: {
     title: 'Live Demos: See Our Work in Action | StephensCode',
     description: 'Explore 40+ fully interactive website demos. Try admin dashboards, customer portals, and advanced functionality.',
     url: 'https://www.stephenscode.dev/demos',
     type: 'website',
+    images: ['/opengraph-image'],
   },
   twitter: {
     card: 'summary_large_image',
     title: 'Live Demos: See Our Work in Action | StephensCode',
     description: 'Explore 40+ fully interactive website demos. Try admin dashboards, customer portals, and advanced functionality.',
+    images: ['/twitter-image'],
   },
 }
 

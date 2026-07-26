@@ -19,6 +19,7 @@ export const metadata: Metadata = {
     canonical: '/services/api-integration',
   },
   openGraph: {
+    images: ['/opengraph-image'],
     title: 'API Integration Services | Connect Your Business Systems',
     description: 'Expert API integration with 200+ projects completed. REST, SOAP, GraphQL.',
     type: 'website',
@@ -33,10 +34,7 @@ const pageSchemas = {
     name: 'API Integration Services',
     serviceType: 'Software Development',
     provider: {
-      '@type': 'Organization',
-      name: 'StephensCode LLC',
-      telephone: '+1-936-323-4527',
-      email: 'kyle@stephenscode.dev'
+      '@id': 'https://www.stephenscode.dev/#organization',
     },
     description: 'Professional API integration services connecting business systems including CRM, payments, e-commerce, and accounting platforms. 200+ projects completed.',
   },

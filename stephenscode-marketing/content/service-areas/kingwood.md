@@ -92,7 +92,7 @@ Kingwood business owners are smart with their money. You're not going to overpay
 
 **Direct access to the developer.** When you work with StephensCode, you work with me. Kyle Stephens. (936) 323-4527. I'm the one writing the code, designing the layouts, optimizing the SEO, and answering your questions. No middlemen, no miscommunication, no delays while someone "checks with the developer."
 
-**Conroe-based, not overseas.** I'm in Conroe, less than 45 minutes from Kingwood up US-59. Same time zone, same state, same understanding of the Texas business environment. When you need to meet in person, we can make that happen.
+**Conroe-based, not overseas.** I'm in Conroe, about 35 minutes from Kingwood up US-59. Same time zone, same state, same understanding of the Texas business environment. When you need to meet in person, we can make that happen.
 
 **Veteran-owned discipline.** The Marine Corps instilled a work ethic and commitment to follow-through that shapes everything about how I run StephensCode. Deadlines matter. Communication matters. Doing what you say you'll do matters. Fourteen years of running a business on those principles, and I'm not about to change now.
 

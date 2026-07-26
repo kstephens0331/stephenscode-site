@@ -19,6 +19,7 @@ export const metadata: Metadata = {
     canonical: '/services/business-automation',
   },
   openGraph: {
+    images: ['/opengraph-image'],
     title: 'Business Automation Services | Streamline Your Operations',
     description: 'Stop wasting time on repetitive tasks. Custom automation with Zapier, n8n, Make, and custom solutions.',
     type: 'website',
@@ -33,10 +34,7 @@ const pageSchemas = {
     name: 'Business Automation Services',
     serviceType: 'Business Process Automation',
     provider: {
-      '@type': 'Organization',
-      name: 'StephensCode LLC',
-      telephone: '+1-936-323-4527',
-      email: 'kyle@stephenscode.dev'
+      '@id': 'https://www.stephenscode.dev/#organization',
     },
     description: 'Business process automation services using Zapier, n8n, Make, Power Automate, and custom solutions. Streamline operations and eliminate repetitive tasks.',
   },

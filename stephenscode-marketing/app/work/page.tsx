@@ -15,6 +15,7 @@ export const metadata: Metadata = {
     'The Woodlands web developer'
   ],
   openGraph: {
+    images: ['/opengraph-image'],
     title: 'Web Development Portfolio | Custom Websites Houston | Case Studies',
     description: 'Conroe web developer portfolio. Custom website Houston examples, small business website Texas case studies. Veteran owned web developer with 200+ projects.',
     url: 'https://www.stephenscode.dev/work',

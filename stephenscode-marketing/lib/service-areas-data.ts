@@ -308,7 +308,7 @@ export const serviceAreas: ServiceArea[] = [
     region: 'harris-north',
     population: '16,000+ (city) / 200,000+ (area)',
     description: 'Humble offers affordable living with easy access to Bush Intercontinental Airport and downtown Houston. The area\'s oil history (Humble Oil Company was founded here and later became ExxonMobil) gives the city historical significance, while Lake Houston and surrounding parks provide outdoor recreation. Deerbrook Mall anchors the retail sector, and the surrounding area supports a diverse mix of businesses serving families, airport travelers, and outdoor enthusiasts.',
-    neighborhoods: ['Atascocita', 'Kingwood', 'Fall Creek', 'Eagle Springs', 'Summer Creek'],
+    neighborhoods: ['Fall Creek', 'Eagle Springs', 'Summer Creek', 'Timber Forest'],
     localFeatures: [
       'Deerbrook Mall',
       'Lake Houston',

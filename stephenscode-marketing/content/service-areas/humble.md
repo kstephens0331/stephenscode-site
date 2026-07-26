@@ -8,7 +8,7 @@ heroSubtitle: Custom websites for Humble businesses, from Deerbrook Mall to FM 1
 
 Humble sits at one of the most interesting crossroads in the greater Houston area. You have got Old Humble with its deep roots and working-class character, and then you have got massive master-planned communities like Fall Creek and Eagle Springs pushing the population north and east. Deerbrook Mall anchors the commercial side of things. George Bush Intercontinental Airport is right down the road, pulling in hospitality and travel businesses that need websites yesterday. And the US-59/I-69 corridor keeps pumping commercial growth into every strip center and office park along the way.
 
-I am Kyle Stephens, owner of StephensCode LLC, a Marine Corps veteran, and I have been building websites for over 14 years. I am based in Conroe, which puts me about 40 minutes north of Humble -- close enough to meet for coffee at the Egg & I off Will Clayton, far enough away that I am not competing with Houston agencies for office space. My rates start at $250, and I build every site by hand. No drag-and-drop page builders. No recycled templates with your logo slapped on top.
+I am Kyle Stephens, owner of StephensCode LLC, a Marine Corps veteran, and I have been building websites for over 14 years. I am based in Conroe, which puts me about 30 minutes north of Humble -- close enough to meet for coffee at the Egg & I off Will Clayton, far enough away that I am not competing with Houston agencies for office space. My rates start at $250, and I build every site by hand. No drag-and-drop page builders. No recycled templates with your logo slapped on top.
 
 If you run a business in Humble, Atascocita, Summerwood, Lakeshore, or anywhere along that FM 1960 stretch, this page is for you. Let me walk you through what I do and why it matters for businesses in your area.
 
@@ -110,7 +110,7 @@ When I build a site for a Humble-area business, I do not just optimize for "Humb
 
 You might wonder why a developer in Conroe is the right fit for your Humble business. Fair question. Here is my answer.
 
-First, proximity matters but not the way most people think. I am 40 minutes up I-69. Close enough for in-person meetings when they matter. But the real work -- the design, the coding, the SEO strategy -- that happens at my desk regardless of whether I am five miles away or fifty. What matters is that I know this region. I know the market dynamics in Montgomery County and Harris County. I know how people in Humble search for businesses. I know what your competition looks like.
+First, proximity matters but not the way most people think. I am about 30 minutes up I-69. Close enough for in-person meetings when they matter. But the real work -- the design, the coding, the SEO strategy -- that happens at my desk regardless of whether I am five miles away or fifty. What matters is that I know this region. I know the market dynamics in Montgomery County and Harris County. I know how people in Humble search for businesses. I know what your competition looks like.
 
 Second, I am not a Houston agency. Houston agencies charge Houston prices. They have got office leases in the Galleria area, account managers, project managers, and a whole chain of people between you and the person writing your code. When you work with me, you work with me. One person. One point of contact. I answer my phone: (936) 323-4527.
 

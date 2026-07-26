@@ -1,5 +1,6 @@
 import { MetadataRoute } from 'next'
 import { corePackages, premiumBuilds } from '@/lib/services-data'
+import { allAddOns } from '@/lib/addons-data'
 import { allMSPServices } from '@/lib/msp-services-data'
 import { allDemos } from '@/lib/demos-data'
 import { getAllPosts } from '@/lib/blog'
@@ -44,6 +45,12 @@ export default function sitemap(): MetadataRoute.Sitemap {
     },
     {
       url: `${baseUrl}/services/business-automation`,
+      lastModified: currentDate,
+      changeFrequency: 'weekly',
+      priority: 0.95,
+    },
+    {
+      url: `${baseUrl}/services/custom-websites`,
       lastModified: currentDate,
       changeFrequency: 'weekly',
       priority: 0.95,
@@ -149,6 +156,14 @@ export default function sitemap(): MetadataRoute.Sitemap {
     priority: service.category === 'core' ? 0.9 : 0.85,
   }))
 
+  // Add-on service pages (0.7) - Individual add-on offerings
+  const addOnPages: MetadataRoute.Sitemap = allAddOns.map((addon) => ({
+    url: `${baseUrl}/services/${addon.slug}`,
+    lastModified: currentDate,
+    changeFrequency: 'weekly' as const,
+    priority: 0.7,
+  }))
+
   // MSP service pages (0.85) - IT services
   const mspServicePages: MetadataRoute.Sitemap = allMSPServices.map((service) => ({
     url: `${baseUrl}/msp/${service.slug}`,
@@ -189,6 +204,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
     ...importantPages,
     ...serviceAreaPages,
     ...servicePages,
+    ...addOnPages,
     ...mspServicePages,
     ...blogPostPages,
     ...blogCategoryPages,

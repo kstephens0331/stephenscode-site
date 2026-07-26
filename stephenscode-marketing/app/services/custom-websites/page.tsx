@@ -5,8 +5,18 @@ import PhoneLink from '@/components/PhoneLink'
 
 export const metadata: Metadata = {
   title: 'Custom Website Development | From $250 | Houston & Conroe',
-  description: 'Professional custom website development for Houston businesses. Responsive design, SEO-optimized, mobile-friendly. Flat-rate pricing from $250. Free consultation.',
+  description: 'Custom website development for Houston businesses. Responsive, SEO-optimized design at flat-rate pricing from $250. Free consultation available.',
   keywords: ['custom website development Houston', 'small business website Conroe TX', 'responsive web design Texas'],
+  alternates: {
+    canonical: '/services/custom-websites',
+  },
+  openGraph: {
+    images: ['/opengraph-image'],
+    title: 'Custom Website Development | From $250 | Houston & Conroe',
+    description: 'Professional custom website development for Houston businesses. Responsive design, SEO-optimized, mobile-friendly. Flat-rate pricing from $250.',
+    url: 'https://www.stephenscode.dev/services/custom-websites',
+    type: 'website',
+  },
 }
 
 export default function CustomWebsitesPage() {

@@ -13,9 +13,15 @@ export const metadata: Metadata = {
     'affordable web design Houston',
     'The Woodlands web developer'
   ],
+  alternates: {
+    canonical: '/partners',
+  },
   openGraph: {
-    title: 'Our Portfolio & Client Projects | StephensCode',
+    images: ['/opengraph-image'],
+    title: 'Our Portfolio & Client Projects',
     description: 'View websites we\'ve built for Houston-area businesses. Real projects, real results.',
+    url: 'https://www.stephenscode.dev/partners',
+    type: 'website',
   },
 }
 

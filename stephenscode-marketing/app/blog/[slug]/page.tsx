@@ -41,11 +41,13 @@ export async function generateMetadata({ params }: BlogPostPageProps): Promise<M
       publishedTime: post.date,
       authors: [post.author],
       url: `https://www.stephenscode.dev/blog/${slug}`,
+      images: ['/opengraph-image'],
     },
     twitter: {
       card: 'summary_large_image',
       title: post.title,
       description: post.excerpt,
+      images: ['/twitter-image'],
     },
   }
 }

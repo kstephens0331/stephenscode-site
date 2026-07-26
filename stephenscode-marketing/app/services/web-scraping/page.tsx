@@ -5,7 +5,7 @@ import PhoneLink from '@/components/PhoneLink'
 
 export const metadata: Metadata = {
   title: 'Web Scraping Services | Custom Data Extraction Solutions',
-  description: 'Professional web scraping services with 500+ projects completed. Lead generation, price monitoring, market research. Python, Scrapy, Playwright. Ethical data extraction.',
+  description: 'Professional web scraping services for lead generation, price monitoring, and market research. Python, Scrapy, Playwright. Ethical data extraction.',
   keywords: [
     'web scraping services',
     'data extraction services',
@@ -20,8 +20,9 @@ export const metadata: Metadata = {
     canonical: '/services/web-scraping',
   },
   openGraph: {
+    images: ['/opengraph-image'],
     title: 'Web Scraping Services | Custom Data Extraction Solutions',
-    description: 'Professional web scraping with 500+ projects. Lead generation, pricing data, market research.',
+    description: 'Professional web scraping services. Lead generation, pricing data, market research.',
     type: 'website',
   },
 }
@@ -34,12 +35,9 @@ const pageSchemas = {
     name: 'Web Scraping Services',
     serviceType: 'Data Extraction',
     provider: {
-      '@type': 'Organization',
-      name: 'StephensCode LLC',
-      telephone: '+1-936-323-4527',
-      email: 'kyle@stephenscode.dev'
+      '@id': 'https://www.stephenscode.dev/#organization',
     },
-    description: 'Professional web scraping and data extraction services. 500+ projects completed including lead generation, price monitoring, and market research.',
+    description: 'Professional web scraping and data extraction services including lead generation, price monitoring, and market research.',
   },
   faq: {
     '@context': 'https://schema.org',

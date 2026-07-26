@@ -28,6 +28,7 @@ export async function generateMetadata({ params }: MSPPageProps): Promise<Metada
     },
     keywords: service.seoKeywords,
     openGraph: {
+      images: ['/opengraph-image'],
       title: service.metaTitle,
       description: service.metaDescription,
       url: `https://www.stephenscode.dev/msp/${slug}`,

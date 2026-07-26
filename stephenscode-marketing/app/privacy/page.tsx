@@ -2,9 +2,9 @@ import type { Metadata } from 'next'
 import Link from 'next/link'
 
 export const metadata: Metadata = {
-  title: 'Privacy Policy | StephensCode',
+  title: 'Privacy Policy',
   description:
-    'How StephensCode LLC collects, uses, discloses, and protects Personal Information across stephenscode.dev, our customer portal, and our checkout process, including your rights under the CCPA, TDPSA, and other privacy laws.',
+    'How StephensCode LLC collects, uses, and protects your Personal Information, and how to exercise your rights under the CCPA, TDPSA, and other privacy laws.',
   keywords: [
     'StephensCode privacy policy',
     'data privacy',
@@ -17,7 +17,8 @@ export const metadata: Metadata = {
     'do not sell my personal information',
   ],
   openGraph: {
-    title: 'Privacy Policy | StephensCode',
+    images: ['/opengraph-image'],
+    title: 'Privacy Policy',
     description:
       'How StephensCode LLC collects, uses, discloses, and protects your Personal Information, and how to exercise your privacy rights.',
     url: 'https://www.stephenscode.dev/privacy',

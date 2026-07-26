@@ -2,9 +2,9 @@ import type { Metadata } from 'next'
 import Link from 'next/link'
 
 export const metadata: Metadata = {
-  title: 'Security & Trust | StephensCode',
+  title: 'Security & Trust',
   description:
-    'How StephensCode secures customer software and services. Controls aligned to SOC 2 and ISO 27001, HIPAA-aligned safeguards, and Business Associate Agreements available for healthcare engagements.',
+    'How StephensCode secures customer software and data. Controls aligned to SOC 2 and ISO 27001, plus HIPAA-aligned safeguards for healthcare engagements.',
   keywords: [
     'StephensCode security',
     'SOC 2',
@@ -15,7 +15,8 @@ export const metadata: Metadata = {
     'business associate agreement',
   ],
   openGraph: {
-    title: 'Security & Trust | StephensCode',
+    images: ['/opengraph-image'],
+    title: 'Security & Trust',
     description:
       'Controls aligned to SOC 2 and ISO 27001, HIPAA-aligned safeguards, and BAAs available for healthcare engagements.',
     url: 'https://www.stephenscode.dev/security',
@@ -63,7 +64,7 @@ const controls = [
   },
   {
     title: 'Secure development',
-    body: 'Changes follow a documented lifecycle with peer review, automated static analysis, dependency scanning, and secret scanning before code ships.',
+    body: 'Changes follow a documented lifecycle with a structured self-review checklist, automated static analysis, dependency scanning, and secret scanning before code ships.',
   },
   {
     title: 'Backup & recovery',

@@ -3,7 +3,7 @@ import Link from 'next/link'
 import { getAllPosts } from '@/lib/blog'
 
 export const metadata: Metadata = {
-  title: 'Blog | Web Development Tips & Houston Business Growth | StephensCode',
+  title: 'Blog | Web Development Tips & Houston Business Growth',
   description: 'Expert insights on web development, SEO, and business automation. Tips and strategies for Houston small businesses to grow online.',
   keywords: [
     'web development blog Houston',
@@ -15,10 +15,11 @@ export const metadata: Metadata = {
     'web design best practices'
   ],
   openGraph: {
-    title: 'Blog | Web Development Tips & Houston Business Growth | StephensCode',
+    title: 'Blog | Web Development Tips & Houston Business Growth',
     description: 'Expert insights on web development, SEO, and business automation. Tips and strategies for Houston small businesses to grow online.',
     url: 'https://www.stephenscode.dev/blog',
     type: 'website',
+    images: ['/opengraph-image'],
   },
   alternates: {
     canonical: 'https://www.stephenscode.dev/blog',

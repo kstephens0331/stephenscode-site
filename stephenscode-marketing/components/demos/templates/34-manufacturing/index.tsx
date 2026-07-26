@@ -9,5 +9,5 @@ interface ManufacturingDemoProps {
 }
 
 export default function ManufacturingDemo({ demo, viewMode }: ManufacturingDemoProps) {
-  return <TechProManufacturing />
+  return <TechProManufacturing viewMode={viewMode} />
 }

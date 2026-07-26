@@ -23,7 +23,7 @@ export async function generateMetadata({ params }: ServiceAreaPageProps): Promis
 
   return {
     title: `${area.name} Web Developer | Websites from $250 | StephensCode`,
-    description: `Need a website in ${area.name}, TX? Custom sites in 1-2 weeks, flat-rate pricing from $250, no hidden fees. Veteran-owned, 14+ years experience. Call (936) 323-4527 for a free quote.`,
+    description: `Web developer serving ${area.name}, TX. Flat-rate custom websites from $250, fast turnaround, no hidden fees. Veteran-owned, 14+ years experience.`,
     alternates: {
       canonical: `/service-areas/${slug}`,
     },
@@ -35,6 +35,7 @@ export async function generateMetadata({ params }: ServiceAreaPageProps): Promis
       `small business website ${area.name}`,
     ],
     openGraph: {
+      images: ['/opengraph-image'],
       title: `${area.name} Web Developer | Custom Websites from $250`,
       description: `Professional websites for ${area.name} businesses. Flat-rate pricing, fast turnaround, veteran-owned.`,
       url: `https://www.stephenscode.dev/service-areas/${slug}`,

@@ -2,7 +2,7 @@
 title: "Law Firm Website Best Practices: How to Attract and Convert More Clients Online"
 date: "2025-12-27"
 author: "Kyle Stephens"
-excerpt: "Most law firm websites fail to inspire confidence. Here's exactly what your firm needs to establish trust, demonstrate expertise, and convert visitors into consultations."
+excerpt: "Most law firm websites fail to inspire confidence. Here's what your firm needs to establish trust and convert visitors into consultations."
 category: "Web Development"
 tags: ["law firm", "legal", "attorney", "lead generation", "local SEO", "professional services", "Houston"]
 readTime: "15 min read"

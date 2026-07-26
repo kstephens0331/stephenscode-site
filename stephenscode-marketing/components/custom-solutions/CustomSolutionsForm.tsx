@@ -284,7 +284,7 @@ export default function CustomSolutionsForm() {
               {status === 'error' && (
                 <div className="p-4 bg-red-500/10 border border-red-500/30 rounded-xl">
                   <p className="text-red-400 text-sm text-center">
-                    Something went wrong. Please try again or email us directly at contact@stephenscode.dev
+                    Something went wrong. Please try again or email us directly at info@stephenscode.dev
                   </p>
                 </div>
               )}

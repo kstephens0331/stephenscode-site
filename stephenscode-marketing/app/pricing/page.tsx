@@ -6,7 +6,7 @@ import { basicAddOns, advancedAddOns } from '@/lib/addons-data'
 
 export const metadata: Metadata = {
   title: 'Houston Web Development | Flat-Rate Small Business Websites from $250',
-  description: 'Conroe web developer with flat-rate small business websites from $250. Small business website packages for Houston and The Woodlands. Veteran owned. No hidden fees.',
+  description: 'Conroe web developer with flat-rate websites from $250 for Houston and The Woodlands small businesses. Veteran owned. No hidden fees.',
   keywords: [
     'affordable web design Houston',
     'Conroe web developer',
@@ -26,8 +26,9 @@ export const metadata: Metadata = {
     'Montgomery County web design',
   ],
   openGraph: {
-    title: 'Houston Web Development | Six Flat-Rate Website Tiers, $250 to $7,500+',
-    description: 'Six flat-rate website tiers from $250 to $7,500+, all with 90 days post-launch support. Standard small business sites at $950. Houston, Conroe, and The Woodlands. Veteran owned. No hourly billing.',
+    images: ['/opengraph-image'],
+    title: 'Houston Web Development | Seven Flat-Rate Website Tiers, $250 to $7,500+',
+    description: 'Seven flat-rate website tiers from $250 to $7,500+, all with 90 days post-launch support. Standard small business sites start at $950. No hourly billing.',
     url: 'https://www.stephenscode.dev/pricing',
     type: 'website',
   },
@@ -222,7 +223,7 @@ export default function PricingPage() {
 
           <div className="grid gap-8 lg:grid-cols-2 xl:grid-cols-4">
             {corePackages.map((pkg, index) => {
-              const isPopular = pkg.id === 'standard-business-website'
+              const isPopular = pkg.id === 'standard-website'
               return (
                 <div
                   key={pkg.id}

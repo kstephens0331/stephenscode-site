@@ -26,12 +26,12 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
 
   if (!demo) {
     return {
-      title: 'Demo Not Found | StephensCode',
+      title: 'Demo Not Found',
       description: 'The demo you are looking for could not be found.',
     }
   }
 
-  const title = `${demo.name} Demo | StephensCode`
+  const title = demo.name.trim().endsWith('Demo') ? demo.name : `${demo.name} Demo`
   const description = demo.description
 
   return {
@@ -46,11 +46,13 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
       url: `https://www.stephenscode.dev/demos/${demo.slug}`,
       type: 'website',
       siteName: 'StephensCode',
+      images: ['/opengraph-image'],
     },
     twitter: {
       card: 'summary_large_image',
       title,
       description,
+      images: ['/twitter-image'],
     },
   }
 }

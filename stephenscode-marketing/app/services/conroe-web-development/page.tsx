@@ -5,7 +5,7 @@ import PhoneLink from '@/components/PhoneLink'
 
 export const metadata: Metadata = {
   title: 'Conroe Web Developer | Flat-Rate Small Business Websites from $250',
-  description: 'Conroe web developer serving Houston and The Woodlands. Veteran owned, flat-rate small business websites from $250. Custom websites for small business. Call (936) 323-4527.',
+  description: 'Conroe web developer serving Houston and The Woodlands. Veteran owned, flat-rate custom websites from $250. Call (936) 323-4527 for a free quote.',
   keywords: [
     'Conroe web developer',
     'Houston web development',
@@ -20,6 +20,7 @@ export const metadata: Metadata = {
     canonical: '/services/conroe-web-development',
   },
   openGraph: {
+    images: ['/opengraph-image'],
     title: 'Conroe Web Developer | Custom Websites for Local Businesses',
     description: 'Local Conroe web developer. Veteran-owned, 14+ years experience, 200+ projects completed.',
     type: 'website',
@@ -34,16 +35,7 @@ const pageSchemas = {
     name: 'Conroe Web Development Services',
     serviceType: 'Web Development',
     provider: {
-      '@type': 'LocalBusiness',
-      name: 'StephensCode LLC',
-      telephone: '+1-936-323-4527',
-      email: 'kyle@stephenscode.dev',
-      address: {
-        '@type': 'PostalAddress',
-        addressLocality: 'Conroe',
-        addressRegion: 'TX',
-        addressCountry: 'US'
-      }
+      '@id': 'https://www.stephenscode.dev/#organization',
     },
     areaServed: [
       { '@type': 'City', name: 'Conroe' },

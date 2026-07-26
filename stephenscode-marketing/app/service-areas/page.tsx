@@ -4,7 +4,7 @@ import { serviceAreas, getServiceAreasByRegion } from '@/lib/service-areas-data'
 
 export const metadata: Metadata = {
   title: 'Service Areas | Web Design Houston, Conroe, The Woodlands TX',
-  description: 'Web design and IT services across 35+ Houston-area communities. Conroe, The Woodlands, Midtown, Heights, Montrose, Katy, Sugar Land, and more. Veteran-owned.',
+  description: `Web design and IT services across ${serviceAreas.length}+ Houston-area communities: Conroe, The Woodlands, Katy, Sugar Land, and more. Veteran-owned.`,
   keywords: [
     'Conroe web developer',
     'Houston web development',
@@ -20,8 +20,12 @@ export const metadata: Metadata = {
     'small business website Texas',
     'veteran owned web developer',
   ],
+  alternates: {
+    canonical: '/service-areas',
+  },
   openGraph: {
-    title: 'Service Areas | 35+ Houston Communities Served',
+    images: ['/opengraph-image'],
+    title: `Service Areas | ${serviceAreas.length}+ Houston Communities Served`,
     description: 'Web development and IT services across Greater Houston. From Montgomery County to Galveston Bay.',
     url: 'https://www.stephenscode.dev/service-areas',
   },

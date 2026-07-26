@@ -5,7 +5,7 @@ import PhoneLink from '@/components/PhoneLink'
 
 export const metadata: Metadata = {
   title: 'Houston Managed IT Services | $99/User/Mo | 24/7 Support',
-  description: 'Tired of IT problems? Get 24/7 monitoring, cybersecurity, and helpdesk support from $99/user/mo. No contracts. Veteran-owned MSP serving Houston, Conroe, The Woodlands. Free IT assessment.',
+  description: 'Get 24/7 monitoring, cybersecurity, and helpdesk support from $99/user/mo. No contracts. Veteran-owned MSP serving Houston, Conroe, and The Woodlands.',
   alternates: {
     canonical: '/msp',
   },
@@ -30,6 +30,7 @@ export const metadata: Metadata = {
     'backup disaster recovery Houston',
   ],
   openGraph: {
+    images: ['/opengraph-image'],
     title: 'Houston Managed IT Services | From $99/User/Month',
     description: '24/7 monitoring, cybersecurity, and helpdesk support. No long-term contracts. Veteran-owned MSP.',
     url: 'https://www.stephenscode.dev/msp',
@@ -41,19 +42,7 @@ const mspSchema = {
   "@type": "Service",
   "serviceType": "Managed IT Services",
   "provider": {
-    "@type": "LocalBusiness",
-    "name": "StephensCode LLC",
-    "image": "https://www.stephenscode.dev/logo.png",
-    "telephone": "+1-936-323-4527",
-    "priceRange": "$99+/user/mo",
-    "address": {
-      "@type": "PostalAddress",
-      "streetAddress": "2378 Strong Horse Dr",
-      "addressLocality": "Conroe",
-      "addressRegion": "TX",
-      "postalCode": "77301",
-      "addressCountry": "US"
-    }
+    "@id": "https://www.stephenscode.dev/#organization"
   },
   "areaServed": [
     { "@type": "City", "name": "Houston" },

@@ -2,9 +2,10 @@ import type { Metadata } from 'next'
 import Link from 'next/link'
 import { notFound } from 'next/navigation'
 import { corePackages, premiumBuilds, type Service } from '@/lib/services-data'
+import { allAddOns } from '@/lib/addons-data'
 import Breadcrumbs from '@/components/Breadcrumbs'
 
-const allServices: Service[] = [...corePackages, ...premiumBuilds]
+const allServices: Service[] = [...corePackages, ...premiumBuilds, ...allAddOns]
 
 function getServiceBySlug(slug: string): Service | undefined {
   return allServices.find((s) => s.slug === slug)
@@ -34,6 +35,7 @@ export async function generateMetadata({ params }: ServicePageProps): Promise<Me
     },
     keywords: service.seoKeywords,
     openGraph: {
+      images: ['/opengraph-image'],
       title: service.metaTitle,
       description: service.metaDescription,
       url: `https://www.stephenscode.dev/services/${slug}`,
@@ -62,12 +64,17 @@ export default async function ServiceDetailPage({ params }: ServicePageProps) {
       '@type': 'State',
       name: 'Texas',
     },
-    offers: {
-      '@type': 'Offer',
-      price: service.price,
-      priceCurrency: 'USD',
-      url: `https://www.stephenscode.dev/services/${slug}`,
-    },
+    offers: service.price > 0
+      ? {
+          '@type': 'Offer',
+          price: service.price,
+          priceCurrency: 'USD',
+          url: `https://www.stephenscode.dev/services/${slug}`,
+        }
+      : {
+          '@type': 'Offer',
+          url: service.pricingUrl ?? `https://www.stephenscode.dev/services/${slug}`,
+        },
   }
 
   const related = allServices.filter((s) => s.slug !== slug).slice(0, 3)

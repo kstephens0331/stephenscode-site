@@ -2,7 +2,7 @@
 title: "Real Estate Agent Website Must-Haves: Turn Browsers Into Buyers and Sellers"
 date: "2025-12-27"
 author: "Kyle Stephens"
-excerpt: "Most real estate agent websites are glorified business cards. Here's exactly what your website needs to generate consistent leads and dominate your local market."
+excerpt: "Most real estate agent websites are glorified business cards. Here's what yours needs to generate consistent leads and win your local market."
 category: "Web Development"
 tags: ["real estate", "lead generation", "IDX", "local SEO", "Houston", "small business"]
 readTime: "14 min read"

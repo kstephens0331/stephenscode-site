@@ -3,7 +3,7 @@ import Link from 'next/link'
 
 export const metadata: Metadata = {
   title: 'FAQ | Conroe Web Developer Questions | Affordable Web Design',
-  description: 'FAQ about Conroe web developer services. Custom website Houston pricing, small business website Texas cost. Veteran owned, flat-rate small business websites from $250.',
+  description: 'FAQ about Conroe web developer services: Houston website pricing, small business costs, and flat-rate websites from $250.',
   keywords: [
     'Conroe web developer',
     'Houston web development',
@@ -14,8 +14,9 @@ export const metadata: Metadata = {
     'The Woodlands web developer'
   ],
   openGraph: {
+    images: ['/opengraph-image'],
     title: 'FAQ | Conroe Web Developer Questions | Affordable Web Design',
-    description: 'FAQ about Conroe web developer services. Custom website Houston pricing, small business website Texas cost. Veteran owned, flat-rate small business websites from $250.',
+    description: 'FAQ about Conroe web developer services: Houston website pricing, small business costs, and flat-rate websites from $250.',
     url: 'https://www.stephenscode.dev/faq',
     type: 'website',
   },
@@ -197,7 +198,7 @@ const faqs: FAQItem[] = [
   {
     category: 'Support & Maintenance',
     question: 'What happens after my website launches?',
-    answer: 'You get 90 days of free support for questions and minor tweaks. After that, you can handle it yourself, hire us for specific updates, or sign up for a monthly maintenance plan ($50-150/month depending on needs).'
+    answer: 'You get 90 days of free support for questions and minor tweaks. After that, you can handle it yourself, hire us for specific updates, or sign up for a monthly maintenance plan ($50-75/month depending on needs).'
   },
   {
     category: 'Support & Maintenance',

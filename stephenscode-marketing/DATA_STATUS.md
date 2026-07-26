@@ -5,7 +5,7 @@
 ### Core Packages (4/4) - 100% Complete
 1. ✅ Plug and Play - $250
 2. ✅ Website Rebuild - $350
-3. ✅ Standard Website - $850
+3. ✅ Standard Website - $950
 4. ✅ E-Commerce Website - $1,100
 
 ### Premium Builds (3/3) - 100% Complete

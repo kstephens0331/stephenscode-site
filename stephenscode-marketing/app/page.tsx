@@ -13,24 +13,6 @@ export const metadata: Metadata = {
   },
 }
 
-// Homepage-specific schema. Organization/LocalBusiness/FAQPage are already rendered
-// sitewide by components/LocalBusinessSchema.tsx (via app/layout.tsx) -- duplicating
-// them here would put two conflicting copies of the same entity on this page.
-const homepageSchemas = {
-  breadcrumb: {
-    "@context": "https://schema.org",
-    "@type": "BreadcrumbList",
-    "itemListElement": [
-      {
-        "@type": "ListItem",
-        "position": 1,
-        "name": "Home",
-        "item": "https://www.stephenscode.dev"
-      }
-    ]
-  }
-}
-
 export default function Home() {
   const packages = [
     {
@@ -143,12 +125,6 @@ export default function Home() {
 
   return (
     <>
-      {/* Homepage-specific schema (Organization/LocalBusiness/FAQPage render sitewide via layout.tsx) */}
-      <script
-        type="application/ld+json"
-        dangerouslySetInnerHTML={{ __html: JSON.stringify(homepageSchemas.breadcrumb) }}
-      />
-
       {/* Hero — clean professional dark with the bracket motif from the logo */}
       <section className="relative bg-black border-b border-surface-border overflow-hidden">
         {/* Soft vertical sheen — barely there, gives the canvas depth without halo */}

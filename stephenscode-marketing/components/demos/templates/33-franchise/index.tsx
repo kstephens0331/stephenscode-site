@@ -9,5 +9,5 @@ interface FranchiseDemoProps {
 }
 
 export default function FranchiseDemo({ demo, viewMode }: FranchiseDemoProps) {
-  return <FastServeFranchiseNetwork />
+  return <FastServeFranchiseNetwork viewMode={viewMode} />
 }

@@ -153,7 +153,7 @@ Q: What makes SACVPN different?
 A: SACVPN is a zero-log enterprise VPN built for businesses, not consumers. Centralized management, team controls, dedicated IP options, audit logs for compliance, and US-based support.
 
 Q: Do you offer ongoing maintenance for websites?
-A: Yes. Monthly maintenance plans cover security updates, content edits, uptime monitoring, and backups. Plans start at $49 per month for the Plug and Play tier.
+A: Yes. Monthly maintenance plans cover security updates, content edits, uptime monitoring, and backups. Plans range from $50 to $75 per month depending on needs.
 
 Q: How fast can you build a website?
 A: Plug and Play in 5 to 7 business days. Standard in 10 to 14. Rebuild in 7 to 10. E-commerce in 14 to 21. Custom is scoped per project.

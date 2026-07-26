@@ -38,7 +38,7 @@ Your phone number should be:
 - **Large enough to tap** without zooming
 - **Repeated in the footer** for people who scroll
 
-A study by Google found that 70% of mobile searchers call a business directly from search results. If your number isn't prominent, you're invisible.
+Most mobile searchers call a business directly from the search results page rather than digging through a website first. If your number isn't prominent, you're invisible.
 
 ### 2. Clear Service Area Information
 

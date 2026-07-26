@@ -4,7 +4,7 @@ import PhoneLink from '@/components/PhoneLink'
 
 export const metadata: Metadata = {
   title: 'Veteran Owned Web Developer | About StephensCode | Houston TX',
-  description: 'Veteran owned web developer in Conroe TX. 14+ years Houston web development experience. Affordable web design, custom websites for small business. Call (936) 323-4527.',
+  description: 'Veteran owned web developer in Conroe, TX. 14+ years of Houston web development experience building affordable custom websites for small businesses.',
   keywords: [
     'veteran owned web developer',
     'Conroe web developer',
@@ -15,6 +15,7 @@ export const metadata: Metadata = {
     'custom website Houston'
   ],
   openGraph: {
+    images: ['/opengraph-image'],
     title: 'Veteran Owned Web Developer | About StephensCode | Houston TX',
     description: 'Veteran owned web developer in Conroe TX. 14+ years Houston web development experience. Affordable web design, custom websites for small business.',
     url: 'https://www.stephenscode.dev/about',
@@ -147,7 +148,7 @@ export default function About() {
     {
       year: '2025',
       title: 'Full Platform Launch',
-      description: 'Launched complete business platform with custom admin dashboards, customer portals, and advanced automation. 200+ projects completed with 98% client satisfaction.'
+      description: 'Launched complete business platform with custom admin dashboards, customer portals, and advanced automation. 200+ projects completed.'
     }
   ]
 

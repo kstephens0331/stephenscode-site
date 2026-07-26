@@ -5,7 +5,7 @@ import { allAddOns } from '@/lib/addons-data'
 
 export const metadata: Metadata = {
   title: 'Houston Web Development | Flat-Rate Web Design from $250',
-  description: 'Conroe web developer offering custom websites for small business. Flat-rate small business websites from $250. Veteran owned, 14+ years exp. Free quote: (936) 323-4527.',
+  description: 'Conroe web developer offering flat-rate custom websites from $250 for small businesses. Veteran owned, 14+ years experience. Free quote available.',
   alternates: {
     canonical: '/services',
   },
@@ -28,6 +28,7 @@ export const metadata: Metadata = {
     'Montgomery County web developer',
   ],
   openGraph: {
+    images: ['/opengraph-image'],
     title: 'Houston Web Design | Flat-Rate Custom Websites from $250',
     description: 'Get a professional website built in 1-2 weeks. Flat-rate pricing, no hidden fees. Veteran-owned.',
     url: 'https://www.stephenscode.dev/services',
@@ -40,17 +41,7 @@ const serviceSchema = {
   "@type": "Service",
   "serviceType": "Web Development",
   "provider": {
-    "@type": "LocalBusiness",
-    "name": "StephensCode LLC",
-    "image": "https://www.stephenscode.dev/logo.png",
-    "telephone": "+1-936-323-4527",
-    "priceRange": "$250+",
-    "address": {
-      "@type": "PostalAddress",
-      "addressLocality": "Conroe",
-      "addressRegion": "TX",
-      "addressCountry": "US"
-    }
+    "@id": "https://www.stephenscode.dev/#organization"
   },
   "areaServed": {
     "@type": "State",
@@ -446,7 +437,7 @@ export default function ServicesPage() {
             {[
               {
                 question: "How much does a custom website cost?",
-                answer: "Six flat-rate tiers with 90 days post-launch support on every one. Starter $250 (3-4 page flyer for brand-new businesses), Basic $500 (campaign or landing site), Standard $950 (full 8-12 page small-business site with CMS, the typical entry tier), Advanced $2,000 (custom full-stack with admin portal + KPI dashboard), Business System $5,000 (CRM + portals + booking + payments + automation), Enterprise Platform $7,500+ (multi-tenant + SSO + audit). Custom SaaS and platform builds quoted above the catalog. No hourly billing."
+                answer: "Seven flat-rate tiers with 90 days post-launch support on every one. Plug and Play $250 (3-4 page flyer for brand-new businesses), Website Rebuild $350 (refresh or rebuild on your existing platform), Standard Website $950 (custom 8-12 page small-business site, the typical entry tier), E-Commerce Website $1,100 (Standard features plus online store and payments), Premium Build $2,000 (custom full-stack site with admin portal and KPI dashboard), Custom Business Platform $5,000 (CRM, client portals, and automation), Enterprise Platform $7,500+ (large-scale platform with admin system and staff roles). Larger custom SaaS and enterprise builds are quoted above the catalog. No hourly billing."
               },
               {
                 question: "How long does it take to build a website?",

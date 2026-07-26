@@ -12,7 +12,7 @@ This growth creates extraordinary business opportunities. Thousands of new famil
 
 But growth also means competition. Your competitors aren't sitting still. They're investing in digital marketing, optimizing for local search, and capturing customers you could be serving. To compete in Katy's dynamic market, you need more than just a website. You need a strategic online presence that generates leads and conversions.
 
-At StephensCode, we build websites for Katy businesses from our base in Conroe (about 45 minutes north on I-45). We understand the Katy market, the competitive landscape, and what it takes to rank in local search. As a veteran-owned company with 14+ years of experience, we deliver professional results at transparent prices: no corporate overhead, no mysterious fees, just excellent work.
+At StephensCode, we build websites for Katy businesses from our base in Conroe (about 45 minutes away via the Grand Parkway). We understand the Katy market, the competitive landscape, and what it takes to rank in local search. As a veteran-owned company with 14+ years of experience, we deliver professional results at transparent prices: no corporate overhead, no mysterious fees, just excellent work.
 
 ### Understanding the Katy Market
 

@@ -2,7 +2,7 @@ import Link from 'next/link'
 import type { Metadata } from 'next'
 
 export const metadata: Metadata = {
-  title: 'SACVPN | Enterprise-Grade VPN Security | StephensCode',
+  title: 'SACVPN | Enterprise-Grade VPN Security',
   description: 'SACVPN provides enterprise-grade VPN security for businesses. Secure your remote workforce and protect sensitive data with military-grade encryption.',
   keywords: [
     'enterprise VPN',
@@ -14,7 +14,8 @@ export const metadata: Metadata = {
     'secure business communications'
   ],
   openGraph: {
-    title: 'SACVPN | Enterprise-Grade VPN Security | StephensCode',
+    images: ['/opengraph-image'],
+    title: 'SACVPN | Enterprise-Grade VPN Security',
     description: 'SACVPN provides enterprise-grade VPN security for businesses. Secure your remote workforce and protect sensitive data with military-grade encryption.',
     url: 'https://www.stephenscode.dev/sacvpn',
     type: 'website',

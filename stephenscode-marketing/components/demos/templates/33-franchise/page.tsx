@@ -1,6 +1,6 @@
 'use client';
 
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import {
   Building2, Users, MapPin, BarChart3, Package, GraduationCap,
   Megaphone, FileText, Settings, ChevronRight, TrendingUp, AlertCircle,
@@ -51,8 +51,12 @@ interface TrainingModule {
   dueDate?: string;
 }
 
-const FastServeFranchiseNetwork = () => {
-  const [currentPage, setCurrentPage] = useState<Page>('home');
+interface FastServeFranchiseNetworkProps {
+  viewMode?: 'customer' | 'admin';
+}
+
+const FastServeFranchiseNetwork = ({ viewMode }: FastServeFranchiseNetworkProps = {}) => {
+  const [currentPage, setCurrentPage] = useState<Page>(viewMode === 'admin' ? 'admin' : 'home');
   const [userRole, setUserRole] = useState<UserRole>('guest');
   const [selectedLocation, setSelectedLocation] = useState('all');
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
@@ -60,6 +64,10 @@ const FastServeFranchiseNetwork = () => {
   const [searchTerm, setSearchTerm] = useState('');
   const [selectedCategory, setSelectedCategory] = useState('all');
   const [contactSubmitted, setContactSubmitted] = useState(false);
+
+  useEffect(() => {
+    setCurrentPage(viewMode === 'admin' ? 'admin' : 'home');
+  }, [viewMode]);
 
   const handleContactSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();

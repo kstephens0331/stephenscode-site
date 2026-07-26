@@ -120,11 +120,11 @@ DIY builders are notoriously slow. They load:
 - Unoptimized images
 - Heavy templates
 
-**Google data shows:**
-- 53% of visitors leave if a page takes >3 seconds to load
-- Each additional second costs 7% in conversions
+**Widely cited industry benchmarks on page speed:**
+- A large share of visitors abandon a page that takes more than 3 seconds to load
+- Each additional second of load time tends to reduce conversions
 
-If your DIY site loads in 5 seconds instead of 2 seconds, you're losing roughly 20% of potential customers before they even see your content.
+If your DIY site loads in 5 seconds instead of 2 seconds, you're losing a meaningful share of potential customers before they even see your content.
 
 ### SEO Limitations
 
@@ -138,7 +138,7 @@ DIY builders restrict your SEO capabilities:
 - Clean URL structures
 - Server-level optimizations
 
-**Real impact:** I've seen businesses move from Wix to custom sites and triple their organic traffic within 6 months: same content, better technical foundation.
+**Why it matters:** A stronger technical foundation (custom schema, proper heading structure, faster pages, clean URLs) gives the same content a better chance to rank, without changing a word of the copy itself.
 
 ### Mobile Experience Issues
 

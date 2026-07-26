@@ -12,7 +12,7 @@ But this affluence and desirability also mean fierce competition. Sugar Land cus
 
 In this environment, your website isn't just important. It's make-or-break. A cheap template or outdated site immediately disqualifies you from consideration. Sugar Land customers equate your digital presence with your business quality.
 
-At StephensCode, we build websites that meet Sugar Land's high standards, at prices that make sense for small businesses. From our base in Conroe (about 50 minutes north), we serve Sugar Land businesses across industries with professional, effective websites that generate results. As a veteran-owned company with 14+ years of experience, we deliver quality work with integrity and transparency.
+At StephensCode, we build websites that meet Sugar Land's high standards, at prices that make sense for small businesses. From our base in Conroe (about 50 minutes away), we serve Sugar Land businesses across industries with professional, effective websites that generate results. As a veteran-owned company with 14+ years of experience, we deliver quality work with integrity and transparency.
 
 ### The Sugar Land Advantage: Demographics and Economics
 
@@ -343,8 +343,6 @@ Sugar Land is competitive. Most clients need 60-90 days to see significant ranki
 **School proximity**: Many Sugar Land customers choose services based on convenience to excellent schools. Mention proximity to specific schools if relevant.
 
 **Lifestyle marketing**: Sugar Land residents value lifestyle and quality of life. Your messaging should connect to these values.
-
-**Fort Bend County vs. Harris County**: Some Sugar Land areas are in Harris County. Be clear about your service area.
 
 ### Ready for a Website That Matches Sugar Land's Standards?
 

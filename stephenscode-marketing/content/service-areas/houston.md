@@ -186,7 +186,7 @@ You might wonder why a Houston business would work with a developer in Conroe. H
 
 **No agency bloat**: Big agencies have account managers, project managers, creative directors, and developers who never talk to each other. You pay for all of them. With us, you talk directly to the person building your site.
 
-**Easy access**: We're 40 minutes from downtown Houston, closer than Katy or Sugar Land. We come to Houston regularly for client meetings.
+**Easy access**: We're about 40 minutes from downtown Houston. We come to Houston regularly for client meetings.
 
 **Focus on results**: We're not trying to win design awards or pad portfolios. We build websites that generate business. That's it.
 
