@@ -140,7 +140,7 @@ export default function Home() {
             </div>
 
             <h1 className="text-5xl font-bold tracking-tight text-white sm:text-7xl leading-[1.02] animate-fade-in-up animation-delay-200">
-              Flat-rate websites.
+              Flat-rate web design for Houston-area businesses.
               <span className="block text-primary-500 mt-2">No hourly games.</span>
               <span className="block text-gray-500 mt-2">No surprise bills.</span>
             </h1>

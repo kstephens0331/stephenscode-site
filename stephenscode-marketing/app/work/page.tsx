@@ -100,6 +100,50 @@ export default function Work() {
       ],
       services: ['Full-Stack SaaS', 'QuickBooks Integration', 'Automated Billing', 'Analytics Dashboard'],
       color: 'from-primary-600 to-primary-800'
+    },
+    {
+      client: 'Sunset Harbor Owners Association',
+      industry: 'HOA / Property Management',
+      project: 'Full HOA Platform + Resident Portal',
+      challenge: 'Sunset Harbor Owners Association needed a way to give residents secure online access to HOA documents, assessments, and notices without taking on the ongoing overhead of managing resident passwords and handling reset requests.',
+      solution: 'We built Sunset Harbor a complete monorepo platform -- a public marketing site paired with a resident portal -- backed by a self-hosted PocketBase database, magic-link and JWT authentication, Resend-powered transactional email, and on-demand PDF generation for assessments, notices, and governing documents.',
+      results: [
+        'Residents get secure, passwordless portal access via magic-link authentication',
+        'Eliminated manual password-reset requests for the HOA board',
+        'HOA documents -- assessments, notices, governing documents -- available as generated PDFs on demand'
+      ],
+      services: ['Resident Portal', 'Self-Hosted PocketBase', 'Magic-Link Authentication', 'Transactional Email', 'PDF Generation'],
+      color: 'from-blue-500 to-indigo-600'
+    },
+    {
+      client: 'ColorFuse Prints',
+      industry: 'E-Commerce / DTF Printing',
+      project: 'Live E-Commerce Security Hardening',
+      challenge: 'ColorFuse Prints was a live DTF and sublimation transfer store already processing real customer orders in production, but a security review uncovered multiple live vulnerabilities: pricing was calculated in the browser and trusted by the server, admin endpoints had no authentication, order tracking exposed any order to anyone who guessed its ID, and a bug in the PayPal flow could let products oversell.',
+      solution: 'We hardened the live store end to end -- moving price calculation fully server-side to close the tampering vulnerability, locking down the exposed admin endpoints, fixing the order-tracking IDOR so orders can only be viewed by their owner, resolving the PayPal oversell bug, correcting inaccurate coupon-usage counting, and fixing a broken contact form that was silently discarding submitted messages.',
+      results: [
+        'Closed a live price-tampering vulnerability by moving pricing calculation server-side',
+        'Removed unauthenticated admin endpoints from the live store',
+        'Fixed an order-tracking IDOR that exposed any order to anyone with its ID',
+        'Fixed a PayPal oversell bug and inaccurate coupon-usage counting',
+        'Fixed a contact form that was silently discarding customer messages'
+      ],
+      services: ['Security Hardening', 'Server-Side Pricing', 'Vulnerability Remediation', 'E-Commerce Reliability'],
+      color: 'from-pink-500 to-fuchsia-600'
+    },
+    {
+      client: 'Terracotta Construction',
+      industry: 'Construction',
+      project: 'Ground-Up Rebuild to the StephensCode Standard',
+      challenge: "Terracotta Construction's previous website scored just 18% on an Ahrefs site health audit, with 17 pages missing entirely -- a broken foundation instead of a working web presence.",
+      solution: "We're rebuilding the entire platform from the ground up to the full StephensCode Standard -- a public marketing site, a customer login/portal, an admin dashboard, and a back office -- all self-hosted on our own infrastructure, including a dedicated self-hosted Supabase instance instead of relying on third-party SaaS. Their real brand color, logo, and service/location catalog from the old site carried over as the content foundation for the rebuild.",
+      results: [
+        'Replacing a previous site with a documented 18% Ahrefs health score and 17 missing pages',
+        'Full self-hosted platform covering the public site, customer portal, admin dashboard, and back office',
+        'Own dedicated Supabase instance instead of dependence on third-party SaaS'
+      ],
+      services: ['Website Rebuild', 'Customer Portal', 'Admin Dashboard', 'Self-Hosted Supabase', 'Back Office'],
+      color: 'from-amber-500 to-orange-600'
     }
   ]
 
