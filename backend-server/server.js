@@ -1,3 +1,4 @@
+const path = require('path');
 const express = require('express');
 const Stripe = require('stripe');
 const cors = require('cors');
@@ -7,13 +8,23 @@ const { TIERS, PLAN_TYPES, getTier, getStripeProductId } = require('./lib/pricin
 
 dotenv.config();
 
-// Initialize Firebase Admin
+// Initialize Firebase Admin -- two separate projects, matching admin-dashboard's existing
+// multi-project setup (admin-dashboard/src/auth/firebase.js): "customers" project holds
+// customer accounts/transactions, "orders" project holds the shared orders collection that
+// admin-dashboard's Orders.jsx and AddOrder.jsx already read/write. Writing new checkout
+// orders into the wrong project would make them invisible to the existing admin UI.
 if (!admin.apps.length) {
   admin.initializeApp({
     credential: admin.credential.applicationDefault(),
   });
 }
 const db = admin.firestore();
+
+const ordersServiceAccountPath = process.env.ORDERS_SERVICE_ACCOUNT_PATH || './service-account-orders.json';
+const ordersApp = admin.apps.find((a) => a.name === 'orders') || admin.initializeApp({
+  credential: admin.credential.cert(require(path.resolve(ordersServiceAccountPath))),
+}, 'orders');
+const ordersDb = ordersApp.firestore();
 
 // Initialize Stripe
 const stripe = new Stripe(process.env.STRIPE_SECRET_KEY);
@@ -82,26 +93,40 @@ app.post('/api/webhook', express.raw({ type: 'application/json' }), async (req, 
         if (meta.source === 'marketing-checkout') {
           const orderId = session.id;
           const email = session.customer_details?.email || session.customer_email || null;
+          const tier = getTier(meta.tierSlug);
+          const tierPriceUsd = tier ? tier.priceUsd : session.amount_total / 100;
+
+          // Matches the existing order schema admin-dashboard/src/pages/AddOrder.jsx already
+          // writes and Orders.jsx already reads (dollars, not cents; items array; source field) --
+          // this collection lives in the SAME "orders" project as the rest of the admin UI, not
+          // the "customers" project, so new checkout orders show up in the existing Orders page
+          // with zero changes needed there beyond the new status badge.
           const base = {
+            email,
+            customerId: meta.uid || null,
+            customerName: session.customer_details?.name || email,
+            items: [{ title: tier ? tier.name : meta.tierSlug, price: tierPriceUsd, quantity: 1 }],
+            total: tierPriceUsd,
+            source: 'marketing-checkout',
+            createdAt: admin.firestore.FieldValue.serverTimestamp(),
+            linkedAccount: !!meta.uid,
             tierSlug: meta.tierSlug,
             planType: meta.planType,
-            email,
             stripeCustomerId: session.customer || null,
             stripeSessionId: session.id,
             amountPaidCents: session.amount_total,
             currency: session.currency || 'usd',
-            createdAt: admin.firestore.FieldValue.serverTimestamp(),
           };
 
           if (meta.planType === 'full') {
-            await db.collection('orders').doc(orderId).set({
+            await ordersDb.collection('orders').doc(orderId).set({
               ...base,
               status: 'paid_in_full',
               totalCents: session.amount_total,
             });
           } else if (meta.planType === 'deposit50') {
             const remainderCents = parseInt(meta.remainderCents, 10) || 0;
-            await db.collection('orders').doc(orderId).set({
+            await ordersDb.collection('orders').doc(orderId).set({
               ...base,
               status: 'deposit_paid',
               remainderCents,
@@ -155,7 +180,7 @@ app.post('/api/webhook', express.raw({ type: 'application/json' }), async (req, 
               console.error('Failed to create installment subscription schedule:', scheduleErr);
             }
 
-            await db.collection('orders').doc(orderId).set({
+            await ordersDb.collection('orders').doc(orderId).set({
               ...base,
               status: subscriptionId ? 'downpayment_paid' : 'downpayment_paid_schedule_failed',
               subscriptionId,
@@ -267,7 +292,7 @@ app.post('/api/webhook', express.raw({ type: 'application/json' }), async (req, 
         const invoiceCustomerId = invoice.customer;
 
         if (invoice.subscription) {
-          const orderSnap = await db.collection('orders')
+          const orderSnap = await ordersDb.collection('orders')
             .where('subscriptionId', '==', invoice.subscription)
             .limit(1)
             .get();
@@ -285,7 +310,7 @@ app.post('/api/webhook', express.raw({ type: 'application/json' }), async (req, 
         }
 
         // A manually-sent remainder invoice for a deposit50 order being paid
-        const remainderOrderSnap = await db.collection('orders')
+        const remainderOrderSnap = await ordersDb.collection('orders')
           .where('remainderInvoiceId', '==', invoice.id)
           .limit(1)
           .get();
@@ -327,7 +352,7 @@ app.post('/api/webhook', express.raw({ type: 'application/json' }), async (req, 
         const failedCustomerId = failedInvoice.customer;
 
         if (failedInvoice.subscription) {
-          const orderSnap = await db.collection('orders')
+          const orderSnap = await ordersDb.collection('orders')
             .where('subscriptionId', '==', failedInvoice.subscription)
             .limit(1)
             .get();
@@ -407,7 +432,7 @@ app.post('/api/webhook', express.raw({ type: 'application/json' }), async (req, 
 
         // Mark an installment order complete once its schedule-driven subscription ends normally.
         if (event.type === 'customer.subscription.deleted') {
-          const orderSnap = await db.collection('orders')
+          const orderSnap = await ordersDb.collection('orders')
             .where('subscriptionId', '==', subscription.id)
             .limit(1)
             .get();
@@ -537,7 +562,7 @@ app.post('/api/checkout/collect-remainder', requireAdminSecret, async (req, res)
   }
 
   try {
-    const orderDoc = await db.collection('orders').doc(orderId).get();
+    const orderDoc = await ordersDb.collection('orders').doc(orderId).get();
     if (!orderDoc.exists) {
       return res.status(404).json({ error: 'Order not found.' });
     }
@@ -571,6 +596,69 @@ app.post('/api/checkout/collect-remainder', requireAdminSecret, async (req, res)
   } catch (err) {
     console.error('Collect-remainder error:', err);
     res.status(500).json({ error: 'Failed to invoice remainder.' });
+  }
+});
+
+// Customer-facing: the authenticated customer's own real orders and payment status, from the
+// shared orders project. Goes through a verified Firebase ID token rather than a direct client
+// Firestore read, so the customer portal doesn't need its own identity in the orders project's
+// Auth (that gap is exactly why Firestore rules there have been wide open).
+app.get('/api/customer/orders', async (req, res) => {
+  const authHeader = req.headers.authorization || '';
+  const idToken = authHeader.startsWith('Bearer ') ? authHeader.slice(7) : null;
+  if (!idToken) {
+    return res.status(401).json({ error: 'Missing bearer token.' });
+  }
+
+  let decoded;
+  try {
+    decoded = await admin.auth().verifyIdToken(idToken);
+  } catch (err) {
+    return res.status(401).json({ error: 'Invalid or expired token.' });
+  }
+
+  try {
+    const byUidSnap = await ordersDb.collection('orders').where('customerId', '==', decoded.uid).get();
+    const seenIds = new Set(byUidSnap.docs.map((d) => d.id));
+
+    let byEmailDocs = [];
+    if (decoded.email) {
+      const byEmailSnap = await ordersDb.collection('orders').where('email', '==', decoded.email).get();
+      byEmailDocs = byEmailSnap.docs.filter((d) => !seenIds.has(d.id));
+    }
+
+    const orders = await Promise.all([...byUidSnap.docs, ...byEmailDocs].map(async (doc) => {
+      const data = doc.data();
+      let hostedInvoiceUrl = null;
+      if (data.remainderInvoiceId) {
+        try {
+          const invoice = await stripe.invoices.retrieve(data.remainderInvoiceId);
+          hostedInvoiceUrl = invoice.hosted_invoice_url || null;
+        } catch (err) {
+          console.error(`Could not retrieve invoice ${data.remainderInvoiceId}:`, err.message);
+        }
+      }
+
+      return {
+        id: doc.id,
+        tierSlug: data.tierSlug || null,
+        planType: data.planType || null,
+        status: data.status || null,
+        totalUsd: data.total ?? null,
+        amountPaidCents: data.amountPaidCents ?? null,
+        remainderCents: data.remainderCents ?? null,
+        installmentMonths: data.installmentMonths ?? null,
+        installmentMonthlyCents: data.installmentMonthlyCents ?? null,
+        hostedInvoiceUrl,
+        createdAt: data.createdAt?.toDate?.()?.toISOString() || null,
+      };
+    }));
+
+    orders.sort((a, b) => new Date(b.createdAt || 0) - new Date(a.createdAt || 0));
+    res.json({ orders });
+  } catch (err) {
+    console.error('Error fetching customer orders:', err);
+    res.status(500).json({ error: 'Failed to fetch orders.' });
   }
 });
 
