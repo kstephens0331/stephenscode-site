@@ -2,10 +2,22 @@ rules_version = '2';
 
 service cloud.firestore {
   match /databases/{database}/documents {
-    // TEMPORARY: Allow all reads and writes for development
-    // TODO: Implement proper cross-project authentication using Firebase Admin SDK
+    function isAdmin() {
+      return request.auth != null && request.auth.token.email == 'info@stephenscode.dev';
+    }
+
+    // Real orders written by the marketing checkout server (via the Admin SDK, which always
+    // bypasses these rules) and by admin-dashboard's AddOrder.jsx / Customers.jsx (via the
+    // client SDK, which does not -- those need isAdmin() to pass once the admin dashboard signs
+    // into this project too, see admin-dashboard/src/auth/firebase.js signInToAllProjects()).
+    match /orders/{orderId} {
+      allow read: if request.auth != null &&
+        (resource.data.customerId == request.auth.uid || isAdmin());
+      allow write: if isAdmin();
+    }
+
     match /{document=**} {
-      allow read, write: if true;
+      allow read, write: if false;
     }
   }
 }
