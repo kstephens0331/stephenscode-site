@@ -621,8 +621,11 @@ app.get('/api/customer/orders', async (req, res) => {
     const byUidSnap = await ordersDb.collection('orders').where('customerId', '==', decoded.uid).get();
     const seenIds = new Set(byUidSnap.docs.map((d) => d.id));
 
+    // Only trust the token's email claim for this lookup once Firebase has actually verified
+    // it -- otherwise someone could sign up with an email they don't own and see another
+    // customer's orders purely by matching that unverified claim.
     let byEmailDocs = [];
-    if (decoded.email) {
+    if (decoded.email && decoded.email_verified) {
       const byEmailSnap = await ordersDb.collection('orders').where('email', '==', decoded.email).get();
       byEmailDocs = byEmailSnap.docs.filter((d) => !seenIds.has(d.id));
     }
