@@ -1,12 +1,57 @@
 'use client'
 
+import { useState } from 'react'
 import type { ColorPalette } from '@/lib/demo-colors'
+import { trackEvent, trackConversion } from '@/lib/analytics'
 
 interface LoyaltyProgramPageProps {
   colors: ColorPalette
 }
 
 export default function LoyaltyProgramPage({ colors }: LoyaltyProgramPageProps) {
+  const [firstName, setFirstName] = useState('')
+  const [lastName, setLastName] = useState('')
+  const [email, setEmail] = useState('')
+  const [phone, setPhone] = useState('')
+  const [birthday, setBirthday] = useState('')
+  const [submitted, setSubmitted] = useState(false)
+
+  const handleSubmit = async (e: React.FormEvent) => {
+    e.preventDefault()
+    try {
+      const response = await fetch('/api/demo-lead', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({
+          demoName: 'Gourmet Kitchen Restaurant',
+          demoPackage: 'Premium Build ($2,000)',
+          demoSlug: 'gourmet-kitchen-restaurant',
+          clientName: `${firstName} ${lastName}`.trim(),
+          clientPhone: phone,
+          clientEmail: email,
+          service: 'Loyalty Program Signup',
+          preferredDate: '',
+          preferredTime: '',
+          notes: birthday ? `Birthday: ${birthday}` : ''
+        })
+      })
+
+      if (response.ok) {
+        trackEvent('generate_lead', {
+          form_name: 'loyalty_signup_form',
+          demo_slug: 'gourmet-kitchen-restaurant',
+        })
+        trackConversion('leadForm')
+        setSubmitted(true)
+      } else {
+        alert('There was an issue signing you up. Please email info@gourmetkitchen.com.')
+      }
+    } catch (error) {
+      console.error('Loyalty signup form error:', error)
+      alert('There was an issue signing you up. Please email info@gourmetkitchen.com.')
+    }
+  }
+
   return (
     <div>
       <section style={{ backgroundColor: '#9b2226' }} className="py-20">
@@ -223,17 +268,30 @@ export default function LoyaltyProgramPage({ colors }: LoyaltyProgramPageProps) 
             <p style={{ color: '#333333' }} className="text-lg mb-8">
               Sign up now and start earning rewards on your next visit
             </p>
-            <form className="max-w-2xl mx-auto space-y-4">
+            {submitted ? (
+              <div style={{ backgroundColor: '#ffffff', border: '3px solid #22c55e' }} className="max-w-2xl mx-auto p-8 text-center">
+                <div className="text-5xl mb-4">✓</div>
+                <h3 style={{ color: '#1a1a1a' }} className="text-2xl font-bold mb-2">Welcome to the Program!</h3>
+                <p style={{ color: '#666666' }}>
+                  Your 50 bonus points are on the way. We'll be in touch shortly.
+                </p>
+              </div>
+            ) : (
+            <form className="max-w-2xl mx-auto space-y-4" onSubmit={handleSubmit}>
               <div className="grid md:grid-cols-2 gap-4">
                 <input
                   type="text"
                   placeholder="First Name"
+                  value={firstName}
+                  onChange={(e) => setFirstName(e.target.value)}
                   style={{ backgroundColor: '#ffffff', border: '2px solid #9b2226', color: '#1a1a1a' }}
                   className="px-4 py-3 w-full"
                 />
                 <input
                   type="text"
                   placeholder="Last Name"
+                  value={lastName}
+                  onChange={(e) => setLastName(e.target.value)}
                   style={{ backgroundColor: '#ffffff', border: '2px solid #9b2226', color: '#1a1a1a' }}
                   className="px-4 py-3 w-full"
                 />
@@ -241,18 +299,24 @@ export default function LoyaltyProgramPage({ colors }: LoyaltyProgramPageProps) 
               <input
                 type="email"
                 placeholder="Email Address"
+                value={email}
+                onChange={(e) => setEmail(e.target.value)}
                 style={{ backgroundColor: '#ffffff', border: '2px solid #9b2226', color: '#1a1a1a' }}
                 className="px-4 py-3 w-full"
               />
               <input
                 type="tel"
                 placeholder="Phone Number"
+                value={phone}
+                onChange={(e) => setPhone(e.target.value)}
                 style={{ backgroundColor: '#ffffff', border: '2px solid #9b2226', color: '#1a1a1a' }}
                 className="px-4 py-3 w-full"
               />
               <input
                 type="date"
                 placeholder="Birthday (for special rewards)"
+                value={birthday}
+                onChange={(e) => setBirthday(e.target.value)}
                 style={{ backgroundColor: '#ffffff', border: '2px solid #9b2226', color: '#1a1a1a' }}
                 className="px-4 py-3 w-full"
               />
@@ -264,6 +328,7 @@ export default function LoyaltyProgramPage({ colors }: LoyaltyProgramPageProps) 
                 Join Rewards Program
               </button>
             </form>
+            )}
           </div>
         </div>
       </section>

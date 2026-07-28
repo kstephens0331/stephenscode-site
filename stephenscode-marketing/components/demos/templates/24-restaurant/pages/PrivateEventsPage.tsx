@@ -1,12 +1,61 @@
 'use client'
 
+import { useState } from 'react'
 import type { ColorPalette } from '@/lib/demo-colors'
+import { trackEvent, trackConversion } from '@/lib/analytics'
 
 interface PrivateEventsPageProps {
   colors: ColorPalette
 }
 
 export default function PrivateEventsPage({ colors }: PrivateEventsPageProps) {
+  const [formData, setFormData] = useState({
+    name: '',
+    email: '',
+    phone: '',
+    eventDate: '',
+    guestCount: '',
+    eventType: 'Birthday Party',
+    details: ''
+  })
+  const [submitted, setSubmitted] = useState(false)
+
+  const handleSubmit = async (e: React.FormEvent) => {
+    e.preventDefault()
+    try {
+      const response = await fetch('/api/demo-lead', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({
+          demoName: 'Gourmet Kitchen Restaurant',
+          demoPackage: 'Premium Build ($2,000)',
+          demoSlug: 'gourmet-kitchen-restaurant',
+          clientName: formData.name,
+          clientPhone: formData.phone,
+          clientEmail: formData.email,
+          service: formData.eventType,
+          preferredDate: formData.eventDate,
+          preferredTime: '',
+          notes: `Guest count: ${formData.guestCount || 'N/A'}. ${formData.details}`.trim()
+        })
+      })
+
+      if (response.ok) {
+        trackEvent('generate_lead', {
+          form_name: 'private_events_form',
+          demo_slug: 'gourmet-kitchen-restaurant',
+        })
+        trackConversion('leadForm')
+        setSubmitted(true)
+      } else {
+        alert('There was an issue submitting your event inquiry. Please email events@gourmetkitchen.com.')
+      }
+    } catch (error) {
+      console.error('Private events form error:', error)
+      alert('There was an issue submitting your event inquiry. Please email events@gourmetkitchen.com.')
+    }
+  }
+
   return (
     <div>
       <section style={{ backgroundColor: '#9b2226' }} className="py-20">
@@ -129,13 +178,24 @@ export default function PrivateEventsPage({ colors }: PrivateEventsPageProps) {
             <h2 style={{ color: '#1a1a1a' }} className="text-3xl font-bold text-center mb-8">
               Request Event Information
             </h2>
-            <form className="max-w-3xl mx-auto space-y-6">
+            {submitted ? (
+              <div style={{ backgroundColor: '#ffffff', border: '3px solid #22c55e' }} className="max-w-3xl mx-auto p-8 text-center">
+                <div className="text-5xl mb-4">✓</div>
+                <h3 style={{ color: '#1a1a1a' }} className="text-2xl font-bold mb-2">Inquiry Submitted!</h3>
+                <p style={{ color: '#666666' }}>
+                  Our events team will respond within 24 hours.
+                </p>
+              </div>
+            ) : (
+            <form className="max-w-3xl mx-auto space-y-6" onSubmit={handleSubmit}>
               <div className="grid md:grid-cols-2 gap-6">
                 <div>
                   <label style={{ color: '#1a1a1a' }} className="block font-bold mb-2">Name *</label>
                   <input
                     type="text"
                     required
+                    value={formData.name}
+                    onChange={(e) => setFormData({ ...formData, name: e.target.value })}
                     style={{ backgroundColor: '#ffffff', border: '2px solid #e5e5e5', color: '#1a1a1a' }}
                     className="w-full px-4 py-3 focus:outline-none focus:border-red-900"
                   />
@@ -145,6 +205,8 @@ export default function PrivateEventsPage({ colors }: PrivateEventsPageProps) {
                   <input
                     type="email"
                     required
+                    value={formData.email}
+                    onChange={(e) => setFormData({ ...formData, email: e.target.value })}
                     style={{ backgroundColor: '#ffffff', border: '2px solid #e5e5e5', color: '#1a1a1a' }}
                     className="w-full px-4 py-3 focus:outline-none focus:border-red-900"
                   />
@@ -156,6 +218,8 @@ export default function PrivateEventsPage({ colors }: PrivateEventsPageProps) {
                   <input
                     type="tel"
                     required
+                    value={formData.phone}
+                    onChange={(e) => setFormData({ ...formData, phone: e.target.value })}
                     style={{ backgroundColor: '#ffffff', border: '2px solid #e5e5e5', color: '#1a1a1a' }}
                     className="w-full px-4 py-3 focus:outline-none focus:border-red-900"
                   />
@@ -164,6 +228,8 @@ export default function PrivateEventsPage({ colors }: PrivateEventsPageProps) {
                   <label style={{ color: '#1a1a1a' }} className="block font-bold mb-2">Event Date</label>
                   <input
                     type="date"
+                    value={formData.eventDate}
+                    onChange={(e) => setFormData({ ...formData, eventDate: e.target.value })}
                     style={{ backgroundColor: '#ffffff', border: '2px solid #e5e5e5', color: '#1a1a1a' }}
                     className="w-full px-4 py-3 focus:outline-none focus:border-red-900"
                   />
@@ -172,6 +238,8 @@ export default function PrivateEventsPage({ colors }: PrivateEventsPageProps) {
                   <label style={{ color: '#1a1a1a' }} className="block font-bold mb-2">Guest Count</label>
                   <input
                     type="number"
+                    value={formData.guestCount}
+                    onChange={(e) => setFormData({ ...formData, guestCount: e.target.value })}
                     style={{ backgroundColor: '#ffffff', border: '2px solid #e5e5e5', color: '#1a1a1a' }}
                     className="w-full px-4 py-3 focus:outline-none focus:border-red-900"
                     placeholder="Estimated"
@@ -181,6 +249,8 @@ export default function PrivateEventsPage({ colors }: PrivateEventsPageProps) {
               <div>
                 <label style={{ color: '#1a1a1a' }} className="block font-bold mb-2">Event Type</label>
                 <select
+                  value={formData.eventType}
+                  onChange={(e) => setFormData({ ...formData, eventType: e.target.value })}
                   style={{ backgroundColor: '#ffffff', border: '2px solid #e5e5e5', color: '#1a1a1a' }}
                   className="w-full px-4 py-3 focus:outline-none focus:border-red-900"
                 >
@@ -195,6 +265,8 @@ export default function PrivateEventsPage({ colors }: PrivateEventsPageProps) {
               <div>
                 <label style={{ color: '#1a1a1a' }} className="block font-bold mb-2">Additional Details</label>
                 <textarea
+                  value={formData.details}
+                  onChange={(e) => setFormData({ ...formData, details: e.target.value })}
                   style={{ backgroundColor: '#ffffff', border: '2px solid #e5e5e5', color: '#1a1a1a' }}
                   className="w-full px-4 py-3 focus:outline-none focus:border-red-900 h-32"
                   placeholder="Tell us about your event vision, budget, menu preferences, or any special requirements..."
@@ -211,6 +283,7 @@ export default function PrivateEventsPage({ colors }: PrivateEventsPageProps) {
                 Our events team will respond within 24 hours
               </p>
             </form>
+            )}
           </div>
         </div>
       </section>

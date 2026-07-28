@@ -28,8 +28,9 @@ export async function POST(request: Request) {
       notes
     } = body
 
-    // Validate required fields
-    if (!demoName || !clientName || !clientPhone) {
+    // Validate required fields -- some demo forms only collect email, not phone (or vice versa),
+    // so require at least one contact method rather than hard-requiring phone specifically.
+    if (!demoName || !clientName || (!clientPhone && !clientEmail)) {
       return NextResponse.json({ error: 'Missing required fields' }, { status: 400 })
     }
 
@@ -48,7 +49,7 @@ A potential client just interacted with your "${demoName}" demo and is intereste
 
 👤 CLIENT INFORMATION:
    • Name: ${clientName}
-   • Phone: ${clientPhone}
+   • Phone: ${clientPhone || 'Not provided'}
    • Email: ${clientEmail || 'Not provided'}
 
 💼 INTEREST DETAILS:

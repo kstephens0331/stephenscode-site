@@ -1,12 +1,60 @@
 'use client'
 
+import { useState } from 'react'
 import type { ColorPalette } from '@/lib/demo-colors'
+import { trackEvent, trackConversion } from '@/lib/analytics'
 
 interface ContactPageProps {
   colors: ColorPalette
 }
 
 export default function ContactPage({ colors }: ContactPageProps) {
+  const [formData, setFormData] = useState({
+    firstName: '',
+    lastName: '',
+    email: '',
+    phone: '',
+    subject: 'General Inquiry',
+    message: ''
+  })
+  const [submitted, setSubmitted] = useState(false)
+
+  const handleSubmit = async (e: React.FormEvent) => {
+    e.preventDefault()
+    try {
+      const response = await fetch('/api/demo-lead', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({
+          demoName: 'Gourmet Kitchen Restaurant',
+          demoPackage: 'Premium Build ($2,000)',
+          demoSlug: 'gourmet-kitchen-restaurant',
+          clientName: `${formData.firstName} ${formData.lastName}`.trim(),
+          clientPhone: formData.phone,
+          clientEmail: formData.email,
+          service: formData.subject,
+          preferredDate: '',
+          preferredTime: '',
+          notes: formData.message
+        })
+      })
+
+      if (response.ok) {
+        trackEvent('generate_lead', {
+          form_name: 'contact_form',
+          demo_slug: 'gourmet-kitchen-restaurant',
+        })
+        trackConversion('leadForm')
+        setSubmitted(true)
+      } else {
+        alert('There was an issue sending your message. Please call us at (312) 555-FOOD.')
+      }
+    } catch (error) {
+      console.error('Contact form error:', error)
+      alert('There was an issue sending your message. Please call us at (312) 555-FOOD.')
+    }
+  }
+
   return (
     <div>
       <section style={{ backgroundColor: '#9b2226' }} className="py-20">
@@ -30,13 +78,24 @@ export default function ContactPage({ colors }: ContactPageProps) {
               <h2 style={{ color: '#1a1a1a' }} className="text-3xl font-bold mb-8">
                 Send Us a Message
               </h2>
-              <form className="space-y-6">
+              {submitted ? (
+                <div style={{ backgroundColor: '#f8f8f8', border: '3px solid #22c55e' }} className="p-8 text-center">
+                  <div className="text-5xl mb-4">✓</div>
+                  <h3 style={{ color: '#1a1a1a' }} className="text-2xl font-bold mb-2">Thank You!</h3>
+                  <p style={{ color: '#666666' }}>
+                    Your message has been sent. We'll get back to you shortly.
+                  </p>
+                </div>
+              ) : (
+              <form className="space-y-6" onSubmit={handleSubmit}>
                 <div className="grid md:grid-cols-2 gap-6">
                   <div>
                     <label style={{ color: '#1a1a1a' }} className="block font-bold mb-2">First Name *</label>
                     <input
                       type="text"
                       required
+                      value={formData.firstName}
+                      onChange={(e) => setFormData({ ...formData, firstName: e.target.value })}
                       style={{ backgroundColor: '#f5f5f5', border: '2px solid #e5e5e5', color: '#1a1a1a' }}
                       className="w-full px-4 py-3"
                     />
@@ -46,6 +105,8 @@ export default function ContactPage({ colors }: ContactPageProps) {
                     <input
                       type="text"
                       required
+                      value={formData.lastName}
+                      onChange={(e) => setFormData({ ...formData, lastName: e.target.value })}
                       style={{ backgroundColor: '#f5f5f5', border: '2px solid #e5e5e5', color: '#1a1a1a' }}
                       className="w-full px-4 py-3"
                     />
@@ -56,6 +117,8 @@ export default function ContactPage({ colors }: ContactPageProps) {
                   <input
                     type="email"
                     required
+                    value={formData.email}
+                    onChange={(e) => setFormData({ ...formData, email: e.target.value })}
                     style={{ backgroundColor: '#f5f5f5', border: '2px solid #e5e5e5', color: '#1a1a1a' }}
                     className="w-full px-4 py-3"
                   />
@@ -64,6 +127,8 @@ export default function ContactPage({ colors }: ContactPageProps) {
                   <label style={{ color: '#1a1a1a' }} className="block font-bold mb-2">Phone</label>
                   <input
                     type="tel"
+                    value={formData.phone}
+                    onChange={(e) => setFormData({ ...formData, phone: e.target.value })}
                     style={{ backgroundColor: '#f5f5f5', border: '2px solid #e5e5e5', color: '#1a1a1a' }}
                     className="w-full px-4 py-3"
                   />
@@ -72,6 +137,8 @@ export default function ContactPage({ colors }: ContactPageProps) {
                   <label style={{ color: '#1a1a1a' }} className="block font-bold mb-2">Subject *</label>
                   <select
                     required
+                    value={formData.subject}
+                    onChange={(e) => setFormData({ ...formData, subject: e.target.value })}
                     style={{ backgroundColor: '#f5f5f5', border: '2px solid #e5e5e5', color: '#1a1a1a' }}
                     className="w-full px-4 py-3"
                   >
@@ -87,6 +154,8 @@ export default function ContactPage({ colors }: ContactPageProps) {
                   <label style={{ color: '#1a1a1a' }} className="block font-bold mb-2">Message *</label>
                   <textarea
                     required
+                    value={formData.message}
+                    onChange={(e) => setFormData({ ...formData, message: e.target.value })}
                     style={{ backgroundColor: '#f5f5f5', border: '2px solid #e5e5e5', color: '#1a1a1a' }}
                     className="w-full px-4 py-3 h-40"
                     placeholder="How can we help you?"
@@ -100,6 +169,7 @@ export default function ContactPage({ colors }: ContactPageProps) {
                   Send Message
                 </button>
               </form>
+              )}
             </div>
 
             <div>

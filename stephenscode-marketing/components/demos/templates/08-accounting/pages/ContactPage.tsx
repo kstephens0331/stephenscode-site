@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import { MapPin, Phone, Mail, Clock, Send, CheckCircle, Calendar, MessageSquare, Users } from 'lucide-react';
+import { trackEvent, trackConversion } from '@/lib/analytics';
 
 interface ContactPageProps {
   onNavigate: (page: string) => void;
@@ -16,21 +17,51 @@ export default function ContactPage({ onNavigate }: ContactPageProps) {
     preferredContact: 'email',
   });
 
-  const handleSubmit = (e: React.FormEvent) => {
+  const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
-    setFormSubmitted(true);
-    // Reset form after 3 seconds
-    setTimeout(() => {
-      setFormSubmitted(false);
-      setFormData({
-        name: '',
-        email: '',
-        phone: '',
-        service: '',
-        message: '',
-        preferredContact: 'email',
+    try {
+      const notes = [
+        formData.message,
+        `Preferred contact method: ${formData.preferredContact}`,
+      ].filter(Boolean).join('\n\n');
+
+      const response = await fetch('/api/demo-lead', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({
+          demoName: 'Peak Financial Advisors',
+          demoPackage: 'Website Rebuild ($350)',
+          demoSlug: 'peak-financial-advisors',
+          clientName: formData.name,
+          clientPhone: formData.phone,
+          clientEmail: formData.email,
+          service: formData.service,
+          preferredDate: '',
+          preferredTime: '',
+          notes,
+        }),
       });
-    }, 3000);
+
+      if (response.ok) {
+        trackEvent('generate_lead', { form_name: 'contact_consultation_form', demo_slug: 'peak-financial-advisors' });
+        trackConversion('leadForm');
+        setFormSubmitted(true);
+        // Reset form after 3 seconds
+        setTimeout(() => {
+          setFormSubmitted(false);
+          setFormData({
+            name: '',
+            email: '',
+            phone: '',
+            service: '',
+            message: '',
+            preferredContact: 'email',
+          });
+        }, 3000);
+      }
+    } catch {
+      /* existing error handling */
+    }
   };
 
   const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement | HTMLSelectElement>) => {

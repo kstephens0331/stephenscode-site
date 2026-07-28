@@ -1,6 +1,8 @@
 'use client'
 
+import { useState } from 'react'
 import type { ColorPalette } from '@/lib/demo-colors'
+import { trackEvent, trackConversion } from '@/lib/analytics'
 
 interface CateringPageProps {
   colors: ColorPalette
@@ -49,6 +51,56 @@ export default function CateringPage({ colors }: CateringPageProps) {
       ]
     }
   ]
+
+  const [formData, setFormData] = useState({
+    contactName: '',
+    company: '',
+    email: '',
+    phone: '',
+    eventDate: '',
+    eventTime: '',
+    guestCount: '',
+    location: '',
+    packageInterest: 'Corporate Lunch Package',
+    details: ''
+  })
+  const [submitted, setSubmitted] = useState(false)
+
+  const handleSubmit = async (e: React.FormEvent) => {
+    e.preventDefault()
+    try {
+      const response = await fetch('/api/demo-lead', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({
+          demoName: 'Gourmet Kitchen Restaurant',
+          demoPackage: 'Premium Build ($2,000)',
+          demoSlug: 'gourmet-kitchen-restaurant',
+          clientName: formData.contactName,
+          clientPhone: formData.phone,
+          clientEmail: formData.email,
+          service: formData.packageInterest,
+          preferredDate: formData.eventDate,
+          preferredTime: formData.eventTime,
+          notes: `Company: ${formData.company || 'N/A'}. Guest count: ${formData.guestCount || 'N/A'}. Location: ${formData.location || 'N/A'}. ${formData.details}`.trim()
+        })
+      })
+
+      if (response.ok) {
+        trackEvent('generate_lead', {
+          form_name: 'catering_quote_form',
+          demo_slug: 'gourmet-kitchen-restaurant',
+        })
+        trackConversion('leadForm')
+        setSubmitted(true)
+      } else {
+        alert('There was an issue submitting your catering request. Please email catering@gourmetkitchen.com.')
+      }
+    } catch (error) {
+      console.error('Catering form error:', error)
+      alert('There was an issue submitting your catering request. Please email catering@gourmetkitchen.com.')
+    }
+  }
 
   return (
     <div>
@@ -103,13 +155,24 @@ export default function CateringPage({ colors }: CateringPageProps) {
             <h2 style={{ color: '#1a1a1a' }} className="text-3xl font-bold text-center mb-8">
               Request Catering Quote
             </h2>
-            <form className="max-w-3xl mx-auto space-y-6">
+            {submitted ? (
+              <div style={{ backgroundColor: '#ffffff', border: '3px solid #22c55e' }} className="max-w-3xl mx-auto p-8 text-center">
+                <div className="text-5xl mb-4">✓</div>
+                <h3 style={{ color: '#1a1a1a' }} className="text-2xl font-bold mb-2">Quote Requested!</h3>
+                <p style={{ color: '#666666' }}>
+                  Thanks for reaching out. Our catering team will follow up shortly.
+                </p>
+              </div>
+            ) : (
+            <form className="max-w-3xl mx-auto space-y-6" onSubmit={handleSubmit}>
               <div className="grid md:grid-cols-2 gap-6">
                 <div>
                   <label style={{ color: '#1a1a1a' }} className="block font-bold mb-2">Contact Name *</label>
                   <input
                     type="text"
                     required
+                    value={formData.contactName}
+                    onChange={(e) => setFormData({ ...formData, contactName: e.target.value })}
                     style={{ backgroundColor: '#ffffff', border: '2px solid #e5e5e5', color: '#1a1a1a' }}
                     className="w-full px-4 py-3"
                   />
@@ -118,6 +181,8 @@ export default function CateringPage({ colors }: CateringPageProps) {
                   <label style={{ color: '#1a1a1a' }} className="block font-bold mb-2">Company/Organization</label>
                   <input
                     type="text"
+                    value={formData.company}
+                    onChange={(e) => setFormData({ ...formData, company: e.target.value })}
                     style={{ backgroundColor: '#ffffff', border: '2px solid #e5e5e5', color: '#1a1a1a' }}
                     className="w-full px-4 py-3"
                   />
@@ -129,6 +194,8 @@ export default function CateringPage({ colors }: CateringPageProps) {
                   <input
                     type="email"
                     required
+                    value={formData.email}
+                    onChange={(e) => setFormData({ ...formData, email: e.target.value })}
                     style={{ backgroundColor: '#ffffff', border: '2px solid #e5e5e5', color: '#1a1a1a' }}
                     className="w-full px-4 py-3"
                   />
@@ -138,6 +205,8 @@ export default function CateringPage({ colors }: CateringPageProps) {
                   <input
                     type="tel"
                     required
+                    value={formData.phone}
+                    onChange={(e) => setFormData({ ...formData, phone: e.target.value })}
                     style={{ backgroundColor: '#ffffff', border: '2px solid #e5e5e5', color: '#1a1a1a' }}
                     className="w-full px-4 py-3"
                   />
@@ -149,6 +218,8 @@ export default function CateringPage({ colors }: CateringPageProps) {
                   <input
                     type="date"
                     required
+                    value={formData.eventDate}
+                    onChange={(e) => setFormData({ ...formData, eventDate: e.target.value })}
                     style={{ backgroundColor: '#ffffff', border: '2px solid #e5e5e5', color: '#1a1a1a' }}
                     className="w-full px-4 py-3"
                   />
@@ -157,6 +228,8 @@ export default function CateringPage({ colors }: CateringPageProps) {
                   <label style={{ color: '#1a1a1a' }} className="block font-bold mb-2">Event Time</label>
                   <input
                     type="time"
+                    value={formData.eventTime}
+                    onChange={(e) => setFormData({ ...formData, eventTime: e.target.value })}
                     style={{ backgroundColor: '#ffffff', border: '2px solid #e5e5e5', color: '#1a1a1a' }}
                     className="w-full px-4 py-3"
                   />
@@ -166,6 +239,8 @@ export default function CateringPage({ colors }: CateringPageProps) {
                   <input
                     type="number"
                     required
+                    value={formData.guestCount}
+                    onChange={(e) => setFormData({ ...formData, guestCount: e.target.value })}
                     style={{ backgroundColor: '#ffffff', border: '2px solid #e5e5e5', color: '#1a1a1a' }}
                     className="w-full px-4 py-3"
                   />
@@ -176,6 +251,8 @@ export default function CateringPage({ colors }: CateringPageProps) {
                 <input
                   type="text"
                   required
+                  value={formData.location}
+                  onChange={(e) => setFormData({ ...formData, location: e.target.value })}
                   style={{ backgroundColor: '#ffffff', border: '2px solid #e5e5e5', color: '#1a1a1a' }}
                   className="w-full px-4 py-3"
                   placeholder="Delivery address or venue name"
@@ -184,6 +261,8 @@ export default function CateringPage({ colors }: CateringPageProps) {
               <div>
                 <label style={{ color: '#1a1a1a' }} className="block font-bold mb-2">Package Interest</label>
                 <select
+                  value={formData.packageInterest}
+                  onChange={(e) => setFormData({ ...formData, packageInterest: e.target.value })}
                   style={{ backgroundColor: '#ffffff', border: '2px solid #e5e5e5', color: '#1a1a1a' }}
                   className="w-full px-4 py-3"
                 >
@@ -196,6 +275,8 @@ export default function CateringPage({ colors }: CateringPageProps) {
               <div>
                 <label style={{ color: '#1a1a1a' }} className="block font-bold mb-2">Additional Details</label>
                 <textarea
+                  value={formData.details}
+                  onChange={(e) => setFormData({ ...formData, details: e.target.value })}
                   style={{ backgroundColor: '#ffffff', border: '2px solid #e5e5e5', color: '#1a1a1a' }}
                   className="w-full px-4 py-3 h-32"
                   placeholder="Dietary restrictions, budget, setup requirements, event details..."
@@ -209,6 +290,7 @@ export default function CateringPage({ colors }: CateringPageProps) {
                 Request Quote
               </button>
             </form>
+            )}
           </div>
 
           <div className="grid md:grid-cols-3 gap-8">

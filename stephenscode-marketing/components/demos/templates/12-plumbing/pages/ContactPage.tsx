@@ -1,11 +1,63 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { Phone, Mail, MapPin, Clock, MessageSquare, Send, CheckCircle } from 'lucide-react';
+import { trackEvent, trackConversion } from '@/lib/analytics';
 
 interface ContactPageProps {
   onNavigate: (page: string) => void;
 }
 
 const ContactPage: React.FC<ContactPageProps> = ({ onNavigate }) => {
+  const [formData, setFormData] = useState({
+    firstName: '',
+    lastName: '',
+    email: '',
+    phone: '',
+    serviceType: 'Select a service',
+    preferredContactTime: 'Any time',
+    message: ''
+  });
+  const [submitted, setSubmitted] = useState(false);
+
+  const handleSubmit = async (e: React.FormEvent) => {
+    e.preventDefault();
+    try {
+      const notes = formData.preferredContactTime && formData.preferredContactTime !== 'Any time'
+        ? `Preferred contact time: ${formData.preferredContactTime}\n\n${formData.message}`
+        : formData.message;
+
+      const response = await fetch('/api/demo-lead', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({
+          demoName: 'Premier Plumbing Pros',
+          demoPackage: 'Standard Website ($950)',
+          demoSlug: 'premier-plumbing-pros',
+          clientName: `${formData.firstName} ${formData.lastName}`.trim(),
+          clientPhone: formData.phone,
+          clientEmail: formData.email,
+          service: formData.serviceType === 'Select a service' ? '' : formData.serviceType,
+          preferredDate: '',
+          preferredTime: '',
+          notes
+        })
+      });
+
+      if (response.ok) {
+        trackEvent('generate_lead', {
+          form_name: 'contact_page_form',
+          demo_slug: 'premier-plumbing-pros'
+        });
+        trackConversion('leadForm');
+        setSubmitted(true);
+      } else {
+        alert('There was an issue submitting your message. Please call us at (555) 765-8237');
+      }
+    } catch (error) {
+      console.error('Contact form error:', error);
+      alert('There was an issue submitting your message. Please call us at (555) 765-8237');
+    }
+  };
+
   const contactMethods = [
     {
       icon: Phone,
@@ -131,102 +183,130 @@ const ContactPage: React.FC<ContactPageProps> = ({ onNavigate }) => {
                 Fill out the form below and we'll get back to you as soon as possible. For emergencies,
                 please call us directly at (555) 765-8237.
               </p>
-              <form className="space-y-6">
-                <div className="grid grid-cols-1 sm:grid-cols-2 gap-6">
+              {submitted ? (
+                <div className="text-center py-12 bg-white rounded-xl shadow-lg">
+                  <CheckCircle className="h-16 w-16 mx-auto mb-4 text-green-600" />
+                  <h3 className="text-2xl font-bold text-gray-900 mb-2">Message Sent!</h3>
+                  <p className="text-gray-600">
+                    Thank you for reaching out. We'll respond within 24 hours during business days.
+                  </p>
+                </div>
+              ) : (
+                <form className="space-y-6" onSubmit={handleSubmit}>
+                  <div className="grid grid-cols-1 sm:grid-cols-2 gap-6">
+                    <div>
+                      <label className="block text-sm font-medium text-gray-700 mb-2">
+                        First Name *
+                      </label>
+                      <input
+                        type="text"
+                        required
+                        value={formData.firstName}
+                        onChange={(e) => setFormData({ ...formData, firstName: e.target.value })}
+                        className="w-full px-4 py-3 rounded-lg border border-gray-300 focus:outline-none focus:ring-2 focus:ring-[#0466c8] focus:border-transparent"
+                        placeholder="John"
+                      />
+                    </div>
+                    <div>
+                      <label className="block text-sm font-medium text-gray-700 mb-2">
+                        Last Name *
+                      </label>
+                      <input
+                        type="text"
+                        required
+                        value={formData.lastName}
+                        onChange={(e) => setFormData({ ...formData, lastName: e.target.value })}
+                        className="w-full px-4 py-3 rounded-lg border border-gray-300 focus:outline-none focus:ring-2 focus:ring-[#0466c8] focus:border-transparent"
+                        placeholder="Doe"
+                      />
+                    </div>
+                  </div>
                   <div>
                     <label className="block text-sm font-medium text-gray-700 mb-2">
-                      First Name *
+                      Email Address *
                     </label>
                     <input
-                      type="text"
+                      type="email"
                       required
+                      value={formData.email}
+                      onChange={(e) => setFormData({ ...formData, email: e.target.value })}
                       className="w-full px-4 py-3 rounded-lg border border-gray-300 focus:outline-none focus:ring-2 focus:ring-[#0466c8] focus:border-transparent"
-                      placeholder="John"
+                      placeholder="john@example.com"
                     />
                   </div>
                   <div>
                     <label className="block text-sm font-medium text-gray-700 mb-2">
-                      Last Name *
+                      Phone Number *
                     </label>
                     <input
-                      type="text"
+                      type="tel"
                       required
+                      value={formData.phone}
+                      onChange={(e) => setFormData({ ...formData, phone: e.target.value })}
                       className="w-full px-4 py-3 rounded-lg border border-gray-300 focus:outline-none focus:ring-2 focus:ring-[#0466c8] focus:border-transparent"
-                      placeholder="Doe"
+                      placeholder="(555) 123-4567"
                     />
                   </div>
-                </div>
-                <div>
-                  <label className="block text-sm font-medium text-gray-700 mb-2">
-                    Email Address *
-                  </label>
-                  <input
-                    type="email"
-                    required
-                    className="w-full px-4 py-3 rounded-lg border border-gray-300 focus:outline-none focus:ring-2 focus:ring-[#0466c8] focus:border-transparent"
-                    placeholder="john@example.com"
-                  />
-                </div>
-                <div>
-                  <label className="block text-sm font-medium text-gray-700 mb-2">
-                    Phone Number *
-                  </label>
-                  <input
-                    type="tel"
-                    required
-                    className="w-full px-4 py-3 rounded-lg border border-gray-300 focus:outline-none focus:ring-2 focus:ring-[#0466c8] focus:border-transparent"
-                    placeholder="(555) 123-4567"
-                  />
-                </div>
-                <div>
-                  <label className="block text-sm font-medium text-gray-700 mb-2">
-                    Service Type
-                  </label>
-                  <select className="w-full px-4 py-3 rounded-lg border border-gray-300 focus:outline-none focus:ring-2 focus:ring-[#0466c8] focus:border-transparent">
-                    <option>Select a service</option>
-                    <option>Drain Cleaning</option>
-                    <option>Leak Repair</option>
-                    <option>Water Heater</option>
-                    <option>Pipe Repair</option>
-                    <option>Fixture Installation</option>
-                    <option>Sewer Line</option>
-                    <option>Emergency Service</option>
-                    <option>Other</option>
-                  </select>
-                </div>
-                <div>
-                  <label className="block text-sm font-medium text-gray-700 mb-2">
-                    Preferred Contact Time
-                  </label>
-                  <select className="w-full px-4 py-3 rounded-lg border border-gray-300 focus:outline-none focus:ring-2 focus:ring-[#0466c8] focus:border-transparent">
-                    <option>Any time</option>
-                    <option>Morning (8 AM - 12 PM)</option>
-                    <option>Afternoon (12 PM - 5 PM)</option>
-                    <option>Evening (5 PM - 8 PM)</option>
-                  </select>
-                </div>
-                <div>
-                  <label className="block text-sm font-medium text-gray-700 mb-2">
-                    Message *
-                  </label>
-                  <textarea
-                    required
-                    rows={5}
-                    className="w-full px-4 py-3 rounded-lg border border-gray-300 focus:outline-none focus:ring-2 focus:ring-[#0466c8] focus:border-transparent"
-                    placeholder="Please describe your plumbing issue or service needs..."
-                  />
-                </div>
-                <button
-                  type="submit"
-                  className="w-full bg-[#0466c8] text-white px-8 py-4 rounded-lg font-bold hover:bg-[#0353a4] transition-colors flex items-center justify-center space-x-2"
-                >
-                  <Send className="h-5 w-5" />
-                  <span>Send Message</span>
-                </button>
-                <p className="text-sm text-gray-600 text-center">
-                  We typically respond within 24 hours during business days
-                </p>
-              </form>
+                  <div>
+                    <label className="block text-sm font-medium text-gray-700 mb-2">
+                      Service Type
+                    </label>
+                    <select
+                      value={formData.serviceType}
+                      onChange={(e) => setFormData({ ...formData, serviceType: e.target.value })}
+                      className="w-full px-4 py-3 rounded-lg border border-gray-300 focus:outline-none focus:ring-2 focus:ring-[#0466c8] focus:border-transparent"
+                    >
+                      <option>Select a service</option>
+                      <option>Drain Cleaning</option>
+                      <option>Leak Repair</option>
+                      <option>Water Heater</option>
+                      <option>Pipe Repair</option>
+                      <option>Fixture Installation</option>
+                      <option>Sewer Line</option>
+                      <option>Emergency Service</option>
+                      <option>Other</option>
+                    </select>
+                  </div>
+                  <div>
+                    <label className="block text-sm font-medium text-gray-700 mb-2">
+                      Preferred Contact Time
+                    </label>
+                    <select
+                      value={formData.preferredContactTime}
+                      onChange={(e) => setFormData({ ...formData, preferredContactTime: e.target.value })}
+                      className="w-full px-4 py-3 rounded-lg border border-gray-300 focus:outline-none focus:ring-2 focus:ring-[#0466c8] focus:border-transparent"
+                    >
+                      <option>Any time</option>
+                      <option>Morning (8 AM - 12 PM)</option>
+                      <option>Afternoon (12 PM - 5 PM)</option>
+                      <option>Evening (5 PM - 8 PM)</option>
+                    </select>
+                  </div>
+                  <div>
+                    <label className="block text-sm font-medium text-gray-700 mb-2">
+                      Message *
+                    </label>
+                    <textarea
+                      required
+                      rows={5}
+                      value={formData.message}
+                      onChange={(e) => setFormData({ ...formData, message: e.target.value })}
+                      className="w-full px-4 py-3 rounded-lg border border-gray-300 focus:outline-none focus:ring-2 focus:ring-[#0466c8] focus:border-transparent"
+                      placeholder="Please describe your plumbing issue or service needs..."
+                    />
+                  </div>
+                  <button
+                    type="submit"
+                    className="w-full bg-[#0466c8] text-white px-8 py-4 rounded-lg font-bold hover:bg-[#0353a4] transition-colors flex items-center justify-center space-x-2"
+                  >
+                    <Send className="h-5 w-5" />
+                    <span>Send Message</span>
+                  </button>
+                  <p className="text-sm text-gray-600 text-center">
+                    We typically respond within 24 hours during business days
+                  </p>
+                </form>
+              )}
             </div>
 
             {/* Additional Info */}

@@ -1,11 +1,51 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { Phone, CheckCircle, Clock, Shield, Star, Wrench, Droplet, Flame, AlertCircle } from 'lucide-react';
+import { trackEvent, trackConversion } from '@/lib/analytics';
 
 interface HomePageProps {
   onNavigate: (page: string) => void;
 }
 
 const HomePage: React.FC<HomePageProps> = ({ onNavigate }) => {
+  const [formData, setFormData] = useState({ name: '', phone: '', service: 'Select Service Type', notes: '' });
+  const [submitted, setSubmitted] = useState(false);
+
+  const handleSubmit = async (e: React.FormEvent) => {
+    e.preventDefault();
+    try {
+      const response = await fetch('/api/demo-lead', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({
+          demoName: 'Premier Plumbing Pros',
+          demoPackage: 'Standard Website ($950)',
+          demoSlug: 'premier-plumbing-pros',
+          clientName: formData.name,
+          clientPhone: formData.phone,
+          clientEmail: '',
+          service: formData.service === 'Select Service Type' ? '' : formData.service,
+          preferredDate: '',
+          preferredTime: '',
+          notes: formData.notes
+        })
+      });
+
+      if (response.ok) {
+        trackEvent('generate_lead', {
+          form_name: 'hero_request_service_form',
+          demo_slug: 'premier-plumbing-pros'
+        });
+        trackConversion('leadForm');
+        setSubmitted(true);
+      } else {
+        alert('There was an issue submitting your request. Please call us at (555) 765-8237');
+      }
+    } catch (error) {
+      console.error('Request service error:', error);
+      alert('There was an issue submitting your request. Please call us at (555) 765-8237');
+    }
+  };
+
   const services = [
     {
       icon: Droplet,
@@ -95,34 +135,51 @@ const HomePage: React.FC<HomePageProps> = ({ onNavigate }) => {
             <div className="relative">
               <div className="bg-white/10 backdrop-blur-sm rounded-2xl p-8 border border-white/20">
                 <h3 className="text-2xl font-bold mb-6">Request Service</h3>
-                <form className="space-y-4">
-                  <input
-                    type="text"
-                    placeholder="Your Name"
-                    className="w-full px-4 py-3 rounded-lg bg-white/20 border border-white/30 text-white placeholder-blue-200 focus:outline-none focus:ring-2 focus:ring-white"
-                  />
-                  <input
-                    type="tel"
-                    placeholder="Phone Number"
-                    className="w-full px-4 py-3 rounded-lg bg-white/20 border border-white/30 text-white placeholder-blue-200 focus:outline-none focus:ring-2 focus:ring-white"
-                  />
-                  <select className="w-full px-4 py-3 rounded-lg bg-white/20 border border-white/30 text-white focus:outline-none focus:ring-2 focus:ring-white">
-                    <option>Select Service Type</option>
-                    <option>Drain Cleaning</option>
-                    <option>Leak Repair</option>
-                    <option>Water Heater</option>
-                    <option>Emergency Service</option>
-                    <option>Other</option>
-                  </select>
-                  <textarea
-                    placeholder="Describe your plumbing issue"
-                    rows={4}
-                    className="w-full px-4 py-3 rounded-lg bg-white/20 border border-white/30 text-white placeholder-blue-200 focus:outline-none focus:ring-2 focus:ring-white"
-                  />
-                  <button className="w-full bg-white text-[#0466c8] px-6 py-3 rounded-lg font-bold hover:bg-gray-100 transition-colors">
-                    Request Callback
-                  </button>
-                </form>
+                {submitted ? (
+                  <div className="text-center py-6">
+                    <CheckCircle className="h-12 w-12 mx-auto mb-4 text-white" />
+                    <p className="text-lg font-semibold">Thank you! We've received your request and will call you back shortly.</p>
+                  </div>
+                ) : (
+                  <form className="space-y-4" onSubmit={handleSubmit}>
+                    <input
+                      type="text"
+                      placeholder="Your Name"
+                      value={formData.name}
+                      onChange={(e) => setFormData({ ...formData, name: e.target.value })}
+                      className="w-full px-4 py-3 rounded-lg bg-white/20 border border-white/30 text-white placeholder-blue-200 focus:outline-none focus:ring-2 focus:ring-white"
+                    />
+                    <input
+                      type="tel"
+                      placeholder="Phone Number"
+                      value={formData.phone}
+                      onChange={(e) => setFormData({ ...formData, phone: e.target.value })}
+                      className="w-full px-4 py-3 rounded-lg bg-white/20 border border-white/30 text-white placeholder-blue-200 focus:outline-none focus:ring-2 focus:ring-white"
+                    />
+                    <select
+                      value={formData.service}
+                      onChange={(e) => setFormData({ ...formData, service: e.target.value })}
+                      className="w-full px-4 py-3 rounded-lg bg-white/20 border border-white/30 text-white focus:outline-none focus:ring-2 focus:ring-white"
+                    >
+                      <option>Select Service Type</option>
+                      <option>Drain Cleaning</option>
+                      <option>Leak Repair</option>
+                      <option>Water Heater</option>
+                      <option>Emergency Service</option>
+                      <option>Other</option>
+                    </select>
+                    <textarea
+                      placeholder="Describe your plumbing issue"
+                      rows={4}
+                      value={formData.notes}
+                      onChange={(e) => setFormData({ ...formData, notes: e.target.value })}
+                      className="w-full px-4 py-3 rounded-lg bg-white/20 border border-white/30 text-white placeholder-blue-200 focus:outline-none focus:ring-2 focus:ring-white"
+                    />
+                    <button type="submit" className="w-full bg-white text-[#0466c8] px-6 py-3 rounded-lg font-bold hover:bg-gray-100 transition-colors">
+                      Request Callback
+                    </button>
+                  </form>
+                )}
               </div>
             </div>
           </div>

@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import { MapPin, Phone, Mail, Clock, Send, CheckCircle, MessageSquare } from 'lucide-react';
+import { trackEvent, trackConversion } from '@/lib/analytics';
 
 interface ContactPageProps {
   onNavigate: (page: string) => void;
@@ -16,10 +17,35 @@ export default function ContactPage({ onNavigate }: ContactPageProps) {
 
   const [submitted, setSubmitted] = useState(false);
 
-  const handleSubmit = (e: React.FormEvent) => {
+  const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
-    setSubmitted(true);
-    setTimeout(() => setSubmitted(false), 5000);
+    try {
+      const response = await fetch('/api/demo-lead', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({
+          demoName: 'Bright Smile Dental',
+          demoPackage: 'Website Rebuild ($350)',
+          demoSlug: 'bright-smile-dental',
+          clientName: formData.name,
+          clientPhone: formData.phone,
+          clientEmail: formData.email,
+          service: formData.subject,
+          preferredDate: '',
+          preferredTime: '',
+          notes: formData.message
+        })
+      });
+
+      if (response.ok) {
+        trackEvent('generate_lead', { form_name: 'demo_contact_form', demo_slug: 'bright-smile-dental' });
+        trackConversion('leadForm');
+        setSubmitted(true);
+        setTimeout(() => setSubmitted(false), 5000);
+      }
+    } catch {
+      // Network/API failure -- no-op, form stays visible so the user can retry
+    }
   };
 
   const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLSelectElement | HTMLTextAreaElement>) => {

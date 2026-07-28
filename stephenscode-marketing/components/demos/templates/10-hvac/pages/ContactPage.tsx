@@ -11,6 +11,7 @@ import {
   Home,
   FileText,
 } from 'lucide-react';
+import { trackEvent, trackConversion } from '@/lib/analytics';
 
 interface ContactPageProps {
   onNavigate: (page: string) => void;
@@ -28,10 +29,46 @@ export default function ContactPage({ onNavigate }: ContactPageProps) {
     message: '',
   });
 
-  const handleSubmit = (e: React.FormEvent) => {
+  const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
-    // Form submission logic would go here
-    alert('Thank you! We will contact you shortly.');
+
+    try {
+      const response = await fetch('/api/demo-lead', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({
+          demoName: 'AMW Air Conditioning & Heating',
+          demoPackage: 'Standard Website ($950)',
+          demoSlug: 'amw-air-conditioning',
+          clientName: formData.name,
+          clientPhone: formData.phone,
+          clientEmail: formData.email,
+          service: formData.service,
+          preferredDate: formData.preferredDate,
+          preferredTime: formData.preferredTime,
+          notes: [
+            formData.address ? `Service Address: ${formData.address}` : '',
+            formData.message,
+          ]
+            .filter(Boolean)
+            .join(' | '),
+        }),
+      });
+
+      if (response.ok) {
+        trackEvent('generate_lead', {
+          form_name: 'contact_page_service_request_form',
+          demo_slug: 'amw-air-conditioning',
+        });
+        trackConversion('leadForm');
+        alert('Thank you! We will contact you shortly.');
+      } else {
+        alert('There was an issue submitting your request. Please call us at (555) 123-4567.');
+      }
+    } catch (error) {
+      console.error('Contact form submission error:', error);
+      alert('There was an issue submitting your request. Please call us at (555) 123-4567.');
+    }
   };
 
   const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement | HTMLSelectElement>) => {
