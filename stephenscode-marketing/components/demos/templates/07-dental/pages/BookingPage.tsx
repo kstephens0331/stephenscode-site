@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import { Calendar, Clock, User, Mail, Phone, MessageSquare, CheckCircle, AlertCircle } from 'lucide-react';
+import { trackEvent, trackConversion } from '@/lib/analytics';
 
 interface BookingPageProps {
   onNavigate: (page: string) => void;
@@ -22,10 +23,42 @@ export default function BookingPage({ onNavigate }: BookingPageProps) {
 
   const [submitted, setSubmitted] = useState(false);
 
-  const handleSubmit = (e: React.FormEvent) => {
+  const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
-    setSubmitted(true);
-    setTimeout(() => setSubmitted(false), 5000);
+    try {
+      const notes = [
+        formData.dentist && `Preferred dentist: ${formData.dentist}`,
+        formData.isNewPatient && `New patient: ${formData.isNewPatient === 'yes' ? 'Yes' : 'No'}`,
+        formData.insurance && `Insurance: ${formData.insurance}`,
+        formData.message && `Message: ${formData.message}`
+      ].filter(Boolean).join(' | ');
+
+      const response = await fetch('/api/demo-lead', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({
+          demoName: 'Bright Smile Dental',
+          demoPackage: 'Website Rebuild ($350)',
+          demoSlug: 'bright-smile-dental',
+          clientName: `${formData.firstName} ${formData.lastName}`.trim(),
+          clientPhone: formData.phone,
+          clientEmail: formData.email,
+          service: formData.visitType,
+          preferredDate: formData.date,
+          preferredTime: formData.time,
+          notes
+        })
+      });
+
+      if (response.ok) {
+        trackEvent('generate_lead', { form_name: 'demo_booking_form', demo_slug: 'bright-smile-dental' });
+        trackConversion('leadForm');
+        setSubmitted(true);
+        setTimeout(() => setSubmitted(false), 5000);
+      }
+    } catch {
+      // Network/API failure -- no-op, form stays visible so the user can retry
+    }
   };
 
   const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLSelectElement | HTMLTextAreaElement>) => {

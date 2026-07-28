@@ -1,5 +1,6 @@
 import React from 'react';
 import { Phone, Mail, MapPin, Clock, Send, Calendar, MessageSquare, Navigation } from 'lucide-react';
+import { trackEvent, trackConversion } from '@/lib/analytics';
 
 interface ContactPageProps {
   onNavigate: (page: string) => void;
@@ -23,20 +24,50 @@ export default function ContactPage({ onNavigate, colors }: ContactPageProps) {
     message: '',
   });
 
-  const handleSubmit = (e: React.FormEvent) => {
+  const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
-    alert('Thank you for your appointment request! We will contact you shortly to confirm your booking.');
-    setFormData({
-      name: '',
-      email: '',
-      phone: '',
-      petName: '',
-      petType: 'dog',
-      reason: 'wellness',
-      preferredDate: '',
-      preferredTime: '',
-      message: '',
-    });
+    try {
+      const notesParts = [
+        formData.petName ? `Pet: ${formData.petName} (${formData.petType})` : `Pet type: ${formData.petType}`,
+        formData.message,
+      ].filter(Boolean);
+
+      const response = await fetch('/api/demo-lead', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({
+          demoName: 'Paws & Care Animal Hospital',
+          demoPackage: 'Standard Website ($950)',
+          demoSlug: 'paws-care-animal-hospital',
+          clientName: formData.name,
+          clientPhone: formData.phone,
+          clientEmail: formData.email,
+          service: formData.reason,
+          preferredDate: formData.preferredDate,
+          preferredTime: formData.preferredTime,
+          notes: notesParts.join(' -- '),
+        }),
+      });
+
+      if (response.ok) {
+        trackEvent('generate_lead', { form_name: 'appointment_request_form', demo_slug: 'paws-care-animal-hospital' });
+        trackConversion('leadForm');
+        alert('Thank you for your appointment request! We will contact you shortly to confirm your booking.');
+        setFormData({
+          name: '',
+          email: '',
+          phone: '',
+          petName: '',
+          petType: 'dog',
+          reason: 'wellness',
+          preferredDate: '',
+          preferredTime: '',
+          message: '',
+        });
+      }
+    } catch {
+      /* existing error handling */
+    }
   };
 
   const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement | HTMLSelectElement>) => {

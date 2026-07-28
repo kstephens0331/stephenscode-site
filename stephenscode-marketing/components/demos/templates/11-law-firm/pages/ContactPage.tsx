@@ -1,5 +1,6 @@
 import React from 'react';
 import { Phone, Mail, MapPin, Clock, Send, CheckCircle2, MessageSquare } from 'lucide-react';
+import { trackEvent, trackConversion } from '@/lib/analytics';
 
 interface ContactPageProps {
   onNavigate: (page: string) => void;
@@ -17,10 +18,34 @@ export default function ContactPage({ onNavigate, accentColor = '#c9a227' }: Con
 
   const [submitted, setSubmitted] = React.useState(false);
 
-  const handleSubmit = (e: React.FormEvent) => {
+  const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
-    setSubmitted(true);
-    setTimeout(() => setSubmitted(false), 5000);
+    try {
+      const response = await fetch('/api/demo-lead', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({
+          demoName: 'Justice & Associates Law',
+          demoPackage: 'Standard Website ($950)',
+          demoSlug: 'justice-associates-law',
+          clientName: formData.name,
+          clientPhone: formData.phone,
+          clientEmail: formData.email,
+          service: formData.practiceArea,
+          preferredDate: '',
+          preferredTime: '',
+          notes: formData.message
+        })
+      });
+      if (response.ok) {
+        trackEvent('generate_lead', { form_name: 'contact_consultation_form', demo_slug: 'justice-associates-law' });
+        trackConversion('leadForm');
+        setSubmitted(true);
+        setTimeout(() => setSubmitted(false), 5000);
+      }
+    } catch {
+      /* silently ignore network errors, matching reference implementation */
+    }
   };
 
   const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement | HTMLSelectElement>) => {

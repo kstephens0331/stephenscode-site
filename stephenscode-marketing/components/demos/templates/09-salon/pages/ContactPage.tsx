@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import { MapPin, Phone, Mail, Clock, Instagram, Facebook, MessageSquare, Send } from 'lucide-react';
+import { trackEvent, trackConversion } from '@/lib/analytics';
 
 interface ContactPageProps {
   onNavigate: (page: string) => void;
@@ -14,11 +15,43 @@ export default function ContactPage({ onNavigate }: ContactPageProps) {
     message: '',
   });
 
-  const handleSubmit = (e: React.FormEvent) => {
+  const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
-    // Handle form submission
-    alert('Thank you for your message! We will respond within 24 hours.');
-    setFormData({ name: '', email: '', phone: '', subject: '', message: '' });
+
+    try {
+      const response = await fetch('/api/demo-lead', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({
+          demoName: 'Glamour Studio Salon',
+          demoPackage: 'Website Rebuild ($350)',
+          demoSlug: 'glamour-studio-salon',
+          clientName: formData.name,
+          clientPhone: formData.phone,
+          clientEmail: formData.email,
+          service: formData.subject,
+          preferredDate: '',
+          preferredTime: '',
+          notes: formData.message,
+        }),
+      });
+
+      if (response.ok) {
+        trackEvent('generate_lead', {
+          form_name: 'salon_contact_form',
+          demo_slug: 'glamour-studio-salon',
+        });
+        trackConversion('leadForm');
+
+        alert('Thank you for your message! We will respond within 24 hours.');
+        setFormData({ name: '', email: '', phone: '', subject: '', message: '' });
+      } else {
+        alert('There was an issue sending your message. Please call us at (555) 456-7890.');
+      }
+    } catch (error) {
+      console.error('Contact form error:', error);
+      alert('There was an issue sending your message. Please call us at (555) 456-7890.');
+    }
   };
 
   return (

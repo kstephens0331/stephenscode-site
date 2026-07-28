@@ -18,6 +18,7 @@ import {
   Droplets,
   Lightbulb
 } from 'lucide-react';
+import { trackEvent, trackConversion } from '@/lib/analytics';
 
 interface ContactPageProps {
   onNavigate: (page: string) => void;
@@ -60,10 +61,48 @@ export default function ContactPage({ onNavigate }: ContactPageProps) {
     }));
   };
 
-  const handleSubmit = (e: React.FormEvent) => {
+  const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
-    setSubmitted(true);
-    // In a real app, this would send data to a server
+    try {
+      const selectedServices = services
+        .filter(service => formData.serviceInterest.includes(service.id))
+        .map(service => service.name)
+        .join(', ');
+
+      const notesParts = [
+        formData.message && `Project details: ${formData.message}`,
+        formData.address && `Property address: ${formData.address}`,
+        formData.propertySize && `Property size: ${formData.propertySize}`,
+        formData.projectType && `Project type: ${formData.projectType}`,
+        formData.timeline && `Timeline: ${formData.timeline}`,
+        formData.budget && `Budget: ${formData.budget}`,
+        formData.preferredContact && `Preferred contact method: ${formData.preferredContact}`
+      ].filter(Boolean);
+
+      const response = await fetch('/api/demo-lead', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({
+          demoName: 'Green Valley Landscaping',
+          demoPackage: 'Website Rebuild ($350)',
+          demoSlug: 'green-valley-landscaping',
+          clientName: formData.name,
+          clientPhone: formData.phone,
+          clientEmail: formData.email,
+          service: selectedServices,
+          preferredDate: '',
+          preferredTime: '',
+          notes: notesParts.join(' | ')
+        })
+      });
+      if (response.ok) {
+        trackEvent('generate_lead', { form_name: 'demo_contact_form', demo_slug: 'green-valley-landscaping' });
+        trackConversion('leadForm');
+        setSubmitted(true);
+      }
+    } catch {
+      // Existing error handling: no-op, form stays visible for retry
+    }
   };
 
   if (submitted) {

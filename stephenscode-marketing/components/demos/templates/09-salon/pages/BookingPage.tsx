@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import { Calendar, Clock, User, CreditCard, CheckCircle, ChevronRight } from 'lucide-react';
+import { trackEvent, trackConversion } from '@/lib/analytics';
 
 interface BookingPageProps {
   onNavigate: (page: string) => void;
@@ -7,6 +8,7 @@ interface BookingPageProps {
 
 export default function BookingPage({ onNavigate }: BookingPageProps) {
   const [step, setStep] = useState(1);
+  const [submitted, setSubmitted] = useState(false);
   const [bookingData, setBookingData] = useState({
     service: '',
     stylist: '',
@@ -83,10 +85,44 @@ export default function BookingPage({ onNavigate }: BookingPageProps) {
     '5:00 PM', '6:00 PM', '7:00 PM',
   ];
 
-  const handleSubmit = (e: React.FormEvent) => {
+  const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
     if (step < 4) {
       setStep(step + 1);
+      return;
+    }
+
+    try {
+      const response = await fetch('/api/demo-lead', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({
+          demoName: 'Glamour Studio Salon',
+          demoPackage: 'Website Rebuild ($350)',
+          demoSlug: 'glamour-studio-salon',
+          clientName: `${bookingData.firstName} ${bookingData.lastName}`.trim(),
+          clientPhone: bookingData.phone,
+          clientEmail: bookingData.email,
+          service: selectedService?.name || bookingData.service,
+          preferredDate: bookingData.date,
+          preferredTime: bookingData.time,
+          notes: bookingData.notes,
+        }),
+      });
+
+      if (response.ok) {
+        trackEvent('generate_lead', {
+          form_name: 'salon_booking_form',
+          demo_slug: 'glamour-studio-salon',
+        });
+        trackConversion('leadForm');
+        setSubmitted(true);
+      } else {
+        alert('There was an issue submitting your booking. Please call us at (555) 456-7890.');
+      }
+    } catch (error) {
+      console.error('Booking error:', error);
+      alert('There was an issue submitting your booking. Please call us at (555) 456-7890.');
     }
   };
 
@@ -326,8 +362,28 @@ export default function BookingPage({ onNavigate }: BookingPageProps) {
               </div>
             )}
 
+            {/* Step 4: Confirmation */}
+            {step === 4 && submitted && (
+              <div className="bg-white rounded-2xl shadow-lg p-8 text-center">
+                <CheckCircle className="w-16 h-16 text-[#d00000] mx-auto mb-6" />
+                <h2 className="text-3xl font-bold mb-4">Booking Request Received!</h2>
+                <p className="text-gray-600 max-w-xl mx-auto">
+                  Thank you, {bookingData.firstName}. We&apos;ve received your request for{' '}
+                  {selectedService?.name} with {selectedStylist?.name} on {bookingData.date} at{' '}
+                  {bookingData.time}. Our team will confirm your appointment shortly.
+                </p>
+                <button
+                  type="button"
+                  onClick={() => onNavigate('home')}
+                  className="mt-8 bg-gradient-to-r from-[#d00000] to-[#e85d04] text-white px-8 py-3 rounded-full font-semibold hover:shadow-lg transition-all duration-300"
+                >
+                  Back to Home
+                </button>
+              </div>
+            )}
+
             {/* Step 4: Contact Details */}
-            {step === 4 && (
+            {step === 4 && !submitted && (
               <div className="bg-white rounded-2xl shadow-lg p-8">
                 <h2 className="text-3xl font-bold mb-6 text-center">Your Details</h2>
 

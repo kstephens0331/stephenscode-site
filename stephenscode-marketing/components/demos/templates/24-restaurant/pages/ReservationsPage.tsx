@@ -1,12 +1,62 @@
 'use client'
 
+import { useState } from 'react'
 import type { ColorPalette } from '@/lib/demo-colors'
+import { trackEvent, trackConversion } from '@/lib/analytics'
 
 interface ReservationsPageProps {
   colors: ColorPalette
 }
 
 export default function ReservationsPage({ colors }: ReservationsPageProps) {
+  const [formData, setFormData] = useState({
+    firstName: '',
+    lastName: '',
+    phone: '',
+    email: '',
+    date: '',
+    time: '5:00 PM',
+    partySize: '2 Guests',
+    notes: ''
+  })
+  const [submitted, setSubmitted] = useState(false)
+
+  const handleSubmit = async (e: React.FormEvent) => {
+    e.preventDefault()
+    try {
+      const response = await fetch('/api/demo-lead', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({
+          demoName: 'Gourmet Kitchen Restaurant',
+          demoPackage: 'Premium Build ($2,000)',
+          demoSlug: 'gourmet-kitchen-restaurant',
+          clientName: `${formData.firstName} ${formData.lastName}`.trim(),
+          clientPhone: formData.phone,
+          clientEmail: formData.email,
+          service: formData.partySize,
+          preferredDate: formData.date,
+          preferredTime: formData.time,
+          notes: formData.notes
+        })
+      })
+
+      if (response.ok) {
+        trackEvent('generate_lead', {
+          form_name: 'reservation_form',
+          demo_slug: 'gourmet-kitchen-restaurant',
+        })
+        trackConversion('leadForm')
+        setSubmitted(true)
+      } else {
+        alert('There was an issue confirming your reservation. Please call us at (312) 555-FOOD.')
+      }
+    } catch (error) {
+      console.error('Reservation form error:', error)
+      alert('There was an issue confirming your reservation. Please call us at (312) 555-FOOD.')
+    }
+  }
+
   return (
     <div>
       <section style={{ backgroundColor: '#9b2226' }} className="py-20">
@@ -31,13 +81,24 @@ export default function ReservationsPage({ colors }: ReservationsPageProps) {
               <h2 style={{ color: '#1a1a1a' }} className="text-3xl font-bold mb-6">
                 Make a Reservation
               </h2>
-              <form className="space-y-4">
+              {submitted ? (
+                <div style={{ backgroundColor: '#f8f8f8', border: '3px solid #22c55e' }} className="p-8 text-center">
+                  <div className="text-5xl mb-4">✓</div>
+                  <h3 style={{ color: '#1a1a1a' }} className="text-2xl font-bold mb-2">Reservation Requested!</h3>
+                  <p style={{ color: '#666666' }}>
+                    We've received your request and will confirm shortly.
+                  </p>
+                </div>
+              ) : (
+              <form className="space-y-4" onSubmit={handleSubmit}>
                 <div className="grid grid-cols-2 gap-4">
                   <div>
                     <label style={{ color: '#1a1a1a' }} className="block font-bold mb-2">First Name *</label>
                     <input
                       type="text"
                       required
+                      value={formData.firstName}
+                      onChange={(e) => setFormData({ ...formData, firstName: e.target.value })}
                       style={{ backgroundColor: '#f5f5f5', border: '2px solid #e5e5e5', color: '#1a1a1a' }}
                       className="w-full px-4 py-3 focus:outline-none focus:border-red-900"
                     />
@@ -47,6 +108,8 @@ export default function ReservationsPage({ colors }: ReservationsPageProps) {
                     <input
                       type="text"
                       required
+                      value={formData.lastName}
+                      onChange={(e) => setFormData({ ...formData, lastName: e.target.value })}
                       style={{ backgroundColor: '#f5f5f5', border: '2px solid #e5e5e5', color: '#1a1a1a' }}
                       className="w-full px-4 py-3 focus:outline-none focus:border-red-900"
                     />
@@ -58,6 +121,8 @@ export default function ReservationsPage({ colors }: ReservationsPageProps) {
                     <input
                       type="tel"
                       required
+                      value={formData.phone}
+                      onChange={(e) => setFormData({ ...formData, phone: e.target.value })}
                       style={{ backgroundColor: '#f5f5f5', border: '2px solid #e5e5e5', color: '#1a1a1a' }}
                       className="w-full px-4 py-3 focus:outline-none focus:border-red-900"
                     />
@@ -67,6 +132,8 @@ export default function ReservationsPage({ colors }: ReservationsPageProps) {
                     <input
                       type="email"
                       required
+                      value={formData.email}
+                      onChange={(e) => setFormData({ ...formData, email: e.target.value })}
                       style={{ backgroundColor: '#f5f5f5', border: '2px solid #e5e5e5', color: '#1a1a1a' }}
                       className="w-full px-4 py-3 focus:outline-none focus:border-red-900"
                     />
@@ -78,6 +145,8 @@ export default function ReservationsPage({ colors }: ReservationsPageProps) {
                     <input
                       type="date"
                       required
+                      value={formData.date}
+                      onChange={(e) => setFormData({ ...formData, date: e.target.value })}
                       style={{ backgroundColor: '#f5f5f5', border: '2px solid #e5e5e5', color: '#1a1a1a' }}
                       className="w-full px-4 py-3 focus:outline-none focus:border-red-900"
                     />
@@ -86,6 +155,8 @@ export default function ReservationsPage({ colors }: ReservationsPageProps) {
                     <label style={{ color: '#1a1a1a' }} className="block font-bold mb-2">Time *</label>
                     <select
                       required
+                      value={formData.time}
+                      onChange={(e) => setFormData({ ...formData, time: e.target.value })}
                       style={{ backgroundColor: '#f5f5f5', border: '2px solid #e5e5e5', color: '#1a1a1a' }}
                       className="w-full px-4 py-3 focus:outline-none focus:border-red-900"
                     >
@@ -104,6 +175,8 @@ export default function ReservationsPage({ colors }: ReservationsPageProps) {
                     <label style={{ color: '#1a1a1a' }} className="block font-bold mb-2">Party Size *</label>
                     <select
                       required
+                      value={formData.partySize}
+                      onChange={(e) => setFormData({ ...formData, partySize: e.target.value })}
                       style={{ backgroundColor: '#f5f5f5', border: '2px solid #e5e5e5', color: '#1a1a1a' }}
                       className="w-full px-4 py-3 focus:outline-none focus:border-red-900"
                     >
@@ -120,6 +193,8 @@ export default function ReservationsPage({ colors }: ReservationsPageProps) {
                 <div>
                   <label style={{ color: '#1a1a1a' }} className="block font-bold mb-2">Special Requests</label>
                   <textarea
+                    value={formData.notes}
+                    onChange={(e) => setFormData({ ...formData, notes: e.target.value })}
                     style={{ backgroundColor: '#f5f5f5', border: '2px solid #e5e5e5', color: '#1a1a1a' }}
                     className="w-full px-4 py-3 focus:outline-none focus:border-red-900 h-24"
                     placeholder="Birthday, anniversary, dietary restrictions, seating preferences..."
@@ -133,6 +208,7 @@ export default function ReservationsPage({ colors }: ReservationsPageProps) {
                   Confirm Reservation
                 </button>
               </form>
+              )}
             </div>
 
             {/* Info */}

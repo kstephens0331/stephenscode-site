@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import { Mail, Phone, MapPin, Clock, Send, CheckCircle, MessageSquare, Calendar, User, Home } from 'lucide-react';
+import { trackEvent, trackConversion } from '@/lib/analytics';
 
 const ContactPage: React.FC = () => {
   const [formData, setFormData] = useState({
@@ -11,19 +12,43 @@ const ContactPage: React.FC = () => {
   });
   const [submitted, setSubmitted] = useState(false);
 
-  const handleSubmit = (e: React.FormEvent) => {
+  const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
-    setSubmitted(true);
-    setTimeout(() => {
-      setSubmitted(false);
-      setFormData({
-        name: '',
-        email: '',
-        phone: '',
-        inquiry: 'general',
-        message: '',
+    try {
+      const response = await fetch('/api/demo-lead', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({
+          demoName: 'Skyline Realty Group',
+          demoPackage: 'Standard Website ($950)',
+          demoSlug: 'skyline-realty-group',
+          clientName: formData.name,
+          clientPhone: formData.phone,
+          clientEmail: formData.email,
+          service: formData.inquiry,
+          preferredDate: '',
+          preferredTime: '',
+          notes: formData.message,
+        }),
       });
-    }, 3000);
+      if (response.ok) {
+        trackEvent('generate_lead', { form_name: 'contact_form', demo_slug: 'skyline-realty-group' });
+        trackConversion('leadForm');
+        setSubmitted(true);
+        setTimeout(() => {
+          setSubmitted(false);
+          setFormData({
+            name: '',
+            email: '',
+            phone: '',
+            inquiry: 'general',
+            message: '',
+          });
+        }, 3000);
+      }
+    } catch {
+      /* existing error handling */
+    }
   };
 
   const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement | HTMLSelectElement>) => {

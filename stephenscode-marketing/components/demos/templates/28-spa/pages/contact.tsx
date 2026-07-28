@@ -1,7 +1,9 @@
 'use client'
 
+import { useState } from 'react'
 import type { ColorPalette } from '@/lib/demo-colors'
 import { MapPin, Phone, Mail, Clock } from 'lucide-react'
+import { trackEvent, trackConversion } from '@/lib/analytics'
 
 interface ContactPageProps {
   colors: ColorPalette
@@ -9,6 +11,47 @@ interface ContactPageProps {
 }
 
 export default function ContactPage({ colors, onNavigate }: ContactPageProps) {
+  const [formData, setFormData] = useState({ name: '', email: '', message: '' })
+  const [submitted, setSubmitted] = useState(false)
+
+  const handleSubmit = async (e: React.FormEvent) => {
+    e.preventDefault()
+
+    try {
+      const response = await fetch('/api/demo-lead', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({
+          demoName: 'Serenity Spa & Wellness',
+          demoPackage: 'Premium Build ($2,000)',
+          demoSlug: 'serenity-spa-wellness',
+          clientName: formData.name,
+          clientPhone: '',
+          clientEmail: formData.email,
+          service: '',
+          preferredDate: '',
+          preferredTime: '',
+          notes: formData.message
+        })
+      })
+
+      if (response.ok) {
+        trackEvent('generate_lead', {
+          form_name: 'contact_page_form',
+          demo_slug: 'serenity-spa-wellness',
+        })
+        trackConversion('leadForm')
+
+        setSubmitted(true)
+      } else {
+        alert('There was an issue sending your message. Please call us at (555) 987-6543')
+      }
+    } catch (error) {
+      console.error('Contact form error:', error)
+      alert('There was an issue sending your message. Please call us at (555) 987-6543')
+    }
+  }
+
   return (
     <div className="min-h-screen py-12" style={{ backgroundColor: colors.backgroundAlt }}>
       <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
@@ -35,14 +78,42 @@ export default function ContactPage({ colors, onNavigate }: ContactPageProps) {
           </div>
           <div className="bg-white rounded-lg shadow-lg p-8">
             <h2 className="text-2xl font-bold mb-6 font-serif" style={{ color: colors.text }}>Send Message</h2>
-            <form className="space-y-4">
-              <input type="text" placeholder="Your Name" className="w-full px-4 py-3 rounded-lg border" style={{ borderColor: colors.border }} />
-              <input type="email" placeholder="Your Email" className="w-full px-4 py-3 rounded-lg border" style={{ borderColor: colors.border }} />
-              <textarea placeholder="Your Message" rows={4} className="w-full px-4 py-3 rounded-lg border" style={{ borderColor: colors.border }} />
-              <button type="submit" className="w-full py-3 rounded-lg font-semibold" style={{ backgroundColor: colors.primary, color: '#ffffff' }}>
-                Send Message
-              </button>
-            </form>
+            {submitted ? (
+              <div className="text-center py-8">
+                <div className="text-5xl mb-4">✅</div>
+                <p className="text-lg font-semibold" style={{ color: colors.text }}>Thank you! Your message has been sent.</p>
+              </div>
+            ) : (
+              <form onSubmit={handleSubmit} className="space-y-4">
+                <input
+                  type="text"
+                  value={formData.name}
+                  onChange={(e) => setFormData({ ...formData, name: e.target.value })}
+                  placeholder="Your Name"
+                  className="w-full px-4 py-3 rounded-lg border"
+                  style={{ borderColor: colors.border }}
+                />
+                <input
+                  type="email"
+                  value={formData.email}
+                  onChange={(e) => setFormData({ ...formData, email: e.target.value })}
+                  placeholder="Your Email"
+                  className="w-full px-4 py-3 rounded-lg border"
+                  style={{ borderColor: colors.border }}
+                />
+                <textarea
+                  value={formData.message}
+                  onChange={(e) => setFormData({ ...formData, message: e.target.value })}
+                  placeholder="Your Message"
+                  rows={4}
+                  className="w-full px-4 py-3 rounded-lg border"
+                  style={{ borderColor: colors.border }}
+                />
+                <button type="submit" className="w-full py-3 rounded-lg font-semibold" style={{ backgroundColor: colors.primary, color: '#ffffff' }}>
+                  Send Message
+                </button>
+              </form>
+            )}
           </div>
         </div>
       </div>

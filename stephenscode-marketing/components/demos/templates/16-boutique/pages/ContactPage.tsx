@@ -1,8 +1,60 @@
 'use client'
 
+import { useState } from 'react'
 import { MapPin, Phone, Mail, Clock, Send } from 'lucide-react'
+import { trackEvent, trackConversion } from '@/lib/analytics'
 
 export default function ContactPage() {
+  const [formData, setFormData] = useState({
+    firstName: '',
+    lastName: '',
+    email: '',
+    phone: '',
+    subject: 'General Inquiry',
+    message: ''
+  })
+  const [submitting, setSubmitting] = useState(false)
+  const [submitted, setSubmitted] = useState(false)
+
+  const handleSubmit = async (e: React.FormEvent) => {
+    e.preventDefault()
+    setSubmitting(true)
+    try {
+      const response = await fetch('/api/demo-lead', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({
+          demoName: 'Bella Boutique Fashion',
+          demoPackage: 'E-Commerce Website ($1,100)',
+          demoSlug: 'bella-boutique-fashion',
+          clientName: `${formData.firstName} ${formData.lastName}`.trim(),
+          clientPhone: formData.phone,
+          clientEmail: formData.email,
+          service: formData.subject,
+          preferredDate: '',
+          preferredTime: '',
+          notes: formData.message
+        })
+      })
+
+      if (response.ok) {
+        trackEvent('generate_lead', {
+          form_name: 'contact_form',
+          demo_slug: 'bella-boutique-fashion',
+        })
+        trackConversion('leadForm')
+        setSubmitted(true)
+      } else {
+        alert('There was an issue submitting your message. Please email us at hello@bellaboutique.com')
+      }
+    } catch (error) {
+      console.error('Contact form error:', error)
+      alert('There was an issue submitting your message. Please email us at hello@bellaboutique.com')
+    } finally {
+      setSubmitting(false)
+    }
+  }
+
   return (
     <div className="py-12">
       <div className="container mx-auto px-4">
@@ -62,73 +114,102 @@ export default function ContactPage() {
           {/* Contact Form */}
           <div className="bg-white rounded-xl shadow-md p-8">
             <h2 className="text-2xl font-bold text-gray-900 mb-6">Send Us a Message</h2>
-            <form className="space-y-6">
-              <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+            {submitted ? (
+              <div className="text-center py-12">
+                <div className="text-6xl mb-6">✅</div>
+                <h3 className="text-2xl font-bold text-gray-900 mb-3">Message Sent!</h3>
+                <p className="text-gray-600">
+                  Thanks for reaching out. We'll get back to you as soon as possible.
+                </p>
+              </div>
+            ) : (
+              <form onSubmit={handleSubmit} className="space-y-6">
+                <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+                  <div>
+                    <label className="block text-sm font-semibold text-gray-700 mb-2">First Name</label>
+                    <input
+                      type="text"
+                      required
+                      value={formData.firstName}
+                      onChange={(e) => setFormData({ ...formData, firstName: e.target.value })}
+                      className="w-full px-4 py-3 border-2 border-gray-200 rounded-lg focus:outline-none focus:border-[var(--color-primary)]"
+                      placeholder="Sarah"
+                    />
+                  </div>
+                  <div>
+                    <label className="block text-sm font-semibold text-gray-700 mb-2">Last Name</label>
+                    <input
+                      type="text"
+                      required
+                      value={formData.lastName}
+                      onChange={(e) => setFormData({ ...formData, lastName: e.target.value })}
+                      className="w-full px-4 py-3 border-2 border-gray-200 rounded-lg focus:outline-none focus:border-[var(--color-primary)]"
+                      placeholder="Johnson"
+                    />
+                  </div>
+                </div>
+
                 <div>
-                  <label className="block text-sm font-semibold text-gray-700 mb-2">First Name</label>
+                  <label className="block text-sm font-semibold text-gray-700 mb-2">Email</label>
                   <input
-                    type="text"
+                    type="email"
+                    required
+                    value={formData.email}
+                    onChange={(e) => setFormData({ ...formData, email: e.target.value })}
                     className="w-full px-4 py-3 border-2 border-gray-200 rounded-lg focus:outline-none focus:border-[var(--color-primary)]"
-                    placeholder="Sarah"
+                    placeholder="sarah@email.com"
                   />
                 </div>
+
                 <div>
-                  <label className="block text-sm font-semibold text-gray-700 mb-2">Last Name</label>
+                  <label className="block text-sm font-semibold text-gray-700 mb-2">Phone (Optional)</label>
                   <input
-                    type="text"
+                    type="tel"
+                    value={formData.phone}
+                    onChange={(e) => setFormData({ ...formData, phone: e.target.value })}
                     className="w-full px-4 py-3 border-2 border-gray-200 rounded-lg focus:outline-none focus:border-[var(--color-primary)]"
-                    placeholder="Johnson"
+                    placeholder="(555) 123-4567"
                   />
                 </div>
-              </div>
 
-              <div>
-                <label className="block text-sm font-semibold text-gray-700 mb-2">Email</label>
-                <input
-                  type="email"
-                  className="w-full px-4 py-3 border-2 border-gray-200 rounded-lg focus:outline-none focus:border-[var(--color-primary)]"
-                  placeholder="sarah@email.com"
-                />
-              </div>
+                <div>
+                  <label className="block text-sm font-semibold text-gray-700 mb-2">Subject</label>
+                  <select
+                    value={formData.subject}
+                    onChange={(e) => setFormData({ ...formData, subject: e.target.value })}
+                    className="w-full px-4 py-3 border-2 border-gray-200 rounded-lg focus:outline-none focus:border-[var(--color-primary)]"
+                  >
+                    <option>General Inquiry</option>
+                    <option>Product Question</option>
+                    <option>Order Status</option>
+                    <option>Styling Consultation</option>
+                    <option>Returns & Exchanges</option>
+                    <option>Other</option>
+                  </select>
+                </div>
 
-              <div>
-                <label className="block text-sm font-semibold text-gray-700 mb-2">Phone (Optional)</label>
-                <input
-                  type="tel"
-                  className="w-full px-4 py-3 border-2 border-gray-200 rounded-lg focus:outline-none focus:border-[var(--color-primary)]"
-                  placeholder="(555) 123-4567"
-                />
-              </div>
+                <div>
+                  <label className="block text-sm font-semibold text-gray-700 mb-2">Message</label>
+                  <textarea
+                    rows={5}
+                    required
+                    value={formData.message}
+                    onChange={(e) => setFormData({ ...formData, message: e.target.value })}
+                    className="w-full px-4 py-3 border-2 border-gray-200 rounded-lg focus:outline-none focus:border-[var(--color-primary)]"
+                    placeholder="Tell us how we can help you..."
+                  ></textarea>
+                </div>
 
-              <div>
-                <label className="block text-sm font-semibold text-gray-700 mb-2">Subject</label>
-                <select className="w-full px-4 py-3 border-2 border-gray-200 rounded-lg focus:outline-none focus:border-[var(--color-primary)]">
-                  <option>General Inquiry</option>
-                  <option>Product Question</option>
-                  <option>Order Status</option>
-                  <option>Styling Consultation</option>
-                  <option>Returns & Exchanges</option>
-                  <option>Other</option>
-                </select>
-              </div>
-
-              <div>
-                <label className="block text-sm font-semibold text-gray-700 mb-2">Message</label>
-                <textarea
-                  rows={5}
-                  className="w-full px-4 py-3 border-2 border-gray-200 rounded-lg focus:outline-none focus:border-[var(--color-primary)]"
-                  placeholder="Tell us how we can help you..."
-                ></textarea>
-              </div>
-
-              <button
-                type="submit"
-                className="w-full bg-[var(--color-primary)] text-white py-4 rounded-lg font-semibold hover:bg-opacity-90 transition-all flex items-center justify-center space-x-2"
-              >
-                <span>Send Message</span>
-                <Send className="w-5 h-5" />
-              </button>
-            </form>
+                <button
+                  type="submit"
+                  disabled={submitting}
+                  className="w-full bg-[var(--color-primary)] text-white py-4 rounded-lg font-semibold hover:bg-opacity-90 transition-all flex items-center justify-center space-x-2 disabled:opacity-60"
+                >
+                  <span>{submitting ? 'Sending...' : 'Send Message'}</span>
+                  <Send className="w-5 h-5" />
+                </button>
+              </form>
+            )}
           </div>
 
           {/* Store Hours & Map */}
