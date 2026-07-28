@@ -1,16 +1,30 @@
 ---
-title: Web Developer Houston TX | Custom Websites, SEO & E-Commerce
-metaDescription: Professional web development serving Houston, Texas. Custom websites starting at $250, local SEO, e-commerce solutions. Veteran-owned with 14+ years experience.
+title: Web Design Houston TX | Custom Websites & Local SEO From $250
+metaDescription: Affordable web design in Houston, TX from $250. Custom websites, local SEO, and e-commerce for Houston small businesses. Veteran-owned, flat-rate pricing.
 heroSubtitle: Serving America's fourth-largest city with personalized attention
+h1Override: Affordable Web Design & Development in Houston, Texas
+faqs:
+  - question: How much does web design cost for a Houston small business?
+    answer: "Flat-rate pricing starts at $250 for a Plug and Play redesign of an existing Wix or GoDaddy site, $350 for a Website Rebuild, $950 for a Standard custom-built website, $1,100 for a full E-Commerce store, and $2,000+ for a Premium custom platform. These are complete prices, not starting estimates that grow later."
+  - question: How fast can you build a website for a Houston business?
+    answer: Most Houston website projects are completed in 1-2 weeks, not the 2-3 months typical of larger agencies, depending on the package and how quickly we get your content and assets.
+  - question: Do you build fast-loading websites optimized for Houston searches?
+    answer: Yes. Every site we build is optimized for load speed and mobile performance, and we tailor local SEO to the specific Houston neighborhood or district your customers search from, since "Houston" alone is too broad for effective local SEO in a 670-square-mile city.
+  - question: Is StephensCode based in Houston?
+    answer: We're based in Conroe, about 40 minutes north of Houston, and work with Houston businesses regularly, in person and remotely. Lower overhead outside the Loop means lower prices without sacrificing quality.
+  - question: What platforms do you build Houston websites on?
+    answer: We build on Next.js and modern frameworks rather than outdated WordPress themes or page builders, which means faster load times and a site that's easier to maintain and scale as your Houston business grows.
+  - question: Do you serve specific Houston neighborhoods and industries?
+    answer: Yes. We build websites for Houston businesses across Downtown, Midtown, Montrose, The Heights, Memorial, the Galleria, the Energy Corridor, and West University, and across industries including medical, energy, legal, restaurants, and real estate.
 ---
 
-## Houston Web Development: Big City Market, Small Business Service
+## Web Design & Development in Houston: Big City Market, Small Business Service
 
 Houston is massive: 2.3 million people, fourth-largest city in America, an economy that would rank as a top-40 country if it were independent. The Texas Medical Center alone employs over 106,000 people. The Port of Houston handles more foreign tonnage than any other U.S. port. The Energy Corridor houses headquarters for companies that power the world.
 
-In a market this size, you'd think only big agencies with downtown offices could compete. But here's the reality: most Houston small businesses don't need (and can't afford) a $50,000 website from a Galleria high-rise agency. They need professional, effective websites at reasonable prices, exactly what we provide.
+In a market this size, you'd think only big agencies with downtown offices could compete. But here's the reality: most Houston small businesses don't need (and can't afford) a $50,000 website from a Galleria high-rise agency. They need affordable web design that's professional and effective, with a fast-loading website and a real SEO project behind it, exactly what we provide for Houston service providers.
 
-At StephensCode, we serve Houston businesses from our base in Conroe, just 40 minutes north. We combine the personal service of a local developer with the expertise to compete in Houston's sophisticated market. No corporate overhead means better prices. Direct communication means better results. And our 14+ years of experience means we know how to build sites that actually generate business in competitive markets.
+At StephensCode, we serve Houston businesses from our base in Conroe, just 40 minutes north. We combine the personal service of a local web design shop with the expertise to compete in Houston's sophisticated market. No corporate overhead means better prices. Direct communication means better results. And our 14+ years of experience means we know how to build custom websites for Houston service providers that actually generate business in competitive markets.
 
 ### The Houston Digital Landscape
 

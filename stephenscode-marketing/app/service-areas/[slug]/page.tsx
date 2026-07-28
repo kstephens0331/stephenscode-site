@@ -21,14 +21,21 @@ export async function generateMetadata({ params }: ServiceAreaPageProps): Promis
     return { title: 'Service Area Not Found' }
   }
 
+  const markdownContent = await getServiceAreaContent(slug)
+
+  const title = markdownContent?.title ?? `${area.name} Web Developer | Websites from $250`
+  const description = markdownContent?.metaDescription
+    ?? `Web developer serving ${area.name}, TX. Flat-rate custom websites from $250, no hidden fees. Veteran-owned. Call (936) 323-4527.`
+
   return {
-    title: `${area.name} Web Developer | Websites from $250`,
-    description: `Web developer serving ${area.name}, TX. Flat-rate custom websites from $250, no hidden fees. Veteran-owned. Call (936) 323-4527.`,
+    title,
+    description,
     alternates: {
       canonical: `/service-areas/${slug}`,
     },
     keywords: [
       `web developer ${area.name}`,
+      `web design ${area.name}`,
       `website design ${area.name} TX`,
       `${area.name} web development`,
       `custom website ${area.name}`,
@@ -36,15 +43,15 @@ export async function generateMetadata({ params }: ServiceAreaPageProps): Promis
     ],
     openGraph: {
       images: ['/opengraph-image'],
-      title: `${area.name} Web Developer | Custom Websites from $250`,
-      description: `Professional websites for ${area.name} businesses. Flat-rate pricing, fast turnaround, veteran-owned.`,
+      title,
+      description,
       url: `https://www.stephenscode.dev/service-areas/${slug}`,
       type: 'website',
     },
     twitter: {
       card: 'summary_large_image',
-      title: `${area.name} Web Developer | Custom Websites from $250`,
-      description: `Professional websites for ${area.name} businesses. Flat-rate pricing, fast turnaround, veteran-owned.`,
+      title,
+      description,
       images: ['/twitter-image'],
     },
   }
@@ -81,12 +88,33 @@ export default async function ServiceAreaPage({ params }: ServiceAreaPageProps) 
 
   const otherAreas = serviceAreas.filter((a) => a.slug !== slug && a.region === area.region).slice(0, 6)
 
+  const faqSchema = markdownContent?.faqs && markdownContent.faqs.length > 0
+    ? {
+        '@context': 'https://schema.org',
+        '@type': 'FAQPage',
+        mainEntity: markdownContent.faqs.map((faq) => ({
+          '@type': 'Question',
+          name: faq.question,
+          acceptedAnswer: {
+            '@type': 'Answer',
+            text: faq.answer,
+          },
+        })),
+      }
+    : null
+
   return (
     <>
       <script
         type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: JSON.stringify(localSchema) }}
       />
+      {faqSchema && (
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{ __html: JSON.stringify(faqSchema) }}
+        />
+      )}
 
       <Breadcrumbs
         items={[
@@ -110,7 +138,7 @@ export default async function ServiceAreaPage({ params }: ServiceAreaPageProps) 
             </Link>
           </div>
           <h1 className="text-4xl font-bold tracking-tight sm:text-5xl">
-            Professional Web Development in {area.name}, Texas
+            {markdownContent?.h1Override ?? `Professional Web Development in ${area.name}, Texas`}
           </h1>
           <p className="mt-6 text-lg leading-8 text-gray-200 max-w-3xl">
             Custom websites, local SEO, and e-commerce solutions for {area.name} businesses.
@@ -213,9 +241,28 @@ export default async function ServiceAreaPage({ params }: ServiceAreaPageProps) 
         </div>
       </section>
 
+      {/* FAQ */}
+      {markdownContent?.faqs && markdownContent.faqs.length > 0 && (
+        <section className="bg-surface py-16 sm:py-24">
+          <div className="mx-auto max-w-4xl px-6 lg:px-8">
+            <h2 className="text-3xl font-bold tracking-tight text-white mb-12">
+              {area.name} Website FAQ
+            </h2>
+            <div className="space-y-6">
+              {markdownContent.faqs.map((faq) => (
+                <div key={faq.question} className="rounded-xl border border-surface-border bg-surface-card p-6">
+                  <h3 className="text-lg font-semibold text-white mb-2">{faq.question}</h3>
+                  <p className="text-gray-400 leading-relaxed">{faq.answer}</p>
+                </div>
+              ))}
+            </div>
+          </div>
+        </section>
+      )}
+
       {/* Nearby areas */}
       {otherAreas.length > 0 && (
-        <section className="bg-surface py-16 sm:py-24">
+        <section className="bg-surface-card py-16 sm:py-24">
           <div className="mx-auto max-w-7xl px-6 lg:px-8">
             <h2 className="text-3xl font-bold tracking-tight text-white mb-12">Nearby Service Areas</h2>
             <div className="grid grid-cols-2 gap-4 sm:grid-cols-3 lg:grid-cols-6">
@@ -223,7 +270,7 @@ export default async function ServiceAreaPage({ params }: ServiceAreaPageProps) 
                 <Link
                   key={a.slug}
                   href={`/service-areas/${a.slug}`}
-                  className="block bg-surface-card rounded-xl p-4 text-center text-gray-300 hover:text-primary-400 shadow-md shadow-black/20 transition-colors"
+                  className="block bg-surface rounded-xl p-4 text-center text-gray-300 hover:text-primary-400 shadow-md shadow-black/20 transition-colors"
                 >
                   {a.name}
                 </Link>

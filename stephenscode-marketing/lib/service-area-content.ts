@@ -6,6 +6,11 @@ import html from 'remark-html'
 
 const contentDirectory = path.join(process.cwd(), 'content/service-areas')
 
+export interface ServiceAreaFAQ {
+  question: string
+  answer: string
+}
+
 export interface ServiceAreaContent {
   slug: string
   content: string
@@ -13,6 +18,8 @@ export interface ServiceAreaContent {
   title?: string
   metaDescription?: string
   heroSubtitle?: string
+  h1Override?: string
+  faqs?: ServiceAreaFAQ[]
 }
 
 // Ensure the directory exists
@@ -47,6 +54,8 @@ export async function getServiceAreaContent(slug: string): Promise<ServiceAreaCo
       title: data.title,
       metaDescription: data.metaDescription,
       heroSubtitle: data.heroSubtitle,
+      h1Override: data.h1Override,
+      faqs: Array.isArray(data.faqs) ? data.faqs : undefined,
     }
   } catch (error) {
     console.error(`Error loading service area content for ${slug}:`, error)
