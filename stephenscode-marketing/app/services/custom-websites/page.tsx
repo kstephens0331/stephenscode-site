@@ -29,6 +29,7 @@ export default function CustomWebsitesPage() {
   const packages = [
     {
       name: 'Plug and Play',
+      slug: 'plug-and-play',
       price: '$250',
       description: 'Professional design for WIX, GoDaddy, or similar platforms',
       features: [
@@ -42,6 +43,7 @@ export default function CustomWebsitesPage() {
     },
     {
       name: 'Website Rebuild',
+      slug: 'website-rebuild',
       price: '$350',
       description: 'Complete website refresh or rebuild on existing platform',
       features: [
@@ -56,6 +58,7 @@ export default function CustomWebsitesPage() {
     },
     {
       name: 'Standard Website',
+      slug: 'standard-website',
       price: '$950',
       description: 'Custom-built website with Home, About, Services, Contact pages',
       features: [
@@ -190,7 +193,11 @@ export default function CustomWebsitesPage() {
                 {pkg.popular && (
                   <p className="mb-4 text-sm font-semibold uppercase tracking-wide">Most Popular</p>
                 )}
-                <h3 className="text-2xl font-bold">{pkg.name}</h3>
+                <h3 className="text-2xl font-bold">
+                  <Link href={`/services/${pkg.slug}`} className="hover:underline">
+                    {pkg.name}
+                  </Link>
+                </h3>
                 <p className={`mt-4 text-sm ${pkg.popular ? 'text-gray-100' : 'text-gray-400'}`}>
                   {pkg.description}
                 </p>

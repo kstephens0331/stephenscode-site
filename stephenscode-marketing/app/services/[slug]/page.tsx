@@ -177,6 +177,17 @@ export default async function ServiceDetailPage({ params }: ServicePageProps) {
           <div className="prose prose-lg prose-invert max-w-none prose-p:text-gray-400 prose-p:leading-8">
             <p>{service.longDescription}</p>
           </div>
+          {service.demoSlug && (
+            <div className="mt-8">
+              <Link
+                href={`/demos/${service.demoSlug}`}
+                className="inline-flex items-center gap-2 text-sm font-semibold text-accent-500 hover:text-accent-400"
+              >
+                See a live interactive example of this tier
+                <span aria-hidden="true">→</span>
+              </Link>
+            </div>
+          )}
         </div>
       </section>
 

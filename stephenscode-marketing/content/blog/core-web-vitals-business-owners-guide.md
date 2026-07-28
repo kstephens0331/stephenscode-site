@@ -57,6 +57,8 @@ The data is compelling:
 
 For e-commerce sites, slow LCP directly translates to lost sales. For service businesses, it means fewer contact form submissions, fewer phone calls, and fewer leads. Every slow page load is money walking out the door.
 
+For a deeper look at exactly how load time translates into lost leads and revenue, plus a day-by-day plan for fixing it, see our full [website speed and conversion rates guide](/blog/website-speed-conversion-rates-guide).
+
 ### How to Improve LCP
 
 **Optimize images:** Images are usually the largest elements on a page. Compress images without losing quality, use modern formats like WebP, and implement lazy loading for images below the fold (not immediately visible). If you'd rather not manage this manually every time you add a photo, an [image optimization add-on](/services/image-optimizer) handles compression and format conversion automatically.

@@ -443,23 +443,33 @@ export default function ConroeWebDevelopment() {
                 <h3 className="text-2xl font-bold text-white mb-6">Website Package Starting Prices</h3>
                 <div className="space-y-4">
                   <div className="flex justify-between items-center pb-4 border-b border-surface-border">
-                    <span className="font-semibold">Plug and Play (WIX/GoDaddy redesign)</span>
+                    <Link href="/services/plug-and-play" className="font-semibold hover:text-primary-400">
+                      Plug and Play (WIX/GoDaddy redesign)
+                    </Link>
                     <span className="text-primary-600 font-bold">$250</span>
                   </div>
                   <div className="flex justify-between items-center pb-4 border-b border-surface-border">
-                    <span className="font-semibold">Website Rebuild</span>
+                    <Link href="/services/website-rebuild" className="font-semibold hover:text-primary-400">
+                      Website Rebuild
+                    </Link>
                     <span className="text-primary-600 font-bold">$350</span>
                   </div>
                   <div className="flex justify-between items-center pb-4 border-b border-surface-border">
-                    <span className="font-semibold">Standard Custom Website</span>
+                    <Link href="/services/standard-website" className="font-semibold hover:text-primary-400">
+                      Standard Custom Website
+                    </Link>
                     <span className="text-primary-600 font-bold">$950</span>
                   </div>
                   <div className="flex justify-between items-center pb-4 border-b border-surface-border">
-                    <span className="font-semibold">E-Commerce Website</span>
+                    <Link href="/services/ecommerce-website" className="font-semibold hover:text-primary-400">
+                      E-Commerce Website
+                    </Link>
                     <span className="text-primary-600 font-bold">$1,100</span>
                   </div>
                   <div className="flex justify-between items-center">
-                    <span className="font-semibold">Premium Build (Admin Portal)</span>
+                    <Link href="/services/premium-build" className="font-semibold hover:text-primary-400">
+                      Premium Build (Admin Portal)
+                    </Link>
                     <span className="text-primary-600 font-bold">$2,500+</span>
                   </div>
                 </div>

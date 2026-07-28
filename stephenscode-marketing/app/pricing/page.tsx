@@ -330,6 +330,14 @@ export default function PricingPage() {
                   >
                     View Full Details →
                   </Link>
+                  {pkg.demoSlug && (
+                    <Link
+                      href={`/demos/${pkg.demoSlug}`}
+                      className="mt-3 block text-center text-xs font-semibold text-gray-400 hover:text-accent-500 transition-colors"
+                    >
+                      See a live example →
+                    </Link>
+                  )}
                 </div>
               )
             })}
@@ -401,6 +409,14 @@ export default function PricingPage() {
                 >
                   Explore Premium Details →
                 </Link>
+                {pkg.demoSlug && (
+                  <Link
+                    href={`/demos/${pkg.demoSlug}`}
+                    className="mt-3 block text-center text-xs font-semibold text-gray-400 hover:text-accent-500 transition-colors"
+                  >
+                    See a live example →
+                  </Link>
+                )}
               </div>
             ))}
           </div>

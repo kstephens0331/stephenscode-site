@@ -192,6 +192,8 @@ Not all e-commerce platforms are created equal. Your choice depends on your prod
 - Requires ongoing developer support
 - Best for: Established businesses with unique requirements standard platforms can't meet
 
+Want to see what a fully custom store actually looks like before you commit to a platform? Our [Peak Performance Supplements demo](/demos/peak-performance-supplements) is an interactive example built on our E-Commerce Website tier, with product filtering, subscriptions, and nutrition guides, that you can click through yourself.
+
 For most retail stores, Shopify or WooCommerce provides everything you need at reasonable cost. Don't over-engineer your first e-commerce site. Once you outgrow the basics, features like variants, wishlists, and abandoned cart recovery are available as an [advanced e-commerce upgrade](/services/advanced-ecommerce) rather than a full platform migration.
 
 ## Payment Processing: What You Need to Know

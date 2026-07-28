@@ -147,7 +147,7 @@ Mobile users are impatient. Industry data shows:
 - Each additional second increases bounce rate by 7%
 - Mobile users expect sites to load faster than desktop
 
-Speed isn't optional. It's survival.
+Speed isn't optional. It's survival. For the full picture of how load time translates into lost leads and revenue, see our [website speed and conversion rates guide](/blog/website-speed-conversion-rates-guide).
 
 ## Common Mobile Design Mistakes
 

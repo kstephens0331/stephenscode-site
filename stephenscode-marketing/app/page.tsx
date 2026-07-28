@@ -118,9 +118,19 @@ export default function Home() {
   ]
 
   const serviceAreas = [
-    'Houston', 'Conroe', 'The Woodlands', 'Spring',
-    'Tomball', 'Magnolia', 'Kingwood', 'Humble',
-    'Montgomery', 'Willis', 'Porter', 'New Caney'
+    { name: 'Houston', slug: 'houston' },
+    { name: 'Conroe', slug: 'conroe' },
+    { name: 'The Woodlands', slug: 'the-woodlands' },
+    { name: 'Spring', slug: 'spring' },
+    { name: 'Tomball', slug: 'tomball' },
+    { name: 'Magnolia', slug: 'magnolia' },
+    { name: 'Kingwood', slug: 'kingwood' },
+    { name: 'Humble', slug: 'humble' },
+    { name: 'Montgomery', slug: 'montgomery' },
+    { name: 'Willis', slug: 'willis' },
+    { name: 'Porter', slug: 'porter' },
+    { name: 'New Caney', slug: 'new-caney' },
+    { name: 'Katy', slug: 'katy' },
   ]
 
   return (
@@ -523,10 +533,14 @@ export default function Home() {
 
           <div className="grid grid-cols-2 gap-4 sm:grid-cols-3 lg:grid-cols-4">
             {serviceAreas.map((city) => (
-              <div key={city} className="group relative rounded-md bg-surface-card ring-1 ring-surface-border p-5 text-center card-lift">
-                <p className="relative text-base font-semibold text-white group-hover:text-primary-400 transition-colors">{city}</p>
+              <Link
+                key={city.slug}
+                href={`/service-areas/${city.slug}`}
+                className="group relative block rounded-md bg-surface-card ring-1 ring-surface-border p-5 text-center card-lift"
+              >
+                <p className="relative text-base font-semibold text-white group-hover:text-primary-400 transition-colors">{city.name}</p>
                 <p className="relative text-xs text-gray-500 mt-0.5">Web development</p>
-              </div>
+              </Link>
             ))}
           </div>
 

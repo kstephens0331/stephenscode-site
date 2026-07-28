@@ -8,6 +8,8 @@ export interface Service {
   price: number
   priceLabel: string
   pricingUrl?: string
+  /** Slug of a matching /demos/[slug] interactive example, if one exists for this tier. */
+  demoSlug?: string
   shortDescription: string
   longDescription: string
   features: string[]
@@ -231,6 +233,7 @@ export const corePackages: Service[] = [
     category: 'core',
     price: 1100,
     priceLabel: '$1,100',
+    demoSlug: 'peak-performance-supplements',
     shortDescription: 'All Standard features + online store, payment gateway, and inventory sync',
     longDescription: `Launch your online store with a complete e-commerce solution built for growth. Our E-Commerce Website package includes everything from the Standard Website plus full online shopping functionality with Stripe payment processing, inventory management, and order tracking. Perfect for businesses ready to sell products or services online, this package gives you a professional online store without the monthly fees of platforms like Shopify or WooCommerce plugins.`,
     features: [
@@ -379,6 +382,7 @@ export const premiumBuilds: Service[] = [
     category: 'premium',
     price: 5000,
     priceLabel: '$5,000',
+    demoSlug: 'premier-staffing-solutions',
     shortDescription: 'Complete business system (up to 25 pages): CRM, client portals, APIs',
     longDescription: `Build a complete custom business platform tailored to your exact needs. The $5,000 Custom Business Platform package is perfect for businesses that need a unified system to manage everything in one place. This package includes up to 25 pages and we build you a custom platform that includes CRM, client portals, project management, invoicing, and all the integrations you need, owned entirely by you. Stop paying monthly SaaS fees and get full control of your business operations with a system built specifically for how you work.`,
     features: [
