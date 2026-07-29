@@ -68,8 +68,8 @@ export const corePackages: Service[] = [
     ],
     timeline: '1 week',
     seoKeywords: ['WIX website design', 'GoDaddy website redesign', 'affordable website design Houston', 'small business website Conroe'],
-    metaTitle: 'Plug & Play Website | $250',
-    metaDescription: 'Professional website design for WIX, GoDaddy, and similar platforms. Custom design on your platform for $250. Houston, Conroe & The Woodlands.',
+    metaTitle: 'Wix & GoDaddy Redesign From $250 | Keep Your Platform',
+    metaDescription: 'Get a professional custom design on your existing Wix, GoDaddy, or Squarespace site -- no rebuild, no new platform to learn. Flat $250, live in a week. Veteran-owned, Houston, Conroe & The Woodlands.',
   faqs: [
     {
       "question": "What is the Plug and Play package, and does it replace my current website builder?",
@@ -279,8 +279,8 @@ export const corePackages: Service[] = [
     ],
     timeline: '4-6 weeks',
     seoKeywords: ['e-commerce website development Houston', 'online store development Texas', 'Stripe integration Conroe', 'custom shopping cart development'],
-    metaTitle: 'E-Commerce Website | $1,100',
-    metaDescription: 'Complete e-commerce website with Stripe payments, inventory management, and secure checkout. No monthly platform fees. $1,100 flat rate. Houston & Conroe.',
+    metaTitle: 'E-Commerce Website, No Monthly Fees | $1,100 Flat',
+    metaDescription: 'Own your online store outright -- Stripe checkout, inventory tracking, and order management included, zero Shopify-style monthly fees. $1,100 flat rate. Veteran-owned, Houston & Conroe.',
   faqs: [
     {
       "question": "What exactly do I get for the $1,100 flat rate?",
@@ -354,8 +354,8 @@ export const premiumBuilds: Service[] = [
     ],
     timeline: '6-8 weeks',
     seoKeywords: ['custom web application Houston', 'full-stack development Texas', 'admin portal development Conroe', 'business dashboard development'],
-    metaTitle: 'Premium Build | $2,000',
-    metaDescription: 'Custom full-stack web application with admin portal, analytics dashboard, and advanced features. Up to 15 pages. $2,000 flat rate. Houston & Conroe.',
+    metaTitle: 'Custom Web App With Admin Portal | $2,000 Flat',
+    metaDescription: 'Full-stack custom platform with your own admin dashboard, live analytics, and up to 15 pages -- built once, no subscriptions. $2,000 flat rate. Veteran-owned, Houston & Conroe.',
   faqs: [
     {
       "question": "What exactly do I get for the $2,000 Premium Build price?",
