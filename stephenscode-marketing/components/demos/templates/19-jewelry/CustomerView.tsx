@@ -105,7 +105,7 @@ export default function CustomerView({ demo, colors }: CustomerViewProps) {
             ].map(product => (
               <div key={product.id} className="bg-white rounded-xl shadow-md overflow-hidden group transition-all">
                 <div className="relative overflow-hidden bg-gray-50">
-                  <img src={product.image} alt={product.name} className="w-full h-64 object-cover group- transition-transform duration-700" />
+                  <img src={product.image} alt={product.name} className="w-full h-64 object-cover group-hover:scale-110 transition-transform duration-700" />
                   <button onClick={() => addToCart(product)} className="absolute inset-0 bg-black/60 text-white flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity">
                     <Gem className="w-8 h-8 mr-2" />
                     <span className="font-semibold">View Details</span>
@@ -204,7 +204,7 @@ export default function CustomerView({ demo, colors }: CustomerViewProps) {
           ].map(collection => (
             <button key={collection.name} onClick={() => setCurrentPage('shop')} className="group relative overflow-hidden rounded-xl shadow-lg transition-all">
               <div className="aspect-[4/3] overflow-hidden bg-gray-100">
-                <img src={collection.image} alt={collection.name} className="w-full h-full object-cover group- transition-transform duration-700" />
+                <img src={collection.image} alt={collection.name} className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700" />
               </div>
               <div className="absolute inset-0 bg-gradient-to-t from-black/80 to-transparent flex flex-col justify-end p-6">
                 <h3 className="text-2xl font-bold text-white mb-2">{collection.name}</h3>

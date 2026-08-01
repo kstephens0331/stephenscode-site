@@ -5,7 +5,7 @@ heroSubtitle: Serving one of Texas's most affluent and diverse communities
 h1Override: "Web Development for Sugar Land: Built to Match Fort Bend County's Standards"
 faqs:
   - question: "What will a Sugar Land business website cost?"
-    answer: "It depends on scope, but the range runs from $250 for a simple 4-page site up to $2,000+ for a custom platform, with Standard sites at $950 and E-Commerce stores at $1,100 in between. See the [pricing page](/pricing) for exact tiers."
+    answer: "It depends on scope, but the range runs from $250 for a simple Plug and Play site (up to 5 pages) up to $2,000+ for a custom platform, with Standard sites (up to 6 pages) at $950 and E-Commerce stores at $1,100 in between. See the [pricing page](/pricing) for exact tiers."
   - question: "What's the typical turnaround time for a Sugar Land project?"
     answer: "Most Sugar Land builds wrap up in 1-2 weeks; more complex custom platforms can run longer depending on scope."
   - question: "Do you tailor SEO to specific Sugar Land neighborhoods like First Colony or Riverstone?"

@@ -62,7 +62,7 @@ export default function NewArrivalsPage({ addToCart, addToWishlist }: any) {
                 <img
                   src={product.image}
                   alt={product.name}
-                  className="w-full h-80 object-cover group- transition-transform duration-500"
+                  className="w-full h-80 object-cover group-hover:scale-110 transition-transform duration-500"
                 />
                 <div className={`absolute top-4 left-4 ${getTagColor(product.newTag)} text-white px-3 py-1 rounded-full text-sm font-semibold`}>
                   {product.newTag}

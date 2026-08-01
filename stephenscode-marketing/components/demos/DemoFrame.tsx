@@ -3,6 +3,7 @@
 import { useEffect, useState } from 'react'
 import Link from 'next/link'
 import type { Demo } from '@/lib/demos-data'
+import { trackEvent } from '@/lib/analytics'
 
 // Import demo templates - All 40 demos
 import BarbershopDemo from './templates/01-barbershop'
@@ -60,6 +61,9 @@ const INTERFACE_PREVIEW_ONLY_SLUGS = new Set([
   'crm-system-showcase',
   'inventory-management-showcase',
   'workflow-automation-showcase',
+  'elite-property-management',
+  'premier-staffing-solutions',
+  'celebration-events-company',
 ])
 
 // These templates are single-view (no separate admin dashboard exists in the
@@ -293,6 +297,7 @@ export default function DemoFrame({ demo }: DemoFrameProps) {
               <Link
                 href="/contact"
                 className="bg-accent-500 hover:bg-accent-600 px-4 py-2 rounded-lg text-sm font-semibold transition-colors"
+                onClick={() => trackEvent('cta_click', { cta: 'Build This', location: `demo_${demo.slug}_controls` })}
               >
                 Build This →
               </Link>
@@ -345,6 +350,7 @@ export default function DemoFrame({ demo }: DemoFrameProps) {
         <Link
           href="/contact"
           className="bg-accent-500 hover:bg-accent-600 text-white px-6 py-4 rounded-full shadow-2xl font-bold text-sm flex items-center gap-2 transition-all"
+          onClick={() => trackEvent('cta_click', { cta: 'Want This for Your Business', location: `demo_${demo.slug}_floating` })}
         >
           <span>💼</span>
           <span>Want This for Your Business?</span>

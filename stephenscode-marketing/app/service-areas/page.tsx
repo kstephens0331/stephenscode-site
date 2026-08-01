@@ -1,6 +1,7 @@
 import type { Metadata } from 'next'
 import Link from 'next/link'
 import { serviceAreas, getServiceAreasByRegion } from '@/lib/service-areas-data'
+import PhoneLink from '@/components/PhoneLink'
 
 export const metadata: Metadata = {
   title: 'Service Areas | Web Design Houston, Conroe, The Woodlands TX',
@@ -111,12 +112,12 @@ export default function ServiceAreasPage() {
               >
                 Get Free Quote
               </Link>
-              <a
-                href="tel:9363234527"
+              <PhoneLink
+                location="service_areas_hero"
                 className="text-base font-semibold leading-7 text-white hover:text-gray-200"
               >
                 Call (936) 323-4527 <span aria-hidden="true">→</span>
-              </a>
+              </PhoneLink>
             </div>
           </div>
         </div>
@@ -237,12 +238,12 @@ export default function ServiceAreasPage() {
               >
                 Start Your Project
               </Link>
-              <a
-                href="tel:9363234527"
+              <PhoneLink
+                location="service_areas_nationwide_cta"
                 className="text-base font-semibold text-gray-300 hover:text-primary-400"
               >
                 Call (936) 323-4527 <span aria-hidden="true">→</span>
-              </a>
+              </PhoneLink>
             </div>
           </div>
         </div>

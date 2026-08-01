@@ -350,7 +350,7 @@ export default function TestimonialsPage({ onNavigate }: TestimonialsPageProps) 
                     <div className="w-20 h-20 bg-white/20 backdrop-blur-sm rounded-full flex items-center justify-center mx-auto mb-4">
                       <span className="text-2xl font-bold text-white">{video.thumbnail}</span>
                     </div>
-                    <div className="w-16 h-16 bg-[#a7c957] rounded-full flex items-center justify-center mx-auto group- transition-transform">
+                    <div className="w-16 h-16 bg-[#a7c957] rounded-full flex items-center justify-center mx-auto group-hover:scale-110 transition-transform">
                       <svg className="w-8 h-8 text-[#386641] ml-1" fill="currentColor" viewBox="0 0 24 24">
                         <path d="M8 5v14l11-7z" />
                       </svg>

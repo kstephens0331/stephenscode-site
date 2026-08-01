@@ -1,5 +1,6 @@
 ---
 title: "10 Website Mistakes That Are Killing Your Small Business (And How to Fix Them)"
+metaTitle: "10 Website Mistakes Killing Your Small Business"
 date: "2025-11-18"
 author: "Kyle Stephens"
 excerpt: "Your website might be driving customers away. Discover the 10 most common mistakes small businesses make and how to fix them fast."

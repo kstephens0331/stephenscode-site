@@ -1,5 +1,6 @@
 ---
 title: "How Much Does a Website Really Cost for a Small Business in Houston in 2026?"
+metaTitle: "Website Cost for Houston Small Business 2026"
 date: "2026-07-26"
 author: "Kyle Stephens"
 excerpt: "Real numbers for what Houston small businesses actually pay for a website in 2026, from DIY platforms to freelancers to agencies to flat-rate custom builds."

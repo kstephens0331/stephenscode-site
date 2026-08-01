@@ -1,5 +1,6 @@
 ---
 title: "How to Choose the Right Web Developer for Your Small Business"
+metaTitle: "How to Choose a Web Developer for Your Business"
 date: "2025-12-10"
 author: "Kyle Stephens"
 excerpt: "Not all web developers are equal. Learn the red flags, green flags, and essential questions to ask before hiring someone to build your business website."

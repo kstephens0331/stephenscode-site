@@ -245,7 +245,7 @@ export default function AboutPage({ onNavigate }: AboutPageProps) {
                   key={index}
                   className="text-center group transition-transform duration-300"
                 >
-                  <div className="inline-flex items-center justify-center w-20 h-20 bg-gradient-to-br from-[#5f0f40] to-[#9a031e] rounded-2xl mb-4 shadow-lg group- transition-shadow">
+                  <div className="inline-flex items-center justify-center w-20 h-20 bg-gradient-to-br from-[#5f0f40] to-[#9a031e] rounded-2xl mb-4 shadow-lg group-hover:shadow-xl transition-shadow">
                     <Icon className="h-10 w-10 text-white" />
                   </div>
                   <h3 className="text-xl font-bold text-gray-900 mb-2">{value.title}</h3>
@@ -437,7 +437,7 @@ export default function AboutPage({ onNavigate }: AboutPageProps) {
                     <span className="text-3xl font-bold text-[#5f0f40]">{milestone.year}</span>
                   </div>
                   <div className="flex-shrink-0">
-                    <div className="w-16 h-16 bg-gradient-to-br from-[#5f0f40] to-[#9a031e] rounded-full flex items-center justify-center shadow-lg group- transition-transform">
+                    <div className="w-16 h-16 bg-gradient-to-br from-[#5f0f40] to-[#9a031e] rounded-full flex items-center justify-center shadow-lg group-hover:scale-110 transition-transform">
                       <Icon className="h-8 w-8 text-white" />
                     </div>
                   </div>

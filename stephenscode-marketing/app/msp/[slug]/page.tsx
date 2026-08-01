@@ -3,6 +3,7 @@ import Link from 'next/link'
 import { notFound } from 'next/navigation'
 import { allMSPServices, getMSPServiceBySlug } from '@/lib/msp-services-data'
 import Breadcrumbs from '@/components/Breadcrumbs'
+import PhoneLink from '@/components/PhoneLink'
 
 interface MSPPageProps {
   params: Promise<{ slug: string }>
@@ -73,12 +74,33 @@ export default async function MSPServiceDetailPage({ params }: MSPPageProps) {
 
   const related = allMSPServices.filter((s) => s.slug !== slug && s.category === service.category).slice(0, 3)
 
+  const faqSchema = service.faqs && service.faqs.length > 0
+    ? {
+        '@context': 'https://schema.org',
+        '@type': 'FAQPage',
+        mainEntity: service.faqs.map((faq) => ({
+          '@type': 'Question',
+          name: faq.question,
+          acceptedAnswer: {
+            '@type': 'Answer',
+            text: faq.answer,
+          },
+        })),
+      }
+    : null
+
   return (
     <>
       <script
         type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: JSON.stringify(serviceSchema) }}
       />
+      {faqSchema && (
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{ __html: JSON.stringify(faqSchema) }}
+        />
+      )}
 
       <Breadcrumbs
         items={[
@@ -117,12 +139,12 @@ export default async function MSPServiceDetailPage({ params }: MSPPageProps) {
             >
               Get Free Quote
             </Link>
-            <a
-              href="tel:9363234527"
+            <PhoneLink
+              location="msp_service_hero"
               className="rounded-md bg-white/10 px-6 py-3 text-base font-semibold text-white backdrop-blur hover:bg-white/20"
             >
               Call (936) 323-4527
-            </a>
+            </PhoneLink>
           </div>
         </div>
       </section>
@@ -193,6 +215,23 @@ export default async function MSPServiceDetailPage({ params }: MSPPageProps) {
           </div>
         </div>
       </section>
+
+      {/* FAQ */}
+      {service.faqs && service.faqs.length > 0 && (
+        <section className="bg-surface py-16 sm:py-24">
+          <div className="mx-auto max-w-4xl px-6 lg:px-8">
+            <h2 className="text-2xl font-bold text-white mb-8">Frequently Asked Questions</h2>
+            <div className="space-y-6">
+              {service.faqs.map((faq) => (
+                <div key={faq.question} className="rounded-xl border border-surface-border bg-surface-card p-6">
+                  <h3 className="text-lg font-semibold text-white mb-2">{faq.question}</h3>
+                  <p className="text-gray-400 leading-relaxed">{faq.answer}</p>
+                </div>
+              ))}
+            </div>
+          </div>
+        </section>
+      )}
 
       {/* Related services */}
       {related.length > 0 && (

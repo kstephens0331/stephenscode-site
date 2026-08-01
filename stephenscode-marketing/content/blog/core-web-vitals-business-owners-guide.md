@@ -1,5 +1,6 @@
 ---
 title: "Core Web Vitals Explained for Business Owners: Why Your Website Speed Matters"
+metaTitle: "Core Web Vitals Explained for Business Owners"
 date: "2025-12-27"
 author: "Kyle Stephens"
 excerpt: "Your website's performance directly impacts your bottom line. Here's what you need to know about Core Web Vitals and why they matter for your business."

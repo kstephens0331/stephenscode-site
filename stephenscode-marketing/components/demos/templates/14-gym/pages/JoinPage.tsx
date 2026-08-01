@@ -3,6 +3,7 @@
 import { CheckCircle2, Shield, Clock, Gift, User, Mail, Phone, CreditCard, Calendar } from 'lucide-react';
 import { useState } from 'react';
 import Link from 'next/link';
+import { trackEvent, trackConversion } from '@/lib/analytics';
 
 interface JoinPageProps {
   basePath: string;
@@ -10,6 +11,56 @@ interface JoinPageProps {
 
 export default function JoinPage({ basePath }: JoinPageProps) {
   const [selectedPlan, setSelectedPlan] = useState('Premium');
+  const [formData, setFormData] = useState({
+    firstName: '',
+    lastName: '',
+    email: '',
+    phone: '',
+    emergencyName: '',
+    emergencyPhone: '',
+    agreeToTerms: false,
+  });
+  const [submitted, setSubmitted] = useState(false);
+
+  const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+    const { name, value, type, checked } = e.target;
+    setFormData(prev => ({ ...prev, [name]: type === 'checkbox' ? checked : value }));
+  };
+
+  const handleSubmit = async (e: React.FormEvent) => {
+    e.preventDefault();
+    try {
+      const notesParts = [
+        formData.emergencyName && `Emergency contact: ${formData.emergencyName}`,
+        formData.emergencyPhone && `Emergency contact phone: ${formData.emergencyPhone}`,
+      ].filter(Boolean);
+
+      const response = await fetch('/api/demo-lead', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({
+          demoName: 'Iron Temple Fitness',
+          demoPackage: 'Standard Website ($950)',
+          demoSlug: 'iron-temple-fitness',
+          clientName: `${formData.firstName} ${formData.lastName}`.trim(),
+          clientPhone: formData.phone,
+          clientEmail: formData.email,
+          service: `${selectedPlan} Membership - 7-Day Free Trial`,
+          preferredDate: '',
+          preferredTime: '',
+          notes: notesParts.join(' | '),
+        }),
+      });
+
+      if (response.ok) {
+        trackEvent('generate_lead', { form_name: 'join_signup_form', demo_slug: 'iron-temple-fitness' });
+        trackConversion('leadForm');
+        setSubmitted(true);
+      }
+    } catch {
+      // Network/API failure -- no-op, form stays visible so the user can retry
+    }
+  };
 
   const plans = [
     {
@@ -114,7 +165,18 @@ export default function JoinPage({ basePath }: JoinPageProps) {
               <div className="bg-zinc-900 border border-zinc-800 rounded-2xl p-8">
                 <h2 className="text-3xl font-bold text-zinc-50 mb-8">Complete Your Registration</h2>
 
-                <form className="space-y-6">
+                {submitted ? (
+                  <div className="text-center py-12">
+                    <div className="inline-flex items-center justify-center w-16 h-16 bg-[#c1121f]/10 rounded-full mb-4">
+                      <CheckCircle2 className="w-8 h-8 text-[#c1121f]" />
+                    </div>
+                    <h3 className="text-2xl font-bold text-zinc-50 mb-2">You're In!</h3>
+                    <p className="text-zinc-400">
+                      Thanks for signing up. A member of our team will reach out within 24 hours to get your 7-day free trial started.
+                    </p>
+                  </div>
+                ) : (
+                <form onSubmit={handleSubmit} className="space-y-6">
                   {/* Personal Information */}
                   <div>
                     <h3 className="text-lg font-bold text-zinc-50 mb-4 flex items-center">
@@ -128,6 +190,9 @@ export default function JoinPage({ basePath }: JoinPageProps) {
                         </label>
                         <input
                           type="text"
+                          name="firstName"
+                          value={formData.firstName}
+                          onChange={handleChange}
                           className="w-full px-4 py-3 bg-zinc-950 border border-zinc-800 rounded-lg text-zinc-50 placeholder-zinc-500 focus:outline-none focus:border-[#c1121f]"
                           placeholder="John"
                           required
@@ -139,6 +204,9 @@ export default function JoinPage({ basePath }: JoinPageProps) {
                         </label>
                         <input
                           type="text"
+                          name="lastName"
+                          value={formData.lastName}
+                          onChange={handleChange}
                           className="w-full px-4 py-3 bg-zinc-950 border border-zinc-800 rounded-lg text-zinc-50 placeholder-zinc-500 focus:outline-none focus:border-[#c1121f]"
                           placeholder="Doe"
                           required
@@ -160,6 +228,9 @@ export default function JoinPage({ basePath }: JoinPageProps) {
                         </label>
                         <input
                           type="email"
+                          name="email"
+                          value={formData.email}
+                          onChange={handleChange}
                           className="w-full px-4 py-3 bg-zinc-950 border border-zinc-800 rounded-lg text-zinc-50 placeholder-zinc-500 focus:outline-none focus:border-[#c1121f]"
                           placeholder="john.doe@email.com"
                           required
@@ -171,6 +242,9 @@ export default function JoinPage({ basePath }: JoinPageProps) {
                         </label>
                         <input
                           type="tel"
+                          name="phone"
+                          value={formData.phone}
+                          onChange={handleChange}
                           className="w-full px-4 py-3 bg-zinc-950 border border-zinc-800 rounded-lg text-zinc-50 placeholder-zinc-500 focus:outline-none focus:border-[#c1121f]"
                           placeholder="(555) 123-4567"
                           required
@@ -242,6 +316,9 @@ export default function JoinPage({ basePath }: JoinPageProps) {
                         </label>
                         <input
                           type="text"
+                          name="emergencyName"
+                          value={formData.emergencyName}
+                          onChange={handleChange}
                           className="w-full px-4 py-3 bg-zinc-950 border border-zinc-800 rounded-lg text-zinc-50 placeholder-zinc-500 focus:outline-none focus:border-[#c1121f]"
                           placeholder="Jane Doe"
                         />
@@ -252,6 +329,9 @@ export default function JoinPage({ basePath }: JoinPageProps) {
                         </label>
                         <input
                           type="tel"
+                          name="emergencyPhone"
+                          value={formData.emergencyPhone}
+                          onChange={handleChange}
                           className="w-full px-4 py-3 bg-zinc-950 border border-zinc-800 rounded-lg text-zinc-50 placeholder-zinc-500 focus:outline-none focus:border-[#c1121f]"
                           placeholder="(555) 987-6543"
                         />
@@ -264,6 +344,9 @@ export default function JoinPage({ basePath }: JoinPageProps) {
                     <label className="flex items-start space-x-3 cursor-pointer">
                       <input
                         type="checkbox"
+                        name="agreeToTerms"
+                        checked={formData.agreeToTerms}
+                        onChange={handleChange}
                         className="mt-1 w-4 h-4 text-[#c1121f] rounded"
                         required
                       />
@@ -293,6 +376,7 @@ export default function JoinPage({ basePath }: JoinPageProps) {
                     No credit card required. Full access to all facilities during trial.
                   </p>
                 </form>
+                )}
               </div>
             </div>
 

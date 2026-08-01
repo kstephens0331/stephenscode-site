@@ -85,13 +85,13 @@ export default function Work() {
         'Hired 2 new employees to keep up with the increase in service demand'
       ],
       services: ['Website Rebuild', 'SEO', 'GEO / Local Marketing', 'Google Ads', 'Local Services Ads'],
-      color: 'from-cyan-500 to-blue-600'
+      color: 'from-accent-500 to-accent-700'
     },
     {
-      client: 'Benefits Builder',
+      client: 'Benefit Builder',
       industry: 'SaaS / Finance',
       project: 'Public Website + Full Operating Platform with Automation',
-      challenge: 'Benefits Builder was two years into a new company generating about $1,000 in monthly recurring revenue, with manual processes limiting how much their small team could take on.',
+      challenge: 'Benefit Builder was two years into a new company generating about $1,000 in monthly recurring revenue, with manual processes limiting how much their small team could take on.',
       solution: 'We built their public website and their entire internal operating platform, automating the workflows needed to run the business day-to-day so the team could grow revenue without growing headcount at the same rate.',
       results: [
         'Grew from roughly $1,000 MRR to $52,000 MRR',
@@ -113,7 +113,7 @@ export default function Work() {
         'HOA documents -- assessments, notices, governing documents -- available as generated PDFs on demand'
       ],
       services: ['Resident Portal', 'Self-Hosted PocketBase', 'Magic-Link Authentication', 'Transactional Email', 'PDF Generation'],
-      color: 'from-blue-500 to-indigo-600'
+      color: 'from-primary-500 to-accent-500'
     },
     {
       client: 'ColorFuse Prints',
@@ -129,7 +129,7 @@ export default function Work() {
         'Fixed a contact form that was silently discarding customer messages'
       ],
       services: ['Security Hardening', 'Server-Side Pricing', 'Vulnerability Remediation', 'E-Commerce Reliability'],
-      color: 'from-pink-500 to-fuchsia-600'
+      color: 'from-accent-500 to-primary-500'
     },
     {
       client: 'Terracotta Construction',
@@ -143,7 +143,7 @@ export default function Work() {
         'Own dedicated Supabase instance instead of dependence on third-party SaaS'
       ],
       services: ['Website Rebuild', 'Customer Portal', 'Admin Dashboard', 'Self-Hosted Supabase', 'Back Office'],
-      color: 'from-amber-500 to-orange-600'
+      color: 'from-primary-500 to-primary-700'
     }
   ]
 
@@ -157,7 +157,7 @@ export default function Work() {
       shortDesc: 'Real-time emergency incident monitoring and property owner lead generation for restoration companies.',
       description: 'Built for Clarketon Restoration, this automated system monitors 7 fire departments across San Diego County in real-time, tracking structure fires, water emergencies, and flooding incidents. The system automatically identifies affected properties, enriches data with property owner information, and delivers qualified leads directly to the restoration company via SMS and Google Sheets integration. This enables rapid dispatch of restoration crews before competitors even know about the incident.',
       services: ['Real-time API Integration', 'Property Data Enrichment', 'SMS Notifications', 'Lead Generation Automation'],
-      color: 'from-red-500 to-orange-600'
+      color: 'from-primary-500 to-accent-500'
     },
     {
       name: 'Stephen Long for Congress TX-8',
@@ -167,7 +167,7 @@ export default function Work() {
       shortDesc: 'Congressional campaign website for Texas District 8 Republican primary.',
       description: 'Stephen Long is running for U.S. Congress in Texas District 8 on a platform of fiscal responsibility and reducing the national debt. We built his complete campaign website featuring interactive district maps, detailed policy positions, volunteer signup forms, donation integration, and event calendars. The SEO-optimized site helps voters in Montgomery County and The Woodlands learn about his moderate conservative platform.',
       services: ['Campaign Website', 'Interactive Maps', 'Donation Integration', 'SEO Optimization'],
-      color: 'from-red-600 to-blue-600'
+      color: 'from-primary-600 to-primary-800'
     },
     {
       name: 'Lefty Cartel',
@@ -187,15 +187,15 @@ export default function Work() {
       shortDesc: 'Professional website for Houston-based clinical research company.',
       description: 'JustWell Clinical Research conducts medical research studies in the Houston area with their tagline "Research You Can Trust." We built their professional website featuring information about their therapeutic areas, company background, and contact capabilities. The clean, trustworthy design with their signature teal and gold branding helps patients and sponsors learn about their clinical trial services.',
       services: ['Custom Website', 'Mobile Responsive', 'Contact Forms', 'SEO Optimization'],
-      color: 'from-teal-500 to-emerald-600'
+      color: 'from-accent-500 to-accent-700'
     },
     {
-      name: 'Benefits Builder Backoffice',
+      name: 'Benefit Builder Backoffice',
       url: null,
       screenshot: null,
       industry: 'SaaS / Finance',
       shortDesc: 'Section 125 Cafeteria Plan administration platform with QuickBooks integration.',
-      description: 'Benefits Builder helps companies save on FICA taxes through Section 125 Cafeteria Plans. We built their complete internal SaaS platform for managing pre-tax benefit deductions, featuring company and employee management, automated billing calculations across multiple billing models, tax savings tracking and reporting, QuickBooks Online integration for invoice syncing, and automated email notifications. The dashboard provides comprehensive analytics for their entire client portfolio.',
+      description: 'Benefit Builder helps companies save on FICA taxes through Section 125 Cafeteria Plans. We built their complete internal SaaS platform for managing pre-tax benefit deductions, featuring company and employee management, automated billing calculations across multiple billing models, tax savings tracking and reporting, QuickBooks Online integration for invoice syncing, and automated email notifications. The dashboard provides comprehensive analytics for their entire client portfolio.',
       services: ['Full-Stack SaaS', 'QuickBooks Integration', 'Automated Billing', 'Analytics Dashboard'],
       color: 'from-primary-600 to-primary-800'
     },
@@ -207,7 +207,7 @@ export default function Work() {
       shortDesc: 'Multi-tenant scheduling SaaS platform with payments and automated notifications.',
       description: 'CalenFlow is a complete scheduling and workflow automation platform built for service businesses. The system features multi-tenant business management, Google OAuth authentication, customizable service catalogs, staff scheduling and availability management, branded booking widgets, Stripe payment processing, and automated email/SMS notifications. The admin dashboard provides full visibility into bookings, revenue, and client management.',
       services: ['Full-Stack SaaS', 'Stripe Payments', 'Booking System', 'SMS/Email Automation'],
-      color: 'from-purple-500 to-violet-600'
+      color: 'from-accent-500 to-primary-500'
     },
     {
       name: 'SentinelForge',
@@ -217,7 +217,7 @@ export default function Work() {
       shortDesc: 'Online gaming safety platform protecting players from cheaters and toxic behavior.',
       description: 'SentinelForge is a powerful online gaming safety platform designed to protect gaming communities. The system features automated player behavior monitoring, cheat detection algorithms, toxicity analysis, and community moderation tools. Built with a scalable architecture to handle high-volume gaming data, it helps game developers and server administrators maintain fair, enjoyable gaming environments.',
       services: ['Platform Development', 'Data Analytics', 'Automation', 'Admin Dashboard'],
-      color: 'from-emerald-500 to-emerald-700'
+      color: 'from-primary-500 to-primary-700'
     },
     {
       name: 'Project Ironclad',
@@ -237,7 +237,7 @@ export default function Work() {
       shortDesc: 'Intelligent LLM routing system with multi-provider support and automatic failover.',
       description: 'AeonForge is an intelligent AI routing system that manages multiple LLM providers including Anthropic Claude, Google Gemini, and Together.ai. The system automatically selects the best provider based on task type (general, coding, thinking, longform, multilingual), monitors provider availability, and implements automatic failover to ensure responses are always delivered. Built for reliability and cost optimization across AI workloads.',
       services: ['AI Integration', 'Multi-Provider Routing', 'API Development', 'Failover Systems'],
-      color: 'from-cyan-500 to-blue-600'
+      color: 'from-primary-600 to-primary-800'
     },
     {
       name: 'BotOpsHQ',
@@ -247,7 +247,7 @@ export default function Work() {
       shortDesc: 'Bot operations platform for managing automated workflows and integrations.',
       description: 'BotOpsHQ is a centralized platform for managing bots, automated workflows, and system integrations. The hub architecture allows teams to deploy, monitor, and maintain multiple automation bots from a single dashboard. Features include workflow templates, real-time monitoring, error handling, and integration management across various services and APIs.',
       services: ['Automation Platform', 'Workflow Management', 'Bot Development', 'Integration Hub'],
-      color: 'from-orange-500 to-amber-600'
+      color: 'from-primary-500 to-primary-700'
     },
     {
       name: 'Autopilot System',
@@ -257,7 +257,7 @@ export default function Work() {
       shortDesc: '24/7 autonomous web agency operations with AI-powered lead generation and client management.',
       description: 'The Autopilot System is a comprehensive microservices architecture that automates web agency operations around the clock. It includes Prospector for lead generation, Sentinel for review monitoring, ChainLink for client outreach sequences, Pulse for ticket handling, Scribe for quote generation, Foundry for automated site building, and Dispatch for reporting. The Nexus orchestrator coordinates all services via cron scheduling and event routing.',
       services: ['Microservices Architecture', 'AI Lead Generation', 'Automated Outreach', 'Quote Generation'],
-      color: 'from-indigo-500 to-purple-600'
+      color: 'from-surface-elevated to-surface'
     },
     {
       name: 'Lead Generation Engine',
@@ -267,7 +267,7 @@ export default function Work() {
       shortDesc: 'AI-powered lead machine finding businesses with poor websites and nurturing them to close.',
       description: 'An intelligent lead generation system that scrapes Google Maps daily for 20-30 businesses with website issues, analyzes and grades their sites, calculates fixed-price quotes from 50+ services, sends AI-written personalized outreach emails, manages 7-touch follow-up sequences over 90 days, analyzes reply sentiment, and alerts when leads are ready to close. Expected results: 500-700 leads/month with 3-10 hot leads monthly.',
       services: ['Lead Scraping', 'AI Email Writing', 'Automated Follow-ups', 'Sentiment Analysis'],
-      color: 'from-green-500 to-teal-600'
+      color: 'from-primary-500 to-accent-500'
     },
     {
       name: 'GradeStack',
@@ -277,7 +277,7 @@ export default function Work() {
       shortDesc: 'Self-hosted 125-point SEO audit platform with actionable fix instructions.',
       description: 'GradeStack is a self-hosted SEO health check system that runs 125 meaningful checks on websites. Unlike competitors that show inflated issues to upsell services, GradeStack provides accurate, actionable analysis with step-by-step fix instructions, transparent documented scoring, and real data from Google APIs. Built for agencies and businesses who want honest SEO insights.',
       services: ['SEO Auditing', 'Google API Integration', 'Automated Reporting', 'Fix Instructions'],
-      color: 'from-yellow-500 to-orange-500'
+      color: 'from-accent-500 to-primary-500'
     },
     {
       name: 'ThinkSync',
@@ -287,7 +287,7 @@ export default function Work() {
       shortDesc: 'Family command center app designed for neurodivergent families.',
       description: 'ThinkSync is a custom-built family management application specifically designed for neurodivergent families. Features include task assignment and tracking, shared family calendars, a needs tracker for shopping items, and comprehensive kid profiles for tracking important information. Role-based dashboards provide different views for parents and children with a flexible family structure system.',
       services: ['Custom App Development', 'Task Management', 'Family Scheduling', 'User Profiles'],
-      color: 'from-pink-500 to-rose-600'
+      color: 'from-accent-500 to-accent-700'
     },
     {
       name: 'Homeschool Management System',
@@ -307,7 +307,7 @@ export default function Work() {
       shortDesc: 'Full-fidelity medical simulation platform for hands-on clinical training.',
       description: 'MedSim is a web-based medical simulator that trains healthcare professionals through realistic hands-on interaction rather than menu clicks. Learners manipulate realistic tools with pressure, angle, and depth sensitivity, manage patient physiology, and administer medications with real pharmacokinetic and pharmacodynamic consequences. Built with a deterministic simulation engine running in Web Workers for consistent training scenarios.',
       services: ['Medical Simulation', '3D Interaction', 'PK/PD Modeling', 'Training Platform'],
-      color: 'from-red-500 to-pink-600'
+      color: 'from-primary-600 to-primary-800'
     },
     {
       name: 'Terracotta Construction',
@@ -317,7 +317,7 @@ export default function Work() {
       shortDesc: 'Houston-area general contractor specializing in residential and commercial construction.',
       description: 'Terracotta Construction is a trusted Houston-area general contractor delivering quality residential and commercial construction services. We built their professional website featuring project galleries showcasing their craftsmanship, detailed service pages for each construction specialty, and integrated lead capture forms that connect potential clients directly with their team. The mobile-responsive design ensures homeowners can explore their portfolio from any device.',
       services: ['Custom Website', 'SEO Optimization', 'Contact Forms', 'Project Gallery'],
-      color: 'from-amber-500 to-orange-600'
+      color: 'from-primary-500 to-primary-700'
     },
     {
       name: "Car's Collision & Refinish Shop",
@@ -327,7 +327,7 @@ export default function Work() {
       shortDesc: 'Professional auto body repair and collision center serving the Houston community.',
       description: "Car's Collision & Refinish Shop provides expert auto body repair, paint refinishing, and collision restoration services. Their website showcases dramatic before-and-after galleries of their restoration work, detailed service explanations for insurance claims, and an easy-to-use online quote request system. The site helps customers understand the repair process and builds trust through visual proof of their quality workmanship.",
       services: ['Custom Website', 'Photo Gallery', 'Quote System', 'Service Pages'],
-      color: 'from-red-500 to-rose-600'
+      color: 'from-primary-500 to-accent-500'
     },
     {
       name: 'AMW Air Conditioning',
@@ -337,7 +337,7 @@ export default function Work() {
       shortDesc: 'Reliable HVAC services including AC repair, installation, and maintenance plans.',
       description: 'AMW Air Conditioning delivers reliable heating and cooling solutions for homes and businesses throughout the Houston area. We rebuilt their website with emergency service prominently featured for urgent AC repairs, detailed maintenance plan options, and online scheduling, then added SEO, GEO (local) marketing, Google Ads, and Local Services Ads to drive qualified leads. See the full case study below.',
       services: ['Website Rebuild', 'SEO', 'GEO / Local Marketing', 'Google Ads', 'Local Services Ads'],
-      color: 'from-cyan-500 to-blue-600'
+      color: 'from-accent-500 to-accent-700'
     },
     {
       name: 'Forge-X',
@@ -347,7 +347,7 @@ export default function Work() {
       shortDesc: 'Advanced technology platform delivering innovative software solutions.',
       description: 'Forge-X represents our capabilities in building sophisticated technology platforms. This full-stack application features secure user authentication, interactive dashboards with real-time data visualization, and complex business logic handling. The platform demonstrates our ability to architect and develop enterprise-grade software solutions that scale with business needs.',
       services: ['Full-Stack Platform', 'User Portal', 'API Development', 'Dashboard Design'],
-      color: 'from-violet-500 to-purple-600'
+      color: 'from-accent-500 to-primary-500'
     },
     {
       name: 'SACVPN',
@@ -357,7 +357,7 @@ export default function Work() {
       shortDesc: 'Zero-log enterprise VPN service providing secure, private internet access.',
       description: 'SACVPN is a zero-log enterprise VPN solution built for businesses and privacy-conscious users who demand true security. We developed the complete platform including user account management, Stripe subscription billing with multiple pricing tiers, secure authentication systems, and server connection infrastructure. The platform serves enterprise clients with centralized team management and dedicated IP options.',
       services: ['Enterprise Platform', 'Payment Processing', 'User Management', 'Subscription System'],
-      color: 'from-emerald-500 to-green-600'
+      color: 'from-surface-elevated to-surface'
     },
     {
       name: 'ColorFuse Prints',
@@ -367,7 +367,7 @@ export default function Work() {
       shortDesc: 'Custom printing and promotional products with easy online ordering.',
       description: 'ColorFuse Prints offers custom printing services for businesses and individuals, from business cards to promotional materials. We built their complete e-commerce platform with product customization tools that let customers design their own products, a robust shopping cart system, secure payment processing, and order management backend. The intuitive interface makes ordering custom prints simple for both first-time and returning customers.',
       services: ['E-Commerce', 'Product Customization', 'Order System', 'Payment Integration'],
-      color: 'from-pink-500 to-fuchsia-600'
+      color: 'from-accent-500 to-primary-500'
     },
     {
       name: 'FC Photo Houston',
@@ -495,7 +495,7 @@ export default function Work() {
       <section className="bg-surface py-24 sm:py-32">
         <div className="mx-auto max-w-7xl px-6 lg:px-8">
           <div className="mx-auto max-w-2xl text-center mb-6">
-            <div className="inline-flex items-center rounded-full bg-green-500/10 px-4 py-2 text-sm font-semibold text-green-400 mb-4">
+            <div className="inline-flex items-center rounded-full bg-accent-500/10 px-4 py-2 text-sm font-semibold text-accent-400 mb-4">
               Live Portfolio
             </div>
             <h2 className="text-4xl font-bold tracking-tight text-white sm:text-5xl">
@@ -682,11 +682,11 @@ export default function Work() {
 
                   {/* Challenge & Solution */}
                   <div className="grid lg:grid-cols-2 gap-8 mb-10">
-                    <div className="rounded-2xl bg-red-500/10 p-8 border-l-4 border-red-500">
+                    <div className="rounded-2xl bg-surface-elevated/70 p-8 border-l-4 border-primary-500">
                       <h4 className="text-xl font-bold text-white mb-4">The Challenge</h4>
                       <p className="text-gray-300 leading-relaxed">{study.challenge}</p>
                     </div>
-                    <div className="rounded-2xl bg-blue-500/10 p-8 border-l-4 border-blue-500">
+                    <div className="rounded-2xl bg-surface-elevated/70 p-8 border-l-4 border-accent-500">
                       <h4 className="text-xl font-bold text-white mb-4">Our Solution</h4>
                       <p className="text-gray-300 leading-relaxed">{study.solution}</p>
                     </div>
@@ -697,8 +697,8 @@ export default function Work() {
                     <h4 className="text-2xl font-bold text-white mb-6">Results</h4>
                     <div className="grid sm:grid-cols-2 gap-4">
                       {study.results.map((result, i) => (
-                        <div key={i} className="flex items-start gap-4 bg-green-500/10 rounded-xl p-6 border border-surface-border">
-                          <div className="flex-shrink-0 w-8 h-8 rounded-full bg-gradient-to-br from-accent-500 to-green-500 flex items-center justify-center text-white shadow-lg">
+                        <div key={i} className="flex items-start gap-4 bg-accent-500/10 rounded-xl p-6 border border-surface-border">
+                          <div className="flex-shrink-0 w-8 h-8 rounded-full bg-gradient-to-br from-primary-500 to-primary-700 flex items-center justify-center text-white shadow-lg">
                             <CheckIcon />
                           </div>
                           <span className="text-white font-semibold leading-relaxed">{result}</span>
@@ -778,7 +778,7 @@ export default function Work() {
       <section className="bg-surface-card py-24 sm:py-32">
         <div className="mx-auto max-w-7xl px-6 lg:px-8">
           <div className="mx-auto max-w-2xl text-center mb-16">
-            <div className="inline-flex items-center rounded-full bg-green-500/10 px-4 py-2 text-sm font-semibold text-green-400 mb-4">
+            <div className="inline-flex items-center rounded-full bg-primary-500/10 px-4 py-2 text-sm font-semibold text-primary-400 mb-4">
               Industries We Serve
             </div>
             <h2 className="text-4xl font-bold tracking-tight text-white sm:text-5xl">

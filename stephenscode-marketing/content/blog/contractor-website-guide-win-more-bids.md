@@ -1,340 +1,50 @@
 ---
-title: "Contractor Website Guide: How to Win More Bids With Your Online Presence"
+title: "We Audited a Contractor's Site and Found an 18% Health Score. Here's What We Rebuilt."
+metaTitle: "Contractor Website Guide: Lessons From a Real Rebuild"
 date: "2025-12-24"
 author: "Kyle Stephens"
-excerpt: "General contractors lose jobs to competitors with better websites. Here's how your online presence can help you win more bids and bigger projects."
+excerpt: "Terracotta Construction's old website scored 18% on a site health audit, with 17 pages missing outright. Here's what that revealed about what a contractor's website actually needs, and what we're building instead."
 category: "Web Development"
-tags: ["contractors", "construction", "Houston", "small business", "lead generation", "portfolio"]
+tags: ["contractors", "construction", "Houston", "case study", "lead generation", "portfolio", "web development"]
 readTime: "8 min read"
 ---
 
-## Your Website Is Your First Impression
+## The Number That Started This Project: 18%
 
-Before a homeowner calls you for a quote, they've already visited your website. Before a commercial client invites you to bid, they've researched your online presence.
+Before we touched a line of code on Terracotta Construction's new site, we ran their existing one through a site health audit. The score came back at 18%, with 17 pages missing entirely, pages that should have existed (service pages, location pages, likely an about page) but returned nothing when a visitor or Google tried to load them.
 
-What did they find?
+An 18% health score doesn't mean a website "looks a little dated." It means the site is actively broken in ways most visitors never consciously notice, they just bounce, and Google quietly stops sending traffic to pages that don't resolve. For a general contractor, where a single lost lead can be worth tens of thousands of dollars, that's not a cosmetic problem. It's a foundation problem, which is a strange thing for a construction company's own website to have.
 
-If your website looks like it was built in 2010, or worse, if you don't have one at all, you've already lost ground to competitors who invested in their digital presence.
+## Why This Happens More to Contractors Than You'd Expect
 
-## Why Contractor Websites Are Different
+Contractors are usually excellent at making sure an actual building doesn't have a cracked foundation, and much less likely to notice when their website does, for an understandable reason: nobody walks through a website with a level and a checklist the way they'd walk a job site. A site can degrade for years, broken links, missing pages, an old plugin nobody updates, without a single alarm going off, because the business itself is still coming in through referrals and repeat clients who already trust them. The website only becomes an obvious problem when you look at who isn't calling: the commercial client comparing three general contractors online before ever picking up the phone, or the homeowner researching for weeks before a $150,000 remodel.
 
-Unlike retail or service businesses, contractors face unique challenges:
+## What We're Rebuilding It Into
 
-1. **High-value decisions**: Projects range from $10K to $500K+
-2. **Long sales cycles**: Clients research for weeks or months
-3. **Trust is everything**: You're asking for major investments
-4. **Portfolio matters**: Clients want to see your work
-5. **References get checked**: Your online reputation follows you
+Rather than patch the existing site, we're rebuilding Terracotta's entire platform to what we internally call the full standard: a public marketing site, a customer login and portal, an admin dashboard, and a back office, all self-hosted on our own infrastructure, including a dedicated self-hosted Supabase instance, rather than stitched together from third-party SaaS tools. Their real brand color, logo, and existing service and location catalog carried over as the actual content foundation, so this isn't a blank-slate rebrand. It's a foundation-up rebuild of a company that already had the right pieces, just not a site built to hold them.
 
-Your website needs to support this entire journey, not just capture a quick lead.
+For a contractor doing serious volume, that customer portal and back office matter more than they might sound like they should. A client who can log in and see where their project stands, without calling the office for an update, is a client who trusts you more and calls less for status checks, which frees up real project management time.
 
-## The 7 Elements Every Contractor Website Needs
+## The Portfolio Still Has to Do the Heavy Lifting
 
-### 1. Professional Portfolio With Real Projects
+None of the platform work matters if the portfolio itself is weak, because for a contractor, the portfolio is the single page doing the most persuading. A few things separate a portfolio that actually closes deals from one that's just a photo dump: real before-and-after photos organized by project type (kitchen remodels, additions, whole-home renovations) rather than one long undifferentiated gallery, and a brief note on scope, timeline, and location (city or neighborhood, never a specific address) for each project.
 
-This is non-negotiable for contractors. Your portfolio should include:
-
-**For Each Project:**
-- High-quality before and after photos
-- Project scope and challenges
-- Timeline and completion date
-- Location (city/neighborhood, not exact address)
-- Client type (residential, commercial, etc.)
+Genuinely, hiring an actual photographer for your best completed projects is worth the few hundred dollars it costs. A phone photo taken in bad light next to a ladder and a stack of drop cloths undersells work that probably took weeks to finish. If you want a sense of how we think about laying out real project work, [our own portfolio](/work) follows the same logic we're applying to Terracotta's.
 
-**Organization:**
-- Categorize by project type (kitchen remodels, additions, new construction)
-- Filter by size/budget range if possible
-- Feature your best 10-15 projects prominently
-- Archive older projects but keep them accessible
+## Trust Signals for a Decision Nobody Makes Quickly
 
-**Photo Quality Tips:**
-- Hire a photographer for major completions (worth every penny)
-- Consistent lighting and angles
-- Show details that demonstrate craftsmanship
-- Include wide shots and close-ups
+Construction projects are big-ticket, long-consideration purchases, closer to buying a car than picking a lawn service. That changes what belongs on the site: license numbers, bonding, and insurance coverage stated plainly rather than implied; years in business and any professional affiliations (AGC, local homebuilder associations); a written explanation of your actual process, consultation through final walkthrough, so a client isn't guessing what happens after they sign; and real testimonials, ideally paired with the project photos they're describing, backed by a Google Business Profile kept current with recent project photos.
 
-If you want a sense of how a real portfolio should be organized and presented, look at how we lay out [our own client work](/work).
+That process explanation deserves more attention than most contractor sites give it. Clients aren't just evaluating whether you can do the work. They're evaluating whether the next several weeks of construction are going to be a manageable experience or a stressful one, and a clear, honest process page answers that question before they ever call.
 
-### 2. Clear Service Descriptions
+## Check Your Own Score Before You Decide What to Fix
 
-Don't assume clients know what you do. Create dedicated pages for:
+You don't need to hire anyone to find out roughly where your own site stands. Run it through Ahrefs Webmaster Tools (free) or Google's PageSpeed Insights and look at what comes back: broken pages, missing meta descriptions, pages that technically exist but return nothing useful. If the results look anything like Terracotta's did, that's the actual gap to close, not a full brand overhaul, and not a redesign chasing a trend. Fix the foundation first.
 
-**Residential Services:**
-- Kitchen remodeling
-- Bathroom renovations
-- Home additions
-- Whole-home remodels
-- Outdoor living spaces
-- Custom home building
+## What This Costs to Do Right
 
-**Commercial Services (if applicable):**
-- Tenant improvements
-- Office buildouts
-- Retail construction
-- Restaurant buildouts
-- Medical/dental office construction
-
-Each page should explain:
-- What's included in the service
-- Your process from start to finish
-- Typical timeline ranges
-- What makes your approach different
-
-### 3. About Page That Builds Trust
-
-For high-value decisions, clients want to know who they're hiring:
-
-**Include:**
-- Your story and background
-- Years of experience
-- Licenses held (with numbers)
-- Insurance coverage
-- Bonding information
-- Team bios for key personnel
-- Professional memberships (AGC, HBA, etc.)
-- Awards and recognition
-
-**Show:**
-- Real photos of you and your team
-- Your office or shop (if impressive)
-- Team at work on job sites
-- Community involvement
-
-### 4. Testimonials and Reviews
-
-Social proof closes deals for contractors:
-
-**On Your Website:**
-- 5-10 detailed testimonials with full names
-- Project photos alongside testimonials
-- Google reviews widget embedded
-- Video testimonials (extremely powerful)
-
-**External Platforms:**
-- Google Business Profile (critical)
-- Houzz (for residential)
-- BBB rating
-- Angi/HomeAdvisor (if you use them)
-
-**How to Get Good Testimonials:**
-- Ask immediately after project completion
-- Provide specific questions to guide responses
-- Make it easy (send a direct link to Google)
-- Follow up if they forget
-
-### 5. Process Explanation
-
-Clients fear the unknown. Explain exactly how working with you works:
-
-**Typical Process Page:**
-1. Initial consultation (free? how long?)
-2. Design phase (who's involved?)
-3. Proposal and contract
-4. Permit process (you handle it?)
-5. Construction phases
-6. Communication during project
-7. Final walkthrough
-8. Warranty and follow-up
-
-This transparency differentiates you from contractors who keep clients guessing.
-
-### 6. Contact Options and Response Commitment
-
-Make it easy to reach you, but set expectations:
-
-**Contact Page Should Include:**
-- Phone number (and best hours to call)
-- Email address
-- Contact form
-- Response time commitment ("We respond within 24 hours")
-- Physical address or service area
-- Scheduler for consultations (if you use one)
-
-**Pro Tip:** State your minimum project size if you have one. This pre-qualifies leads and saves everyone time.
-
-### 7. Blog/Resources Section
-
-Content marketing works especially well for contractors:
-
-**Topics That Attract Clients:**
-- "How Much Does a Kitchen Remodel Cost in Houston?"
-- "10 Questions to Ask Before Hiring a Contractor"
-- "What to Expect During a Home Addition Project"
-- "Permit Requirements for [City] Renovations"
-- "How to Prepare Your Home for a Remodel"
-
-**SEO Benefits:**
-- Ranks for searches clients actually make
-- Demonstrates expertise before they contact you
-- Provides content to share on social media
-- Builds trust through education
-
-## What Separates Winning Contractor Websites
-
-### Amateur vs. Professional Comparison
-
-**Amateur Website:**
-- Template design from GoDaddy
-- Stock photos of generic construction
-- "Services" page listing everything in bullets
-- Contact form only
-- No portfolio or outdated photos
-- "Call for quote" with no other information
-
-**Professional Website:**
-- Custom design reflecting your brand
-- Professional photos of your actual work
-- Detailed service pages with process info
-- Phone, email, and scheduler options
-- Robust portfolio with project details
-- Pricing guidance and FAQ
-
-## The Cost of an Underwhelming Website
-
-Let's calculate the real impact:
-
-**Assumptions:**
-- Average project value: $50,000
-- Close rate with good website: 30%
-- Close rate with poor website: 15%
-- Monthly qualified leads: 10
-
-**Poor Website:**
-- 10 leads × 15% close = 1.5 projects
-- Monthly revenue: $75,000
-
-**Professional Website:**
-- 10 leads × 30% close = 3 projects
-- Monthly revenue: $150,000
-
-**Difference:** $75,000/month
-
-**Cost of professional website:** $3,000-8,000 one-time
-
-The math makes sense for any contractor doing serious volume.
-
-## Portfolio Photography: Worth the Investment
-
-This deserves its own section because it's that important.
-
-**DIY Photography Problems:**
-- Inconsistent quality
-- Poor lighting
-- Cluttered shots (ladders, tools, debris visible)
-- Wrong time of day
-- No staging
-
-**Professional Photography Gets You:**
-- Magazine-quality images
-- Proper staging and lighting
-- Consistent style across portfolio
-- Photos you're proud to display
-- Images that work on all devices
-
-**Cost:** $200-500 per project for professional photos
-**ROI:** One additional project closed pays for years of photography
-
-## Local SEO for Contractors
-
-Getting found online requires more than just having a website. It takes consistent [local SEO](/services/seo-boost) work to keep you ranked ahead of competitors:
-
-### Google Business Profile
-- Complete every section
-- Add photos regularly (weekly if possible)
-- Collect and respond to reviews
-- Post project updates
-- List all services accurately
-
-### Local Keywords to Target
-- "General contractor [city]"
-- "Home remodeling [city]"
-- "[Service type] contractor near me"
-- "Kitchen remodel [neighborhood]"
-- "Licensed contractor [area]"
-
-### Content for Local Rankings
-- Service area pages for major cities
-- Project case studies by location
-- Local building code information
-- Neighborhood-specific content
-
-## Website Features by Contractor Type
-
-### Residential Remodelers
-- Strong before/after portfolio
-- Houzz integration
-- Design inspiration gallery
-- Financing information
-- Permit process explanation
-
-### Custom Home Builders
-- Floor plan gallery
-- Lot/land acquisition info
-- Design-build process
-- Energy efficiency features
-- Model home scheduling
-
-### Commercial Contractors
-- Project types and industries served
-- Bonding capacity
-- Safety record/statistics
-- Timeline and budget track record
-- Pre-qualification information
-
-### Specialty Contractors
-- Specific service focus
-- Certification displays
-- Equipment/capability lists
-- Before/after transformations
-- Manufacturer partnerships
-
-## What Your Contractor Website Should Cost
-
-For an exact breakdown of current packages and pricing, check our [pricing page](/pricing).
-
-**Budget Tiers:**
-
-**Entry Level:** $1,500-3,000
-- Template-based with customization
-- Basic portfolio
-- Essential pages
-- Mobile responsive
-- Good for contractors under $500K/year
-
-**Professional:** $3,000-8,000
-- Custom design
-- Advanced portfolio features
-- SEO optimization
-- Blog setup
-- Good for contractors $500K-2M/year
-
-**Premium:** $8,000-20,000
-- Fully custom everything
-- Interactive features
-- CRM integration
-- Advanced scheduling
-- Video integration
-- Good for contractors $2M+/year
-
-## Common Mistakes Contractors Make Online
-
-1. **No website at all**: "I get all my work from referrals" (until you don't)
-2. **DIY website that looks DIY**: Unprofessional = untrustworthy
-3. **Outdated portfolio**: Projects from 5+ years ago hurt more than help
-4. **No mobile optimization**: Half your visitors are on phones
-5. **Missing license/insurance info**: Raises red flags
-6. **Stock photos only**: Screams "we have no real work to show"
-7. **No reviews or testimonials**: Social proof is expected
-8. **Contact form only**: Some clients want to call NOW
-
-## Ready to Win More Bids?
-
-Your website should be your best salesperson, working 24/7 to build trust and qualify leads. Every day with an underwhelming online presence is another day losing work to competitors who invested in theirs.
-
-At StephensCode, we build websites for contractors who want to win bigger projects and better clients. We understand the construction industry and what it takes to convert website visitors into signed contracts.
-
-**[Schedule a consultation](/contact)** and let's discuss how to improve your online presence.
+For a contractor who needs a real portfolio, clear service pages, and a foundation that doesn't quietly bleed traffic, a [Standard Website](/services/standard-website) at $950 covers that ground. For a contractor managing multiple crews, wanting a customer portal, or ready for the kind of back-office system we're building for Terracotta, the [Custom Business Platform](/services/custom-business-platform) at $5,000 or the [Enterprise Platform](/services/enterprise-platform) at $7,500 are the tiers built for that. Our [pricing page](/pricing) breaks down what's actually included at each level.
 
 ---
 
-*Kyle Stephens is a Marine Corps veteran and web developer serving contractors throughout the Houston area. He specializes in websites that showcase craftsmanship and win more bids.*
+*Kyle Stephens is a Marine Corps veteran and founder of StephensCode. Terracotta Construction's rebuild is still in progress as of this writing; we'll publish the full before-and-after results once it's live.*

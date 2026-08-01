@@ -72,6 +72,11 @@ const HoppyTrailsCraftBeer = () => {
   const [sortBy, setSortBy] = useState('popular');
   const [wishlist, setWishlist] = useState<string[]>([]);
   const [selectedPickup, setSelectedPickup] = useState<string>('');
+  const [pickupError, setPickupError] = useState(false);
+  const [orderPlaced, setOrderPlaced] = useState(false);
+  const [orderNumber, setOrderNumber] = useState('');
+  const [orderTotal, setOrderTotal] = useState(0);
+  const [subscribedPlan, setSubscribedPlan] = useState<string | null>(null);
 
   // Sample Data
   const beers: BeerProduct[] = [
@@ -359,6 +364,18 @@ const HoppyTrailsCraftBeer = () => {
   const cartTotal = cart.reduce((sum, item) => sum + (item.price * item.quantity), 0);
   const cartCount = cart.reduce((sum, item) => sum + item.quantity, 0);
 
+  const handleCheckout = () => {
+    if (!selectedPickup) {
+      setPickupError(true);
+      return;
+    }
+    setPickupError(false);
+    setOrderNumber(`HT${Math.floor(100000 + Math.random() * 900000)}`);
+    setOrderTotal(cartTotal * 1.08);
+    setOrderPlaced(true);
+    setCart([]);
+  };
+
   const toggleWishlist = (beerId: string) => {
     if (wishlist.includes(beerId)) {
       setWishlist(wishlist.filter(id => id !== beerId));
@@ -435,7 +452,10 @@ const HoppyTrailsCraftBeer = () => {
             </div>
           </div>
           <div className="flex items-center gap-4">
-            <button className="hover:text-[#936639] transition-colors">
+            <button
+              onClick={() => setCurrentPage('account')}
+              className="hover:text-[#936639] transition-colors"
+            >
               <User className="w-5 h-5" />
             </button>
             <button className="hover:text-[#936639] transition-colors">
@@ -912,8 +932,20 @@ const HoppyTrailsCraftBeer = () => {
         </p>
       </div>
 
+      {subscribedPlan && (
+        <div className="mb-8 max-w-2xl mx-auto bg-green-50 border border-green-200 rounded-lg p-4 flex items-center gap-3">
+          <CheckCircle2 className="w-6 h-6 text-green-600 flex-shrink-0" />
+          <p className="text-green-800 text-sm">
+            You're subscribed to the <strong>{subscriptions.find(s => s.id === subscribedPlan)?.name}</strong> plan.
+            This is a demo storefront, so no payment was processed.
+          </p>
+        </div>
+      )}
+
       <div className="grid grid-cols-1 md:grid-cols-3 gap-8 mb-12">
-        {subscriptions.map((sub, index) => (
+        {subscriptions.map((sub, index) => {
+          const isActive = subscribedPlan === sub.id;
+          return (
           <div
             key={sub.id}
             className={`bg-white rounded-lg shadow-lg overflow-hidden ${
@@ -943,12 +975,21 @@ const HoppyTrailsCraftBeer = () => {
                   </li>
                 ))}
               </ul>
-              <button className="w-full bg-[#582f0e] text-white px-6 py-3 rounded-lg font-semibold hover:bg-[#7f4f24] transition-colors">
-                Subscribe Now
+              <button
+                onClick={() => setSubscribedPlan(sub.id)}
+                disabled={isActive}
+                className={`w-full px-6 py-3 rounded-lg font-semibold transition-colors ${
+                  isActive
+                    ? 'bg-green-600 text-white cursor-default'
+                    : 'bg-[#582f0e] text-white hover:bg-[#7f4f24]'
+                }`}
+              >
+                {isActive ? 'Subscribed ✓' : 'Subscribe Now'}
               </button>
             </div>
           </div>
-        ))}
+          );
+        })}
       </div>
 
       <div className="bg-gray-50 rounded-lg p-8">
@@ -972,7 +1013,49 @@ const HoppyTrailsCraftBeer = () => {
   );
 
   // Page: Cart
-  const CartPage = () => (
+  const CartPage = () => {
+    if (orderPlaced) {
+      return (
+        <div className="max-w-2xl mx-auto px-4 py-16 text-center">
+          <div className="bg-green-100 w-24 h-24 rounded-full flex items-center justify-center mx-auto mb-6">
+            <CheckCircle2 className="w-12 h-12 text-green-600" />
+          </div>
+          <h1 className="text-4xl font-bold text-[#582f0e] mb-4">Order Confirmed!</h1>
+          <p className="text-lg text-gray-600 mb-8">
+            Thanks for your order. This is a demo storefront, so no payment was processed and no beer is on its way.
+          </p>
+          <div className="bg-white rounded-lg shadow-lg p-8 mb-8 text-left space-y-3">
+            <div className="flex justify-between">
+              <span className="text-gray-600">Order Number</span>
+              <span className="font-bold text-[#582f0e]">#{orderNumber}</span>
+            </div>
+            <div className="flex justify-between">
+              <span className="text-gray-600">Pickup Location</span>
+              <span className="font-bold text-[#582f0e]">
+                {pickupLocations.find(l => l.id === selectedPickup)?.name || 'N/A'}
+              </span>
+            </div>
+            <div className="flex justify-between pt-3 border-t">
+              <span className="text-gray-600">Order Total</span>
+              <span className="font-bold text-[#582f0e]">${orderTotal.toFixed(2)}</span>
+            </div>
+          </div>
+          <p className="text-sm text-gray-500 mb-8">Must be 21+ to pick up. Please bring a valid photo ID.</p>
+          <button
+            onClick={() => {
+              setOrderPlaced(false);
+              setSelectedPickup('');
+              setCurrentPage('shop');
+            }}
+            className="bg-[#582f0e] text-white px-8 py-3 rounded-lg font-semibold hover:bg-[#7f4f24] transition-colors"
+          >
+            Continue Shopping
+          </button>
+        </div>
+      );
+    }
+
+    return (
     <div className="max-w-7xl mx-auto px-4 py-8">
       <h1 className="text-4xl font-bold text-[#582f0e] mb-8">Shopping Cart</h1>
 
@@ -1053,17 +1136,28 @@ const HoppyTrailsCraftBeer = () => {
                 <label className="block text-sm font-semibold text-gray-700 mb-2">Pickup Location</label>
                 <select
                   value={selectedPickup}
-                  onChange={(e) => setSelectedPickup(e.target.value)}
-                  className="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-[#582f0e]"
+                  onChange={(e) => {
+                    setSelectedPickup(e.target.value);
+                    if (e.target.value) setPickupError(false);
+                  }}
+                  className={`w-full px-4 py-2 border rounded-lg focus:ring-2 focus:ring-[#582f0e] ${
+                    pickupError ? 'border-red-500' : 'border-gray-300'
+                  }`}
                 >
                   <option value="">Select Location</option>
                   {pickupLocations.map(location => (
                     <option key={location.id} value={location.id}>{location.name}</option>
                   ))}
                 </select>
+                {pickupError && (
+                  <p className="text-sm text-red-500 mt-2">Please select a pickup location to continue.</p>
+                )}
               </div>
 
-              <button className="w-full bg-[#582f0e] text-white px-6 py-4 rounded-lg font-bold text-lg hover:bg-[#7f4f24] transition-colors mb-3">
+              <button
+                onClick={handleCheckout}
+                className="w-full bg-[#582f0e] text-white px-6 py-4 rounded-lg font-bold text-lg hover:bg-[#7f4f24] transition-colors mb-3"
+              >
                 Proceed to Checkout
               </button>
 
@@ -1078,7 +1172,8 @@ const HoppyTrailsCraftBeer = () => {
         </div>
       )}
     </div>
-  );
+    );
+  };
 
   // Page: Account
   const AccountPage = () => (

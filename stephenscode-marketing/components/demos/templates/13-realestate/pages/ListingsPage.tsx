@@ -266,7 +266,7 @@ const ListingsPage: React.FC = () => {
                   <img
                     src={listing.image}
                     alt={listing.title}
-                    className="w-full h-full object-cover group- transition-transform duration-500"
+                    className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500"
                   />
                   {listing.featured && (
                     <div className="absolute top-4 left-4 bg-[#ffc300] text-[#000814] px-3 py-1 rounded-full text-sm font-bold">
@@ -325,7 +325,7 @@ const ListingsPage: React.FC = () => {
                     <img
                       src={listing.image}
                       alt={listing.title}
-                      className="w-full h-full object-cover group- transition-transform duration-500"
+                      className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500"
                     />
                     {listing.featured && (
                       <div className="absolute top-4 left-4 bg-[#ffc300] text-[#000814] px-3 py-1 rounded-full text-sm font-bold">

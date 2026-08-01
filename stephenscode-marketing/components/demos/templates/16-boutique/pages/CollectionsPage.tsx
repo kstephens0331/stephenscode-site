@@ -79,7 +79,7 @@ export default function CollectionsPage({ setCurrentPage }: any) {
                   <img
                     src={collection.image}
                     alt={collection.name}
-                    className="w-full h-full object-cover group- transition-transform duration-700"
+                    className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700"
                   />
                 </div>
                 <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/40 to-transparent flex flex-col justify-end p-8">
@@ -112,7 +112,7 @@ export default function CollectionsPage({ setCurrentPage }: any) {
                   <img
                     src={collection.image}
                     alt={collection.name}
-                    className="w-full h-full object-cover group- transition-transform duration-500"
+                    className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500"
                   />
                 </div>
                 <div className="absolute inset-0 bg-gradient-to-t from-black/70 to-transparent flex flex-col justify-end p-6">

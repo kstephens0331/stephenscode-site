@@ -49,10 +49,10 @@ export default function BlogPage() {
 
   const categories = [
     { name: 'All Posts', slug: 'all', icon: '📚', color: 'from-primary-500 to-accent-500' },
-    { name: 'Web Development', slug: 'web-development', icon: '💻', color: 'from-purple-500 to-blue-500' },
-    { name: 'SEO', slug: 'seo', icon: '🔍', color: 'from-green-500 to-teal-500' },
-    { name: 'Business', slug: 'business', icon: '💼', color: 'from-orange-500 to-red-500' },
-    { name: 'E-Commerce', slug: 'ecommerce', icon: '🛒', color: 'from-pink-500 to-rose-500' },
+    { name: 'Web Development', slug: 'web-development', icon: '💻', color: 'from-primary-600 to-primary-800' },
+    { name: 'SEO', slug: 'seo', icon: '🔍', color: 'from-accent-500 to-accent-700' },
+    { name: 'Business', slug: 'business', icon: '💼', color: 'from-primary-500 to-accent-600' },
+    { name: 'E-Commerce', slug: 'ecommerce', icon: '🛒', color: 'from-accent-600 to-primary-700' },
   ]
 
   return (
@@ -111,7 +111,7 @@ export default function BlogPage() {
                 style={{ animationDelay: `${index * 100}ms` }}
               >
                 <div className="flex items-center gap-3">
-                  <span className="text-2xl group- transition-transform">{category.icon}</span>
+                  <span className="text-2xl group-hover:scale-110 transition-transform">{category.icon}</span>
                   <span className="font-semibold text-white group-hover:text-primary-600 transition-colors">
                     {category.name}
                   </span>
@@ -144,17 +144,17 @@ export default function BlogPage() {
 
                   {/* Featured Topics Preview */}
                   <div className="grid md:grid-cols-3 gap-6 mb-10">
-                    <div className="rounded-xl bg-blue-500/10 p-6 border border-surface-border">
+                    <div className="rounded-xl bg-primary-500/10 p-6 border border-surface-border">
                       <div className="text-3xl mb-3">💻</div>
                       <h3 className="font-bold text-white mb-2">Web Development</h3>
                       <p className="text-sm text-gray-400">Modern frameworks, best practices, and performance optimization</p>
                     </div>
-                    <div className="rounded-xl bg-green-500/10 p-6 border border-surface-border">
+                    <div className="rounded-xl bg-accent-500/10 p-6 border border-surface-border">
                       <div className="text-3xl mb-3">🔍</div>
                       <h3 className="font-bold text-white mb-2">SEO Strategies</h3>
                       <p className="text-sm text-gray-400">Local SEO, keyword research, and ranking techniques</p>
                     </div>
-                    <div className="rounded-xl bg-orange-500/10 p-6 border border-surface-border">
+                    <div className="rounded-xl bg-primary-500/5 p-6 border border-primary-500/20">
                       <div className="text-3xl mb-3">💼</div>
                       <h3 className="font-bold text-white mb-2">Business Growth</h3>
                       <p className="text-sm text-gray-400">Automation, conversion optimization, and scaling tips</p>
@@ -202,7 +202,7 @@ export default function BlogPage() {
                         <img
                           src={post.image}
                           alt={post.title}
-                          className="h-full w-full object-cover group- transition-transform duration-300"
+                          className="h-full w-full object-cover group-hover:scale-110 transition-transform duration-300"
                         />
                         <div className="absolute top-4 right-4">
                           <span className="px-4 py-2 rounded-full bg-surface-card/90 backdrop-blur-sm text-sm font-bold text-primary-400 shadow-lg">

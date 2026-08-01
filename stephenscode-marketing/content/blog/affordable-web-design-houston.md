@@ -1,5 +1,6 @@
 ---
 title: "Affordable Web Design Houston: Real Pricing, No Bait-and-Switch"
+metaTitle: "Affordable Web Design Houston: Real Pricing"
 date: "2026-07-27"
 author: "Kyle Stephens"
 excerpt: "What 'affordable web design Houston' actually means, why the price range you're seeing online is so wide, and how to tell a fair flat-rate quote from a bait-and-switch before you sign anything."

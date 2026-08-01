@@ -1,5 +1,6 @@
 ---
 title: "Mobile-First Web Design: Why It's Non-Negotiable in 2025"
+metaTitle: "Mobile-First Web Design: Why It Matters"
 date: "2025-12-01"
 author: "Kyle Stephens"
 excerpt: "Over 70% of web traffic comes from mobile. Learn why mobile-first design is essential for SEO, conversions, and success in 2025."

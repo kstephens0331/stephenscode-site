@@ -162,7 +162,7 @@ export default function ContactPage({ onNavigate }: ContactPageProps) {
                 >
                   <div className="flex items-start space-x-4">
                     <div className="flex-shrink-0">
-                      <div className="w-12 h-12 bg-gradient-to-br from-[#5f0f40] to-[#9a031e] rounded-xl flex items-center justify-center group- transition-transform">
+                      <div className="w-12 h-12 bg-gradient-to-br from-[#5f0f40] to-[#9a031e] rounded-xl flex items-center justify-center group-hover:scale-110 transition-transform">
                         <Icon className="h-6 w-6 text-white" />
                       </div>
                     </div>

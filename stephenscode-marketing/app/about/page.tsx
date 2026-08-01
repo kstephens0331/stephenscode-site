@@ -50,19 +50,19 @@ export default function About() {
       name: 'Excellence',
       description: 'We don\'t cut corners. Every project gets the same attention to detail and commitment to quality, whether it\'s $250 or $7,500.',
       icon: '⭐',
-      color: 'from-yellow-500 to-orange-500'
+      color: 'from-accent-500 to-accent-600'
     },
     {
       name: 'Transparency',
       description: 'Flat-rate pricing, clear timelines, honest recommendations. You always know where your project stands and what you\'re paying for.',
       icon: '💎',
-      color: 'from-cyan-500 to-blue-500'
+      color: 'from-surface-elevated to-surface-border'
     },
     {
       name: 'Service',
       description: 'We serve our clients the way we served our country, with dedication, reliability, and a mission-first mentality.',
       icon: '🤝',
-      color: 'from-green-500 to-teal-500'
+      color: 'from-primary-600 to-accent-600'
     },
   ]
 
@@ -165,7 +165,7 @@ export default function About() {
                 className="text-center group animate-fade-in-up"
                 style={{ animationDelay: `${index * 100}ms` }}
               >
-                <div className="text-5xl mb-3 group- transition-transform">{stat.icon}</div>
+                <div className="text-5xl mb-3 group-hover:scale-110 transition-transform">{stat.icon}</div>
                 <div className="text-4xl font-bold bg-gradient-to-r from-primary-400 to-accent-400 bg-clip-text text-transparent">
                   {stat.value}
                 </div>
@@ -286,7 +286,7 @@ export default function About() {
 
                 <div className="relative flex gap-6 group">
                   {/* Year badge */}
-                  <div className="flex-shrink-0 w-16 h-16 rounded-full bg-gradient-to-br from-primary-600 to-accent-600 flex items-center justify-center text-white font-bold shadow-lg group- transition-transform z-10">
+                  <div className="flex-shrink-0 w-16 h-16 rounded-full bg-gradient-to-br from-primary-600 to-accent-600 flex items-center justify-center text-white font-bold shadow-lg group-hover:scale-110 transition-transform z-10">
                     {item.year.slice(2)}
                   </div>
 
@@ -348,7 +348,7 @@ export default function About() {
       <section className="bg-surface py-24 sm:py-32">
         <div className="mx-auto max-w-7xl px-6 lg:px-8">
           <div className="mx-auto max-w-2xl text-center mb-16">
-            <div className="inline-flex items-center rounded-full bg-green-500/15 px-4 py-2 text-sm font-semibold text-green-300 mb-4">
+            <div className="inline-flex items-center rounded-full bg-accent-500/15 px-4 py-2 text-sm font-semibold text-accent-300 mb-4">
               👥 Meet the Team
             </div>
             <h2 className="text-4xl font-bold tracking-tight text-white sm:text-5xl">
@@ -386,10 +386,10 @@ export default function About() {
                   <div className="flex flex-wrap gap-3 justify-center lg:justify-start">
                     <span className="px-4 py-2 bg-primary-500/15 text-primary-300 rounded-full text-sm font-semibold">Next.js</span>
                     <span className="px-4 py-2 bg-accent-500/15 text-accent-300 rounded-full text-sm font-semibold">React</span>
-                    <span className="px-4 py-2 bg-blue-500/15 text-blue-300 rounded-full text-sm font-semibold">TypeScript</span>
-                    <span className="px-4 py-2 bg-green-500/15 text-green-300 rounded-full text-sm font-semibold">Firebase</span>
-                    <span className="px-4 py-2 bg-purple-500/15 text-purple-300 rounded-full text-sm font-semibold">E-commerce</span>
-                    <span className="px-4 py-2 bg-orange-500/15 text-orange-300 rounded-full text-sm font-semibold">Automation</span>
+                    <span className="px-4 py-2 bg-primary-500/25 text-primary-200 rounded-full text-sm font-semibold">TypeScript</span>
+                    <span className="px-4 py-2 bg-accent-500/25 text-accent-200 rounded-full text-sm font-semibold">Firebase</span>
+                    <span className="px-4 py-2 bg-surface-elevated text-gray-300 border border-surface-border rounded-full text-sm font-semibold">E-commerce</span>
+                    <span className="px-4 py-2 bg-surface-elevated text-primary-300 border border-primary-500/30 rounded-full text-sm font-semibold">Automation</span>
                   </div>
                 </div>
               </div>
@@ -412,7 +412,7 @@ export default function About() {
 
           <div className="grid gap-8 lg:grid-cols-3">
             <div className="group rounded-3xl bg-surface p-8 shadow-lg shadow-black/20 border border-surface-border hover:border-accent-500 transition-all">
-              <div className="text-5xl mb-6 group- transition-transform">💰</div>
+              <div className="text-5xl mb-6 group-hover:scale-110 transition-transform">💰</div>
               <h3 className="text-2xl font-bold text-white mb-4">
                 Transparent Flat-Rate Pricing
               </h3>
@@ -422,7 +422,7 @@ export default function About() {
             </div>
 
             <div className="group rounded-3xl bg-surface p-8 shadow-lg shadow-black/20 border border-surface-border hover:border-accent-500 transition-all">
-              <div className="text-5xl mb-6 group- transition-transform">⚡</div>
+              <div className="text-5xl mb-6 group-hover:scale-110 transition-transform">⚡</div>
               <h3 className="text-2xl font-bold text-white mb-4">
                 Fast Turnaround
               </h3>
@@ -432,7 +432,7 @@ export default function About() {
             </div>
 
             <div className="group rounded-3xl bg-surface p-8 shadow-lg shadow-black/20 border border-surface-border hover:border-accent-500 transition-all">
-              <div className="text-5xl mb-6 group- transition-transform">📍</div>
+              <div className="text-5xl mb-6 group-hover:scale-110 transition-transform">📍</div>
               <h3 className="text-2xl font-bold text-white mb-4">
                 Local Houston Support
               </h3>
@@ -475,7 +475,7 @@ export default function About() {
       <section className="relative bg-surface py-24 sm:py-32 overflow-hidden">
         <div className="absolute inset-0 opacity-5">
           <div className="absolute inset-0" style={{
-            backgroundImage: 'radial-gradient(circle at 2px 2px, #1e40af 1px, transparent 0)',
+            backgroundImage: 'radial-gradient(circle at 2px 2px, #ef4e22 1px, transparent 0)',
             backgroundSize: '40px 40px'
           }} />
         </div>

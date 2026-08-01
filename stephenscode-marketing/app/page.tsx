@@ -7,60 +7,73 @@ import {
   Monitor, ShieldCheck, Lock, KeyRound, Building2,
 } from 'lucide-react'
 import PhoneLink from '@/components/PhoneLink'
+import TrackedCtaLink from '@/components/TrackedCtaLink'
+import { corePackages, premiumBuilds } from '@/lib/services-data'
 export const metadata: Metadata = {
+  title: 'Conroe Web Developer | Custom Websites & Business Systems',
+  description: 'Veteran owned web developer in Conroe, TX serving Houston. Flat-rate custom websites and business systems from $250. Call (936) 323-4527.',
   alternates: {
     canonical: 'https://www.stephenscode.dev/',
   },
 }
 
 export default function Home() {
+  const allHomeServices = [...corePackages, ...premiumBuilds]
+  const getService = (slug: string) => {
+    const service = allHomeServices.find((s) => s.slug === slug)
+    if (!service) {
+      throw new Error(`Homepage package references unknown service slug: ${slug}`)
+    }
+    return service
+  }
+
+  // Price, delivery timeline, and detail-page href are sourced from lib/services-data.ts
+  // (the single source of truth) so they can never drift from the real service pages.
   const packages = [
     {
       name: 'Starter',
-      price: '$250',
+      slug: 'plug-and-play',
       description: 'For a brand-new business that just needs to exist online. A clean 3-4 page flyer so you show up looking professional.',
       features: ['3-4 pages', 'Mobile responsive', 'Contact form + email routing', 'Basic on-page SEO', '90 days post-launch support'],
-      delivery: '5-7 business days',
-      href: '/services/plug-and-play',
       popular: false,
     },
     {
       name: 'Standard',
-      price: '$950',
+      slug: 'standard-website',
       description: 'A full small-business website that works for you. Real SEO foundation, CMS you can edit yourself, real analytics.',
       features: ['8-12 pages, custom design', 'CMS for self-service edits', 'SEO foundation + GA4', 'Contact + lead forms', '2 rounds of revisions', '90 days post-launch support'],
-      delivery: '10-14 business days',
-      href: '/services/standard-website',
       popular: true,
     },
     {
       name: 'Premium Build',
-      price: '$2,000',
+      slug: 'premium-build',
       description: 'Custom full-stack site with an admin behind it. See your leads, customers, and KPIs, not just publish pages.',
       features: ['Custom full-stack, up to 15 pages', 'Admin portal + KPI dashboard (lite)', 'CMS, conversion-focused UX', 'SEO + GA4 events', '2 rounds of revisions', '90 days post-launch support'],
-      delivery: '2-3 weeks',
-      href: '/services/premium-build',
       popular: false,
     },
     {
       name: 'Business System',
-      price: '$5,000',
+      slug: 'custom-business-platform',
       description: 'Replaces your agency, your scheduler, your invoicing tool, and your spreadsheet. A real system, built once, owned by you.',
       features: ['CRM + customer/staff portals', 'Booking, invoicing, Stripe payments', 'Automation + dashboards/exports', 'Third-party integrations (QB, Google, SMS)', 'Role-based access + branded PDF', '90 days post-launch support'],
-      delivery: '4-6 weeks',
-      href: '/custom-solutions',
       popular: false,
     },
     {
       name: 'Enterprise Platform',
-      price: '$7,500+',
+      slug: 'enterprise-platform',
       description: 'Multi-location, multi-tenant, SSO, audit trail. For franchises and operations outgrowing off-the-shelf SaaS.',
       features: ['Multi-tenant architecture', 'SSO (optional) + audit logs', 'Workflow builder + automations', 'CI-ready, staging/sandbox', 'Performance budgets + monitoring', '90 days post-launch support + roadmap workshop'],
-      delivery: '8-12 weeks',
-      href: '/custom-solutions',
       popular: false,
     },
-  ]
+  ].map((pkg) => {
+    const service = getService(pkg.slug)
+    return {
+      ...pkg,
+      price: service.priceLabel,
+      delivery: service.timeline,
+      href: `/services/${service.slug}`,
+    }
+  })
 
   const stats = [
     { label: 'Years Experience', value: '14+', Icon: Clock },
@@ -160,13 +173,15 @@ export default function Home() {
             </p>
 
             <div className="mt-12 flex flex-wrap items-center gap-3 animate-fade-in-up animation-delay-600">
-              <Link
+              <TrackedCtaLink
                 href="/contact"
+                cta="Get a Flat Quote"
+                location="homepage_hero"
                 className="group inline-flex items-center gap-2 rounded-md bg-primary-500 px-6 py-3 text-base font-semibold text-white hover:bg-primary-600 transition-colors"
               >
                 Get a Flat Quote
                 <ArrowRight className="h-4 w-4 transition-transform group-hover:translate-x-0.5" />
-              </Link>
+              </TrackedCtaLink>
               <Link
                 href="/pricing"
                 className="inline-flex items-center gap-2 rounded-md border border-surface-border px-6 py-3 text-base font-semibold text-white hover:border-primary-500/60 hover:bg-surface-card transition-colors"
@@ -317,13 +332,15 @@ export default function Home() {
               SaaS Phase 1 builds, profit-share platforms, custom products. I&apos;ll scope it and quote you a flat number. No hourly billing, ever.
             </p>
             <div className="mt-5 flex flex-wrap items-center justify-center gap-3">
-              <Link
+              <TrackedCtaLink
                 href="/contact"
+                cta="Get a Flat Quote"
+                location="homepage_custom_band"
                 className="inline-flex items-center gap-2 rounded-md bg-primary-500 px-5 py-2.5 text-sm font-semibold text-white hover:bg-primary-600 transition-colors"
               >
                 Get a Flat Quote
                 <ArrowRight className="h-3.5 w-3.5" />
-              </Link>
+              </TrackedCtaLink>
               <Link
                 href="/custom-solutions"
                 className="text-sm font-semibold text-gray-300 hover:text-primary-400 transition-colors"
@@ -489,7 +506,7 @@ export default function Home() {
           <div className="mx-auto mt-10 max-w-4xl rounded-2xl border border-primary-500/30 bg-surface-elevated p-8 text-center">
             <h3 className="text-lg font-semibold text-white">Real client results, not just internal products</h3>
             <p className="mt-3 text-sm leading-6 text-gray-400">
-              <strong className="text-white">AMW Air Conditioning</strong> picked up 76 Google reviews within their first two years and hired 2 new employees to keep up with demand. <strong className="text-white">Benefits Builder</strong> grew from roughly $1,000 MRR to $52,000 MRR after we built out their full operating platform.
+              <strong className="text-white">AMW Air Conditioning</strong> picked up 76 Google reviews within their first two years and hired 2 new employees to keep up with demand. <strong className="text-white">Benefit Builder</strong> grew from roughly $1,000 MRR to $52,000 MRR after we built out their full operating platform.
             </p>
             <div className="mt-5">
               <Link

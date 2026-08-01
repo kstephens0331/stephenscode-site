@@ -4,6 +4,7 @@ import { notFound } from 'next/navigation'
 import { serviceAreas, getServiceAreaBySlug, getAllServiceAreaSlugs } from '@/lib/service-areas-data'
 import { getServiceAreaContent } from '@/lib/service-area-content'
 import Breadcrumbs from '@/components/Breadcrumbs'
+import PhoneLink from '@/components/PhoneLink'
 
 interface ServiceAreaPageProps {
   params: Promise<{ slug: string }>
@@ -152,12 +153,12 @@ export default async function ServiceAreaPage({ params }: ServiceAreaPageProps) 
             >
               Get Free Quote
             </Link>
-            <a
-              href="tel:9363234527"
+            <PhoneLink
+              location="service_area_hero"
               className="rounded-md bg-white/10 px-6 py-3 text-base font-semibold text-white backdrop-blur hover:bg-white/20"
             >
               Call (936) 323-4527
-            </a>
+            </PhoneLink>
           </div>
         </div>
       </section>

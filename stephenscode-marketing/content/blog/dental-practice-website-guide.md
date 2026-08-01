@@ -1,5 +1,6 @@
 ---
 title: "Dental Practice Website Guide: Earning Trust Before the First Appointment"
+metaTitle: "Dental Practice Website Guide: Earning Trust"
 date: "2026-07-26"
 author: "Kyle Stephens"
 excerpt: "Dental patients decide whether to book before they ever see the inside of your office. Here's what a dental practice website needs to cover: new patient forms, insurance and financing clarity, and cosmetic case galleries done right."

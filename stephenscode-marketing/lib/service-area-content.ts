@@ -63,21 +63,3 @@ export async function getServiceAreaContent(slug: string): Promise<ServiceAreaCo
   }
 }
 
-export function hasServiceAreaContent(slug: string): boolean {
-  ensureDirectory()
-  const fullPath = path.join(contentDirectory, `${slug}.md`)
-  return fs.existsSync(fullPath)
-}
-
-export function getAllServiceAreaContentSlugs(): string[] {
-  ensureDirectory()
-
-  if (!fs.existsSync(contentDirectory)) {
-    return []
-  }
-
-  const fileNames = fs.readdirSync(contentDirectory)
-  return fileNames
-    .filter(fileName => fileName.endsWith('.md'))
-    .map(fileName => fileName.replace(/\.md$/, ''))
-}

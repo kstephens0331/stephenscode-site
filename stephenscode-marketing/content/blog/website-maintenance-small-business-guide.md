@@ -1,5 +1,6 @@
 ---
 title: "Website Maintenance: What Small Businesses Actually Need (And What They Don't)"
+metaTitle: "Website Maintenance: What You Actually Need"
 date: "2025-12-01"
 author: "Kyle Stephens"
 excerpt: "Your website needs maintenance, but how much? Learn what actually matters for security, performance, and SEO, plus what's just upselling by web agencies."

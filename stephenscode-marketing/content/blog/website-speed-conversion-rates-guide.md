@@ -1,5 +1,6 @@
 ---
 title: "Website Speed and Conversion Rates: The Complete Guide for Small Business Owners"
+metaTitle: "Website Speed & Conversion Rates Guide"
 date: "2025-11-18"
 author: "Kyle Stephens"
 excerpt: "Every second of page load time costs you customers and revenue. Learn exactly how website speed impacts your bottom line and the specific steps to fix it."

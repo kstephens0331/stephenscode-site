@@ -59,7 +59,7 @@ export default function CustomSolutionsPage() {
             </p>
             <div className="flex flex-col sm:flex-row gap-4 justify-center">
               <a
-                href="#contact-form"
+                href="#contact"
                 className="px-8 py-4 bg-gradient-to-r from-primary-500 to-accent-500 hover:from-primary-600 hover:to-accent-600 text-white font-semibold rounded-xl shadow-lg hover:shadow-primary-500/30 transition-all"
               >
                 Request a Quote

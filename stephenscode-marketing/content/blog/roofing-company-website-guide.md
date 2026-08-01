@@ -1,5 +1,6 @@
 ---
 title: "The Roofing Company Website Guide: Storm Leads, Before/After Photos, and Trust Signals That Win Jobs"
+metaTitle: "Roofing Company Website Guide"
 date: "2026-07-26"
 author: "Kyle Stephens"
 excerpt: "How Houston-area roofing contractors should think about storm-damage messaging, project photo galleries, financing display, reviews, and hyperlocal service-area targeting."

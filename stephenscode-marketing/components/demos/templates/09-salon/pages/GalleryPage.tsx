@@ -340,7 +340,7 @@ export default function GalleryPage({ onNavigate }: GalleryPageProps) {
               >
                 {/* Image Placeholder */}
                 <div className="relative bg-gradient-to-br from-gray-100 to-gray-200 aspect-square flex items-center justify-center overflow-hidden">
-                  <div className="text-8xl group- transition-transform duration-300">
+                  <div className="text-8xl group-hover:scale-110 transition-transform duration-300">
                     {item.emoji}
                   </div>
 

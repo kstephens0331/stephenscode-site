@@ -4,6 +4,7 @@ import Link from 'next/link'
 import Image from 'next/image'
 import { useState, useRef, useCallback, useEffect } from 'react'
 import { Bars3Icon, XMarkIcon, ChevronDownIcon } from '@heroicons/react/24/outline'
+import { trackEvent } from '@/lib/analytics'
 
 interface DropdownProps {
   label: string
@@ -195,6 +196,9 @@ export default function Header() {
             <Link href="/demos" className="text-base font-medium text-gray-300 hover:text-primary-400 transition-colors">
               Demos
             </Link>
+            <Link href="/service-areas" className="text-base font-medium text-gray-300 hover:text-primary-400 transition-colors">
+              Service Areas
+            </Link>
             <Dropdown label="About" items={aboutItems} />
             <Link href="/contact" className="text-base font-medium text-gray-300 hover:text-primary-400 transition-colors">
               Contact
@@ -203,6 +207,7 @@ export default function Header() {
               href="/contact"
               aria-label="Get started, request a free quote"
               className="ml-4 inline-flex items-center rounded-md bg-primary-500 px-4 py-2 text-sm font-semibold text-white hover:bg-primary-600 transition-colors"
+              onClick={() => trackEvent('cta_click', { cta: 'Get Started', location: 'header_desktop' })}
             >
               Get Started
             </Link>
@@ -346,6 +351,13 @@ export default function Header() {
               >
                 Demos
               </Link>
+              <Link
+                href="/service-areas"
+                className="block px-3 py-2 text-base font-medium text-gray-300 hover:bg-surface-card rounded-lg"
+                onClick={() => setMobileMenuOpen(false)}
+              >
+                Service Areas
+              </Link>
 
               {/* About Section */}
               <div>
@@ -383,7 +395,10 @@ export default function Header() {
               <Link
                 href="/contact"
                 className="block rounded-lg bg-primary-500 px-3 py-2 text-base font-semibold text-white hover:bg-primary-600 mt-2 transition-all"
-                onClick={() => setMobileMenuOpen(false)}
+                onClick={() => {
+                  trackEvent('cta_click', { cta: 'Get Started', location: 'header_mobile' })
+                  setMobileMenuOpen(false)
+                }}
               >
                 Get Started
               </Link>

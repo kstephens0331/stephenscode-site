@@ -1,222 +1,57 @@
 ---
-title: "Why Your HVAC Company Needs a Professional Website (Not a DIY Template)"
+title: "What Actually Worked for a Houston HVAC Company's Website: A Real Case Study"
+metaTitle: "HVAC Website Case Study: What Actually Worked"
 date: "2025-12-24"
 author: "Kyle Stephens"
-excerpt: "HVAC companies lose thousands in leads to competitors with better websites. Here's what your website needs to capture emergency calls."
+excerpt: "AMW Air Conditioning was a year into business with good work and no online presence to match. Here's what we built, what it did for their lead flow, and what any HVAC company's website should take from it."
 category: "Web Development"
-tags: ["HVAC", "Houston", "small business", "lead generation", "local SEO", "service business"]
-readTime: "7 min read"
+tags: ["HVAC", "Houston", "case study", "small business", "lead generation", "local SEO", "Google Ads"]
+readTime: "8 min read"
 ---
 
-## Your Website Is Losing You Emergency Calls
+## A Year Into Business, With No Website to Show For It
 
-It's 2 AM in Houston. A homeowner's AC just died in the middle of August. They grab their phone and search "emergency AC repair near me."
+AMW Air Conditioning had been in business for about a year, doing real HVAC work for real Houston-area customers, when we started working with them. What they didn't have was an online presence or lead flow that matched the quality of work they were already doing. Good technicians, a reputation building slowly by word of mouth, and a website that wasn't bringing in anywhere near the call volume the business needed to grow.
 
-Your company shows up in the results. Great. But then they click through to your website and find:
+That gap, between the actual quality of a business and what its website communicates, shows up in HVAC more than almost any other trade, because so much HVAC work still comes from personal referrals and repeat customers rather than a first search. That's fine for staying afloat. It doesn't work for growing.
 
-- A slow-loading page that takes 5+ seconds
-- No phone number visible without scrolling
-- A contact form instead of a click-to-call button
-- No indication you offer 24/7 service
-- Stock photos of smiling technicians that look fake
+## What We Actually Built
 
-They hit the back button and call your competitor instead.
+The rebuild wasn't a redesign for its own sake. It was built around how AMW's customers actually search and decide:
 
-**This happens hundreds of times per month across [Houston](/service-areas/houston).** And most HVAC company owners never know they're losing these leads.
+- Emergency AC repair messaging front and center, since a large share of HVAC searches happen at the exact moment a system fails
+- Maintenance plan details laid out clearly, since recurring maintenance agreements are where HVAC companies build the stable, non-seasonal revenue that keeps a crew busy in the slower months
+- Online scheduling for non-emergency appointments, so a customer booking a routine tune-up doesn't have to call during business hours
+- A structure built to support real local SEO and GEO (local) marketing work layered on top, instead of a template that would fight against it
 
-## What HVAC Customers Actually Need From Your Website
+Once the site itself was in place, we layered on SEO and GEO marketing, then launched Google Ads and Local Services Ads campaigns aimed specifically at qualified HVAC leads in their service area, rather than broad traffic that wouldn't convert.
 
-I've built websites for service businesses across the Houston area, and HVAC companies have specific requirements that generic website builders don't address:
+## What It Did for the Business
 
-### 1. Instant Access to Your Phone Number
+Within their first two years in business, AMW had built up 76 Google reviews, a real, compounding trust signal that a company running on referrals alone almost never accumulates that fast. The increase in service demand that followed was enough that they hired two new employees to keep up with it. That's the actual measure of whether a website rebuild worked: not a traffic chart, but whether the business had to grow its team to keep pace.
 
-When someone's AC is out in Texas heat, they're not filling out a contact form. They want to call NOW.
+## What Any HVAC Company Should Take From This
 
-Your phone number should be:
-- **Visible without scrolling** on every page
-- **Click-to-call enabled** for mobile users
-- **Large enough to tap** without zooming
-- **Repeated in the footer** for people who scroll
+You don't need to be at AMW's exact size or stage to apply the same logic. A few pieces matter more than the rest.
 
-Most mobile searchers call a business directly from the search results page rather than digging through a website first. If your number isn't prominent, you're invisible.
+Maintenance plans need their own real estate on the site. A one-time AC repair is good business. A maintenance plan customer who pays annually and calls you first for every future problem is what actually stabilizes revenue through a slow winter. If your maintenance plan is a single paragraph at the bottom of a services page, you're underselling the part of your business that matters most for steady cash flow.
 
-### 2. Clear Service Area Information
+Manufacturer certifications and license information should be visible, not just true. Trane, Carrier, Lennox, and similar manufacturer programs each have certified-dealer tiers, and a homeowner letting a company into their attic or utility closet wants to see that credential without hunting for it.
 
-"Do you service my area?" shouldn't require a phone call to answer.
+Financing needs to be visible before someone calls. A full AC system replacement is commonly a $5,000 to $12,000 decision. If your site never mentions financing, you're leaving homeowners to assume they need to pay in full or look elsewhere.
 
-Your website needs:
-- A dedicated service areas page listing every city and neighborhood
-- Individual pages for major service areas (for local SEO)
-- A zip code checker or service area map
-- Clear boundaries so you don't waste time on out-of-area calls
+Service-specific pages beat one crowded services list. Someone searching "AC installation Houston" is more likely to click through to, and trust, a page written specifically about AC installation than a bulleted list that mentions it alongside eleven other services.
 
-### 3. Emergency Service Visibility
+## Texas Summers Create the Spike. Maintenance Plans Survive the Rest of the Year.
 
-If you offer 24/7 emergency service, that needs to be impossible to miss:
-- Banner at the top of every page
-- Dedicated emergency services page
-- Different phone number for emergencies (if applicable)
-- Response time guarantees
+HVAC demand in the Houston area is lopsided in a specific way: emergency AC repair calls spike hard from June through September, then drop off substantially the rest of the year, with heating calls picking up only a fraction of that volume in winter. A website that only optimizes for the summer emergency spike is optimizing for maybe four months and coasting through the other eight. Building out maintenance plan content, off-season tune-up promotions, and pre-summer "get your system checked before it fails" campaigns gives a business something to market and rank for outside the four months everyone else is fighting over the same searches.
 
-### 4. Trust Signals That Matter
+## Local Marketing Has to Go Beyond Just Having a Site
 
-HVAC customers are letting strangers into their homes. They need reassurance. Include:
+A rebuilt website is the foundation, not the whole strategy. What actually moved the needle for AMW was pairing the site with ongoing SEO and GEO (local) marketing, plus paid channels, Google Ads and Local Services Ads specifically, built to capture people actively searching for HVAC service in their area rather than waiting for organic rankings to build slowly on their own. Local Services Ads in particular works well for HVAC because Google verifies and badges the business, which does some of the trust-building automatically in a category where trust is already a hurdle.
 
-- **License numbers** (displayed, not hidden)
-- **Insurance verification**
-- **Years in business**
-- **Real photos** of your team and trucks
-- **Google reviews** embedded on your site
-- **Manufacturer certifications** (Trane, Carrier, Lennox, etc.)
-- **BBB rating** if you have one
+## What This Looks Like to Build
 
-### 5. Service-Specific Pages
+You can see the actual result at [AMW Air Conditioning's website](https://www.amwairconditioning.com), or read more of our client work on the [portfolio page](/work). StephensCode is a veteran-owned Houston-area web development company, and this is exactly the kind of project we like best: real trade work that just needed a site and a marketing engine built to match it. A comparable rebuild today starts with a [Standard Website](/services/standard-website) at $950 as the foundation. The SEO, GEO marketing, and ad campaign work that came after is a separate, ongoing engagement built around your specific service area and goals, not a flat one-time price.
 
-Don't lump all your services on one page. Create dedicated pages for:
-
-- AC Repair
-- AC Installation
-- Heating Repair
-- Furnace Installation
-- Maintenance Plans
-- Duct Cleaning
-- Indoor Air Quality
-- Commercial HVAC
-
-Why? Because someone searching "AC installation Houston" is more likely to find (and trust) a page specifically about AC installation than a generic "Services" page.
-
-## The Real Cost of a Bad HVAC Website
-
-Let's do some math:
-
-- Average AC repair ticket: $300-500
-- Average AC installation: $5,000-12,000
-- Leads lost per month due to poor website: 10-30 (conservative)
-- Monthly revenue lost: $3,000-15,000+
-
-Now compare that to the cost of a professional website: $1,500-5,000 one-time, or $100-300/month for a managed solution.
-
-**A good website pays for itself in the first month.**
-
-## What Separates Good HVAC Websites From Bad Ones
-
-### Bad HVAC Website:
-- Template design that looks like every other HVAC site
-- Stock photos of perfect families in perfect houses
-- Generic content that could apply to any city
-- Slow loading (3+ seconds)
-- Not mobile-optimized
-- Contact form only, no phone number prominent
-- No reviews or testimonials
-- Outdated information (2019 copyright, old promotions)
-
-### Good HVAC Website:
-- Professional design that reflects your brand
-- Real photos of your team, trucks, and completed work
-- Location-specific content mentioning Houston neighborhoods
-- Fast loading (under 2 seconds)
-- Mobile-first design with click-to-call
-- Phone number visible on every page
-- Google reviews embedded and updated
-- Current promotions and seasonal content
-
-## Features Your HVAC Website Actually Needs
-
-Based on building websites for service businesses, here's what converts visitors to calls:
-
-### Must-Have Features:
-1. **Mobile-responsive design** (60%+ of searches are mobile)
-2. **Click-to-call buttons** on every page
-3. **[Online scheduling](/services/appointment-booking)** for non-emergency appointments
-4. **Service area pages** with local keywords
-5. **Fast loading** (under 3 seconds)
-6. **SSL certificate** (the padlock in the browser)
-7. **Google Business Profile integration**
-
-### Nice-to-Have Features:
-1. **Live chat** for quick questions
-2. **Financing calculator** for installations
-3. **Maintenance plan sign-up**
-4. **Blog with HVAC tips** (helps with SEO)
-5. **Before/after gallery**
-6. **Video testimonials**
-
-### Skip These:
-1. Background music or auto-playing videos
-2. Flash animations (outdated technology)
-3. Complicated navigation menus
-4. Pop-ups that block the phone number
-5. Sliders with too much text
-
-## Local SEO: Getting Found in Houston
-
-Having a great website means nothing if no one finds it. For HVAC companies, [local SEO](/services/seo-boost) is everything:
-
-### Google Business Profile (Critical)
-- Claim and verify your listing
-- Add photos weekly
-- Respond to every review
-- Post updates regularly
-- List all services accurately
-
-### Local Keywords to Target
-- "AC repair [city name]"
-- "HVAC company near me"
-- "Emergency AC service [neighborhood]"
-- "Air conditioning installation Houston"
-- "Furnace repair [zip code]"
-
-### Content That Ranks
-- Service area pages for each city you serve
-- Blog posts about Houston-specific HVAC issues
-- FAQ pages answering common questions
-- Seasonal content (AC prep for summer, heating prep for winter)
-
-## Why DIY Website Builders Fall Short for HVAC
-
-Wix, Squarespace, and GoDaddy are fine for portfolios and blogs. For HVAC companies, they create problems:
-
-1. **Limited local SEO capabilities**: Can't create proper service area pages
-2. **Generic templates**: You look like every other HVAC company
-3. **Slow performance**: Template bloat slows your site
-4. **No HVAC-specific features**: No scheduling integration, no financing widgets
-5. **You're on your own**: No one to call when something breaks
-
-## What a Professional HVAC Website Costs
-
-Let's be real about pricing:
-
-### DIY Route: $0-500/year
-- Your time (10-20+ hours)
-- Generic look
-- Limited features
-- SEO challenges
-- Ongoing maintenance headaches
-
-### Professional Website: $1,500-5,000
-- Custom design
-- Mobile optimization
-- Local SEO setup
-- Ongoing support available
-- Pays for itself quickly
-
-### Enterprise Solution: $5,000-15,000
-- Custom functionality
-- CRM integration
-- Advanced scheduling
-- Multi-location support
-- Comprehensive SEO strategy
-
-For most HVAC companies doing $500K-2M in revenue, the $2,000-4,000 range hits the sweet spot.
-
-## Ready to Stop Losing Leads?
-
-Your competitors are investing in their online presence. Every day you wait with an outdated website is another day of lost emergency calls and installation leads.
-
-At StephensCode, we build websites specifically for service businesses in the Houston area. We understand what HVAC customers need and how to convert website visitors into phone calls.
-
-**[Get a free website audit](/contact)** and see exactly what's costing you leads.
-
----
-
-*Kyle Stephens is a Marine Corps veteran and founder of StephensCode, a web development company serving Houston and Conroe. He specializes in websites for service businesses that need to convert online searches into phone calls.*
+If your HVAC company has been running on referrals and word of mouth for a year or two and you're ready for a website that actually matches the work you're already doing, that's the conversation worth having.

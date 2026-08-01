@@ -18,6 +18,7 @@ export interface MSPService {
   seoKeywords: string[]
   metaTitle: string
   metaDescription: string
+  faqs?: { question: string; answer: string }[]
 }
 
 export const managedITServices: MSPService[] = [
@@ -70,8 +71,26 @@ export const managedITServices: MSPService[] = [
     ],
     timeline: 'Setup in 1-2 days',
     seoKeywords: ['managed IT support Houston', 'small business IT support Conroe', 'helpdesk services Texas', 'IT support near me'],
-    metaTitle: 'Essential IT | $99/user/mo',
+    metaTitle: 'Houston IT Support with Security Included | $99/User/Mo',
     metaDescription: 'Complete IT support with email security & password manager included. $99/user/month with 4-hour response. Houston, Conroe, The Woodlands.',
+    faqs: [
+      {
+        question: 'What is included in the $99/user/month Essential IT plan?',
+        answer: 'Essential IT includes remote helpdesk support (M-F 8AM-6PM), 24/7 system monitoring and alerts, enterprise antivirus/anti-malware, email security and phishing protection, a password manager for all users, Windows/Mac updates and patches, monthly health reports, and a 4-hour response time SLA with unlimited support tickets.',
+      },
+      {
+        question: 'Are email security and a password manager really included, or are they add-ons?',
+        answer: 'Both are included in the base $99/user price. Many competitors charge $5-10 extra for email security and $3-5 extra for a password manager, so Essential IT bundles roughly $125+ worth of services into a $99 plan.',
+      },
+      {
+        question: 'How fast is support response time?',
+        answer: 'Essential IT includes a 4-hour response time SLA and unlimited support tickets, with remote desktop support and new user setup assistance included.',
+      },
+      {
+        question: 'How long does it take to get set up?',
+        answer: 'Essential IT is typically set up within 1-2 days, including monitoring agent installation, antivirus and email security deployment, and password manager setup.',
+      },
+    ],
   },
   {
     id: 'business-pro',
@@ -126,8 +145,30 @@ export const managedITServices: MSPService[] = [
     ],
     timeline: 'Setup in 3-5 days',
     seoKeywords: ['managed IT services Houston', 'IT management Conroe', 'outsourced IT Texas', 'business IT support The Woodlands'],
-    metaTitle: 'Business Pro IT | $129/user/mo',
+    metaTitle: 'Houston Managed IT Pro | Backup & MFA | $129/User/Mo',
     metaDescription: 'Full managed IT with cloud backup, dark web monitoring & MFA. $129/user/month with 2-hour priority support. Houston, Conroe, The Woodlands.',
+    faqs: [
+      {
+        question: 'What does Business Pro add on top of Essential IT?',
+        answer: 'Business Pro includes everything in Essential IT plus priority 2-hour response support, cloud backup with daily snapshots, dark web credential monitoring, multi-factor authentication setup, network administration, vendor management, quarterly business reviews, IT asset inventory tracking, and software license management.',
+      },
+      {
+        question: 'Is cloud backup really included in the price?',
+        answer: 'Yes. Cloud backup with daily snapshots, dark web monitoring, and MFA setup are all included in the $129/user price. Competitors typically charge $10/user extra for backup, $5-10 extra for dark web monitoring, and $5 extra for MFA setup.',
+      },
+      {
+        question: 'What is the support response time on Business Pro?',
+        answer: 'Business Pro includes a 2-hour priority response SLA, along with after-hours emergency support.',
+      },
+      {
+        question: 'How long does setup take?',
+        answer: 'Business Pro is typically set up in 3-5 days, including MFA deployment to all users, cloud backup configuration, and network documentation.',
+      },
+      {
+        question: 'Who is Business Pro designed for?',
+        answer: 'It is built for growing businesses with 5-30 employees, companies with remote or hybrid workers, businesses handling customer data, and multi-location small businesses.',
+      },
+    ],
   },
   {
     id: 'complete-it',
@@ -182,8 +223,30 @@ export const managedITServices: MSPService[] = [
     ],
     timeline: 'Setup in 5-7 days',
     seoKeywords: ['managed IT and security Houston', 'MSP with cybersecurity Texas', 'complete IT services Conroe', 'IT security bundle'],
-    metaTitle: 'Complete IT | $179/user/mo',
+    metaTitle: 'Houston IT & Security Bundle | EDR, SIEM | $179/User/Mo',
     metaDescription: 'IT and cybersecurity combined. EDR, SIEM, security training, and dedicated support. $179/user/month. Houston, Conroe, The Woodlands.',
+    faqs: [
+      {
+        question: 'What extra security does Complete IT add over Business Pro?',
+        answer: 'Complete IT includes all Business Pro features plus Endpoint Detection & Response (EDR), SIEM log monitoring and analysis, a security awareness training program, quarterly vulnerability assessments, a dedicated account manager, advanced threat hunting, privileged access management, and USB device control.',
+      },
+      {
+        question: 'What is the support response time and hours?',
+        answer: 'Complete IT includes extended support hours from 7AM-9PM and a 1-hour response SLA, along with incident response support.',
+      },
+      {
+        question: 'Does Complete IT help with compliance requirements?',
+        answer: 'Yes, it includes compliance documentation assistance and can help meet basic HIPAA and PCI requirements. Businesses with more extensive compliance needs (full HIPAA, PCI-DSS, SOC2, or CMMC programs) should look at Compliance Services.',
+      },
+      {
+        question: 'How long does setup take?',
+        answer: 'Complete IT is typically set up in 5-7 days, including EDR deployment, SIEM setup and monitoring, and security training platform access.',
+      },
+      {
+        question: 'Who is Complete IT built for?',
+        answer: 'It is designed for businesses with 10-50 employees, especially those handling sensitive customer data, healthcare-adjacent businesses, financial services firms, and companies concerned about ransomware or compliance.',
+      },
+    ],
   },
   {
     id: 'enterprise-it-solutions',
@@ -236,8 +299,30 @@ export const managedITServices: MSPService[] = [
     ],
     timeline: 'Onboarding in 2-4 weeks',
     seoKeywords: ['enterprise IT services Houston', 'managed service provider Texas', 'MSP Houston', 'IT outsourcing Conroe'],
-    metaTitle: 'Enterprise IT | Custom Quote',
+    metaTitle: 'Houston Enterprise IT Outsourcing | Custom Quote',
     metaDescription: 'Enterprise managed IT services with 24/7 support, dedicated resources, compliance, and strategic consulting. Custom solutions for 50+ employee businesses.',
+    faqs: [
+      {
+        question: 'What is included in Enterprise IT Solutions?',
+        answer: 'Enterprise IT includes all Complete IT features plus a dedicated account team, 24/7/365 support with a 30-minute SLA, full compliance management (HIPAA, PCI, SOC2, CMMC), disaster recovery planning and testing, virtual CIO services, infrastructure project management, cloud migration services, advanced network design, annual penetration testing, and tabletop exercises.',
+      },
+      {
+        question: 'How is pricing determined for Enterprise IT?',
+        answer: 'Enterprise IT is quoted individually based on employee count, infrastructure complexity, and compliance requirements. It is designed for businesses with 50+ employees or complex IT environments.',
+      },
+      {
+        question: 'What response time can we expect?',
+        answer: '24/7/365 support with a 30-minute response SLA for critical issues.',
+      },
+      {
+        question: 'How long does onboarding take?',
+        answer: 'Onboarding typically takes 2-4 weeks, covering the full compliance documentation, disaster recovery plan and testing, and strategic IT roadmap deliverables.',
+      },
+      {
+        question: 'Does this cover regulated industries like healthcare and finance?',
+        answer: 'Yes, full compliance management for HIPAA, PCI, SOC2, and CMMC is included, along with board-level security reporting for leadership teams.',
+      },
+    ],
   },
 ]
 
@@ -288,8 +373,26 @@ export const cybersecurityServices: MSPService[] = [
     ],
     timeline: 'Deployed in 1-2 days',
     seoKeywords: ['cybersecurity services Houston', 'small business security Conroe', 'email security Texas', 'antivirus management'],
-    metaTitle: 'Security Essentials | $29/user/mo',
+    metaTitle: 'Houston Cybersecurity Essentials | $29/User/Mo',
     metaDescription: 'Essential cybersecurity for small businesses. Antivirus, email security, phishing protection. $29/user/month. Houston, Conroe, The Woodlands.',
+    faqs: [
+      {
+        question: 'What is covered under Security Essentials?',
+        answer: 'Security Essentials includes enterprise antivirus/anti-malware, email security and spam filtering, phishing protection, firewall management, 24/7 threat monitoring, security patch management, web content filtering, USB device control, and monthly security reports.',
+      },
+      {
+        question: 'How fast can this be deployed?',
+        answer: 'Security Essentials is typically deployed in 1-2 days, including security software deployment, firewall configuration, and email security setup.',
+      },
+      {
+        question: 'Does this include employee security training?',
+        answer: 'Security Essentials includes basic security awareness tips. A full security awareness training program is included in the Advanced Threat Protection package.',
+      },
+      {
+        question: 'Who is Security Essentials designed for?',
+        answer: 'It is built for small businesses needing basic protection, companies handling customer data, businesses with remote employees, professional services firms, and retail or e-commerce businesses.',
+      },
+    ],
   },
   {
     id: 'advanced-threat-protection',
@@ -341,8 +444,26 @@ export const cybersecurityServices: MSPService[] = [
     ],
     timeline: 'Deployed in 3-5 days',
     seoKeywords: ['advanced threat protection Houston', 'EDR security Texas', 'cybersecurity monitoring Conroe', 'managed security services'],
-    metaTitle: 'Advanced Threat Protection | $59/user',
+    metaTitle: 'Conroe Advanced Threat Protection | EDR, SIEM | $59/User',
     metaDescription: 'Advanced cybersecurity with EDR, SIEM, dark web monitoring, and incident response. $59/user/month for Houston, Conroe, The Woodlands businesses.',
+    faqs: [
+      {
+        question: 'What does Advanced Threat Protection add over Security Essentials?',
+        answer: 'It includes all Security Essentials features plus Endpoint Detection & Response (EDR), SIEM log monitoring and analysis, dark web credential monitoring, security incident response, advanced threat hunting, multi-factor authentication, privileged access management, and vulnerability scanning.',
+      },
+      {
+        question: 'How quickly is it deployed?',
+        answer: 'Advanced Threat Protection is typically deployed in 3-5 days, including EDR deployment and configuration and SIEM setup and monitoring.',
+      },
+      {
+        question: 'Does this include security awareness training?',
+        answer: 'Yes, security awareness training and an incident response plan are included, along with quarterly security assessments.',
+      },
+      {
+        question: 'Who needs this level of protection?',
+        answer: 'It is aimed at businesses handling sensitive data, healthcare organizations, financial services companies, legal and accounting firms, and companies with compliance requirements.',
+      },
+    ],
   },
   {
     id: 'security-assessment',
@@ -393,8 +514,30 @@ export const cybersecurityServices: MSPService[] = [
     ],
     timeline: '1-2 weeks',
     seoKeywords: ['security assessment Houston', 'vulnerability assessment Texas', 'penetration testing Conroe', 'security audit'],
-    metaTitle: 'Security Assessment | $1,500',
+    metaTitle: 'Houston Security Assessment & Audit | $1,500 One-Time',
     metaDescription: 'Comprehensive security assessment with vulnerability scanning, penetration testing, and remediation plan. $1,500 one-time. Houston, Conroe, The Woodlands.',
+    faqs: [
+      {
+        question: 'What do I get for the $1,500 Security Assessment?',
+        answer: 'The assessment covers network vulnerability scanning, external penetration testing, password and access review, email security assessment, endpoint security evaluation, policy and procedure review, compliance gap analysis, and risk scoring and prioritization.',
+      },
+      {
+        question: 'How long does the assessment take?',
+        answer: 'The Security Assessment typically takes 1-2 weeks and concludes with a 60-minute review meeting.',
+      },
+      {
+        question: 'Is this a one-time engagement or an ongoing service?',
+        answer: 'It is a one-time, $1,500 engagement. Ongoing protection is available through Security Essentials or Advanced Threat Protection.',
+      },
+      {
+        question: 'What deliverables do I receive at the end?',
+        answer: 'An executive summary (1-2 pages), a detailed technical findings report, vulnerability scan results, a risk assessment matrix, a prioritized remediation plan, and a compliance checklist if applicable.',
+      },
+      {
+        question: 'Who should get a Security Assessment?',
+        answer: 'It is a good fit for businesses unsure of their current security status, companies preparing for audits, organizations recovering from a security incident, businesses going through an acquisition or merger, or those doing an annual security checkup.',
+      },
+    ],
   },
   {
     id: 'compliance-services',
@@ -445,8 +588,30 @@ export const cybersecurityServices: MSPService[] = [
     ],
     timeline: 'Varies by framework',
     seoKeywords: ['HIPAA compliance Houston', 'PCI compliance Texas', 'SOC2 preparation', 'CMMC compliance Conroe'],
-    metaTitle: 'Compliance Services | HIPAA, PCI, SOC2',
+    metaTitle: 'Houston HIPAA & PCI Compliance Services | Custom Quote',
     metaDescription: 'Expert compliance services for HIPAA, PCI-DSS, SOC2, and CMMC. Gap assessments, policy development, and audit preparation. Houston, Conroe, The Woodlands.',
+    faqs: [
+      {
+        question: 'Which compliance frameworks do you help with?',
+        answer: 'We provide compliance assistance for HIPAA, PCI-DSS, SOC2, CMMC, and other regulatory frameworks, including gap assessments, policy and procedure development, and technical controls implementation.',
+      },
+      {
+        question: 'What is included in Compliance Services?',
+        answer: 'A compliance gap assessment, policy and procedure development, technical controls implementation, employee training programs, risk assessment documentation, vendor management assistance, audit preparation support, and ongoing compliance monitoring with annual reviews.',
+      },
+      {
+        question: 'How long does it take to become compliant?',
+        answer: 'Timeline varies by framework and current gap; engagements are scoped individually after the initial gap assessment.',
+      },
+      {
+        question: 'How is pricing structured?',
+        answer: 'Compliance Services are custom-quoted based on the framework required and the complexity of your environment.',
+      },
+      {
+        question: 'Who typically needs this service?',
+        answer: 'Healthcare organizations (HIPAA), payment processors (PCI-DSS), government contractors (CMMC), SaaS companies (SOC2), and financial services firms with various compliance obligations.',
+      },
+    ],
   },
 ]
 
@@ -499,8 +664,26 @@ export const cloudServices: MSPService[] = [
     ],
     timeline: 'Setup in 1-3 days',
     seoKeywords: ['Microsoft 365 management Houston', 'M365 administration Texas', 'Office 365 support Conroe', 'Microsoft 365 consulting'],
-    metaTitle: 'Microsoft 365 Management | $15/user',
+    metaTitle: 'Houston Microsoft 365 Management | $15/User/Mo',
     metaDescription: 'Professional Microsoft 365 management including Teams, SharePoint, and Exchange administration. Security and optimization. $15/user/month. Houston area.',
+    faqs: [
+      {
+        question: 'What does Microsoft 365 Management include?',
+        answer: 'Tenant administration, user provisioning and management, security and compliance configuration, Teams and SharePoint administration, Exchange Online management, license optimization, OneDrive for Business setup, conditional access policies, and shared mailbox and distribution group management.',
+      },
+      {
+        question: 'Can this reduce our Microsoft 365 licensing costs?',
+        answer: 'Yes, license optimization is included and results in a license optimization report, one of the listed benefits is reduced licensing costs.',
+      },
+      {
+        question: 'How fast can this be set up?',
+        answer: 'Setup typically takes 1-3 days, including a tenant configuration audit and security baseline implementation.',
+      },
+      {
+        question: 'Do you help businesses migrate to Microsoft 365?',
+        answer: 'Yes, companies migrating to M365 are a listed use case for this service.',
+      },
+    ],
   },
   {
     id: 'cloud-backup',
@@ -550,8 +733,30 @@ export const cloudServices: MSPService[] = [
     ],
     timeline: 'Deployed in 1-2 days',
     seoKeywords: ['cloud backup Houston', 'data backup services Texas', 'Microsoft 365 backup Conroe', 'business backup solutions'],
-    metaTitle: 'Cloud Backup | $10/user/mo',
+    metaTitle: 'Houston Cloud Backup for Business | $10/User/Mo',
     metaDescription: 'Automated cloud backup for endpoints and Microsoft 365. Ransomware protection, fast recovery. $10/user/month. Houston, Conroe, The Woodlands.',
+    faqs: [
+      {
+        question: 'What gets backed up?',
+        answer: 'Endpoint backup for workstations and laptops, server backup, and Microsoft 365 backup, all with automated daily backups to encrypted cloud storage.',
+      },
+      {
+        question: 'How long is my data retained?',
+        answer: 'Retention policies of 30, 60, or 90 days are available, with point-in-time recovery and a bare-metal recovery option.',
+      },
+      {
+        question: 'Does this protect against ransomware?',
+        answer: 'Point-in-time recovery and rapid restore assistance help you recover from ransomware attacks or accidental deletion, one of the core benefits of the service.',
+      },
+      {
+        question: 'How fast can backups be set up?',
+        answer: 'Deployment typically takes 1-2 days, including backup software deployment, policy configuration, and an initial full backup.',
+      },
+      {
+        question: 'Is backup testing included?',
+        answer: 'Yes, monthly backup testing is included along with backup monitoring and alerts and rapid restore assistance when needed.',
+      },
+    ],
   },
   {
     id: 'cloud-migration',
@@ -602,8 +807,30 @@ export const cloudServices: MSPService[] = [
     ],
     timeline: '2-8 weeks depending on scope',
     seoKeywords: ['cloud migration Houston', 'Azure migration Texas', 'AWS migration Conroe', 'cloud consulting'],
-    metaTitle: 'Cloud Migration | From $2,500',
+    metaTitle: 'Houston Cloud Migration to Azure & AWS | From $2,500',
     metaDescription: 'Expert cloud migration services for Azure, AWS, and Google Cloud. Full assessment, planning, and execution from $2,500. Houston, Conroe, The Woodlands.',
+    faqs: [
+      {
+        question: 'Which cloud platforms do you migrate to?',
+        answer: 'We migrate on-premise infrastructure to Azure, AWS, or Google Cloud, including infrastructure assessment and cloud architecture design.',
+      },
+      {
+        question: 'How long does a migration take?',
+        answer: 'Migrations typically take 2-8 weeks depending on scope, covering data migration, application migration, and identity migration (Active Directory) where needed.',
+      },
+      {
+        question: 'What is included in the starting price of $2,500?',
+        answer: 'Infrastructure assessment, cloud architecture design, migration planning and timeline, migration execution, testing and validation, cutover coordination, and post-migration optimization.',
+      },
+      {
+        question: 'Do you provide support after the migration is complete?',
+        answer: 'Yes, 90 days of post-migration support is included along with documentation and training.',
+      },
+      {
+        question: 'Who should consider a cloud migration?',
+        answer: 'Businesses with aging server hardware, companies enabling remote work, organizations needing more scalability, and businesses consolidating multiple locations.',
+      },
+    ],
   },
 ]
 
@@ -652,8 +879,26 @@ export const supportServices: MSPService[] = [
     ],
     timeline: 'Same-day to next-day response',
     seoKeywords: ['IT support Houston', 'computer repair Conroe', 'on-demand IT Texas', 'hourly IT support'],
-    metaTitle: 'Break/Fix IT Support | $125/hr',
+    metaTitle: 'Houston Break/Fix IT Support | $125/Hr, No Contract',
     metaDescription: 'On-demand IT support billed hourly with no contracts or minimums. Remote and on-site help at $125/hour. Serving Houston, Conroe, The Woodlands.',
+    faqs: [
+      {
+        question: 'Do I need a monthly contract for Break/Fix Support?',
+        answer: 'No. Break/Fix Support is billed hourly at $125/hour with no contracts and no monthly minimums, so you only pay for the help you need.',
+      },
+      {
+        question: 'What kind of issues can you help with?',
+        answer: 'Remote and on-site support (Houston/Conroe area), hardware troubleshooting, software installation and support, network troubleshooting, virus and malware removal, data recovery assistance, new computer setup, and printer/peripheral support.',
+      },
+      {
+        question: 'How quickly can you respond?',
+        answer: 'Break/Fix Support typically offers same-day to next-day response.',
+      },
+      {
+        question: 'Is this a good fit if we already have some IT support in place?',
+        answer: 'Yes. It works well as a supplement to internal IT or for businesses evaluating managed IT services before committing to a monthly plan.',
+      },
+    ],
   },
   {
     id: 'network-installation',
@@ -703,8 +948,26 @@ export const supportServices: MSPService[] = [
     ],
     timeline: '1-5 days depending on scope',
     seoKeywords: ['network installation Houston', 'business networking Texas', 'office network setup Conroe', 'WiFi installation'],
-    metaTitle: 'Network Installation | From $500',
+    metaTitle: 'Houston Business Network Installation | From $500',
     metaDescription: 'Professional business network installation including design, equipment, cabling, and configuration. From $500. Serving Houston, Conroe, The Woodlands.',
+    faqs: [
+      {
+        question: 'What is included in a network installation?',
+        answer: 'Network design and planning, equipment recommendations, router and firewall setup, switch installation, wireless access point deployment, Cat6/Cat6a cabling, VLAN configuration, guest network setup, security configuration, and speed/performance testing.',
+      },
+      {
+        question: 'How long does installation take?',
+        answer: 'Typically 1-5 days depending on scope, from small office setups to larger installations.',
+      },
+      {
+        question: 'Do you handle multi-floor or multi-location installs?',
+        answer: 'Yes, multi-floor installations and network upgrades and expansions for existing infrastructure are covered use cases.',
+      },
+      {
+        question: 'What do I receive once the installation is complete?',
+        answer: 'A network design document, the installed and configured equipment, a network diagram, configuration documentation, and speed test results.',
+      },
+    ],
   },
   {
     id: 'it-consulting',
@@ -753,8 +1016,26 @@ export const supportServices: MSPService[] = [
     ],
     timeline: 'Varies by engagement',
     seoKeywords: ['IT consulting Houston', 'technology consulting Texas', 'IT strategy Conroe', 'virtual CIO'],
-    metaTitle: 'IT Consulting | $150/hr',
+    metaTitle: 'Houston IT Consulting & Tech Strategy | $150/Hr',
     metaDescription: 'Expert IT consulting for technology strategy, vendor selection, and IT roadmap planning. $150/hour for businesses in Houston, Conroe, The Woodlands.',
+    faqs: [
+      {
+        question: 'What kind of IT consulting do you offer?',
+        answer: 'Technology strategy development, IT roadmap planning, vendor evaluation and selection, budget planning assistance, security and cloud strategy, digital transformation guidance, and technology due diligence for M&A.',
+      },
+      {
+        question: 'How is IT Consulting billed?',
+        answer: 'Consulting is billed at $150/hour, with total timeline and cost varying by the scope of the engagement.',
+      },
+      {
+        question: 'What do I receive at the end of an engagement?',
+        answer: 'A consulting report with recommendations, a technology roadmap if applicable, a vendor comparison if applicable, and an executive presentation.',
+      },
+      {
+        question: 'Who typically needs IT consulting?',
+        answer: 'Businesses planning major IT investments, evaluating technology vendors, developing an IT strategy, going through digital transformation, or needing a technology assessment for a merger or acquisition.',
+      },
+    ],
   },
 ]
 

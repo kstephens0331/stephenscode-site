@@ -207,7 +207,7 @@ const HomePage: React.FC<HomePageProps> = ({ onNavigate }) => {
                   <img
                     src={property.image}
                     alt={property.title}
-                    className="w-full h-full object-cover group- transition-transform duration-500"
+                    className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500"
                   />
                   <div className="absolute top-4 right-4 bg-[#ffc300] text-[#000814] px-4 py-2 rounded-full font-bold">
                     ${(property.price / 1000000).toFixed(2)}M

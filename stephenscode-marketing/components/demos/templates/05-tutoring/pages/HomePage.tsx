@@ -236,7 +236,7 @@ export default function HomePage({ onNavigate }: HomePageProps) {
                   key={index}
                   className="group bg-white rounded-2xl p-6 shadow-md transition-all duration-300 border border-gray-100 hover:border-[#5f0f40] cursor-pointer"
                 >
-                  <div className={`inline-flex p-4 bg-gradient-to-br ${subject.color} rounded-xl mb-4 group- transition-transform duration-300 shadow-lg`}>
+                  <div className={`inline-flex p-4 bg-gradient-to-br ${subject.color} rounded-xl mb-4 group-hover:scale-110 transition-transform duration-300 shadow-lg`}>
                     <Icon className="h-8 w-8 text-white" />
                   </div>
                   <h3 className="text-xl font-bold text-gray-900 mb-2">{subject.name}</h3>
@@ -275,7 +275,7 @@ export default function HomePage({ onNavigate }: HomePageProps) {
               const Icon = benefit.icon;
               return (
                 <div key={index} className="text-center group">
-                  <div className="inline-flex items-center justify-center w-16 h-16 bg-gradient-to-br from-[#5f0f40] to-[#9a031e] rounded-2xl mb-4 shadow-lg group- transition-transform duration-300">
+                  <div className="inline-flex items-center justify-center w-16 h-16 bg-gradient-to-br from-[#5f0f40] to-[#9a031e] rounded-2xl mb-4 shadow-lg group-hover:scale-110 transition-transform duration-300">
                     <Icon className="h-8 w-8 text-white" />
                   </div>
                   <h3 className="text-xl font-bold text-gray-900 mb-2">{benefit.title}</h3>

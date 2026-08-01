@@ -122,7 +122,7 @@ export default function MSPServicesPage() {
       description: 'Defend against ransomware, phishing, and data breaches with enterprise-grade security solutions.',
       services: cybersecurityServices,
       icon: '🔒',
-      gradient: 'from-red-600 to-red-800'
+      gradient: 'from-primary-500 to-primary-700'
     },
     {
       title: 'Cloud Solutions',
@@ -188,7 +188,7 @@ export default function MSPServicesPage() {
       />
 
       {/* Hero Section */}
-      <section className="relative overflow-hidden bg-gradient-to-br from-gray-900 via-primary-900 to-gray-900 text-white">
+      <section className="relative overflow-hidden bg-gradient-to-br from-primary-900 via-primary-800 to-primary-700 text-white">
         <div className="absolute inset-0 opacity-20">
           <div className="absolute inset-0" style={{
             backgroundImage: `url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%23ffffff' fill-opacity='0.4'%3E%3Cpath d='M36 34v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4zm0-30V0h-2v4h-4v2h4v4h2V6h4V4h-4zM6 34v-4H4v4H0v2h4v4h2v-4h4v-2H6zM6 4V0H4v4H0v2h4v4h2V6h4V4H6z'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E")`
@@ -197,14 +197,14 @@ export default function MSPServicesPage() {
 
         <div className="relative mx-auto max-w-7xl px-6 py-32 sm:py-40 lg:px-8">
           <div className="mx-auto max-w-4xl text-center">
-            <div className="mb-8 inline-flex items-center gap-3 rounded-full bg-red-500/20 px-6 py-3 text-sm font-semibold backdrop-blur-lg border border-red-500/30 shadow-2xl">
+            <div className="mb-8 inline-flex items-center gap-3 rounded-full bg-primary-500/20 px-6 py-3 text-sm font-semibold backdrop-blur-lg border border-primary-500/30 shadow-2xl">
               <span className="text-2xl">🔒</span>
               <span>Managed IT & Cybersecurity</span>
             </div>
 
             <h1 className="text-5xl font-bold tracking-tight sm:text-7xl mb-8">
               IT Services That
-              <span className="block text-red-400 mt-2">Protect & Power</span>
+              <span className="block text-primary-400 mt-2">Protect & Power</span>
               Your Business
             </h1>
 
@@ -216,7 +216,7 @@ export default function MSPServicesPage() {
             <div className="mt-12 grid grid-cols-2 md:grid-cols-4 gap-6">
               {stats.map((stat) => (
                 <div key={stat.label} className="rounded-xl bg-surface-card/60 backdrop-blur-lg border border-surface-border p-4">
-                  <div className="text-3xl font-bold text-red-400">{stat.value}</div>
+                  <div className="text-3xl font-bold text-primary-400">{stat.value}</div>
                   <div className="text-sm text-gray-300">{stat.label}</div>
                 </div>
               ))}
@@ -225,7 +225,7 @@ export default function MSPServicesPage() {
             <div className="mt-12 flex flex-wrap items-center justify-center gap-4">
               <Link
                 href="/contact"
-                className="group inline-flex items-center gap-2 rounded-lg bg-red-500 px-8 py-4 text-lg font-bold text-white shadow-2xl hover:bg-red-600 transition-all"
+                className="group inline-flex items-center gap-2 rounded-lg bg-primary-500 px-8 py-4 text-lg font-bold text-white shadow-2xl hover:bg-primary-600 transition-all"
               >
                 <span>Get Free IT Assessment</span>
                 <svg className="w-5 h-5 group-hover:translate-x-1 transition-transform" fill="none" viewBox="0 0 24 24" stroke="currentColor">
@@ -295,7 +295,7 @@ export default function MSPServicesPage() {
                     <ul className="space-y-2">
                       {service.features.slice(0, 4).map((feature, i) => (
                         <li key={i} className="flex items-start gap-2 text-sm text-gray-400">
-                          <svg className="h-5 w-5 text-green-600 flex-shrink-0 mt-0.5" fill="currentColor" viewBox="0 0 20 20">
+                          <svg className="h-5 w-5 text-primary-600 flex-shrink-0 mt-0.5" fill="currentColor" viewBox="0 0 20 20">
                             <path fillRule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.857-9.809a.75.75 0 00-1.214-.882l-3.483 4.79-1.88-1.88a.75.75 0 10-1.06 1.061l2.5 2.5a.75.75 0 001.137-.089l4-5.5z" clipRule="evenodd" />
                           </svg>
                           <span>{feature}</span>
@@ -318,10 +318,10 @@ export default function MSPServicesPage() {
       ))}
 
       {/* Why Choose Us */}
-      <section className="bg-gradient-to-b from-gray-900 to-gray-800 text-white py-24 sm:py-32">
+      <section className="bg-surface py-24 sm:py-32">
         <div className="mx-auto max-w-7xl px-6 lg:px-8">
           <div className="mx-auto max-w-2xl text-center mb-16">
-            <h2 className="text-base font-semibold leading-7 text-red-400">Why StephensCode MSP?</h2>
+            <h2 className="text-base font-semibold leading-7 text-primary-400">Why StephensCode MSP?</h2>
             <p className="mt-2 text-4xl font-bold tracking-tight text-white sm:text-5xl">
               IT Support You Can Trust
             </p>
@@ -331,13 +331,13 @@ export default function MSPServicesPage() {
             {whyChooseMSP.map((item, index) => (
               <div key={index} className="relative group overflow-hidden rounded-2xl bg-surface-card/60 backdrop-blur-lg border border-surface-border p-8 hover:bg-surface-elevated/80 transition-all">
                 <div className="flex items-start gap-6">
-                  <div className="flex h-16 w-16 flex-shrink-0 items-center justify-center rounded-xl bg-red-500 text-4xl shadow-lg group- transition-transform">
+                  <div className="flex h-16 w-16 flex-shrink-0 items-center justify-center rounded-xl bg-primary-500 text-4xl shadow-lg group-hover:scale-110 transition-transform">
                     {item.icon}
                   </div>
                   <div className="flex-1">
                     <h3 className="text-xl font-bold text-white mb-2">{item.title}</h3>
                     <p className="text-gray-300 mb-4">{item.description}</p>
-                    <div className="inline-flex items-center gap-2 rounded-full bg-red-500/20 px-4 py-2 text-sm font-bold text-red-300">
+                    <div className="inline-flex items-center gap-2 rounded-full bg-primary-500/20 px-4 py-2 text-sm font-bold text-primary-300">
                       <svg className="h-4 w-4" fill="currentColor" viewBox="0 0 20 20">
                         <path fillRule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.857-9.809a.75.75 0 00-1.214-.882l-3.483 4.79-1.88-1.88a.75.75 0 10-1.06 1.061l2.5 2.5a.75.75 0 001.137-.089l4-5.5z" clipRule="evenodd" />
                       </svg>
@@ -355,7 +355,7 @@ export default function MSPServicesPage() {
       <section className="bg-surface py-24 sm:py-32">
         <div className="mx-auto max-w-4xl px-6 lg:px-8">
           <div className="mx-auto max-w-2xl text-center mb-16">
-            <h2 className="text-base font-semibold leading-7 text-red-400">Frequently Asked Questions</h2>
+            <h2 className="text-base font-semibold leading-7 text-primary-400">Frequently Asked Questions</h2>
             <p className="mt-2 text-4xl font-bold tracking-tight text-white sm:text-5xl">
               Managed IT Services FAQ
             </p>
@@ -365,11 +365,11 @@ export default function MSPServicesPage() {
             {mspFaqs.map((faq, index) => (
               <details
                 key={index}
-                className="group rounded-2xl border-2 border-surface-border bg-surface-card hover:border-red-300 transition-colors"
+                className="group rounded-2xl border-2 border-surface-border bg-surface-card hover:border-primary-300 transition-colors"
               >
                 <summary className="flex cursor-pointer items-center justify-between p-6 text-lg font-bold text-white">
                   <span>{faq.question}</span>
-                  <span className="ml-4 flex-shrink-0 text-red-600 group-open:rotate-180 transition-transform">
+                  <span className="ml-4 flex-shrink-0 text-primary-600 group-open:rotate-180 transition-transform">
                     <svg className="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                       <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 9l-7 7-7-7" />
                     </svg>
@@ -386,7 +386,7 @@ export default function MSPServicesPage() {
             <p className="text-gray-400 mb-4">Ready to improve your IT?</p>
             <Link
               href="/contact"
-              className="inline-flex items-center gap-2 text-red-600 font-bold hover:text-red-700"
+              className="inline-flex items-center gap-2 text-primary-600 font-bold hover:text-primary-700"
             >
               <span>Schedule your free IT assessment</span>
               <span>→</span>
@@ -396,7 +396,7 @@ export default function MSPServicesPage() {
       </section>
 
       {/* CTA Section */}
-      <section className="relative overflow-hidden bg-gradient-to-br from-red-600 via-red-700 to-red-800 text-white">
+      <section className="relative overflow-hidden bg-primary-900 text-white">
         <div className="absolute inset-0 opacity-10">
           <div className="absolute inset-0" style={{
             backgroundImage: `url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%23ffffff' fill-opacity='1'%3E%3Cpath d='M36 34v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4zm0-30V0h-2v4h-4v2h4v4h2V6h4V4h-4zM6 34v-4H4v4H0v2h4v4h2v-4h4v-2H6zM6 4V0H4v4H0v2h4v4h2V6h4V4H6z'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E")`
@@ -408,13 +408,13 @@ export default function MSPServicesPage() {
             <h2 className="text-4xl font-bold tracking-tight sm:text-6xl mb-8">
               Is Your Business Protected?
             </h2>
-            <p className="mx-auto max-w-2xl text-xl leading-8 text-red-100 mb-12">
+            <p className="mx-auto max-w-2xl text-xl leading-8 text-primary-100 mb-12">
               Get a free IT assessment to identify vulnerabilities and opportunities. No obligation, no sales pressure, just honest advice about your technology.
             </p>
             <div className="flex flex-wrap items-center justify-center gap-4">
               <Link
                 href="/contact"
-                className="group inline-flex items-center gap-2 rounded-lg bg-surface-card px-10 py-5 text-xl font-bold text-red-400 shadow-2xl hover:bg-surface-elevated transition-all"
+                className="group inline-flex items-center gap-2 rounded-lg bg-surface-card px-10 py-5 text-xl font-bold text-primary-400 shadow-2xl hover:bg-surface-elevated transition-all"
               >
                 <span>Schedule Free Assessment</span>
                 <svg className="w-6 h-6 group-hover:translate-x-1 transition-transform" fill="none" viewBox="0 0 24 24" stroke="currentColor">

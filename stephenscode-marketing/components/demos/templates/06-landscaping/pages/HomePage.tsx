@@ -205,7 +205,7 @@ export default function HomePage({ onNavigate }: HomePageProps) {
                   </div>
                 )}
 
-                <div className="w-16 h-16 bg-gradient-to-br from-[#386641] to-[#6a994e] rounded-xl flex items-center justify-center text-white mb-4 group- transition-transform">
+                <div className="w-16 h-16 bg-gradient-to-br from-[#386641] to-[#6a994e] rounded-xl flex items-center justify-center text-white mb-4 group-hover:scale-110 transition-transform">
                   {service.icon}
                 </div>
 

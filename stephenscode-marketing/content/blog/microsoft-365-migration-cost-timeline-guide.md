@@ -1,5 +1,6 @@
 ---
 title: "Microsoft 365 Migration Cost and Timeline: What a 10-50 Person Houston Business Should Actually Budget"
+metaTitle: "Microsoft 365 Migration Cost & Timeline"
 date: "2026-07-27"
 author: "Kyle Stephens"
 excerpt: "Real, industry-typical cost and timeline ranges for migrating a 10-50 user Houston business to Microsoft 365, from discovery through cutover and 90-day post-migration support."

@@ -30,6 +30,9 @@ export default function FloatingContactButton() {
           {/* Email Button */}
           <a
             href="mailto:info@stephenscode.dev"
+            onClick={() => {
+              trackEvent('email_click', { link_location: 'floating_contact_button' })
+            }}
             className="flex items-center gap-3 rounded-full bg-blue-500 pl-4 pr-6 py-3 text-white shadow-lg hover:bg-blue-600 transition-all"
           >
             <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -41,6 +44,9 @@ export default function FloatingContactButton() {
           {/* Contact Form Button */}
           <Link
             href="/contact"
+            onClick={() => {
+              trackEvent('cta_click', { cta: 'Get Quote', location: 'floating_contact_button' })
+            }}
             className="flex items-center gap-3 rounded-full bg-primary-500 pl-4 pr-6 py-3 text-white hover:bg-primary-600 transition-all"
           >
             <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">

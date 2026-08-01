@@ -99,7 +99,7 @@ export default function CustomerView({ demo, colors }: CustomerViewProps) {
             ].map(product => (
               <div key={product.id} className="bg-white rounded-xl shadow-md overflow-hidden group transition-all">
                 <div className="relative overflow-hidden">
-                  <img src={product.image} alt={product.name} className="w-full h-64 object-cover group- transition-transform duration-500" />
+                  <img src={product.image} alt={product.name} className="w-full h-64 object-cover group-hover:scale-110 transition-transform duration-500" />
                   <div className="absolute top-4 left-4 bg-cyan-500 text-white px-3 py-1 rounded-full text-sm font-bold flex items-center">
                     <Star className="w-4 h-4 mr-1 fill-current" />
                     {product.rating}
@@ -197,7 +197,7 @@ export default function CustomerView({ demo, colors }: CustomerViewProps) {
           ].map(cat => (
             <button key={cat.name} onClick={() => setCurrentPage('shop')} className="group relative overflow-hidden rounded-xl shadow-lg transition-all">
               <div className="aspect-[4/3] overflow-hidden">
-                <img src={cat.image} alt={cat.name} className="w-full h-full object-cover group- transition-transform duration-500" />
+                <img src={cat.image} alt={cat.name} className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500" />
               </div>
               <div className="absolute inset-0 bg-gradient-to-t from-black/80 to-transparent flex flex-col justify-end p-6">
                 <h3 className="text-2xl font-bold text-white mb-2">{cat.name}</h3>

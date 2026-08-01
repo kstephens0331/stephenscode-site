@@ -65,5 +65,21 @@ export default async function DemoSlugPage({ params }: Props) {
     notFound()
   }
 
-  return <DemoFrame demo={demo} />
+  const demoSchema = {
+    '@context': 'https://schema.org',
+    '@type': 'CreativeWork',
+    name: demo.name.trim().endsWith('Demo') ? demo.name : `${demo.name} Demo`,
+    description: demo.description,
+    url: `https://www.stephenscode.dev/demos/${demo.slug}`,
+  }
+
+  return (
+    <>
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(demoSchema) }}
+      />
+      <DemoFrame demo={demo} />
+    </>
+  )
 }

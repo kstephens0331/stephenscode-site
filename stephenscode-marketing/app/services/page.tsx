@@ -151,7 +151,7 @@ export default function ServicesPage() {
       description: 'Full-stack enterprise platforms with custom features, admin dashboards, and advanced functionality.',
       services: premiumBuilds,
       icon: '🚀',
-      gradient: 'from-purple-600 to-purple-800'
+      gradient: 'from-accent-500 to-accent-700'
     },
     {
       title: 'Add-On Features',
@@ -159,7 +159,7 @@ export default function ServicesPage() {
       description: 'Extend your website with powerful add-ons. From booking systems to e-commerce to membership portals.',
       services: allAddOns.slice(0, 6),
       icon: '⚡',
-      gradient: 'from-orange-600 to-orange-800'
+      gradient: 'from-primary-400 to-primary-600'
     }
   ]
 
@@ -192,16 +192,16 @@ export default function ServicesPage() {
 
   const technologies = [
     { name: 'Next.js', category: 'Frontend', color: 'bg-black' },
-    { name: 'React', category: 'Frontend', color: 'bg-blue-500' },
-    { name: 'TypeScript', category: 'Language', color: 'bg-blue-600' },
-    { name: 'Tailwind CSS', category: 'Styling', color: 'bg-cyan-500' },
-    { name: 'Node.js', category: 'Backend', color: 'bg-green-600' },
-    { name: 'Python', category: 'Backend', color: 'bg-yellow-500' },
-    { name: 'Firebase', category: 'Database', color: 'bg-orange-500' },
-    { name: 'PostgreSQL', category: 'Database', color: 'bg-blue-700' },
-    { name: 'Stripe', category: 'Payments', color: 'bg-purple-600' },
+    { name: 'React', category: 'Frontend', color: 'bg-primary-500' },
+    { name: 'TypeScript', category: 'Language', color: 'bg-primary-600' },
+    { name: 'Tailwind CSS', category: 'Styling', color: 'bg-accent-500' },
+    { name: 'Node.js', category: 'Backend', color: 'bg-primary-700' },
+    { name: 'Python', category: 'Backend', color: 'bg-accent-400' },
+    { name: 'Firebase', category: 'Database', color: 'bg-primary-500' },
+    { name: 'PostgreSQL', category: 'Database', color: 'bg-primary-800' },
+    { name: 'Stripe', category: 'Payments', color: 'bg-accent-600' },
     { name: 'Vercel', category: 'Hosting', color: 'bg-black' },
-    { name: 'Railway', category: 'Hosting', color: 'bg-purple-700' },
+    { name: 'Railway', category: 'Hosting', color: 'bg-accent-700' },
     { name: 'Express', category: 'Backend', color: 'bg-gray-700' }
   ]
 
@@ -303,7 +303,8 @@ export default function ServicesPage() {
 
         <div className="absolute bottom-0 left-0 right-0">
           <svg viewBox="0 0 1440 120" fill="none" xmlns="http://www.w3.org/2000/svg" className="w-full">
-            <path d="M0 120L60 105C120 90 240 60 360 45C480 30 600 30 720 37.5C840 45 960 60 1080 67.5C1200 75 1320 75 1380 75L1440 75V120H1380C1320 120 1200 120 1080 120C960 120 840 120 720 120C600 120 480 120 360 120C240 120 120 120 60 120H0Z" fill="#0f172a"/>
+            {/* fill matches the surface token (#000000) so the wave blends into the section below */}
+            <path d="M0 120L60 105C120 90 240 60 360 45C480 30 600 30 720 37.5C840 45 960 60 1080 67.5C1200 75 1320 75 1380 75L1440 75V120H1380C1320 120 1200 120 1080 120C960 120 840 120 720 120C600 120 480 120 360 120C240 120 120 120 60 120H0Z" fill="#000000"/>
           </svg>
         </div>
       </section>
@@ -373,6 +374,18 @@ export default function ServicesPage() {
               ))}
             </div>
 
+            {category.title === 'Core Packages' && (
+              <div className="mt-12 text-center">
+                <Link
+                  href="/services/custom-websites"
+                  className="inline-flex items-center gap-2 rounded-lg bg-primary-600 px-8 py-4 text-lg font-bold text-white shadow-lg hover:bg-primary-700 transition-all"
+                >
+                  <span>See Full Custom Website Details</span>
+                  <span>→</span>
+                </Link>
+              </div>
+            )}
+
             {category.title === 'Add-On Features' && (
               <div className="mt-12 text-center">
                 <Link
@@ -402,7 +415,7 @@ export default function ServicesPage() {
             {whyChoose.map((item, index) => (
               <div key={index} className="relative group overflow-hidden rounded-2xl bg-surface p-8 shadow-xl transition-all">
                 <div className="flex items-start gap-6">
-                  <div className="flex h-16 w-16 flex-shrink-0 items-center justify-center rounded-xl bg-primary-600 text-4xl shadow-lg group- transition-transform">
+                  <div className="flex h-16 w-16 flex-shrink-0 items-center justify-center rounded-xl bg-primary-600 text-4xl shadow-lg group-hover:scale-110 transition-transform">
                     {item.icon}
                   </div>
                   <div className="flex-1">
@@ -442,7 +455,7 @@ export default function ServicesPage() {
                   <div className="hidden lg:block absolute top-24 left-full w-full h-1 bg-gradient-to-r from-primary-600 to-primary-200 -translate-x-1/2"></div>
                 )}
                 <div className="relative flex flex-col items-center text-center">
-                  <div className="flex h-24 w-24 items-center justify-center rounded-full bg-primary-600 text-white text-5xl mb-6 group- transition-transform shadow-2xl">
+                  <div className="flex h-24 w-24 items-center justify-center rounded-full bg-primary-600 text-white text-5xl mb-6 group-hover:scale-110 transition-transform shadow-2xl">
                     {step.number}
                   </div>
                   <h3 className="text-xl font-bold text-white mb-3">{step.title}</h3>

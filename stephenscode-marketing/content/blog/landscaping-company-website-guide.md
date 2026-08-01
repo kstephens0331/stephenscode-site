@@ -1,5 +1,6 @@
 ---
 title: "Landscaping Company Website Guide: Turning Browsers Into Booked Estimates"
+metaTitle: "Landscaping Website Guide: Book More Estimates"
 date: "2026-07-26"
 author: "Kyle Stephens"
 excerpt: "Landscaping and lawn care companies lose jobs to competitors with better before-and-after galleries and faster quote requests. Here's what a landscaping website actually needs in the Houston metro."

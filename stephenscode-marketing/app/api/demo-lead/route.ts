@@ -12,8 +12,38 @@ const transporter = nodemailer.createTransport({
   },
 })
 
+// Domains allowed to submit demo leads -- basic Origin/Referer spam deterrent.
+const ALLOWED_HOSTS = ['www.stephenscode.dev', 'stephenscode.dev']
+
+function isAllowedOrigin(request: Request): boolean {
+  const hostFrom = (value: string | null): string | null => {
+    if (!value) return null
+    try {
+      return new URL(value).hostname
+    } catch {
+      return null
+    }
+  }
+
+  const host = hostFrom(request.headers.get('origin')) || hostFrom(request.headers.get('referer'))
+
+  if (!host) return false
+
+  // Allow local development testing without loosening the production check.
+  if (process.env.NODE_ENV !== 'production' && (host === 'localhost' || host === '127.0.0.1')) {
+    return true
+  }
+
+  return ALLOWED_HOSTS.includes(host)
+}
+
 export async function POST(request: Request) {
   try {
+    // Reject requests that aren't coming from our own site (basic spam/abuse deterrent).
+    if (!isAllowedOrigin(request)) {
+      return NextResponse.json({ error: 'Forbidden' }, { status: 403 })
+    }
+
     const body = await request.json()
     const {
       demoName,
@@ -25,8 +55,14 @@ export async function POST(request: Request) {
       service,
       preferredDate,
       preferredTime,
-      notes
+      notes,
+      website // honeypot -- hidden field real users never fill; bots that auto-fill forms trip this
     } = body
+
+    // Honeypot check -- silently reject bot submissions that filled the hidden field.
+    if (website) {
+      return NextResponse.json({ error: 'Invalid submission' }, { status: 400 })
+    }
 
     // Validate required fields -- some demo forms only collect email, not phone (or vice versa),
     // so require at least one contact method rather than hard-requiring phone specifically.

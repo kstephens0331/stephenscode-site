@@ -1,5 +1,6 @@
 ---
 title: "Why Houston Businesses Need Custom Websites in 2025: The Complete Guide"
+metaTitle: "Why Houston Businesses Need Custom Sites"
 date: "2025-11-18"
 author: "Kyle Stephens"
 excerpt: "Template websites are holding Houston businesses back. Learn why custom development is the smart investment for 2025."

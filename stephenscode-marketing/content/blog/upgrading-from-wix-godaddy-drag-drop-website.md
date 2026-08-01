@@ -1,5 +1,6 @@
 ---
 title: "Time to Upgrade? Signs Your Wix, GoDaddy, or Squarespace Site Is Holding You Back"
+metaTitle: "Signs It's Time to Upgrade Your Website"
 date: "2025-12-01"
 author: "Kyle Stephens"
 excerpt: "Drag-and-drop website builders were great to start. But they may be costing you customers now. Learn when it's time to upgrade."

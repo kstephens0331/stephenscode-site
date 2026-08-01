@@ -3,6 +3,7 @@
 import { useState } from 'react'
 import type { Demo } from '@/lib/demos-data'
 import type { ColorPalette } from '@/lib/demo-colors'
+import { trackEvent, trackConversion } from '@/lib/analytics'
 import Layout from './components/Layout'
 
 interface CustomerViewProps {
@@ -10,20 +11,66 @@ interface CustomerViewProps {
   colors: ColorPalette
 }
 
+const initialQuoteData = {
+  projectType: '',
+  sqft: '',
+  timeline: '',
+  budget: '',
+  name: '',
+  email: '',
+  phone: '',
+  details: ''
+}
+
 export default function CustomerView({ demo, colors }: CustomerViewProps) {
   const [currentPage, setCurrentPage] = useState<string>('home')
   const [showQuoteBuilder, setShowQuoteBuilder] = useState(false)
   const [showClientPortal, setShowClientPortal] = useState(false)
-  const [quoteData, setQuoteData] = useState({
-    projectType: '',
-    sqft: '',
-    timeline: '',
-    budget: '',
-    name: '',
-    email: '',
-    phone: '',
-    details: ''
-  })
+  const [quoteData, setQuoteData] = useState(initialQuoteData)
+  const [quoteSubmitted, setQuoteSubmitted] = useState(false)
+
+  const closeQuoteBuilder = () => {
+    setShowQuoteBuilder(false)
+    setQuoteSubmitted(false)
+    setQuoteData(initialQuoteData)
+  }
+
+  const handleQuoteSubmit = async (e: React.FormEvent) => {
+    e.preventDefault()
+    try {
+      const notesParts = [
+        quoteData.sqft && `Approximate square footage: ${quoteData.sqft}`,
+        quoteData.timeline && `Timeline: ${quoteData.timeline}`,
+        quoteData.budget && `Budget range: ${quoteData.budget}`,
+        quoteData.details && `Project details: ${quoteData.details}`
+      ].filter(Boolean)
+
+      const response = await fetch('/api/demo-lead', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({
+          demoName: 'Terracotta Construction',
+          demoPackage: 'Standard Website ($950)',
+          demoSlug: 'terracotta-construction',
+          clientName: quoteData.name,
+          clientPhone: quoteData.phone,
+          clientEmail: quoteData.email,
+          service: quoteData.projectType,
+          preferredDate: '',
+          preferredTime: '',
+          notes: notesParts.join(' | ')
+        })
+      })
+
+      if (response.ok) {
+        trackEvent('generate_lead', { form_name: 'quote_builder_form', demo_slug: 'terracotta-construction' })
+        trackConversion('leadForm')
+        setQuoteSubmitted(true)
+      }
+    } catch {
+      // Network/API failure -- no-op, form stays visible so the user can retry
+    }
+  }
 
   const renderPage = () => {
     const commonProps = { colors, onNavigate: setCurrentPage, onQuoteOpen: () => setShowQuoteBuilder(true) }
@@ -382,15 +429,34 @@ export default function CustomerView({ demo, colors }: CustomerViewProps) {
           <div style={{ backgroundColor: '#ffffff' }} className="max-w-4xl w-full max-h-[90vh] overflow-y-auto">
             <div style={{ backgroundColor: '#ff6700', color: '#ffffff' }} className="p-6 flex justify-between items-center sticky top-0">
               <h3 className="text-2xl font-bold">Interactive Quote Builder</h3>
-              <button onClick={() => setShowQuoteBuilder(false)} className="text-3xl hover:opacity-70">&times;</button>
+              <button onClick={closeQuoteBuilder} className="text-3xl hover:opacity-70">&times;</button>
             </div>
             <div className="p-8">
+              {quoteSubmitted ? (
+                <div className="text-center py-12">
+                  <div style={{ backgroundColor: '#f8f8f8' }} className="inline-flex items-center justify-center w-20 h-20 rounded-full mb-6 text-5xl">
+                    ✓
+                  </div>
+                  <h4 style={{ color: '#1a1a1a' }} className="text-3xl font-bold mb-4">Quote Request Sent!</h4>
+                  <p style={{ color: '#666666' }} className="text-lg mb-8">
+                    Thanks for reaching out. Our team will review your project details and get back to you within one business day.
+                  </p>
+                  <button
+                    onClick={closeQuoteBuilder}
+                    style={{ backgroundColor: '#ff6700', color: '#ffffff' }}
+                    className="px-8 py-3 font-bold hover:opacity-90 transition"
+                  >
+                    Close
+                  </button>
+                </div>
+              ) : (
+              <>
               <div style={{ backgroundColor: '#1a1a1a', color: '#ffffff' }} className="p-6 mb-8 text-center">
                 <h4 className="text-2xl font-bold mb-2">Get an Instant Estimate</h4>
                 <p>Answer a few questions to receive a detailed project quote</p>
               </div>
 
-              <form className="space-y-6">
+              <form onSubmit={handleQuoteSubmit} className="space-y-6">
                 <div>
                   <label style={{ color: '#1a1a1a' }} className="block font-bold mb-2">Project Type *</label>
                   <select
@@ -468,6 +534,7 @@ export default function CustomerView({ demo, colors }: CustomerViewProps) {
                     <label style={{ color: '#1a1a1a' }} className="block font-bold mb-2">Name *</label>
                     <input
                       type="text"
+                      required
                       value={quoteData.name}
                       onChange={(e) => setQuoteData({ ...quoteData, name: e.target.value })}
                       style={{ backgroundColor: '#f5f5f5', border: '2px solid #e5e5e5', color: '#1a1a1a' }}
@@ -478,6 +545,7 @@ export default function CustomerView({ demo, colors }: CustomerViewProps) {
                     <label style={{ color: '#1a1a1a' }} className="block font-bold mb-2">Email *</label>
                     <input
                       type="email"
+                      required
                       value={quoteData.email}
                       onChange={(e) => setQuoteData({ ...quoteData, email: e.target.value })}
                       style={{ backgroundColor: '#f5f5f5', border: '2px solid #e5e5e5', color: '#1a1a1a' }}
@@ -488,6 +556,7 @@ export default function CustomerView({ demo, colors }: CustomerViewProps) {
                     <label style={{ color: '#1a1a1a' }} className="block font-bold mb-2">Phone *</label>
                     <input
                       type="tel"
+                      required
                       value={quoteData.phone}
                       onChange={(e) => setQuoteData({ ...quoteData, phone: e.target.value })}
                       style={{ backgroundColor: '#f5f5f5', border: '2px solid #e5e5e5', color: '#1a1a1a' }}
@@ -504,6 +573,8 @@ export default function CustomerView({ demo, colors }: CustomerViewProps) {
                   Get My Free Quote
                 </button>
               </form>
+              </>
+              )}
             </div>
           </div>
         </div>

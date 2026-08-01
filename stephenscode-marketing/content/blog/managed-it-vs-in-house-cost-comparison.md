@@ -1,5 +1,6 @@
 ---
 title: "Managed IT Services vs. In-House IT: The Real Cost Comparison for Houston Small Businesses"
+metaTitle: "Managed IT vs In-House IT: Cost Comparison"
 date: "2026-07-27"
 author: "Kyle Stephens"
 excerpt: "A straight, numbers-based look at what it actually costs a 10-50 employee Houston business to hire in-house IT versus bring on a managed service provider, including where the break-even point really falls."

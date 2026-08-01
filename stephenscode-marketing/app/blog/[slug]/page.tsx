@@ -28,14 +28,14 @@ export async function generateMetadata({ params }: BlogPostPageProps): Promise<M
   }
 
   return {
-    title: post.title,
+    title: post.metaTitle || post.title,
     description: post.excerpt,
     alternates: {
       canonical: `/blog/${slug}`,
     },
     keywords: post.tags,
     openGraph: {
-      title: post.title,
+      title: post.metaTitle || post.title,
       description: post.excerpt,
       type: 'article',
       publishedTime: post.date,
@@ -46,7 +46,7 @@ export async function generateMetadata({ params }: BlogPostPageProps): Promise<M
     },
     twitter: {
       card: 'summary_large_image',
-      title: post.title,
+      title: post.metaTitle || post.title,
       description: post.excerpt,
       images: ['/twitter-image'],
     },

@@ -49,8 +49,8 @@ export default function LocalBusinessSchema() {
     alternateName: ['StephensCode', 'StephensCode Web Development', 'StephensCode MSP'],
     description: 'Veteran-owned web development company specializing in custom websites, API integration, web scraping, and business automation. 14+ years experience, 200+ completed projects.',
     url: 'https://www.stephenscode.dev',
-    logo: 'https://www.stephenscode.dev/images/logo.png',
-    image: 'https://www.stephenscode.dev/images/logo.png',
+    logo: 'https://www.stephenscode.dev/logo.png',
+    image: 'https://www.stephenscode.dev/logo.png',
     telephone: '+1-936-323-4527',
     email: 'info@stephenscode.dev',
     priceRange: '$$',
@@ -276,9 +276,11 @@ export default function LocalBusinessSchema() {
     },
   }
 
-  // NOTE: FAQPage schema intentionally lives only on /faq (app/faq/page.tsx), not here --
-  // this component renders on every route, and a sitewide FAQPage block does not match
-  // the visible content on most pages.
+  // NOTE: FAQPage schema is intentionally NOT added here -- this component renders on every
+  // route, and a sitewide FAQPage block would not match the visible content on most pages.
+  // Individual pages with real, visible FAQ content (app/faq, app/pricing, app/service-areas/[slug],
+  // app/services/web-scraping, app/services/business-automation, app/services/api-integration, etc.)
+  // define and render their own page-scoped FAQPage schema instead.
   const schemas = [webSiteSchema, organizationSchema, founderPersonSchema, webDevServiceSchema, mspServiceSchema, vpnServiceSchema]
 
   return (

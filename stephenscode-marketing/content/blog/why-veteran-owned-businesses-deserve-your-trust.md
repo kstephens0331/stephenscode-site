@@ -1,5 +1,6 @@
 ---
 title: "Why Veteran-Owned Businesses Deserve Your Trust (And Your Business)"
+metaTitle: "Why Veteran-Owned Businesses Earn Trust"
 date: "2025-12-10"
 author: "Kyle Stephens"
 excerpt: "Veteran-owned businesses bring military discipline and integrity to every project. Here's why hiring a veteran is smart business."

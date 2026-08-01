@@ -5,7 +5,7 @@ heroSubtitle: Serving Spring's growing business community
 h1Override: "Web Development for Spring, TX: Where Old Town Charm Meets ExxonMobil-Area Growth"
 faqs:
   - question: "What does a website cost for a business in Spring, TX?"
-    answer: "Flat-rate, yes -- a 4-page Plug and Play site runs $250, a Standard 8-12 page build is $950, rebuilding an existing site is $350, and an E-Commerce store starts at $1,100. Full numbers are on the [pricing page](/pricing)."
+    answer: "Flat-rate, yes -- a Plug and Play site (up to 5 pages) runs $250, a Standard build (up to 6 pages) is $950, rebuilding an existing site is $350, and an E-Commerce store starts at $1,100. Full numbers are on the [pricing page](/pricing)."
   - question: "How fast can StephensCode build my Spring business site?"
     answer: "Most Spring projects go from consultation to launch in 1-2 weeks, assuming content and feedback come back promptly."
   - question: "Does StephensCode build sites for Old Town Spring and Gleannloch Farms businesses?"

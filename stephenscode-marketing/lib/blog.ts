@@ -9,6 +9,7 @@ const postsDirectory = path.join(process.cwd(), 'content/blog')
 export interface BlogPost {
   slug: string
   title: string
+  metaTitle?: string
   date: string
   author: string
   excerpt: string
@@ -23,6 +24,7 @@ export interface BlogPost {
 export interface BlogPostMetadata {
   slug: string
   title: string
+  metaTitle?: string
   date: string
   author: string
   excerpt: string
@@ -59,6 +61,7 @@ export function getAllPosts(): BlogPostMetadata[] {
       return {
         slug,
         title: data.title || '',
+        metaTitle: data.metaTitle || '',
         date: data.date || '',
         author: data.author || 'Kyle Stephens',
         excerpt: data.excerpt || '',
@@ -97,6 +100,7 @@ export async function getPostBySlug(slug: string): Promise<BlogPost | null> {
     return {
       slug,
       title: data.title || '',
+      metaTitle: data.metaTitle || '',
       date: data.date || '',
       author: data.author || 'Kyle Stephens',
       excerpt: data.excerpt || '',
@@ -112,24 +116,3 @@ export async function getPostBySlug(slug: string): Promise<BlogPost | null> {
   }
 }
 
-export function getPostsByCategory(category: string): BlogPostMetadata[] {
-  const allPosts = getAllPosts()
-  return allPosts.filter(post => post.category === category)
-}
-
-export function getPostsByTag(tag: string): BlogPostMetadata[] {
-  const allPosts = getAllPosts()
-  return allPosts.filter(post => post.tags.includes(tag))
-}
-
-export function getAllCategories(): string[] {
-  const allPosts = getAllPosts()
-  const categories = allPosts.map(post => post.category)
-  return Array.from(new Set(categories))
-}
-
-export function getAllTags(): string[] {
-  const allPosts = getAllPosts()
-  const tags = allPosts.flatMap(post => post.tags)
-  return Array.from(new Set(tags))
-}

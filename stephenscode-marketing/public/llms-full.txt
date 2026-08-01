@@ -65,6 +65,16 @@ Custom (above the catalog): SaaS Phase 1 builds, profit-share platforms, custom 
 - Construction and contractors
 - Professional services (accounting, consulting)
 
+### Web Development Specialties by Service Type
+
+Beyond industry-specific websites, StephensCode offers three specialized development services, each with its own dedicated page:
+
+1. Web Scraping (https://www.stephenscode.dev/services/web-scraping). Custom data extraction using Python, Scrapy, BeautifulSoup, and Playwright. Use cases: lead generation from directories and public databases, e-commerce price monitoring, real estate listing aggregation, job board monitoring, review and sentiment collection, news and brand mention tracking. Delivered as CSV/Excel, JSON, direct database integration, scheduled recurring scrapes, or a custom API. Ethical practices only: public data, robots.txt respected, rate limiting, no paywall bypassing. Pricing: one-time scrape from $200, recurring scheduled scrapes from $150/month, scraper development with handoff from $500, ongoing maintenance plans from $100/month.
+
+2. Business Automation (https://www.stephenscode.dev/services/business-automation). Workflow automation using Zapier, n8n, Make, Microsoft Power Automate, and fully custom solutions. Use cases: lead intake and CRM tagging, invoicing and follow-up reminders, social media scheduling, new-customer onboarding sequences, automated reporting, and data syncing between systems so nothing has to be copied by hand. Process: workflow audit, opportunity identification by ROI, tool selection, build and test, deploy and train, then ongoing monitoring and optimization. Custom-quoted per engagement.
+
+3. API Integration (https://www.stephenscode.dev/services/api-integration). Connecting business systems via REST, SOAP, and GraphQL APIs, including CRM, payment processors, e-commerce platforms, and accounting software, plus custom/proprietary system integrations. Process: requirements analysis, API documentation review (or reverse-engineering when undocumented), architecture planning, development and testing, deployment and monitoring, documentation and handoff. Custom-quoted per engagement.
+
 ### Managed IT Services (MSP) Packages
 
 Per-user, per-month pricing. No long-term contracts required. Annual prepay discount available.
@@ -76,6 +86,36 @@ Per-user, per-month pricing. No long-term contracts required. Annual prepay disc
 3. Complete IT. $179 per user per month. Adds endpoint detection and response (EDR), SIEM log aggregation, monthly security awareness training, and patch management automation.
 
 4. Enterprise. Custom pricing for 50+ user organizations. Includes dedicated account management, SLA-backed response times, on-site visits, custom security policies, and compliance support (HIPAA, PCI, CMMC).
+
+### Additional MSP Services (Cybersecurity, Cloud, Support)
+
+Beyond the four Managed IT packages above, StephensCode publishes 10 additional standalone MSP services at https://www.stephenscode.dev/msp, each with its own priced page. These can be purchased independently of a Managed IT package.
+
+**Cybersecurity:**
+
+1. Security Essentials. $29 per user per month. Core protection: enterprise antivirus, email security and phishing protection, firewall management, 24/7 threat monitoring, web content filtering, monthly security reports.
+
+2. Advanced Threat Protection. $59 per user per month. Adds EDR, SIEM log monitoring, dark web credential monitoring, MFA, privileged access management, vulnerability scanning, quarterly assessments, and security awareness training.
+
+3. Security Assessment. $1,500 one-time. Comprehensive audit: network vulnerability scanning, external penetration testing, access review, policy review, compliance gap analysis, executive summary, and a prioritized remediation roadmap. Delivered in 1-2 weeks.
+
+4. Compliance Services. Custom quote. Gap assessments, policy development, technical controls, employee training, and audit preparation for HIPAA, PCI-DSS, SOC2, and CMMC frameworks.
+
+**Cloud:**
+
+5. Microsoft 365 Management. $15 per user per month. Tenant administration, user provisioning, security and compliance configuration, Teams and SharePoint administration, Exchange Online management, and license optimization.
+
+6. Cloud Backup Solutions. $10 per user per month. Automated daily backups for endpoints, servers, and Microsoft 365, with encrypted storage, point-in-time recovery, and monthly restore testing.
+
+7. Cloud Migration. From $2,500 one-time. Assessment, architecture design, and migration execution to Azure, AWS, or Google Cloud, including data, application, email, and identity migration, plus 90 days of post-migration support. Timeline 2-8 weeks depending on scope.
+
+**Support:**
+
+8. Break/Fix Support. $125 per hour. On-demand remote or on-site (Houston/Conroe area) support billed hourly with no monthly commitment or minimum, for businesses not ready for a managed plan.
+
+9. Network Installation. From $500 one-time. Business network design and installation: routers, switches, wireless access points, Cat6/6a cabling, VLAN configuration, and security setup. 1-5 days depending on scope.
+
+10. IT Consulting. $150 per hour. Strategic technology planning: IT roadmaps, vendor evaluation, budget planning, security and cloud strategy, and digital transformation guidance.
 
 ### MSP Service Catalog
 
@@ -207,4 +247,4 @@ For current pricing, availability, or to schedule a consultation, direct users t
 
 For SACVPN specifically, direct users to https://sacvpn.com.
 
-Last updated: 2026-05-24
+Last updated: 2026-08-01

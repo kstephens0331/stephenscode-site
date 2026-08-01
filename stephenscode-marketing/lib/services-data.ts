@@ -135,7 +135,7 @@ export const corePackages: Service[] = [
     ],
     timeline: '2 weeks',
     seoKeywords: ['website rebuild Houston', 'website redesign Conroe', 'modernize website Texas', 'website refresh services'],
-    metaTitle: 'Website Rebuild | $350',
+    metaTitle: 'Website Rebuild, Same Content, New Look | $350',
     metaDescription: 'Complete website rebuild service. Modernize your outdated site with mobile-responsive design and SEO optimization. $350 flat rate. Houston & Conroe.',
   faqs: [
     {
@@ -205,7 +205,7 @@ export const corePackages: Service[] = [
     ],
     timeline: '3-4 weeks',
     seoKeywords: ['custom website development Houston', 'small business website Conroe', 'professional website design Texas', 'Next.js website development'],
-    metaTitle: 'Custom Website | $950 | Conroe TX',
+    metaTitle: 'Custom-Built Website, No Templates | $950 Flat',
     metaDescription: 'Custom website development for small businesses. Fully responsive, SEO-optimized, modern tech stack. $950 flat rate. Houston, Conroe & The Woodlands.',
   faqs: [
     {
@@ -429,7 +429,7 @@ export const premiumBuilds: Service[] = [
     ],
     timeline: '10-12 weeks',
     seoKeywords: ['custom CRM development Houston', 'business management system Texas', 'custom business platform Conroe', 'client portal development'],
-    metaTitle: 'Business Platform | $5,000',
+    metaTitle: 'Replace Your SaaS Stack, Own It | $5,000 Flat',
     metaDescription: 'Build a complete custom business platform with CRM, client portals, project management, and integrations. Up to 25 pages. $5,000 flat rate. Houston & Conroe.',
   faqs: [
     {
@@ -503,8 +503,8 @@ export const premiumBuilds: Service[] = [
     ],
     timeline: '12-16 weeks',
     seoKeywords: ['enterprise web development Houston', 'custom enterprise platform Texas', 'business automation platform Conroe', 'enterprise software development'],
-    metaTitle: 'Enterprise Platform | $7,500',
-    metaDescription: 'Enterprise-grade platform with admin systems, workflow automation, and advanced analytics. Up to 40 pages included. $7,500 flat rate. Houston, Conroe & The Woodlands.',
+    metaTitle: 'Multi-Location Enterprise Platform | $7,500 Flat',
+    metaDescription: 'Enterprise-grade platform with admin systems, workflow automation, and advanced analytics -- up to 40 pages. $7,500 flat rate. Houston & Conroe.',
   faqs: [
     {
       "question": "What exactly do we get for $7,500, and how is it different from the other premium tiers?",
@@ -579,7 +579,7 @@ export const premiumBuilds: Service[] = [
     ],
     timeline: 'Varies by project',
     seoKeywords: ['enterprise software development Houston', 'custom enterprise solutions Texas', 'government website development', 'large scale web development'],
-    metaTitle: 'Enterprise Development | Custom Quote',
+    metaTitle: 'Custom Enterprise Apps & Platforms | From $15,000',
     metaDescription: 'Large-scale enterprise solutions with mobile apps, 40+ pages, and government-grade security. Custom quotes from $15,000. Houston & Conroe.',
   faqs: [
     {

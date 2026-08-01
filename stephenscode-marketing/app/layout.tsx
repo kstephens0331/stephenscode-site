@@ -7,6 +7,7 @@ import LocalBusinessSchema from '@/components/LocalBusinessSchema'
 import FloatingContactButton from '@/components/FloatingContactButton'
 import GoogleAnalytics from '@/components/GoogleAnalytics'
 import TrustedTypesPolicy from '@/components/TrustedTypesPolicy'
+import CookieConsentBanner from '@/components/CookieConsentBanner'
 
 const inter = Inter({ subsets: ['latin'] })
 
@@ -136,6 +137,7 @@ export default function RootLayout({
         <main id="main-content">{children}</main>
         <Footer />
         <FloatingContactButton />
+        <CookieConsentBanner />
       </body>
     </html>
   )

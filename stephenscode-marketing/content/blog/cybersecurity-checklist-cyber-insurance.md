@@ -1,5 +1,6 @@
 ---
 title: "The Cybersecurity Checklist Your Cyber Insurance Carrier Is Actually Grading You On"
+metaTitle: "Cybersecurity Checklist for Cyber Insurance"
 date: "2026-07-27"
 author: "Kyle Stephens"
 excerpt: "Cyber insurance underwriting has quietly turned into a technical audit. Here's the checklist carriers are actually scoring in 2025-2026, and why having a control isn't the same as having it enforced."

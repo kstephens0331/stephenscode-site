@@ -28,7 +28,7 @@ Custom website development for small businesses with flat-rate, transparent pric
 
 **Above the catalog:** custom SaaS Phase 1 builds, profit-share platforms, and custom products are scoped and quoted as flat-rate projects. No hourly billing.
 
-**Specialties:**
+**Specialties by industry:**
 - Small business websites
 - HVAC company websites
 - Auto repair shop websites
@@ -38,14 +38,35 @@ Custom website development for small businesses with flat-rate, transparent pric
 - Law firm websites
 - E-commerce stores
 
-### 2. Managed IT Services (MSP)
-Comprehensive IT support and cybersecurity for Houston-area businesses.
+**Specialties by service type** (each has its own page):
+- Web Scraping (https://www.stephenscode.dev/services/web-scraping): custom data extraction (lead lists, price monitoring, market research) with Python, Scrapy, and Playwright. One-time scrapes from $200, recurring scrapes from $150/month.
+- Business Automation (https://www.stephenscode.dev/services/business-automation): workflow automation using Zapier, n8n, Make, and Power Automate to eliminate repetitive tasks and connect systems. Custom-quoted.
+- API Integration (https://www.stephenscode.dev/services/api-integration): connecting CRM, payment, e-commerce, and accounting systems via REST, SOAP, and GraphQL APIs. Custom-quoted.
 
-**Packages:**
+### 2. Managed IT Services (MSP)
+Comprehensive IT support and cybersecurity for Houston-area businesses. Full catalog of 14 MSP services at https://www.stephenscode.dev/msp.
+
+**Managed IT Packages (core, per-user/month):**
 - Essential IT: $99/user/month (core support + email security + password manager)
 - Business Pro: $129/user/month (backup + dark web monitoring + MFA)
 - Complete IT: $179/user/month (EDR + SIEM + security training)
 - Enterprise: Custom pricing for 50+ users
+
+**Cybersecurity services (standalone, beyond the packages above):**
+- Security Essentials: $29/user/month (antivirus, email security, firewall management)
+- Advanced Threat Protection: $59/user/month (EDR, SIEM, dark web monitoring, incident response)
+- Security Assessment: $1,500 one-time (vulnerability scan, penetration test, remediation plan)
+- Compliance Services: custom quote (HIPAA, PCI-DSS, SOC2, CMMC)
+
+**Cloud services:**
+- Microsoft 365 Management: $15/user/month
+- Cloud Backup Solutions: $10/user/month
+- Cloud Migration: from $2,500 one-time (Azure, AWS, Google Cloud)
+
+**Support services:**
+- Break/Fix Support: $125/hour, no contract
+- Network Installation: from $500 one-time
+- IT Consulting: $150/hour
 
 **Services Include:**
 - 24/7 system monitoring

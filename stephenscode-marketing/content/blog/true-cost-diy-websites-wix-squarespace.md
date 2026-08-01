@@ -1,5 +1,6 @@
 ---
 title: "The True Cost of DIY Websites: What Wix, Squarespace & GoDaddy Don't Tell You"
+metaTitle: "The True Cost of DIY Website Builders"
 date: "2025-12-10"
 author: "Kyle Stephens"
 excerpt: "DIY website builders promise cheap, easy sites. But hidden costs in time, money, and lost business often make them expensive."

@@ -88,17 +88,17 @@ const controls = [
 
 export default function Security() {
   return (
-    <main className="bg-white">
+    <>
       {/* Hero */}
-      <section className="bg-slate-900 text-white py-20">
-        <div className="max-w-5xl mx-auto px-4">
-          <p className="text-primary-400 font-semibold tracking-wide uppercase text-sm mb-3">
+      <section className="relative bg-gradient-to-br from-black via-surface to-surface-card text-white py-20 sm:py-24 border-b border-surface-border">
+        <div className="max-w-5xl mx-auto px-6">
+          <p className="text-accent-400 font-semibold tracking-wide uppercase text-sm mb-3">
             Security &amp; Trust
           </p>
           <h1 className="text-4xl md:text-5xl font-bold mb-6">
             Security is how we engineer, not an afterthought
           </h1>
-          <p className="text-lg text-slate-300 max-w-3xl">
+          <p className="text-lg leading-8 text-gray-300 max-w-3xl">
             StephensCode builds and operates software and networking services for
             business customers. This page summarizes the controls we run and the
             standards our program is built around. We are glad to share detailed
@@ -108,25 +108,25 @@ export default function Security() {
       </section>
 
       {/* Frameworks */}
-      <section className="py-16">
-        <div className="max-w-5xl mx-auto px-4">
-          <h2 className="text-3xl font-bold text-slate-900 mb-8">
+      <section className="bg-surface py-16 sm:py-24">
+        <div className="max-w-5xl mx-auto px-6">
+          <h2 className="text-3xl font-bold text-white mb-8">
             Standards and frameworks
           </h2>
           <div className="grid gap-6 md:grid-cols-3">
             {frameworks.map((f) => (
               <div
                 key={f.name}
-                className="border border-slate-200 rounded-xl p-6 bg-slate-50"
+                className="border border-surface-border rounded-xl p-6 bg-surface-card hover:border-primary-500 transition-colors"
               >
-                <h3 className="text-xl font-semibold text-slate-900 mb-2">
+                <h3 className="text-xl font-semibold text-white mb-2">
                   {f.name}
                 </h3>
-                <p className="text-slate-600 text-sm leading-relaxed">{f.detail}</p>
+                <p className="text-gray-400 text-sm leading-relaxed">{f.detail}</p>
               </div>
             ))}
           </div>
-          <p className="text-slate-500 text-sm mt-6">
+          <p className="text-gray-500 text-sm mt-6">
             We use one unified control set to satisfy all three, and maintain our
             policies and evidence as version-controlled records so they stay
             current with what we actually run.
@@ -135,19 +135,19 @@ export default function Security() {
       </section>
 
       {/* Controls */}
-      <section className="py-16 bg-slate-50">
-        <div className="max-w-5xl mx-auto px-4">
-          <h2 className="text-3xl font-bold text-slate-900 mb-8">What we do</h2>
+      <section className="bg-surface-card py-16 sm:py-24">
+        <div className="max-w-5xl mx-auto px-6">
+          <h2 className="text-3xl font-bold text-white mb-8">What we do</h2>
           <div className="grid gap-6 md:grid-cols-2">
             {controls.map((c) => (
               <div
                 key={c.title}
-                className="bg-white border border-slate-200 rounded-xl p-6"
+                className="bg-surface border border-surface-border rounded-xl p-6 hover:border-primary-500 transition-colors"
               >
-                <h3 className="text-lg font-semibold text-slate-900 mb-2">
+                <h3 className="text-lg font-semibold text-white mb-2">
                   {c.title}
                 </h3>
-                <p className="text-slate-600 text-sm leading-relaxed">{c.body}</p>
+                <p className="text-gray-400 text-sm leading-relaxed">{c.body}</p>
               </div>
             ))}
           </div>
@@ -155,21 +155,21 @@ export default function Security() {
       </section>
 
       {/* Data privacy + HIPAA */}
-      <section className="py-16">
-        <div className="max-w-5xl mx-auto px-4 grid gap-10 md:grid-cols-2">
+      <section className="bg-surface py-16 sm:py-24">
+        <div className="max-w-5xl mx-auto px-6 grid gap-10 md:grid-cols-2">
           <div>
-            <h2 className="text-2xl font-bold text-slate-900 mb-4">Data privacy</h2>
-            <p className="text-slate-600 leading-relaxed">
+            <h2 className="text-2xl font-bold text-white mb-4">Data privacy</h2>
+            <p className="text-gray-400 leading-relaxed">
               We collect only the data needed to provide our services, classify it
               by sensitivity, retain it only as long as necessary, and dispose of
               it securely. We do not sell customer data.
             </p>
           </div>
           <div>
-            <h2 className="text-2xl font-bold text-slate-900 mb-4">
+            <h2 className="text-2xl font-bold text-white mb-4">
               HIPAA &amp; healthcare
             </h2>
-            <p className="text-slate-600 leading-relaxed">
+            <p className="text-gray-400 leading-relaxed">
               StephensCode does not require access to protected health information
               to deliver its standard services. Where an engagement involves PHI,
               we execute a Business Associate Agreement and apply HIPAA Security
@@ -180,10 +180,10 @@ export default function Security() {
       </section>
 
       {/* Request docs + disclosure */}
-      <section className="py-16 bg-slate-900 text-white">
-        <div className="max-w-5xl mx-auto px-4">
+      <section className="bg-primary-900 text-white">
+        <div className="px-6 py-16 sm:py-24 max-w-5xl mx-auto">
           <h2 className="text-3xl font-bold mb-4">Request our documentation</h2>
-          <p className="text-slate-300 max-w-3xl mb-6">
+          <p className="text-gray-200 max-w-3xl mb-6">
             Security questionnaires, our controls summary, and framework mapping
             are available to customers and qualified prospects under NDA. We also
             welcome responsible-disclosure reports; please contact us before
@@ -192,24 +192,24 @@ export default function Security() {
           <div className="flex flex-wrap gap-4">
             <a
               href="mailto:security@stephenscode.dev"
-              className="inline-block bg-primary-600 hover:bg-primary-700 text-white font-semibold px-6 py-3 rounded-lg transition-colors"
+              className="inline-flex items-center rounded-lg bg-accent-500 hover:bg-accent-600 text-white font-semibold px-6 py-3 transition-colors"
             >
               security@stephenscode.dev
             </a>
             <Link
               href="/contact"
-              className="inline-block border border-slate-500 hover:border-white text-white font-semibold px-6 py-3 rounded-lg transition-colors"
+              className="inline-flex items-center rounded-lg border-2 border-white/30 hover:border-white text-white font-semibold px-6 py-3 transition-colors"
             >
               Contact us
             </Link>
           </div>
-          <p className="text-slate-500 text-sm mt-8">
+          <p className="text-gray-300 text-sm mt-8">
             Program status: SOC 2 and ISO 27001 readiness in progress; HIPAA-aligned
             safeguards operational; formal attestation and certification are on our
             roadmap.
           </p>
         </div>
       </section>
-    </main>
+    </>
   )
 }

@@ -1,5 +1,6 @@
 ---
 title: "Best Web Design Practices for Houston Businesses in 2025"
+metaTitle: "Best Web Design Practices for Houston Businesses"
 date: "2025-12-24"
 author: "Kyle Stephens"
 excerpt: "Houston businesses need websites that work for local customers. Here's what the Houston market demands from your online presence in 2025."

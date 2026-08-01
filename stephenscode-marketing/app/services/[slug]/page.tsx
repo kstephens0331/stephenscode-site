@@ -4,6 +4,7 @@ import { notFound } from 'next/navigation'
 import { corePackages, premiumBuilds, type Service } from '@/lib/services-data'
 import { allAddOns } from '@/lib/addons-data'
 import Breadcrumbs from '@/components/Breadcrumbs'
+import PhoneLink from '@/components/PhoneLink'
 
 const allServices: Service[] = [...corePackages, ...premiumBuilds, ...allAddOns]
 
@@ -97,7 +98,7 @@ export default async function ServiceDetailPage({ params }: ServicePageProps) {
         },
   }
 
-  const related = allServices.filter((s) => s.slug !== slug).slice(0, 3)
+  const related = allServices.filter((s) => s.slug !== slug && s.category === service.category).slice(0, 3)
 
   const faqSchema = service.faqs && service.faqs.length > 0
     ? {
@@ -161,12 +162,12 @@ export default async function ServiceDetailPage({ params }: ServicePageProps) {
             >
               Get Free Quote
             </Link>
-            <a
-              href="tel:9363234527"
+            <PhoneLink
+              location="service_hero"
               className="rounded-md bg-white/10 px-6 py-3 text-base font-semibold text-white backdrop-blur hover:bg-white/20"
             >
               Call (936) 323-4527
-            </a>
+            </PhoneLink>
           </div>
         </div>
       </section>

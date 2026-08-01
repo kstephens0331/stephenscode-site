@@ -13,10 +13,10 @@ const categoryMap: { [key: string]: string } = {
 
 // Map categories to icons and colors
 const categoryConfig: { [key: string]: { icon: string; color: string; gradient: string } } = {
-  'Web Development': { icon: '💻', color: 'from-purple-500 to-blue-500', gradient: 'from-purple-900 via-purple-800 to-blue-900' },
-  'SEO': { icon: '🔍', color: 'from-green-500 to-teal-500', gradient: 'from-green-900 via-teal-800 to-teal-900' },
-  'Business': { icon: '💼', color: 'from-orange-500 to-red-500', gradient: 'from-orange-900 via-red-800 to-red-900' },
-  'E-Commerce': { icon: '🛒', color: 'from-pink-500 to-rose-500', gradient: 'from-pink-900 via-rose-800 to-rose-900' },
+  'Web Development': { icon: '💻', color: 'from-primary-600 to-primary-800', gradient: 'from-black via-surface to-primary-950' },
+  'SEO': { icon: '🔍', color: 'from-accent-500 to-accent-700', gradient: 'from-black via-surface to-accent-950' },
+  'Business': { icon: '💼', color: 'from-primary-500 to-accent-600', gradient: 'from-black via-surface-card to-primary-900' },
+  'E-Commerce': { icon: '🛒', color: 'from-accent-600 to-primary-700', gradient: 'from-black via-surface-card to-accent-900' },
 }
 
 type Props = {
@@ -93,10 +93,10 @@ export default async function CategoryPage({ params }: Props) {
 
   const categories = [
     { name: 'All Posts', slug: 'all', icon: '📚', color: 'from-primary-500 to-accent-500' },
-    { name: 'Web Development', slug: 'web-development', icon: '💻', color: 'from-purple-500 to-blue-500' },
-    { name: 'SEO', slug: 'seo', icon: '🔍', color: 'from-green-500 to-teal-500' },
-    { name: 'Business', slug: 'business', icon: '💼', color: 'from-orange-500 to-red-500' },
-    { name: 'E-Commerce', slug: 'ecommerce', icon: '🛒', color: 'from-pink-500 to-rose-500' },
+    { name: 'Web Development', slug: 'web-development', icon: '💻', color: 'from-primary-600 to-primary-800' },
+    { name: 'SEO', slug: 'seo', icon: '🔍', color: 'from-accent-500 to-accent-700' },
+    { name: 'Business', slug: 'business', icon: '💼', color: 'from-primary-500 to-accent-600' },
+    { name: 'E-Commerce', slug: 'ecommerce', icon: '🛒', color: 'from-accent-600 to-primary-700' },
   ]
 
   return (
@@ -154,12 +154,12 @@ export default async function CategoryPage({ params }: Props) {
                   className={`group relative rounded-2xl px-6 py-4 shadow-md border-2 transition-all  ${
                     isActive
                       ? 'bg-gradient-to-br ' + category.color + ' text-white border-transparent shadow-lg'
-                      : 'bg-gradient-to-br from-slate-800 to-slate-900 text-white border-surface-border hover:border-primary-300 hover:shadow-lg'
+                      : 'bg-surface-card text-white border-surface-border hover:border-primary-300 hover:shadow-lg'
                   }`}
                   style={{ animationDelay: `${index * 100}ms` }}
                 >
                   <div className="flex items-center gap-3">
-                    <span className={`text-2xl group- transition-transform ${isActive ? 'filter brightness-0 invert' : ''}`}>
+                    <span className={`text-2xl group-hover:scale-110 transition-transform ${isActive ? 'filter brightness-0 invert' : ''}`}>
                       {category.icon}
                     </span>
                     <span className={`font-semibold transition-colors ${isActive ? 'text-white' : 'group-hover:text-primary-600'}`}>
@@ -174,7 +174,7 @@ export default async function CategoryPage({ params }: Props) {
       </section>
 
       {/* Blog Posts */}
-      <section className="bg-gradient-to-b from-slate-900 to-slate-800 py-24 sm:py-32">
+      <section className="bg-surface py-24 sm:py-32">
         <div className="mx-auto max-w-7xl px-6 lg:px-8">
           {categoryPosts.length === 0 ? (
             <div className="text-center">
@@ -234,7 +234,7 @@ export default async function CategoryPage({ params }: Props) {
                         <img
                           src={post.image}
                           alt={post.title}
-                          className="h-full w-full object-cover group- transition-transform duration-300"
+                          className="h-full w-full object-cover group-hover:scale-110 transition-transform duration-300"
                         />
                         <div className="absolute top-4 right-4">
                           <span className="px-4 py-2 rounded-full bg-surface-card/90 backdrop-blur-sm text-sm font-bold text-primary-400 shadow-lg">

@@ -5,7 +5,7 @@ heroSubtitle: Serving one of America's fastest-growing communities
 h1Override: "Web Design Built for Katy's Master-Planned Community Boom"
 faqs:
   - question: "What's the pricing structure for a Katy business website?"
-    answer: "Pricing is set upfront rather than billed hourly: $250 for a 4-page Plug and Play site, $950 for Standard (8-12 pages), $350 for a Rebuild, and $1,100 to launch an E-Commerce store. The [pricing page](/pricing) has the complete list."
+    answer: "Pricing is set upfront rather than billed hourly: $250 for a Plug and Play site (up to 5 pages), $950 for Standard (up to 6 pages), $350 for a Rebuild, and $1,100 to launch an E-Commerce store. The [pricing page](/pricing) has the complete list."
   - question: "How long until a new Katy site is ready to launch?"
     answer: "Typically 1-2 weeks from our first call to a live site, depending on how quickly you can turn around content and photos."
   - question: "Can you target specific Katy communities like Cinco Ranch or Cane Island in local SEO?"

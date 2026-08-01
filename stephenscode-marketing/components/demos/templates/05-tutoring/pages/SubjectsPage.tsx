@@ -346,7 +346,7 @@ export default function SubjectsPage({ onNavigate }: SubjectsPageProps) {
                   key={index}
                   className="bg-white rounded-xl p-6 shadow-md hover:shadow-xl transition-all duration-300 text-center group"
                 >
-                  <div className="inline-flex items-center justify-center w-16 h-16 bg-gradient-to-br from-[#5f0f40] to-[#9a031e] rounded-2xl mb-4 group- transition-transform duration-300">
+                  <div className="inline-flex items-center justify-center w-16 h-16 bg-gradient-to-br from-[#5f0f40] to-[#9a031e] rounded-2xl mb-4 group-hover:scale-110 transition-transform duration-300">
                     <Icon className="h-8 w-8 text-white" />
                   </div>
                   <h3 className="text-xl font-bold text-gray-900 mb-2">{skill.title}</h3>

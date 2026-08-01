@@ -349,7 +349,7 @@ export default function PricingPage() {
       <section className="bg-surface py-24 sm:py-32">
         <div className="mx-auto max-w-7xl px-6 lg:px-8">
           <div className="mx-auto max-w-2xl text-center mb-16">
-            <div className="inline-flex items-center rounded-full bg-gradient-to-r from-purple-500/15 to-blue-500/15 px-4 py-2 text-sm font-semibold text-purple-200 mb-4">
+            <div className="inline-flex items-center rounded-full bg-gradient-to-r from-primary-500/15 to-accent-500/15 px-4 py-2 text-sm font-semibold text-primary-200 mb-4">
               ⚡ Premium Solutions
             </div>
             <h2 className="text-4xl font-bold tracking-tight text-white sm:text-5xl">
@@ -364,10 +364,7 @@ export default function PricingPage() {
             {premiumBuilds.map((pkg) => (
               <div
                 key={pkg.id}
-                className="relative flex flex-col rounded-3xl border-2 border-primary-600 bg-surface p-8 shadow-2xl hover:shadow-3xl transition-all"
-                style={{
-                  background: 'linear-gradient(135deg, #0f172a 0%, #1e293b 100%)'
-                }}
+                className="relative flex flex-col rounded-3xl border-2 border-primary-600 bg-gradient-to-br from-surface-card to-surface-elevated p-8 shadow-2xl hover:shadow-3xl transition-all"
               >
                 <div className="absolute -top-3 -right-3 w-16 h-16 bg-gradient-to-br from-accent-500 to-primary-600 rounded-full flex items-center justify-center text-2xl shadow-lg">
                   🏆
@@ -436,7 +433,7 @@ export default function PricingPage() {
       <section className="bg-surface py-24 sm:py-32">
         <div className="mx-auto max-w-7xl px-6 lg:px-8">
           <div className="mx-auto max-w-2xl text-center mb-16">
-            <div className="inline-flex items-center rounded-full bg-green-500/15 px-4 py-2 text-sm font-semibold text-green-200 mb-4">
+            <div className="inline-flex items-center rounded-full bg-accent-500/15 px-4 py-2 text-sm font-semibold text-accent-200 mb-4">
               🎯 40+ Add-Ons Available
             </div>
             <h2 className="text-4xl font-bold tracking-tight text-white sm:text-5xl">
@@ -543,9 +540,9 @@ export default function PricingPage() {
 
         <div className="relative mx-auto max-w-7xl px-6 lg:px-8">
           <div className="mx-auto max-w-4xl">
-            <div className="rounded-3xl bg-gradient-to-br from-surface-card to-surface-elevated p-12 border-2 border-blue-500/30 shadow-2xl shadow-blue-500/10">
+            <div className="rounded-3xl bg-gradient-to-br from-surface-card to-surface-elevated p-12 border-2 border-primary-500/30 shadow-2xl shadow-primary-500/10">
               <div className="text-center mb-8">
-                <div className="inline-flex items-center rounded-full bg-blue-500/20 border border-blue-500/30 px-4 py-2 text-sm font-semibold text-blue-400 mb-6">
+                <div className="inline-flex items-center rounded-full bg-primary-500/20 border border-primary-500/30 px-4 py-2 text-sm font-semibold text-primary-400 mb-6">
                   🚀 Need Something Different?
                 </div>
                 <h2 className="text-4xl md:text-5xl font-bold text-white mb-4">
@@ -575,7 +572,7 @@ export default function PricingPage() {
 
                 <div className="bg-surface-card/70 rounded-xl p-6 border border-surface-border/30">
                   <div className="flex items-start gap-4">
-                    <div className="flex-shrink-0 w-12 h-12 rounded-xl bg-gradient-to-br from-green-500 to-emerald-600 flex items-center justify-center">
+                    <div className="flex-shrink-0 w-12 h-12 rounded-xl bg-gradient-to-br from-accent-500 to-accent-600 flex items-center justify-center">
                       <svg className="w-6 h-6 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                         <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z" />
                       </svg>
@@ -720,6 +717,17 @@ export default function PricingPage() {
                 </div>
               ))}
             </div>
+
+            <div className="mt-12 text-center">
+              <p className="text-gray-400 mb-4">Have more questions?</p>
+              <Link
+                href="/faq"
+                className="inline-flex items-center gap-2 text-primary-600 font-bold hover:text-primary-400"
+              >
+                <span>View our full FAQ</span>
+                <span>→</span>
+              </Link>
+            </div>
           </div>
         </div>
       </section>
@@ -732,7 +740,7 @@ export default function PricingPage() {
               📈 Real Client Result
             </div>
             <p className="text-2xl md:text-3xl font-bold text-white leading-snug mb-4">
-              Benefits Builder grew from roughly $1,000 MRR to $52,000 MRR after we built their platform.
+              Benefit Builder grew from roughly $1,000 MRR to $52,000 MRR after we built their platform.
             </p>
             <p className="text-gray-400 leading-relaxed mb-6">
               We built their public website and their entire internal operating platform, automating the workflows their small team needed to run the business day to day. Admin work dropped by 60%, and the company now runs on a team of three.
@@ -749,38 +757,27 @@ export default function PricingPage() {
       </section>
 
       {/* Final CTA */}
-      <section className="relative bg-gradient-to-r from-primary-600 via-accent-500 to-primary-600 text-white overflow-hidden">
-        <div className="absolute inset-0 opacity-20">
-          <div className="absolute inset-0" style={{
-            backgroundImage: 'linear-gradient(45deg, transparent 45%, rgba(255,255,255,0.1) 50%, transparent 55%)',
-            backgroundSize: '20px 20px'
-          }} />
-        </div>
-
-        <div className="relative px-6 py-24 sm:px-6 sm:py-32 lg:px-8">
+      <section className="bg-primary-900 text-white">
+        <div className="px-6 py-16 sm:px-6 sm:py-24 lg:px-8">
           <div className="mx-auto max-w-2xl text-center">
-            <h2 className="text-4xl font-bold tracking-tight sm:text-5xl">
+            <h2 className="text-3xl font-bold tracking-tight sm:text-4xl">
               Ready to get started?
             </h2>
             <p className="mx-auto mt-6 max-w-xl text-lg leading-8 text-gray-200">
               Get a free consultation and custom quote. We'll help you choose the right package and add-ons for your needs and budget.
             </p>
-            <div className="mt-10 flex flex-col sm:flex-row items-center justify-center gap-6">
+            <div className="mt-10 flex items-center justify-center gap-x-6">
               <Link
                 href="/contact"
-                className="group rounded-lg bg-surface-card px-8 py-4 text-base font-semibold text-white shadow-2xl hover:bg-surface-elevated transition-all"
+                className="rounded-md bg-accent-500 px-6 py-3 text-base font-semibold text-white shadow-sm hover:bg-accent-600"
               >
                 Get a Flat Quote
-                <span className="inline-block transition-transform group-hover:translate-x-1 ml-2">→</span>
               </Link>
               <PhoneLink
                 location="pricing_page_bottom"
-                className="flex items-center gap-2 text-base font-semibold leading-7 text-white hover:text-gray-200 transition-colors"
+                className="text-base font-semibold leading-7 text-white hover:text-gray-200"
               >
-                <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z" />
-                </svg>
-                Call (936) 323-4527
+                Call (936) 323-4527 <span aria-hidden="true">→</span>
               </PhoneLink>
             </div>
             <p className="mt-6 text-sm text-gray-300">

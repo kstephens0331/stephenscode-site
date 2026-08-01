@@ -1,5 +1,6 @@
 ---
 title: "E-Commerce for Houston Small Businesses: A Practical Guide to Selling Online"
+metaTitle: "Houston Small Business E-Commerce Guide"
 date: "2025-12-01"
 author: "Kyle Stephens"
 excerpt: "Ready to sell online? Everything Houston small businesses need to know about e-commerce, payments, and shipping."

@@ -5,7 +5,7 @@ heroSubtitle: Your local web developer, based right here in Conroe
 h1Override: "Conroe's Home-Base Web Developer: Built Here, For Here"
 faqs:
   - question: "How much will my Conroe business website cost?"
-    answer: "Every project is quoted flat before we start: $250 for Plug and Play (4 pages), $950 for Standard (8-12 pages), $350 to rebuild an existing site, $1,100 for E-Commerce, and custom platforms from $2,000 up. The [pricing page](/pricing) breaks it all down."
+    answer: "Every project is quoted flat before we start: $250 for Plug and Play (up to 5 pages), $950 for Standard (up to 6 pages), $350 to rebuild an existing site, $1,100 for E-Commerce, and custom platforms from $2,000 up. The [pricing page](/pricing) breaks it all down."
   - question: "How quickly can you get a Conroe business online?"
     answer: "1-2 weeks is typical, assuming you get content and feedback back to me promptly. I'm local, so there's no time zone or handoff delay slowing things down."
   - question: "Is StephensCode really based in Conroe, or just serving the area?"
@@ -84,7 +84,7 @@ Your website's local SEO strategy should account for these geographic nuances. S
 
 This might seem obvious, but it's rare. Most web developers serving Conroe are actually based in Houston, Austin, or overseas. They've never driven down North Frazier, don't know that Loop 336 has an East and West side, and couldn't tell you why the water tower says "Candy Cane City." Being local means in-person meetings whenever you want one, a working knowledge of who else in town is already competing for your customers, and a reputation that's on the line every time I take on a project, because I still shop at the same stores you do.
 
-I'll also tell you exactly what your project costs before we start: $250 for a 4-page Plug and Play site, $950 for Standard (8-12 pages), $350 to rebuild an existing site, $1,100 for an E-Commerce store, and custom platforms from $2,000 up ([full pricing here](/pricing)), with 30 days of post-launch support built in and no scope-creep invoices afterward. Everything runs on Next.js instead of a 2015-era WordPress theme, which is a big part of why the Conroe sites we build tend to load in under two seconds and hold up against bloated, template-based competitors. And when you call, you get me: not a coordinator, not a receptionist relaying messages, but the guy actually writing the code, running this business the same way I was taught in the Marine Corps -- show up, follow through, no excuses.
+I'll also tell you exactly what your project costs before we start: $250 for a Plug and Play site (up to 5 pages), $950 for Standard (up to 6 pages), $350 to rebuild an existing site, $1,100 for an E-Commerce store, and custom platforms from $2,000 up ([full pricing here](/pricing)), with 30 days of post-launch support built in and no scope-creep invoices afterward. Everything runs on Next.js instead of a 2015-era WordPress theme, which is a big part of why the Conroe sites we build tend to load in under two seconds and hold up against bloated, template-based competitors. And when you call, you get me: not a coordinator, not a receptionist relaying messages, but the guy actually writing the code, running this business the same way I was taught in the Marine Corps -- show up, follow through, no excuses.
 
 ## Industries We Specialize In
 

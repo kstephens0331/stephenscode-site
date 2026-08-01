@@ -1,5 +1,6 @@
 import type { Metadata } from 'next'
 import Link from 'next/link'
+import PhoneLink from '@/components/PhoneLink'
 
 export const metadata: Metadata = {
   title: 'FAQ | Conroe Web Developer Questions | Affordable Web Design',
@@ -383,12 +384,12 @@ export default function FAQPage() {
               >
                 Contact Us
               </Link>
-              <a
-                href="tel:9363234527"
+              <PhoneLink
+                location="faq_cta"
                 className="text-base font-semibold leading-7 text-white hover:text-primary-400"
               >
                 Call (936) 323-4527 <span aria-hidden="true">→</span>
-              </a>
+              </PhoneLink>
             </div>
           </div>
         </div>

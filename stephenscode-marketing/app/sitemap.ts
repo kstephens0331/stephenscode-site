@@ -127,6 +127,11 @@ export default function sitemap(): MetadataRoute.Sitemap {
       changeFrequency: 'yearly',
       priority: 0.5,
     },
+    {
+      url: `${baseUrl}/terms`,
+      changeFrequency: 'yearly',
+      priority: 0.5,
+    },
   ]
 
   // Service area pages (0.85) - Local SEO pages

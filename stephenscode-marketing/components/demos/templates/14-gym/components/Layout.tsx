@@ -32,7 +32,7 @@ export default function Layout({ children, currentPage, basePath }: LayoutProps)
           <div className="flex h-20 items-center justify-between">
             {/* Logo */}
             <Link href={basePath} className="flex items-center space-x-3 group">
-              <div className="bg-gradient-to-br from-[#c1121f] to-[#780000] p-2.5 rounded-lg group- transition-transform">
+              <div className="bg-gradient-to-br from-[#c1121f] to-[#780000] p-2.5 rounded-lg group-hover:scale-110 transition-transform">
                 <Dumbbell className="h-7 w-7 text-[#fdf0d5]" strokeWidth={2.5} />
               </div>
               <div>

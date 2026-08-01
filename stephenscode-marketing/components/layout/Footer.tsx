@@ -34,6 +34,7 @@ export default function Footer() {
       { name: 'FAQ', href: '/faq' },
       { name: 'Security & Trust', href: '/security' },
       { name: 'Privacy Policy', href: '/privacy' },
+      { name: 'Terms of Service', href: '/terms' },
     ],
     products: [
       { name: 'SACVPN', href: '/sacvpn' },
