@@ -1,5 +1,9 @@
 import Link from 'next/link'
 import type { Metadata } from 'next'
+import {
+  Lock, Globe, Users, Rocket, Smartphone, ShieldCheck,
+  Home, Briefcase, Wifi, ClipboardCheck, KeyRound,
+} from 'lucide-react'
 
 export const metadata: Metadata = {
   title: 'SACVPN | Enterprise-Grade VPN Security',
@@ -34,32 +38,32 @@ export const metadata: Metadata = {
 export default function SACVPNPage() {
   const features = [
     {
-      icon: '🔒',
+      icon: Lock,
       title: 'Military-Grade Encryption',
       description: 'AES-256 encryption protects all data in transit, the same standard used by government agencies and financial institutions.'
     },
     {
-      icon: '🌐',
+      icon: Globe,
       title: 'Global Server Network',
       description: 'Access secure servers worldwide for fast, reliable connections no matter where your team is located.'
     },
     {
-      icon: '👥',
+      icon: Users,
       title: 'Multi-User Management',
       description: 'Easy admin dashboard to manage team access, permissions, and monitor usage across your organization.'
     },
     {
-      icon: '🚀',
+      icon: Rocket,
       title: 'High-Speed Performance',
       description: 'Optimized infrastructure ensures minimal latency so your team can work without slowdowns.'
     },
     {
-      icon: '📱',
+      icon: Smartphone,
       title: 'Cross-Platform Support',
       description: 'Works on Windows, Mac, Linux, iOS, and Android. Protect all your devices with a single solution.'
     },
     {
-      icon: '🛡️',
+      icon: ShieldCheck,
       title: 'Zero-Log Policy',
       description: 'We never track, store, or share your browsing activity. Your business data stays private.'
     },
@@ -69,22 +73,22 @@ export default function SACVPNPage() {
     {
       title: 'Remote Workforce Security',
       description: 'Protect employees working from home, coffee shops, or on the road. Ensure secure access to company resources from anywhere.',
-      icon: '🏠'
+      icon: Home
     },
     {
       title: 'Secure Client Communications',
       description: 'Keep client data and communications protected. Essential for law firms, healthcare providers, and financial services.',
-      icon: '💼'
+      icon: Briefcase
     },
     {
       title: 'Public Wi-Fi Protection',
       description: 'Shield your team from hackers on public networks. Hotels, airports, and conferences are prime targets for data theft.',
-      icon: '📶'
+      icon: Wifi
     },
     {
       title: 'Compliance Requirements',
       description: 'Meet security requirements for HIPAA, PCI-DSS, and other regulatory frameworks that require encrypted communications.',
-      icon: '✅'
+      icon: ClipboardCheck
     },
   ]
 
@@ -107,7 +111,7 @@ export default function SACVPNPage() {
         <div className="relative mx-auto max-w-7xl px-6 py-24 sm:py-32 lg:px-8">
           <div className="mx-auto max-w-4xl text-center">
             <div className="inline-flex items-center rounded-full bg-blue-500/20 border border-blue-500/30 px-6 py-3 text-sm font-semibold text-blue-300 mb-8">
-              <span className="mr-2">🔐</span>
+              <KeyRound className="h-5 w-5 mr-2" />
               Enterprise-Grade VPN Security
             </div>
 
@@ -175,20 +179,23 @@ export default function SACVPNPage() {
           </div>
 
           <div className="grid grid-cols-1 gap-8 md:grid-cols-2 lg:grid-cols-3">
-            {features.map((feature, index) => (
-              <div
-                key={index}
-                className="group relative rounded-2xl bg-surface-card p-8 hover:bg-gradient-to-br hover:from-primary-900/30 hover:to-accent-900/30 transition-all hover:shadow-xl border border-surface-border hover:border-primary-500/60"
-              >
-                <div className="text-4xl mb-4">{feature.icon}</div>
-                <h3 className="text-xl font-bold text-white mb-3 group-hover:text-blue-300">
-                  {feature.title}
-                </h3>
-                <p className="text-gray-400 leading-relaxed">
-                  {feature.description}
-                </p>
-              </div>
-            ))}
+            {features.map((feature, index) => {
+              const Icon = feature.icon
+              return (
+                <div
+                  key={index}
+                  className="group relative rounded-2xl bg-surface-card p-8 hover:bg-gradient-to-br hover:from-primary-900/30 hover:to-accent-900/30 transition-all hover:shadow-xl border border-surface-border hover:border-primary-500/60"
+                >
+                  <Icon className="h-9 w-9 text-primary-400 mb-4" strokeWidth={1.75} />
+                  <h3 className="text-xl font-bold text-white mb-3 group-hover:text-blue-300">
+                    {feature.title}
+                  </h3>
+                  <p className="text-gray-400 leading-relaxed">
+                    {feature.description}
+                  </p>
+                </div>
+              )
+            })}
           </div>
         </div>
       </section>
@@ -204,18 +211,21 @@ export default function SACVPNPage() {
           </div>
 
           <div className="grid grid-cols-1 gap-8 md:grid-cols-2">
-            {useCases.map((useCase, index) => (
-              <div
-                key={index}
-                className="flex items-start gap-6 rounded-2xl bg-surface p-8 shadow-lg hover:shadow-xl transition-shadow"
-              >
-                <div className="flex-shrink-0 text-5xl">{useCase.icon}</div>
-                <div>
-                  <h3 className="text-xl font-bold text-white mb-2">{useCase.title}</h3>
-                  <p className="text-gray-400 leading-relaxed">{useCase.description}</p>
+            {useCases.map((useCase, index) => {
+              const Icon = useCase.icon
+              return (
+                <div
+                  key={index}
+                  className="flex items-start gap-6 rounded-2xl bg-surface p-8 shadow-lg hover:shadow-xl transition-shadow"
+                >
+                  <Icon className="h-10 w-10 flex-shrink-0 text-primary-400" strokeWidth={1.75} />
+                  <div>
+                    <h3 className="text-xl font-bold text-white mb-2">{useCase.title}</h3>
+                    <p className="text-gray-400 leading-relaxed">{useCase.description}</p>
+                  </div>
                 </div>
-              </div>
-            ))}
+              )
+            })}
           </div>
         </div>
       </section>

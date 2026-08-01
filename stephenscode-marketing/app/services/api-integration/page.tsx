@@ -1,5 +1,6 @@
 import Link from 'next/link'
 import type { Metadata } from 'next'
+import { Link2, Phone, Globe, BarChart3, Zap } from 'lucide-react'
 import Breadcrumbs from '@/components/Breadcrumbs'
 import PhoneLink from '@/components/PhoneLink'
 
@@ -187,7 +188,7 @@ export default function APIIntegration() {
         <div className="relative mx-auto max-w-7xl px-6 py-24 sm:py-32 lg:px-8">
           <div className="mx-auto max-w-4xl">
             <div className="inline-flex items-center gap-3 rounded-full bg-surface-card/60 px-6 py-3 text-sm font-semibold backdrop-blur-lg border border-surface-border mb-8">
-              <span className="text-2xl">🔗</span>
+              <Link2 className="h-6 w-6" />
               <span>200+ API Integration Projects Completed</span>
             </div>
 
@@ -222,7 +223,7 @@ export default function APIIntegration() {
                 location="api_integration_page_top"
                 className="w-full sm:w-auto flex items-center justify-center gap-2 rounded-lg border-2 border-surface-border px-8 py-4 text-lg font-bold text-white hover:bg-surface-card/60 transition-all"
               >
-                <span>📞</span>
+                <Phone className="h-4 w-4" />
                 <span>(936) 323-4527</span>
               </PhoneLink>
             </div>
@@ -457,7 +458,7 @@ export default function APIIntegration() {
                 location="api_integration_page_bottom"
                 className="w-full sm:w-auto flex items-center justify-center gap-2 rounded-lg bg-surface-card/60 px-10 py-5 text-xl font-bold text-white border-2 border-surface-border hover:bg-surface-elevated/80 transition-all"
               >
-                <span>📞</span>
+                <Phone className="h-4 w-4" />
                 <span>(936) 323-4527</span>
               </PhoneLink>
             </div>
@@ -483,7 +484,7 @@ export default function APIIntegration() {
               href="/services/conroe-web-development"
               className="group bg-surface-card rounded-2xl p-8 border-2 border-surface-border hover:border-primary-300 hover:shadow-xl transition-all"
             >
-              <div className="text-3xl mb-4">🌐</div>
+              <Globe className="h-8 w-8 text-primary-500 mb-4" strokeWidth={1.75} />
               <h3 className="text-xl font-bold text-white mb-2 group-hover:text-primary-600">Web Development</h3>
               <p className="text-gray-400">Custom websites with built-in API integrations from the start.</p>
             </Link>
@@ -491,7 +492,7 @@ export default function APIIntegration() {
               href="/services/web-scraping"
               className="group bg-surface-card rounded-2xl p-8 border-2 border-surface-border hover:border-primary-300 hover:shadow-xl transition-all"
             >
-              <div className="text-3xl mb-4">📊</div>
+              <BarChart3 className="h-8 w-8 text-primary-500 mb-4" strokeWidth={1.75} />
               <h3 className="text-xl font-bold text-white mb-2 group-hover:text-primary-600">Web Scraping</h3>
               <p className="text-gray-400">When there's no API, we can still get your data.</p>
             </Link>
@@ -499,7 +500,7 @@ export default function APIIntegration() {
               href="/services/business-automation"
               className="group bg-surface-card rounded-2xl p-8 border-2 border-surface-border hover:border-primary-300 hover:shadow-xl transition-all"
             >
-              <div className="text-3xl mb-4">⚡</div>
+              <Zap className="h-8 w-8 text-primary-500 mb-4" strokeWidth={1.75} />
               <h3 className="text-xl font-bold text-white mb-2 group-hover:text-primary-600">Business Automation</h3>
               <p className="text-gray-400">API integrations are often the foundation of powerful automations.</p>
             </Link>

@@ -2,6 +2,7 @@ import type { Metadata } from 'next'
 import Link from 'next/link'
 import { serviceAreas, getServiceAreasByRegion } from '@/lib/service-areas-data'
 import PhoneLink from '@/components/PhoneLink'
+import { Video, MessageCircle, Rocket } from 'lucide-react'
 
 export const metadata: Metadata = {
   title: 'Service Areas | Web Design Houston, Conroe, The Woodlands TX',
@@ -210,21 +211,21 @@ export default function ServiceAreasPage() {
             </p>
             <div className="mt-10 grid grid-cols-1 gap-8 sm:grid-cols-3">
               <div className="rounded-lg bg-surface-elevated/70 p-6 border border-surface-border">
-                <div className="text-3xl mb-3">📹</div>
+                <Video className="h-8 w-8 mb-3 text-primary-400" />
                 <h3 className="text-lg font-semibold text-white">Video Consultations</h3>
                 <p className="mt-2 text-sm text-gray-400">
                   Face-to-face meetings via Zoom or Google Meet. Screen sharing for real-time design reviews and feedback sessions.
                 </p>
               </div>
               <div className="rounded-lg bg-surface-elevated/70 p-6 border border-surface-border">
-                <div className="text-3xl mb-3">💬</div>
+                <MessageCircle className="h-8 w-8 mb-3 text-primary-400" />
                 <h3 className="text-lg font-semibold text-white">Real-Time Communication</h3>
                 <p className="mt-2 text-sm text-gray-400">
                   Dedicated Slack channels, email, and phone support. You'll never wonder about your project's status.
                 </p>
               </div>
               <div className="rounded-lg bg-surface-elevated/70 p-6 border border-surface-border">
-                <div className="text-3xl mb-3">🚀</div>
+                <Rocket className="h-8 w-8 mb-3 text-primary-400" />
                 <h3 className="text-lg font-semibold text-white">Same Quality, Any Distance</h3>
                 <p className="mt-2 text-sm text-gray-400">
                   Same transparent pricing, same timeline guarantees, same veteran-owned quality, regardless of where you're located.

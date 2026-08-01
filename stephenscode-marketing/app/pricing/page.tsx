@@ -3,6 +3,7 @@ import type { Metadata } from 'next'
 import { corePackages, premiumBuilds } from '@/lib/services-data'
 import PhoneLink from '@/components/PhoneLink'
 import { basicAddOns, advancedAddOns } from '@/lib/addons-data'
+import { DollarSign, Zap, Trophy, Target, Rocket, Check, Clock, Star, TrendingUp } from 'lucide-react'
 
 export const metadata: Metadata = {
   title: 'Houston Web Development | Flat-Rate Small Business Websites from $250',
@@ -196,8 +197,9 @@ export default function PricingPage() {
 
         <div className="relative mx-auto max-w-7xl px-6 py-24 sm:py-32 lg:px-8">
           <div className="mx-auto max-w-3xl text-center">
-            <div className="inline-flex items-center rounded-full bg-accent-500/20 px-4 py-2 text-sm font-semibold text-white ring-1 ring-inset ring-accent-500/30 mb-8 animate-fade-in-up">
-              💰 100% Transparent Pricing
+            <div className="inline-flex items-center gap-2 rounded-full bg-accent-500/20 px-4 py-2 text-sm font-semibold text-white ring-1 ring-inset ring-accent-500/30 mb-8 animate-fade-in-up">
+              <DollarSign className="h-4 w-4" />
+              100% Transparent Pricing
             </div>
             <h1 className="text-5xl font-bold tracking-tight sm:text-7xl animate-fade-in-up animation-delay-200">
               Simple, Transparent Pricing
@@ -284,8 +286,9 @@ export default function PricingPage() {
                 >
                   {isPopular && (
                     <div className="absolute -top-4 left-1/2 -translate-x-1/2">
-                      <span className="inline-flex items-center rounded-full bg-gradient-to-r from-accent-500 to-accent-600 px-4 py-1.5 text-xs font-bold text-white shadow-lg">
-                        ⭐ MOST POPULAR
+                      <span className="inline-flex items-center gap-1 rounded-full bg-gradient-to-r from-accent-500 to-accent-600 px-4 py-1.5 text-xs font-bold text-white shadow-lg">
+                        <Star className="h-3.5 w-3.5" />
+                        MOST POPULAR
                       </span>
                     </div>
                   )}
@@ -349,8 +352,9 @@ export default function PricingPage() {
       <section className="bg-surface py-24 sm:py-32">
         <div className="mx-auto max-w-7xl px-6 lg:px-8">
           <div className="mx-auto max-w-2xl text-center mb-16">
-            <div className="inline-flex items-center rounded-full bg-gradient-to-r from-primary-500/15 to-accent-500/15 px-4 py-2 text-sm font-semibold text-primary-200 mb-4">
-              ⚡ Premium Solutions
+            <div className="inline-flex items-center gap-2 rounded-full bg-gradient-to-r from-primary-500/15 to-accent-500/15 px-4 py-2 text-sm font-semibold text-primary-200 mb-4">
+              <Zap className="h-4 w-4" />
+              Premium Solutions
             </div>
             <h2 className="text-4xl font-bold tracking-tight text-white sm:text-5xl">
               Advanced Full-Stack Platforms
@@ -366,8 +370,8 @@ export default function PricingPage() {
                 key={pkg.id}
                 className="relative flex flex-col rounded-3xl border-2 border-primary-600 bg-gradient-to-br from-surface-card to-surface-elevated p-8 shadow-2xl hover:shadow-3xl transition-all"
               >
-                <div className="absolute -top-3 -right-3 w-16 h-16 bg-gradient-to-br from-accent-500 to-primary-600 rounded-full flex items-center justify-center text-2xl shadow-lg">
-                  🏆
+                <div className="absolute -top-3 -right-3 w-16 h-16 bg-gradient-to-br from-accent-500 to-primary-600 rounded-full flex items-center justify-center shadow-lg">
+                  <Trophy className="h-7 w-7 text-white" />
                 </div>
                 <h3 className="text-2xl font-bold text-white">{pkg.name}</h3>
                 <p className="mt-4 text-sm text-gray-400 leading-relaxed">{pkg.shortDescription}</p>
@@ -433,8 +437,9 @@ export default function PricingPage() {
       <section className="bg-surface py-24 sm:py-32">
         <div className="mx-auto max-w-7xl px-6 lg:px-8">
           <div className="mx-auto max-w-2xl text-center mb-16">
-            <div className="inline-flex items-center rounded-full bg-accent-500/15 px-4 py-2 text-sm font-semibold text-accent-200 mb-4">
-              🎯 40+ Add-Ons Available
+            <div className="inline-flex items-center gap-2 rounded-full bg-accent-500/15 px-4 py-2 text-sm font-semibold text-accent-200 mb-4">
+              <Target className="h-4 w-4" />
+              40+ Add-Ons Available
             </div>
             <h2 className="text-4xl font-bold tracking-tight text-white sm:text-5xl">
               Customize Your Website
@@ -498,7 +503,10 @@ export default function PricingPage() {
                   </div>
                   <p className="text-sm text-gray-400 mb-4 leading-relaxed">{addon.shortDescription}</p>
                   <div className="flex items-center justify-between text-sm">
-                    <span className="text-gray-400">⏱️ {addon.timeline}</span>
+                    <span className="inline-flex items-center gap-1 text-gray-400">
+                    <Clock className="h-3.5 w-3.5" />
+                    {addon.timeline}
+                  </span>
                     <span className="font-semibold text-primary-600 group-hover:text-accent-600 transition-colors">
                       Details <span aria-hidden="true" className="inline-block transition-transform group-hover:translate-x-1">→</span>
                     </span>
@@ -542,8 +550,9 @@ export default function PricingPage() {
           <div className="mx-auto max-w-4xl">
             <div className="rounded-3xl bg-gradient-to-br from-surface-card to-surface-elevated p-12 border-2 border-primary-500/30 shadow-2xl shadow-primary-500/10">
               <div className="text-center mb-8">
-                <div className="inline-flex items-center rounded-full bg-primary-500/20 border border-primary-500/30 px-4 py-2 text-sm font-semibold text-primary-400 mb-6">
-                  🚀 Need Something Different?
+                <div className="inline-flex items-center gap-2 rounded-full bg-primary-500/20 border border-primary-500/30 px-4 py-2 text-sm font-semibold text-primary-400 mb-6">
+                  <Rocket className="h-4 w-4" />
+                  Need Something Different?
                 </div>
                 <h2 className="text-4xl md:text-5xl font-bold text-white mb-4">
                   Custom Solutions
@@ -629,21 +638,21 @@ export default function PricingPage() {
           <div className="mx-auto max-w-5xl">
             <div className="grid grid-cols-1 gap-8 lg:grid-cols-3">
               <div className="rounded-2xl bg-surface-card/60 backdrop-blur-sm p-8 border border-surface-border hover:bg-surface-elevated/40 transition-all">
-                <div className="text-4xl mb-4">🎯</div>
+                <Target className="h-9 w-9 text-accent-400 mb-4" />
                 <h3 className="text-xl font-bold text-white mb-3">No Surprises</h3>
                 <p className="text-gray-200 leading-relaxed">
                   You know the exact cost upfront. No hourly billing that spirals out of control or unexpected charges at the end.
                 </p>
               </div>
               <div className="rounded-2xl bg-surface-card/60 backdrop-blur-sm p-8 border border-surface-border hover:bg-surface-elevated/40 transition-all">
-                <div className="text-4xl mb-4">💰</div>
+                <DollarSign className="h-9 w-9 text-accent-400 mb-4" />
                 <h3 className="text-xl font-bold text-white mb-3">Budget-Friendly</h3>
                 <p className="text-gray-200 leading-relaxed">
                   Plan your budget accurately. Mix and match packages and add-ons to get exactly what you need within your budget.
                 </p>
               </div>
               <div className="rounded-2xl bg-surface-card/60 backdrop-blur-sm p-8 border border-surface-border hover:bg-surface-elevated/40 transition-all">
-                <div className="text-4xl mb-4">⭐</div>
+                <Star className="h-9 w-9 text-accent-400 mb-4" />
                 <h3 className="text-xl font-bold text-white mb-3">Quality Focus</h3>
                 <p className="text-gray-200 leading-relaxed">
                   We focus on delivering quality, not padding hours. Flat rates align our incentives: we succeed when you succeed.
@@ -655,28 +664,28 @@ export default function PricingPage() {
           {/* Additional benefits */}
           <div className="mt-16 grid grid-cols-1 md:grid-cols-2 gap-6 max-w-4xl mx-auto">
             <div className="flex items-start gap-4 text-white">
-              <div className="flex-shrink-0 w-8 h-8 rounded-full bg-accent-500 flex items-center justify-center text-sm font-bold">✓</div>
+              <div className="flex-shrink-0 w-8 h-8 rounded-full bg-accent-500 flex items-center justify-center"><Check className="h-4 w-4 text-white" strokeWidth={3} /></div>
               <div>
                 <h4 className="font-semibold mb-1">All-Inclusive Packages</h4>
                 <p className="text-sm text-gray-300">Design, development, revisions, testing, and launch all included</p>
               </div>
             </div>
             <div className="flex items-start gap-4 text-white">
-              <div className="flex-shrink-0 w-8 h-8 rounded-full bg-accent-500 flex items-center justify-center text-sm font-bold">✓</div>
+              <div className="flex-shrink-0 w-8 h-8 rounded-full bg-accent-500 flex items-center justify-center"><Check className="h-4 w-4 text-white" strokeWidth={3} /></div>
               <div>
                 <h4 className="font-semibold mb-1">Clear Timelines</h4>
                 <p className="text-sm text-gray-300">Every package has a defined timeline so you know when to expect results</p>
               </div>
             </div>
             <div className="flex items-start gap-4 text-white">
-              <div className="flex-shrink-0 w-8 h-8 rounded-full bg-accent-500 flex items-center justify-center text-sm font-bold">✓</div>
+              <div className="flex-shrink-0 w-8 h-8 rounded-full bg-accent-500 flex items-center justify-center"><Check className="h-4 w-4 text-white" strokeWidth={3} /></div>
               <div>
                 <h4 className="font-semibold mb-1">Scalable Solutions</h4>
                 <p className="text-sm text-gray-300">Start small and add features later as your business grows</p>
               </div>
             </div>
             <div className="flex items-start gap-4 text-white">
-              <div className="flex-shrink-0 w-8 h-8 rounded-full bg-accent-500 flex items-center justify-center text-sm font-bold">✓</div>
+              <div className="flex-shrink-0 w-8 h-8 rounded-full bg-accent-500 flex items-center justify-center"><Check className="h-4 w-4 text-white" strokeWidth={3} /></div>
               <div>
                 <h4 className="font-semibold mb-1">Dedicated Support</h4>
                 <p className="text-sm text-gray-300">Direct access to your developer throughout the entire project</p>
@@ -736,8 +745,9 @@ export default function PricingPage() {
       <section className="bg-surface-card py-16">
         <div className="mx-auto max-w-4xl px-6 lg:px-8">
           <div className="rounded-3xl bg-surface p-8 md:p-12 shadow-xl border border-surface-border">
-            <div className="inline-flex items-center rounded-full bg-accent-500/15 px-4 py-2 text-sm font-semibold text-accent-400 mb-6">
-              📈 Real Client Result
+            <div className="inline-flex items-center gap-2 rounded-full bg-accent-500/15 px-4 py-2 text-sm font-semibold text-accent-400 mb-6">
+              <TrendingUp className="h-4 w-4" />
+              Real Client Result
             </div>
             <p className="text-2xl md:text-3xl font-bold text-white leading-snug mb-4">
               Benefit Builder grew from roughly $1,000 MRR to $52,000 MRR after we built their platform.
@@ -781,7 +791,7 @@ export default function PricingPage() {
               </PhoneLink>
             </div>
             <p className="mt-6 text-sm text-gray-300">
-              🎯 Free consultation • 📞 Quick response • 💰 Transparent pricing
+              Free consultation • Quick response • Transparent pricing
             </p>
           </div>
         </div>

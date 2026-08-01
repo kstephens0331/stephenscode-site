@@ -2,6 +2,7 @@ import type { Metadata } from 'next'
 import Link from 'next/link'
 import { getAllPosts } from '@/lib/blog'
 import { notFound } from 'next/navigation'
+import { BookOpen, Code2, Search, Briefcase, ShoppingCart, type LucideIcon } from 'lucide-react'
 
 // Map URL slugs to category names (must match blog post frontmatter categories exactly)
 const categoryMap: { [key: string]: string } = {
@@ -12,11 +13,11 @@ const categoryMap: { [key: string]: string } = {
 }
 
 // Map categories to icons and colors
-const categoryConfig: { [key: string]: { icon: string; color: string; gradient: string } } = {
-  'Web Development': { icon: '💻', color: 'from-primary-600 to-primary-800', gradient: 'from-black via-surface to-primary-950' },
-  'SEO': { icon: '🔍', color: 'from-accent-500 to-accent-700', gradient: 'from-black via-surface to-accent-950' },
-  'Business': { icon: '💼', color: 'from-primary-500 to-accent-600', gradient: 'from-black via-surface-card to-primary-900' },
-  'E-Commerce': { icon: '🛒', color: 'from-accent-600 to-primary-700', gradient: 'from-black via-surface-card to-accent-900' },
+const categoryConfig: { [key: string]: { icon: LucideIcon; color: string; gradient: string } } = {
+  'Web Development': { icon: Code2, color: 'from-primary-600 to-primary-800', gradient: 'from-black via-surface to-primary-950' },
+  'SEO': { icon: Search, color: 'from-accent-500 to-accent-700', gradient: 'from-black via-surface to-accent-950' },
+  'Business': { icon: Briefcase, color: 'from-primary-500 to-accent-600', gradient: 'from-black via-surface-card to-primary-900' },
+  'E-Commerce': { icon: ShoppingCart, color: 'from-accent-600 to-primary-700', gradient: 'from-black via-surface-card to-accent-900' },
 }
 
 type Props = {
@@ -89,14 +90,14 @@ export default async function CategoryPage({ params }: Props) {
 
   const allPosts = getAllPosts()
   const categoryPosts = allPosts.filter(post => post.category === categoryName)
-  const config = categoryConfig[categoryName] || { icon: '📚', color: 'from-primary-500 to-accent-500', gradient: 'from-black via-surface to-surface-card' }
+  const config = categoryConfig[categoryName] || { icon: BookOpen, color: 'from-primary-500 to-accent-500', gradient: 'from-black via-surface to-surface-card' }
 
   const categories = [
-    { name: 'All Posts', slug: 'all', icon: '📚', color: 'from-primary-500 to-accent-500' },
-    { name: 'Web Development', slug: 'web-development', icon: '💻', color: 'from-primary-600 to-primary-800' },
-    { name: 'SEO', slug: 'seo', icon: '🔍', color: 'from-accent-500 to-accent-700' },
-    { name: 'Business', slug: 'business', icon: '💼', color: 'from-primary-500 to-accent-600' },
-    { name: 'E-Commerce', slug: 'ecommerce', icon: '🛒', color: 'from-accent-600 to-primary-700' },
+    { name: 'All Posts', slug: 'all', icon: BookOpen, color: 'from-primary-500 to-accent-500' },
+    { name: 'Web Development', slug: 'web-development', icon: Code2, color: 'from-primary-600 to-primary-800' },
+    { name: 'SEO', slug: 'seo', icon: Search, color: 'from-accent-500 to-accent-700' },
+    { name: 'Business', slug: 'business', icon: Briefcase, color: 'from-primary-500 to-accent-600' },
+    { name: 'E-Commerce', slug: 'ecommerce', icon: ShoppingCart, color: 'from-accent-600 to-primary-700' },
   ]
 
   return (
@@ -123,7 +124,9 @@ export default async function CategoryPage({ params }: Props) {
             >
               ← Back to All Posts
             </Link>
-            <div className="text-6xl mb-6">{config.icon}</div>
+            <div className="mb-6 flex justify-center">
+              <config.icon className="h-14 w-14" />
+            </div>
             <h1 className="text-5xl font-bold tracking-tight sm:text-7xl animate-fade-in-up">
               {categoryName}
             </h1>
@@ -159,9 +162,7 @@ export default async function CategoryPage({ params }: Props) {
                   style={{ animationDelay: `${index * 100}ms` }}
                 >
                   <div className="flex items-center gap-3">
-                    <span className={`text-2xl group-hover:scale-110 transition-transform ${isActive ? 'filter brightness-0 invert' : ''}`}>
-                      {category.icon}
-                    </span>
+                    <category.icon className="h-6 w-6 transition-transform group-hover:scale-110" />
                     <span className={`font-semibold transition-colors ${isActive ? 'text-white' : 'group-hover:text-primary-600'}`}>
                       {category.name}
                     </span>
@@ -181,8 +182,8 @@ export default async function CategoryPage({ params }: Props) {
               <div className="mx-auto max-w-3xl">
                 <div className="relative rounded-3xl bg-surface-card p-16 shadow-2xl shadow-black/20 border-2 border-surface-border">
                   <div className="absolute -top-8 left-1/2 -translate-x-1/2">
-                    <div className={`w-16 h-16 rounded-full bg-gradient-to-br ${config.color} flex items-center justify-center text-3xl shadow-xl`}>
-                      {config.icon}
+                    <div className={`w-16 h-16 rounded-full bg-gradient-to-br ${config.color} flex items-center justify-center shadow-xl`}>
+                      <config.icon className="h-8 w-8 text-white" />
                     </div>
                   </div>
 
@@ -301,7 +302,9 @@ export default async function CategoryPage({ params }: Props) {
 
         <div className="relative px-6 py-24 sm:px-6 sm:py-32 lg:px-8">
           <div className="mx-auto max-w-2xl text-center">
-            <div className="text-5xl mb-6">{config.icon}</div>
+            <div className="mb-6 flex justify-center">
+              <config.icon className="h-12 w-12" />
+            </div>
             <h2 className="text-4xl font-bold tracking-tight sm:text-5xl">
               Need Expert Help?
             </h2>

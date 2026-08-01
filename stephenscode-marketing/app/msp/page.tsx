@@ -2,6 +2,7 @@ import Link from 'next/link'
 import type { Metadata } from 'next'
 import { managedITServices, cybersecurityServices, cloudServices, supportServices } from '@/lib/msp-services-data'
 import PhoneLink from '@/components/PhoneLink'
+import { Monitor, Lock, Cloud, Wrench, Clock, Award, MapPin, DollarSign, Phone } from 'lucide-react'
 
 export const metadata: Metadata = {
   title: 'Houston Managed IT Services | $99/User/Mo | 24/7 Support',
@@ -113,7 +114,7 @@ export default function MSPServicesPage() {
       subtitle: 'Your Outsourced IT Department',
       description: 'Complete IT management so you can focus on your business. From helpdesk support to strategic IT planning.',
       services: managedITServices,
-      icon: '🖥️',
+      Icon: Monitor,
       gradient: 'from-primary-600 to-primary-800'
     },
     {
@@ -121,7 +122,7 @@ export default function MSPServicesPage() {
       subtitle: 'Protect Your Business',
       description: 'Defend against ransomware, phishing, and data breaches with enterprise-grade security solutions.',
       services: cybersecurityServices,
-      icon: '🔒',
+      Icon: Lock,
       gradient: 'from-primary-500 to-primary-700'
     },
     {
@@ -129,7 +130,7 @@ export default function MSPServicesPage() {
       subtitle: 'Modern Infrastructure',
       description: 'Microsoft 365 management, cloud backup, and migration services to modernize your IT.',
       services: cloudServices,
-      icon: '☁️',
+      Icon: Cloud,
       gradient: 'from-accent-600 to-accent-800'
     },
     {
@@ -137,7 +138,7 @@ export default function MSPServicesPage() {
       subtitle: 'Flexible Options',
       description: 'On-demand support, network installation, and consulting for businesses of all sizes.',
       services: supportServices,
-      icon: '🔧',
+      Icon: Wrench,
       gradient: 'from-orange-600 to-orange-800'
     }
   ]
@@ -146,25 +147,25 @@ export default function MSPServicesPage() {
     {
       title: '24/7 Monitoring & Support',
       description: 'Your systems are monitored around the clock. When issues arise, we\'re on it, often before you even notice.',
-      icon: '🕐',
+      Icon: Clock,
       stats: 'Always-On Protection'
     },
     {
       title: 'Veteran-Owned Business',
       description: 'Military discipline meets IT expertise. We bring the same dedication and attention to detail to protecting your business.',
-      icon: '🎖️',
+      Icon: Award,
       stats: '14+ Years Experience'
     },
     {
       title: 'Local Houston-Area Team',
       description: 'Based in Conroe, we provide on-site support throughout Houston, The Woodlands, Spring, and surrounding areas.',
-      icon: '📍',
+      Icon: MapPin,
       stats: 'On-Site When Needed'
     },
     {
       title: 'Predictable Monthly Costs',
       description: 'No surprise IT bills. Know exactly what you\'ll pay each month with our transparent per-user pricing.',
-      icon: '💰',
+      Icon: DollarSign,
       stats: 'From $99/user/mo'
     }
   ]
@@ -198,7 +199,7 @@ export default function MSPServicesPage() {
         <div className="relative mx-auto max-w-7xl px-6 py-32 sm:py-40 lg:px-8">
           <div className="mx-auto max-w-4xl text-center">
             <div className="mb-8 inline-flex items-center gap-3 rounded-full bg-primary-500/20 px-6 py-3 text-sm font-semibold backdrop-blur-lg border border-primary-500/30 shadow-2xl">
-              <span className="text-2xl">🔒</span>
+              <Lock className="h-5 w-5" />
               <span>Managed IT & Cybersecurity</span>
             </div>
 
@@ -236,7 +237,8 @@ export default function MSPServicesPage() {
                 location="msp_page_top"
                 className="inline-flex items-center gap-2 rounded-lg bg-surface-card/60 px-8 py-4 text-lg font-bold text-white backdrop-blur-lg border-2 border-surface-border hover:bg-surface-elevated/80 transition-all"
               >
-                <span>📞 (936) 323-4527</span>
+                <Phone className="h-5 w-5" />
+                (936) 323-4527
               </PhoneLink>
             </div>
           </div>
@@ -255,7 +257,7 @@ export default function MSPServicesPage() {
           <div className="mx-auto max-w-7xl px-6 lg:px-8">
             <div className="mx-auto max-w-2xl text-center mb-16">
               <div className={`inline-flex items-center gap-3 rounded-full bg-gradient-to-r ${category.gradient} px-6 py-3 text-white shadow-xl mb-6`}>
-                <span className="text-3xl">{category.icon}</span>
+                <category.Icon className="h-7 w-7" />
                 <span className="font-bold">{category.subtitle}</span>
               </div>
               <h2 className="text-4xl font-bold tracking-tight text-white sm:text-5xl mb-6">
@@ -331,8 +333,8 @@ export default function MSPServicesPage() {
             {whyChooseMSP.map((item, index) => (
               <div key={index} className="relative group overflow-hidden rounded-2xl bg-surface-card/60 backdrop-blur-lg border border-surface-border p-8 hover:bg-surface-elevated/80 transition-all">
                 <div className="flex items-start gap-6">
-                  <div className="flex h-16 w-16 flex-shrink-0 items-center justify-center rounded-xl bg-primary-500 text-4xl shadow-lg group-hover:scale-110 transition-transform">
-                    {item.icon}
+                  <div className="flex h-16 w-16 flex-shrink-0 items-center justify-center rounded-xl bg-primary-500 shadow-lg group-hover:scale-110 transition-transform">
+                    <item.Icon className="h-8 w-8 text-white" />
                   </div>
                   <div className="flex-1">
                     <h3 className="text-xl font-bold text-white mb-2">{item.title}</h3>
@@ -425,7 +427,8 @@ export default function MSPServicesPage() {
                 location="msp_page_bottom"
                 className="inline-flex items-center gap-2 rounded-lg bg-surface-card/60 px-10 py-5 text-xl font-bold text-white backdrop-blur-lg border-2 border-surface-border hover:bg-surface-elevated/80 transition-all"
               >
-                <span>📞 Call (936) 323-4527</span>
+                <Phone className="h-5 w-5" />
+                Call (936) 323-4527
               </PhoneLink>
             </div>
           </div>

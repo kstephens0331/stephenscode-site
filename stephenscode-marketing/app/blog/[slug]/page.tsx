@@ -3,6 +3,7 @@ import Link from 'next/link'
 import { notFound } from 'next/navigation'
 import { getAllPosts, getPostBySlug } from '@/lib/blog'
 import Breadcrumbs from '@/components/Breadcrumbs'
+import { Medal } from 'lucide-react'
 
 interface BlogPostPageProps {
   params: Promise<{
@@ -130,8 +131,8 @@ export default async function BlogPostPage({ params }: BlogPostPageProps) {
               {post.excerpt}
             </p>
             <div className="mt-6 flex items-center gap-3">
-              <div className="h-12 w-12 rounded-full bg-surface-card/60 flex items-center justify-center text-2xl">
-                🎖️
+              <div className="h-12 w-12 rounded-full bg-surface-card/60 flex items-center justify-center">
+                <Medal className="h-6 w-6" />
               </div>
               <div>
                 <p className="font-semibold">{post.author}</p>
@@ -212,8 +213,8 @@ export default async function BlogPostPage({ params }: BlogPostPageProps) {
           {/* Author Bio */}
           <div className="mt-12 pt-8 border-t border-surface-border">
             <div className="flex items-start gap-4 sm:gap-6">
-              <div className="h-16 w-16 sm:h-20 sm:w-20 rounded-full bg-primary-500/10 flex items-center justify-center text-3xl sm:text-4xl flex-shrink-0">
-                🎖️
+              <div className="h-16 w-16 sm:h-20 sm:w-20 rounded-full bg-primary-500/10 flex items-center justify-center flex-shrink-0">
+                <Medal className="h-8 w-8 sm:h-10 sm:w-10 text-primary-400" />
               </div>
               <div className="flex-1">
                 <h3 className="text-lg font-semibold text-white">About the Author</h3>

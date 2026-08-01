@@ -1,6 +1,7 @@
 import type { Metadata } from 'next'
 import Link from 'next/link'
 import { getAllPosts } from '@/lib/blog'
+import { BookOpen, Code2, Search, Briefcase, ShoppingCart, FileText, Mail } from 'lucide-react'
 
 export const metadata: Metadata = {
   title: 'Blog | Web Development Tips & Houston Business Growth',
@@ -48,11 +49,11 @@ export default function BlogPage() {
   const posts = getAllPosts()
 
   const categories = [
-    { name: 'All Posts', slug: 'all', icon: '📚', color: 'from-primary-500 to-accent-500' },
-    { name: 'Web Development', slug: 'web-development', icon: '💻', color: 'from-primary-600 to-primary-800' },
-    { name: 'SEO', slug: 'seo', icon: '🔍', color: 'from-accent-500 to-accent-700' },
-    { name: 'Business', slug: 'business', icon: '💼', color: 'from-primary-500 to-accent-600' },
-    { name: 'E-Commerce', slug: 'ecommerce', icon: '🛒', color: 'from-accent-600 to-primary-700' },
+    { name: 'All Posts', slug: 'all', icon: BookOpen, color: 'from-primary-500 to-accent-500' },
+    { name: 'Web Development', slug: 'web-development', icon: Code2, color: 'from-primary-600 to-primary-800' },
+    { name: 'SEO', slug: 'seo', icon: Search, color: 'from-accent-500 to-accent-700' },
+    { name: 'Business', slug: 'business', icon: Briefcase, color: 'from-primary-500 to-accent-600' },
+    { name: 'E-Commerce', slug: 'ecommerce', icon: ShoppingCart, color: 'from-accent-600 to-primary-700' },
   ]
 
   return (
@@ -80,7 +81,7 @@ export default function BlogPage() {
         <div className="relative mx-auto max-w-7xl px-6 py-24 sm:py-32 lg:px-8">
           <div className="mx-auto max-w-3xl text-center">
             <div className="inline-flex items-center rounded-full bg-accent-500/20 px-4 py-2 text-sm font-semibold text-white ring-1 ring-inset ring-accent-500/30 mb-8 animate-fade-in-up">
-              📝 Expert Insights & Tips
+              Expert Insights & Tips
             </div>
             <h1 className="text-5xl font-bold tracking-tight sm:text-7xl animate-fade-in-up animation-delay-200">
               StephensCode Blog
@@ -111,7 +112,7 @@ export default function BlogPage() {
                 style={{ animationDelay: `${index * 100}ms` }}
               >
                 <div className="flex items-center gap-3">
-                  <span className="text-2xl group-hover:scale-110 transition-transform">{category.icon}</span>
+                  <category.icon className="h-6 w-6 text-white transition-transform group-hover:scale-110" />
                   <span className="font-semibold text-white group-hover:text-primary-600 transition-colors">
                     {category.name}
                   </span>
@@ -130,8 +131,8 @@ export default function BlogPage() {
               <div className="mx-auto max-w-3xl">
                 <div className="relative rounded-3xl bg-surface-card p-16 shadow-2xl shadow-black/20 border-2 border-surface-border">
                   <div className="absolute -top-8 left-1/2 -translate-x-1/2">
-                    <div className="w-16 h-16 rounded-full bg-gradient-to-br from-primary-500 to-accent-500 flex items-center justify-center text-3xl shadow-xl">
-                      📝
+                    <div className="w-16 h-16 rounded-full bg-gradient-to-br from-primary-500 to-accent-500 flex items-center justify-center shadow-xl">
+                      <FileText className="h-8 w-8 text-white" />
                     </div>
                   </div>
 
@@ -145,17 +146,17 @@ export default function BlogPage() {
                   {/* Featured Topics Preview */}
                   <div className="grid md:grid-cols-3 gap-6 mb-10">
                     <div className="rounded-xl bg-primary-500/10 p-6 border border-surface-border">
-                      <div className="text-3xl mb-3">💻</div>
+                      <Code2 className="h-8 w-8 mb-3 text-primary-400" />
                       <h3 className="font-bold text-white mb-2">Web Development</h3>
                       <p className="text-sm text-gray-400">Modern frameworks, best practices, and performance optimization</p>
                     </div>
                     <div className="rounded-xl bg-accent-500/10 p-6 border border-surface-border">
-                      <div className="text-3xl mb-3">🔍</div>
+                      <Search className="h-8 w-8 mb-3 text-accent-400" />
                       <h3 className="font-bold text-white mb-2">SEO Strategies</h3>
                       <p className="text-sm text-gray-400">Local SEO, keyword research, and ranking techniques</p>
                     </div>
                     <div className="rounded-xl bg-primary-500/5 p-6 border border-primary-500/20">
-                      <div className="text-3xl mb-3">💼</div>
+                      <Briefcase className="h-8 w-8 mb-3 text-primary-400" />
                       <h3 className="font-bold text-white mb-2">Business Growth</h3>
                       <p className="text-sm text-gray-400">Automation, conversion optimization, and scaling tips</p>
                     </div>
@@ -269,7 +270,9 @@ export default function BlogPage() {
 
         <div className="relative px-6 py-24 sm:px-6 sm:py-32 lg:px-8">
           <div className="mx-auto max-w-2xl text-center">
-            <div className="text-5xl mb-6">📬</div>
+            <div className="mb-6 flex justify-center">
+              <Mail className="h-12 w-12" />
+            </div>
             <h2 className="text-4xl font-bold tracking-tight sm:text-5xl">
               Stay Updated
             </h2>
@@ -295,7 +298,7 @@ export default function BlogPage() {
               </Link>
             </div>
             <p className="mt-6 text-sm text-gray-300">
-              💡 Expert insights • 🚀 Growth strategies • 🎯 Actionable tips
+              Expert insights • Growth strategies • Actionable tips
             </p>
           </div>
         </div>

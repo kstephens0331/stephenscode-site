@@ -72,23 +72,23 @@ export async function POST(request: Request) {
 
     // Email content for YOU (the business owner)
     const ownerEmailContent = `
-🎯 NEW LEAD FROM DEMO PORTFOLIO!
+NEW LEAD FROM DEMO PORTFOLIO!
 
 A potential client just interacted with your "${demoName}" demo and is interested in this design/package.
 
 ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
 
-📋 DEMO DETAILS:
+DEMO DETAILS:
    • Demo Name: ${demoName}
    • Package: ${demoPackage}
    • Demo URL: https://www.stephenscode.dev/demos/${demoSlug}
 
-👤 CLIENT INFORMATION:
+CLIENT INFORMATION:
    • Name: ${clientName}
    • Phone: ${clientPhone || 'Not provided'}
    • Email: ${clientEmail || 'Not provided'}
 
-💼 INTEREST DETAILS:
+INTEREST DETAILS:
    • Service Requested: ${service || 'General inquiry'}
    • Preferred Date: ${preferredDate || 'Not specified'}
    • Preferred Time: ${preferredTime || 'Not specified'}
@@ -96,7 +96,7 @@ A potential client just interacted with your "${demoName}" demo and is intereste
 
 ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
 
-🔥 ACTION REQUIRED:
+ACTION REQUIRED:
 This is a qualified lead who browsed your demo portfolio and liked the "${demoName}" design.
 
 RECOMMENDED FOLLOW-UP:
@@ -105,7 +105,7 @@ RECOMMENDED FOLLOW-UP:
 3. Discuss how you can build something similar for their business
 4. Send pricing based on the "${demoPackage}" package
 
-💡 TIP: They already know your pricing and capabilities from the demo, so this is a warm lead!
+TIP: They already know your pricing and capabilities from the demo, so this is a warm lead!
 
 ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
 
@@ -117,7 +117,7 @@ Lead captured: ${new Date().toLocaleString('en-US', { timeZone: 'America/Chicago
       await transporter.sendMail({
         from: process.env.SMTP_FROM || process.env.SMTP_USER,
         to: process.env.CONTACT_EMAIL || 'info@stephenscode.dev',
-        subject: `🎯 NEW DEMO LEAD: ${clientName}, interested in "${demoName}" Design`,
+        subject: `NEW DEMO LEAD: ${clientName}, interested in "${demoName}" Design`,
         text: ownerEmailContent,
         replyTo: clientEmail || clientPhone,
       })
@@ -138,9 +138,9 @@ Best regards,
 StephensCode Team
 
 ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
-📞 (936) 323-4527
-📧 info@stephenscode.dev
-🌐 stephenscode.dev
+(936) 323-4527
+info@stephenscode.dev
+stephenscode.dev
         `.trim()
 
         await transporter.sendMail({

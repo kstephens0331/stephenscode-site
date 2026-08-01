@@ -1,5 +1,6 @@
 import type { Metadata } from 'next'
 import Link from 'next/link'
+import { Zap, Gift, Handshake, Flag, Award, CheckCircle2 } from 'lucide-react'
 import ContactForm from '@/components/ContactForm'
 import PhoneLink from '@/components/PhoneLink'
 
@@ -136,7 +137,7 @@ export default function ContactPage() {
         <div className="relative mx-auto max-w-7xl px-6 py-24 sm:py-32 lg:px-8">
           <div className="mx-auto max-w-3xl text-center">
             <div className="inline-flex items-center rounded-full bg-accent-500/20 px-4 py-2 text-sm font-semibold text-white ring-1 ring-inset ring-accent-500/30 mb-8 animate-fade-in-up">
-              💬 Free Consultation Available
+              Free Consultation Available
             </div>
             <h1 className="text-5xl font-bold tracking-tight sm:text-7xl animate-fade-in-up animation-delay-200">
               Let's Build Something Great
@@ -180,17 +181,17 @@ export default function ContactPage() {
         <div className="mx-auto max-w-7xl px-6 lg:px-8">
           <div className="grid grid-cols-1 md:grid-cols-3 gap-8 text-center">
             <div className="animate-fade-in-up">
-              <div className="text-4xl mb-3">⚡</div>
+              <Zap className="h-10 w-10 mx-auto text-primary-500 mb-3" strokeWidth={1.75} />
               <div className="text-2xl font-bold text-primary-300">24 Hours</div>
               <div className="text-sm text-gray-400 mt-2">Average Response Time</div>
             </div>
             <div className="animate-fade-in-up animation-delay-200">
-              <div className="text-4xl mb-3">🎯</div>
+              <Gift className="h-10 w-10 mx-auto text-primary-500 mb-3" strokeWidth={1.75} />
               <div className="text-2xl font-bold text-primary-300">100% Free</div>
               <div className="text-sm text-gray-400 mt-2">Consultation & Quote</div>
             </div>
             <div className="animate-fade-in-up animation-delay-400">
-              <div className="text-4xl mb-3">🤝</div>
+              <Handshake className="h-10 w-10 mx-auto text-primary-500 mb-3" strokeWidth={1.75} />
               <div className="text-2xl font-bold text-primary-300">No Pressure</div>
               <div className="text-sm text-gray-400 mt-2">Zero Obligation</div>
             </div>
@@ -300,7 +301,7 @@ export default function ContactPage() {
               {/* Trust Badges */}
               <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
                 <div className="p-6 bg-gradient-to-br from-primary-500/10 to-accent-500/10 rounded-2xl border border-surface-border">
-                  <div className="text-3xl mb-3">🇺🇸</div>
+                  <Flag className="h-8 w-8 text-primary-500 mb-3" strokeWidth={1.75} />
                   <h3 className="font-bold text-white mb-2">Veteran-Owned</h3>
                   <p className="text-sm text-gray-400 leading-relaxed">
                     Proudly serving businesses with military values: integrity, dedication, and excellence.
@@ -308,7 +309,7 @@ export default function ContactPage() {
                 </div>
 
                 <div className="p-6 bg-gradient-to-br from-green-500/10 to-teal-500/10 rounded-2xl border border-surface-border">
-                  <div className="text-3xl mb-3">⭐</div>
+                  <Award className="h-8 w-8 text-primary-500 mb-3" strokeWidth={1.75} />
                   <h3 className="font-bold text-white mb-2">14+ Years Experience</h3>
                   <p className="text-sm text-gray-400 leading-relaxed">
                     Proven track record with 200+ successful projects across Houston and Conroe.
@@ -319,7 +320,7 @@ export default function ContactPage() {
               {/* What to Expect */}
               <div className="mt-8 p-8 bg-surface-card rounded-2xl border-2 border-surface-border shadow-lg shadow-black/20">
                 <h3 className="font-bold text-white mb-4 text-lg flex items-center gap-2">
-                  <span className="text-2xl">✓</span>
+                  <CheckCircle2 className="h-6 w-6 text-primary-500" strokeWidth={1.75} />
                   What to Expect
                 </h3>
                 <ul className="space-y-3">

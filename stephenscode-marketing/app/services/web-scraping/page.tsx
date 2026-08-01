@@ -1,5 +1,10 @@
 import Link from 'next/link'
 import type { Metadata } from 'next'
+import {
+  ClipboardList, DollarSign, Home, Briefcase, Star, Newspaper,
+  FileSpreadsheet, Database, RefreshCw, Link2, BarChart3, Check,
+  Phone, Globe, Zap,
+} from 'lucide-react'
 import Breadcrumbs from '@/components/Breadcrumbs'
 import PhoneLink from '@/components/PhoneLink'
 
@@ -90,37 +95,37 @@ export default function WebScraping() {
     {
       name: 'Lead Generation',
       description: 'Compile contact lists from business directories, LinkedIn, industry websites, and public databases. Build targeted prospect lists for your sales team.',
-      icon: '📋',
+      icon: ClipboardList,
       examples: ['Business directory scraping', 'Company contact extraction', 'Event attendee lists']
     },
     {
       name: 'E-Commerce Price Monitoring',
       description: 'Track competitor prices across multiple retailers. Get alerts when prices change. Maintain competitive pricing automatically.',
-      icon: '💰',
+      icon: DollarSign,
       examples: ['Amazon price tracking', 'Competitor price alerts', 'MAP compliance monitoring']
     },
     {
       name: 'Real Estate Data',
       description: 'Aggregate property listings from multiple sources. Track prices, days on market, and market trends across regions.',
-      icon: '🏠',
+      icon: Home,
       examples: ['MLS aggregation', 'Rental price monitoring', 'Property investment analysis']
     },
     {
       name: 'Job Board Monitoring',
       description: 'Track job postings from multiple sources. Monitor competitors\' hiring activity. Aggregate industry job data.',
-      icon: '💼',
+      icon: Briefcase,
       examples: ['Competitor hiring tracking', 'Salary data collection', 'Job market analysis']
     },
     {
       name: 'Review & Sentiment Collection',
       description: 'Gather customer reviews from multiple platforms. Analyze sentiment and track reputation over time.',
-      icon: '⭐',
+      icon: Star,
       examples: ['Review aggregation', 'Sentiment analysis', 'Reputation monitoring']
     },
     {
       name: 'News & Content Monitoring',
       description: 'Track mentions of your brand, competitors, or industry topics. Get alerts when relevant content is published.',
-      icon: '📰',
+      icon: Newspaper,
       examples: ['Brand mention tracking', 'Industry news aggregation', 'Content research']
     }
   ]
@@ -129,7 +134,7 @@ export default function WebScraping() {
     {
       format: 'CSV/Excel',
       description: 'Clean, structured spreadsheets ready for analysis or import into your systems.',
-      icon: '📊'
+      icon: FileSpreadsheet
     },
     {
       format: 'JSON Files',
@@ -139,17 +144,17 @@ export default function WebScraping() {
     {
       format: 'Database Integration',
       description: 'Direct insertion into your database (PostgreSQL, MySQL, MongoDB, etc.).',
-      icon: '🗄️'
+      icon: Database
     },
     {
       format: 'Scheduled Scrapes',
       description: 'Automated recurring extractions delivered on your schedule.',
-      icon: '🔄'
+      icon: RefreshCw
     },
     {
       format: 'API Endpoints',
       description: 'Your own API to query scraped data on demand.',
-      icon: '🔗'
+      icon: Link2
     }
   ]
 
@@ -212,7 +217,7 @@ export default function WebScraping() {
         <div className="relative mx-auto max-w-7xl px-6 py-24 sm:py-32 lg:px-8">
           <div className="mx-auto max-w-4xl">
             <div className="inline-flex items-center gap-3 rounded-full bg-surface-card/60 px-6 py-3 text-sm font-semibold backdrop-blur-lg border border-surface-border mb-8">
-              <span className="text-2xl">📊</span>
+              <BarChart3 className="h-6 w-6" />
               <span>200+ Projects Completed</span>
             </div>
 
@@ -247,7 +252,7 @@ export default function WebScraping() {
                 location="web_scraping_page_top"
                 className="w-full sm:w-auto flex items-center justify-center gap-2 rounded-lg border-2 border-surface-border px-8 py-4 text-lg font-bold text-white hover:bg-surface-card/60 transition-all"
               >
-                <span>📞</span>
+                <Phone className="h-4 w-4" />
                 <span>(936) 323-4527</span>
               </PhoneLink>
             </div>
@@ -299,24 +304,27 @@ export default function WebScraping() {
           </div>
 
           <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
-            {useCases.map((useCase) => (
-              <div
-                key={useCase.name}
-                className="bg-surface rounded-2xl p-8 shadow-md border-2 border-surface-border hover:border-primary-300 transition-all"
-              >
-                <div className="text-4xl mb-4">{useCase.icon}</div>
-                <h3 className="text-xl font-bold text-white mb-2">{useCase.name}</h3>
-                <p className="text-gray-400 mb-4">{useCase.description}</p>
-                <div className="space-y-1">
-                  {useCase.examples.map((example) => (
-                    <div key={example} className="flex items-center gap-2 text-sm text-gray-400">
-                      <span className="text-green-500">✓</span>
-                      <span>{example}</span>
-                    </div>
-                  ))}
+            {useCases.map((useCase) => {
+              const Icon = useCase.icon
+              return (
+                <div
+                  key={useCase.name}
+                  className="bg-surface rounded-2xl p-8 shadow-md border-2 border-surface-border hover:border-primary-300 transition-all"
+                >
+                  <Icon className="h-9 w-9 text-primary-500 mb-4" strokeWidth={1.75} />
+                  <h3 className="text-xl font-bold text-white mb-2">{useCase.name}</h3>
+                  <p className="text-gray-400 mb-4">{useCase.description}</p>
+                  <div className="space-y-1">
+                    {useCase.examples.map((example) => (
+                      <div key={example} className="flex items-center gap-2 text-sm text-gray-400">
+                        <Check className="h-4 w-4 text-green-500" strokeWidth={2.5} />
+                        <span>{example}</span>
+                      </div>
+                    ))}
+                  </div>
                 </div>
-              </div>
-            ))}
+              )
+            })}
           </div>
         </div>
       </section>
@@ -416,16 +424,23 @@ export default function WebScraping() {
           </div>
 
           <div className="grid md:grid-cols-2 lg:grid-cols-5 gap-6">
-            {deliverables.map((item) => (
-              <div
-                key={item.format}
-                className="bg-surface-card rounded-2xl p-6 text-center border-2 border-surface-border hover:border-primary-300 transition-all"
-              >
-                <div className="text-4xl mb-3">{item.icon}</div>
-                <h3 className="text-lg font-bold text-white mb-2">{item.format}</h3>
-                <p className="text-sm text-gray-400">{item.description}</p>
-              </div>
-            ))}
+            {deliverables.map((item) => {
+              const Icon = item.icon
+              return (
+                <div
+                  key={item.format}
+                  className="bg-surface-card rounded-2xl p-6 text-center border-2 border-surface-border hover:border-primary-300 transition-all"
+                >
+                  {typeof Icon === 'string' ? (
+                    <div className="text-4xl mb-3 font-mono text-primary-500">{Icon}</div>
+                  ) : (
+                    <Icon className="h-9 w-9 mx-auto text-primary-500 mb-3" strokeWidth={1.75} />
+                  )}
+                  <h3 className="text-lg font-bold text-white mb-2">{item.format}</h3>
+                  <p className="text-sm text-gray-400">{item.description}</p>
+                </div>
+              )
+            })}
           </div>
         </div>
       </section>
@@ -512,7 +527,7 @@ export default function WebScraping() {
                 location="web_scraping_page_bottom"
                 className="w-full sm:w-auto flex items-center justify-center gap-2 rounded-lg bg-surface-card/60 px-10 py-5 text-xl font-bold text-white border-2 border-surface-border hover:bg-surface-elevated/80 transition-all"
               >
-                <span>📞</span>
+                <Phone className="h-4 w-4" />
                 <span>(936) 323-4527</span>
               </PhoneLink>
             </div>
@@ -538,7 +553,7 @@ export default function WebScraping() {
               href="/services/conroe-web-development"
               className="group bg-surface-card rounded-2xl p-8 border-2 border-surface-border hover:border-primary-300 hover:shadow-xl transition-all"
             >
-              <div className="text-3xl mb-4">🌐</div>
+              <Globe className="h-8 w-8 text-primary-500 mb-4" strokeWidth={1.75} />
               <h3 className="text-xl font-bold text-white mb-2 group-hover:text-primary-600">Web Development</h3>
               <p className="text-gray-400">Need a website to display or manage your scraped data?</p>
             </Link>
@@ -546,7 +561,7 @@ export default function WebScraping() {
               href="/services/api-integration"
               className="group bg-surface-card rounded-2xl p-8 border-2 border-surface-border hover:border-primary-300 hover:shadow-xl transition-all"
             >
-              <div className="text-3xl mb-4">🔗</div>
+              <Link2 className="h-8 w-8 text-primary-500 mb-4" strokeWidth={1.75} />
               <h3 className="text-xl font-bold text-white mb-2 group-hover:text-primary-600">API Integration</h3>
               <p className="text-gray-400">When APIs exist, we use them. Scraping is for when they don't.</p>
             </Link>
@@ -554,7 +569,7 @@ export default function WebScraping() {
               href="/services/business-automation"
               className="group bg-surface-card rounded-2xl p-8 border-2 border-surface-border hover:border-primary-300 hover:shadow-xl transition-all"
             >
-              <div className="text-3xl mb-4">⚡</div>
+              <Zap className="h-8 w-8 text-primary-500 mb-4" strokeWidth={1.75} />
               <h3 className="text-xl font-bold text-white mb-2 group-hover:text-primary-600">Business Automation</h3>
               <p className="text-gray-400">Automate what happens with your data after extraction.</p>
             </Link>

@@ -1,5 +1,9 @@
 import Link from 'next/link'
 import type { Metadata } from 'next'
+import {
+  Zap, Settings2, Workflow, Building2, Code2, Phone, Timer,
+  Globe, Link2, BarChart3,
+} from 'lucide-react'
 import Breadcrumbs from '@/components/Breadcrumbs'
 import PhoneLink from '@/components/PhoneLink'
 
@@ -90,31 +94,31 @@ export default function BusinessAutomation() {
       name: 'Zapier',
       description: 'The most accessible automation platform with 5,000+ app integrations. Great for standard business workflows.',
       bestFor: 'Quick integrations, non-technical users, wide app coverage',
-      icon: '⚡'
+      icon: Zap
     },
     {
       name: 'n8n',
       description: 'Self-hosted, open-source automation. More control, no per-task pricing, better for complex workflows.',
       bestFor: 'Complex logic, self-hosted needs, cost-conscious at scale',
-      icon: '🔧'
+      icon: Settings2
     },
     {
       name: 'Make (Integromat)',
       description: 'Visual workflow builder with powerful data manipulation. Great for complex transformations.',
       bestFor: 'Data-heavy workflows, visual builders, complex scenarios',
-      icon: '🎯'
+      icon: Workflow
     },
     {
       name: 'Power Automate',
       description: 'Microsoft\'s automation platform. Perfect for businesses deep in the Microsoft ecosystem.',
       bestFor: 'Microsoft 365 users, SharePoint, Teams integrations',
-      icon: '🏢'
+      icon: Building2
     },
     {
       name: 'Custom Python Scripts',
       description: 'When off-the-shelf tools don\'t fit. Full flexibility for unique requirements.',
       bestFor: 'Unique requirements, maximum flexibility, complex logic',
-      icon: '🐍'
+      icon: Code2
     }
   ]
 
@@ -220,7 +224,7 @@ export default function BusinessAutomation() {
         <div className="relative mx-auto max-w-7xl px-6 py-24 sm:py-32 lg:px-8">
           <div className="mx-auto max-w-4xl">
             <div className="inline-flex items-center gap-3 rounded-full bg-surface-card/60 px-6 py-3 text-sm font-semibold backdrop-blur-lg border border-surface-border mb-8">
-              <span className="text-2xl">⚡</span>
+              <Zap className="h-6 w-6" />
               <span>Save 10-20 Hours Per Week</span>
             </div>
 
@@ -255,7 +259,7 @@ export default function BusinessAutomation() {
                 location="business_automation_page_top"
                 className="w-full sm:w-auto flex items-center justify-center gap-2 rounded-lg border-2 border-surface-border px-8 py-4 text-lg font-bold text-white hover:bg-surface-card/60 transition-all"
               >
-                <span>📞</span>
+                <Phone className="h-4 w-4" />
                 <span>(936) 323-4527</span>
               </PhoneLink>
             </div>
@@ -315,19 +319,22 @@ export default function BusinessAutomation() {
           </div>
 
           <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
-            {platforms.map((platform) => (
-              <div
-                key={platform.name}
-                className="bg-surface rounded-2xl p-8 shadow-md border-2 border-surface-border hover:border-primary-300 transition-all"
-              >
-                <div className="text-4xl mb-4">{platform.icon}</div>
-                <h3 className="text-xl font-bold text-white mb-2">{platform.name}</h3>
-                <p className="text-gray-400 mb-4">{platform.description}</p>
-                <p className="text-sm text-primary-600 font-medium">
-                  <strong>Best for:</strong> {platform.bestFor}
-                </p>
-              </div>
-            ))}
+            {platforms.map((platform) => {
+              const Icon = platform.icon
+              return (
+                <div
+                  key={platform.name}
+                  className="bg-surface rounded-2xl p-8 shadow-md border-2 border-surface-border hover:border-primary-300 transition-all"
+                >
+                  <Icon className="h-9 w-9 text-primary-500 mb-4" strokeWidth={1.75} />
+                  <h3 className="text-xl font-bold text-white mb-2">{platform.name}</h3>
+                  <p className="text-gray-400 mb-4">{platform.description}</p>
+                  <p className="text-sm text-primary-600 font-medium">
+                    <strong>Best for:</strong> {platform.bestFor}
+                  </p>
+                </div>
+              )
+            })}
           </div>
         </div>
       </section>
@@ -353,7 +360,7 @@ export default function BusinessAutomation() {
                 <h3 className="text-lg font-bold text-white mb-2">{solution.name}</h3>
                 <p className="text-gray-400 mb-4">{solution.description}</p>
                 <div className="inline-flex items-center gap-2 bg-green-500/15 text-green-400 px-3 py-1 rounded-full text-sm font-semibold">
-                  <span>⏱️</span>
+                  <Timer className="h-4 w-4" strokeWidth={2} />
                   <span>Saves {solution.timeSaved}</span>
                 </div>
               </div>
@@ -472,7 +479,7 @@ export default function BusinessAutomation() {
                 location="business_automation_page_bottom"
                 className="w-full sm:w-auto flex items-center justify-center gap-2 rounded-lg bg-surface-card/60 px-10 py-5 text-xl font-bold text-white border-2 border-surface-border hover:bg-surface-elevated/80 transition-all"
               >
-                <span>📞</span>
+                <Phone className="h-4 w-4" />
                 <span>(936) 323-4527</span>
               </PhoneLink>
             </div>
@@ -498,7 +505,7 @@ export default function BusinessAutomation() {
               href="/services/conroe-web-development"
               className="group bg-surface-card rounded-2xl p-8 border-2 border-surface-border hover:border-primary-300 hover:shadow-xl transition-all"
             >
-              <div className="text-3xl mb-4">🌐</div>
+              <Globe className="h-8 w-8 text-primary-500 mb-4" strokeWidth={1.75} />
               <h3 className="text-xl font-bold text-white mb-2 group-hover:text-primary-600">Web Development</h3>
               <p className="text-gray-400">Custom websites with built-in automation from the start.</p>
             </Link>
@@ -506,7 +513,7 @@ export default function BusinessAutomation() {
               href="/services/api-integration"
               className="group bg-surface-card rounded-2xl p-8 border-2 border-surface-border hover:border-primary-300 hover:shadow-xl transition-all"
             >
-              <div className="text-3xl mb-4">🔗</div>
+              <Link2 className="h-8 w-8 text-primary-500 mb-4" strokeWidth={1.75} />
               <h3 className="text-xl font-bold text-white mb-2 group-hover:text-primary-600">API Integration</h3>
               <p className="text-gray-400">Connect your systems for seamless data flow.</p>
             </Link>
@@ -514,7 +521,7 @@ export default function BusinessAutomation() {
               href="/services/web-scraping"
               className="group bg-surface-card rounded-2xl p-8 border-2 border-surface-border hover:border-primary-300 hover:shadow-xl transition-all"
             >
-              <div className="text-3xl mb-4">📊</div>
+              <BarChart3 className="h-8 w-8 text-primary-500 mb-4" strokeWidth={1.75} />
               <h3 className="text-xl font-bold text-white mb-2 group-hover:text-primary-600">Web Scraping</h3>
               <p className="text-gray-400">Automate data collection from websites.</p>
             </Link>

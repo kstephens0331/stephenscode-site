@@ -1,4 +1,5 @@
 import Link from 'next/link'
+import { Medal } from 'lucide-react'
 import PhoneLink from '@/components/PhoneLink'
 import { serviceAreas } from '@/lib/service-areas-data'
 
@@ -68,7 +69,7 @@ export default function Footer() {
 
             {/* Veteran Badge */}
             <div className="inline-flex items-center gap-3 bg-white/10 rounded-lg px-4 py-3 border border-white/20">
-              <span className="text-3xl">🎖️</span>
+              <Medal className="h-8 w-8 text-white flex-shrink-0" />
               <div>
                 <span className="block text-xs text-gray-300 uppercase tracking-wide">USMC Veteran</span>
                 <span className="block text-sm font-bold text-white">Veteran-Owned Business</span>

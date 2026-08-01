@@ -1,40 +1,41 @@
 'use client';
 
 import { motion } from 'framer-motion';
+import { Rocket, Monitor, Bot, Wrench, Smartphone, Plug } from 'lucide-react';
 
 const solutions = [
   {
-    icon: '🚀',
+    icon: Rocket,
     title: 'SaaS Platforms',
     description: 'Multi-tenant software-as-a-service platforms with user management, billing integration, and scalable architecture.',
     features: ['Subscription billing', 'Multi-user management', 'API integrations', 'Cloud deployment']
   },
   {
-    icon: '💻',
+    icon: Monitor,
     title: 'Web Applications',
     description: 'Custom web apps tailored to your workflow, from internal dashboards to customer-facing platforms.',
     features: ['Custom dashboards', 'Real-time updates', 'Database design', 'Responsive design']
   },
   {
-    icon: '🤖',
+    icon: Bot,
     title: 'Data Scrapers & Automation',
     description: 'Automated data collection, processing, and integration tools that save you hours of manual work.',
     features: ['Web scraping', 'Data processing', 'Scheduled automation', 'API development']
   },
   {
-    icon: '🛠️',
+    icon: Wrench,
     title: 'Business Tools',
     description: 'Bespoke software solutions designed for your specific business processes and requirements.',
     features: ['Workflow automation', 'Custom integrations', 'Reporting tools', 'Process optimization']
   },
   {
-    icon: '📱',
+    icon: Smartphone,
     title: 'Progressive Web Apps',
     description: 'Mobile-first applications that work offline and can be installed on any device.',
     features: ['Offline functionality', 'Push notifications', 'App-like experience', 'Cross-platform']
   },
   {
-    icon: '🔌',
+    icon: Plug,
     title: 'API Development',
     description: 'Custom APIs and integrations to connect your systems and automate data flow.',
     features: ['RESTful APIs', 'Third-party integrations', 'Webhooks', 'Documentation']
@@ -72,7 +73,7 @@ export default function SolutionsGrid() {
               <div className="absolute inset-0 bg-gradient-to-br from-blue-500/5 to-transparent opacity-0 group-hover:opacity-100 transition-opacity rounded-2xl" />
 
               <div className="relative">
-                <div className="text-5xl mb-4">{solution.icon}</div>
+                <solution.icon className="h-12 w-12 mb-4 text-blue-400" />
                 <h3 className="text-2xl font-bold text-white mb-3">{solution.title}</h3>
                 <p className="text-slate-300 mb-6">{solution.description}</p>
 

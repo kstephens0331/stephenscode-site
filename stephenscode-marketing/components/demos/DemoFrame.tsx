@@ -2,6 +2,7 @@
 
 import { useEffect, useState } from 'react'
 import Link from 'next/link'
+import { Globe, User, Lock, Info, X, Lightbulb, Briefcase } from 'lucide-react'
 import type { Demo } from '@/lib/demos-data'
 import { trackEvent } from '@/lib/analytics'
 
@@ -113,7 +114,7 @@ export default function DemoFrame({ demo }: DemoFrameProps) {
       return (
         <div className="min-h-screen flex items-center justify-center bg-slate-900">
           <div className="text-center p-8 max-w-lg">
-            <div className="text-6xl mb-6">🌐</div>
+            <Globe className="h-16 w-16 mb-6 mx-auto text-primary-400" />
             <h2 className="text-2xl font-bold text-white mb-4">{demo.clientName || demo.name}</h2>
             <p className="text-gray-300 mb-2">This is a real client website built by StephensCode.</p>
             <p className="text-gray-400 mb-8 text-sm">Visit the live production site to see our work in action.</p>
@@ -269,7 +270,7 @@ export default function DemoFrame({ demo }: DemoFrameProps) {
                       : 'text-gray-400 hover:text-white'
                   }`}
                 >
-                  👤 Customer View
+                  <span className="inline-flex items-center gap-1.5"><User className="h-4 w-4" /> Customer View</span>
                 </button>
                 <button
                   onClick={() => setViewMode('admin')}
@@ -279,7 +280,7 @@ export default function DemoFrame({ demo }: DemoFrameProps) {
                       : 'text-gray-400 hover:text-white'
                   }`}
                 >
-                  🔐 Admin Dashboard
+                  <span className="inline-flex items-center gap-1.5"><Lock className="h-4 w-4" /> Admin Dashboard</span>
                 </button>
               </div>
             )}
@@ -289,9 +290,10 @@ export default function DemoFrame({ demo }: DemoFrameProps) {
               {!demo.isRealClient && (
                 <button
                   onClick={() => setShowInstructions(!showInstructions)}
-                  className="text-sm font-semibold hover:text-accent-400 transition-colors"
+                  className="text-sm font-semibold hover:text-accent-400 transition-colors inline-flex items-center gap-1.5"
                 >
-                  {showInstructions ? '✕ Hide' : 'ℹ️ Show'} Instructions
+                  {showInstructions ? <X className="h-4 w-4" /> : <Info className="h-4 w-4" />}
+                  {showInstructions ? 'Hide' : 'Show'} Instructions
                 </button>
               )}
               <Link
@@ -311,7 +313,7 @@ export default function DemoFrame({ demo }: DemoFrameProps) {
         <div className="bg-primary-950/50 border-b border-primary-800/30">
           <div className="max-w-7xl mx-auto px-4 py-4">
             <div className="flex items-start gap-4">
-              <div className="text-3xl">💡</div>
+              <Lightbulb className="h-8 w-8 flex-shrink-0 text-primary-300" />
               <div className="flex-1">
                 <h3 className="font-bold text-primary-300 mb-2">
                   {isInterfacePreviewOnly ? 'This is an Interface Preview' : 'This is a Fully Interactive Demo'}
@@ -331,9 +333,10 @@ export default function DemoFrame({ demo }: DemoFrameProps) {
               </div>
               <button
                 onClick={() => setShowInstructions(false)}
-                className="text-gray-400 hover:text-white text-xl"
+                className="text-gray-400 hover:text-white"
+                aria-label="Dismiss instructions"
               >
-                ✕
+                <X className="h-5 w-5" />
               </button>
             </div>
           </div>
@@ -352,7 +355,7 @@ export default function DemoFrame({ demo }: DemoFrameProps) {
           className="bg-accent-500 hover:bg-accent-600 text-white px-6 py-4 rounded-full shadow-2xl font-bold text-sm flex items-center gap-2 transition-all"
           onClick={() => trackEvent('cta_click', { cta: 'Want This for Your Business', location: `demo_${demo.slug}_floating` })}
         >
-          <span>💼</span>
+          <Briefcase className="h-4 w-4" />
           <span>Want This for Your Business?</span>
         </Link>
       </div>

@@ -2,6 +2,7 @@ import Link from 'next/link'
 import type { Metadata } from 'next'
 import { corePackages, premiumBuilds } from '@/lib/services-data'
 import { allAddOns } from '@/lib/addons-data'
+import { Globe, Rocket, Zap, DollarSign, Award } from 'lucide-react'
 
 export const metadata: Metadata = {
   title: 'Houston Web Development | Flat-Rate Web Design from $250',
@@ -142,7 +143,7 @@ export default function ServicesPage() {
       subtitle: 'Perfect for most businesses',
       description: 'Get online fast with our professionally designed core packages. From simple 4-page sites to comprehensive business websites.',
       services: corePackages.slice(0, 4),
-      icon: '🌐',
+      Icon: Globe,
       gradient: 'from-primary-600 to-primary-800'
     },
     {
@@ -150,7 +151,7 @@ export default function ServicesPage() {
       subtitle: 'Advanced business solutions',
       description: 'Full-stack enterprise platforms with custom features, admin dashboards, and advanced functionality.',
       services: premiumBuilds,
-      icon: '🚀',
+      Icon: Rocket,
       gradient: 'from-accent-500 to-accent-700'
     },
     {
@@ -158,7 +159,7 @@ export default function ServicesPage() {
       subtitle: 'Enhance your website',
       description: 'Extend your website with powerful add-ons. From booking systems to e-commerce to membership portals.',
       services: allAddOns.slice(0, 6),
-      icon: '⚡',
+      Icon: Zap,
       gradient: 'from-primary-400 to-primary-600'
     }
   ]
@@ -167,25 +168,25 @@ export default function ServicesPage() {
     {
       title: 'Transparent Flat-Rate Pricing',
       description: 'Know exactly what you\'ll pay before we start. No hourly rates, no surprise bills, no hidden fees.',
-      icon: '💰',
+      Icon: DollarSign,
       stats: 'Sites from $250+'
     },
     {
       title: 'Fast Turnaround Time',
       description: 'Most projects completed in 1-2 weeks. We move quickly without sacrificing quality.',
-      icon: '⚡',
+      Icon: Zap,
       stats: '1-2 week average delivery'
     },
     {
       title: 'Veteran-Owned Quality',
       description: 'Military discipline meets technical expertise. 14+ years of experience building websites for Houston businesses.',
-      icon: '🎖️',
+      Icon: Award,
       stats: '200+ projects delivered'
     },
     {
       title: 'Houston-Based, Nationwide Service',
       description: 'Based in Conroe, serving Houston, The Woodlands, and clients nationwide. In-person meetings available locally, remote collaboration anywhere.',
-      icon: '🌐',
+      Icon: Globe,
       stats: 'Serving Nationwide'
     }
   ]
@@ -259,7 +260,7 @@ export default function ServicesPage() {
         <div className="relative mx-auto max-w-7xl px-6 py-32 sm:py-40 lg:px-8">
           <div className="mx-auto max-w-4xl text-center">
             <div className="mb-8 inline-flex items-center gap-3 rounded-full bg-surface-card/60 px-6 py-3 text-sm font-semibold backdrop-blur-lg border border-surface-border shadow-2xl">
-              <span className="text-2xl">🌐</span>
+              <Globe className="h-5 w-5" />
               <span>49 Service Packages & Add-Ons</span>
             </div>
 
@@ -315,7 +316,7 @@ export default function ServicesPage() {
           <div className="mx-auto max-w-7xl px-6 lg:px-8">
             <div className="mx-auto max-w-2xl text-center mb-16">
               <div className={`inline-flex items-center gap-3 rounded-full bg-gradient-to-r ${category.gradient} px-6 py-3 text-white shadow-xl mb-6`}>
-                <span className="text-3xl">{category.icon}</span>
+                <category.Icon className="h-7 w-7" />
                 <span className="font-bold">{category.subtitle}</span>
               </div>
               <h2 className="text-4xl font-bold tracking-tight text-white sm:text-5xl mb-6">
@@ -415,8 +416,8 @@ export default function ServicesPage() {
             {whyChoose.map((item, index) => (
               <div key={index} className="relative group overflow-hidden rounded-2xl bg-surface p-8 shadow-xl transition-all">
                 <div className="flex items-start gap-6">
-                  <div className="flex h-16 w-16 flex-shrink-0 items-center justify-center rounded-xl bg-primary-600 text-4xl shadow-lg group-hover:scale-110 transition-transform">
-                    {item.icon}
+                  <div className="flex h-16 w-16 flex-shrink-0 items-center justify-center rounded-xl bg-primary-600 shadow-lg group-hover:scale-110 transition-transform">
+                    <item.Icon className="h-8 w-8 text-white" />
                   </div>
                   <div className="flex-1">
                     <h3 className="text-xl font-bold text-white mb-2">{item.title}</h3>

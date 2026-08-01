@@ -1,5 +1,9 @@
 import Link from 'next/link'
 import type { Metadata } from 'next'
+import {
+  Wrench, Car, HardHat, Briefcase, UtensilsCrossed, ShoppingCart,
+  Flag, Phone, Link2, BarChart3, Zap,
+} from 'lucide-react'
 import Breadcrumbs from '@/components/Breadcrumbs'
 import PhoneLink from '@/components/PhoneLink'
 
@@ -115,32 +119,32 @@ export default function ConroeWebDevelopment() {
     {
       name: 'Home Service Contractors',
       description: 'HVAC, plumbing, electrical, roofing, and landscaping companies need websites that generate leads and showcase their work.',
-      icon: '🔧'
+      icon: Wrench
     },
     {
       name: 'Collision Repair Shops',
       description: 'Auto body shops and collision centers that need professional online presence and customer booking capabilities.',
-      icon: '🚗'
+      icon: Car
     },
     {
       name: 'Construction Companies',
       description: 'General contractors, builders, and construction firms showcasing projects and attracting commercial clients.',
-      icon: '🏗️'
+      icon: HardHat
     },
     {
       name: 'Professional Services',
       description: 'Lawyers, accountants, consultants, and other professionals needing credible, trustworthy websites.',
-      icon: '💼'
+      icon: Briefcase
     },
     {
       name: 'Restaurants & Retail',
       description: 'Local restaurants, shops, and retail businesses that need menus, locations, and online ordering.',
-      icon: '🍽️'
+      icon: UtensilsCrossed
     },
     {
       name: 'E-Commerce Businesses',
       description: 'Online stores selling products locally or nationally with payment processing and inventory management.',
-      icon: '🛒'
+      icon: ShoppingCart
     }
   ]
 
@@ -251,7 +255,7 @@ export default function ConroeWebDevelopment() {
         <div className="relative mx-auto max-w-7xl px-6 py-24 sm:py-32 lg:px-8">
           <div className="mx-auto max-w-4xl">
             <div className="inline-flex items-center gap-3 rounded-full bg-surface-card/60 px-6 py-3 text-sm font-semibold backdrop-blur-lg border border-surface-border mb-8">
-              <span className="text-2xl">🇺🇸</span>
+              <Flag className="h-6 w-6" />
               <span>Veteran-Owned | Based in Conroe, TX</span>
             </div>
 
@@ -290,7 +294,7 @@ export default function ConroeWebDevelopment() {
                 location="conroe_web_development_page_top"
                 className="w-full sm:w-auto flex items-center justify-center gap-2 rounded-lg border-2 border-surface-border px-8 py-4 text-lg font-bold text-white hover:bg-surface-card/60 transition-all"
               >
-                <span>📞</span>
+                <Phone className="h-4 w-4" />
                 <span>(936) 323-4527</span>
               </PhoneLink>
             </div>
@@ -384,16 +388,19 @@ export default function ConroeWebDevelopment() {
           </div>
 
           <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
-            {industries.map((industry) => (
-              <div
-                key={industry.name}
-                className="bg-surface-card rounded-2xl p-8 border-2 border-surface-border hover:border-primary-300 transition-all"
-              >
-                <div className="text-4xl mb-4">{industry.icon}</div>
-                <h3 className="text-xl font-bold text-white mb-2">{industry.name}</h3>
-                <p className="text-gray-400">{industry.description}</p>
-              </div>
-            ))}
+            {industries.map((industry) => {
+              const Icon = industry.icon
+              return (
+                <div
+                  key={industry.name}
+                  className="bg-surface-card rounded-2xl p-8 border-2 border-surface-border hover:border-primary-300 transition-all"
+                >
+                  <Icon className="h-9 w-9 text-primary-500 mb-4" strokeWidth={1.75} />
+                  <h3 className="text-xl font-bold text-white mb-2">{industry.name}</h3>
+                  <p className="text-gray-400">{industry.description}</p>
+                </div>
+              )
+            })}
           </div>
         </div>
       </section>
@@ -535,7 +542,7 @@ export default function ConroeWebDevelopment() {
                 location="conroe_web_development_page_bottom"
                 className="w-full sm:w-auto flex items-center justify-center gap-2 rounded-lg bg-surface-card/60 px-10 py-5 text-xl font-bold text-white border-2 border-surface-border hover:bg-surface-elevated/80 transition-all"
               >
-                <span>📞</span>
+                <Phone className="h-4 w-4" />
                 <span>(936) 323-4527</span>
               </PhoneLink>
             </div>
@@ -566,7 +573,7 @@ export default function ConroeWebDevelopment() {
               href="/services/api-integration"
               className="group bg-surface-card rounded-2xl p-8 border-2 border-surface-border hover:border-primary-300 hover:shadow-xl transition-all"
             >
-              <div className="text-3xl mb-4">🔗</div>
+              <Link2 className="h-8 w-8 text-primary-500 mb-4" strokeWidth={1.75} />
               <h3 className="text-xl font-bold text-white mb-2 group-hover:text-primary-600">API Integration</h3>
               <p className="text-gray-400">Connect your business systems. CRM, payments, inventory, all working together.</p>
             </Link>
@@ -574,7 +581,7 @@ export default function ConroeWebDevelopment() {
               href="/services/web-scraping"
               className="group bg-surface-card rounded-2xl p-8 border-2 border-surface-border hover:border-primary-300 hover:shadow-xl transition-all"
             >
-              <div className="text-3xl mb-4">📊</div>
+              <BarChart3 className="h-8 w-8 text-primary-500 mb-4" strokeWidth={1.75} />
               <h3 className="text-xl font-bold text-white mb-2 group-hover:text-primary-600">Web Scraping</h3>
               <p className="text-gray-400">Automated data extraction for lead generation, pricing analysis, and market research.</p>
             </Link>
@@ -582,7 +589,7 @@ export default function ConroeWebDevelopment() {
               href="/services/business-automation"
               className="group bg-surface-card rounded-2xl p-8 border-2 border-surface-border hover:border-primary-300 hover:shadow-xl transition-all"
             >
-              <div className="text-3xl mb-4">⚡</div>
+              <Zap className="h-8 w-8 text-primary-500 mb-4" strokeWidth={1.75} />
               <h3 className="text-xl font-bold text-white mb-2 group-hover:text-primary-600">Business Automation</h3>
               <p className="text-gray-400">Stop wasting time on repetitive tasks. Automate your workflows and focus on growth.</p>
             </Link>

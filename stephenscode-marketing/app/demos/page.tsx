@@ -1,5 +1,6 @@
 import type { Metadata } from 'next'
 import Link from 'next/link'
+import { Palette, MousePointerClick, ClipboardList, LayoutDashboard, Smartphone } from 'lucide-react'
 import { allDemos, demoCategories, demosByIndustry } from '@/lib/demos-data'
 import DemosClient from './DemosClient'
 
@@ -33,7 +34,7 @@ export default function DemosPage() {
         <div className="mx-auto max-w-7xl px-6 py-24 sm:py-32 lg:px-8">
           <div className="mx-auto max-w-2xl text-center">
             <div className="mb-8 inline-flex items-center gap-2 rounded-full bg-surface-card/60 px-4 py-2 text-sm font-medium backdrop-blur">
-              <span className="text-2xl">🎨</span>
+              <Palette className="h-5 w-5" />
               <span>40+ Live Interactive Demos</span>
             </div>
             <h1 className="text-4xl font-bold tracking-tight sm:text-6xl">
@@ -103,29 +104,29 @@ export default function DemosPage() {
 
           <div className="grid grid-cols-1 gap-8 md:grid-cols-2 lg:grid-cols-4">
             <div className="text-center">
-              <div className="mx-auto h-16 w-16 rounded-full bg-primary-500/10 flex items-center justify-center text-3xl mb-4">
-                ✅
+              <div className="mx-auto h-16 w-16 rounded-full bg-primary-500/10 flex items-center justify-center mb-4">
+                <MousePointerClick className="h-7 w-7 text-primary-500" strokeWidth={1.75} />
               </div>
               <h3 className="text-lg font-semibold text-white mb-2">Click Around</h3>
               <p className="text-sm text-gray-400">Navigate pages, open menus, and explore each demo. Most include fully working forms and interactions.</p>
             </div>
             <div className="text-center">
-              <div className="mx-auto h-16 w-16 rounded-full bg-primary-500/10 flex items-center justify-center text-3xl mb-4">
-                📝
+              <div className="mx-auto h-16 w-16 rounded-full bg-primary-500/10 flex items-center justify-center mb-4">
+                <ClipboardList className="h-7 w-7 text-primary-500" strokeWidth={1.75} />
               </div>
               <h3 className="text-lg font-semibold text-white mb-2">Fill Out Forms</h3>
               <p className="text-sm text-gray-400">Test contact forms, booking systems, and checkout flows.</p>
             </div>
             <div className="text-center">
-              <div className="mx-auto h-16 w-16 rounded-full bg-primary-500/10 flex items-center justify-center text-3xl mb-4">
-                🔐
+              <div className="mx-auto h-16 w-16 rounded-full bg-primary-500/10 flex items-center justify-center mb-4">
+                <LayoutDashboard className="h-7 w-7 text-primary-500" strokeWidth={1.75} />
               </div>
               <h3 className="text-lg font-semibold text-white mb-2">Try Admin Panels</h3>
               <p className="text-sm text-gray-400">Log into dashboards, see reports, manage content (demo mode).</p>
             </div>
             <div className="text-center">
-              <div className="mx-auto h-16 w-16 rounded-full bg-primary-500/10 flex items-center justify-center text-3xl mb-4">
-                📱
+              <div className="mx-auto h-16 w-16 rounded-full bg-primary-500/10 flex items-center justify-center mb-4">
+                <Smartphone className="h-7 w-7 text-primary-500" strokeWidth={1.75} />
               </div>
               <h3 className="text-lg font-semibold text-white mb-2">Test on Mobile</h3>
               <p className="text-sm text-gray-400">Resize your browser. All demos are fully responsive.</p>

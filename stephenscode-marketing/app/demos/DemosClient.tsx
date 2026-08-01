@@ -2,11 +2,39 @@
 
 import { useState, useMemo } from 'react'
 import Link from 'next/link'
+import {
+  Zap, Home, Stethoscope, UtensilsCrossed, ShoppingBag, Briefcase,
+  Sparkles, Dumbbell, Scale, Building2, Car, HardHat, Truck,
+  PartyPopper, Factory, Globe, Camera, GraduationCap, Check, SearchX,
+  type LucideIcon,
+} from 'lucide-react'
 import { Demo } from '@/lib/demos-data'
 
 interface DemosClientProps {
   demos: Demo[]
   categories: Array<{ name: string; slug: string; count: number }>
+}
+
+// Icon shown on each demo card's preview header, keyed by industry.
+const industryIcons: { [key: string]: LucideIcon } = {
+  'Showcase': Zap,
+  'Home Services': Home,
+  'Healthcare': Stethoscope,
+  'Food & Beverage': UtensilsCrossed,
+  'Retail': ShoppingBag,
+  'Professional Services': Briefcase,
+  'Beauty & Personal Care': Sparkles,
+  'Health & Fitness': Dumbbell,
+  'Legal': Scale,
+  'Real Estate': Building2,
+  'Automotive': Car,
+  'Construction': HardHat,
+  'Transportation': Truck,
+  'Events': PartyPopper,
+  'Manufacturing': Factory,
+  'Multi-Location': Globe,
+  'Creative Services': Camera,
+  'Education': GraduationCap,
 }
 
 // Package type descriptions for section headers
@@ -91,116 +119,103 @@ export default function DemosClient({ demos, categories }: DemosClientProps) {
   }, [demos, selectedFilter, categories])
 
   // Render a demo card
-  const renderDemoCard = (demo: Demo, index: number) => (
-    <article
-      key={demo.id}
-      className="flex flex-col bg-surface-card rounded-2xl shadow-lg overflow-hidden transition-shadow group"
-      style={{ animationDelay: `${index * 100}ms` }}
-    >
-      {/* Demo Preview */}
-      <div
-        className="h-48 relative"
-        style={{
-          background: `linear-gradient(135deg, ${demo.colors.primary} 0%, ${demo.colors.secondary} 50%, ${demo.colors.accent} 100%)`
-        }}
+  const renderDemoCard = (demo: Demo, index: number) => {
+    const IndustryIcon = industryIcons[demo.industry]
+    return (
+      <article
+        key={demo.id}
+        className="flex flex-col bg-surface-card rounded-2xl shadow-lg overflow-hidden transition-shadow group"
+        style={{ animationDelay: `${index * 100}ms` }}
       >
-        <div className="absolute inset-0 bg-black/20 flex items-center justify-center">
-          <div className="text-white text-center">
-            <div className="text-4xl mb-2">
-              {demo.industry === 'Showcase' && '⚡'}
-              {demo.industry === 'Home Services' && '🏠'}
-              {demo.industry === 'Healthcare' && '🏥'}
-              {demo.industry === 'Food & Beverage' && '🍴'}
-              {demo.industry === 'Retail' && '🛍️'}
-              {demo.industry === 'Professional Services' && '💼'}
-              {demo.industry === 'Beauty & Personal Care' && '💅'}
-              {demo.industry === 'Health & Fitness' && '💪'}
-              {demo.industry === 'Legal' && '⚖️'}
-              {demo.industry === 'Real Estate' && '🏘️'}
-              {demo.industry === 'Automotive' && '🚗'}
-              {demo.industry === 'Construction' && '🏗️'}
-              {demo.industry === 'Transportation' && '🚚'}
-              {demo.industry === 'Events' && '🎉'}
-              {demo.industry === 'Manufacturing' && '🏭'}
-              {demo.industry === 'Multi-Location' && '🌐'}
-              {demo.industry === 'Creative Services' && '📸'}
-              {demo.industry === 'Education' && '📚'}
+        {/* Demo Preview */}
+        <div
+          className="h-48 relative"
+          style={{
+            background: `linear-gradient(135deg, ${demo.colors.primary} 0%, ${demo.colors.secondary} 50%, ${demo.colors.accent} 100%)`
+          }}
+        >
+          <div className="absolute inset-0 bg-black/20 flex items-center justify-center">
+            <div className="text-white text-center">
+              <div className="mb-2 flex items-center justify-center">
+                {IndustryIcon && <IndustryIcon className="h-10 w-10" strokeWidth={1.75} />}
+              </div>
+              <p className="text-sm font-semibold opacity-90">{demo.layout.toUpperCase()} LAYOUT</p>
             </div>
-            <p className="text-sm font-semibold opacity-90">{demo.layout.toUpperCase()} LAYOUT</p>
           </div>
-        </div>
-        {/* Badge - Real Client or Interactive */}
-        <div className={`absolute top-4 right-4 px-3 py-1 rounded-full text-xs font-bold shadow-lg ${
-          demo.isRealClient
-            ? 'bg-green-500 text-white'
-            : 'bg-accent-500 text-white'
-        }`}>
-          {demo.isRealClient ? '✓ REAL CLIENT' : 'INTERACTIVE'}
-        </div>
-      </div>
-
-      {/* Demo Info */}
-      <div className="flex flex-1 flex-col p-6">
-        <div className="flex items-start justify-between mb-3">
-          <div className="flex-1">
-            <h3 className="text-xl font-bold text-white group-hover:text-primary-400 transition-colors">
-              {demo.name}
-            </h3>
-            <p className="text-sm text-gray-400 mt-1">{demo.industry}</p>
+          {/* Badge - Real Client or Interactive */}
+          <div className={`absolute top-4 right-4 flex items-center gap-1 px-3 py-1 rounded-full text-xs font-bold shadow-lg ${
+            demo.isRealClient
+              ? 'bg-green-500 text-white'
+              : 'bg-accent-500 text-white'
+          }`}>
+            {demo.isRealClient && <Check className="h-3 w-3" strokeWidth={3} />}
+            <span>{demo.isRealClient ? 'REAL CLIENT' : 'INTERACTIVE'}</span>
           </div>
         </div>
 
-        <p className="text-sm text-gray-400 mb-4 line-clamp-2">
-          {demo.description}
-        </p>
+        {/* Demo Info */}
+        <div className="flex flex-1 flex-col p-6">
+          <div className="flex items-start justify-between mb-3">
+            <div className="flex-1">
+              <h3 className="text-xl font-bold text-white group-hover:text-primary-400 transition-colors">
+                {demo.name}
+              </h3>
+              <p className="text-sm text-gray-400 mt-1">{demo.industry}</p>
+            </div>
+          </div>
 
-        <div className="mb-4">
-          <p className="text-xs font-semibold text-primary-600 mb-2">FEATURES INCLUDED:</p>
-          <div className="flex flex-wrap gap-1">
-            {demo.features.slice(0, 4).map((feature, index) => (
-              <span
-                key={index}
-                className="text-xs bg-surface-elevated text-gray-300 px-2 py-1 rounded"
+          <p className="text-sm text-gray-400 mb-4 line-clamp-2">
+            {demo.description}
+          </p>
+
+          <div className="mb-4">
+            <p className="text-xs font-semibold text-primary-600 mb-2">FEATURES INCLUDED:</p>
+            <div className="flex flex-wrap gap-1">
+              {demo.features.slice(0, 4).map((feature, index) => (
+                <span
+                  key={index}
+                  className="text-xs bg-surface-elevated text-gray-300 px-2 py-1 rounded"
+                >
+                  {feature}
+                </span>
+              ))}
+              {demo.features.length > 4 && (
+                <span className="text-xs bg-primary-500/10 text-primary-400 px-2 py-1 rounded font-semibold">
+                  +{demo.features.length - 4} more
+                </span>
+              )}
+            </div>
+          </div>
+
+          <div className="mt-auto pt-4 border-t border-surface-border">
+            <div className="flex items-center justify-between mb-3">
+              <span className="text-xs font-semibold text-gray-400">{demo.package}</span>
+              {demo.isRealClient && (
+                <span className="text-xs font-semibold text-green-600">Live Client Site</span>
+              )}
+            </div>
+            {demo.isRealClient && demo.externalUrl ? (
+              <a
+                href={demo.externalUrl}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="block w-full text-center rounded-lg bg-green-600 px-4 py-2.5 text-sm font-semibold text-white shadow-sm hover:bg-green-700 transition-colors"
               >
-                {feature}
-              </span>
-            ))}
-            {demo.features.length > 4 && (
-              <span className="text-xs bg-primary-500/10 text-primary-400 px-2 py-1 rounded font-semibold">
-                +{demo.features.length - 4} more
-              </span>
+                Visit Live Site →
+              </a>
+            ) : (
+              <Link
+                href={`/demos/${demo.slug}`}
+                className="block w-full text-center rounded-lg bg-primary-600 px-4 py-2.5 text-sm font-semibold text-white shadow-sm hover:bg-primary-700 transition-colors"
+              >
+                Launch Demo →
+              </Link>
             )}
           </div>
         </div>
-
-        <div className="mt-auto pt-4 border-t border-surface-border">
-          <div className="flex items-center justify-between mb-3">
-            <span className="text-xs font-semibold text-gray-400">{demo.package}</span>
-            {demo.isRealClient && (
-              <span className="text-xs font-semibold text-green-600">Live Client Site</span>
-            )}
-          </div>
-          {demo.isRealClient && demo.externalUrl ? (
-            <a
-              href={demo.externalUrl}
-              target="_blank"
-              rel="noopener noreferrer"
-              className="block w-full text-center rounded-lg bg-green-600 px-4 py-2.5 text-sm font-semibold text-white shadow-sm hover:bg-green-700 transition-colors"
-            >
-              Visit Live Site →
-            </a>
-          ) : (
-            <Link
-              href={`/demos/${demo.slug}`}
-              className="block w-full text-center rounded-lg bg-primary-600 px-4 py-2.5 text-sm font-semibold text-white shadow-sm hover:bg-primary-700 transition-colors"
-            >
-              Launch Demo →
-            </Link>
-          )}
-        </div>
-      </div>
-    </article>
-  )
+      </article>
+    )
+  }
 
   return (
     <>
@@ -279,7 +294,9 @@ export default function DemosClient({ demos, categories }: DemosClientProps) {
                 </>
               ) : (
                 <div className="text-center py-16">
-                  <div className="text-6xl mb-4">🔍</div>
+                  <div className="mb-4 flex items-center justify-center">
+                    <SearchX className="h-16 w-16 text-gray-500" strokeWidth={1.5} />
+                  </div>
                   <h3 className="text-2xl font-bold text-white mb-2">No demos found</h3>
                   <p className="text-gray-400 mb-6">Try selecting a different category</p>
                   <button

@@ -1,5 +1,9 @@
 import type { Metadata } from 'next'
 import Link from 'next/link'
+import {
+  Clock, Rocket, Smile, Award, Star, Gem, Handshake, Medal,
+  Flame, Users, Target, Shield, Zap, DollarSign, MapPin,
+} from 'lucide-react'
 import PhoneLink from '@/components/PhoneLink'
 
 export const metadata: Metadata = {
@@ -34,34 +38,34 @@ export const metadata: Metadata = {
 
 export default function About() {
   const stats = [
-    { label: 'Years of Experience', value: '14+', icon: '📅' },
-    { label: 'Projects Completed', value: '200+', icon: '🚀' },
-    { label: 'Happy Clients', value: '200+', icon: '😊' },
+    { label: 'Years of Experience', value: '14+', Icon: Clock },
+    { label: 'Projects Completed', value: '200+', Icon: Rocket },
+    { label: 'Happy Clients', value: '200+', Icon: Smile },
   ]
 
   const values = [
     {
       name: 'Integrity',
       description: 'We do what we say we\'ll do. No hidden fees, no surprises, no empty promises. Military values guide everything we do.',
-      icon: '🎖️',
+      Icon: Award,
       color: 'from-primary-500 to-primary-600'
     },
     {
       name: 'Excellence',
       description: 'We don\'t cut corners. Every project gets the same attention to detail and commitment to quality, whether it\'s $250 or $7,500.',
-      icon: '⭐',
+      Icon: Star,
       color: 'from-accent-500 to-accent-600'
     },
     {
       name: 'Transparency',
       description: 'Flat-rate pricing, clear timelines, honest recommendations. You always know where your project stands and what you\'re paying for.',
-      icon: '💎',
+      Icon: Gem,
       color: 'from-surface-elevated to-surface-border'
     },
     {
       name: 'Service',
       description: 'We serve our clients the way we served our country, with dedication, reliability, and a mission-first mentality.',
-      icon: '🤝',
+      Icon: Handshake,
       color: 'from-primary-600 to-accent-600'
     },
   ]
@@ -120,7 +124,7 @@ export default function About() {
         <div className="relative mx-auto max-w-7xl px-6 py-24 sm:py-32 lg:px-8">
           <div className="mx-auto max-w-3xl text-center">
             <div className="mb-8 inline-flex items-center gap-3 rounded-full bg-surface-card/60 px-6 py-3 text-sm font-semibold backdrop-blur-sm border border-surface-border animate-fade-in-up">
-              <span className="text-3xl">🇺🇸</span>
+              <Medal className="h-7 w-7 text-accent-400" strokeWidth={1.75} />
               <span className="text-base">Veteran-Owned & Operated Since 2011</span>
             </div>
             <h1 className="text-5xl font-bold tracking-tight sm:text-7xl animate-fade-in-up animation-delay-200">
@@ -165,7 +169,9 @@ export default function About() {
                 className="text-center group animate-fade-in-up"
                 style={{ animationDelay: `${index * 100}ms` }}
               >
-                <div className="text-5xl mb-3 group-hover:scale-110 transition-transform">{stat.icon}</div>
+                <div className="mb-3 flex justify-center text-primary-400 group-hover:scale-110 transition-transform">
+                  <stat.Icon className="h-12 w-12" strokeWidth={1.75} />
+                </div>
                 <div className="text-4xl font-bold bg-gradient-to-r from-primary-400 to-accent-400 bg-clip-text text-transparent">
                   {stat.value}
                 </div>
@@ -183,7 +189,7 @@ export default function About() {
             {/* Text Content */}
             <div>
               <div className="inline-flex items-center rounded-full bg-primary-500/15 px-4 py-2 text-sm font-semibold text-primary-300 mb-6">
-                📖 Our Story
+                Our Story
               </div>
               <h2 className="text-4xl font-bold tracking-tight text-white sm:text-5xl mb-8">
                 Built on Military Values, Driven by Results
@@ -219,35 +225,35 @@ export default function About() {
             <div className="relative">
               <div className="rounded-3xl bg-gradient-to-br from-primary-700 via-primary-600 to-accent-500 p-12 shadow-2xl">
                 <div className="text-center text-white">
-                  <div className="text-8xl mb-6">🎖️</div>
+                  <Award className="h-24 w-24 mb-6" strokeWidth={1.5} />
                   <h3 className="text-3xl font-bold mb-4">USMC Core Values</h3>
                   <div className="grid grid-cols-2 gap-6 mt-8">
                     <div className="bg-surface-card/60 backdrop-blur-sm rounded-xl p-4 border border-surface-border">
-                      <div className="text-3xl mb-2">🎖️</div>
+                      <Medal className="h-8 w-8 mb-2" strokeWidth={1.75} />
                       <div className="text-sm font-semibold">Honor</div>
                     </div>
                     <div className="bg-surface-card/60 backdrop-blur-sm rounded-xl p-4 border border-surface-border">
-                      <div className="text-3xl mb-2">💪</div>
+                      <Flame className="h-8 w-8 mb-2" strokeWidth={1.75} />
                       <div className="text-sm font-semibold">Courage</div>
                     </div>
                     <div className="bg-surface-card/60 backdrop-blur-sm rounded-xl p-4 border border-surface-border">
-                      <div className="text-3xl mb-2">🤝</div>
+                      <Users className="h-8 w-8 mb-2" strokeWidth={1.75} />
                       <div className="text-sm font-semibold">Commitment</div>
                     </div>
                     <div className="bg-surface-card/60 backdrop-blur-sm rounded-xl p-4 border border-surface-border">
-                      <div className="text-3xl mb-2">🎯</div>
+                      <Target className="h-8 w-8 mb-2" strokeWidth={1.75} />
                       <div className="text-sm font-semibold">Mission-Focused</div>
                     </div>
                     <div className="bg-surface-card/60 backdrop-blur-sm rounded-xl p-4 border border-surface-border">
-                      <div className="text-3xl mb-2">💎</div>
+                      <Gem className="h-8 w-8 mb-2" strokeWidth={1.75} />
                       <div className="text-sm font-semibold">Integrity</div>
                     </div>
                     <div className="bg-surface-card/60 backdrop-blur-sm rounded-xl p-4 border border-surface-border">
-                      <div className="text-3xl mb-2">🛡️</div>
+                      <Shield className="h-8 w-8 mb-2" strokeWidth={1.75} />
                       <div className="text-sm font-semibold">Service</div>
                     </div>
                     <div className="bg-surface-card/60 backdrop-blur-sm rounded-xl p-4 border border-surface-border">
-                      <div className="text-3xl mb-2">⚡</div>
+                      <Zap className="h-8 w-8 mb-2" strokeWidth={1.75} />
                       <div className="text-sm font-semibold">Excellence</div>
                     </div>
                   </div>
@@ -266,7 +272,7 @@ export default function About() {
         <div className="mx-auto max-w-7xl px-6 lg:px-8">
           <div className="mx-auto max-w-2xl text-center mb-16">
             <div className="inline-flex items-center rounded-full bg-accent-500/15 px-4 py-2 text-sm font-semibold text-accent-300 mb-4">
-              ⏰ Our Journey
+              Our Journey
             </div>
             <h2 className="text-4xl font-bold tracking-tight text-white sm:text-5xl">
               14+ Years of Growth
@@ -310,7 +316,7 @@ export default function About() {
         <div className="mx-auto max-w-7xl px-6 lg:px-8">
           <div className="mx-auto max-w-2xl text-center mb-16">
             <div className="inline-flex items-center rounded-full bg-primary-500/15 px-4 py-2 text-sm font-semibold text-primary-300 mb-4">
-              💎 Core Values
+              Core Values
             </div>
             <h2 className="text-4xl font-bold tracking-tight text-white sm:text-5xl">
               Our Guiding Principles
@@ -327,8 +333,8 @@ export default function About() {
                 className="group relative rounded-3xl bg-surface-card p-10 shadow-lg shadow-black/20 border-2 border-surface-border hover:border-primary-300 transition-all"
                 style={{ animationDelay: `${index * 100}ms` }}
               >
-                <div className={`absolute -top-6 -left-6 w-20 h-20 rounded-2xl bg-gradient-to-br ${value.color} flex items-center justify-center text-4xl shadow-xl transform group-hover:rotate-12 transition-transform`}>
-                  {value.icon}
+                <div className={`absolute -top-6 -left-6 w-20 h-20 rounded-2xl bg-gradient-to-br ${value.color} flex items-center justify-center text-white shadow-xl transform group-hover:rotate-12 transition-transform`}>
+                  <value.Icon className="h-9 w-9" strokeWidth={1.75} />
                 </div>
                 <div className="ml-16">
                   <h3 className="text-2xl font-bold text-white mb-4">
@@ -349,7 +355,7 @@ export default function About() {
         <div className="mx-auto max-w-7xl px-6 lg:px-8">
           <div className="mx-auto max-w-2xl text-center mb-16">
             <div className="inline-flex items-center rounded-full bg-accent-500/15 px-4 py-2 text-sm font-semibold text-accent-300 mb-4">
-              👥 Meet the Team
+              Meet the Team
             </div>
             <h2 className="text-4xl font-bold tracking-tight text-white sm:text-5xl">
               Veteran-Led Excellence
@@ -365,8 +371,8 @@ export default function About() {
                 {/* Profile Image Placeholder */}
                 <div className="flex-shrink-0">
                   <div className="relative">
-                    <div className="h-48 w-48 rounded-3xl bg-gradient-to-br from-primary-600 to-accent-600 flex items-center justify-center text-white text-7xl shadow-2xl">
-                      🎖️
+                    <div className="h-48 w-48 rounded-3xl bg-gradient-to-br from-primary-600 to-accent-600 flex items-center justify-center text-white shadow-2xl">
+                      <Award className="h-20 w-20" strokeWidth={1.5} />
                     </div>
                     <div className="absolute -bottom-4 -right-4 bg-surface-card rounded-2xl px-6 py-3 shadow-xl shadow-black/20 border-2 border-accent-500">
                       <div className="text-sm font-bold text-accent-600">U.S. Veteran</div>
@@ -412,7 +418,9 @@ export default function About() {
 
           <div className="grid gap-8 lg:grid-cols-3">
             <div className="group rounded-3xl bg-surface p-8 shadow-lg shadow-black/20 border border-surface-border hover:border-accent-500 transition-all">
-              <div className="text-5xl mb-6 group-hover:scale-110 transition-transform">💰</div>
+              <div className="mb-6 text-accent-500 group-hover:scale-110 transition-transform">
+                <DollarSign className="h-12 w-12" strokeWidth={1.75} />
+              </div>
               <h3 className="text-2xl font-bold text-white mb-4">
                 Transparent Flat-Rate Pricing
               </h3>
@@ -422,7 +430,9 @@ export default function About() {
             </div>
 
             <div className="group rounded-3xl bg-surface p-8 shadow-lg shadow-black/20 border border-surface-border hover:border-accent-500 transition-all">
-              <div className="text-5xl mb-6 group-hover:scale-110 transition-transform">⚡</div>
+              <div className="mb-6 text-accent-500 group-hover:scale-110 transition-transform">
+                <Zap className="h-12 w-12" strokeWidth={1.75} />
+              </div>
               <h3 className="text-2xl font-bold text-white mb-4">
                 Fast Turnaround
               </h3>
@@ -432,7 +442,9 @@ export default function About() {
             </div>
 
             <div className="group rounded-3xl bg-surface p-8 shadow-lg shadow-black/20 border border-surface-border hover:border-accent-500 transition-all">
-              <div className="text-5xl mb-6 group-hover:scale-110 transition-transform">📍</div>
+              <div className="mb-6 text-accent-500 group-hover:scale-110 transition-transform">
+                <MapPin className="h-12 w-12" strokeWidth={1.75} />
+              </div>
               <h3 className="text-2xl font-bold text-white mb-4">
                 Local Houston Support
               </h3>
