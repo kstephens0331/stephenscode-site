@@ -50,11 +50,12 @@ const toc = [
   { id: 'liability', label: '13. Limitation of Liability' },
   { id: 'indemnification', label: '14. Indemnification' },
   { id: 'confidentiality', label: '15. Confidentiality' },
-  { id: 'termination', label: '16. Termination' },
-  { id: 'governing-law', label: '17. Governing Law & Disputes' },
-  { id: 'changes', label: '18. Changes to These Terms' },
-  { id: 'general', label: '19. General Provisions' },
-  { id: 'contact', label: '20. Contact Us' },
+  { id: 'testimonials', label: '16. Testimonials & Case Studies' },
+  { id: 'termination', label: '17. Termination' },
+  { id: 'governing-law', label: '18. Governing Law & Disputes' },
+  { id: 'changes', label: '19. Changes to These Terms' },
+  { id: 'general', label: '20. General Provisions' },
+  { id: 'contact', label: '21. Contact Us' },
 ]
 
 function Section({
@@ -144,6 +145,15 @@ export default function Terms() {
           &ldquo;you&rdquo; refers to that entity.
         </p>
         <p>
+          By using our Services, you represent that you are at least 18 years old and have the
+          legal capacity to enter into a binding contract, whether on your own behalf or on behalf
+          of an entity you represent. You consent to receive notices, invoices, proposals, and
+          agreements from us electronically, by email or through the Customer Portal, and agree
+          that your electronic acceptance of these Terms or of a quote or proposal &mdash;
+          including by clicking to accept, replying by email, or submitting a deposit payment
+          &mdash; has the same legal effect as a handwritten signature.
+        </p>
+        <p>
           These Terms work alongside our{' '}
           <Link href="/privacy" className="text-primary-600 hover:underline">
             Privacy Policy
@@ -227,6 +237,17 @@ export default function Terms() {
           described on the relevant service page. Onboarding for a new managed IT client may
           include a network or security assessment before your recurring plan begins.
         </p>
+        <p>
+          No cybersecurity service, product, or configuration can guarantee prevention of every
+          cyberattack, data breach, or system failure, and we make no such guarantee. We will
+          implement the security measures described in your plan or statement of work using
+          reasonable care and industry-standard practices. Except in the case of our gross
+          negligence or willful misconduct, we are not liable for losses arising from a security
+          incident, breach, or attack that occurs despite those agreed-upon measures having been
+          properly implemented and maintained, including where the incident results from your own
+          action or inaction (such as ignoring a patching or password-hygiene recommendation), a
+          zero-day vulnerability, or a failure of a third-party vendor&apos;s product or service.
+        </p>
       </Section>
 
       <Section id="custom-quotes" num="5" title="Custom Quotes & Statements of Work">
@@ -281,7 +302,10 @@ export default function Terms() {
           Invoices not paid within the terms stated on the invoice may result in a pause of
           in-progress work, a delay in delivery or launch, or suspension of active managed IT or
           hosting-related services, until payment is brought current. We will make reasonable
-          efforts to contact you before pausing or suspending a service for non-payment.
+          efforts to contact you before pausing or suspending a service for non-payment. Overdue
+          balances accrue a late charge of 1.5% per month (18% per year), or the maximum rate
+          permitted by Texas law if lower, from the due date until paid in full, in addition to
+          any pause or suspension described above.
         </p>
       </Section>
 
@@ -441,6 +465,16 @@ export default function Terms() {
           interruption, as those services are outside our control and governed by their own
           terms.
         </p>
+        <p>
+          <strong>No guaranteed results.</strong> For any Service that includes search engine
+          optimization, local SEO, Google Business Profile guidance, content strategy, or
+          advertising management, we do not guarantee specific search rankings, impressions,
+          traffic levels, lead volume, conversion rates, or revenue outcomes. Search engines,
+          social platforms, and advertising networks are operated by third parties whose
+          algorithms, policies, and competitive landscape are outside our control and change
+          without notice, and results also depend on factors specific to your business and market
+          that we do not control.
+        </p>
       </Section>
 
       <Section id="liability" num="13" title="Limitation of Liability">
@@ -492,19 +526,32 @@ export default function Terms() {
         </p>
       </Section>
 
-      <Section id="termination" num="16" title="Termination" tone="muted">
+      <Section id="testimonials" num="16" title="Testimonials & Case Studies">
+        <p>
+          We may ask for your feedback, a testimonial, or permission to feature your project as a
+          case study (including your business name, logo, a description of the work, and, where
+          applicable, publicly-visible results) on our website or in other marketing materials. We
+          will only do so with your consent, and you may withdraw that consent for future use at
+          any time by contacting us using the information in Section 21; withdrawal does not
+          require us to remove materials already distributed before your request where that is not
+          reasonably practical (for example, printed materials), but we will remove or update our
+          own website within a reasonable time.
+        </p>
+      </Section>
+
+      <Section id="termination" num="17" title="Termination" tone="muted">
         <p>
           Either party may terminate an ongoing engagement as described in Section 7 (Refunds &amp;
           Cancellation). We may also suspend or terminate your access to the Customer Portal or
           any active Service immediately, without prior notice, for non-payment, suspected fraud,
           security risk, or violation of Section 11&apos;s acceptable use terms. Sections 9
-          (Ownership), 12 through 15 (Warranty Disclaimer, Limitation of Liability,
-          Indemnification, and Confidentiality), and 17 (Governing Law) survive termination of any
-          engagement.
+          (Ownership), 12 through 16 (Warranty Disclaimer, Limitation of Liability,
+          Indemnification, Confidentiality, and Testimonials &amp; Case Studies), and 18 (Governing
+          Law) survive termination of any engagement.
         </p>
       </Section>
 
-      <Section id="governing-law" num="17" title="Governing Law & Dispute Resolution">
+      <Section id="governing-law" num="18" title="Governing Law & Dispute Resolution">
         <p>
           These Terms, and any dispute arising from them, from the Services, or from the
           Deliverables, are governed by the laws of the State of Texas, without regard to its
@@ -513,13 +560,19 @@ export default function Terms() {
           Montgomery County, Texas, and you consent to personal jurisdiction there.
         </p>
         <p>
+          To the extent permitted by applicable law, you and StephensCode each waive any right to
+          a jury trial, and to bring or participate in a class, collective, or representative
+          action against the other, arising out of or relating to these Terms, the Services, or
+          the Deliverables. Each of us may only bring claims in an individual capacity.
+        </p>
+        <p>
           Before filing a formal legal claim, we encourage you to contact us using the information
-          in Section 20 so we can try to resolve the issue directly &mdash; we are a small,
+          in Section 21 so we can try to resolve the issue directly &mdash; we are a small,
           local company and would rather fix a problem than litigate it.
         </p>
       </Section>
 
-      <Section id="changes" num="18" title="Changes to These Terms" tone="muted">
+      <Section id="changes" num="19" title="Changes to These Terms" tone="muted">
         <p>
           We may update these Terms from time to time to reflect changes in our Services, pricing
           structure, or legal requirements. We will update the &ldquo;Last updated&rdquo; date at
@@ -532,7 +585,7 @@ export default function Terms() {
         </p>
       </Section>
 
-      <Section id="general" num="19" title="General Provisions">
+      <Section id="general" num="20" title="General Provisions">
         <p>
           <strong>Entire agreement.</strong> These Terms, together with our Privacy Policy and
           any signed proposal, invoice, or statement of work for your engagement, are the entire
@@ -567,13 +620,18 @@ export default function Terms() {
           independent contractor. Nothing in these Terms creates a partnership, joint venture,
           employment, or agency relationship between you and StephensCode.
         </p>
+        <p>
+          <strong>Attorneys&apos; fees.</strong> In any action or proceeding to enforce these
+          Terms, the prevailing party is entitled to recover its reasonable attorneys&apos; fees
+          and costs, in addition to any other relief awarded.
+        </p>
       </Section>
 
       {/* Contact CTA */}
       <section id="contact" className="scroll-mt-24 py-16 bg-slate-900 text-white">
         <div className="max-w-5xl mx-auto px-4">
           <h2 className="text-3xl font-bold mb-4">
-            <span className="text-primary-400">20.</span> Contact Us
+            <span className="text-primary-400">21.</span> Contact Us
           </h2>
           <p className="text-slate-300 max-w-3xl mb-6">
             Questions about these Terms, your project, or an invoice can go straight to our team.
