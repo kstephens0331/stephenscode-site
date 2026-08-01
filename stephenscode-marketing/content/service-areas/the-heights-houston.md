@@ -1,16 +1,26 @@
 ---
-title: Web Developer The Heights TX | Custom Websites, SEO & E-Commerce
-metaDescription: Web development for The Heights in Houston. Custom sites starting at $250, local SEO, e-commerce. Veteran-owned, built for Houston Heights businesses.
+title: Houston Heights Web Design for 19th Street & White Oak Businesses
+metaDescription: Hand-coded websites for Houston Heights boutiques, restaurants, and studios near 19th Street, White Oak Drive, and the MKT Trail. Veteran-owned, from $250.
 heroSubtitle: Custom websites for a neighborhood that can spot a fake from a block away
+h1Override: 'Web Design for Houston Heights: 19th Street to the MKT Trail'
+faqs:
+  - question: Is StephensCode actually located in the Heights?
+    answer: No, honestly -- I'm in Conroe, about 40 minutes north up I-45. Every part of building your site, from design to SEO to support after launch, happens remotely, and lower overhead there keeps your price down without costing you quality.
+  - question: What's the starting price for a Heights business website?
+    answer: $250 for a fast starter build, with most Heights businesses landing in the Standard or E-Commerce tier. Full pricing is at [/pricing](/pricing).
+  - question: Do you build e-commerce for Heights boutiques and retailers?
+    answer: Yes. Boutique retail is one of the most common builds I do for this neighborhood, usually paired with photography-forward design and a real cart and checkout, not a bolted-on plugin.
+  - question: Are you a veteran-owned business?
+    answer: Yes. I served in the Marine Corps, and I've been hand-coding custom websites for over 14 years and more than 200 completed projects.
 ---
 
-# Web Development Services for The Heights, Houston Businesses
+## Web Development Services for The Heights, Houston Businesses
 
 Houston Heights does not need an introduction from me, and if you run a business there, you already know exactly what kind of neighborhood you are in. It is one of Houston's most iconic districts: a historic streetcar suburb where century-old Victorian bungalows sit on the same block as a craft brewery, a farm-to-table restaurant, and a boutique that would not look out of place in Austin or Nashville. 19th Street and White Oak Drive form the commercial spine of the neighborhood, and on any given Saturday they are full of people who drove in from all over Houston just to shop, eat, and ride the MKT Trail.
 
 That popularity has a cost. The Heights has gone through the kind of gentrification and property value growth that reshapes a neighborhood's entire customer base. The families and business owners moving into Houston Heights, Woodland Heights, Norhill, Shady Acres, and Sunset Heights today are, on average, more affluent than the neighborhood's working-class roots. They also tend to be deliberate about where they spend their money. This is not a market where people default to the nearest national chain. Heights residents actively choose to support local businesses, but they are picky about which ones. They want a business that feels authentic, feels local, and feels professional, all at the same time. If your business gives off any one of those signals but not the other two, you lose them to the shop two doors down that got it right.
 
-I am Kyle Stephens, owner of StephensCode LLC. I am a Marine Corps veteran with over 14 years of web development experience and more than 200 completed projects, and I run my business out of Conroe, about 40 minutes north of the Heights up I-45. I am not going to pretend I am your neighbor the way I would if I were writing this for a town closer to home, but I want to be straight with you about why that does not matter as much as you might think, and I will get to that. What matters more right now is this: a neighborhood as visually and culturally distinct as the Heights deserves a website that looks like it belongs there, not a template that could just as easily be selling insurance in Ohio.
+A neighborhood as visually and culturally distinct as the Heights deserves a website that looks like it belongs there, not a template that could just as easily be selling insurance in Ohio. I'm Kyle Stephens, and StephensCode LLC is the company I run out of Conroe, about 40 minutes north up I-45 -- I won't pretend to be your neighbor the way I would for a town closer to home, and I'll get to why that distance matters less than you'd expect later on this page. For now, here's the short version: more than 14 years of hand-coding sites, past 200 of them, and a Marine Corps background that shaped how I run this business.
 
 ## The Heights Market: Selective, Loyal, and Allergic to Fake
 
@@ -32,17 +42,9 @@ The businesses in the Heights that are thriving online are not necessarily the o
 
 I hand-code every website I build. No WordPress themes, no drag-and-drop builders, no bloated plugin stacks slowing down your load times. Everything is built with modern frameworks like Next.js and React, which means your site loads fast, works properly on every phone (and a lot of your Heights traffic is going to be on a phone, walking between shops on 19th Street), and does not accumulate the kind of technical debt that template sites do over time.
 
-Here is my current pricing, flat-rate, no hourly billing, and every tier includes 90 days of post-launch support:
+Pricing is flat-rate, no hourly billing, starting at $250 and scaling up through full custom platforms with CRM, client portals, and automation built in, and every tier includes 90 days of post-launch support. The complete breakdown of tiers, prices, and timelines is at [/pricing](/pricing).
 
-- **Plug and Play** -- $250 -- 1 week. A fast-turnaround starter site, ideal if you just opened a shop or studio in the Heights and need a professional web presence now.
-- **Website Rebuild** -- $350 -- 2 weeks. For businesses with an existing site that looks and feels like it was built a decade ago and needs a real modernization.
-- **Standard Website** -- $950 -- 3 to 4 weeks. My most common build: a full custom small-business site with the pages, content, and design a Heights business actually needs.
-- **E-Commerce Website** -- $1,100 -- 4 to 6 weeks. A real online store with cart and checkout, built for boutiques and retailers who want to sell beyond foot traffic.
-- **Premium Build** -- $2,000 -- 6 to 8 weeks. A custom full-stack site with an admin portal and analytics dashboard, for businesses that need more than a brochure site.
-- **Custom Business Platform** -- $5,000 -- 10 to 12 weeks. CRM, client portals, booking, payments, and automation, for businesses managing more complex operations.
-- **Enterprise Platform** -- $7,500 and up -- 12 to 16 weeks. Multi-tenant systems, SSO, audit logs, and workflow builders, for organizations with real scale.
-
-Most Heights businesses land in the Standard Website or E-Commerce tiers, though a design-forward retailer or interior designer often benefits from the Premium Build if they want a portfolio system they can update themselves. There is also an optional Maintenance Plan, $50 to $100 a month, if you want ongoing updates handled without lifting a finger.
+Most Heights businesses land in the Standard or E-Commerce range, though a design-forward retailer or interior designer often benefits from a step up if they want a portfolio system they can update themselves. There is also an optional maintenance plan, $50 to $100 a month, if you want ongoing updates handled without lifting a finger.
 
 Beyond design and development, I build in on-page local SEO from day one: content and metadata targeted at the searches your actual customers are making, structured so Google understands exactly what neighborhood you serve and what you offer there.
 
@@ -82,10 +84,4 @@ I also do not take on so many clients that you become a ticket in a queue. When 
 
 Call me at (936) 323-4527, email info@stephenscode.dev, or use the contact form on this site. We will talk about your business, your customers, and what you actually need your site to do, and I will give you a straight answer on price and timeline before we start anything.
 
-The Heights is not a neighborhood where you can afford to look generic. Your customers chose to be here because they wanted something authentic, and your website should be the reason they choose you over the shop next door, not the reason they don't.
-
-**Kyle Stephens**
-**StephensCode LLC**
-**(936) 323-4527**
-**Veteran-Owned | Based in Conroe, TX | Serving Houston Heights**
-**Custom websites starting at $250**
+The Heights is not a neighborhood where you can afford to look generic. Your customers chose to be here because they wanted something authentic, and your website should be the reason they choose you over the shop next door, not the reason they don't. That's the same standard I hold this veteran-owned, Conroe-based shop to on every Houston Heights project, with custom sites still starting at $250.

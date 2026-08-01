@@ -1,16 +1,26 @@
 ---
-title: Web Developer Friendswood TX | Custom Websites, SEO & E-Commerce
-metaDescription: Custom web development for Friendswood, Texas businesses. Sites starting at $250, built for the local community. Veteran-owned, hand-coded, no WordPress.
+title: Friendswood, TX Web Design | Built on the Same Trust the Town Was Founded On
+metaDescription: "Web development for Friendswood, Texas: a city founded as a Quaker colony in 1895 and still run on neighbor-to-neighbor trust. Hand-coded, flat-rate, veteran-owned."
 heroSubtitle: Websites built with the same trust and personal connection Friendswood is known for
+h1Override: Websites for Friendswood Businesses That Run on Reputation
+faqs:
+  - question: "Do you work with businesses outside Friendswood proper, like Friendswood Lakes or Autumn Creek?"
+    answer: "Yes. Most Friendswood clients draw customers from West Ranch, Friendswood Lakes, Autumn Creek, the Heritage Park area, and Downtown Friendswood alike, so the site and its local SEO get built around all of those neighborhoods rather than just the city name."
+  - question: "What does a website cost for a Friendswood business?"
+    answer: "Pricing is flat-rate with no hourly billing, and it scales with scope. The exact tiers and turnaround windows are listed on the pricing page."
+  - question: "Is StephensCode actually local to the Friendswood area?"
+    answer: "StephensCode is based in Conroe, about 55 minutes from Friendswood up I-45 and Beltway 8. In-person meetings happen when a client wants one; the design and development work itself happens the same way regardless of distance."
+  - question: "Why does it matter that the site is hand-coded instead of built on a template platform?"
+    answer: "Friendswood residents tend to research a business before calling, often right after hearing the name from a neighbor. A slow or generic template site undercuts that trust the moment someone looks you up, which is why every StephensCode site is built from scratch rather than assembled from a page-builder theme."
 ---
 
-# Web Development Services for Friendswood, Texas Businesses
+## A City Built on Trust, Since 1895
 
 Friendswood was founded in 1895 as a Quaker colony, and even though the city has grown into a community of more than 40,000 people, that founding character never really left. It shows up in the way people here still wave at neighbors, in the way parents compare notes on Friendswood ISD and Clear Creek ISD classrooms at the grocery store, and in the way a business's reputation still travels by word of mouth almost as fast as it travels online. Friendswood gets ranked again and again as one of the best places in Texas to raise a family, and it earns that ranking honestly. It is not an accident. It is the product of a community that has spent well over a century deciding that trust and neighborliness matter more than being the loudest or the flashiest option in the room.
 
 That matters enormously for how a Friendswood business should present itself online, and it is the single biggest thing I think about when I build a website for someone here.
 
-I'm Kyle Stephens, owner of StephensCode LLC. I'm a Marine Corps veteran with more than 14 years building web software, and I've shipped over 200 projects for businesses that needed a real website instead of a template with their logo slapped on it. I work out of Conroe, and Friendswood is about 55 minutes down the road, mostly across I-45 and Beltway 8 and then down into Galveston and Harris County. I make that drive when a client wants to sit down face to face. A lot of the businesses I build for prefer that over a Zoom call, and I get why. It fits the town.
+The person you'd actually be working with fits that same mold. StephensCode is a one-owner shop run by Kyle Stephens, a Marine Corps veteran who has spent more than fourteen years and over 200 projects building web software for small businesses. There's no account rep, no production team you never meet, no logo-swapped template dressed up as custom work -- just the person writing the code, out of Conroe, about 55 minutes up the road across I-45 and Beltway 8. A fair number of Friendswood clients would rather sit down face to face than hop on a Zoom call, and that drive gets made when it matters. It fits a town like this.
 
 ## Why Friendswood Is a Different Kind of Market
 
@@ -24,23 +34,7 @@ A website for a Friendswood business needs to do something specific: it needs to
 
 I hand-code every website I deliver. No WordPress, no Wix, no Squarespace, no page builder plugin ecosystem that turns into a maintenance headache eighteen months later. I build with Next.js and React, which means your site loads fast, holds up under Google's technical SEO standards, and doesn't accumulate the plugin bloat and security vulnerabilities that come standard with template platforms.
 
-Here's the pricing, and it's flat-rate. No hourly billing, no scope creep surprises, no "final invoice" that's double what you were quoted.
-
-**Plug and Play -- $250, about a week.** This is for a brand-new Friendswood business that needs a clean, professional presence online fast. If you just opened up shop near Downtown Friendswood or you're a new tutor building your client list before the school year starts, this gets you a real site quickly.
-
-**Website Rebuild -- $350, about two weeks.** A lot of businesses here have a site that was built years ago and never touched since. If yours loads slow, looks dated, or doesn't work right on a phone, this rebuilds it properly on modern code.
-
-**Standard Website -- $950, three to four weeks.** This is the typical entry point for most small businesses -- a full custom site with your services, your story, a contact system that actually routes to you, and on-page SEO built in from day one. Most home service companies, healthcare practices, and professional services firms in Friendswood land here.
-
-**E-Commerce Website -- $1,100, four to six weeks.** If you're selling products with a shopping cart and checkout, this gets you a working online store without the transaction fees and plugin dependency of an off-the-shelf cart platform.
-
-**Premium Build -- $2,000, six to eight weeks.** A custom full-stack site with an admin portal and an analytics dashboard, for businesses that need to manage their own content or track performance without calling me every time something needs to change.
-
-**Custom Business Platform -- $5,000, ten to twelve weeks.** This is CRM territory -- client portals, appointment booking, payment processing, automated workflows. I've built this tier for businesses juggling more moving parts than a basic website can handle.
-
-**Enterprise Platform -- $7,500 and up, twelve to sixteen weeks.** Multi-location or multi-tenant systems, single sign-on, audit logging, custom workflow builders. Not common in a town this size, but it happens, particularly for practices with multiple locations across the Bay Area.
-
-Every tier includes 90 days of support after launch. If something breaks or you find a typo, I fix it. There's also an optional maintenance plan running $50 to $100 a month if you want ongoing updates handled without having to think about it.
+Pricing is flat-rate, not hourly, and it scales with what a project actually needs rather than a one-size-fits-all number. A brand-new business near Downtown Friendswood that just needs a clean, fast, professional presence online sits at one end of that range. A healthcare practice or home services company that wants an admin portal and an analytics dashboard on top of the website sits further up. The full tier-by-tier breakdown, with real turnaround windows, lives on the [pricing page](/pricing) rather than cluttering up this one -- but every tier includes real support after launch, not a site that gets handed off and forgotten.
 
 ## Industries I Build For in Friendswood
 
@@ -64,11 +58,9 @@ The Clear Creek natural area running through town, and the general green, walkab
 
 ## How I Work
 
-I start with a real conversation. What does your business actually do, who is your actual customer in Friendswood, and what do you need the website to accomplish -- more calls, more bookings, more foot traffic, more credibility with people who've already heard your name from a neighbor. From there I quote you a flat price up front from the tiers above. No surprise invoices later.
+It starts with a real conversation: what does your business actually do, who is your actual customer in Friendswood, and what do you need the website to accomplish -- more calls, more bookings, more foot traffic, more credibility with people who've already heard your name from a neighbor. From there comes a flat price up front, quoted against the tiers on the pricing page, not a number that grows after the fact.
 
-I build the site myself, by hand, with modern code that loads fast and holds up to Google's standards. You get your own domain, your own hosting setup, and full ownership of everything -- I don't hold your site hostage on some proprietary platform where you're stuck paying me forever just to make a text change.
-
-Ninety days of support come standard with every project. After that, if you want continued help, the maintenance plan is there, but it's optional, not a subscription trap.
+The site itself gets built by hand, with modern code that loads fast and holds up to Google's standards. You get your own domain, your own hosting setup, and full ownership of everything -- no proprietary platform holding your site hostage, no paying someone forever just to change a sentence of text.
 
 ## Mobile Search Is Where This Gets Decided
 
@@ -78,13 +70,6 @@ This is part of why I don't build on WordPress or drag-and-drop platforms. Those
 
 ## Let's Talk
 
-If you run a business in Friendswood -- whether you're in West Ranch, Friendswood Lakes, Autumn Creek, near Heritage Park, or right downtown -- and your current website isn't doing you any favors, or you don't have one yet, give me a call. We'll talk through what you actually need, and I'll give you a straight, flat-rate quote with a real timeline.
+If you run a business in Friendswood -- whether you're in West Ranch, Friendswood Lakes, Autumn Creek, near Heritage Park, or right downtown -- and your current website isn't doing you any favors, or you don't have one yet, reach out. Kyle Stephens can be reached directly at (936) 323-4527 or info@stephenscode.dev, and the first conversation is just about what your business actually needs, not a sales pitch.
 
-Friendswood built its reputation on trust and community over more than a century. Your website should reflect that, not undercut it.
-
-**Kyle Stephens**
-**StephensCode LLC**
-**(936) 323-4527**
-**info@stephenscode.dev**
-**Veteran-Owned | Based in Conroe, TX | Serving Friendswood**
-**Custom websites starting at $250**
+Friendswood built its reputation on trust and community over more than a century. A website from a veteran-owned, Conroe-based shop that actually answers the phone should reflect that reputation, not quietly undercut it.

@@ -1,7 +1,17 @@
 ---
-title: Web Developer Montrose Houston TX | Custom Websites, SEO & E-Commerce
-metaDescription: Custom web development for Montrose, Houston businesses -- galleries, restaurants, boutiques & creative studios. Hand-coded sites from $250. Veteran-owned.
+title: "Montrose, Houston Web Design | Built for the Westheimer Arts Scene"
+metaDescription: "Hand-coded websites for Montrose, Houston galleries, vintage shops, and restaurants near the Menil Collection. Flat-rate builds from $250. Veteran-owned, 45 minutes from Conroe."
 heroSubtitle: Hand-coded websites for the most independent-minded neighborhood in Houston
+h1Override: "Website Design for Montrose, Houston's Independent Business Scene"
+faqs:
+  - question: "Why doesn't a template website work for a Montrose business?"
+    answer: "Montrose customers already expect creativity and authenticity from the galleries, shops, and restaurants they choose. A site built from a WordPress theme or drag-and-drop builder looks like the same template ten thousand other small businesses use, which undercuts that expectation before a visitor even reads a word."
+  - question: "How far is StephensCode from Montrose?"
+    answer: "About 45 minutes down I-45 and through the Loop from the Conroe office. Projects are handled by phone, video, and in-person visits when a project calls for one."
+  - question: "What kind of Montrose businesses does StephensCode build for?"
+    answer: "Mostly art galleries, vintage and thrift shops, restaurants and cafes, tattoo studios, and creative services providers along the Westheimer corridor and in Neartown, Cherryhurst, Avondale, and Castle Court."
+  - question: "What's the starting price for a Montrose business website?"
+    answer: "$250 for a fast-turnaround starter site, with full tiers and timelines listed on the pricing page. Every project is flat-rate with 90 days of post-launch support."
 ---
 
 # Web Development Services for Montrose, Houston Businesses
@@ -10,7 +20,7 @@ Montrose does not do generic. This is the neighborhood that gave Houston the Men
 
 That is exactly why a stock template website is such a bad fit here. If you run a gallery, a coffee shop, a vintage store, or a design studio on or near Westheimer, your customers already expect something distinctive from you before they ever walk through your door. They found your gallery because it was not the same as the last one. They found your restaurant because someone told them it was not a chain. If they land on your website and it looks like the same drag-and-drop template as ten thousand other small businesses, that disconnect is immediate and it costs you the click.
 
-I am Kyle Stephens, owner of StephensCode LLC. I am a Marine Corps veteran with more than 14 years of web development experience and over 200 completed projects, and I build every site by hand -- no WordPress, no page builders, no theme marketplace shortcuts. I am based in Conroe, about 45 minutes down I-45 and through the Loop from Montrose. That is a real drive, and I am not going to pretend otherwise. But building a website is not a job that requires me to be standing in your gallery. It requires me to understand your business, and that happens over a phone call, a video chat, and a lot of back-and-forth on content -- the same process I would use whether your shop was ten minutes away or two states over. When the site is done, it works exactly the same in Montrose as it does anywhere else. I just do not charge Montrose prices to do it.
+Forty-five minutes down I-45 and through the Loop is the honest distance between Conroe, where StephensCode LLC operates, and Montrose. I'm not going to dress that up. What I will tell you is who's on the other end of that drive: Kyle Stephens, Marine Corps veteran, more than 14 years and 200-plus finished projects into building websites by hand -- no WordPress, no page builders, no theme marketplace shortcuts. None of that requires me to be standing in your gallery. It requires a phone call, a video chat, and enough back-and-forth on content to get your shop right, which is the same process I'd use if you were ten minutes away or two states over. The finished site works the same either way. The only thing the distance changes is that I'm not charging you a Montrose lease's worth of overhead to build it.
 
 ## The Montrose Market: A Neighborhood That Already Knows What It Wants
 
@@ -34,25 +44,15 @@ This is the whole reason I do not build with WordPress themes or drag-and-drop b
 
 ### Custom Website Design and Development
 
-I do not have a one-size-fits-all package, because a Montrose business does not have one-size-fits-all needs. Here is how the pricing actually breaks down, with no hourly billing and no surprise invoices -- every tier includes 90 days of post-launch support:
-
-- **Plug and Play -- $250, 1 week.** A fast-turnaround starter site for a brand-new gallery pop-up, a new coffee cart, or any Montrose business that just needs a clean, professional web presence fast.
-- **Website Rebuild -- $350, 2 weeks.** For the vintage shop or restaurant that has an old, outdated, or template-based site and needs it modernized without starting the whole business over.
-- **Standard Website -- $950, 3-4 weeks.** This is the typical entry point for most Montrose businesses -- a full custom site for a gallery, a tattoo studio, a coffee shop, or an independent retailer, built around your actual content and your actual customers.
-- **E-Commerce Website -- $1,100, 4-6 weeks.** For vintage and thrift shops or independent retail that wants to sell online, complete with cart and checkout.
-- **Premium Build -- $2,000, 6-8 weeks.** A custom full-stack site with an admin portal and analytics dashboard -- useful for a gallery managing rotating exhibitions and inventory, or a multi-location restaurant group.
-- **Custom Business Platform -- $5,000, 10-12 weeks.** CRM, client portals, booking, payments, and automation, for a creative services studio or agency that has outgrown a simple website.
-- **Enterprise Platform -- $7,500+, 12-16 weeks.** Multi-tenant architecture, SSO, audit logs, and workflow builders, for larger operations that need infrastructure, not just a homepage.
-
-There is also an optional Maintenance Plan add-on, $50-100 a month, for businesses that want ongoing updates handled without lifting a finger.
+I don't have a one-size-fits-all package, because a Montrose business doesn't have one-size-fits-all needs. A pop-up gallery needs something different than a multi-location restaurant group, and a tattoo studio's portfolio site has nothing in common with a creative agency's client platform. Pricing is flat-rate with no hourly billing and no surprise invoices, starting at $250 for a fast-turnaround starter site and climbing from there based on what the project actually requires. Every tier includes 90 days of post-launch support, and the full breakdown by tier and timeline lives on the [pricing page](/pricing). An optional maintenance plan, $50-100 a month, is available for businesses that want ongoing updates handled without lifting a finger.
 
 ### E-Commerce for Vintage, Thrift, and Independent Retail
 
-If you run a vintage or thrift shop on or near Westheimer, your inventory turns over constantly, and that is exactly the kind of business that benefits from a real e-commerce site instead of relying entirely on Instagram posts or a resale marketplace that takes a cut of every sale and controls your customer relationship. The E-Commerce Website tier gives you a cart, checkout, and product catalog that you own outright, with the flexibility to list a one-of-a-kind piece today and pull it down the moment it sells.
+If you run a vintage or thrift shop on or near Westheimer, your inventory turns over constantly, and that is exactly the kind of business that benefits from a real e-commerce site instead of relying entirely on Instagram posts or a resale marketplace that takes a cut of every sale and controls your customer relationship. A custom e-commerce build gives you a cart, checkout, and product catalog that you own outright, with the flexibility to list a one-of-a-kind piece today and pull it down the moment it sells.
 
 ### Portfolio and Booking Sites for Galleries, Tattoo Studios, and Creative Services
 
-A gallery's website lives or dies on how well it shows the work. A tattoo studio's website lives or dies on the strength of the portfolio and how easy it is to request a consultation. A freelance photographer, designer, or other creative services provider needs a site that functions like a digital portfolio and a client intake form at the same time. I build these as custom sites in the Standard Website or Premium Build tier depending on whether you need a simple portfolio or something with an admin dashboard for managing exhibitions, appointments, or client projects.
+A gallery's website lives or dies on how well it shows the work. A tattoo studio's website lives or dies on the strength of the portfolio and how easy it is to request a consultation. A freelance photographer, designer, or other creative services provider needs a site that functions like a digital portfolio and a client intake form at the same time. I build these as either a straightforward portfolio site or a more involved build with an admin dashboard, depending on whether you need to manage exhibitions, appointments, or client projects.
 
 ### Local SEO for Montrose and the Inner Loop
 
@@ -70,14 +70,6 @@ What you are actually getting is a veteran-owned business with 14-plus years of 
 
 ## Getting Started
 
-Call me at (936) 323-4527, or send a message through the contact form. Tell me what your business does, who walks through your door, and what is frustrating you about your current online presence, or the fact that you do not have one yet. I will give you a straight answer on price and timeline before we hang up.
+Call (936) 323-4527, or send a message through the contact form. Tell me what your business does, who walks through your door, and what is frustrating you about your current online presence, or the fact that you do not have one yet. I will give you a straight answer on price and timeline before we hang up.
 
-Montrose does not need another cookie-cutter website. It has never needed that. What it needs is a site that reflects the same independence its galleries, shops, and restaurants have built their reputations on -- and that is what I build, starting at $250.
-
-**Kyle Stephens**
-**StephensCode LLC**
-**2378 Strong Horse Dr, Conroe, TX 77301**
-**(936) 323-4527**
-**info@stephenscode.dev**
-**Veteran-Owned | Serving Montrose from Conroe, TX**
-**Custom websites starting at $250**
+Montrose does not need another cookie-cutter website. It has never needed that. What it needs is a site that reflects the same independence its galleries, shops, and restaurants have built their reputations on, and that is what StephensCode LLC builds, starting at $250. The company is veteran-owned, based at 2378 Strong Horse Dr in Conroe, and every call or email to info@stephenscode.dev reaches Kyle Stephens, the person who actually sits down and writes the code.

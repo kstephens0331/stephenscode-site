@@ -1,16 +1,24 @@
 ---
-title: Web Developer Energy Corridor Houston TX | Custom Websites, SEO & E-Commerce
-metaDescription: Custom web development for Energy Corridor Houston businesses near Westchase and I-10. Flat-rate sites from $250 for B2B, consulting, and engineering firms. Veteran-owned.
+title: "Web Design for the Energy Corridor, Houston | B2B & Consulting Sites"
+metaDescription: "Custom-coded websites for Energy Corridor Houston B2B firms, engineering shops, and consultants near Westchase and I-10, from $250. Veteran-owned, 50 minutes from Conroe."
 heroSubtitle: Custom-coded websites for the B2B firms, consultants, and commercial services that run alongside Houston's energy giants
+h1Override: "Web Design for Energy Corridor B2B Firms, Consultants, and Engineering Shops"
+faqs:
+  - question: "What does a website cost for an Energy Corridor firm?"
+    answer: "Pricing is flat-rate starting at $250, with every tier including 90 days of post-launch support and no hourly billing. Full tiers and timelines are on the pricing page."
+  - question: "How far is StephensCode from the Energy Corridor?"
+    answer: "About 50 minutes, depending on I-10 traffic and the Beltway 8 interchange. I'm based in Conroe and drive down when a project calls for it, but most Energy Corridor work happens over phone, video, and email."
+  - question: "Do you build B2B sites differently than restaurant or consumer-facing sites in the corridor?"
+    answer: "Yes. A B2B service selling into the corporate campuses needs a site that reads as credible to a procurement buyer in ninety seconds; a restaurant or family-facing business needs a site that reads as inviting and local to someone deciding where to spend a Saturday. Those are different audiences and I build for them differently."
+  - question: "Which parts of the Energy Corridor do you serve?"
+    answer: "The I-10 corridor itself, Westchase, the Eldridge area, Park Row, and the residential pockets of Nottingham Forest and Briar Forest that back up to the corporate campuses."
 ---
 
 # Web Development Services for Energy Corridor, Houston Businesses
 
 The Energy Corridor is not a neighborhood in the traditional sense. It is Houston's western business district, built along I-10 between Beltway 8 and SH-6, and it exists because ConocoPhillips, BP, Shell, and a long list of other major energy companies decided to plant their headquarters and major offices there. That single fact shapes almost everything about how business gets done in this part of the city. You have corporate campuses with thousands of employees sitting a few minutes from residential streets in Nottingham Forest and Briar Forest, with the Westchase District adding another dense layer of commercial activity just to the south. It is a place where a consulting firm's office and a family's driveway can be separated by a single traffic light.
 
-I am Kyle Stephens, owner of StephensCode LLC. I am based in Conroe, about 50 minutes from the Energy Corridor depending on where you are relative to the Beltway 8 interchange and what I-10 traffic decides to do that day. I will not pretend that is a short drive, and I am not going to sell you on some illusion of being your next-door neighbor. What I will tell you is that I am a Marine Corps veteran with more than 14 years of web development experience and over 200 completed projects, and the quality of the site I build for a firm in the Energy Corridor does not depend on how close my office is to yours. It depends on whether I understand your business, build you something that actually reflects it, and show up when you need me. I can do all three from Conroe.
-
-If your business sits anywhere along that I-10 stretch, in Westchase, near Eldridge, around Park Row, or in the residential pockets like Nottingham Forest and Briar Forest that back right up to the corporate campuses, I want to talk to you about what a real website can do for you.
+I am based in Conroe, about 50 minutes from the Energy Corridor depending on where you are relative to the Beltway 8 interchange and what I-10 traffic decides to do that day. I won't pretend that's a short drive, and I'm not going to sell you on some illusion of being your next-door neighbor. What I can tell you: more than 14 years of web development experience, over 200 completed projects, a Marine Corps background, and [flat pricing that starts at $250](/pricing) -- and the quality of the site I build for a firm here doesn't depend on how close my office is to yours. It depends on whether I understand your business, build you something that actually reflects it, and show up when you need me. If your business sits anywhere along that I-10 stretch, in Westchase, near Eldridge, around Park Row, or in the residential pockets like Nottingham Forest and Briar Forest that back right up to the corporate campuses, I want to talk to you about what a real website can do for you.
 
 ## Two Customer Bases, One Website Trying to Serve Both
 
@@ -36,17 +44,7 @@ This matters just as much for the consulting firms, engineering shops, and techn
 
 I hand-code every site from scratch. No WordPress, no page builders, no templated themes that a dozen other consulting firms in the same office park are also using. For a B2B-heavy market like this one, that distinction matters more than it might elsewhere -- a site built on a generic template reads as generic, and generic is the last impression a firm competing for corporate contracts wants to make.
 
-Pricing is flat and tiered by scope, not billed hourly:
-
-- **Plug and Play ($250, about a week)** -- a fast, professional starter site for a new business or a small commercial service that needs credibility online quickly
-- **Website Rebuild ($350, about two weeks)** -- modernizing an existing site that has fallen behind, without starting from scratch
-- **Standard Website ($950, three to four weeks)** -- a full custom small-business site, and the right fit for most established B2B services, consulting practices, and local restaurants here
-- **E-Commerce Website ($1,100, four to six weeks)** -- for retail, specialty food, or product-based businesses that need a working cart and checkout
-- **Premium Build ($2,000, six to eight weeks)** -- a custom full-stack site with an admin portal and analytics dashboard, useful for firms that want to manage their own content or track lead activity
-- **Custom Business Platform ($5,000, ten to twelve weeks)** -- CRM functionality, client portals, booking, payments, and workflow automation, built for businesses with real operational complexity behind their client relationships
-- **Enterprise Platform ($7,500 and up, twelve to sixteen weeks)** -- multi-tenant systems, SSO, audit logging, and custom workflow builders, for organizations that need infrastructure closer to what their corporate clients already run internally
-
-Every tier includes 90 days of post-launch support. No hourly billing, no surprise invoices. If you want ongoing updates and monitoring after that window, I offer a maintenance plan at $50 to $100 a month, entirely optional.
+Pricing is flat and tiered by scope rather than billed hourly, scaling from a fast one-week starter site for a small commercial service up to enterprise platforms with SSO and audit logging for organizations that need infrastructure closer to what their corporate clients already run internally. The [full list of tiers, prices, and timelines is on the pricing page](/pricing). Every tier includes 90 days of post-launch support with no surprise invoices, and an optional maintenance plan runs $50 to $100 a month if you want ongoing updates and monitoring after that.
 
 ### Local SEO for the Energy Corridor and Westchase
 
@@ -84,16 +82,10 @@ I am not going to manufacture a sense of local familiarity I do not have. Conroe
 
 What you are paying for is the work itself: a custom-coded site built specifically around your business, at a flat rate you know before we start, with 90 days of support built in after launch. Not proximity for its own sake.
 
-I started StephensCode LLC because I watched too many small businesses -- and too many small firms competing for corporate work -- get overcharged by agencies that string projects out for months and bill by the hour for every revision. My rates start at $250, they do not move once we agree on scope, and you own everything I build: the code, the content, the domain. Nobody holds your site hostage after launch.
+I watched too many small businesses, and too many small firms competing for corporate work, get overcharged by agencies that strung projects out for months and billed by the hour for every revision, and that's the model this company was built to replace. Rates start at $250, they don't move once we agree on scope, and you own everything I build: the code, the content, the domain. Nobody holds your site hostage after launch.
 
 ## Getting Started
 
-Call me at (936) 323-4527, email info@stephenscode.dev, or use the contact form on this site. We will talk through what your business actually needs, whether that is a lead-generating site for a B2B service selling into the corporate campuses or a fast, welcoming site for a restaurant serving the neighborhoods around it, and I will give you a straight number and a straight timeline before you commit to anything.
+Call (936) 323-4527, email info@stephenscode.dev, or use the contact form on this site. We'll talk through what your business actually needs, whether that's a lead-generating site for a B2B service selling into the corporate campuses or a fast, welcoming site for a restaurant serving the neighborhoods around it, and I'll give you a straight number and a straight timeline before you commit to anything.
 
-The Energy Corridor is a market with real money moving through it every single day, on both the corporate side and the residential side. Whether your website is set up to capture any of it is a separate question from whether your business deserves to. For $250 to start, there is no good reason to leave that answer to chance.
-
-**Kyle Stephens**
-**StephensCode LLC**
-**(936) 323-4527**
-**Veteran-Owned | Based in Conroe, TX | Serving the Energy Corridor and Greater Houston Area**
-**Custom websites starting at $250**
+The Energy Corridor is a market with real money moving through it every single day, on both the corporate side and the residential side. Whether your website is set up to capture any of it is a separate question from whether your business deserves to. That question is worth a call to (936) 323-4527, or an email to info@stephenscode.dev -- to me, Kyle Stephens, owner of the veteran-owned StephensCode LLC, based in Conroe.

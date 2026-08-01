@@ -1,7 +1,17 @@
 ---
-title: Web Developer Cut and Shoot TX | Custom Websites, SEO & E-Commerce
-metaDescription: Custom websites for Cut and Shoot, Texas businesses starting at $250. Veteran-owned web developer based 10 minutes away in Conroe. Flat-rate pricing, no templates.
+title: "Web Design for Cut and Shoot, TX | Sites for FM 1485 Tradespeople"
+metaDescription: "Hand-coded websites for Cut and Shoot, Texas contractors, welders, and tradespeople along FM 1485, starting at $250. Veteran-owned, based 10 minutes away in Conroe."
 heroSubtitle: Custom websites for the tradespeople and small businesses of Cut and Shoot, Texas
+h1Override: "Web Design for Cut and Shoot's Contractors, Welders, and Trade Businesses"
+faqs:
+  - question: "How much does a website cost for a Cut and Shoot business?"
+    answer: "Pricing is flat-rate starting at $250, with every tier including 90 days of post-launch support and no hourly billing. Full tiers and timelines are on the pricing page."
+  - question: "How far is StephensCode from Cut and Shoot?"
+    answer: "About 10 minutes. I'm based in Conroe, just down FM 1485."
+  - question: "If word-of-mouth already works in Cut and Shoot, do I really need a website?"
+    answer: "Word-of-mouth reaches people already plugged into the local network, but it doesn't reach someone who just moved onto acreage off FM 1485, or a property owner searching for a welder at ten at night. A real website catches the searches word-of-mouth never sees, and in a market where most competitors have no site at all, it's an outsized advantage."
+  - question: "What kinds of businesses do you build for around Cut and Shoot?"
+    answer: "Contractors, auto repair shops, welders, heavy equipment operators and dealers, home services businesses, and agricultural services serving the ranches and small farms in the area."
 ---
 
 # Web Development Services for Cut and Shoot, Texas Businesses
@@ -10,7 +20,7 @@ Everybody who hears the name Cut and Shoot asks the same question: what's the st
 
 I think that says something about the character of the place, and it lines up with what I've noticed working in Montgomery County for over 14 years. Cut and Shoot, sitting along FM 1485 just east of Conroe, has held onto a rural East Texas independence that a lot of the county has traded away for subdivisions and strip centers. This is piney woods country, close enough to the Sam Houston National Forest that you can feel it in the pace of the place. People here are self-reliant, and they are loyal -- genuinely loyal -- to the contractors, mechanics, and tradespeople they've come to trust. Word-of-mouth still carries real weight in Cut and Shoot in a way it simply does not in Houston or even in Conroe proper.
 
-I'm Kyle Stephens, owner of StephensCode LLC, and I'm based in Conroe -- about ten minutes from Cut and Shoot depending on where you're headed on 1485. I'm a Marine Corps veteran with more than 14 years building websites and business systems, and I've completed over 200 projects for small businesses across this region. I build custom, hand-coded websites starting at $250, and I want to talk plainly about why Cut and Shoot is one of the more interesting markets I work in, and why a website matters here even though word-of-mouth built the businesses that exist today.
+Before this was StephensCode LLC, I served in the Marine Corps. Since then it's been more than 14 years building websites and business systems, over 200 completed projects, and a shop I run out of Conroe, about ten minutes from Cut and Shoot depending on where you're headed on 1485. Every site is custom-coded and [priced flat starting at $250](/pricing), and I want to talk plainly about why Cut and Shoot is one of the more interesting markets I work in, and why a website matters here even though word-of-mouth built the businesses that exist today.
 
 ## The Cut and Shoot Market: A Word-of-Mouth Economy Meeting the Internet
 
@@ -36,17 +46,7 @@ I hand-code every site I build. No WordPress, no drag-and-drop builders, no bloa
 
 A welding shop needs different things than an ag equipment dealer. A general contractor needs a project gallery, a service area map, and a form that captures enough detail about the job before the first phone call. A heavy equipment operator might need equipment listings, service radius information, and clear pricing structure for different job types. I don't hand you a generic template and tell you to make it work -- I build the site around how your actual customers find you and what they need to see before they pick up the phone.
 
-My pricing is flat-rate and built around what small and mid-sized businesses in this area actually need:
-
-- **Plug and Play -- $250, 1 week.** A fast-turnaround starter site for a brand-new contractor, welder, or service business that needs a professional online presence right now, not in three months.
-- **Website Rebuild -- $350, 2 weeks.** For the business that already has an old, outdated, or template-built site that isn't doing them any favors and needs a modern replacement.
-- **Standard Website -- $950, 3-4 weeks.** This is the typical entry point for most Cut and Shoot businesses -- a full custom small-business site with service pages, a gallery, contact forms, and real SEO groundwork.
-- **E-Commerce Website -- $1,100, 4-6 weeks.** For businesses selling parts, supplies, or products online with a proper cart and checkout.
-- **Premium Build -- $2,000, 6-8 weeks.** A custom full-stack site with an admin portal and analytics dashboard -- useful for a contractor or equipment business managing multiple crews, jobs, or locations.
-- **Custom Business Platform -- $5,000, 10-12 weeks.** CRM, customer portals, booking, payments, and automation built around your specific operation.
-- **Enterprise Platform -- $7,500+, 12-16 weeks.** Multi-tenant systems, SSO, audit logs, and workflow builders for larger operations.
-
-Every tier includes 90 days of post-launch support with no hourly billing tacked on afterward. If you want ongoing help beyond that, I offer a maintenance plan at $50-100 a month -- entirely optional, no pressure.
+Pricing scales with the job: a fast one-week build for a business that just needs to exist online, all the way up to larger platforms with CRM and automation for an outfit juggling multiple crews or job sites. Every number is flat and every tier comes with 90 days of support once the site's live -- see the [pricing page](/pricing) for the exact breakdown by tier.
 
 ### Local SEO Built for a Low-Competition Market
 
@@ -68,16 +68,10 @@ Cut and Shoot's location matters for how I think about your website. Sitting alo
 
 I'm ten minutes away. That's not a marketing line -- it's a fact about where I live and work. When you call me at (936) 323-4527, you're talking to somebody who actually understands what a rural East Texas trade business needs, not an agency in another state reading from a script. If we need to meet in person to talk through your site, I can be there fast.
 
-I started StephensCode LLC because too many small business owners in this region get overcharged by agencies that build a bloated site, disappear, and leave you locked into a platform you don't control. Every site I build, you own outright -- the code, the content, the domain. No contracts holding you hostage, no hourly surprises, no subscription traps disguised as "hosting fees." My rates start at $250, flat, with 90 days of support built in.
+Too many small business owners in this region have been burned by agencies that build a bloated site, disappear, and leave them locked into a platform they don't control -- that's the exact problem this company exists to fix. Every site I build, you own outright: the code, the content, the domain. No contracts holding you hostage, no hourly surprises, no subscription traps disguised as "hosting fees," and rates that start at $250 flat with 90 days of support built in.
 
 ## Getting Started
 
-Call me at (936) 323-4527, or reach out through the contact form on this site. We'll talk through what your business actually does, who your customers are, and what you need a website to accomplish -- whether that's simply being findable when someone searches for your trade, or something more involved like managing jobs and customers through an admin portal.
+Call (936) 323-4527, or reach out through the contact form on this site. We'll talk through what your business actually does, who your customers are, and what you need a website to accomplish, whether that's simply being findable when someone searches for your trade, or something more involved like managing jobs and customers through an admin portal.
 
-Cut and Shoot has a name people remember. Your business should be just as easy to find. Right now, in a market where word-of-mouth still rules and almost nobody has a real website, the first tradesperson to show up online with a professional site is going to look like the obvious choice -- and that advantage does not last forever as more businesses catch on. For $250, there's no good reason to be the one still waiting.
-
-**Kyle Stephens**
-**StephensCode LLC**
-**(936) 323-4527**
-**Veteran-Owned | Conroe, TX**
-**Custom websites starting at $250**
+Cut and Shoot has a name people remember. Your business should be just as easy to find. Right now, in a market where word-of-mouth still rules and almost nobody has a real website, the first tradesperson to show up online with a professional site is going to look like the obvious choice, and that advantage won't last forever as more businesses catch on. Call (936) 323-4527 or email info@stephenscode.dev -- StephensCode LLC, veteran-owned, right here in Conroe.

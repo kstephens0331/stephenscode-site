@@ -1,14 +1,24 @@
 ---
-title: Web Developer Montgomery TX | Custom Websites, SEO & E-Commerce
-metaDescription: Professional web development for Montgomery, Texas businesses. Custom websites starting at $250, local SEO, e-commerce. Veteran-owned, based in neighboring Conroe.
+title: "Montgomery, TX Web Design | Built for the County Seat and Lake Conroe"
+metaDescription: "Custom websites for Montgomery, Texas businesses on the historic downtown square and Lake Conroe's south shore. Flat-rate builds from $250. Veteran-owned, 10 minutes from Conroe."
 heroSubtitle: Web development for Montgomery's historic community and lakeside businesses
+h1Override: "Web Design for Montgomery's Historic Square and Lake Conroe Economy"
+faqs:
+  - question: "Does StephensCode build for both the downtown square and the lake side of Montgomery?"
+    answer: "Yes, and differently. A downtown antique shop or cafe needs a site built around visuals and local search for visitors planning a trip to the square, while a marina or lakeside restaurant needs seasonal SEO timed to when Lake Conroe traffic actually peaks."
+  - question: "How far is StephensCode from Montgomery?"
+    answer: "About ten minutes down FM 105 from Conroe, which makes in-person meetings easy whenever a project calls for one."
+  - question: "Does StephensCode handle SEO for both Montgomery TX and Lake Conroe searches?"
+    answer: "Yes. Most Montgomery businesses benefit from targeting both keyword families, since a lot of visitors search for Lake Conroe without knowing which town on its shore they're actually looking for."
+  - question: "What does a Montgomery business typically pay for a website?"
+    answer: "Custom builds start at $250, with a typical delivery window of two to four weeks depending on scope. See the pricing page for the full breakdown."
 ---
 
 # Web Development Services for Montgomery, Texas Businesses
 
 Montgomery holds a distinction that most people driving through on FM 105 never think about: it is the county seat of Montgomery County, and it has been since 1837 when Texas was still its own republic. The old downtown square with its antique shops, the historic homes along Liberty Street, the live oaks that have been there longer than anyone alive -- Montgomery is a town with genuine character. And on the other side of that character is a lake economy that drives tourism dollars into marinas, restaurants, wedding venues, and rental properties from April Sound to Walden to Bentwater and everywhere in between.
 
-I am Kyle Stephens, owner of StephensCode LLC, and I am based in Conroe -- about a ten-minute drive from downtown Montgomery. I am a Marine Corps veteran with over 14 years of web development experience. I build custom websites for small businesses, and I know the Montgomery market because I live next door to it. My rates start at $250, and every site I build is hand-coded and custom-designed for your specific business.
+StephensCode LLC is run out of Conroe, ten minutes down the road from the downtown square, and it's run by one person: me, Kyle Stephens. Marine Corps, then better than fourteen years building websites, most of it for small businesses that never needed a Houston agency's overhead. I know this market because I live next to it, not because I read a demographic report about it. Every site is hand-coded and custom-built, and [pricing](/pricing) starts at $250.
 
 If you run a business in Montgomery -- whether it is a lakeside marina, an antique shop on the square, a real estate office working the Walden market, or a wedding venue on the south shore -- this page is for you.
 
@@ -122,10 +132,4 @@ Call me at (936) 323-4527 or use the contact form on my site. We will talk about
 
 I typically deliver a completed site within two to four weeks, depending on the scope. You get to review everything, request revisions, and approve the final product before it goes live. After launch, I am still right here in Conroe for ongoing support, updates, and maintenance.
 
-Montgomery is a special place. It has history, it has the lake, and it has a business community that deserves websites built with the same care and craftsmanship as the town itself. If your current site does not reflect the quality of your business, let us change that.
-
-**Kyle Stephens**
-**StephensCode LLC**
-**(936) 323-4527**
-**Veteran-Owned | Conroe, TX**
-**Custom websites starting at $250**
+Montgomery is a special place. It has history, it has the lake, and it has a business community that deserves websites built with the same care and craftsmanship as the town itself. If your current site does not reflect the quality of your business, call (936) 323-4527 and talk to Kyle Stephens -- the Marine Corps veteran ten minutes down FM 105 who owns StephensCode LLC and builds every site personally.

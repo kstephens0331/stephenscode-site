@@ -1,7 +1,17 @@
 ---
-title: Web Developer Magnolia TX | Custom Websites, SEO & E-Commerce
-metaDescription: Professional web development for Magnolia, Texas businesses. Custom websites starting at $250, local SEO, e-commerce. Veteran-owned, based nearby in Conroe.
+title: "Magnolia, TX Web Design | Built for the FM 1488 Business Corridor"
+metaDescription: "Custom-coded websites for Magnolia, Texas businesses, from equestrian facilities to shops on the downtown square. Flat-rate builds from $250. Veteran-owned, 20 minutes from Conroe."
 heroSubtitle: Web development for Magnolia's growing business community
+h1Override: "Web Design Built for Magnolia's FM 1488 Business Corridor"
+faqs:
+  - question: "How far is StephensCode from Magnolia?"
+    answer: "Conroe is about 20 minutes east on FM 1488, so in-person meetings are easy to set up whenever a project calls for one."
+  - question: "Does StephensCode understand Magnolia's equestrian and rural business community?"
+    answer: "Yes. A lot of the work built for this area serves boarding facilities, farriers, contractors, and other businesses along the FM 1488 corridor and surrounding rural properties, where the customer base and search habits look different than in Houston proper."
+  - question: "What does a custom website cost for a Magnolia business?"
+    answer: "Pricing starts at $250 for a straightforward starter site, scaling up based on complexity, with full tiers listed on the pricing page."
+  - question: "Is Kyle Stephens actually the person who builds the site?"
+    answer: "Yes. Kyle Stephens is a Marine Corps veteran who has run StephensCode LLC for more than 14 years, and he personally handles design, development, and support rather than routing clients through an account manager."
 ---
 
 ## Web Development for Magnolia TX: Small-Town Business, Big-Time Opportunity
@@ -10,9 +20,9 @@ Magnolia has something that most fast-growing Texas towns lose along the way: ch
 
 But here's the uncomfortable truth: character alone doesn't bring in new customers anymore. Magnolia is growing fast. New families are moving into Country Lake Estates, High Meadow Ranch, and Magnolia Ridge every month. They don't know your business yet. They're not plugged into the word-of-mouth network that's sustained you for years. When they need a farrier, a vet, a contractor, or a place to eat, they pull out their phone and search. If you're not there, you don't exist to them.
 
-I'm Kyle Stephens, owner of StephensCode LLC, a veteran-owned web development company based in Conroe, just a short drive east on FM 1488. I'm a Marine Corps veteran with over 14 years of building websites for businesses exactly like yours. Not Fortune 500 companies. Not tech startups. Real businesses run by real people in communities like Magnolia.
+My name is Kyle Stephens. StephensCode LLC is my company, headquartered a short hop east on FM 1488 in Conroe, and I've spent the last 14-plus years building websites for exactly this kind of business: not Fortune 500 companies, not tech startups, but the feed stores, farriers, and family restaurants that make a town like Magnolia run. I served in the Marine Corps before I ever wrote a line of code, and that background still shows up in how I run things today: I say what I'm going to do, then I do it.
 
-Custom websites starting at $250. Straight talk, fair prices, and work I stand behind. That's the deal.
+[Full pricing lives on the pricing page](/pricing), but the short version is that a professional Magnolia website doesn't have to cost what a Houston agency would charge to build one.
 
 ### Magnolia's Growth Problem: Why It's Actually Your Biggest Opportunity
 

@@ -1,7 +1,17 @@
 ---
-title: Web Developer The Woodlands TX | Custom Websites, SEO & E-Commerce
-metaDescription: Professional web development serving The Woodlands, Texas. Custom websites starting at $250, local SEO, e-commerce solutions. Veteran-owned with 14+ years experience.
+title: The Woodlands TX Web Design | Built for a Master-Planned Market
+metaDescription: Custom websites for The Woodlands' 118,000 residents and corporate workforce. Flat-rate builds from $250, hyperlocal village SEO, 15 minutes from Conroe.
 heroSubtitle: Serving the premier master-planned community of Greater Houston
+h1Override: Website Design Built for The Woodlands' Village-by-Village Market
+faqs:
+  - question: How much does a website cost for a business in The Woodlands?
+    answer: "Every site we build for The Woodlands is priced flat before work begins, so there's no hourly surprise later. A Plug and Play redesign starts at $250, a Website Rebuild is $350, a Standard custom-built site is $950, and a full E-Commerce store is $1,100. The complete menu, including premium builds, is on our [pricing page](/pricing)."
+  - question: Is StephensCode based in The Woodlands?
+    answer: We're based in Conroe, about 15 minutes up I-45, and have built sites for practices and businesses across Town Center, Creekside Park, and several other villages. Being just outside the market keeps our overhead, and your price, lower without changing the level of service.
+  - question: Do you serve every village in The Woodlands, or just Town Center?
+    answer: We've built or optimized sites for businesses across Town Center, Creekside Park, Sterling Ridge, Alden Bridge, and the rest of The Woodlands' villages. We tailor local SEO to the specific village or landmark your customers search from rather than just targeting "The Woodlands" as a whole.
+  - question: Why does my Woodlands business website need to load in under 2 seconds?
+    answer: Google's Core Web Vitals factor page speed directly into rankings, and Woodlands searches are competitive enough that a slow site gets buried under faster competitors. We consistently deliver sub-2-second load times using Next.js and modern optimization, which is table stakes for ranking here, not a bonus feature.
 ---
 
 ## Why The Woodlands Businesses Demand Premium Web Development
@@ -208,19 +218,19 @@ You can't improve what you don't measure. Every site includes Google Analytics 4
 
 We're not the only web developer serving The Woodlands, so why choose us?
 
-**Local Presence**: Based in Conroe, we're 15 minutes away. We can meet in person, we know the area, and we're invested in the community's success.
+**We're actually local**: Our office is 15 minutes away in Conroe, we meet Woodlands clients in person regularly, and we have a stake in this community doing well, not just a service area circled on a map.
 
-**Specialized Focus**: We only do web development. We're not a marketing agency trying to upsell you on services you don't need. We do one thing and we do it well.
+**Web development is the whole business**: We're not a marketing agency that bolts websites on as an upsell. It's the only thing we do, which means it's the only thing we're trying to get better at.
 
-**Modern Technology**: We build with Next.js, not outdated WordPress themes. Your site will be fast, secure, and built to modern standards.
+**Next.js, not a theme store**: Your site is custom-coded on a modern framework rather than assembled from a WordPress template, which is where the speed and security advantage actually comes from.
 
-**Flat-Rate Pricing**: No hourly billing surprises. You know exactly what you'll pay before we start: $250 for basic sites, $950 for standard, $1,100 for e-commerce.
+**One price, agreed before we start**: A basic site runs $250, a standard build is $950, and e-commerce is $1,100, with premium tiers and add-ons detailed on our [pricing page](/pricing). Nothing changes once the invoice arrives.
 
-**Veteran-Owned Values**: As a Marine Corps veteran, I bring discipline, integrity, and accountability to every project. I do what I say I'll do.
+**Run by a Marine Corps veteran**: The habits that mattered in the Corps, discipline, follow-through, doing what you said you'd do, carry directly into how projects get managed here.
 
-**Direct Communication**: You work directly with the developer: no salespeople, no project managers, no telephone game.
+**No layers between you and the build**: You're talking to the developer, not a salesperson or a project coordinator relaying messages back and forth.
 
-**Results Focus**: We don't just build pretty websites. We build websites that generate leads, phone calls, and customers.
+**Judged by results, not portfolio shots**: A site that looks good but doesn't generate calls or leads hasn't done its job. That's the bar we build to.
 
 ## Getting Started
 

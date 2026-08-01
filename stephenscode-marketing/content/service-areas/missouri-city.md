@@ -1,14 +1,24 @@
 ---
-title: Web Developer Missouri City TX | Custom Websites, SEO & E-Commerce
-metaDescription: Custom web development for Missouri City, Texas businesses. Hand-coded sites starting at $250, local SEO, e-commerce. Veteran-owned, 55 minutes from Conroe.
+title: "Missouri City, TX Web Design | Built for the Fort Bend-Harris County Line"
+metaDescription: "Custom websites for Missouri City, Texas businesses spanning Sienna and Quail Valley. Hand-coded, flat-rate builds from $250. Veteran-owned, about 55 minutes from Conroe."
 heroSubtitle: Custom-coded websites for Missouri City businesses along the US-90A and SH-6 corridors
+h1Override: "Web Development for Missouri City's Two-County Business Community"
+faqs:
+  - question: "Does StephensCode optimize separately for the Fort Bend and Harris County sides of Missouri City?"
+    answer: "Yes. Location pages, service area language, and metadata are built around how people on both sides of the county line actually search, rather than assuming one clean jurisdiction."
+  - question: "How far is Conroe from Missouri City?"
+    answer: "About 55 minutes depending on traffic on 90A or SH-6. Meetings happen by phone, video, or in person when a project calls for it."
+  - question: "Is a website built differently for Sienna versus Quail Valley?"
+    answer: "It can be. Sienna is full of newer residents actively searching for a provider they haven't chosen yet, while Quail Valley often means competing against an existing relationship, so the site's structure and emphasis shift depending on which customer base you're actually trying to reach."
+  - question: "What does a typical Missouri City project cost?"
+    answer: "Starter sites begin at $250, with full custom builds, e-commerce, and larger platforms priced higher depending on scope. The pricing page breaks down every tier and timeline."
 ---
 
 # Web Development Services for Missouri City, Texas Businesses
 
 Missouri City has a geography problem that most cities do not have to deal with: it sits on the line between Fort Bend and Harris counties. That is not a trivia fact, it is a real operational detail for a lot of the businesses here. You might file paperwork with Fort Bend County one day and deal with a Harris County agency the next. Your customers might be zoned to Fort Bend ISD or Houston ISD depending on which side of an invisible line their house sits on. It is a city built on straddling a border, and it has made that work by growing into one of the more diverse, family-oriented communities in the Houston metro.
 
-I am Kyle Stephens, owner of StephensCode LLC. I am a Marine Corps veteran with more than 14 years of web development experience and over 200 completed projects. I am based in Conroe, about 55 minutes from Missouri City depending on where you land on 90A or SH-6 at rush hour. I build hand-coded custom websites, no WordPress, no drag-and-drop site builders, starting at $250, and I want to talk about what that means for a Missouri City business specifically.
+A quick introduction, since you're this far into a page about your own city: Kyle Stephens, StephensCode LLC, Marine Corps veteran, and somewhere past 200 completed web projects over a career that's now clearing 14 years. None of that happened in Missouri City directly -- my office is in Conroe, about 55 minutes away depending on how 90A or SH-6 is running at rush hour -- but the work itself doesn't change with the zip code. Every site is still hand-coded, still built without WordPress or a drag-and-drop builder standing between your business and the finished product, and still priced the same whether the client is down the street from me or on the other side of two counties. What that looks like for a Missouri City business specifically is worth walking through.
 
 ## Why Missouri City Is a Different Market Than Sugar Land
 
@@ -64,26 +74,10 @@ I keep coming back to a simple idea: your website has to work as hard as the two
 
 ## My Process and Pricing
 
-I do not do hourly billing and I do not do surprise invoices. Every project is flat-rate, agreed on up front, based on what the site actually needs to do.
-
-- **Plug and Play -- $250, about 1 week.** A fast, clean starter site for a brand-new Missouri City business that needs to exist online now.
-- **Website Rebuild -- $350, about 2 weeks.** For businesses with an outdated template site that is doing more harm than good.
-- **Standard Website -- $950, 3 to 4 weeks.** The typical entry point for an established small business: full custom site, properly built, properly optimized.
-- **E-Commerce Website -- $1,100, 4 to 6 weeks.** A real online store with cart and checkout for retail or product-based businesses.
-- **Premium Build -- $2,000, 6 to 8 weeks.** A full-stack site with an admin portal and analytics dashboard, for businesses that need more than a brochure site.
-- **Custom Business Platform -- $5,000, 10 to 12 weeks.** CRM, customer portals, booking, payments, automation, for businesses ready to run more of their operation online.
-- **Enterprise Platform -- $7,500 and up, 12 to 16 weeks.** Multi-tenant systems, SSO, audit logs, workflow builders, for organizations with real operational complexity.
-
-Every tier includes 90 days of post-launch support. If you want ongoing help after that, there is an optional maintenance plan at $50 to $100 a month. No contracts holding your site hostage.
+I don't do hourly billing and I don't do surprise invoices. Every project is flat-rate, agreed on up front, based on what the site actually needs to do -- a fast starter build for a brand-new Missouri City business runs $250, and the price climbs from there depending on whether you need a full custom site, e-commerce, booking and an admin dashboard, or a larger platform with CRM and automation built in. The [pricing page](/pricing) has the complete breakdown by tier and timeline. Every tier includes 90 days of post-launch support, and if you want ongoing help after that, an optional maintenance plan runs $50 to $100 a month. Nothing holds your site hostage.
 
 ## Getting Started
 
 Missouri City is not a suburb of Sugar Land, and it should not have a website that treats it like one. It is its own city with its own two-county reality, its own mix of new and established neighborhoods, and its own customer base that wants a business it can trust close to home.
 
-Call me at (936) 323-4527, or use the contact form on my site. I will ask about your business, your customers, and what part of Missouri City you actually draw from, and give you a straight answer on scope, timeline, and price. No pressure, no upsell script.
-
-**Kyle Stephens**
-**StephensCode LLC**
-**(936) 323-4527**
-**Veteran-Owned | Conroe, TX**
-**Custom websites starting at $250**
+Call (936) 323-4527, or use the contact form on my site. I will ask about your business, your customers, and what part of Missouri City you actually draw from, and give you a straight answer on scope, timeline, and price -- from me, Kyle Stephens, the same person who will actually build the site. StephensCode LLC is veteran-owned and priced flat-rate starting around $250, and none of that changes based on which side of the county line you're on.

@@ -1,14 +1,24 @@
 ---
-title: Web Developer Galleria Uptown Houston TX | Custom Websites, SEO & E-Commerce
-metaDescription: Custom web development for Galleria and Uptown Houston businesses. Flat-rate, hand-coded sites starting at $250. Veteran-owned, serving Harris County.
+title: Post Oak & Galleria Houston Web Design | Sites Built to Compete With National Brands
+metaDescription: "Web development for the Galleria and Uptown Houston district, where customers judge you against The Galleria and national hotel brands. Flat-rate, hand-coded, veteran-owned."
 heroSubtitle: Flat-rate web development for the businesses competing in Houston's most upscale district
+h1Override: Web Development for Houston's Galleria and Uptown District
+faqs:
+  - question: "Is a $250 website actually enough for a business on Post Oak Boulevard?"
+    answer: "Sometimes, but not always, and that gets said plainly rather than upsold around. Most established Galleria-Uptown businesses land in a higher tier because of the level of competition they're facing. The full tier breakdown is on the pricing page, and the right fit gets recommended honestly rather than the one that's easiest to sell."
+  - question: "What neighborhoods fall inside this service area?"
+    answer: "The Post Oak corridor, Uptown Park, Tanglewood, Briargrove, and the San Felipe corridor are the core of it, with the broader Galleria-Uptown district built around The Galleria itself and the Williams Tower area."
+  - question: "How far is StephensCode from the Galleria-Uptown district?"
+    answer: "About fifty minutes north from Conroe on a normal traffic day. Most of the design and development work happens over phone, video call, and email regardless of distance, and an in-person meeting gets scheduled whenever one is actually worth having."
+  - question: "What kinds of businesses does StephensCode build for in this district?"
+    answer: "Law firms, financial advisory practices, medical aesthetics businesses, fine dining establishments, and luxury retail make up most of the client mix here, since those are the industries most concentrated along Post Oak and around Uptown Park."
 ---
 
-# Web Development Services for Galleria / Uptown Houston Businesses
+## Houston's Most Upscale District Competes With Itself
 
 The Galleria-Uptown area does not compete with the rest of Houston. It competes with itself. This is the district anchored by The Galleria, the largest mall in Texas with more than 400 stores, and by the high-rise canyon along Post Oak Boulevard where international hotel brands, financial firms, and white-tablecloth restaurants stack twenty and thirty stories into the sky. The Williams Tower and its waterwall are landmarks recognized across the entire region. Uptown Park brings open-air luxury shopping to the north end of the district, and the Uptown Bus Rapid Transit line now moves people up and down Post Oak without them ever touching a personal vehicle. This is Houston operating at its most polished.
 
-I am Kyle Stephens, owner of StephensCode LLC. I am based in Conroe, about fifty minutes north of Post Oak on a normal traffic day, which in Houston terms means I am close enough to be there for a meeting when it matters and far enough that I am not adding overhead to your invoice for windshield time I did not need to spend. I am a Marine Corps veteran with more than 14 years of web development experience and over 200 completed projects. I build custom, hand-coded websites starting at $250, and I want to be direct about something before we go any further: a $250 website is not always the right fit for a business operating in this zip code, and I will tell you that to your face instead of selling you the cheapest tier because it sounds good in an ad. What I can promise is that whatever tier fits your business, it will be flat-rate, it will be built to compete visually and technically with national brands, and it will belong to you when it is finished.
+StephensCode is Kyle Stephens working directly with clients, based in Conroe, about fifty minutes north of Post Oak on a normal traffic day -- close enough to be there for a meeting when it matters, far enough that windshield time never gets padded into an invoice. Fourteen-plus years of web development and over 200 completed projects, all under one Marine Corps veteran running his own shop rather than an agency layer between you and the person writing the code. Something worth saying plainly up front: a $250 site is not always the right fit for a business operating in this zip code, and that gets said directly instead of upselling the cheapest tier because it photographs well in an ad. Whatever tier actually fits, the pricing is flat-rate, listed on the [pricing page](/pricing) rather than buried in fine print, and the site belongs to the client outright when it's finished.
 
 If your business operates along Post Oak, in Uptown Park, in Tanglewood, in Briargrove, or along the San Felipe corridor, I want to talk about what your website is actually doing for you right now.
 
@@ -36,15 +46,7 @@ Every site I build is hand-coded, typically in Next.js or React. No WordPress, n
 
 For a business in this district, that distinction matters more than most places in the region, because your customers are actively comparing your digital presence against genuinely custom-built national brand sites. A hand-coded site loads faster, looks more distinctive, and does not carry the bloat of a dozen plugins fighting each other in the background.
 
-Depending on what your business actually needs, that starts at different price points:
-
-- **Standard Website -- $950, 3-4 weeks.** A full custom small-business site. This is the right tier for most independent professional practices, boutique retailers, and single-location restaurants who need a genuinely professional web presence without a five-figure invoice.
-- **E-Commerce Website -- $1,100, 4-6 weeks.** For luxury retail operations near The Galleria or Uptown Park that need an online store with real cart and checkout functionality, not a plugin duct-taped onto a blog theme.
-- **Premium Build -- $2,000, 6-8 weeks.** A custom full-stack site with an admin portal and analytics dashboard. This is where I put a lot of law firms, financial advisory practices, and medical aesthetics businesses that need to manage intake, track leads, or give their team a real back-end instead of emailing spreadsheets around.
-- **Custom Business Platform -- $5,000, 10-12 weeks.** CRM, client portals, booking, payments, and automation built in. Appropriate for a growing practice or multi-provider medical aesthetics operation that has outgrown a website and needs an actual system behind it.
-- **Enterprise Platform -- $7,500+, 12-16 weeks.** Multi-tenant architecture, SSO, audit logging, workflow builders. This is the tier for larger financial services or multi-location operations with real compliance and access-control requirements.
-
-If you are a brand-new business or need to modernize something outdated fast, the **Plug and Play** ($250, 1 week) and **Website Rebuild** ($350, 2 weeks) tiers exist too, though most established businesses in this particular district end up in the Standard Website tier or above because of the level of competition they are facing. Every tier includes 90 days of post-launch support, and there is an optional Maintenance Plan add-on at $50-100/month if you would rather not think about updates once the site is live.
+What that costs depends on what the business actually needs. A boutique retailer or single-location restaurant needing a genuinely professional web presence sits toward the lower end. A law firm or financial advisory practice that needs to manage intake and track leads through an admin portal sits higher. A multi-provider medical aesthetics operation or a larger financial services firm with compliance and access-control requirements sits higher still. Every tier and its turnaround window is spelled out on the [pricing page](/pricing) rather than repeated here, but the pattern worth knowing is that most established businesses in this particular district end up above the entry-level tier, simply because of the level of competition they're facing -- and every tier includes real post-launch support, not a site that goes dark after the invoice clears.
 
 ### Local SEO for Galleria-Uptown
 
@@ -72,12 +74,6 @@ The process starts with a conversation about your business -- what you do, who y
 
 ## Getting Started
 
-Call me at (936) 323-4527, or send a message through the contact form on this site. We will talk through what your business actually needs -- whether that is a Standard Website to get a real professional presence off the ground, a Premium Build with an admin portal to manage client intake, or something larger if you are running a multi-provider practice or a growing retail operation.
+Reach Kyle directly at (936) 323-4527, or send a message through the contact form on this site, to talk through what your business actually needs -- whether that's a straightforward professional presence to get off the ground, an admin portal to manage client intake, or something larger for a multi-provider practice or a growing retail operation.
 
-Galleria-Uptown is Houston's proving ground. Your customers already hold every business here to a national-brand standard whether that is fair or not. The businesses that win are the ones whose website matches the quality of what happens after someone walks through the door. Let's build yours to do that.
-
-**Kyle Stephens**
-**StephensCode LLC**
-**(936) 323-4527**
-**Veteran-Owned | Conroe, TX -- Serving Harris County**
-**Custom websites starting at $250**
+Galleria-Uptown is Houston's proving ground. Customers here already hold every business to a national-brand standard whether that's fair or not. The businesses that win are the ones whose website matches the quality of what happens after someone walks through the door.

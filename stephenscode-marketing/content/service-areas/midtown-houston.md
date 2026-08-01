@@ -1,14 +1,24 @@
 ---
-title: Web Developer Midtown Houston TX | Custom Websites, SEO & E-Commerce
-metaDescription: Custom websites for Midtown Houston businesses starting at $250. Mobile-first design, local SEO, e-commerce. Veteran-owned, serving the Houston metro.
+title: "Midtown Houston Web Design | Built for the Main Street Rail Corridor"
+metaDescription: "Mobile-first websites for Midtown Houston restaurants, bars, studios, and shops near the Main Street METRORail line. Flat-rate builds from $250. Veteran-owned, 45 minutes from Conroe."
 heroSubtitle: Mobile-first websites for Houston's densest, fastest-moving neighborhood
+h1Override: "Website Design for Midtown Houston's Walkable, Phone-First Crowd"
+faqs:
+  - question: "Why does a Midtown business need more than a Google Maps listing?"
+    answer: "Because a map pin can't show your full menu, take a reservation, sell a gift card, or make the case that you're worth the extra block of walking. A website is the one piece of digital space you fully control; a map listing and a social profile are rented."
+  - question: "Is StephensCode based in Midtown or Houston?"
+    answer: "No. StephensCode LLC is based in Conroe, about 45 minutes north up I-45. Sites are still built through phone calls, video chats, and in-person visits when needed, and Kyle Stephens personally handles the build from start to finish."
+  - question: "What kind of Midtown businesses does StephensCode build for?"
+    answer: "Mostly restaurants and bars, fitness studios, salons and spas, creative agencies, professional services firms, and retail boutiques, which is the mix that makes up Midtown's dense, walkable business district."
+  - question: "Does pricing change based on whether I need booking or e-commerce?"
+    answer: "Yes. A simple starter site starts at $250, while a build with online ordering, booking, or an admin dashboard costs more depending on scope. Exact tiers and timelines are on the pricing page."
 ---
 
 # Web Development Services for Midtown Houston Businesses
 
 Midtown is not a place where people drive up, park, and walk into your business. Midtown is a place where people step off the METRORail at a Main Street stop, or walk out of a high-rise apartment lobby, or finish a run around Midtown Park, and pull out their phone to figure out what is close by and open right now. That single fact changes everything about how a business in this neighborhood needs to show up online.
 
-I am Kyle Stephens, owner of StephensCode LLC. I am a Marine Corps veteran with more than 14 years of web development experience and over 200 completed projects, and I build custom, hand-coded websites for small businesses starting at $250. I am based in Conroe, about 45 minutes north of Midtown up I-45, and I want to be upfront about that distance instead of pretending otherwise -- more on why it does not actually matter in a minute. What does matter is that I understand the kind of website a Midtown business actually needs, and it is not the same website that works for a strip-center business in the suburbs.
+Kyle Stephens here -- StephensCode LLC is the company, and I'm the one who actually writes the code, not just the name on the invoice. Fourteen-plus years in, past 200 projects, Marine Corps before any of that. I work out of Conroe, a solid 45 minutes north up I-45, which I'll mention now and explain later rather than let you find out and wonder why I didn't say so. Short version: what actually matters for a Midtown business isn't how close my desk is to Main Street, it's whether the site understands that your customer is standing on a sidewalk with a phone in hand, not sitting at a desktop comparing options at leisure. That's a different build than what works for a strip-center business in the suburbs, and it's the build I focus on here.
 
 If you run a restaurant, bar, fitness studio, salon, boutique, or professional practice along the Main Street corridor, near McGowen Street, on Milam Street, or anywhere in the dense grid of Midtown, this page is for you.
 
@@ -41,15 +51,15 @@ I build with the actual Midtown customer in mind: someone on a phone, likely on 
 - Clean navigation that gets to your menu, services, or booking page in one or two taps
 - On-page SEO built in from day one, not bolted on later
 
-Starting at $250 for a Plug and Play site for a brand-new business, up through a $950 Standard Website for an established Midtown business that needs a full custom build, I price based on what you actually need -- not a padded package designed to upsell you.
+Pricing runs from a fast $250 starter build up through a full custom site for an established Midtown business, priced on what you actually need rather than a padded package meant to upsell you -- the [full breakdown is on the pricing page](/pricing).
 
 ### E-Commerce and Online Ordering
 
-Retail boutiques and food-and-beverage businesses in Midtown are sitting on top of a customer base that already shops and orders from a phone as a default behavior. An E-Commerce Website ($1,100, 4-6 weeks) gives you a real cart and checkout flow you own outright, instead of paying a delivery app's commission on every order or routing retail sales through a third-party marketplace that keeps the customer relationship for itself.
+Retail boutiques and food-and-beverage businesses in Midtown are sitting on top of a customer base that already shops and orders from a phone as a default behavior. An e-commerce build gives you a real cart and checkout flow you own outright, instead of paying a delivery app's commission on every order or routing retail sales through a third-party marketplace that keeps the customer relationship for itself.
 
 ### Booking, Portals, and Admin Dashboards
 
-Fitness studios, salons, and spas in Midtown run on scheduling. A Premium Build ($2,000, 6-8 weeks) gets you a custom site paired with an admin portal and analytics dashboard so you can see booking patterns, manage clients, and run your business from one place instead of stitching together three different apps that do not talk to each other. For a multi-location studio or a professional services firm that needs client portals, intake forms, and payment processing tied together, the Custom Business Platform ($5,000, 10-12 weeks) builds out a CRM and automation layer around your actual workflow.
+Fitness studios, salons, and spas in Midtown run on scheduling. A premium build pairs a custom site with an admin portal and analytics dashboard so you can see booking patterns, manage clients, and run your business from one place instead of stitching together three different apps that do not talk to each other. For a multi-location studio or a professional services firm that needs client portals, intake forms, and payment processing tied together, a custom platform build extends into CRM and automation territory built around your actual workflow.
 
 ### Local SEO for Midtown Houston
 
@@ -75,12 +85,6 @@ I am a Marine Corps veteran, and I built StephensCode LLC because I watched too 
 
 ## Getting Started
 
-Call me at (936) 323-4527, email info@stephenscode.dev, or use the contact form on this site. We will talk through what your business actually needs -- whether that is a $250 Plug and Play site to get a new Midtown business online fast, a full Standard Website build, an E-Commerce store, or a Premium Build with booking and an admin dashboard behind it. Every project includes 90 days of support after launch, with no hourly billing surprises along the way.
+Call (936) 323-4527, email info@stephenscode.dev, or use the contact form on this site. We will talk through what your business actually needs -- whether that is a fast starter site to get a new Midtown business online, a full custom build, an online store, or something with booking and an admin dashboard behind it. Every project includes 90 days of support after launch, with no hourly billing surprises along the way, and StephensCode LLC is veteran-owned and based in Conroe if you're wondering who you'd actually be working with.
 
 Midtown moves fast. Your customers are already on their phones deciding where to go next. The only question is whether your website is built to win that decision or lose it to whichever competitor loaded a half-second faster.
-
-**Kyle Stephens**
-**StephensCode LLC**
-**(936) 323-4527**
-**Veteran-Owned | Based in Conroe, TX | Serving the Houston Metro**
-**Custom websites starting at $250**

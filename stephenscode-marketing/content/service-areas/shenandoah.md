@@ -1,16 +1,26 @@
 ---
-title: Web Developer Shenandoah TX | Custom Websites, SEO & E-Commerce
-metaDescription: Custom websites for Shenandoah, TX starting at $250. Veteran-owned developer serving the I-45 corridor's hotels, restaurants, retail, and medical offices.
+title: Shenandoah, TX Web Design for I-45's Busiest Small City
+metaDescription: Custom websites for Shenandoah, TX hotels, restaurants, and retailers competing on the I-45 and Research Forest Drive corridor near Metropark Square. Veteran-owned, from $250.
 heroSubtitle: Custom websites for Shenandoah businesses competing on one of Montgomery County's busiest commercial corridors
+h1Override: Web Development for Shenandoah's I-45 Commercial Corridor
+faqs:
+  - question: How close is StephensCode to Shenandoah?
+    answer: About 12 minutes down I-45 in Conroe. I drive this corridor often enough to know the difference between the I-45 strip, Research Forest Drive, and Metropark Square, and that shows up in how I build a site for each one.
+  - question: What's the starting price for a Shenandoah business website?
+    answer: $250 for a Plug and Play build, scaling up from there depending on whether you need e-commerce, booking, or a full admin portal. Full pricing tiers are at [/pricing](/pricing).
+  - question: Do you build sites for hotels and restaurants along I-45?
+    answer: Yes, along with retailers in Metropark Square and medical and professional offices near Research Forest Drive. Each of those needs something different from a website, so I build accordingly rather than reusing one layout for all of them.
+  - question: Is StephensCode a veteran-owned company?
+    answer: Yes. I served in the Marine Corps before starting StephensCode LLC, and I've been hand-coding websites for more than 14 years since.
 ---
 
-# Web Development Services for Shenandoah, Texas Businesses
+## Web Development Services for Shenandoah, Texas Businesses
 
 Shenandoah is proof that population numbers do not tell the whole story. On paper, it is one of the smallest cities in Montgomery County, with a residential population just north of 3,000. On the ground, it is one of the busiest commercial strips in the entire region. The I-45 corridor through Shenandoah, along with the stretch of Research Forest Drive that feeds into it, carries a volume of shopping centers, hotels, restaurants, and entertainment venues that would embarrass cities ten times its size. Shenandoah does not have many residents. It has an enormous number of customers driving through it every single day.
 
 That is the paradox I think about every time I drive through on I-45: a city small enough that you could walk most of its residential streets in an afternoon, generating enough commercial traffic to rival some of the busiest strips in the Houston metro on a Friday night.
 
-I am Kyle Stephens, owner of StephensCode LLC. I am based about 12 minutes away in Conroe, and I have spent years watching this corridor develop. I am a Marine Corps veteran with more than 14 years of web development experience and over 200 completed projects. I build custom, hand-coded websites at flat-rate prices starting at $250, and I want to talk about what running a business in Shenandoah actually requires from a website, because it is different from what most small towns in this county need.
+I've watched this corridor fill in for years, driving it regularly from Conroe, where StephensCode LLC is based, about 12 minutes south down I-45. I'm Kyle Stephens -- Marine Corps veteran, more than 14 years into hand-coding websites, past 200 projects at this point -- and running a business on a strip this dense requires something different from what a website needs in a quieter part of the county. That's what the rest of this page is about.
 
 ## The Shenandoah Paradox: Tiny City, Massive Commercial Footprint
 
@@ -62,26 +72,20 @@ A business sitting right on I-45 is catching commuters and highway travelers mak
 
 Knowing which of these customer types your business is actually serving changes how I approach your site, from what content goes above the fold to which local search terms I prioritize first.
 
-## Why the Right Pricing Tier Matters Here
+## Why the Right Fit Matters More Than the Right Tier
 
-Because Shenandoah businesses run the gamut from small professional offices to hotels and multi-location restaurant concepts, I do not push every client toward the same package. My tiers start with a Plug and Play site at $250 for a brand-new business that needs to get online fast, built in about a week, and run up through a Standard Website at $950 for the typical small business that wants a full custom site in 3 to 4 weeks. Businesses that need online ordering, e-commerce, or booking functionality move into the E-Commerce tier at $1,100, and businesses that need a full admin portal and analytics behind that functionality move into the Premium Build tier at $2,000. For the kind of multi-location or high-volume operation that needs a real CRM, booking system, and automation running behind the scenes, the Custom Business Platform tier at $5,000 over 10 to 12 weeks, or the Enterprise Platform tier at $7,500 and up over 12 to 16 weeks, covers that ground. Every tier includes 90 days of support after launch, and every project is quoted flat rate, so there is no hourly clock running while we sort out scope. If you want ongoing updates after that window closes, an optional maintenance plan runs $50 to $100 a month.
+Shenandoah businesses run the gamut from small professional offices to hotels and multi-location restaurant concepts, so I don't push every client toward the same package. A brand-new business usually just needs a fast, affordable starter site; a hotel or a multi-location restaurant concept usually needs e-commerce or booking functionality, a full admin portal, or a real CRM running behind the scenes. Full flat-rate tiers, timelines, and what's included at each level are laid out at [/pricing](/pricing), and every project carries 90 days of post-launch support with no hourly clock running while we sort out scope.
 
-I will tell you honestly which tier fits your business. I am not going to sell a Metropark Square boutique an Enterprise Platform it does not need, and I am not going to hand a growing hotel property a bare Plug and Play site and call the job finished.
+I'll tell you honestly which tier fits your business. I'm not going to sell a Metropark Square boutique an Enterprise Platform it doesn't need, and I'm not going to hand a growing hotel property a bare starter site and call the job finished.
 
 ## Why Work with a Developer Based in Conroe
 
 I am about 12 minutes down the road in Conroe. I drive this corridor regularly, and I know the difference between a business sitting in the I-45 commercial district and one tucked inside Metropark Square, because those are genuinely different markets even though they sit a few minutes apart. When you call me at (936) 323-4527, you are talking to someone who already understands the corridor your business is competing on, not an out-of-state agency reading your city's name off an intake form.
 
-I started StephensCode LLC because I watched too many small businesses get overcharged for websites that underdelivered, built on templates that break the moment something custom is actually needed. My approach is flat-rate pricing, hand-coded sites, and full ownership at the end of the project. Your domain, your code, your content. Nothing held hostage behind a developer who disappears the day after launch.
+Flat-rate pricing, hand-coded sites, full ownership when the project ends -- that's the whole model, and it's the one I built this company around after watching small businesses get overcharged for template work that broke the first time something custom was needed. Your domain, your code, your content stay yours. No developer disappearing the day after launch and holding your site hostage for the next invoice.
 
 ## Getting Started
 
 Call me at (936) 323-4527, or reach out through the contact form on my site. We will talk through what your business does, who is actually walking or driving past it every day, and which of the seven pricing tiers makes sense for where you are right now. I will give you a straight number and a straight timeline, no surprises buried in the fine print.
 
-Shenandoah punches well above its weight as a commercial corridor, and the businesses that win here are the ones that show up first when a customer searches on their phone from the parking lot next door. Do not let a competitor with a better website take the customer who was already headed your way.
-
-**Kyle Stephens**
-**StephensCode LLC**
-**(936) 323-4527**
-**Veteran-Owned | Conroe, TX**
-**Custom websites starting at $250**
+Shenandoah punches well above its weight as a commercial corridor, and the businesses that win here are the ones that show up first when a customer searches on their phone from the parking lot next door. Don't let a competitor with a better website take the customer who was already headed your way -- call (936) 323-4527 or email info@stephenscode.dev, and you'll get me on the other end, Kyle Stephens, not a call center reading your city's name off a screen.

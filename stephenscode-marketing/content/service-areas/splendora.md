@@ -1,14 +1,24 @@
 ---
-title: Web Developer Splendora TX | Custom Websites, SEO & E-Commerce
-metaDescription: Professional web development for Splendora, Texas businesses along US-59. Custom websites starting at $250, local SEO, veteran-owned, based in nearby Conroe.
+title: Splendora, TX Web Design Along the US-59 Corridor
+metaDescription: Custom websites for Splendora, TX contractors, auto shops, and retailers near the Sam Houston National Forest and US-59. Veteran-owned, hand-coded, from $250.
 heroSubtitle: Affordable, custom-built websites for Splendora's small-town businesses along the US-59 corridor
+h1Override: Websites for Splendora's Small-Town Businesses on US-59
+faqs:
+  - question: How much does a website cost for a Splendora business?
+    answer: Projects start at $250, with the exact tier depending on whether you need a simple site, a rebuild of something outdated, or full e-commerce. The complete list is at [/pricing](/pricing).
+  - question: Do I have to meet in person, or can this be handled remotely?
+    answer: Almost everything happens by phone, text, and email. I'm twenty minutes away in Conroe if a face-to-face conversation makes sense, but nothing about building your site requires it.
+  - question: What kinds of Splendora businesses do you typically build for?
+    answer: Contractors, auto shops, home services companies, restaurants, retailers, and agricultural supply businesses make up most of my Splendora client base, though I'll build for any small business in the area.
+  - question: Is StephensCode a veteran-owned business?
+    answer: Yes. I'm a Marine Corps veteran, and StephensCode LLC has been hand-coding small business websites for more than 14 years.
 ---
 
-# Web Development Services for Splendora, Texas Businesses
+## Web Development Services for Splendora, Texas Businesses
 
 Splendora does not try to be anything other than what it is: a small, close-knit community in eastern Montgomery County, sitting along US-59 between Conroe and Humble. It is not chasing the master-planned-community boom happening a few miles south. It has wooded lots, affordable housing, and a population that still sits a bit over 2,000 people. The town runs on the same values you would expect from a place like this -- hard work, reliability, and a community that shows up for each other. Splendora ISD is the center of that community life. School events, Friday night football, and the local calendar are what actually bring people together here, not a shopping mall or an entertainment district.
 
-I am Kyle Stephens, owner of StephensCode LLC, a veteran-owned web development company based twenty minutes away in Conroe. I have spent more than 14 years building websites for small businesses, and Splendora is exactly the kind of town I built this company for. Not the flashy retail corridor with a dozen national chains competing for attention -- the contractor with a truck full of tools, the auto shop that has fixed half the town's vehicles at one point or another, the diner where the owner knows your order before you sit down. These are the businesses that get overlooked by web agencies chasing bigger contracts in Houston or The Woodlands. I do not overlook them. I build them custom, professional websites starting at $250.
+The contractor with a truck full of tools. The auto shop that's fixed half the town's vehicles at some point. The diner where the owner already knows your order before you sit down. Those are the businesses that agencies chasing bigger contracts in Houston or The Woodlands tend to skip past, and they're exactly who I built StephensCode LLC to serve, more than fourteen years in now: Kyle Stephens, Marine Corps veteran before any of this, working out of Conroe, twenty minutes up US-59 from Splendora.
 
 If you run a business in Splendora, along US-59, or anywhere in the surrounding rural stretch of eastern Montgomery County, I want to talk to you about getting online the right way.
 
@@ -74,32 +84,16 @@ Feed stores, farm and ranch supply, and agricultural equipment and services are 
 
 ## What It Actually Costs
 
-I do not do hourly billing, and I do not believe in surprise invoices. Every project fits into one of a small number of flat-rate tiers, and every tier includes 90 days of support after launch.
+I do not do hourly billing, and I do not believe in surprise invoices. Every project fits into one of a handful of flat-rate tiers, from a fast starter site up through full custom platforms with CRM and automation built in, and every tier includes 90 days of support after launch. The complete list of tiers, prices, and timelines lives at [/pricing](/pricing).
 
-- **Plug and Play -- $250, about 1 week.** A fast-turnaround starter site, ideal for a brand-new Splendora business that needs to get online now.
-- **Website Rebuild -- $350, about 2 weeks.** For businesses with an outdated or template-based site that needs to be modernized without starting from scratch conceptually.
-- **Standard Website -- $950, 3 to 4 weeks.** A full custom small-business website. This is the typical entry point for most established Splendora businesses -- contractors, auto shops, restaurants, home services.
-- **E-Commerce Website -- $1,100, 4 to 6 weeks.** A full online store with cart and checkout, built for retail and agricultural supply businesses that want to sell beyond foot traffic.
-- **Premium Build -- $2,000, 6 to 8 weeks.** A custom full-stack site with an admin portal and analytics dashboard, for businesses that need more than a brochure site -- multi-location contractors, growing service operations.
-- **Custom Business Platform -- $5,000, 10 to 12 weeks.** CRM, customer portals, booking, payments, and automation built into one system.
-- **Enterprise Platform -- $7,500 and up, 12 to 16 weeks.** Multi-tenant systems with SSO, audit logs, and workflow automation, for operations that have outgrown a standard website entirely.
+Most Splendora businesses land in the starter, rebuild, or standard tier, with e-commerce as the natural next step for retail and agricultural supply operations. An optional maintenance plan, $50 to $100 a month, keeps your site updated and running smoothly after launch if you would rather not manage it yourself.
 
-Most Splendora businesses land in the Plug and Play, Website Rebuild, or Standard Website tier, with e-commerce as the natural next step for retail and agricultural supply operations. An optional maintenance plan, $50 to $100 a month, keeps your site updated and running smoothly after launch if you would rather not manage it yourself.
+## Why Work with a Developer 20 Minutes Up US-59
 
-## Why Work with a Developer 20 Minutes Away in Conroe
-
-I am based in Conroe, about twenty minutes down US-59 from Splendora. I am not an agency in Dallas assigning your project to whichever developer has bandwidth this week, and I am not a freelancer overseas who has never driven the stretch of US-59 between Conroe and Humble. When you call me, you get me -- the same person who designs the site, writes the copy, builds the SEO strategy, and answers the phone when you need something changed after launch.
-
-I am a Marine Corps veteran, and I built StephensCode LLC around the same principles I learned in the Corps: show up, do the work right, and do not make excuses. I started this company because I saw too many small businesses -- the kind that make up towns like Splendora -- get overcharged and underserved by agencies that treat them as an afterthought. My rates start at $250. No contracts designed to trap you, no holding your domain or your content hostage, no hidden monthly fees you did not agree to. Your website, your code, your content -- it belongs to you.
+Twenty minutes up US-59 puts me in Conroe, not in a Dallas agency office assigning your project to whichever developer has bandwidth this week, and not overseas with no idea what the drive between Conroe and Humble even looks like. Call me and you get me: the person who designs the site, writes the copy, builds the SEO strategy, and picks up the phone when something needs to change after launch. No contracts designed to trap you, no domain or content held hostage, no monthly fee you never agreed to. The site is yours -- code, content, all of it.
 
 ## Let's Talk
 
-If you run a business in Splendora, along US-59, or anywhere in the surrounding rural stretch of eastern Montgomery County, call me at (936) 323-4527 or use the contact form on this site. We will talk about what your business actually needs, and I will give you a straight answer on cost and timeline -- no sales pitch, no upsell script.
+If you run a business in Splendora, along US-59, or anywhere in the surrounding rural stretch of eastern Montgomery County, reach out through the contact form on this site or call (936) 323-4527 -- I'm Kyle Stephens, and I'll give you a straight answer on cost and timeline, no sales pitch, no upsell script.
 
-Splendora does not need to become something it is not to compete. It just needs its businesses to be visible to the people who are already searching for them. For $250, there is no good reason to keep losing that business to a shop in Kingwood or Humble.
-
-**Kyle Stephens**
-**StephensCode LLC**
-**(936) 323-4527**
-**Veteran-Owned | Conroe, TX**
-**Custom websites starting at $250**
+Splendora doesn't need to become something it isn't to compete. It just needs its businesses to be visible to the people who are already searching for them, and at $250 to get started (full tiers at [/pricing](/pricing)), there's no good reason to keep losing that business to a shop in Kingwood or Humble.

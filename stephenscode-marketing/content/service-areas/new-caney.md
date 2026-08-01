@@ -1,14 +1,24 @@
 ---
-title: Web Developer New Caney TX | Custom Websites, SEO & E-Commerce
-metaDescription: Professional web development for New Caney, Texas businesses. Custom websites starting at $250, local SEO, e-commerce. Veteran-owned, based in nearby Conroe.
+title: New Caney Web Design | Valley Ranch, Tavola & the US-59 Corridor
+metaDescription: Custom websites, local SEO, and e-commerce for New Caney businesses near Valley Ranch and Tavola. Veteran-owned, 25 minutes away in Conroe, starting at $250.
 heroSubtitle: Custom websites for New Caney's rapidly growing business community
+h1Override: Websites Built for New Caney's Valley Ranch and Tavola Boom
+faqs:
+  - question: Is New Caney too small a market for a website to be worth it?
+    answer: Not anymore. New Caney has crossed 20,000 residents and is still adding rooftops through Valley Ranch and Tavola, and the businesses capturing that growth are the ones showing up in search results now, before the market settles.
+  - question: Is $250 really the starting price, or is that a bait-and-switch?
+    answer: It's the real starting price for a clean, custom-built site. E-commerce builds, multi-location SEO, and custom web applications cost more because they involve more work, and those get quoted after we talk through scope, but the $250 entry point is genuine.
+  - question: Are you actually based in New Caney?
+    answer: No, I work out of Conroe, about 25 minutes down US-59, and I cover Montgomery County including New Caney and the surrounding communities.
+  - question: Can you build an online store for a New Caney retailer competing with the chains at Valley Ranch?
+    answer: Yes. I build e-commerce sites that connect to in-store inventory, handle payments securely, and give independent retailers a sales channel that runs around the clock.
 ---
 
 # Web Developer in New Caney, TX
 
 New Caney is in the middle of one of the most dramatic transformations happening anywhere in the Houston metro. A decade ago, this was a rural community with a handful of gas stations, feed stores, and country restaurants along US-59. Today, Valley Ranch Town Center is a massive mixed-use commercial hub, Big Rivers Waterpark puts New Caney on the regional tourism map, and thousands of new homes are going up across developments like Tavola and the surrounding communities. The zip code has changed, and if your business has not changed with it, you are falling behind.
 
-I am Kyle Stephens, owner of StephensCode LLC, a veteran-owned web development company based in Conroe. I have been building websites for over 14 years, and I have spent the last several years watching New Caney evolve from a pass-through town into a legitimate suburban destination. I build custom websites, manage local SEO, and develop e-commerce solutions for businesses in New Caney and the surrounding area. Projects start at $250, and you work directly with me from start to finish.
+My name is Kyle Stephens, and I run StephensCode LLC out of Conroe, about 25 minutes down US-59. I've spent the better part of the last several years watching New Caney make this exact shift firsthand: Valley Ranch going from graded dirt to a functioning town center, Tavola filling in lot by lot. Fourteen-plus years of building websites has taught me that a market changing this fast punishes anyone who treats a website as a one-time task. I build the custom sites, handle the local SEO, and put together the e-commerce systems for businesses on both sides of that shift, starting at $250 and scaling up based on what the job actually needs.
 
 ## New Caney's Rural-to-Suburban Shift and What It Means for Your Business
 
@@ -110,12 +120,12 @@ If you are an established business without a professional website, you are invis
 
 If you are a new business launching without a professional website, you are starting at a disadvantage against competitors who already have one. In a market growing this fast, every day without proper online visibility is a day of lost revenue.
 
-## Starting at $250
+## What This Actually Costs
 
-Professional web development should not require a massive upfront investment, especially for small businesses in a growing market that need to move fast. My projects start at $250 for a clean, professional website that is built custom for your business. More complex projects -- e-commerce stores, multi-location SEO campaigns, custom web applications -- are priced based on scope after we discuss what you need. No surprise fees, no hidden charges, no recurring costs you did not agree to.
+A clean, custom-built website starts at $250, on purpose. A feed store or a taqueria opening near Valley Ranch does not need agency-level pricing to get found online. E-commerce builds, multi-location SEO across Tavola and Roman Forest, or a custom web application get scoped and quoted after we talk through what you actually need. Full tier breakdowns and turnaround times are on the [pricing page](/pricing). No surprise fees, no hidden charges, nothing you did not agree to up front.
 
 ## Let's Talk
 
-If you run a business in New Caney, Valley Ranch, Tavola, Roman Forest, Splendora, Patton Village, or anywhere along the US-59 and FM 1485 corridors, I want to hear about what you are building. Call me at (936) 323-4527 or use the contact form on this site.
+If you run a business anywhere along that stretch -- New Caney, Valley Ranch, Tavola, Roman Forest, Splendora, Patton Village, or the FM 1485 corridor -- tell me what you're building. Call (936) 323-4527, email info@stephenscode.dev, or use the contact form on this site.
 
-I am Kyle Stephens, Marine Corps veteran, 14-year web developer, and owner of StephensCode LLC in Conroe, Texas. I build websites that help local businesses compete and grow in markets that are changing fast. New Caney is changing faster than almost anywhere in this region. Let me make sure your business keeps up.
+New Caney is changing faster than almost anywhere else in this part of the state, and the businesses that show up online now are the ones new residents will still be calling five years from now.

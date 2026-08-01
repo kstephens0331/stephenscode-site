@@ -1,7 +1,17 @@
 ---
-title: Web Developer Bellaire TX | Custom Websites, SEO & E-Commerce
-metaDescription: Custom web development for Bellaire, Texas businesses, from Chinatown corridor restaurants to Bellaire Blvd clinics. Sites start at $250. Veteran-owned, 50 minutes away.
+title: "Web Design for Bellaire, TX | Bellaire Blvd & Chinatown Corridor"
+metaDescription: "Custom-coded websites for Bellaire, Texas businesses, from Bellaire Boulevard's Chinatown corridor to Bellaire proper. Flat-rate from $250, veteran-owned, 50 minutes away in Conroe."
 heroSubtitle: Custom websites for Bellaire's independent city businesses, from the Chinatown corridor to Bellaire Boulevard
+h1Override: "Web Design for Bellaire Boulevard and Bellaire Proper Businesses"
+faqs:
+  - question: "How much does it cost to build a website for a Bellaire business?"
+    answer: "Pricing is flat-rate, starting at $250, with every tier including 90 days of post-launch support and no hourly billing. Full tiers and timelines are on the pricing page."
+  - question: "Is StephensCode based in Bellaire?"
+    answer: "No, I'm based in Conroe, about 50 minutes north of Bellaire. I make the drive for client meetings, photography, or in-person planning when a project calls for it."
+  - question: "Can you build a site for a Bellaire Boulevard business that serves both English and non-English-speaking customers?"
+    answer: "Yes. For restaurants and other businesses along the Chinatown corridor, I build in support for multiple language displays so the site serves both English-speaking customers and customers searching in their native language."
+  - question: "What kinds of businesses do you build for in Bellaire?"
+    answer: "Asian restaurants and bakeries, healthcare and dental practices, retail shops, professional services firms, import/export businesses, and beauty services, spanning both the Chinatown corridor and Bellaire proper."
 ---
 
 # Web Development Services for Bellaire, Texas Businesses
@@ -10,7 +20,7 @@ Bellaire is a strange and wonderful piece of geography. It is its own incorporat
 
 That combination, a quiet, affluent residential enclave sitting shoulder to shoulder with a massive, diverse commercial corridor, is what makes Bellaire interesting to build websites for. You have a population of about 19,000 residents inside the city limits, but the businesses along Bellaire Boulevard serve a customer base that stretches across the entire Houston metro. A bakery on the boulevard is not just selling to the family two streets over. It is selling to people driving in from Sugar Land, from Katy, from Pearland, because that specific bakery makes the specific thing their family grew up eating and nobody else in Houston does it the same way. That is a real competitive advantage, and it deserves a website that actually represents it.
 
-I am Kyle Stephens, owner of StephensCode LLC. I am a Marine Corps veteran with more than 14 years of web development experience and over 200 completed projects, and I am based in Conroe, about 50 minutes north of Bellaire depending on how 610 is behaving that day. I build every site by hand with modern code, no WordPress, no drag-and-drop page builders, and I price everything flat so you know the cost before we start. If you run a business in Bellaire proper, along the Chinatown corridor, near Meyerland, or over toward Sharpstown, I want to talk to you about what a real website could do for your business.
+StephensCode LLC is mine, based in Conroe, about 50 minutes north of Bellaire depending on how 610 is behaving that day. Marine Corps first, then more than 200 completed projects, then the 14-plus years it's taken hand-coding sites for small businesses across the region -- that's roughly the order things happened. Every build is real code, not a drag-and-drop theme, and every quote is a flat number set before I start, [with rates beginning at $250](/pricing). If you run a business in Bellaire proper, along the Chinatown corridor, near Meyerland, or over toward Sharpstown, let's talk about what a real website could do for it.
 
 ## Bellaire: A Small City With a Big Commercial District
 
@@ -56,35 +66,18 @@ For the businesses along Bellaire Boulevard, that often means extra attention to
 
 ## Pricing, Straight Up
 
-I do not do hourly billing, and I do not believe in surprise invoices. Every project has a flat price agreed to before I write a line of code, and every tier includes 90 days of post-launch support after your site goes live.
+No surprise invoices here -- every quote is flat and set before I touch a keyboard, and 90 days of support after launch comes with every tier regardless of size. The [pricing page](/pricing) has the full list of tiers and what each one costs and takes to build; for anyone who wants a hand keeping things updated afterward, there's an optional monthly maintenance plan too.
 
-- **Plug and Play, $250, one week.** A fast-turnaround starter site for a brand-new business that needs a real online presence now.
-- **Website Rebuild, $350, two weeks.** For businesses stuck with an old, outdated, or template-based site that needs a modern rebuild.
-- **Standard Website, $950, three to four weeks.** A full custom small-business site. This is the typical fit for most restaurants, clinics, and service businesses along the corridor.
-- **E-Commerce Website, $1,100, four to six weeks.** A full online store with cart and checkout, for retail and specialty grocery businesses that want to sell online.
-- **Premium Build, $2,000, six to eight weeks.** A custom full-stack site with an admin portal and an analytics dashboard, built for businesses that want to manage more of their operation through the site itself.
-- **Custom Business Platform, $5,000, ten to twelve weeks.** CRM, customer portals, booking, payments, and automation built around how your business actually runs.
-- **Enterprise Platform, $7,500 and up, twelve to sixteen weeks.** Multi-tenant systems, single sign-on, audit logging, and workflow builders for larger, more complex operations.
-
-There is also an optional maintenance plan, $50 to $100 a month, for businesses that want ongoing updates handled without lifting a finger.
-
-For most businesses along Bellaire Boulevard and in Bellaire proper, the Standard Website tier at $950 is the right starting point. It gives you a genuinely custom site, built around your actual menu, services, or inventory, without the overhead of a bigger platform build you do not need yet.
+For most businesses along Bellaire Boulevard and in Bellaire proper, a fully custom mid-tier build tends to be the right starting point: enough to get a site built specifically around your actual menu, services, or inventory, without paying for a bigger platform build you don't need yet.
 
 ## Why Work With a Developer 50 Minutes Up the Road
 
 I am not in Bellaire every day, I will not pretend otherwise. I am in Conroe, about 50 minutes north. But that is a straight shot down the highway, and I make the drive when a project calls for it, whether that is photographing your storefront, sitting down in person to map out a menu structure, or just shaking hands before we start. I have built sites for businesses across the greater Houston area, and central, well-connected locations like Bellaire are easy for me to reach and easy for me to understand.
 
-I started StephensCode LLC because I got tired of seeing small businesses get overcharged and underserved by agencies that treat every client like a template to fill in. My pricing is flat. My code belongs to you when the project is done, not held hostage on some agency's proprietary platform. And I build every site with the specific business in front of me in mind, not a one-size-fits-all package.
+Small businesses getting overcharged and underserved by agencies that treat every client like a template to fill in is exactly what pushed me to start this company in the first place. My pricing is flat, my code belongs to you the day the project's done rather than staying locked on some agency's proprietary platform, and every site gets built around the specific business in front of me, not a one-size-fits-all package.
 
 ## Getting Started
 
-Call me at (936) 323-4527, email info@stephenscode.dev, or use the contact form on this site. Tell me about your business: what you sell, who your customers are, and what you actually need the site to do. I will give you a straight answer on scope, price, and timeline before we agree to anything.
+Call (936) 323-4527, email info@stephenscode.dev, or use the contact form on this site, and tell me about your business: what you sell, who your customers are, and what you actually need the site to do. I'll give you a straight answer on scope, price, and timeline before we agree to anything.
 
-Bellaire's Chinatown corridor is one of the most distinctive commercial districts in Texas, and the businesses in Bellaire proper have a reputation for quality that a thin web presence does not do justice to. Whichever side of Bellaire your business sits on, a real website built around how your customers actually search is not a luxury anymore. It is the baseline. Starting at $250, there is no good reason to keep putting it off.
-
-**Kyle Stephens**
-**StephensCode LLC**
-**2378 Strong Horse Dr, Conroe, TX 77301**
-**(936) 323-4527 | info@stephenscode.dev**
-**Veteran-Owned | Serving Bellaire and Greater Houston**
-**Custom websites starting at $250**
+Bellaire's Chinatown corridor is one of the most distinctive commercial districts in Texas, and the businesses in Bellaire proper have a reputation for quality that a thin web presence doesn't do justice to. Whichever side of Bellaire your business sits on, a real website built around how your customers actually search isn't a luxury anymore -- it's the baseline. StephensCode LLC is veteran-owned, based in Conroe, and every site gets built by hand by one person: me. Reach out at info@stephenscode.dev or (936) 323-4527.

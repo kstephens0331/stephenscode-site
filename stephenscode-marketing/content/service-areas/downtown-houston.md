@@ -1,14 +1,24 @@
 ---
-title: Web Developer Downtown Houston TX | Custom Websites, SEO & E-Commerce
-metaDescription: Custom websites for Downtown Houston law firms, consulting practices & restaurants starting at $250. Veteran-owned, 45 minutes from Conroe.
+title: "Web Design for Downtown Houston | Law Firms & Consulting Practices"
+metaDescription: "Custom-coded websites for Downtown Houston law firms, consulting practices, and restaurants near Discovery Green and the Theater District. From $250, veteran-owned, 45 minutes from Conroe."
 heroSubtitle: Custom web development for the law firms, financial services, and restaurants that run beneath Houston's skyline
+h1Override: "Web Design for Downtown Houston's Law Firms, Consultancies, and Restaurants"
+faqs:
+  - question: "How much does a website cost for a Downtown Houston firm?"
+    answer: "Pricing is flat-rate starting at $250, with every tier including 90 days of post-launch support and no hourly billing. Full tiers and timelines are on the pricing page."
+  - question: "How far is StephensCode from Downtown Houston?"
+    answer: "About 45 minutes down I-45. I'm based in Conroe and drive down for client meetings when a project calls for it."
+  - question: "Can you build a secure client portal for a law firm or consulting practice?"
+    answer: "Yes. For firms that want clients to log in and check case status, share documents securely, or view project milestones, that's a Premium Build or Custom Business Platform project: a real admin portal and client login built around your workflow instead of a generic off-the-shelf CRM."
+  - question: "Which parts of Downtown do you build for?"
+    answer: "The Main Street District, Market Square, the Theater District, the Discovery Green area, and East Downtown (EaDo), each treated as its own pocket with its own local SEO rather than one generic 'Downtown Houston' page."
 ---
 
 # Web Development Services for Downtown Houston Businesses
 
 Downtown Houston is a city that empties out and fills back up every single day. Roughly 150,000 people pour into the skyline for work, and roughly 11,000 actually live there. That gap between daytime population and residential population tells you almost everything you need to know about how business gets done in Downtown Houston. This is not a neighborhood where you build a customer base one walk-in at a time. This is a market of professionals moving between office towers, courthouses, client meetings, and lunch spots, most of them looking at a phone screen while they do it.
 
-I am Kyle Stephens, owner of StephensCode LLC. I am based in Conroe, about 45 minutes down I-45 from the skyline. I am a Marine Corps veteran with more than 14 years of web development experience and over 200 completed projects, and I build custom websites at flat rates starting at $250. No WordPress, no drag-and-drop page builders, no templates. Every site I build is hand-coded, usually in Next.js or React, which means it loads fast, holds up under real traffic, and does not come loaded down with plugins somebody else wrote and stopped maintaining three years ago.
+Every site I build is hand-coded, usually in Next.js or React, which means it loads fast, holds up under real traffic, and doesn't come loaded down with plugins somebody else wrote and stopped maintaining three years ago. That's the standard StephensCode LLC builds to, [flat rate starting at $250](/pricing), no WordPress, no drag-and-drop builders, no templates. I'm Kyle Stephens, a Marine Corps veteran who's spent more than 14 years and 200-plus projects doing this work, and I run the shop out of Conroe, about 45 minutes down I-45 from the skyline.
 
 If your business operates in the Main Street District, Market Square, the Theater District, near Discovery Green, or out in East Downtown (EaDo), I want to talk to you about what your website is actually doing for you right now, and what it should be doing.
 
@@ -77,32 +87,16 @@ When I build your site, I am not guessing at which of these you belong to. I am 
 
 ## Pricing Built for a Market This Wide
 
-Downtown Houston has businesses ranging from a single-attorney practice to firms with dozens of employees across multiple floors, and my pricing is built to match that range honestly rather than push everyone toward the same package.
-
-1. **Plug and Play -- $250, 1 week.** A fast, professional starting point for a brand-new Downtown business that needs to be findable now.
-2. **Website Rebuild -- $350, 2 weeks.** For the firm still running on a site built a decade ago that no longer reflects the business or loads properly on a phone.
-3. **Standard Website -- $950, 3-4 weeks.** The typical entry point for an established consulting practice, small firm, or restaurant that wants a fully custom site built around their business specifically.
-4. **E-Commerce Website -- $1,100, 4-6 weeks.** For retail, merchandise, or online ordering with a real cart and checkout.
-5. **Premium Build -- $2,000, 6-8 weeks.** A full custom site with an admin portal and analytics dashboard, common for law firms and consulting practices that want client-facing tools alongside a public site.
-6. **Custom Business Platform -- $5,000, 10-12 weeks.** CRM, client portals, booking, payments, and workflow automation built around how your firm actually operates.
-7. **Enterprise Platform -- $7,500+, 12-16 weeks.** Multi-tenant systems, single sign-on, audit logging, and custom workflow builders for firms operating at real scale.
-
-Every tier includes 90 days of post-launch support and there is no hourly billing hiding behind any of these numbers. If you want ongoing updates after that, a maintenance plan runs $50 to $100 a month.
+Downtown Houston has businesses ranging from a single-attorney practice to firms with dozens of employees across multiple floors, so pricing needs to match that range honestly instead of pushing everyone toward the same package. The [pricing page](/pricing) lays out every tier, from a one-week starter site to enterprise platforms with single sign-on and audit logging. Whichever tier fits, 90 days of post-launch support is included and nothing is billed by the hour.
 
 ## Why Work With a Developer 45 Minutes Up I-45
 
 I am not going to pretend Conroe is Downtown. It is not. But 45 minutes down I-45 is a straight shot, and I make that drive when a project calls for sitting across the table from a client instead of talking through a screen. What that distance buys you is a developer who is not billing agency overhead for a Downtown office address, and who is not treating your project as one of a hundred identical accounts on a production line.
 
-I started StephensCode LLC because too many small and mid-sized businesses get quoted five figures for a website that a competent developer can build for a fraction of that, or get locked into a CMS and a hosting relationship they cannot leave without losing their own content. Every site I build belongs to you: your domain, your code, your content, no exceptions.
+Too many small and mid-sized businesses get quoted five figures for a website a competent developer can build for a fraction of that, or get locked into a CMS and hosting relationship they can't leave without losing their own content -- that's the whole reason this company runs the way it does. Every site I build belongs to you: your domain, your code, your content, no exceptions.
 
 ## Getting Started
 
-Call me at (936) 323-4527, or send a message through the contact form. Tell me what you do, who walks through your door or logs into your portal, and what you need your site to accomplish, whether that is intake forms for a law firm, a menu that converts the lunch crowd, or a client dashboard for a consulting practice. I will give you a straight number and a straight timeline, not a sales pitch.
+Call (936) 323-4527, or send a message through the contact form. Tell me what you do, who walks through your door or logs into your portal, and what you need your site to accomplish, whether that's intake forms for a law firm, a menu that converts the lunch crowd, or a client dashboard for a consulting practice. I'll give you a straight number and a straight timeline, not a sales pitch.
 
-Downtown Houston does not slow down, and the businesses that do best there are the ones whose online presence matches the pace of everything happening around them. Let's build yours.
-
-**Kyle Stephens**
-**StephensCode LLC**
-**(936) 323-4527**
-**Veteran-Owned | Conroe, TX | Serving Downtown Houston**
-**Custom websites starting at $250**
+Downtown Houston does not slow down, and the businesses that do best there are the ones whose online presence matches the pace of everything happening around them. Let's build yours. Veteran-owned StephensCode LLC is based in Conroe, run day-to-day by me, Kyle Stephens, and info@stephenscode.dev works just as well as the phone number above.

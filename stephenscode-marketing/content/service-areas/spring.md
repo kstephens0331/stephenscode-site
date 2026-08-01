@@ -1,7 +1,17 @@
 ---
-title: Web Developer Spring TX | Custom Websites, SEO & E-Commerce
-metaDescription: Professional web development serving Spring, Texas. Custom websites starting at $250, local SEO, e-commerce solutions. Veteran-owned with 14+ years experience.
+title: "Spring, TX Web Design | Old Town Spring & ExxonMobil Corridor Businesses"
+metaDescription: "Flat-rate web design for Spring, TX businesses near Old Town Spring and the ExxonMobil campus, built on Next.js by a Conroe-based, veteran-owned team with 14+ years of experience."
 heroSubtitle: Serving Spring's growing business community
+h1Override: "Web Development for Spring, TX: Where Old Town Charm Meets ExxonMobil-Area Growth"
+faqs:
+  - question: "What does a website cost for a business in Spring, TX?"
+    answer: "Flat-rate, yes -- a 4-page Plug and Play site runs $250, a Standard 8-12 page build is $950, rebuilding an existing site is $350, and an E-Commerce store starts at $1,100. Full numbers are on the [pricing page](/pricing)."
+  - question: "How fast can StephensCode build my Spring business site?"
+    answer: "Most Spring projects go from consultation to launch in 1-2 weeks, assuming content and feedback come back promptly."
+  - question: "Does StephensCode build sites for Old Town Spring and Gleannloch Farms businesses?"
+    answer: "Yes -- Old Town Spring, Gleannloch Farms, Northgate Forest, Champions Forest, and the Klein area are all neighborhoods we build local SEO around specifically, rather than just targeting \"Spring\" generically."
+  - question: "Is StephensCode actually based near Spring?"
+    answer: "StephensCode is based in Conroe, about 20 minutes north of Spring via I-45, so in-person meetings are on the table if you want one."
 ---
 
 ## Web Development for Spring, Texas: Where Heritage Meets Growth
@@ -10,7 +20,7 @@ Spring, Texas is experiencing a transformation. What was once a quiet bedroom co
 
 At StephensCode, we understand the Spring market from our base just up I-45 in Conroe, only 20 minutes away. We've worked with Spring businesses across industries and know what it takes to compete in this fast-paced environment. Whether you're an established Old Town merchant or a new business serving the growing residential areas, we build websites that generate real results.
 
-As a veteran-owned company with 14+ years of experience, we bring discipline and integrity to every project. No corporate runaround, no mysterious pricing, just professional web development at fair rates from someone you can actually reach.
+This is a veteran-owned shop, 14+ years in, and that background shows up in how projects actually run: clear scope up front, a price that doesn't move halfway through, and a developer who answers the phone instead of routing you to a support ticket.
 
 ### The Spring Market: Opportunity and Competition
 
@@ -201,67 +211,9 @@ ExxonMobil's Spring campus employs thousands and impacts the local economy signi
 
 If your business serves this demographic, your website must be professional, informative, and mobile-optimized.
 
-### Why Choose StephensCode for Your Spring Website
+### Why Spring Businesses Work With Us
 
-**We're local**: Based in Conroe, just 20 minutes north. We can meet in person, we understand the market, and we're accessible.
-
-**Transparent pricing**: You know exactly what you'll pay before we start:
-- Plug and Play (4 pages): $250
-- Standard Site (8-12 pages): $950
-- Website Rebuild: $350
-- E-Commerce Store: $1,100
-
-No surprises, no hidden fees, no hourly billing that spirals out of control.
-
-**Modern technology**: We build with Next.js, not outdated WordPress themes. Your site will be fast (under 2 seconds load time), secure, and built to modern standards.
-
-**Direct communication**: You work directly with the developer building your site. No account managers, no telephone game, no delays.
-
-**Veteran-owned integrity**: Marine Corps values: do what you say, show up on time, take responsibility. Your project will be completed on time and on budget.
-
-**Local SEO expertise**: We understand Spring's geography, competition, and search patterns. We optimize for the specific terms Spring customers actually use.
-
-### Our Process
-
-**1. Free Consultation**
-We discuss your business, goals, and current situation. Honest advice about what you need (and what you don't). No pressure.
-
-**2. Custom Proposal**
-Detailed scope, exact pricing, timeline. Everything in writing before you commit.
-
-**3. Design & Content**
-Mockups for your review before we build. You see exactly what your site will look like.
-
-**4. Development**
-Built on a staging server for your review. We test everything across devices and optimize for speed.
-
-**5. Launch & Training**
-We launch, connect analytics, and train you on any content management features.
-
-**6. Support**
-90 days of free post-launch support included. Optional maintenance plans available starting at $50/month.
-
-**Timeline**: Most Spring business websites completed in 1-2 weeks.
-
-### Local SEO: Dominating Spring Searches
-
-Getting found requires more than just having a website:
-
-**Google Business Profile optimization**: Your GBP listing is often the first thing customers see. We ensure it's complete, accurate, and optimized.
-
-**Location-specific content**: Pages targeting "Spring," "Old Town Spring," "Klein," and specific neighborhoods.
-
-**NAP consistency**: Name, Address, Phone must match everywhere online. Inconsistencies hurt rankings.
-
-**Schema markup**: We add LocalBusiness structured data so Google understands your location and services.
-
-**Review strategy**: Guidance on generating more Google reviews (which directly impact rankings).
-
-**Mobile optimization**: Google uses mobile-first indexing. Your mobile site must be perfect.
-
-**Core Web Vitals**: Fast loading, responsive interaction, visual stability: all ranking factors.
-
-Most Spring clients see ranking improvements within 60-90 days of launching their optimized site.
+Being 20 minutes up I-45 in Conroe means we can sit down in person to talk through your project instead of trading emails with an account manager somewhere out of state, and you'll be talking directly to the person actually writing the code the whole way through. Sites are built on Next.js rather than aging WordPress themes, which is part of why Spring clients' sites tend to load in under two seconds and hold up under Google's mobile-first ranking checks. What it costs is set before anything starts rather than billed by the hour -- [see the full pricing breakdown here](/pricing) -- and because this business runs on Marine Corps habits of showing up and following through, what gets scoped is what gets delivered.
 
 ### Spring-Specific Considerations
 
@@ -277,14 +229,4 @@ Most Spring clients see ranking improvements within 60-90 days of launching thei
 
 ### Ready to Upgrade Your Spring Business Website?
 
-You don't need a $10,000 agency website. You need a professional, effective site at a fair price, built by someone who understands your market.
-
-**Free consultation, no obligation.**
-
-**In-person meetings available** (we're just up I-45 in Conroe).
-
-**Transparent pricing** from the start.
-
-Call (936) 323-4527 or email info@stephenscode.dev to discuss your project.
-
-Let's build a website that actually generates business for your Spring company.
+A $10,000 agency site isn't what an Old Town Spring boutique or an ExxonMobil-area service business needs -- it needs a fast, locally-optimized site built by whoever you actually talk to on the phone. That's me: Kyle Stephens, a Marine Corps veteran who runs StephensCode from Conroe, twenty minutes down I-45. Email info@stephenscode.dev or call (936) 323-4527, and we'll figure out together what your Spring site should actually do.

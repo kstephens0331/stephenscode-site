@@ -1,14 +1,24 @@
 ---
-title: Web Developer Pearland TX | Custom Websites, SEO & E-Commerce
-metaDescription: Custom web development for Pearland, TX businesses. Websites starting at $250, local SEO, and e-commerce. Veteran-owned, serving the Houston area.
+title: Pearland Web Developer | Shadow Creek Ranch to Town Center Sites
+metaDescription: Custom websites and local SEO for Pearland businesses from Shadow Creek Ranch to Town Center. Veteran-owned developer serving the greater Houston area, starting at $250.
 heroSubtitle: Affordable web development for Pearland businesses, from Shadow Creek Ranch to Pearland Town Center
+h1Override: Websites for a City That Grew Faster Than Its Own Search Results
+faqs:
+  - question: What's different about building a website for a fast-growing suburb like Pearland versus a smaller town?
+    answer: Competition moves faster. New residents are forming their go-to-business habits right now rather than settling into decade-old patterns, so there's a real but closing window to establish your business as the answer before search results calcify around whoever got there first.
+  - question: How does pricing work if my Pearland business needs something more custom than a basic site?
+    answer: Everything above the starter tier is scoped and quoted based on what you actually need, whether that's an e-commerce build, a booking system, or an admin portal. The pricing page lists every tier so you know the range before we talk.
+  - question: Why hire a web developer who's an hour away instead of someone local to Pearland?
+    answer: Because most of what matters in a web project -- the discovery conversation, design revisions, and launch -- happens over phone and video call regardless of location. I drive down for a kickoff or launch meeting when it's worth it, but the value is in building specifically for Pearland's market, not in sharing a zip code.
+  - question: Do you build sites for healthcare practices near the Medical Center corridor?
+    answer: Yes. Specialist practices serving overflow patients from the Texas Medical Center typically need appointment forms, provider bios, and fast mobile load times, and that's a common build for this area.
 ---
 
 # Web Development Services for Pearland, Texas Businesses
 
 Pearland does not grow the way most Texas cities grow. Most cities add a subdivision here, a strip center there, and call it progress. Pearland has been one of the fastest-growing cities in the entire state for years running, and it shows in the layout of the place -- master-planned communities like Shadow Creek Ranch and Silverlake sitting a few miles from older, established neighborhoods, all of it stitched together by a population that crossed 125,000 a while back and has not slowed down since. You have got Brazoria County on one side and Harris County on the other, and residents who split their commute between the Texas Medical Center, downtown Houston, and NASA's footprint out toward Clear Lake. That is a specific kind of city. It is not a bedroom community and it is not a big-city neighborhood. It is its own thing, growing fast enough that the businesses inside it cannot afford to stand still either.
 
-I am Kyle Stephens, owner of StephensCode LLC. I am a Marine Corps veteran with more than 14 years building websites, and I have completed over 200 projects for small businesses across Texas. I am based in Conroe, about 55 minutes north of Pearland depending on how 288 is behaving that day. I will be honest about that distance up front because I do not do the thing where a web developer pretends to be your literal next-door neighbor when they are not. What I can tell you is that I work with clients across the greater Houston area every week, most of the process happens over phone and video call regardless of where I am sitting, and I will drive down for an in-person meeting when a project calls for it. What actually matters is that I understand the kind of market Pearland is and I build websites specifically for businesses operating in it -- not a generic template with your city name swapped in.
+Kyle Stephens here, owner of StephensCode LLC. I'm a Marine Corps veteran, and in more than 14 years of building websites I've completed over 200 projects for small businesses across Texas, priced flat-rate starting at $250. Pearland doesn't reward a generic template with the city name swapped in, because this market grew too fast and too specifically for that kind of shortcut to work. What matters is building for the business Pearland actually has: a Shadow Creek Ranch pediatric practice, a restaurant fighting for attention near Town Center, a retailer competing with new construction along Highway 288.
 
 ## The Pearland Market: A City That Outgrew Its Own Website
 
@@ -68,26 +78,10 @@ I will not pretend I am five minutes from Pearland Town Center, because I am not
 
 ## Straightforward Pricing, No Guessing
 
-Every project comes with 90 days of post-launch support built in and zero hourly billing, ever. You know the price before we start and you know what you are getting.
-
-- **Plug and Play** -- $250, about 1 week -- a fast-turnaround starter site if you are brand new and need something live now
-- **Website Rebuild** -- $350, about 2 weeks -- for replacing an outdated or template-built site with something real
-- **Standard Website** -- $950, 3 to 4 weeks -- a full custom site for the typical small business, the tier most Pearland businesses land on
-- **E-Commerce Website** -- $1,100, 4 to 6 weeks -- online store with cart and checkout for retail and restaurant orders
-- **Premium Build** -- $2,000, 6 to 8 weeks -- a custom full-stack site with an admin portal and analytics dashboard, common for healthcare and professional practices
-- **Custom Business Platform** -- $5,000, 10 to 12 weeks -- CRM, client portals, booking, payments, and automation built together
-- **Enterprise Platform** -- $7,500 and up, 12 to 16 weeks -- multi-tenant systems, single sign-on, audit logging, and workflow builders for larger operations
-
-An optional maintenance plan runs $50 to $100 a month if you want ongoing updates handled for you after launch. No package is one-size-fits-all -- we talk about what your business actually needs and land on the tier that fits.
+Every project comes with 90 days of post-launch support built in and zero hourly billing, ever. Most Pearland businesses land on the standard custom-site tier, healthcare and professional practices often need the version with an admin portal and analytics, and retailers selling online need the e-commerce build with a real cart and checkout. The [pricing page](/pricing) lists every tier from the $250 starter site up through larger custom platforms, with realistic timelines for each. An optional maintenance plan runs $50 to $100 a month if you want updates handled for you after launch. No package is one-size-fits-all -- we talk about what your business actually needs and land on the tier that fits.
 
 ## Getting Started
 
-Call me at (936) 323-4527 or send a message through the contact form. Tell me what your business does, who your customers are, and what is not working about your current setup, or what happens if you have nothing online at all. I will give you a straight answer on price and timeline, no sales pitch attached to it.
+Call (936) 323-4527, email info@stephenscode.dev, or send a message through the contact form. Tell me what your business does, who your customers are, and what is not working about your current setup, or what happens if you have nothing online at all, and I'll give you a straight answer on price and timeline, no sales pitch attached to it.
 
 Pearland is not slowing down. The businesses that show up clearly online right now are the ones that are going to keep pace with it. The ones that do not are going to spend the next few years wondering why growth in their own city seems to be going to everybody else.
-
-**Kyle Stephens**
-**StephensCode LLC**
-**(936) 323-4527**
-**Veteran-Owned | Conroe, TX | Serving Pearland and the Greater Houston Area**
-**Custom websites starting at $250**

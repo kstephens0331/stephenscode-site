@@ -1,7 +1,17 @@
 ---
-title: Web Developer Panorama Village TX | Custom Websites, SEO & E-Commerce
-metaDescription: Custom websites for Panorama Village, TX businesses starting at $250. Veteran-owned developer based 5 minutes away in Conroe. Local SEO and e-commerce.
+title: Panorama Village Web Design | Sites for Golf Club Area Service Pros
+metaDescription: Credibility-first websites for the landscapers, pool companies, and professional practices serving Panorama Village's golf course community. Veteran-owned, 5 minutes away in Conroe.
 heroSubtitle: Polished websites built for the service providers who work Panorama Village's quiet, wooded streets
+h1Override: Websites Built for the Trust Panorama Village Clients Expect
+faqs:
+  - question: Why does a small, quiet community like Panorama Village need a professional website?
+    answer: Because the residents here research a provider before hiring one. With a higher-income, retiree-heavy population and no commercial strip of its own, word of mouth still starts the conversation, but a website is what confirms the recommendation before someone actually calls.
+  - question: Do you work with smaller service businesses, or only bigger operations?
+    answer: Smaller operations are most of who I build for. Flat-rate pricing starts at $250, and most landscaping, pool service, and home service businesses working this area land in the standard tier from there, scaled to what the business actually needs.
+  - question: How close are you to Panorama Village?
+    answer: About five minutes. I'm based in Conroe, just north of the community.
+  - question: Do you work with professional practices, not just home service businesses?
+    answer: Yes. Financial advisors, estate attorneys, accountants, and healthcare practices serving Panorama Village's older, established population all need the same kind of credibility-first site this clientele expects before a first meeting.
 ---
 
 # Web Development Services for Panorama Village, Texas Businesses
@@ -10,7 +20,7 @@ Panorama Village is not a place you pass through on your way somewhere else. It 
 
 That matters more than it sounds like it should when you are trying to figure out how to market a business here. Panorama Village is primarily residential. It attracts retirees and families with discretionary income, people who value privacy and natural beauty enough to pay for it, and who -- this is the important part -- prefer to hire local when they need something done. They are not the demographic that comps three bids off a coupon mailer. They are the demographic that looks a business up online, reads what it can find, and makes a judgment call about whether that business is worth trusting with their home, their yard, their health, or their money.
 
-I am Kyle Stephens, owner of StephensCode LLC, and I am based in Conroe, about five minutes north of Panorama Village. I am a Marine Corps veteran with more than 14 years of web development experience and over 200 completed projects. I build custom, hand-coded websites starting at $250 -- no WordPress, no drag-and-drop page builders, no bloated theme files. Just clean, fast, purpose-built sites for businesses that actually serve real customers. If you work in or around Panorama Village -- landscaping the wooded lots, servicing pools through the Texas summer, running a professional practice, or working the ground at Panorama Golf Club -- I want to talk about what a real website can do for you.
+A discerning, higher-income residential market doesn't respond to the same pitch a fast-growing subdivision does -- it responds to proof of competence before the first phone call. That's the game in Panorama Village, and it's why StephensCode LLC -- I'm Kyle Stephens, based five minutes north in Conroe -- has spent fourteen-plus years and 200-plus projects building sites that read as credible rather than cheap. Hand-coded, no WordPress, no drag-and-drop builders, flat-rate starting at $250. If you work in or around Panorama Village -- landscaping the wooded lots, servicing pools through the Texas summer, running a professional practice, or working the ground at Panorama Golf Club -- that's exactly who this is built for.
 
 ## The Panorama Village Market: A Different Kind of Customer
 
@@ -36,17 +46,7 @@ This cuts both ways, though, and it is good news if you get it right. A business
 
 Every site I build is hand-coded using modern tools like Next.js and React. No WordPress, no page-builder plugins slowing down your load times, no generic theme that fifty other businesses in Montgomery County are also using. For a business serving Panorama Village, that distinction matters, because this is a clientele that notices when something looks cheap or templated.
 
-My pricing is structured in flat-rate tiers, all of which include 90 days of post-launch support with no hourly billing surprises:
-
-- **Plug and Play -- $250, about 1 week.** A fast-turnaround starter site for a brand-new business that needs a professional online presence immediately.
-- **Website Rebuild -- $350, about 2 weeks.** For businesses replacing an outdated template site or a page that has not been touched in years.
-- **Standard Website -- $950, 3 to 4 weeks.** A full custom small-business site. This is the typical fit for most home service, landscaping, pool service, and professional service businesses working this area.
-- **E-Commerce Website -- $1,100, 4 to 6 weeks.** For businesses selling products online, with a real cart and checkout.
-- **Premium Build -- $2,000, 6 to 8 weeks.** A custom full-stack site with an admin portal and analytics dashboard, useful for a practice managing appointments or client records.
-- **Custom Business Platform -- $5,000, 10 to 12 weeks.** CRM, client portals, booking, payments, and automation built specifically around how you run your business.
-- **Enterprise Platform -- $7,500 and up, 12 to 16 weeks.** Multi-tenant systems with SSO, audit logs, and workflow builders, for larger operations.
-
-Most businesses serving Panorama Village land in the Standard Website or Premium Build tier, and I also offer an optional maintenance plan for $50 to $100 a month if you would rather not think about updates once the site is live.
+Pricing is flat-rate, not hourly, and every project includes 90 days of post-launch support. Most businesses serving Panorama Village -- landscaping, pool service, home service, professional practices -- land in the standard custom-site tier, with larger practice-management builds available for anyone who needs an admin portal or client records behind the scenes. The [pricing page](/pricing) lists every tier from the $250 starter site up, along with realistic timelines. An optional maintenance plan runs $50 to $100 a month if you'd rather not think about updates once the site is live.
 
 ### Local SEO for Panorama Village and Montgomery County
 
@@ -66,20 +66,14 @@ A website with no visibility is a business card nobody can find. I handle Google
 
 **Golf services.** With Panorama Golf Club anchoring the community, there is a natural fit for golf instructors, club fitters, cart maintenance services, and related businesses that serve the club's membership and the surrounding golf-oriented lifestyle.
 
-## Why Work with a Developer 5 Minutes Away
+## Practically a Neighbor
 
-I am based in Conroe, and Panorama Village is about five minutes from my door. That is not a marketing line -- it means I actually know this community, I can be at your business in person if we need to meet face to face, and I understand the demographic I am building for because I am practically your neighbor.
+Five minutes is not a marketing line. It means I've actually driven past the golf club, I know what a wooded lot out here looks like, and I can be at your business in person without either of us losing half a day to a drive.
 
-I started StephensCode LLC as a Marine Corps veteran who got tired of watching small businesses get overcharged by agencies that deliver bloated, slow, cookie-cutter sites and then hold the domain and code hostage afterward. Every site I build belongs to you -- the code, the content, the domain. No contracts, no recurring fees you did not agree to, no hidden costs. My rates start at $250 and scale up based on what your business actually needs, not what I can talk you into.
+My background is Marine Corps, not marketing, which probably explains why StephensCode LLC runs the way it does: a fixed price and a fixed timeline, and then the work gets delivered exactly as quoted. Every site belongs to the client the moment it's done -- code, content, domain, no strings attached. Rates start at $250 and scale from there based on what the business actually needs, not what fits someone else's package.
 
 ## Getting Started
 
-If you serve customers in Panorama Village, Panorama Estates, or anywhere in that quiet stretch of Montgomery County south of Conroe, call me at (936) 323-4527 or reach out through the contact form. We will talk about your business, who your actual customers are, and what a website needs to accomplish for you specifically. I will give you a straight answer on cost and timeline, no sales pitch required.
+If you serve customers in Panorama Village, Panorama Estates, or anywhere in that quiet stretch of Montgomery County south of Conroe, call (936) 323-4527, email info@stephenscode.dev, or use the contact form on this site. We'll talk about your business, who your actual customers are, and what a website needs to accomplish for you specifically, and I'll give you a straight answer on cost and timeline, no sales pitch required.
 
 Panorama Village's customers are already doing their homework online before they ever pick up the phone. Make sure what they find is you.
-
-**Kyle Stephens**
-**StephensCode LLC**
-**(936) 323-4527**
-**Veteran-Owned | Conroe, TX**
-**Custom websites starting at $250**

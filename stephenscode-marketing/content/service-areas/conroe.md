@@ -1,7 +1,17 @@
 ---
-title: Web Developer Conroe TX | Custom Websites, SEO & E-Commerce
-metaDescription: Professional web development based in Conroe, Texas. Custom websites starting at $250, local SEO, e-commerce solutions. Veteran-owned with 14+ years experience.
+title: "Conroe, TX Web Design | Local Web Developer for Downtown & Lake Conroe"
+metaDescription: "StephensCode is a veteran-owned web development company actually based in Conroe, Texas, building fast, flat-rate Next.js websites for downtown, Lake Conroe, and Grand Central Park businesses."
 heroSubtitle: Your local web developer, based right here in Conroe
+h1Override: "Conroe's Home-Base Web Developer: Built Here, For Here"
+faqs:
+  - question: "How much will my Conroe business website cost?"
+    answer: "Every project is quoted flat before we start: $250 for Plug and Play (4 pages), $950 for Standard (8-12 pages), $350 to rebuild an existing site, $1,100 for E-Commerce, and custom platforms from $2,000 up. The [pricing page](/pricing) breaks it all down."
+  - question: "How quickly can you get a Conroe business online?"
+    answer: "1-2 weeks is typical, assuming you get content and feedback back to me promptly. I'm local, so there's no time zone or handoff delay slowing things down."
+  - question: "Is StephensCode really based in Conroe, or just serving the area?"
+    answer: "Conroe is home base, not just a service area. I live and work here, and in-person meetings are genuinely available, not a marketing line."
+  - question: "What kind of support is included after launch?"
+    answer: "Every Conroe project includes 30 days of free post-launch support, with maintenance plans starting at $50 a month after that if you want ongoing help."
 ---
 
 ## Conroe's Local Web Developer: Built Here, For Here
@@ -72,104 +82,9 @@ Your website's local SEO strategy should account for these geographic nuances. S
 
 ### We're Actually Local
 
-This might seem obvious, but it's rare. Most web developers serving Conroe are actually based in Houston, Austin, or overseas. They've never driven down North Frazier, don't know that Loop 336 has an East and West side, and couldn't tell you why the water tower says "Candy Cane City."
+This might seem obvious, but it's rare. Most web developers serving Conroe are actually based in Houston, Austin, or overseas. They've never driven down North Frazier, don't know that Loop 336 has an East and West side, and couldn't tell you why the water tower says "Candy Cane City." Being local means in-person meetings whenever you want one, a working knowledge of who else in town is already competing for your customers, and a reputation that's on the line every time I take on a project, because I still shop at the same stores you do.
 
-Being local means:
-- **In-person meetings** when you want them
-- **Understanding of local competition** and market dynamics
-- **Genuine relationships** with clients, not transactional interactions
-- **Accountability**: we live here and our reputation matters
-
-### Transparent Flat-Rate Pricing
-
-I'll tell you exactly what your website will cost before we start. Not a range, not an estimate, not "it depends": an actual number.
-
-- **Plug and Play (4 pages)**: $250
-- **Standard Site (8-12 pages)**: $950
-- **Website Rebuild**: $350
-- **E-Commerce Store**: $1,100
-- **Premium Custom Platform**: Starting at $2,000
-
-These prices include design, development, basic SEO optimization, mobile responsiveness, contact forms, analytics setup, and 30 days of post-launch support. No hidden fees, no surprise invoices, no "scope creep" charges.
-
-### Modern Technology, Not Outdated Templates
-
-We build with Next.js and modern frameworks, not WordPress themes from 2015. This means:
-- **Blazing fast load times** (under 2 seconds)
-- **Superior SEO performance** with proper technical optimization
-- **Enhanced security** without constant plugin updates
-- **Scalability** as your business grows
-
-Your competitors using page builders and templates are handicapped from the start. They're fighting against bloated code, slow hosting, and technical debt. Your custom site will outperform them.
-
-### Direct Developer Communication
-
-When you call, you get me, not a receptionist, not a project manager, not a junior account coordinator. I'm the one building your site, and I'm the one answering your questions.
-
-This eliminates the telephone game that plagues larger agencies. No miscommunication, no delays while someone "checks with the developer," no frustration explaining the same thing three times to three different people.
-
-### Veteran-Owned Integrity
-
-I served in the Marine Corps, and those values shape how I run my business:
-- **Do what you say you'll do**
-- **Show up on time**
-- **Take responsibility for outcomes**
-- **Never cut corners on quality**
-- **Treat people with respect**
-
-Your project will be completed on time, on budget, and to specification. Period.
-
-## Our Process for Conroe Businesses
-
-### 1. Free Consultation
-
-We'll meet (in person if you prefer, or via video call if that's more convenient) and discuss your business, goals, and current online presence. I'll give you honest feedback about what you need (and what you don't). No sales pressure, no upselling, just straight talk.
-
-### 2. Custom Proposal
-
-Based on our conversation, you'll receive a detailed proposal with:
-- Exactly what's included
-- The total price (not an estimate)
-- Timeline for completion
-- What I need from you (content, images, etc.)
-
-### 3. Design Phase
-
-We'll create mockups for your review before writing any code. You'll see exactly what your site will look like and can request changes. We don't build anything until you approve the design.
-
-### 4. Development
-
-Your site is built on a staging server so you can review progress. We test across devices and browsers, optimize for speed, and implement SEO best practices.
-
-### 5. Review & Launch
-
-You review the completed site and we make revisions based on your feedback. Once approved, we launch, connect analytics, and provide training on any content management features.
-
-### 6. Ongoing Support
-
-30 days of free support for questions and minor tweaks. After that, we offer maintenance plans starting at $50/month, or you can contact us for individual updates as needed.
-
-Most Conroe business websites are completed in 1-2 weeks, assuming prompt feedback and content delivery.
-
-## Local SEO: Dominating Conroe Searches
-
-Getting found in local search results requires more than just having a website. It requires strategic optimization:
-
-**Google Business Profile**: Your GBP listing is often the first thing customers see. We'll ensure it's fully optimized, properly categorized, and integrated with your website.
-
-**Location-Specific Content**: Your site needs pages and content targeting "Conroe" and surrounding areas. Not just once. Naturally throughout your content.
-
-**NAP Consistency**: Your Name, Address, and Phone number must be identical everywhere online. Inconsistencies hurt your rankings.
-
-**Schema Markup**: We add LocalBusiness structured data so Google understands your business location, hours, and services.
-
-**Review Strategy**: We'll advise on ethical approaches to generating more Google reviews, which directly impact local rankings.
-
-**Citation Building**: We'll guide you on getting listed in relevant local directories and industry-specific sites.
-
-**Mobile Optimization**: Google uses mobile-first indexing. If your mobile site is slow or broken, your rankings suffer.
-
-Most Conroe clients see meaningful ranking improvements within 60-90 days of launching their new site.
+I'll also tell you exactly what your project costs before we start: $250 for a 4-page Plug and Play site, $950 for Standard (8-12 pages), $350 to rebuild an existing site, $1,100 for an E-Commerce store, and custom platforms from $2,000 up ([full pricing here](/pricing)), with 30 days of post-launch support built in and no scope-creep invoices afterward. Everything runs on Next.js instead of a 2015-era WordPress theme, which is a big part of why the Conroe sites we build tend to load in under two seconds and hold up against bloated, template-based competitors. And when you call, you get me: not a coordinator, not a receptionist relaying messages, but the guy actually writing the code, running this business the same way I was taught in the Marine Corps -- show up, follow through, no excuses.
 
 ## Industries We Specialize In
 
@@ -192,14 +107,4 @@ Whether you're selling online only or adding e-commerce to your physical store, 
 
 ## Ready to Talk?
 
-You've got questions. Let's answer them.
-
-**Free consultation.** No obligation, no pressure.
-
-**In-person meetings available.** I'm right here in Conroe.
-
-**Transparent pricing.** You'll know exactly what it costs before we start.
-
-Call (936) 323-4527 or email info@stephenscode.dev to schedule a conversation. Or stop by. I'm probably at my desk.
-
-Let's build something great for your Conroe business.
+Got questions about your website? I'd rather answer them face to face than through a sales funnel. I'm Kyle Stephens, and since Conroe is where I actually live and work, stopping by is an option, not just a phone call, though (936) 323-4527 and info@stephenscode.dev both reach me directly too. Let's talk about what your Conroe business's site should actually be doing for you.

@@ -1,16 +1,26 @@
 ---
-title: Web Developer League City TX | Custom Websites, SEO & E-Commerce
-metaDescription: Custom web development for League City, TX near Clear Lake, NASA, and South Shore Harbour. Websites starting at $250. Veteran-owned, flat-rate pricing.
+title: League City, TX Web Design | For a Town Split Between NASA and the Bay
+metaDescription: "Web development for League City, Texas, where aerospace engineers from Johnson Space Center and boaters at South Shore Harbour are searching for the same kinds of businesses. Veteran-owned."
 heroSubtitle: Custom websites for League City's aerospace, maritime, and Galveston Bay business community
+h1Override: Web Development for League City's Aerospace, Maritime, and Bay Economy
+faqs:
+  - question: "Why does League City need a different approach than a typical Houston suburb?"
+    answer: "The customer base splits between technically-minded aerospace and engineering professionals near Johnson Space Center and a seasonal, recreation-driven crowd around Clear Lake and Galveston Bay. A website has to answer both audiences, not just one."
+  - question: "What does a website cost for a League City business?"
+    answer: "Pricing is flat-rate, scaled to what the project needs, with no hourly billing. The full tier breakdown is on the pricing page."
+  - question: "How far is StephensCode from League City?"
+    answer: "About 60 minutes north, based in Conroe. Most of the work happens over phone, video call, and email, with in-person meetings scheduled when they're actually worth the drive."
+  - question: "Do you build sites for marinas and maritime businesses around South Shore Harbour?"
+    answer: "Yes -- marine services companies, waterfront restaurants, and recreation businesses tied to Galveston Bay are a regular part of the client mix, alongside aerospace-adjacent professional services and healthcare practices serving Clear Creek ISD families."
 ---
 
-# Web Development Services for League City, Texas Businesses
+## A City Split Between Orbital Mechanics and the Bay
 
 League City sits in a strange and genuinely interesting spot on the map. It is close enough to Houston to function as a suburb, close enough to Galveston to feel like a coastal town, and close enough to NASA Johnson Space Center that a meaningful chunk of its workforce spends the day thinking about orbital mechanics before they come home to a house on the water. Add in direct access to Clear Lake and Galveston Bay, and you get a city of more than 115,000 people that does not fit the usual suburban mold. It is part bedroom community, part aerospace hub, part boating town.
 
 That combination shows up in how people search for businesses online. A League City resident might Google a pediatric dentist for their kid at Clear Creek ISD in the morning, a marine mechanic for their boat slip at South Shore Harbour in the afternoon, and a restaurant with a waterfront patio that night. The customer base is not homogenous, and neither is the way they shop. Some are engineers and technical professionals used to comparing options carefully online. Others are weekend boaters and lake-and-bay recreation regulars who want quick answers on their phone: is it open, what does it cost, and how do I get there.
 
-I am Kyle Stephens, owner of StephensCode LLC. I am based in Conroe, about 60 minutes north of League City. I am a Marine Corps veteran with more than 14 years of web development experience and over 200 completed projects. I build custom, hand-coded websites for small and mid-size businesses starting at $250, and I have spent time studying what makes coastal and aerospace-adjacent markets like League City different from the inland suburbs I usually work in. If you run a business in League City, South Shore Harbour, Tuscan Lakes, Victory Lakes, West Bay, or Marina Bay, this page is for you.
+StephensCode is based in Conroe, about 60 minutes north of League City, and run directly by Kyle Stephens, a Marine Corps veteran with more than fourteen years of web development experience and over 200 completed projects. Custom, hand-coded websites for small and mid-size businesses are the entire focus, priced flat-rate rather than by the hour, with real time spent studying what makes a coastal and aerospace-adjacent market like this one different from the inland suburbs that make up most of the client base. Businesses in League City, South Shore Harbour, Tuscan Lakes, Victory Lakes, West Bay, or Marina Bay are exactly who this page is written for.
 
 ## The League City Market: What You Are Dealing With
 
@@ -56,7 +66,7 @@ I handle Google Business Profile setup and optimization, on-page SEO tied to you
 
 ### E-Commerce and Online Booking
 
-For businesses that sell products or take appointments, whether that is retail near Marina Bay, a recreation outfitter serving Galveston Bay activities, or a professional services firm that wants clients booking consultations online, I build e-commerce and booking functionality directly into the site. Starting at $1,100 for a full online store with cart and checkout, and included as an add-on for simpler appointment booking needs on smaller sites, this is about giving your customers a way to do business with you without picking up the phone during business hours.
+For businesses that sell products or take appointments, whether that is retail near Marina Bay, a recreation outfitter serving Galveston Bay activities, or a professional services firm that wants clients booking consultations online, e-commerce and booking functionality gets built directly into the site, with pricing on the [pricing page](/pricing) depending on whether it's a full online store or a simpler booking add-on. Either way, it's about giving customers a way to do business with you without picking up the phone during business hours.
 
 ## The Clear Lake and Galveston Bay Factor
 
@@ -78,16 +88,10 @@ I will not pretend League City is right next door. I am in Conroe, and it is abo
 
 What I can tell you is that the actual work of building a website does not require me standing in your lobby. I run this process over phone calls, video calls, email, and shared documents, the same way I would if I were local, and it works well for clients across a wide service area. When a project genuinely calls for an in-person meeting, whether that is a kickoff conversation or a final walkthrough, I make the drive. But most of the back-and-forth of building a site, reviewing drafts, and making revisions happens efficiently without either of us burning half a day on I-45 traffic. What you are paying for is the finished site, the strategy behind it, and direct access to the person who built it, not proximity for its own sake.
 
-I started StephensCode LLC because I saw too many small businesses get overcharged by agencies and underserved by cheap, templated alternatives. My pricing starts at $250, there are no long-term contracts, and you own your domain, your code, and your content outright. Every project includes 90 days of support after launch, with no hourly billing surprises.
+StephensCode LLC exists because too many small businesses get overcharged by agencies and underserved by cheap, templated alternatives. Pricing is flat-rate with no long-term contracts, clients own their domain, code, and content outright, and every project includes real support after launch instead of vanishing once the invoice clears.
 
 ## Getting Started
 
-Call me at (936) 323-4527 or reach out through the contact form on this site. We will talk through what your business actually does, who your customers are in League City and the surrounding bay area, and what you need your website to accomplish. I will give you a straight answer on cost and timeline before we start anything.
+Reach Kyle directly at (936) 323-4527 or through the contact form on this site to talk through what a business actually does, who its customers are in League City and the surrounding bay area, and what it needs a website to accomplish. A straight answer on cost and timeline comes before anything starts.
 
-League City is growing fast, and it is pulling in residents who default to searching online for everything from a family doctor to a boat mechanic. The businesses that show up clearly in that search are going to win the next decade of growth here. The ones that do not are going to watch it happen to someone else. For $250, there is no good reason to be in the second group.
-
-**Kyle Stephens**
-**StephensCode LLC**
-**(936) 323-4527**
-**Veteran-Owned | Based in Conroe, TX | Serving League City and the Galveston Bay Area**
-**Custom websites starting at $250**
+League City is growing fast, and it is pulling in residents who default to searching online for everything from a family doctor to a boat mechanic. The businesses that show up clearly in that search are going to win the next decade of growth here. The ones that do not are going to watch it happen to someone else.

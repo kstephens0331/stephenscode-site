@@ -1,7 +1,17 @@
 ---
-title: Web Developer Katy TX | Custom Websites, SEO & E-Commerce
-metaDescription: Professional web development serving Katy, Texas. Custom websites starting at $250, local SEO, e-commerce solutions. Veteran-owned with 14+ years experience.
+title: "Katy, TX Web Design | Cinco Ranch, Cane Island & Katy ISD Area Businesses"
+metaDescription: "Veteran-owned web development serving Katy's master-planned communities, from Cinco Ranch to Cane Island, with transparent flat-rate pricing and 14+ years building fast, Next.js-based sites."
 heroSubtitle: Serving one of America's fastest-growing communities
+h1Override: "Web Design Built for Katy's Master-Planned Community Boom"
+faqs:
+  - question: "What's the pricing structure for a Katy business website?"
+    answer: "Pricing is set upfront rather than billed hourly: $250 for a 4-page Plug and Play site, $950 for Standard (8-12 pages), $350 for a Rebuild, and $1,100 to launch an E-Commerce store. The [pricing page](/pricing) has the complete list."
+  - question: "How long until a new Katy site is ready to launch?"
+    answer: "Typically 1-2 weeks from our first call to a live site, depending on how quickly you can turn around content and photos."
+  - question: "Can you target specific Katy communities like Cinco Ranch or Cane Island in local SEO?"
+    answer: "Community-level SEO is standard practice here: Cinco Ranch, Cross Creek Ranch, Cane Island, Elyson, and Grand Lakes each get targeted separately rather than lumped into one \"Katy\" keyword strategy."
+  - question: "Where is StephensCode located relative to Katy?"
+    answer: "The office is in Conroe, roughly 45 minutes from Katy via the Grand Parkway -- most Katy clients work with us over video, though in-person meetings can be arranged."
 ---
 
 ## Web Development for Katy: Where Explosive Growth Meets Business Opportunity
@@ -249,63 +259,7 @@ Websites should mention proximity to Katy Mills for location-based searches.
 
 ### Why StephensCode for Your Katy Business
 
-**Transparent flat-rate pricing**:
-- Plug and Play (4 pages): $250
-- Standard Site (8-12 pages): $950
-- Website Rebuild: $350
-- E-Commerce Store: $1,100
-
-No surprises, no hourly billing that spirals out of control. You know exactly what you'll pay before we start.
-
-**Modern technology, not WordPress templates**: We build with Next.js: fast, secure, modern. Your site will load in under 2 seconds and outperform template-based competitors.
-
-**Direct developer communication**: You work with the person actually building your site. No account managers, no project coordinators, no delays.
-
-**Local SEO expertise**: We understand Katy's competitive landscape and optimize for the specific communities and search terms that matter.
-
-**Veteran-owned values**: Discipline, integrity, accountability. Your project completes on time and on budget.
-
-### Our Process for Katy Businesses
-
-**1. Free Consultation**
-Discuss your business, goals, and competition. We can meet via video or in person if you prefer.
-
-**2. Custom Proposal**
-Detailed scope of work, exact pricing, timeline. Everything documented before you commit.
-
-**3. Design Phase**
-Mockups for your review before development. You see exactly what your site will look like.
-
-**4. Development**
-Built on a staging server for your review. Tested across devices, optimized for speed.
-
-**5. Launch & Training**
-We launch your site, set up analytics, and train you on any content management features.
-
-**6. Ongoing Support**
-90 days of free post-launch support included. Optional maintenance plans starting at $50/month.
-
-**Timeline**: Most Katy business websites complete in 1-2 weeks.
-
-### Katy Local SEO Strategy
-
-Ranking in Katy searches requires strategic optimization:
-
-**Google Business Profile**: Optimize for your specific location and service area. Include community names in description.
-
-**Community-specific content**: Create pages or content targeting Cinco Ranch, Cane Island, Elyson, etc.
-
-**NAP consistency**: Ensure your business Name, Address, and Phone are identical across all online listings.
-
-**Schema markup**: Implement LocalBusiness structured data with service area information.
-
-**Review generation**: Develop ethical strategies to generate more Google reviews (which directly impact local rankings).
-
-**Mobile optimization**: With Google's mobile-first indexing, your mobile site must be perfect.
-
-**Core Web Vitals**: Fast loading, responsive interaction, stable visuals: all ranking factors.
-
-Most Katy clients see measurable ranking improvements within 60-90 days.
+Katy's master-planned communities move fast, and pricing here works the same way: a number is set before any work starts, not billed by the hour after the fact, so a Cinco Ranch boutique and a Cane Island contractor both know their cost on day one ([full pricing here](/pricing)). Every project is built in Next.js instead of a stacked WordPress template, which is a big part of why these sites tend to outrun the competition in load speed. You'll also be dealing directly with the developer writing your code rather than a project coordinator relaying messages -- I'm a Marine Corps veteran with 14+ years doing this work, and that directness is deliberate.
 
 ### Katy-Specific Considerations
 
@@ -321,14 +275,4 @@ Most Katy clients see measurable ranking improvements within 60-90 days.
 
 ### Ready to Compete in Katy's Market?
 
-Katy's growth creates opportunity, but only for businesses that show up in search results. If potential customers can't find you online, you don't exist to them.
-
-**Free consultation** to discuss your needs.
-
-**Transparent pricing** from the start.
-
-**Professional results** without agency prices.
-
-Call (936) 323-4527 or email info@stephenscode.dev.
-
-Let's build a website that captures Katy's growth for your business.
+If a new Cinco Ranch or Cross Creek Ranch resident can't find your business in their first search, a competitor gets that customer instead. A short, free consultation is the fastest way to find out whether your current site is costing you that business, no pressure, no obligation. Call (936) 323-4527, email info@stephenscode.dev, or just ask for Kyle. Let's make sure Katy's growth works in your favor, not against it.

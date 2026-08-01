@@ -1,14 +1,24 @@
 ---
-title: Web Developer Porter TX | Custom Websites, SEO & E-Commerce
-metaDescription: Professional web development for Porter, Texas businesses. Custom websites starting at $250, local SEO, e-commerce. Veteran-owned, based in nearby Conroe.
+title: Porter TX Web Design | Eagle Springs, Balmoral & FM 1314
+metaDescription: Neighborhood-specific websites and local SEO for Porter businesses in Eagle Springs, Balmoral, and Fall Creek. Veteran-owned, 30 minutes away in Conroe, starting at $250.
 heroSubtitle: Web development for Porter's booming master-planned communities
+h1Override: Websites Built Around Porter's Master-Planned Communities
+faqs:
+  - question: Why does neighborhood-specific SEO matter more in Porter than in other cities?
+    answer: Porter has no single downtown or commercial center, so customers are spread across communities like Eagle Springs, Balmoral, and Fall Creek. Residents search by neighborhood name, not just Porter TX, so the SEO strategy has to target those specific terms.
+  - question: Does the price change depending on which Porter neighborhood I'm in?
+    answer: No, pricing is flat-rate regardless of whether you're in Eagle Springs, Balmoral, or anywhere else in Porter. What changes by neighborhood is the local SEO targeting, not the build price.
+  - question: Is thirty minutes too far for in-person meetings if I need one?
+    answer: Not really. Thirty minutes is close enough for a kickoff meeting or a final walkthrough when it's useful, and the day-to-day work -- revisions, content updates, calls -- happens remotely regardless of distance.
+  - question: Do you build sites for daycares and children's programs in Porter?
+    answer: Yes. Parents in Porter research childcare more thoroughly online than almost any other local service, so these sites need strong photography, clear program information, and trust signals like certifications, not just a phone number and hours.
 ---
 
 # Web Developer in Porter, TX
 
 Porter is not the same place it was ten years ago. Drive down FM 1314 today and you will pass construction crews, new strip centers, freshly paved parking lots, and business after business that did not exist when most of the current residents moved here. That growth is not slowing down. If you run a business in Porter, Texas, you are operating in one of the fastest-expanding corridors in the Greater Houston metro, and your web presence needs to keep pace.
 
-I am Kyle Stephens, owner of StephensCode LLC, a veteran-owned web development company based in Conroe. I have been building websites for over 14 years, and I have watched this stretch of east Montgomery County transform from a quiet rural pass-through into a suburb that is adding thousands of new rooftops every single year. I build custom websites, handle local SEO, and develop e-commerce solutions for businesses in Porter and the surrounding communities. Projects start at $250, and you work directly with me -- no account managers, no agency runaround.
+Every strip center and parking lot going up along FM 1314 belongs to a business that will show up online from day one, because that's simply how businesses launch now. I'm Kyle Stephens, owner of StephensCode LLC, a veteran-owned shop about thirty minutes away in Conroe. Fourteen-plus years in, watching this stretch of east Montgomery County go from a quiet rural pass-through to a suburb adding thousands of rooftops a year has taught me exactly what this kind of market needs: custom sites, local SEO, and online stores built for businesses trying to keep pace with the growth, priced starting at $250, with you talking directly to me the whole time instead of an account manager or an agency runaround.
 
 ## Why Porter Businesses Need a Professional Website Right Now
 
@@ -94,7 +104,7 @@ I build what I call a neighborhood SEO strategy for Porter businesses. Instead o
 
 This approach takes more work than basic local SEO, but it produces better results because it matches how Porter residents actually search. Nobody in Eagle Springs searches for "Porter TX landscaping." They search for their community name. Your website needs to reflect that reality.
 
-## Why Work With a Developer in Conroe
+## Thirty Minutes Down US-59
 
 I am based in Conroe, which puts me about 30 minutes from most of Porter. I know this area. I drive the US-59 corridor. I have watched the master-planned communities go from dirt fields to finished neighborhoods. I understand the market because I live in it.
 
@@ -108,12 +118,12 @@ Porter is adding residents faster than most Texas suburbs. Every month you opera
 
 First-mover advantage in local search is real. Google rewards established, consistent presence. The business that has been publishing relevant content and building reviews for six months will outrank the business that just launched, every single time. In a market growing as fast as Porter, waiting costs you customers you will never get back.
 
-## Starting at $250
+## What It Costs to Get Found in This Market
 
-I price my work to be accessible to small businesses because that is who I serve. A basic professional website starts at $250. More complex projects -- e-commerce builds, custom functionality, multi-location SEO campaigns -- scale from there based on scope. I will give you an honest quote after we talk about what you need, and there are no surprise fees.
+A basic professional website starts at $250 -- I keep the entry point accessible because small businesses, not enterprise chains, are who I build for. E-commerce builds, custom functionality, and multi-location SEO campaigns across Eagle Springs, Balmoral, and the rest of Porter's communities scale up from there based on scope. The [pricing page](/pricing) breaks down every tier and realistic timeline. I'll give you an honest quote after we talk about what you actually need, and there are no surprise fees.
 
 ## Get Started
 
-If you run a business in Porter, Eagle Springs, Balmoral, Fall Creek, Lakeshore, or anywhere along the FM 1314 and US-59 corridor, I would like to talk about what a professional website can do for you. Call me at (936) 323-4527 or reach out through the contact form on this site.
+If you run a business in Porter, Eagle Springs, Balmoral, Fall Creek, Lakeshore, or anywhere along the FM 1314 and US-59 corridor, let's talk about what a professional website can do for you. Call (936) 323-4527, email info@stephenscode.dev, or reach out through the contact form on this site.
 
-I am Kyle Stephens, Marine Corps veteran, 14-year web developer, and owner of StephensCode LLC. I build websites that help local businesses grow. Let me build yours.
+Porter is adding rooftops faster than almost any suburb in this part of the state, and the businesses that show up online first are the ones that get to keep the customers those new rooftops bring.

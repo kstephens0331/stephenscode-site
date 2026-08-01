@@ -1,14 +1,24 @@
 ---
-title: Web Developer West University Place TX | Custom Websites, SEO & E-Commerce
-metaDescription: Professional web development for West University Place, TX businesses. Custom websites starting at $250, local SEO, e-commerce. Veteran-owned, flat-rate pricing.
+title: "West University Place, TX Web Design | Rice Village Area Businesses"
+metaDescription: "Hand-coded websites for West University Place businesses near Rice Village and the Texas Medical Center, built for a market that researches everything before it calls. Flat-rate pricing, veteran-owned, based in Conroe."
 heroSubtitle: Custom-coded websites for one of the most discerning small markets in Texas
+h1Override: "Web Design for West University Place: Built for a Market That Researches Everything First"
+faqs:
+  - question: "Why does West University Place need a different approach to web design than other Houston-area suburbs?"
+    answer: "West U residents are highly educated, financially comfortable, and conditioned to research a business online before calling, the same way they'd vet a school district or a financial advisor. A site that looks thrown together signals the wrong thing to that audience before you ever get the chance to talk to them."
+  - question: "How much does a website cost for a business in West University Place?"
+    answer: "Pricing is flat-rate, and the full breakdown by tier is on the [pricing page](/pricing). Most professional service firms and boutique retailers near Rice Village land in the Standard or E-Commerce tiers, while healthcare practices and multi-practitioner firms usually need the tiers with an admin portal or client booking built in."
+  - question: "Is StephensCode based in West University Place?"
+    answer: "No. StephensCode is based in Conroe, about 50 minutes north. Design and revisions happen by phone, video, and email, the same way most web development gets handled anywhere at this point, though I'll make the drive if a project genuinely calls for it."
+  - question: "Do you build websites for healthcare practices and professional service firms specifically?"
+    answer: "Yes. West U's business mix leans heavily on healthcare practices near the Texas Medical Center, law and financial firms, home renovation companies, and tutoring businesses, and each of those needs a different structure, from HIPAA-conscious contact forms to project galleries to scheduling tools."
 ---
 
 # Web Development Services for West University Place, Texas Businesses
 
 West University Place is not a typical small city. It is a fully incorporated municipality of more than 15,000 people, completely surrounded by Houston, with median home values north of a million dollars and public schools that rank among the best in the state. Residents did not end up here by accident. They researched school districts, commute times, and property values before they ever signed a mortgage, and they carry that same research instinct into every decision they make afterward -- including which businesses they hire.
 
-I am Kyle Stephens, owner of StephensCode LLC. I am a Marine Corps veteran with more than 14 years of web development experience and over 200 completed projects. I am based in Conroe, about 50 minutes north of West U on a normal traffic day. I will be honest with you up front: I am not going to pretend West U is my backyard the way I would say about a town five minutes from my office. It is not. But web development is not a business where proximity determines quality, and the work I do for a business in West University Place looks exactly like the work I do for a business in Conroe -- hand-coded, fast, and built around how your actual customers behave.
+My name is Kyle Stephens, and StephensCode LLC is mine, a one-person, veteran-owned shop I started after fourteen-plus years of building websites and watching too many small businesses hand over real money for a site that never quite worked the way it was supposed to. I am based in Conroe, about 50 minutes north of West U on a normal traffic day, and I will not pretend that is my backyard the way a town five minutes from my office would be. It is not. But proximity has never been what determines whether a website actually works, and the site I build for a business in West University Place goes through the same process as the site I build for a business in Conroe: hand-coded, fast, and built around how your actual customers behave.
 
 And in West U, how customers behave is the whole story.
 
@@ -34,14 +44,7 @@ Flat-rate pricing matters here too, just for a different reason than in a growth
 
 Every site I build is coded specifically for the business it represents. A pediatric dentist near the Texas Medical Center needs a different site than a boutique retail shop near Rice Village, and a tutoring service preparing kids for competitive school admissions needs a different site than a home renovation firm working on million-dollar remodels.
 
-Depending on what a business actually needs, I typically place West U clients in one of a few tiers:
-
-- **Standard Website ($950, 3-4 weeks)** -- the right fit for most professional service firms, boutique retailers, and single-location practices that need a polished, fully custom site with clear service pages, strong on-page SEO, and a professional first impression.
-- **E-Commerce Website ($1,100, 4-6 weeks)** -- for boutique retail businesses near Rice Village that want to sell online with a real shopping cart and checkout, not a bolted-on marketplace listing.
-- **Premium Build ($2,000, 6-8 weeks)** -- for healthcare practices, tutoring and education businesses, or professional service firms that want an admin portal, appointment scheduling, or an analytics dashboard behind the scenes.
-- **Custom Business Platform ($5,000, 10-12 weeks)** -- for larger professional service firms or multi-practitioner healthcare groups that need client portals, booking systems, payment processing, and workflow automation tied together in one system.
-
-Every tier includes 90 days of post-launch support, and every project is a flat, agreed-upon price. No hourly billing, no change-order games.
+Most professional service firms and boutique retailers here end up in a full custom build somewhere in the low four figures, while healthcare practices and larger firms that need an admin portal, appointment scheduling, or a full client platform run higher than that. The exact numbers for every tier, from a fast starter site up through multi-practitioner platforms, are posted on the [pricing page](/pricing) rather than something you have to request and wait on. Every project is a flat, agreed-upon price with 90 days of post-launch support included: no hourly billing, no change-order surprises partway through.
 
 ### Local SEO for a Search-Saturated Market
 
@@ -73,12 +76,6 @@ What I bring instead of a short commute is a straightforward, veteran-owned busi
 
 ## Getting Started
 
-If you run a business in West University Place, Southside Place, the Rice Village area, or anywhere in University Place, and your website is not currently doing the work of convincing a skeptical, well-researched prospect that you are the right choice, let's talk. Call me at (936) 323-4527 or reach out through the contact form. I will ask what you do, who your actual customers are, and what your site needs to accomplish -- then give you a straight answer on price and timeline, no hourly billing and no surprises.
+If you run a business in West University Place, Southside Place, the Rice Village area, or anywhere in University Place, and your website is not currently doing the work of convincing a skeptical, well-researched prospect that you are the right choice, let's talk. Call me, Kyle Stephens, at (936) 323-4527, email info@stephenscode.dev, or reach out through the contact form. I will ask what you do, who your actual customers are, and what your site needs to accomplish, then give you a straight answer on price and timeline, no hourly billing and no surprises.
 
-West U residents are going to research you whether you are ready for it or not. The only question is whether what they find makes the shortlist.
-
-**Kyle Stephens**
-**StephensCode LLC**
-**(936) 323-4527**
-**Veteran-Owned | Conroe, TX**
-**Custom websites starting at $250**
+West U residents are going to research you whether you are ready for it or not. The only question is whether what they find makes the shortlist, and a veteran-owned shop with a real, hand-coded portfolio behind it is exactly the kind of thing that does.

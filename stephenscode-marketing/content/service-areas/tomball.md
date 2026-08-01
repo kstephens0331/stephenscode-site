@@ -1,7 +1,17 @@
 ---
-title: Web Developer Tomball TX | Custom Websites, SEO & E-Commerce
-metaDescription: Professional web development for Tomball, Texas businesses. Custom websites starting at $250, local SEO, e-commerce. Veteran-owned, based in Conroe.
+title: Tomball, TX Web Design From Main Street to the Grand Parkway
+metaDescription: Custom websites for Tomball, TX businesses near the historic downtown depot district, German Heritage Festival, and Grand Parkway growth corridor. Veteran-owned, from $250.
 heroSubtitle: Custom websites for Tomball businesses, from historic downtown to Grand Parkway growth
+h1Override: 'Tomball Web Development: Main Street Roots to Grand Parkway Growth'
+faqs:
+  - question: What does StephensCode charge to build a Tomball business website?
+    answer: Custom sites start at $250, with the exact tier depending on complexity -- a simple site, an e-commerce store, or something with a booking system and admin portal. See [/pricing](/pricing) for the full breakdown.
+  - question: Do you build websites for Tomball's antique and specialty retail shops?
+    answer: Yes, including e-commerce for shops that want to sell inventory beyond foot traffic on Main Street, plus the local SEO to get found by collectors searching from outside Tomball.
+  - question: How far is StephensCode from Tomball?
+    answer: About 25 minutes south on SH-249, out of Conroe. I know the traffic patterns on SH-249 and the difference between downtown foot traffic and Grand Parkway commuter traffic, and I build differently for each.
+  - question: Is StephensCode veteran-owned?
+    answer: Yes. I'm a Marine Corps veteran with more than 14 years of web development experience, and that shows up in how the business runs -- no disappearing after launch, no surprise charges.
 ---
 
 ## Tomball Web Development: Railroad Town Roots, Modern Business Needs
@@ -10,9 +20,9 @@ Tomball has been doing its own thing since before most of the Houston suburbs ev
 
 That matters when we talk about web development, because Tomball businesses are not interchangeable with generic Houston businesses. You have a specific customer base, a unique local culture, and competition that ranges from the shop next door on Main Street to massive agencies out of The Woodlands and downtown Houston. You need a web developer who understands that.
 
-I'm Kyle Stephens, a Marine Corps veteran with over 14 years of web development experience. I run StephensCode LLC out of Conroe, which puts me about 25 minutes north of Tomball on SH-249. Same community, same region, same understanding of how business works out here. I'm not pitching you from a high-rise in Midtown. I can meet you at Mel's Country Cafe on Main Street or Tejas Chocolate & Barbecue to talk about your project, and I'll be the same person building your site, managing your SEO, and answering your calls.
+You can find me at Mel's Country Cafe on Main Street or Tejas Chocolate & Barbecue if you'd rather talk about your project over coffee than a phone call -- I'm not pitching you from a high-rise in Midtown. Home base is Conroe, about 25 minutes north of Tomball on SH-249, same community and same region, and that's where StephensCode LLC has operated since I got out of the Marine Corps and started hand-coding sites for a living. Fourteen-plus years in, and Kyle Stephens is still the same person building your site, managing your SEO, and answering your calls the whole way through.
 
-Custom websites start at $250. No contracts you need a lawyer to read. No mysterious "discovery fees." Just honest work at fair prices from a veteran-owned small business.
+Custom websites start at $250, no contracts you need a lawyer to read, and no mysterious "discovery fees" tacked on halfway through. Just honest work at fair prices.
 
 ### Why Tomball Businesses Can't Afford to Coast Online
 

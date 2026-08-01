@@ -1,7 +1,17 @@
 ---
-title: Web Developer Memorial TX | Custom Websites, SEO & E-Commerce
-metaDescription: Custom web development for Memorial, Houston businesses. Flat-rate websites from $250, built for Spring Branch ISD area families and professionals. Veteran-owned.
+title: "Memorial, Houston Web Design | Built for Spring Branch ISD's Research-Driven Buyers"
+metaDescription: "Hand-coded websites for Memorial, Houston businesses near Memorial Park and Memorial City Mall. Flat-rate pricing, no page builders. Veteran-owned, about 45 minutes from Conroe."
 heroSubtitle: Custom-coded websites for one of Houston's most researched, most competitive markets
+h1Override: "Web Development for Memorial, Houston's Research-Driven Buyers"
+faqs:
+  - question: "Why does Memorial need a better website than a less competitive market would?"
+    answer: "Because almost every business here already has one. In an underserved town, a decent site is enough to stand out. In Memorial, a decent site just gets you into the middle of the pack against firms with real marketing budgets, so the site has to actually outperform the competition, not just exist."
+  - question: "Is StephensCode actually local to Memorial?"
+    answer: "No, and there's no point pretending otherwise. StephensCode LLC is based in Conroe, about 45 minutes north. What matters for a website project is availability and understanding the business, not office proximity, and that's handled through phone calls, video calls, and in-person visits when a project calls for it."
+  - question: "What does a site for a Memorial-area business typically cost?"
+    answer: "Most established service businesses and practices land in the $950 to $2,000 range depending on complexity, with exact tiers and timelines on the pricing page. Every project is flat-rate with 90 days of post-launch support included."
+  - question: "Does StephensCode build with WordPress or page builders?"
+    answer: "No. Every site is hand-coded from scratch, which matters in a market like Memorial where load speed and a polished first impression directly affect whether an educated buyer takes the business seriously."
 ---
 
 # Web Development Services for Memorial, Houston Businesses
@@ -10,7 +20,7 @@ Memorial is not a place where a business can get away with a mediocre website. T
 
 Memorial sits along the I-10 corridor, stretching from the Heights out toward the Energy Corridor, anchored by Memorial Park -- one of the largest urban parks in the country at over 1,500 acres. The neighborhoods here -- Memorial Villages, Memorial Bend, Memorial Forest, Spring Valley Village, Hedwig Village, Bunker Hill Village -- are full of established homes on large lots, and the families who live in them are here largely because of Spring Branch ISD, which consistently ranks among the top school districts in the Houston area. Memorial City Mall gives the area a major retail anchor, and Memorial Hermann's hospital system has deep roots here as well. Add in Terry Hershey Park's bike trails running along Buffalo Bayou, and you have a place that is equal parts affluent, established, and genuinely well-used by the people who live there.
 
-I am Kyle Stephens, owner of StephensCode LLC. I am based in Conroe, about 45 minutes north of Memorial depending on traffic, and I want to be upfront about that distance rather than pretend I am around the corner. What I am not upfront about is any doubt that I can do this work well for a Memorial business. I am a Marine Corps veteran with over 14 years of web development experience and more than 200 completed projects, and the work I do for a client in Memorial does not look any different than the work I do for a client five minutes from my office. Web development is not a trade that requires me to be standing in your parking lot. It requires me to understand your business, build you something custom, and be reachable when you need me. I can do all three from Conroe just as well as I could from Hedwig Village.
+StephensCode LLC is mine -- I'm Kyle Stephens -- and the honest disclosure is that my office sits in Conroe, roughly 45 minutes north depending on how I-10 traffic is behaving. I won't dress that up as anything other than what it is: a real drive, not a quick trip across the neighborhood. Here's the part that matters more, though. Fourteen-plus years and better than 200 finished projects in, most of them for businesses I'd never met in person before we started, have taught me that a website doesn't get better because the developer parks closer to your building. It gets better because he understands what you do and builds around it, then answers the phone afterward. That's the same job whether the client is five minutes from my desk or on the other side of Buffalo Bayou in Hedwig Village, and I spent time in the Marine Corps before any of this, which is mostly where the habit of finishing what I start came from.
 
 ## The Memorial Market: Who You Are Actually Selling To
 
@@ -32,23 +42,13 @@ This is exactly why I do not build from templates. A WordPress theme with a stoc
 
 I build every site from scratch using modern, hand-written code -- no WordPress, no page builders, no bloated plugin stacks slowing down your load times. For a market like Memorial, load speed and clean presentation are not cosmetic details. A slower, clunkier site is a direct signal to an educated buyer that the business behind it may not be as sharp as its competitors, whether or not that is fair.
 
-Pricing starts at $250 for a fast-turnaround starter site and scales up depending on complexity:
-
-- **Plug and Play ($250, about a week)** -- a clean, professional starter site for a new business or a simple service that needs to establish a credible online presence fast
-- **Website Rebuild ($350, about two weeks)** -- for the business that already has a dated or template-based site and needs it modernized without starting from zero
-- **Standard Website ($950, three to four weeks)** -- a full custom site built around your specific services, content, and local SEO structure; this is the right fit for most established Memorial-area service businesses
-- **E-Commerce Website ($1,100, four to six weeks)** -- for retail or product-based businesses that need a working cart and checkout
-- **Premium Build ($2,000, six to eight weeks)** -- a full custom site paired with an admin portal and analytics dashboard, useful for practices or firms that want to manage content or track leads themselves
-- **Custom Business Platform ($5,000, ten to twelve weeks)** -- for businesses that need CRM functionality, client portals, booking systems, payments, and workflow automation built in
-- **Enterprise Platform ($7,500 and up, twelve to sixteen weeks)** -- multi-tenant systems with SSO, audit logging, and custom workflow builders, for organizations with real operational complexity
-
-Every tier includes 90 days of post-launch support, and I do not bill hourly. You know the price before we start, and you know what you are getting. If you want ongoing updates and monitoring after that window, I offer a maintenance plan at $50 to $100 a month, but there is never a requirement to sign up for it.
+Everything is flat-rate and scoped before any work starts, from a fast-turnaround starter site up through a full CRM-and-portal build for a firm with real operational complexity. Full pricing tiers and timelines live on the [pricing page](/pricing) rather than here, but the short version for most Memorial-area practices and service businesses is a custom site in the $950-$2,000 range, delivered in three to eight weeks with 90 days of post-launch support built in. I don't bill hourly, and there's no maintenance contract required afterward, though an optional plan is available if you want ongoing updates handled for you.
 
 ### Local SEO for Memorial and the Surrounding Villages
 
 Local SEO in a market like Memorial is a different game than in a less competitive area. You are not just trying to show up -- you are trying to outrank other businesses that also have decent websites. That means the on-page structure has to be right: proper local business schema, content that actually names the neighborhoods you serve (Memorial Villages, Bunker Hill Village, Hedwig Village, Spring Valley Village, and the broader Memorial and Spring Branch ISD area), a Google Business Profile that is fully filled out and actively maintained, and page content that answers the actual questions a Memorial homeowner or professional is typing into their phone.
 
-I build this into every Standard Website and above from the start, rather than treating SEO as an afterthought bolted on after launch.
+I build this into every project from the start, rather than treating SEO as an afterthought bolted on after launch.
 
 ## Who I Work With in Memorial
 
@@ -78,12 +78,6 @@ I started StephensCode LLC because I watched too many small businesses get overc
 
 ## Getting Started
 
-Call me at (936) 323-4527, email info@stephenscode.dev, or use the contact form on this site. We will talk through what your business actually needs -- not what an agency wants to upsell you on -- and I will give you a straight number and a straight timeline before you commit to anything.
+Call (936) 323-4527, email info@stephenscode.dev, or use the contact form on this site. We will talk through what your business actually needs -- not what an agency wants to upsell you on -- and I will give you a straight number and a straight timeline before you commit to anything.
 
-Memorial is a market where your competitors already have websites. The question is whether yours is actually working for you or just occupying space online. For $250 to start, there is no good reason to keep finding out the hard way.
-
-**Kyle Stephens**
-**StephensCode LLC**
-**(936) 323-4527**
-**Veteran-Owned | Based in Conroe, TX | Serving Memorial and the Greater Houston Area**
-**Custom websites starting at $250**
+Memorial is a market where your competitors already have websites, so the real question is whether yours is actually working for you or just occupying space online. That call reaches me, Kyle Stephens, directly. Fourteen years of running StephensCode LLC out of Conroe hasn't changed that, and it's still veteran-owned, still flat-rate, and still starts at $250.

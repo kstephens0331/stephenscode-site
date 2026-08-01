@@ -16,6 +16,10 @@ faqs:
     answer: We build on Next.js and modern frameworks rather than outdated WordPress themes or page builders, which means faster load times and a site that's easier to maintain and scale as your Houston business grows.
   - question: Do you serve specific Houston neighborhoods and industries?
     answer: Yes. We build websites for Houston businesses across Downtown, Midtown, Montrose, The Heights, Memorial, the Galleria, the Energy Corridor, and West University, and across industries including medical, energy, legal, restaurants, and real estate.
+  - question: Do you build bilingual or Spanish-language websites for Houston businesses?
+    answer: Yes. Houston is one of the most diverse cities in the country, and for many Houston businesses a bilingual site converts more customers than an English-only one. We build fully bilingual sites or add Spanish-language pages to an existing English site, depending on what your customer base needs.
+  - question: Do you offer hosting and support after my Houston website launches?
+    answer: Every Houston website we build includes 30 days of support after launch, and we set you up with resilient, CDN-backed hosting built to stay online during hurricane season and other high-traffic events. After that first month, ongoing maintenance is available as an add-on if you want it.
 ---
 
 ## Web Design & Development in Houston: Big City Market, Small Business Service
@@ -224,7 +228,7 @@ Building websites for Houston businesses requires understanding local factors:
 
 ### Our Pricing: Houston Quality, Not Houston Prices
 
-Big Houston agencies charge big Houston prices, often $10,000+ for a basic business website. We charge fairly:
+Big Houston agencies charge big Houston prices, often $10,000+ for a basic business website. Here's what we actually charge:
 
 - **Plug and Play (4 pages)**: $250
 - **Standard Site (8-12 pages)**: $950
@@ -232,23 +236,23 @@ Big Houston agencies charge big Houston prices, often $10,000+ for a basic busin
 - **E-Commerce Store**: $1,100
 - **Premium Custom Platform**: Starting at $2,000
 
-These aren't "introductory" prices or "starting at" estimates that balloon later. These are the actual prices for complete websites including design, development, SEO optimization, mobile responsiveness, and 30 days of support.
+The full breakdown of every package, add-on, and premium tier lives on our [pricing page](/pricing). There's no "introductory" rate that balloons after month one: what you're quoted is the price for a complete website, including design, development, SEO optimization, mobile responsiveness, and 30 days of support.
 
-For Houston businesses, this often means getting a superior custom site for less than agencies charge for template modifications.
+For a Houston business owner who's been quoted five figures by a Galleria high-rise, that's often a better site for less than they'd pay another agency just to tweak a template.
 
 ### The StephensCode Difference
 
-**Flat-rate transparency**: You know exactly what you'll pay before we start. No hourly billing surprises.
+**One number, agreed before we start**: No hourly clock running in the background and no invoice that grows after the fact.
 
-**Direct communication**: You work with the actual developer, no account managers or intermediaries.
+**You talk to the person doing the work**: There's no account manager relaying your notes to a developer you'll never meet. That's me.
 
-**Modern technology**: Next.js and modern frameworks, not outdated WordPress themes.
+**Hand-coded on Next.js, not assembled from a theme**: Your site is built on a modern framework instead of a WordPress template stacked with plugins.
 
-**Local SEO expertise**: We understand Houston's geographic complexities and search patterns.
+**SEO tuned to how Houston actually searches**: 670 square miles means "near me" means something different in the Heights than it does in Clear Lake, and we build for that difference.
 
-**Speed**: Most sites completed in 1-2 weeks, not 2-3 months.
+**Weeks, not a quarter**: Most Houston projects wrap in 1-2 weeks. Larger agencies routinely take 2-3 months for the same scope.
 
-**Veteran-owned values**: Discipline, integrity, accountability.
+**Built by a Marine Corps veteran**: The same follow-through that mattered in the Corps applies to your timeline and your invoice.
 
 ### Ready for a Better Website?
 

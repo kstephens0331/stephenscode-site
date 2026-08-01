@@ -1,14 +1,24 @@
 ---
-title: Web Developer Humble TX | Custom Websites, SEO & E-Commerce
-metaDescription: Professional web development for Humble, Texas businesses. Custom websites starting at $250, local SEO, e-commerce. Veteran-owned, based in nearby Conroe.
+title: Humble, TX Web Design | From Deerbrook Mall to the IAH Corridor
+metaDescription: "Web development for Humble, Texas, where Old Humble, Deerbrook Mall, and the airport hospitality trade all need different websites. Veteran-owned, hand-coded, flat-rate."
 heroSubtitle: Custom websites for Humble businesses, from Deerbrook Mall to FM 1960
+h1Override: Web Development for Humble, Atascocita, and the FM 1960 Corridor
+faqs:
+  - question: "Does StephensCode only build for Humble proper, or the surrounding communities too?"
+    answer: "The surrounding communities are most of the work. Atascocita, Fall Creek, Eagle Springs, Summerwood, and Lakeshore each get treated as their own market with their own local SEO, rather than lumped into one generic 'Humble TX' page."
+  - question: "What's the cost for a Humble-area business website?"
+    answer: "Pricing is flat-rate, starting around $250 for a straightforward professional site, with higher tiers for e-commerce, admin portals, or booking systems. The full breakdown is on the pricing page."
+  - question: "Is StephensCode based in Humble?"
+    answer: "No -- Conroe, about 30 minutes north up US-59/I-69. Close enough for an in-person meeting when one makes sense, without the overhead of a Houston office lease."
+  - question: "Do you build separate pages for a business that serves Humble ISD-area communities individually?"
+    answer: "Yes. A home services company working Humble, Kingwood, Spring, and Porter needs a different landing page for each area with real local content, not one paragraph with the city name swapped out."
 ---
 
-# Web Development Services for Humble, Texas Businesses
+## A City Sitting at Houston's Northern Crossroads
 
 Humble sits at one of the most interesting crossroads in the greater Houston area. You have got Old Humble with its deep roots and working-class character, and then you have got massive master-planned communities like Fall Creek and Eagle Springs pushing the population north and east. Deerbrook Mall anchors the commercial side of things. George Bush Intercontinental Airport is right down the road, pulling in hospitality and travel businesses that need websites yesterday. And the US-59/I-69 corridor keeps pumping commercial growth into every strip center and office park along the way.
 
-I am Kyle Stephens, owner of StephensCode LLC, a Marine Corps veteran, and I have been building websites for over 14 years. I am based in Conroe, which puts me about 30 minutes north of Humble -- close enough to meet for coffee at the Egg & I off Will Clayton, far enough away that I am not competing with Houston agencies for office space. My rates start at $250, and I build every site by hand. No drag-and-drop page builders. No recycled templates with your logo slapped on top.
+StephensCode is run by Kyle Stephens, a Marine Corps veteran who has been building websites by hand for over 14 years -- no drag-and-drop page builders, no recycled templates with a new logo slapped on top. The shop is based in Conroe, about 30 minutes north of Humble up US-59/I-69, close enough to meet for coffee at the Egg & I off Will Clayton when a client wants that, far enough away to avoid competing with Houston agency overhead. Pricing is flat-rate and posted on the [pricing page](/pricing) rather than negotiated case by case.
 
 If you run a business in Humble, Atascocita, Summerwood, Lakeshore, or anywhere along that FM 1960 stretch, this page is for you. Let me walk you through what I do and why it matters for businesses in your area.
 
@@ -124,14 +134,6 @@ If you run an education-related business in the Humble ISD area, your website is
 
 ## Getting Started
 
-Here is how it works. You call me at (936) 323-4527 or fill out the contact form on my site. We talk about your business, your goals, and what you need your website to do. I put together a proposal with a clear scope and a fixed price -- starting at $250 for a professional custom site. No surprises. No hidden fees.
+Here is how it works. Call (936) 323-4527 or fill out the contact form on this site, talk through your business, your goals, and what you need your website to do, and get back a proposal with a clear scope and a fixed price -- no surprises, no hidden fees. Building runs on your feedback, with revisions until it is right, and the whole process typically takes two to four weeks depending on complexity. After launch, support continues for updates, changes, and questions.
 
-I build your site, you review it, we make revisions until you are happy, and we launch. The whole process typically takes two to four weeks depending on complexity. After launch, I am still here for updates, changes, and ongoing support.
-
-If you are running a business in Humble, Atascocita, Fall Creek, Eagle Springs, Summerwood, or anywhere in the surrounding area and your website is not pulling its weight, let us fix that. You have worked too hard building your business to let a bad website hold you back.
-
-**Kyle Stephens**
-**StephensCode LLC**
-**(936) 323-4527**
-**Veteran-Owned | Conroe, TX**
-**Custom websites starting at $250**
+If you are running a business in Humble, Atascocita, Fall Creek, Eagle Springs, Summerwood, or anywhere in the surrounding area and your website is not pulling its weight, this veteran-owned, Conroe-based shop is built to fix that. You have worked too hard building your business to let a bad website hold you back.

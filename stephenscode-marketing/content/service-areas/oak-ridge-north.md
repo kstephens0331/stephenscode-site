@@ -1,14 +1,24 @@
 ---
-title: Web Developer Oak Ridge North TX | Custom Websites, SEO & E-Commerce
-metaDescription: Web development for Oak Ridge North, TX businesses. Custom sites starting at $250, local SEO, e-commerce. Veteran-owned, based in nearby Conroe, TX.
+title: Oak Ridge North Websites | Robinson Road & Marilyn Estates Businesses
+metaDescription: Websites and local SEO for Oak Ridge North businesses along Robinson Road, built to capture overflow traffic from The Woodlands. Veteran-owned, 13 minutes away in Conroe.
 heroSubtitle: Custom websites for Oak Ridge North's walkable Robinson Road business community
+h1Override: Websites for the Small Businesses Along Robinson Road
+faqs:
+  - question: Why would an Oak Ridge North business need a website when The Woodlands is right next door?
+    answer: Because that proximity cuts both ways. Residents of The Woodlands looking for a local alternative to big-box pricing are searching online too, and a business without a website is invisible to that search no matter how close it actually is.
+  - question: Is a $250 site actually usable, or just a bare-bones placeholder?
+    answer: It's a real, professional starter site, not a placeholder. Businesses that want more customization typically land in the standard custom-build tier, and the pricing page lays out exactly what's included at each level.
+  - question: Do I need to be near Conroe to work with you?
+    answer: No. I'm based in Conroe, about 13 minutes from Oak Ridge North, but most of a project happens over phone, email, and online revisions, with in-person meetings available whenever they're useful.
+  - question: Do you offer ongoing maintenance after launch?
+    answer: Yes, an optional plan runs $50 to $100 a month for businesses that want updates handled for them rather than left to go stale.
 ---
 
 # Web Development Services for Oak Ridge North, Texas Businesses
 
 Oak Ridge North is a small city with a big neighbor problem, and I mean that as a compliment. It sits right up against The Woodlands, one of the most master-planned, amenity-stacked communities in the state, and right next to Shenandoah, which packs a shopping-mall's worth of retail and restaurants into a tiny footprint along I-45. Oak Ridge North could have gotten swallowed by either one. Instead it held onto its own identity: a walkable, affordable, close-knit city of a little over 3,200 residents where people actually know their neighbors and Robinson Road functions as a real Main Street instead of just another stretch of pavement between chain stores.
 
-I am Kyle Stephens, owner of StephensCode LLC, and I build websites out of Conroe, about 13 minutes down the road. I am a Marine Corps veteran with more than 14 years of web development experience and over 200 completed projects. I build custom, hand-coded websites for small businesses starting at $250, and Oak Ridge North is exactly the kind of place I built this business for: a small city full of small operators -- the auto shop on Robinson Road, the neighborhood restaurant, the professional office that runs on referrals and reputation, the home services company whose whole marketing plan used to be a truck with a magnet sign.
+The auto shop on Robinson Road. The neighborhood restaurant. The professional office running on referrals and reputation. The home services company whose entire marketing plan used to be a truck with a magnet sign. Oak Ridge North is full of exactly the kind of small operator I built StephensCode LLC to serve -- I'm Kyle Stephens, based in Conroe about thirteen minutes away, and over fourteen-plus years and 200-plus projects I've learned this kind of business doesn't need a $10,000 website. It needs one that actually shows up when someone searches, hand-coded and flat-rate starting at $250.
 
 If you run a business in Oak Ridge North -- whether you're in Marilyn Estates, Oak Ridge North Village, or anywhere along the Robinson Road or Hanna Road corridors -- I want to talk to you about getting a website that actually works for you.
 
@@ -72,36 +82,18 @@ Oak Ridge North is compact enough that geography isn't an abstraction here -- it
 
 The I-45 and Robinson Road crossroads location is the other piece worth building into your site's messaging. Whether you're a block off the intersection or right on it, being able to say "easy access from I-45" or "just off Robinson Road" gives a searching customer, especially one coming from The Woodlands or passing through from Shenandoah, the confidence that stopping in won't cost them ten extra minutes of navigating unfamiliar side streets.
 
-## Why Work with a Developer in Conroe
+## Why a Thirteen-Minute Drive Matters
 
-I'm based in Conroe, about 13 minutes from Oak Ridge North depending on where you are in the city. That's close enough that meeting in person is never a scheduling headache, and it's close enough that I actually understand the dynamic of a small city living in the shadow of a much larger, much wealthier neighbor. I'm not building you a generic template and shipping it off from somewhere I've never driven through.
+Conroe sits close enough to Oak Ridge North that meeting face to face is never a scheduling headache, and close enough that I understand what it's like running a business in the shadow of a much bigger, wealthier neighbor -- Conroe deals with its own version of that next to The Woodlands. I'm not shipping you a template from an agency that has never driven Robinson Road.
 
-I'm a Marine Corps veteran, and I started StephensCode LLC because too many small businesses in this region get overcharged by agencies that treat a five-page website like a custom software platform, or get underserved by cut-rate freelancers who disappear after the invoice clears. My pricing is flat-rate and transparent. There is no hourly billing, no scope creep, and no holding your own domain or content hostage after the project wraps.
+Before any of this, I spent time in the Marine Corps, and one thing carried over directly into how I run StephensCode LLC: you commit to a number and a date, and then you hit both. That's the whole pricing model here -- flat rate, quoted up front, no hourly clock running in the background, and you walk away owning your domain and your content when the project wraps.
 
-## Pricing Built for Every Stage of an Oak Ridge North Business
+## What Oak Ridge North Businesses Actually Pay
 
-I offer seven flat-rate tiers, and every single one includes 90 days of post-launch support with no hourly billing:
-
-- **Plug and Play -- $250, about 1 week.** A fast-turnaround starter site, ideal for a brand-new Oak Ridge North business that needs a professional presence up and running quickly.
-- **Website Rebuild -- $350, about 2 weeks.** For businesses stuck with an old template site or a builder-made page that no longer represents them well.
-- **Standard Website -- $950, about 3 to 4 weeks.** The typical entry point for most small businesses in this city -- a full custom site built specifically around your services and your customers.
-- **E-Commerce Website -- $1,100, about 4 to 6 weeks.** A full online store with cart and checkout, useful for Oak Ridge North retail businesses that want to sell beyond foot traffic.
-- **Premium Build -- $2,000, about 6 to 8 weeks.** A custom full-stack site with an admin portal and analytics dashboard, for businesses that want to manage their own content and see real performance data.
-- **Custom Business Platform -- $5,000, about 10 to 12 weeks.** CRM, customer portals, booking, payments, and automation built into one system.
-- **Enterprise Platform -- $7,500 and up, about 12 to 16 weeks.** Multi-tenant architecture, single sign-on, audit logs, and workflow builders for businesses that have genuinely outgrown a standard website.
-
-If ongoing updates matter to you, there's an optional maintenance plan for $50 to $100 a month, so your site doesn't go stale the way so many small business websites in this area already have.
+Most Oak Ridge North businesses I talk to land in one of two spots: a fast, inexpensive starter site to get a professional presence live quickly, or a full custom build once they know what they need long-term. Either way, every project is flat-rate with 90 days of post-launch support built in, and there's never an hourly clock running. The [full pricing breakdown](/pricing) covers every tier, from a $250 starter site up through custom platforms with booking and CRM built in, along with realistic timelines for each. If you'd rather not think about updates once your site is live, an optional maintenance plan runs $50 to $100 a month.
 
 ## Getting Started
 
-Call me at (936) 323-4527, or use the contact form on this site. We'll have a real conversation about what your Oak Ridge North business actually needs -- not a generic sales pitch, an honest assessment of what tier makes sense and what it will cost. I'll give you a straight timeline and a flat price, and I'll stick to both.
+Call (936) 323-4527, email info@stephenscode.dev, or use the contact form on this site. We'll have a real conversation about what your Oak Ridge North business actually needs, not a generic sales pitch, and you'll get a straight timeline and a flat price that I'll stick to.
 
-Oak Ridge North has managed to stay itself despite sitting next to two of the busiest commercial areas in Montgomery County. That's worth something, and it's worth protecting. A website that actually represents your business -- fast, findable, and built around how your customers in Marilyn Estates, Oak Ridge North Village, and along Robinson Road actually search -- is how you keep capturing that overflow traffic from The Woodlands instead of losing it to whoever shows up first on Google.
-
-**Kyle Stephens**
-**StephensCode LLC**
-**2378 Strong Horse Dr, Conroe, TX 77301**
-**(936) 323-4527**
-**info@stephenscode.dev**
-**Veteran-Owned | Based in Conroe, 13 minutes from Oak Ridge North**
-**Custom websites starting at $250**
+Oak Ridge North has managed to stay itself despite sitting next to two of the busiest commercial areas in Montgomery County. That's worth protecting. A website built around how your customers in Marilyn Estates, Oak Ridge North Village, and along Robinson Road actually search is how you keep capturing that overflow traffic from The Woodlands instead of losing it to whoever shows up first on Google.

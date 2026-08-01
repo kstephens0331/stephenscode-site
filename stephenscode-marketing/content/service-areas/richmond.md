@@ -1,14 +1,24 @@
 ---
-title: Web Developer Richmond TX | Custom Websites, SEO & E-Commerce
-metaDescription: Custom websites for Richmond, TX businesses near the Fort Bend County Courthouse. Hand-coded sites from $250, no templates. Veteran-owned web developer.
+title: Richmond, TX Web Design Near the Fort Bend County Courthouse
+metaDescription: Hand-coded websites for Richmond, TX businesses near the Fort Bend County Courthouse and the Harvest Green and Long Meadow Farms communities. Veteran-owned, from $250.
 heroSubtitle: Custom web development for Richmond businesses at the heart of Fort Bend County government and growth
+h1Override: Richmond, TX Websites Built for Courthouse Traffic and County-Wide Growth
+faqs:
+  - question: Do you work with Richmond businesses if you're based in Conroe?
+    answer: Yes. I'm about an hour north in Conroe, and Richmond projects run entirely by phone, email, and screen share -- the same process I'd use for a client three blocks from the Fort Bend County Courthouse. Distance doesn't change how the code gets written.
+  - question: What does a website cost for a Richmond business?
+    answer: Pricing starts at $250 and scales with scope -- a simple informational site, a full e-commerce build, or something with booking or a client portal. See the full breakdown at [/pricing](/pricing), and I'll confirm a firm number before any work starts.
+  - question: Can one website reach both courthouse foot traffic and new Harvest Green or Long Meadow Farms families?
+    answer: Yes, and it's a common ask in Richmond specifically. A site can be structured to rank for courthouse-adjacent searches and neighborhood-specific searches at the same time, which is exactly the dual-audience build a template site cannot pull off.
+  - question: Is StephensCode veteran-owned?
+    answer: Yes. I'm a Marine Corps veteran, and StephensCode LLC runs on flat-rate pricing with full ownership of your domain, code, and content once the project wraps.
 ---
 
-# Web Development Services for Richmond, Texas Businesses
+## Web Development Services for Richmond, Texas Businesses
 
 Richmond is not a typical Texas suburb, and it does not try to be one. Founded in 1837, it was home to Mirabeau B. Lamar, the second President of the Republic of Texas, and the town still carries that history in its bones -- a historic downtown with genuine Texas heritage sites, the kind of courthouse square that looks like it belongs on a postcard, and street names that predate most of the cities around it by a century or more. At the same time, Richmond is the county seat of Fort Bend County, which means it is also the administrative and legal center for one of the wealthiest and fastest-growing counties in the entire state. Those two things -- deep history and rapid growth -- coexist in Richmond in a way that does not happen in most places, and it changes what a business website needs to do here.
 
-I am Kyle Stephens, owner of StephensCode LLC. I am based in Conroe, about an hour north of Richmond, and I will be straight with you about that distance up front rather than pretending otherwise. Most of the actual work of building a website -- writing code, structuring pages, setting up hosting, building forms -- happens on a screen, not in your parking lot. I do calls, screen shares, and emails with clients all over Texas, and I make sure I understand your specific market before I write a single line of code for you. What I bring to Richmond is 14+ years of hand-coding custom websites, 200+ completed projects, and a background as a Marine Corps veteran who built this company because too many small businesses get overcharged by agencies and underserved by whoever built their site on a template five years ago and never touched it again.
+StephensCode LLC is a one-person shop, Conroe based, an hour's drive north of Richmond, and I'd rather say that plainly than pretend otherwise. Building a website doesn't actually require standing in your doorway: writing the code, structuring the pages, wiring up hosting and forms is screen work, and it's how I've finished well over 200 sites for clients scattered across Texas. My name is Kyle Stephens. Fourteen-plus years hand-coding, plus time in the Marine Corps before that, taught me the same lesson twice -- show up, do the work correctly, and don't leave a client holding a half-finished job -- and that standard applies to a courthouse-adjacent law firm exactly as much as it applies to a home services company chasing new rooftops in Harvest Green.
 
 If you run a business in Pecan Grove, Long Meadow Farms, Harvest Green, Downtown Richmond, or anywhere near the Brazos Town Center area, this page is about you.
 
@@ -74,16 +84,10 @@ I will not pretend I am down the street. I am in Conroe, about an hour from Rich
 
 What I do commit to is understanding the market I am building for. I read the same county records and growth data anyone researching Fort Bend County would read, and more importantly, I ask you directly about your customers, your competition, and what has and has not worked for you online before I design anything. A website built without that conversation is a template with your name on it. A website built after that conversation is a tool that actually gets you customers.
 
-I am a Marine Corps veteran, and I started StephensCode LLC because I got tired of watching small businesses get locked into contracts, overcharged for basic sites, and held hostage by agencies that own the domain or the code. When you work with me, the site is yours -- domain, code, content, all of it. No recurring fees you did not agree to, no surprise invoices, no games.
+I started this company because I kept watching small businesses get locked into contracts, overcharged for basic sites, and held hostage by agencies that controlled the domain or the code. Work with me and the site is fully yours once it's done -- domain, code, content, no exceptions. No recurring fee you never agreed to, no invoice that shows up out of nowhere.
 
 ## Getting Started
 
 Call me at (936) 323-4527, or reach out through the contact form on this site. We will talk through what your business actually needs -- whether that is a straightforward informational site, a full e-commerce build, or something more custom like a booking system or client portal. I will give you a clear price and a realistic timeline before we start, and I will stick to both.
 
-Richmond is growing fast on one side and steeped in history on the other, and both sides of that town are full of businesses that deserve better than a five-year-old template site or no website at all. Whether you are serving courthouse traffic downtown or new families in Harvest Green, a website built specifically for how your customers actually search is not a luxury anymore. It is the baseline. Starting at $250, there is no good reason to put it off.
-
-**Kyle Stephens**
-**StephensCode LLC**
-**(936) 323-4527**
-**Veteran-Owned | Conroe, TX**
-**Custom websites starting at $250**
+Richmond is growing fast on one side and steeped in history on the other, and both sides of that town are full of businesses that deserve better than a five-year-old template site or no website at all. Whether you're serving courthouse traffic downtown or new families in Harvest Green, a website built specifically for how your customers actually search is not a luxury anymore -- it's the baseline. Reach me, Kyle Stephens, directly at (936) 323-4527 or info@stephenscode.dev, and see the full pricing tiers at [/pricing](/pricing); projects still start at $250.

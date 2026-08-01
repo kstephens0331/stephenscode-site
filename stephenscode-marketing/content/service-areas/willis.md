@@ -1,14 +1,24 @@
 ---
-title: Web Developer Willis TX | Custom Websites, SEO & E-Commerce
-metaDescription: Professional web development for Willis, Texas businesses. Custom websites starting at $250, local SEO, e-commerce. Veteran-owned, based in neighboring Conroe.
+title: "Willis, TX Web Design | I-45 Corridor & Lake Conroe Businesses"
+metaDescription: "Web development for Willis, Texas businesses along the I-45 corridor and Lake Conroe's north shore, built by a Conroe neighbor ten minutes away. Flat-rate pricing starting at $250."
 heroSubtitle: Affordable web development for Willis businesses along the I-45 corridor
+h1Override: "Web Design for Willis, Texas: Built by a Neighbor Ten Minutes Down I-45"
+faqs:
+  - question: "Does a small Willis business really need a real website instead of just a Facebook page?"
+    answer: "Yes. Willis is absorbing a wave of new residents from Houston, Spring, and The Woodlands who search Google for things like \"plumber Willis TX\" before they ever find your Facebook page. A real website with your own domain and local SEO is what actually shows up in those searches."
+  - question: "How much does a website cost for a Willis business?"
+    answer: "Starting at $250 for a clean, professional site with mobile-responsive design, basic on-page SEO, and contact forms or click-to-call buttons built in. Most Willis projects are completed within two to three weeks."
+  - question: "Is StephensCode actually local to Willis, or just claiming the area?"
+    answer: "StephensCode is based in Conroe, and Willis is next door, about ten minutes down I-45. In-person meetings are realistic here, not just a talking point."
+  - question: "Do you build websites for lake and seasonal businesses near Lake Conroe's north shore?"
+    answer: "Yes, including marinas, bait and tackle shops, and lakeside restaurants. Those sites get built with the seasonal calendar in mind, so SEO and content are dialed in before the spring rush rather than after it."
 ---
 
 # Web Development Services for Willis, Texas Businesses
 
 Willis is a railroad town that refuses to sit still. It started as a stop on the International-Great Northern Railroad, grew into a small community along what became I-45, and now finds itself right in the path of one of the fastest-growing corridors in Texas. Houston commuters have discovered that Willis offers affordable housing, a short drive to Lake Conroe, and a straight shot down I-45 to anywhere they need to go. The result is a town in transition -- still holding onto its blue-collar roots while absorbing a wave of new residents, new construction, and new businesses.
 
-I am Kyle Stephens, owner of StephensCode LLC, and I am based in Conroe. Willis is my neighbor. I can be in downtown Willis in about ten minutes, and I have watched the growth along the I-45 corridor firsthand. I am a Marine Corps veteran with over 14 years of web development experience. I build custom websites for small businesses starting at $250, and I have a particular soft spot for the kinds of businesses that make up Willis -- the locally owned shops, the service companies run by one or two people, the restaurants that do not have a marketing department because the owner is also the cook, the cashier, and the janitor.
+I am Kyle Stephens, owner of StephensCode LLC, and I am based in Conroe. Willis is my neighbor. I can be in downtown Willis in about ten minutes, and I have watched the growth along the I-45 corridor firsthand. Fourteen-plus years building websites, a Marine Corps stint before that, and a $250 starting price for small businesses that don't need or want an agency-sized bill. I have a particular soft spot for the kinds of businesses that make up Willis -- the locally owned shops, the service companies run by one or two people, the restaurants that do not have a marketing department because the owner is also the cook, the cashier, and the janitor.
 
 If you run a business in Willis, Panorama Village, Seven Coves, or anywhere along the FM 1097 corridor, I want to help you get online the right way.
 
@@ -130,14 +140,8 @@ I am a Marine Corps veteran. I started StephensCode LLC because I saw too many s
 
 ## Getting Started
 
-Pick up the phone and call me at (936) 323-4527. Or use the contact form on my site. We will have a conversation about your business -- what you do, who your customers are, and what you need your website to accomplish. I will give you a straight answer on what it will cost and how long it will take.
+Pick up the phone and call me, Kyle Stephens, at (936) 323-4527, email info@stephenscode.dev, or use the contact form on my site. We will have a conversation about your business -- what you do, who your customers are, and what you need your website to accomplish. I will give you a straight answer on what it will cost and how long it will take.
 
 Most Willis business sites I build are completed within two to three weeks. You review everything before it goes live. After launch, I handle ongoing maintenance and updates so your site stays current and secure.
 
-Willis is growing. The question is whether your business is going to grow with it or get left behind by competitors who got online first. For $250, there is no reason to wait.
-
-**Kyle Stephens**
-**StephensCode LLC**
-**(936) 323-4527**
-**Veteran-Owned | Conroe, TX**
-**Custom websites starting at $250**
+Willis is growing. The question is whether your business is going to grow with it or get left behind by competitors who got online first. StephensCode is a veteran-owned shop based right up the road in Conroe, and for $250, there is no reason to wait.

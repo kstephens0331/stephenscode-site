@@ -1,7 +1,17 @@
 ---
-title: Web Developer Kingwood TX | Custom Websites, SEO & E-Commerce
-metaDescription: Professional web development for Kingwood, Texas businesses. Custom websites starting at $250, local SEO, e-commerce. Veteran-owned, based in nearby Conroe.
+title: Kingwood, TX Web Design | Websites for "The Livable Forest"
+metaDescription: "Web development for Kingwood, Texas, the master-planned community that rebuilt stronger after Hurricane Harvey. Polished, hand-coded sites for an affluent, research-heavy market."
 heroSubtitle: Professional websites for Kingwood's thriving business community
+h1Override: Web Design for Kingwood's Villages, from Kings Crossing to Town Center
+faqs:
+  - question: "Why does a Kingwood business need a more polished website than a typical suburban page?"
+    answer: "Kingwood's household incomes run above the Houston average, and residents research a business online before spending money with it. A template site with a swapped logo reads as a red flag in this market rather than a neutral non-issue."
+  - question: "What does a website cost for a Kingwood business?"
+    answer: "Pricing is flat-rate rather than hourly, with no 12-month retainer required. Exact tiers are listed on the pricing page."
+  - question: "How close is StephensCode to Kingwood?"
+    answer: "About 35 minutes up US-59 from Conroe, same time zone and same state, with in-person meetings available whenever they're worth scheduling."
+  - question: "Do you write different content for a business depending on which Kingwood village it's in, like Kings Crossing versus Elm Grove?"
+    answer: "Yes. Kings Crossing, Forest Cove, Kings Point, Elm Grove, Greentree Village, and the Town Center area each have a different customer profile, and the website copy and local SEO get built around that instead of one generic 'Kingwood' page."
 ---
 
 ## Kingwood Web Development: The Livable Forest Deserves Better Websites
@@ -10,7 +20,7 @@ Kingwood has earned its reputation. "The Livable Forest" isn't just a marketing 
 
 Kingwood residents and business owners expect quality. They expect professionalism. They chose to live and work in a community that was intentionally designed to be better, and they carry that standard into every decision, including who builds their website.
 
-I'm Kyle Stephens, owner of StephensCode LLC, a veteran-owned web development company based in Conroe. I'm a Marine Corps veteran with over 14 years of experience building websites for Texas businesses. I work primarily with small and mid-size businesses who need professional web presence without the bloated pricing and corporate runaround that comes from the big Houston agencies. Custom websites starting at $250, direct communication with the person actually building your site, and the kind of follow-through that comes from military discipline and 14 years of doing this for a living.
+StephensCode is a veteran-owned web development company based in Conroe, run directly by Kyle Stephens, a Marine Corps veteran with over 14 years of experience building websites for Texas businesses. The client mix is mostly small and mid-size businesses that need a professional web presence without the bloated pricing and corporate runaround that comes from the big Houston agencies -- flat, transparent pricing (the full breakdown is on the [pricing page](/pricing)), direct communication with the person actually building the site, and the kind of follow-through that comes from military discipline and over a decade of doing this for a living.
 
 Kingwood businesses operate in a competitive, affluent market. Your website needs to match the community it serves. Let's talk about how to make that happen.
 
@@ -88,7 +98,7 @@ Attorneys, consultants, IT services, marketing firms, and other professional ser
 
 Kingwood business owners are smart with their money. You're not going to overpay for something you can get at fair value, and you're not going to underpay and accept poor quality. That's exactly where StephensCode fits.
 
-**Quality at honest prices.** Custom websites starting at $250. That's not a bait-and-switch. It's real pricing for real work. We keep overhead low and pass the savings to you. You're paying for development skill and experience, not fancy office space and layers of account managers.
+**Quality at honest prices.** Flat, published pricing (see the [pricing page](/pricing) for the full breakdown), not a bait-and-switch quote that grows after the fact. Overhead stays low, and the savings pass to you. You're paying for development skill and experience, not fancy office space and layers of account managers.
 
 **Direct access to the developer.** When you work with StephensCode, you work with me. Kyle Stephens. (936) 323-4527. I'm the one writing the code, designing the layouts, optimizing the SEO, and answering your questions. No middlemen, no miscommunication, no delays while someone "checks with the developer."
 
@@ -130,4 +140,4 @@ The process is straightforward:
 4. **We build your site with your input** at every stage. You see progress, provide feedback, and stay involved throughout the process.
 5. **Launch and continued partnership.** Your site goes live, and I'm here for ongoing support, updates, and optimization.
 
-Kingwood businesses deserve websites that match the community's standards: polished, professional, and built to perform. StephensCode delivers exactly that, at prices that make sense for businesses that watch their bottom line. Veteran-owned, Texas-based, and ready to build something your business can grow on.
+Kingwood businesses deserve websites that match the community's standards: polished, professional, and built to perform. StephensCode delivers exactly that, at prices that make sense for businesses that watch their bottom line. Reach out at (936) 323-4527, veteran-owned and Texas-based, and ready to build something your business can grow on.
