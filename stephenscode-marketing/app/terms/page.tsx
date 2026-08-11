@@ -653,7 +653,7 @@ export default function Terms() {
           </div>
           <div className="text-slate-400 text-sm space-y-1">
             <p>StephensCode LLC</p>
-            <p>2378 Strong Horse Dr, Conroe, TX 77301</p>
+            <p>303 Longmire Unit 1001 Ste 102, Conroe, TX 77304</p>
             <p>(936) 323-4527</p>
           </div>
         </div>

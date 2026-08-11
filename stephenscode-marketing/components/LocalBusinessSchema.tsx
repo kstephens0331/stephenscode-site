@@ -66,10 +66,10 @@ export default function LocalBusinessSchema() {
     },
     address: {
       '@type': 'PostalAddress',
-      streetAddress: '2378 Strong Horse Dr',
+      streetAddress: '303 Longmire Unit 1001 Ste 102',
       addressLocality: 'Conroe',
       addressRegion: 'TX',
-      postalCode: '77301',
+      postalCode: '77304',
       addressCountry: 'US',
     },
     geo: {

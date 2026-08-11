@@ -265,12 +265,12 @@ export default function ContactPage() {
                   </div>
                   <div className="flex-grow">
                     <div className="font-semibold text-white mb-1">Location</div>
-                    <div className="text-lg font-bold text-white">Conroe, TX 77301</div>
+                    <div className="text-lg font-bold text-white">Conroe, TX 77304</div>
                     <div className="text-sm text-gray-400 mt-1">
                       Serving Houston, Conroe, The Woodlands & all of Texas
                     </div>
                     <a
-                      href="https://www.google.com/maps/dir//Conroe+TX+77301"
+                      href="https://www.google.com/maps/dir//303+Longmire+Unit+1001+Ste+102+Conroe+TX+77304"
                       target="_blank"
                       rel="noopener noreferrer"
                       className="inline-flex items-center gap-1 text-sm font-semibold text-primary-600 hover:text-primary-400 mt-2"
@@ -287,7 +287,7 @@ export default function ContactPage() {
               {/* Google Maps */}
               <div className="mt-8 rounded-2xl overflow-hidden border-2 border-surface-border shadow-lg shadow-black/20">
                 <iframe
-                  src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d110684.96908!2d-95.5560!3d30.3119!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x864731e2f73c2a15%3A0xc6e5b1e2d9e8c!2sConroe%2C%20TX%2077301!5e0!3m2!1sen!2sus!4v1234567890"
+                  src="https://www.google.com/maps?q=303+Longmire+Unit+1001+Ste+102,+Conroe,+TX+77304&output=embed"
                   width="100%"
                   height="300"
                   style={{ border: 0 }}
