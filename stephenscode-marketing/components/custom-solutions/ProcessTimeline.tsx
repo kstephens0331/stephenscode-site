@@ -43,7 +43,7 @@ const steps = [
 
 export default function ProcessTimeline() {
   return (
-    <section className="py-20 px-4 bg-gradient-to-b from-slate-900/50 to-transparent">
+    <section className="py-20 px-4 bg-gradient-to-b from-surface-card/50 to-transparent">
       <div className="max-w-7xl mx-auto">
         <motion.div
           initial={{ opacity: 0, y: 20 }}
@@ -51,17 +51,17 @@ export default function ProcessTimeline() {
           viewport={{ once: true }}
           className="text-center mb-16"
         >
-          <h2 className="text-4xl md:text-5xl font-bold mb-4 bg-gradient-to-r from-blue-400 to-cyan-400 bg-clip-text text-transparent">
+          <h2 className="text-4xl md:text-5xl font-bold mb-4 text-white">
             Our Process
           </h2>
-          <p className="text-xl text-slate-300 max-w-3xl mx-auto">
+          <p className="text-xl text-gray-300 max-w-3xl mx-auto">
             From concept to completion, we make custom development simple and transparent.
           </p>
         </motion.div>
 
         <div className="relative">
           {/* Timeline line */}
-          <div className="absolute left-8 md:left-1/2 top-0 bottom-0 w-0.5 bg-gradient-to-b from-blue-500 via-cyan-500 to-blue-500" />
+          <div className="absolute left-8 md:left-1/2 top-0 bottom-0 w-0.5 bg-surface-border" />
 
           <div className="space-y-12">
             {steps.map((step, index) => (
@@ -76,18 +76,18 @@ export default function ProcessTimeline() {
                 }`}
               >
                 {/* Number badge */}
-                <div className="absolute left-8 md:left-1/2 -ml-6 w-12 h-12 rounded-full bg-gradient-to-br from-blue-600 to-cyan-600 flex items-center justify-center font-bold text-white shadow-lg z-10">
+                <div className="absolute left-8 md:left-1/2 -ml-6 w-12 h-12 rounded-full border-2 border-primary-500 bg-black flex items-center justify-center font-mono font-bold text-primary-500 shadow-lg z-10">
                   {step.number}
                 </div>
 
                 {/* Content */}
                 <div className={`flex-1 ml-20 md:ml-0 ${index % 2 === 0 ? 'md:pr-16 md:text-right' : 'md:pl-16'}`}>
-                  <div className="bg-gradient-to-br from-slate-800/50 to-slate-700/50 rounded-2xl p-6 border border-slate-600/30">
+                  <div className="bg-surface-card rounded-2xl p-6 border border-surface-border">
                     <div className="flex items-center justify-between mb-2">
                       <h3 className="text-2xl font-bold text-white">{step.title}</h3>
-                      <span className="text-sm text-blue-400 font-semibold">{step.duration}</span>
+                      <span className="text-sm text-primary-400 font-semibold">{step.duration}</span>
                     </div>
-                    <p className="text-slate-300">{step.description}</p>
+                    <p className="text-gray-300">{step.description}</p>
                   </div>
                 </div>
 

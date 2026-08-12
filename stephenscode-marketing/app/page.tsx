@@ -1,13 +1,14 @@
-import Link from 'next/link'
+﻿import Link from 'next/link'
 import type { Metadata } from 'next'
 import {
-  Clock, Rocket, Link2, BarChart3,
-  MessageSquare, DollarSign, Zap, Target,
-  Shield, Phone, ArrowRight, Check,
+  Phone, ArrowRight, Check,
   Monitor, ShieldCheck, Lock, KeyRound, Building2,
 } from 'lucide-react'
 import PhoneLink from '@/components/PhoneLink'
 import TrackedCtaLink from '@/components/TrackedCtaLink'
+import BrowserFrame from '@/components/BrowserFrame'
+import ClientNameBand from '@/components/ClientNameBand'
+import HeroShell from '@/components/home/HeroShell'
 import { corePackages, premiumBuilds } from '@/lib/services-data'
 export const metadata: Metadata = {
   title: 'Conroe Web Developer | Custom Websites & Business Systems',
@@ -29,20 +30,21 @@ export default function Home() {
 
   // Price, delivery timeline, and detail-page href are sourced from lib/services-data.ts
   // (the single source of truth) so they can never drift from the real service pages.
+  // Standard leads the array so it takes the featured two-column slot in the grid.
   const packages = [
-    {
-      name: 'Starter',
-      slug: 'plug-and-play',
-      description: 'For a brand-new business that just needs to exist online. A clean 3-4 page flyer so you show up looking professional.',
-      features: ['3-4 pages', 'Mobile responsive', 'Contact form + email routing', 'Basic on-page SEO', '90 days post-launch support'],
-      popular: false,
-    },
     {
       name: 'Standard',
       slug: 'standard-website',
       description: 'A full small-business website that works for you. Real SEO foundation, CMS you can edit yourself, real analytics.',
       features: ['8-12 pages, custom design', 'CMS for self-service edits', 'SEO foundation + GA4', 'Contact + lead forms', '2 rounds of revisions', '90 days post-launch support'],
       popular: true,
+    },
+    {
+      name: 'Starter',
+      slug: 'plug-and-play',
+      description: 'For a brand-new business that just needs to exist online. A clean 3-4 page flyer so you show up looking professional.',
+      features: ['3-4 pages', 'Mobile responsive', 'Contact form + email routing', 'Basic on-page SEO', '90 days post-launch support'],
+      popular: false,
     },
     {
       name: 'Premium Build',
@@ -75,59 +77,50 @@ export default function Home() {
     }
   })
 
-  const stats = [
-    { label: 'Years Experience', value: '14+', Icon: Clock },
-    { label: 'Projects Delivered', value: '200+', Icon: Rocket },
-    { label: 'API Integrations', value: '200+', Icon: Link2 },
-    { label: 'Flat-Rate Pricing Tiers', value: '7', Icon: BarChart3 },
-  ]
-
   const processSteps = [
     {
       number: '01',
       title: 'Free Consultation',
-      description: 'We discuss your business, goals, and requirements. No sales pressure, just honest advice.',
-      Icon: MessageSquare,
+      description: 'You tell me about your business and what you actually need. If a $250 site covers it, I will not quote you a $950 one.',
     },
     {
       number: '02',
       title: 'Transparent Quote',
       description: 'You get a clear, flat-rate price before we start. No hourly rates, no surprise bills.',
-      Icon: DollarSign,
     },
     {
       number: '03',
       title: 'Fast Development',
-      description: 'Most sites completed in 1-2 weeks. We keep you updated throughout the process.',
-      Icon: Zap,
+      description: 'Most sites take 1-2 weeks. I send progress updates as I go; you never have to chase me for status.',
     },
     {
       number: '04',
       title: 'Launch & Support',
       description: 'Your site goes live with training and documentation. Post-launch support included.',
-      Icon: Target,
     },
   ]
 
-  const projectHighlights = [
+  // Real clients with real screenshots on disk; outcome lines match the
+  // documented results published on /work. Never invent an outcome here.
+  const featuredClients = [
     {
-      description: "A complete scheduling and workflow automation platform handling client bookings, staff scheduling, and automated reminders end to end.",
-      name: "CalenFlow",
-      note: "Internal platform, built by StephensCode",
-      result: "Full automation platform"
+      name: 'AMW Air Conditioning',
+      src: '/images/portfolio/amw-air-conditioning.png',
+      url: 'amwairconditioning.com',
+      outcome: '76 Google reviews within their first two years in business',
     },
     {
-      description: "SACVPN is StephensCode's own zero-log enterprise VPN product -- secure remote access, authentication, and monitoring built and operated by our team.",
-      name: "SACVPN",
-      note: "Our own product, built by StephensCode",
-      result: "Enterprise-grade security"
+      name: 'Lefty Cartel',
+      src: '/images/portfolio/lefty-cartel.png',
+      url: 'leftycartel.net',
+      outcome: 'Started generating revenue within 30 days of launch',
     },
     {
-      description: "An online gaming safety platform with automated player-behavior monitoring and moderation tools for protecting gaming communities.",
-      name: "SentinelForge",
-      note: "Internal platform, built by StephensCode",
-      result: "Platform protecting gamers"
-    }
+      name: 'Terracotta Construction',
+      src: '/images/portfolio/terracotta-construction.png',
+      url: 'terracottaconstruction.com',
+      outcome: 'Ground-up rebuild replacing a site with a documented 18% Ahrefs health score',
+    },
   ]
 
   const serviceAreas = [
@@ -148,120 +141,112 @@ export default function Home() {
 
   return (
     <>
-      {/* Hero — clean professional dark with the bracket motif from the logo */}
-      <section className="relative bg-black border-b border-surface-border overflow-hidden">
-        {/* Soft vertical sheen — barely there, gives the canvas depth without halo */}
-        <div className="pointer-events-none absolute inset-0 bg-gradient-to-b from-surface-card/60 via-black to-black" />
-
+      {/* Hero -- HeroShell owns the section chrome (Build Grid canvas + scroll-
+          scrubbed 3D exit); everything inside stays server-rendered for SEO/LCP. */}
+      <HeroShell>
         <div className="relative mx-auto max-w-7xl px-6 py-28 sm:py-32 lg:px-8">
-          <div className="mx-auto max-w-4xl">
-            {/* Brand tagline eyebrow — bracket motif lifted from the logo */}
-            <div className="mb-10 inline-flex items-center gap-3 text-[11px] font-semibold uppercase tracking-[0.22em] text-primary-500 animate-fade-in-up">
-              <span aria-hidden="true" className="font-mono text-primary-500/80">&lt;</span>
-              <span>Custom-Built &middot; Fully Yours &middot; Veteran Owned</span>
-              <span aria-hidden="true" className="font-mono text-primary-500/80">/&gt;</span>
+          <div className="grid items-center gap-16 lg:grid-cols-[1.1fr_0.9fr]">
+            <div>
+              {/* Brand tagline eyebrow -- bracket motif lifted from the logo,
+                  full JetBrains Mono lockup (400/500 loaded, so font-medium) */}
+              <div className="mb-10 inline-flex items-center gap-3 font-mono text-[11px] font-medium uppercase tracking-[0.16em] text-primary-500 animate-fade-in-up">
+                <span aria-hidden="true" className="text-primary-500/80">&lt;</span>
+                <span>Custom-Built &middot; Fully Yours &middot; Veteran Owned</span>
+                <span aria-hidden="true" className="text-primary-500/80">/&gt;</span>
+              </div>
+
+              <h1 className="font-display text-display font-bold text-white animate-fade-in-up animation-delay-200">
+                Flat-rate web design for Houston-area businesses.
+                <span className="block text-primary-500 mt-2">No hourly games.</span>
+                <span className="block text-gray-500 mt-2">No surprise bills.</span>
+              </h1>
+
+              <p className="mt-8 max-w-2xl text-base leading-7 text-gray-300 sm:mt-10 sm:text-lg sm:leading-8 animate-fade-in-up animation-delay-400">
+                StephensCode is a veteran-owned web development company in Conroe, Texas. I&apos;m Kyle. I&apos;ve built custom websites and business systems for Houston-area small businesses for 14 years. You get a flat quote up front, the site you paid for, and my cell number if anything breaks.
+              </p>
+
+              <div className="mt-12 flex flex-wrap items-center gap-3 animate-fade-in-up animation-delay-600">
+                <TrackedCtaLink
+                  href="/contact"
+                  cta="Get a Flat Quote"
+                  location="homepage_hero"
+                  className="group btn-primary w-full px-6 py-3 text-base sm:w-auto"
+                >
+                  Get a Flat Quote
+                  <ArrowRight className="h-4 w-4 transition-transform duration-200 ease-brand group-hover:translate-x-0.5" />
+                </TrackedCtaLink>
+                <Link
+                  href="/pricing"
+                  className="btn-secondary w-full px-6 py-3 text-base sm:w-auto"
+                >
+                  See What It Costs
+                </Link>
+                <PhoneLink
+                  location="homepage_top"
+                  className="inline-flex w-full items-center justify-center gap-2 rounded-md px-6 py-3 text-base font-semibold text-gray-400 hover:text-primary-400 transition-colors duration-200 sm:w-auto"
+                >
+                  <Phone className="h-4 w-4" />
+                  (936) 323-4527
+                </PhoneLink>
+              </div>
             </div>
 
-            <h1 className="text-5xl font-bold tracking-tight text-white sm:text-7xl leading-[1.02] animate-fade-in-up animation-delay-200">
-              Flat-rate web design for Houston-area businesses.
-              <span className="block text-primary-500 mt-2">No hourly games.</span>
-              <span className="block text-gray-500 mt-2">No surprise bills.</span>
-            </h1>
-
-            <p className="mt-10 max-w-2xl text-lg leading-8 text-gray-300 animate-fade-in-up animation-delay-400">
-              StephensCode is a veteran-owned web development company in Conroe, Texas that builds custom websites and business software at a flat, upfront price. I&apos;m Kyle. I&apos;ve been doing this for small businesses for 14 years. Most of my clients are small, local service businesses across the Houston metro who need a real website or business system without paying agency overhead. You get a flat quote up front, you get the site you paid for, and you get my cell number if anything breaks. That&apos;s it. No ongoing-fee games, no agency layers.
-            </p>
-
-            <div className="mt-12 flex flex-wrap items-center gap-3 animate-fade-in-up animation-delay-600">
-              <TrackedCtaLink
-                href="/contact"
-                cta="Get a Flat Quote"
-                location="homepage_hero"
-                className="group inline-flex items-center gap-2 rounded-md bg-primary-500 px-6 py-3 text-base font-semibold text-white hover:bg-primary-600 transition-colors"
-              >
-                Get a Flat Quote
-                <ArrowRight className="h-4 w-4 transition-transform group-hover:translate-x-0.5" />
-              </TrackedCtaLink>
-              <Link
-                href="/pricing"
-                className="inline-flex items-center gap-2 rounded-md border border-surface-border px-6 py-3 text-base font-semibold text-white hover:border-primary-500/60 hover:bg-surface-card transition-colors"
-              >
-                See What It Costs
-              </Link>
-              <PhoneLink
-                location="homepage_top"
-                className="inline-flex items-center gap-2 rounded-md px-6 py-3 text-base font-semibold text-gray-400 hover:text-primary-400 transition-colors"
-              >
-                <Phone className="h-4 w-4" />
-                (936) 323-4527
-              </PhoneLink>
+            {/* Real client work, framed like product, in viewport one */}
+            <div className="relative hidden lg:block">
+              <BrowserFrame
+                src="/images/portfolio/lefty-cartel.png"
+                alt="Lefty Cartel e-commerce website built by StephensCode"
+                url="leftycartel.net"
+                sizes="(min-width: 1024px) 34vw, 0px"
+                className="absolute -top-10 -right-4 w-[85%] opacity-50"
+              />
+              <BrowserFrame
+                src="/images/portfolio/amw-air-conditioning.png"
+                alt="AMW Air Conditioning website built by StephensCode"
+                url="amwairconditioning.com"
+                priority
+                sizes="(min-width: 1024px) 40vw, 0px"
+                className="relative mt-14 w-[92%]"
+              />
             </div>
-
-            {/* Trust row — facts, plainly stated, separated by hairlines */}
-            <dl className="mt-20 grid grid-cols-2 gap-x-8 gap-y-8 sm:grid-cols-4 animate-fade-in-up animation-delay-800">
-              <div className="border-l border-primary-500/40 pl-4">
-                <dt className="text-[10px] uppercase tracking-[0.18em] text-gray-500">Built since</dt>
-                <dd className="mt-1.5 text-3xl font-semibold text-white tracking-tight">2011</dd>
-              </div>
-              <div className="border-l border-primary-500/40 pl-4">
-                <dt className="text-[10px] uppercase tracking-[0.18em] text-gray-500">Projects shipped</dt>
-                <dd className="mt-1.5 text-3xl font-semibold text-white tracking-tight">200+</dd>
-              </div>
-              <div className="border-l border-primary-500/40 pl-4">
-                <dt className="text-[10px] uppercase tracking-[0.18em] text-gray-500">Standard site</dt>
-                <dd className="mt-1.5 text-3xl font-semibold text-white tracking-tight">$950</dd>
-              </div>
-              <div className="border-l border-primary-500/40 pl-4">
-                <dt className="text-[10px] uppercase tracking-[0.18em] text-gray-500">Based in</dt>
-                <dd className="mt-1.5 text-3xl font-semibold text-white tracking-tight">Conroe, TX</dd>
-              </div>
-            </dl>
           </div>
+
+          {/* Trust row -- facts, plainly stated, separated by hairlines */}
+          <dl className="mt-20 grid grid-cols-2 gap-x-8 gap-y-8 sm:grid-cols-4 animate-fade-in-up animation-delay-800">
+            <div className="border-l border-primary-500/40 pl-4">
+              <dt className="text-[10px] uppercase tracking-[0.18em] text-gray-500">Built since</dt>
+              <dd className="mt-1.5 font-display font-expanded text-3xl font-display font-bold tracking-tight tabular-nums text-white">2011</dd>
+            </div>
+            <div className="border-l border-primary-500/40 pl-4">
+              <dt className="text-[10px] uppercase tracking-[0.18em] text-gray-500">Projects shipped</dt>
+              <dd className="mt-1.5 font-display font-expanded text-3xl font-display font-bold tracking-tight tabular-nums text-white">200+</dd>
+            </div>
+            <div className="border-l border-primary-500/40 pl-4">
+              <dt className="text-[10px] uppercase tracking-[0.18em] text-gray-500">Standard site</dt>
+              <dd className="mt-1.5 font-display font-expanded text-3xl font-display font-bold tracking-tight tabular-nums text-white">$950</dd>
+            </div>
+            <div className="border-l border-primary-500/40 pl-4">
+              <dt className="text-[10px] uppercase tracking-[0.18em] text-gray-500">Based in</dt>
+              <dd className="mt-1.5 font-display font-expanded text-3xl font-display font-bold tracking-tight text-white">Conroe, TX</dd>
+            </div>
+          </dl>
         </div>
-      </section>
+      </HeroShell>
 
-      {/* Stats Section */}
-      <section className="bg-black border-y border-surface-border py-20">
-        <div className="mx-auto max-w-7xl px-6 lg:px-8">
-          <div className="mx-auto max-w-3xl text-center mb-14">
-            <div className="inline-flex items-center gap-3 text-[11px] font-semibold uppercase tracking-[0.22em] text-primary-500 mb-4">
-              <span aria-hidden="true" className="font-mono text-primary-500/80">&lt;</span>
-              <span>Track Record</span>
-              <span aria-hidden="true" className="font-mono text-primary-500/80">/&gt;</span>
-            </div>
-            <h2 className="text-3xl font-bold tracking-tight text-white sm:text-4xl">
-              Fourteen years. Two hundred-plus sites.
-            </h2>
-          </div>
-          <div className="grid grid-cols-2 gap-8 lg:grid-cols-4">
-            {stats.map((stat) => {
-              const Icon = stat.Icon
-              return (
-                <div key={stat.label} className="flex flex-col items-center text-center group">
-                  <div className="mb-4 flex h-12 w-12 items-center justify-center rounded-md border border-primary-500/40 text-primary-500 group-hover:border-primary-500 group-hover:text-primary-400 transition-colors">
-                    <Icon className="h-5 w-5" strokeWidth={1.75} />
-                  </div>
-                  <p className="order-first text-4xl font-bold tracking-tight text-white mb-2">
-                    {stat.value}
-                  </p>
-                  <p className="text-sm leading-7 text-gray-400">{stat.label}</p>
-                </div>
-              )
-            })}
-          </div>
-        </div>
-      </section>
+      {/* Real client roster -- replaces the old stats section, which restated
+          the hero trust row 400px below it */}
+      <ClientNameBand />
 
       {/* Packages Section */}
       <section className="bg-surface py-24 sm:py-28 border-b border-surface-border" id="packages">
         <div className="mx-auto max-w-7xl px-6 lg:px-8">
-          <div className="mx-auto max-w-2xl text-center mb-16">
-            <div className="inline-flex items-center gap-3 text-[11px] font-semibold uppercase tracking-[0.22em] text-primary-500 mb-4">
-              <span aria-hidden="true" className="font-mono text-primary-500/80">&lt;</span>
+          <div className="mx-auto max-w-2xl text-center mb-16 reveal-rise">
+            <div className="mb-4 inline-flex items-center gap-3 font-mono text-[11px] font-medium uppercase tracking-[0.16em] text-primary-500">
+              <span aria-hidden="true" className="text-primary-500/80">&lt;</span>
               <span>Flat-Rate Pricing</span>
-              <span aria-hidden="true" className="font-mono text-primary-500/80">/&gt;</span>
+              <span aria-hidden="true" className="text-primary-500/80">/&gt;</span>
             </div>
-            <h2 className="text-3xl font-bold tracking-tight text-white sm:text-4xl">
+            <h2 className="font-display text-display-sm font-bold text-white">
               Pick a tier. That&apos;s the price.
             </h2>
             <p className="mt-4 text-lg leading-8 text-gray-400">
@@ -270,63 +255,97 @@ export default function Home() {
           </div>
 
           <div className="grid grid-cols-1 gap-6 md:grid-cols-2 lg:grid-cols-3">
-            {packages.map((pkg) => (
-              <article
-                key={pkg.name}
-                className={`relative flex flex-col rounded-2xl p-7 card-lift ${
-                  pkg.popular
-                    ? 'bg-surface-card ring-2 ring-primary-500'
-                    : 'bg-surface-card ring-1 ring-surface-border'
-                }`}
-              >
-                {pkg.popular && (
-                  <div className="absolute -top-3 left-7">
-                    <div className="rounded-full bg-primary-500 px-3 py-0.5 text-[10px] font-semibold uppercase tracking-[0.18em] text-white">
-                      Most picked
+            {packages.map((pkg) =>
+              pkg.popular ? (
+                <article
+                  key={pkg.name}
+                  className="relative flex flex-col rounded-2xl p-7 card-lift reveal-card bg-surface-card border-2 border-primary-500 [--card-hover-border:#ef4e22] shadow-glow-primary md:col-span-2 lg:col-span-2"
+                >
+                  <div className="grid gap-8 lg:grid-cols-2">
+                    <div>
+                      <h3 className="text-xl font-semibold text-white">{pkg.name}</h3>
+                      <p className="mt-3 text-sm leading-6 text-gray-400">
+                        {pkg.description}
+                      </p>
+                      <ul role="list" className="mt-5 space-y-2 text-sm leading-6 text-gray-300">
+                        {pkg.features.map((feature) => (
+                          <li key={feature} className="flex gap-x-2.5">
+                            <Check className="h-4 w-4 flex-none mt-1 text-primary-500" strokeWidth={2.5} />
+                            <span>{feature}</span>
+                          </li>
+                        ))}
+                      </ul>
+                    </div>
+                    <div className="flex flex-col justify-between lg:border-l lg:border-surface-border lg:pl-8">
+                      <div>
+                        <p className="text-[10px] font-semibold uppercase tracking-[0.18em] text-primary-400">
+                          Most picked
+                        </p>
+                        <div className="mt-2 flex items-baseline gap-1">
+                          <span className="font-display font-expanded text-5xl font-display font-bold tracking-tight tabular-nums text-white">{pkg.price}</span>
+                          {!pkg.price.includes('+') && (
+                            <span className="text-xs text-gray-500">flat</span>
+                          )}
+                        </div>
+                        <p className="mt-4 font-mono text-xs uppercase tracking-[0.12em] text-gray-500">Delivery {pkg.delivery}</p>
+                      </div>
+                      <Link
+                        href={pkg.href}
+                        aria-label={`Learn more about ${pkg.name}`}
+                        className="group btn-primary mt-8 w-full px-5 py-2.5 text-sm"
+                      >
+                        Learn more
+                        <ArrowRight className="h-3.5 w-3.5 transition-transform duration-200 ease-brand group-hover:translate-x-0.5" />
+                      </Link>
                     </div>
                   </div>
-                )}
-
-                <div className="flex items-baseline justify-between">
-                  <h3 className="text-xl font-semibold text-white">{pkg.name}</h3>
-                  <div className="flex items-baseline gap-1">
-                    <span className="text-3xl font-bold tracking-tight text-white">{pkg.price}</span>
-                    {!pkg.price.includes('+') && (
-                      <span className="text-xs text-gray-500">flat</span>
-                    )}
+                </article>
+              ) : (
+                <article
+                  key={pkg.name}
+                  className="relative flex flex-col rounded-2xl p-7 card-lift reveal-card bg-surface-card border border-surface-border"
+                >
+                  <div className="flex items-baseline justify-between">
+                    <h3 className="text-xl font-semibold text-white">{pkg.name}</h3>
+                    <div className="flex items-baseline gap-1">
+                      <span className="text-3xl font-display font-bold tracking-tight tabular-nums text-white">{pkg.price}</span>
+                      {!pkg.price.includes('+') && (
+                        <span className="text-xs text-gray-500">flat</span>
+                      )}
+                    </div>
                   </div>
-                </div>
 
-                <p className="mt-3 text-sm leading-6 text-gray-400">
-                  {pkg.description}
-                </p>
+                  <p className="mt-3 text-sm leading-6 text-gray-400">
+                    {pkg.description}
+                  </p>
 
-                <ul role="list" className="mt-5 space-y-2 text-sm leading-6 text-gray-300 flex-1">
-                  {pkg.features.map((feature) => (
-                    <li key={feature} className="flex gap-x-2.5">
-                      <Check className="h-4 w-4 flex-none mt-1 text-primary-500" strokeWidth={2.5} />
-                      <span>{feature}</span>
-                    </li>
-                  ))}
-                </ul>
+                  <ul role="list" className="mt-5 space-y-2 text-sm leading-6 text-gray-300 flex-1">
+                    {pkg.features.map((feature) => (
+                      <li key={feature} className="flex gap-x-2.5">
+                        <Check className="h-4 w-4 flex-none mt-1 text-primary-500" strokeWidth={2.5} />
+                        <span>{feature}</span>
+                      </li>
+                    ))}
+                  </ul>
 
-                <div className="mt-6 flex items-center justify-between border-t border-surface-border pt-4">
-                  <span className="text-xs uppercase tracking-wider text-gray-500">Delivery {pkg.delivery}</span>
-                  <Link
-                    href={pkg.href}
-                    aria-label={`Learn more about ${pkg.name}`}
-                    className="inline-flex items-center gap-1 text-sm font-semibold text-primary-400 hover:text-primary-300 transition-colors"
-                  >
-                    Learn more
-                    <ArrowRight className="h-3.5 w-3.5" />
-                  </Link>
-                </div>
-              </article>
-            ))}
+                  <div className="mt-6 flex items-center justify-between border-t border-surface-border pt-4">
+                    <span className="font-mono text-xs uppercase tracking-[0.12em] text-gray-500">Delivery {pkg.delivery}</span>
+                    <Link
+                      href={pkg.href}
+                      aria-label={`Learn more about ${pkg.name}`}
+                      className="group inline-flex items-center gap-1 py-3 -my-3 text-sm font-semibold text-primary-400 hover:text-primary-300 transition-colors"
+                    >
+                      Learn more
+                      <ArrowRight className="h-3.5 w-3.5 transition-transform duration-200 ease-brand group-hover:translate-x-0.5" />
+                    </Link>
+                  </div>
+                </article>
+              )
+            )}
           </div>
 
           {/* Above-the-tier custom band */}
-          <div className="mx-auto mt-10 max-w-4xl rounded-2xl border border-dashed border-surface-border p-8 text-center">
+          <div className="mx-auto mt-10 max-w-4xl rounded-2xl border border-dashed border-surface-border p-8 text-center reveal-rise">
             <h3 className="text-lg font-semibold text-white">Above this, let&apos;s talk</h3>
             <p className="mt-2 text-sm leading-6 text-gray-400">
               SaaS Phase 1 builds, profit-share platforms, custom products. I&apos;ll scope it and quote you a flat number. No hourly billing, ever.
@@ -336,16 +355,17 @@ export default function Home() {
                 href="/contact"
                 cta="Get a Flat Quote"
                 location="homepage_custom_band"
-                className="inline-flex items-center gap-2 rounded-md bg-primary-500 px-5 py-2.5 text-sm font-semibold text-white hover:bg-primary-600 transition-colors"
+                className="group btn-primary px-5 py-2.5 text-sm"
               >
                 Get a Flat Quote
-                <ArrowRight className="h-3.5 w-3.5" />
+                <ArrowRight className="h-3.5 w-3.5 transition-transform duration-200 ease-brand group-hover:translate-x-0.5" />
               </TrackedCtaLink>
               <Link
                 href="/custom-solutions"
-                className="text-sm font-semibold text-gray-300 hover:text-primary-400 transition-colors"
+                className="group inline-flex min-h-[44px] items-center gap-1 text-sm font-semibold text-gray-300 hover:text-primary-400 transition-colors"
               >
-                See custom platforms I&apos;ve built →
+                See custom platforms I&apos;ve built
+                <ArrowRight className="h-3.5 w-3.5 transition-transform duration-200 ease-brand group-hover:translate-x-0.5" />
               </Link>
             </div>
           </div>
@@ -353,10 +373,10 @@ export default function Home() {
           <div className="mt-12 text-center">
             <Link
               href="/pricing"
-              className="inline-flex items-center gap-2 text-base font-semibold text-primary-400 hover:text-primary-300 transition-colors"
+              className="group inline-flex items-center gap-2 py-2.5 -my-2.5 text-base font-semibold text-primary-400 hover:text-primary-300 transition-colors"
             >
               View complete pricing &amp; add-ons
-              <ArrowRight className="h-4 w-4" />
+              <ArrowRight className="h-4 w-4 transition-transform duration-200 ease-brand group-hover:translate-x-0.5" />
             </Link>
           </div>
         </div>
@@ -365,11 +385,11 @@ export default function Home() {
       {/* IT Services */}
       <section className="bg-surface-card border-y border-surface-border text-white py-20 sm:py-24">
         <div className="mx-auto max-w-7xl px-6 lg:px-8">
-          <div className="mx-auto max-w-3xl text-center mb-14">
-            <div className="text-xs font-semibold uppercase tracking-[0.18em] text-primary-500 mb-3">
+          <div className="mx-auto max-w-3xl text-center mb-14 reveal-rise">
+            <div className="font-mono text-xs font-medium uppercase tracking-[0.16em] text-primary-500 mb-3">
               Managed IT &amp; Cybersecurity
             </div>
-            <h2 className="text-3xl font-bold tracking-tight sm:text-4xl">
+            <h2 className="font-display text-display-sm font-bold text-white">
               IT support that protects your business
             </h2>
             <p className="mt-4 text-lg leading-8 text-gray-300">
@@ -385,7 +405,7 @@ export default function Home() {
               { name: 'Essential IT', price: '$99/user/mo', description: 'Helpdesk, monitoring, email security and password manager.', Icon: Monitor, href: '/msp/essential-it', value: '$125+ value' },
               { name: 'Business Pro', price: '$129/user/mo', description: 'Full IT plus backup, dark web monitoring and MFA.', Icon: ShieldCheck, href: '/msp/business-pro', value: '$175+ value' },
               { name: 'Complete IT', price: '$179/user/mo', description: 'IT and security with EDR, SIEM and training.', Icon: Lock, href: '/msp/complete-it', value: '$230+ value' },
-              { name: 'SACVPN', price: 'Per User', description: 'Enterprise VPN with military-grade encryption.', Icon: KeyRound, href: 'https://sacvpn.com', value: 'Zero-Log Policy', external: true },
+              { name: 'SACVPN', price: 'Per User', description: 'Our own zero-log VPN, built and operated in-house.', Icon: KeyRound, href: 'https://sacvpn.com', value: 'Zero-Log Policy', external: true },
               { name: 'Enterprise', price: 'Custom', description: '24/7 support, dedicated team, full compliance.', Icon: Building2, href: '/msp/enterprise-it-solutions', value: '50+ users' },
             ]
             return (
@@ -405,7 +425,7 @@ export default function Home() {
                       </div>
                     </>
                   )
-                  const className = 'group block rounded-lg bg-surface border border-surface-border p-6 hover:border-primary-500/60 transition-colors'
+                  const className = 'group block rounded-lg bg-surface border border-surface-border p-6 card-lift reveal-card'
                   return s.external ? (
                     <a key={s.name} href={s.href} target="_blank" rel="noopener noreferrer" className={className}>{inner}</a>
                   ) : (
@@ -419,7 +439,7 @@ export default function Home() {
           <div className="mt-12 text-center">
             <Link
               href="/msp"
-              className="inline-flex items-center gap-2 rounded-md border border-surface-border px-6 py-3 text-base font-semibold text-white hover:bg-surface transition-colors"
+              className="btn-secondary px-6 py-3 text-base"
             >
               View all IT services
               <ArrowRight className="h-4 w-4" />
@@ -428,82 +448,98 @@ export default function Home() {
         </div>
       </section>
 
-      {/* Process Section */}
+      {/* Process Section -- asymmetric split: sticky header column + hairline
+          timeline rail. First non-centered section on the page on purpose. */}
       <section className="bg-surface py-24 sm:py-28 border-b border-surface-border">
         <div className="mx-auto max-w-7xl px-6 lg:px-8">
-          <div className="mx-auto max-w-2xl text-center mb-16">
-            <div className="inline-flex items-center gap-3 text-[11px] font-semibold uppercase tracking-[0.22em] text-primary-500 mb-4">
-              <span aria-hidden="true" className="font-mono text-primary-500/80">&lt;</span>
-              <span>How It Works</span>
-              <span aria-hidden="true" className="font-mono text-primary-500/80">/&gt;</span>
-            </div>
-            <h2 className="text-3xl font-bold tracking-tight text-white sm:text-4xl">
-              Four steps from call to launch.
-            </h2>
-            <p className="mt-4 text-lg leading-8 text-gray-400">
-              Consultation, flat quote, build, hand-off. No status meetings. No ongoing fees.
-            </p>
-          </div>
-
-          <div className="grid grid-cols-1 gap-12 lg:grid-cols-4">
-            {processSteps.map((step, index) => {
-              const Icon = step.Icon
-              return (
-                <div key={step.number} className="relative group">
-                  {index < processSteps.length - 1 && (
-                    <div className="hidden lg:block absolute top-20 left-full w-full h-0.5 bg-gradient-to-r from-primary-500 to-primary-500/10 -translate-x-1/2"></div>
-                  )}
-                  <div className="relative flex flex-col items-center text-center">
-                    <div className="flex h-16 w-16 items-center justify-center rounded-md border-2 border-primary-500 bg-black text-primary-500 mb-6 group-hover:bg-primary-500 group-hover:text-white transition-colors">
-                      <Icon className="h-7 w-7" strokeWidth={2} />
-                    </div>
-                    <div className="absolute top-0 -right-2 flex h-8 w-8 items-center justify-center rounded-full bg-accent-400 text-black text-sm font-bold shadow-lg ring-2 ring-surface">
-                      {step.number}
-                    </div>
-                    <h3 className="text-xl font-bold text-white mb-3">{step.title}</h3>
-                    <p className="text-gray-400">{step.description}</p>
-                  </div>
+          <div className="grid gap-16 lg:grid-cols-12">
+            <div className="lg:col-span-4">
+              <div className="lg:sticky lg:top-28 reveal-rise">
+                <div className="inline-flex items-center gap-3 font-mono text-[11px] font-medium uppercase tracking-[0.16em] text-primary-500">
+                  <span aria-hidden="true" className="text-primary-500/80">&lt;</span>
+                  <span>How It Works</span>
+                  <span aria-hidden="true" className="text-primary-500/80">/&gt;</span>
                 </div>
-              )
-            })}
+                <h2 className="mt-4 font-display text-display-sm font-bold text-white">
+                  Four steps from call to launch.
+                </h2>
+                <p className="mt-4 text-lg leading-8 text-gray-400">
+                  Consultation, flat quote, build, hand-off. No status meetings. No ongoing fees.
+                </p>
+                <TrackedCtaLink
+                  href="/contact"
+                  cta="Get a Flat Quote"
+                  location="homepage_process"
+                  className="group btn-primary mt-8 px-6 py-3 text-base"
+                >
+                  Get a Flat Quote
+                  <ArrowRight className="h-4 w-4 transition-transform duration-200 ease-brand group-hover:translate-x-0.5" />
+                </TrackedCtaLink>
+              </div>
+            </div>
+
+            <ol className="lg:col-span-8 relative border-l border-surface-border pl-8 sm:pl-10 space-y-12">
+              {processSteps.map((step) => (
+                <li key={step.number} className="relative reveal-rise">
+                  <span
+                    aria-hidden="true"
+                    className="absolute top-1.5 -left-[43px] sm:-left-[51px] flex h-5 w-5 items-center justify-center rounded-full border border-primary-500 bg-black"
+                  >
+                    <span className="h-1.5 w-1.5 rounded-full bg-primary-500" />
+                  </span>
+                  <p className="font-mono text-xs tracking-[0.18em] text-primary-500">{step.number}</p>
+                  <h3 className="mt-2 text-xl font-semibold text-white">{step.title}</h3>
+                  <p className="mt-2 max-w-xl leading-7 text-gray-400">{step.description}</p>
+                </li>
+              ))}
+            </ol>
           </div>
         </div>
       </section>
 
-      {/* Testimonials */}
+      {/* Featured client work -- image-led, real screenshots, documented outcomes */}
       <section className="bg-surface-card border-b border-surface-border py-24 sm:py-28">
         <div className="mx-auto max-w-7xl px-6 lg:px-8">
-          <div className="mx-auto max-w-2xl text-center mb-16">
-            <div className="inline-flex items-center gap-3 text-[11px] font-semibold uppercase tracking-[0.22em] text-primary-500 mb-4">
-              <span aria-hidden="true" className="font-mono text-primary-500/80">&lt;</span>
+          <div className="mx-auto max-w-2xl text-center mb-16 reveal-rise">
+            <div className="mb-4 inline-flex items-center gap-3 font-mono text-[11px] font-medium uppercase tracking-[0.16em] text-primary-500">
+              <span aria-hidden="true" className="text-primary-500/80">&lt;</span>
               <span>Built For Real Businesses</span>
-              <span aria-hidden="true" className="font-mono text-primary-500/80">/&gt;</span>
+              <span aria-hidden="true" className="text-primary-500/80">/&gt;</span>
             </div>
-            <h2 className="text-3xl font-bold tracking-tight text-white sm:text-4xl">
-              A few of the platforms I&apos;ve shipped.
+            <h2 className="font-display text-display-sm font-bold text-white">
+              Real client work, real numbers.
             </h2>
           </div>
 
           <div className="grid grid-cols-1 gap-8 lg:grid-cols-3">
-            {projectHighlights.map((project, index) => (
-              <article key={index} className="bg-surface-elevated rounded-2xl ring-1 ring-surface-border shadow-xl shadow-black/40 p-8 hover:ring-primary-500/50 transition-all">
-                <p className="font-bold text-white text-lg mb-2">{project.name}</p>
-                <p className="text-gray-300 mb-6">{project.description}</p>
-                <div className="border-t border-surface-border pt-4">
-                  <p className="text-sm text-gray-500 mb-2">{project.note}</p>
-                  <div className="inline-flex items-center gap-2 rounded-full bg-emerald-500/15 px-3 py-1 text-xs font-bold text-emerald-400">
-                    <svg className="h-4 w-4" fill="currentColor" viewBox="0 0 20 20">
-                      <path fillRule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.857-9.809a.75.75 0 00-1.214-.882l-3.483 4.79-1.88-1.88a.75.75 0 10-1.06 1.061l2.5 2.5a.75.75 0 001.137-.089l4-5.5z" clipRule="evenodd" />
-                    </svg>
-                    <span>{project.result}</span>
-                  </div>
+            {featuredClients.map((client) => (
+              <article
+                key={client.name}
+                className="rounded-2xl bg-surface-elevated border border-surface-border card-lift reveal-card p-4"
+              >
+                <BrowserFrame
+                  src={client.src}
+                  alt={`${client.name} website built by StephensCode`}
+                  url={client.url}
+                  sizes="(min-width: 1024px) 30vw, 100vw"
+                />
+                <div className="p-4">
+                  <h3 className="text-lg font-semibold text-white">{client.name}</h3>
+                  <p className="mt-2 text-sm leading-6 text-gray-400">{client.outcome}</p>
+                  <Link
+                    href="/work"
+                    className="group mt-4 inline-flex items-center gap-1 py-3 -my-3 text-sm font-semibold text-primary-400 hover:text-primary-300 transition-colors"
+                  >
+                    Read the case study
+                    <ArrowRight className="h-3.5 w-3.5 transition-transform duration-200 ease-brand group-hover:translate-x-0.5" />
+                  </Link>
                 </div>
               </article>
             ))}
           </div>
 
           {/* Client proof callout -- real, quantified client outcomes, not just internal tooling */}
-          <div className="mx-auto mt-10 max-w-4xl rounded-2xl border border-primary-500/30 bg-surface-elevated p-8 text-center">
+          <div className="mx-auto mt-10 max-w-4xl rounded-2xl border border-primary-500/30 bg-surface-elevated p-8 text-center reveal-rise">
             <h3 className="text-lg font-semibold text-white">Real client results, not just internal products</h3>
             <p className="mt-3 text-sm leading-6 text-gray-400">
               <strong className="text-white">AMW Air Conditioning</strong> picked up 76 Google reviews within their first two years and hired 2 new employees to keep up with demand. <strong className="text-white">Benefit Builder</strong> grew from roughly $1,000 MRR to $52,000 MRR after we built out their full operating platform.
@@ -511,10 +547,10 @@ export default function Home() {
             <div className="mt-5">
               <Link
                 href="/work"
-                className="inline-flex items-center gap-2 text-sm font-semibold text-primary-400 hover:text-primary-300 transition-colors"
+                className="group inline-flex items-center gap-2 py-3 -my-3 text-sm font-semibold text-primary-400 hover:text-primary-300 transition-colors"
               >
                 Read the full case studies
-                <ArrowRight className="h-3.5 w-3.5" />
+                <ArrowRight className="h-3.5 w-3.5 transition-transform duration-200 ease-brand group-hover:translate-x-0.5" />
               </Link>
             </div>
           </div>
@@ -522,7 +558,7 @@ export default function Home() {
           <div className="mt-8 text-center">
             <Link
               href="/work"
-              className="inline-flex items-center gap-2 rounded-md border border-surface-border px-6 py-3 text-base font-semibold text-white hover:border-primary-500/60 hover:bg-surface transition-colors"
+              className="btn-secondary px-6 py-3 text-base"
             >
               View all case studies
               <ArrowRight className="h-4 w-4" />
@@ -534,13 +570,13 @@ export default function Home() {
       {/* Service Areas */}
       <section className="bg-surface py-24 sm:py-28 border-b border-surface-border">
         <div className="mx-auto max-w-7xl px-6 lg:px-8">
-          <div className="mx-auto max-w-2xl text-center mb-16">
-            <div className="inline-flex items-center gap-3 text-[11px] font-semibold uppercase tracking-[0.22em] text-primary-500 mb-4">
-              <span aria-hidden="true" className="font-mono text-primary-500/80">&lt;</span>
+          <div className="mx-auto max-w-2xl text-center mb-16 reveal-rise">
+            <div className="mb-4 inline-flex items-center gap-3 font-mono text-[11px] font-medium uppercase tracking-[0.16em] text-primary-500">
+              <span aria-hidden="true" className="text-primary-500/80">&lt;</span>
               <span>Greater Houston</span>
-              <span aria-hidden="true" className="font-mono text-primary-500/80">/&gt;</span>
+              <span aria-hidden="true" className="text-primary-500/80">/&gt;</span>
             </div>
-            <h2 className="text-3xl font-bold tracking-tight text-white sm:text-4xl">
+            <h2 className="font-display text-display-sm font-bold text-white">
               I work with businesses across Texas.
             </h2>
             <p className="mt-4 text-lg leading-8 text-gray-400">
@@ -548,12 +584,12 @@ export default function Home() {
             </p>
           </div>
 
-          <div className="grid grid-cols-2 gap-4 sm:grid-cols-3 lg:grid-cols-4">
+          <div className="grid grid-cols-2 gap-4 sm:grid-cols-3 lg:grid-cols-4 reveal-rise">
             {serviceAreas.map((city) => (
               <Link
                 key={city.slug}
                 href={`/service-areas/${city.slug}`}
-                className="group relative block rounded-md bg-surface-card ring-1 ring-surface-border p-5 text-center card-lift"
+                className="group relative block rounded-md bg-surface-card border border-surface-border p-5 text-center card-lift"
               >
                 <p className="relative text-base font-semibold text-white group-hover:text-primary-400 transition-colors">{city.name}</p>
                 <p className="relative text-xs text-gray-500 mt-0.5">Web development</p>
@@ -569,10 +605,10 @@ export default function Home() {
         </div>
       </section>
 
-      {/* Final CTA — plain, sober, no brand moment */}
+      {/* Final CTA -- plain, sober, no brand moment */}
       <section className="bg-surface border-t border-surface-border">
-        <div className="mx-auto max-w-4xl px-6 py-20 sm:py-24 lg:px-8 text-center">
-          <h2 className="text-3xl font-bold tracking-tight text-white sm:text-4xl">
+        <div className="mx-auto max-w-4xl px-6 py-20 sm:py-24 lg:px-8 text-center reveal-rise">
+          <h2 className="font-display text-display-sm font-bold text-white">
             Ready to talk?
           </h2>
           <p className="mx-auto mt-4 max-w-2xl text-lg text-gray-300">
@@ -581,14 +617,14 @@ export default function Home() {
           <div className="mt-10 flex flex-wrap items-center justify-center gap-3">
             <Link
               href="/contact"
-              className="inline-flex items-center gap-2 rounded-md bg-primary-500 px-6 py-3 text-base font-semibold text-white hover:bg-primary-600 transition-colors"
+              className="group btn-primary w-full px-6 py-3 text-base sm:w-auto"
             >
               Get a Flat Quote
-              <ArrowRight className="h-4 w-4" />
+              <ArrowRight className="h-4 w-4 transition-transform duration-200 ease-brand group-hover:translate-x-0.5" />
             </Link>
             <PhoneLink
               location="homepage_bottom"
-              className="inline-flex items-center gap-2 rounded-md border border-surface-border px-6 py-3 text-base font-semibold text-white hover:bg-surface-card transition-colors"
+              className="btn-secondary w-full px-6 py-3 text-base sm:w-auto"
             >
               <Phone className="h-4 w-4" />
               (936) 323-4527

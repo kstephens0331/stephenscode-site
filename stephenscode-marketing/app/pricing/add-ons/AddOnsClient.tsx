@@ -1,4 +1,4 @@
-'use client'
+﻿'use client'
 
 import { useState, useMemo } from 'react'
 import Link from 'next/link'
@@ -40,7 +40,7 @@ export default function AddOnsClient() {
       <section className="bg-gradient-to-br from-surface via-surface-card to-surface py-16 sm:py-20">
         <div className="mx-auto max-w-7xl px-6 lg:px-8">
           <div className="text-center">
-            <h1 className="text-4xl font-bold tracking-tight text-white sm:text-5xl">
+            <h1 className="text-4xl font-display font-bold tracking-tight text-white sm:text-5xl">
               Website Add-Ons
             </h1>
             <p className="mt-4 text-lg text-blue-100 max-w-2xl mx-auto">
@@ -136,8 +136,8 @@ export default function AddOnsClient() {
                 <div className="flex items-center justify-between mb-3">
                   <span className={`px-2 py-1 rounded-full text-xs font-medium ${
                     addon.category === 'addon-advanced'
-                      ? 'bg-primary-500/15 text-primary-700'
-                      : 'bg-accent-500/15 text-accent-700'
+                      ? 'bg-primary-500/15 text-primary-300'
+                      : 'bg-accent-500/15 text-accent-300'
                   }`}>
                     {addon.category === 'addon-advanced' ? 'Advanced' : 'Basic'}
                   </span>
@@ -168,7 +168,7 @@ export default function AddOnsClient() {
                     : 'text-accent-600 group-hover:text-accent-700'
                 }`}>
                   View Details
-                  <span aria-hidden="true" className="inline-block ml-1 transition-transform group-hover:translate-x-1">→</span>
+                  <span aria-hidden="true" className="inline-block ml-1 transition-transform group-hover:translate-x-1">â†’</span>
                 </div>
               </Link>
             ))}
@@ -204,7 +204,7 @@ export default function AddOnsClient() {
           </p>
           <Link
             href="/contact"
-            className="inline-flex items-center gap-2 rounded-lg bg-accent-500 px-6 py-3 text-base font-semibold text-white shadow-lg hover:bg-accent-600 transition-all"
+            className="inline-flex items-center gap-2 rounded-lg bg-accent-700 px-6 py-3 text-base font-semibold text-white shadow-lg hover:bg-accent-800 transition-all"
           >
             Get a Free Quote
             <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">

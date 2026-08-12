@@ -1,4 +1,5 @@
 import type { Config } from "tailwindcss";
+import defaultTheme from "tailwindcss/defaultTheme";
 
 export default {
   content: [
@@ -38,7 +39,7 @@ export default {
           900: '#78350f',
           950: '#451a03',
         },
-        // Surface layering — anchored on pure black to match the logo bg.
+        // Surface layering -- anchored on pure black to match the logo bg.
         surface: {
           DEFAULT: '#000000',
           canvas: '#000000',
@@ -48,6 +49,47 @@ export default {
           light: '#161616',
           lighter: '#262626',
         },
+      },
+      // Three-font system: Public Sans (body), Archivo (display, variable wdth
+      // axis for font-stretch), JetBrains Mono (eyebrows, badges, numeric chrome).
+      // CSS variables are set by next/font in app/layout.tsx.
+      fontFamily: {
+        sans: ['var(--font-public-sans)', ...defaultTheme.fontFamily.sans],
+        display: ['var(--font-archivo)', ...defaultTheme.fontFamily.sans],
+        mono: ['var(--font-mono)', ...defaultTheme.fontFamily.mono],
+      },
+      // Fluid display type: one smooth clamp() ramp instead of breakpoint jumps.
+      // display = 40px floor on small phones up to 72px cap by 1280px.
+      // display-sm = 28px to 36px, matching the text-3xl/sm:text-4xl h2 range.
+      fontSize: {
+        display: ['clamp(2.5rem, 1.55rem + 3.7vw, 4.5rem)', { lineHeight: '1.05', letterSpacing: '-0.02em' }],
+        'display-sm': ['clamp(1.75rem, 1.55rem + 0.9vw, 2.25rem)', { lineHeight: '1.15', letterSpacing: '-0.015em' }],
+      },
+      // Timing scale convention: 150ms = color/opacity micro (dropdown items,
+      // icon tints), 200ms = default (buttons, links, arrow nudges), 250ms =
+      // nav underline draw, 300ms = card lift/surfaces. All with ease-brand.
+      // Swift-out curve: fast start, long soft settle.
+      transitionTimingFunction: {
+        brand: 'cubic-bezier(0.22, 1, 0.36, 1)',
+      },
+      transitionDuration: {
+        '250': '250ms',
+        '350': '350ms',
+      },
+      // Dark-theme layered shadows: bare shadow-lg/xl is near-invisible on
+      // near-black. Hairline top-light rings + ambient black + brand glow.
+      boxShadow: {
+        // Buttons: inset 1px white top-edge glint reads machined on dark.
+        btn: 'inset 0 1px 0 rgb(255 255 255 / 0.12), 0 1px 2px rgb(0 0 0 / 0.4)',
+        'btn-hover': 'inset 0 1px 0 rgb(255 255 255 / 0.16), 0 8px 24px -8px rgb(239 78 34 / 0.45)',
+        // Cards on near-black: 1px top-light ring does the lifting, ambient black adds depth.
+        card: '0 0 0 1px rgb(255 255 255 / 0.06), 0 1px 2px 0 rgb(0 0 0 / 0.55), 0 8px 24px -8px rgb(0 0 0 / 0.65)',
+        'card-hover': '0 12px 32px -16px rgb(0 0 0 / 0.6), 0 4px 24px -12px rgb(239 78 34 / 0.18)',
+        // CTA button glow.
+        'glow-primary': '0 1px 2px 0 rgb(0 0 0 / 0.4), 0 0 20px -4px rgb(239 78 34 / 0.5)',
+        'glow-accent': '0 1px 2px 0 rgb(0 0 0 / 0.4), 0 0 20px -4px rgb(245 158 11 / 0.5)',
+        // Inner top highlight for elevated panels.
+        'inner-hairline': 'inset 0 1px 0 0 rgb(255 255 255 / 0.06)',
       },
     },
   },

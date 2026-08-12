@@ -1,4 +1,4 @@
-import type { Metadata } from 'next'
+﻿import type { Metadata } from 'next'
 import Link from 'next/link'
 import { getAllPosts } from '@/lib/blog'
 import { BookOpen, Code2, Search, Briefcase, ShoppingCart, FileText, Mail } from 'lucide-react'
@@ -49,11 +49,11 @@ export default function BlogPage() {
   const posts = getAllPosts()
 
   const categories = [
-    { name: 'All Posts', slug: 'all', icon: BookOpen, color: 'from-primary-500 to-accent-500' },
+    { name: 'All Posts', slug: 'all', icon: BookOpen, color: 'from-primary-600 to-accent-700' },
     { name: 'Web Development', slug: 'web-development', icon: Code2, color: 'from-primary-600 to-primary-800' },
-    { name: 'SEO', slug: 'seo', icon: Search, color: 'from-accent-500 to-accent-700' },
-    { name: 'Business', slug: 'business', icon: Briefcase, color: 'from-primary-500 to-accent-600' },
-    { name: 'E-Commerce', slug: 'ecommerce', icon: ShoppingCart, color: 'from-accent-600 to-primary-700' },
+    { name: 'SEO', slug: 'seo', icon: Search, color: 'from-accent-700 to-accent-800' },
+    { name: 'Business', slug: 'business', icon: Briefcase, color: 'from-primary-600 to-accent-700' },
+    { name: 'E-Commerce', slug: 'ecommerce', icon: ShoppingCart, color: 'from-accent-700 to-primary-700' },
   ]
 
   return (
@@ -83,7 +83,7 @@ export default function BlogPage() {
             <div className="inline-flex items-center rounded-full bg-accent-500/20 px-4 py-2 text-sm font-semibold text-white ring-1 ring-inset ring-accent-500/30 mb-8 animate-fade-in-up">
               Expert Insights & Tips
             </div>
-            <h1 className="text-5xl font-bold tracking-tight sm:text-7xl animate-fade-in-up animation-delay-200">
+            <h1 className="text-5xl font-display font-bold tracking-tight sm:text-7xl animate-fade-in-up animation-delay-200">
               StephensCode Blog
             </h1>
             <p className="mt-6 text-xl leading-8 text-gray-200 animate-fade-in-up animation-delay-400">
@@ -108,12 +108,12 @@ export default function BlogPage() {
               <Link
                 key={category.slug}
                 href={category.slug === 'all' ? '/blog' : `/blog/category/${category.slug}`}
-                className="group relative rounded-2xl bg-surface-card px-6 py-4 shadow-md shadow-black/20 border-2 border-surface-border hover:border-primary-300 hover:shadow-lg transition-all"
+                className="group relative rounded-2xl bg-surface-card px-6 py-4 shadow-md shadow-black/20 border-2 border-surface-border card-lift"
                 style={{ animationDelay: `${index * 100}ms` }}
               >
                 <div className="flex items-center gap-3">
                   <category.icon className="h-6 w-6 text-white transition-transform group-hover:scale-110" />
-                  <span className="font-semibold text-white group-hover:text-primary-600 transition-colors">
+                  <span className="font-semibold text-white group-hover:text-primary-400 transition-colors">
                     {category.name}
                   </span>
                 </div>
@@ -131,7 +131,7 @@ export default function BlogPage() {
               <div className="mx-auto max-w-3xl">
                 <div className="relative rounded-3xl bg-surface-card p-16 shadow-2xl shadow-black/20 border-2 border-surface-border">
                   <div className="absolute -top-8 left-1/2 -translate-x-1/2">
-                    <div className="w-16 h-16 rounded-full bg-gradient-to-br from-primary-500 to-accent-500 flex items-center justify-center shadow-xl">
+                    <div className="w-16 h-16 rounded-full bg-gradient-to-br from-primary-500 to-accent-600 flex items-center justify-center shadow-xl">
                       <FileText className="h-8 w-8 text-white" />
                     </div>
                   </div>
@@ -165,14 +165,14 @@ export default function BlogPage() {
                   <div className="flex flex-col sm:flex-row gap-4 justify-center">
                     <Link
                       href="/contact"
-                      className="group rounded-lg bg-gradient-to-r from-primary-600 to-accent-600 px-8 py-4 text-base font-semibold text-white shadow-lg hover:shadow-xl transition-all"
+                      className="group btn-primary px-8 py-4 text-base"
                     >
                       Get Expert Help Now
-                      <span className="inline-block transition-transform group-hover:translate-x-1 ml-2">→</span>
+                      <span className="inline-block transition-transform duration-200 ease-brand group-hover:translate-x-0.5">â†’</span>
                     </Link>
                     <Link
                       href="/services"
-                      className="rounded-lg bg-surface px-8 py-4 text-base font-semibold text-primary-600 ring-2 ring-inset ring-primary-600 hover:bg-surface-card transition-all"
+                      className="btn-secondary px-8 py-4 text-base"
                     >
                       View Our Services
                     </Link>
@@ -183,7 +183,7 @@ export default function BlogPage() {
           ) : (
             <>
               <div className="mx-auto max-w-2xl text-center mb-16">
-                <h2 className="text-4xl font-bold tracking-tight text-white sm:text-5xl mb-4">
+                <h2 className="text-4xl font-display font-bold tracking-tight text-white sm:text-5xl mb-4">
                   Latest Articles
                 </h2>
                 <p className="text-lg text-gray-400">
@@ -195,7 +195,7 @@ export default function BlogPage() {
                 {posts.map((post, index) => (
                   <article
                     key={post.slug}
-                    className="group flex flex-col bg-surface-card rounded-3xl shadow-lg shadow-black/20 overflow-hidden border-2 border-surface-border hover:border-primary-300 transition-all"
+                    className="group flex flex-col bg-surface-card rounded-3xl shadow-lg shadow-black/20 overflow-hidden border-2 border-surface-border card-lift"
                     style={{ animationDelay: `${index * 100}ms` }}
                   >
                     {post.image && (
@@ -226,7 +226,7 @@ export default function BlogPage() {
                         </time>
                       </div>
                       <div className="flex-1">
-                        <h3 className="text-2xl font-bold leading-8 text-white mb-4 group-hover:text-primary-600 transition-colors">
+                        <h3 className="text-2xl font-bold leading-8 text-white mb-4 group-hover:text-primary-400 transition-colors">
                           <Link href={`/blog/${post.slug}`}>
                             {post.title}
                           </Link>
@@ -244,10 +244,10 @@ export default function BlogPage() {
                         </div>
                         <Link
                           href={`/blog/${post.slug}`}
-                          className="inline-flex items-center gap-2 text-sm font-bold text-primary-600 hover:text-accent-600 transition-colors"
+                          className="inline-flex items-center gap-2 text-sm font-bold text-primary-400 hover:text-primary-300 transition-colors"
                         >
                           Read Article
-                          <span className="inline-block transition-transform group-hover:translate-x-1">→</span>
+                          <span className="inline-block transition-transform group-hover:translate-x-1">â†’</span>
                         </Link>
                       </div>
                     </div>
@@ -260,7 +260,7 @@ export default function BlogPage() {
       </section>
 
       {/* Newsletter CTA */}
-      <section className="relative bg-gradient-to-r from-primary-600 via-accent-500 to-primary-600 text-white overflow-hidden">
+      <section className="relative bg-gradient-to-r from-primary-700 via-accent-700 to-primary-700 text-white overflow-hidden">
         <div className="absolute inset-0 opacity-20">
           <div className="absolute inset-0" style={{
             backgroundImage: 'linear-gradient(45deg, transparent 45%, rgba(255,255,255,0.1) 50%, transparent 55%)',
@@ -273,10 +273,10 @@ export default function BlogPage() {
             <div className="mb-6 flex justify-center">
               <Mail className="h-12 w-12" />
             </div>
-            <h2 className="text-4xl font-bold tracking-tight sm:text-5xl">
+            <h2 className="text-4xl font-display font-bold tracking-tight sm:text-5xl">
               Stay Updated
             </h2>
-            <p className="mx-auto mt-6 max-w-xl text-lg leading-8 text-gray-200">
+            <p className="mx-auto mt-6 max-w-xl text-lg leading-8 text-white">
               Get the latest web development tips, SEO strategies, and business growth insights. Join Houston business owners who are growing online.
             </p>
             <div className="mt-10 flex flex-col sm:flex-row items-center justify-center gap-6">
@@ -285,11 +285,11 @@ export default function BlogPage() {
                 className="group rounded-lg bg-surface-card px-8 py-4 text-base font-semibold text-white shadow-2xl hover:bg-surface-elevated transition-all"
               >
                 Subscribe for Updates
-                <span className="inline-block transition-transform group-hover:translate-x-1 ml-2">→</span>
+                <span className="inline-block transition-transform duration-200 ease-brand group-hover:translate-x-0.5 ml-2">â†’</span>
               </Link>
               <Link
                 href="/services"
-                className="flex items-center gap-2 text-base font-semibold leading-7 text-white hover:text-gray-200 transition-colors"
+                className="flex items-center gap-2 text-base font-semibold leading-7 text-white hover:underline underline-offset-4 transition-colors"
               >
                 <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                   <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M13 10V3L4 14h7v7l9-11h-7z" />
@@ -297,8 +297,8 @@ export default function BlogPage() {
                 Explore Services
               </Link>
             </div>
-            <p className="mt-6 text-sm text-gray-300">
-              Expert insights • Growth strategies • Actionable tips
+            <p className="mt-6 text-sm text-white">
+              Expert insights â€¢ Growth strategies â€¢ Actionable tips
             </p>
           </div>
         </div>

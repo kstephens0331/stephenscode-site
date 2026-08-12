@@ -1,53 +1,83 @@
 'use client'
 
-import { useEffect, useState } from 'react'
+import { useEffect, useState, type ComponentType } from 'react'
+import dynamic from 'next/dynamic'
 import Link from 'next/link'
 import { Globe, User, Lock, Info, X, Lightbulb, Briefcase } from 'lucide-react'
 import type { Demo } from '@/lib/demos-data'
 import { trackEvent } from '@/lib/analytics'
 
-// Import demo templates - All 40 demos
-import BarbershopDemo from './templates/01-barbershop'
-import HandymanDemo from './templates/02-handyman'
-import PhotographyDemo from './templates/03-photography'
-import CleaningDemo from './templates/04-cleaning'
-import TutoringDemo from './templates/05-tutoring'
-import LandscapingDemo from './templates/06-landscaping'
-import DentalDemo from './templates/07-dental'
-import AccountingDemo from './templates/08-accounting'
-import SalonDemo from './templates/09-salon'
-import HvacDemo from './templates/10-hvac'
-import LawFirmDemo from './templates/11-law-firm'
-import PlumbingDemo from './templates/12-plumbing'
-import RealEstateDemo from './templates/13-realestate'
-import GymDemo from './templates/14-gym'
-import VeterinaryDemo from './templates/15-veterinary'
-import BoutiqueDemo from './templates/16-boutique'
-import BakeryDemo from './templates/17-bakery'
-import SupplementsDemo from './templates/18-supplements'
-import JewelryDemo from './templates/19-jewelry'
-import BeerDemo from './templates/20-beer'
-import PlantsDemo from './templates/21-plants'
-import CoffeeDemo from './templates/22-coffee'
-import PetFoodDemo from './templates/23-petfood'
-import RestaurantDemo from './templates/24-restaurant'
-import ConstructionDemo from './templates/25-construction'
-import MedicalDemo from './templates/26-medical'
-import AutoRepairDemo from './templates/27-autorepair'
-import SpaDemo from './templates/28-spa'
-import LogisticsDemo from './templates/29-logistics'
-import PropertyDemo from './templates/30-property'
-import StaffingDemo from './templates/31-staffing'
-import EventsDemo from './templates/32-events'
-import FranchiseDemo from './templates/33-franchise'
-import ManufacturingDemo from './templates/34-manufacturing'
-import BookingDemo from './templates/35-booking'
-import AnalyticsDemo from './templates/36-analytics'
-import MembershipDemo from './templates/37-membership'
-import CrmDemo from './templates/38-crm'
-import InventoryDemo from './templates/39-inventory'
-import WorkflowDemo from './templates/40-workflow'
-import GenericDemo from './templates/GenericDemo'
+interface DemoTemplateProps {
+  demo: Demo
+  viewMode: 'customer' | 'admin'
+}
+
+function DemoLoading() {
+  return (
+    <div className="min-h-screen bg-slate-900 flex items-center justify-center">
+      <div className="text-center">
+        <div className="h-10 w-10 mx-auto mb-4 rounded-full border-2 border-primary-500 border-t-transparent animate-spin" />
+        <p className="text-sm text-gray-400">Loading demo...</p>
+      </div>
+    </div>
+  )
+}
+
+// Module scope (never inside the component) so each dynamic component's
+// identity is stable across renders. ssr: false is safe here: DemoFrame is a
+// Client Component, the templates read/write localStorage, and the page's SEO
+// lives in generateMetadata + JSON-LD, not the mock template markup.
+const loadTemplate = (loader: () => Promise<{ default: ComponentType<DemoTemplateProps> }>) =>
+  dynamic(loader, { loading: DemoLoading, ssr: false })
+
+// Slug -> lazily loaded template chunk. Two slugs share photography and two
+// share hvac; webpack/turbopack dedupes those into a single chunk.
+const DEMO_TEMPLATES: Record<string, ComponentType<DemoTemplateProps>> = {
+  'classic-cuts-barbershop': loadTemplate(() => import('./templates/01-barbershop')),
+  'fixit-fast-handyman': loadTemplate(() => import('./templates/02-handyman')),
+  'fc-photo-houston': loadTemplate(() => import('./templates/03-photography')),
+  'lens-light-photography': loadTemplate(() => import('./templates/03-photography')),
+  'sparkle-clean-services': loadTemplate(() => import('./templates/04-cleaning')),
+  'smart-start-tutoring': loadTemplate(() => import('./templates/05-tutoring')),
+  'green-valley-landscaping': loadTemplate(() => import('./templates/06-landscaping')),
+  'bright-smile-dental': loadTemplate(() => import('./templates/07-dental')),
+  'peak-financial-advisors': loadTemplate(() => import('./templates/08-accounting')),
+  'glamour-studio-salon': loadTemplate(() => import('./templates/09-salon')),
+  'amw-air-conditioning': loadTemplate(() => import('./templates/10-hvac')),
+  'cool-breeze-hvac': loadTemplate(() => import('./templates/10-hvac')),
+  'justice-associates-law': loadTemplate(() => import('./templates/11-law-firm')),
+  'premier-plumbing-pros': loadTemplate(() => import('./templates/12-plumbing')),
+  'skyline-realty-group': loadTemplate(() => import('./templates/13-realestate')),
+  'iron-temple-fitness': loadTemplate(() => import('./templates/14-gym')),
+  'paws-care-animal-hospital': loadTemplate(() => import('./templates/15-veterinary')),
+  'bella-boutique-fashion': loadTemplate(() => import('./templates/16-boutique')),
+  'sweet-dreams-bakery': loadTemplate(() => import('./templates/17-bakery')),
+  'peak-performance-supplements': loadTemplate(() => import('./templates/18-supplements')),
+  'timeless-treasures-jewelry': loadTemplate(() => import('./templates/19-jewelry')),
+  'hoppy-trails-craft-beer': loadTemplate(() => import('./templates/20-beer')),
+  'urban-jungle-plant-shop': loadTemplate(() => import('./templates/21-plants')),
+  'roasted-perfection-coffee': loadTemplate(() => import('./templates/22-coffee')),
+  'happy-paws-pet-supplies': loadTemplate(() => import('./templates/23-petfood')),
+  'gourmet-kitchen-restaurant': loadTemplate(() => import('./templates/24-restaurant')),
+  'terracotta-construction': loadTemplate(() => import('./templates/25-construction')),
+  'healthfirst-medical-group': loadTemplate(() => import('./templates/26-medical')),
+  'cars-collision-refinish': loadTemplate(() => import('./templates/27-autorepair')),
+  'serenity-spa-wellness': loadTemplate(() => import('./templates/28-spa')),
+  'swift-logistics-services': loadTemplate(() => import('./templates/29-logistics')),
+  'elite-property-management': loadTemplate(() => import('./templates/30-property')),
+  'premier-staffing-solutions': loadTemplate(() => import('./templates/31-staffing')),
+  'celebration-events-company': loadTemplate(() => import('./templates/32-events')),
+  'fastserve-franchise-network': loadTemplate(() => import('./templates/33-franchise')),
+  'techpro-manufacturing': loadTemplate(() => import('./templates/34-manufacturing')),
+  'booking-system-showcase': loadTemplate(() => import('./templates/35-booking')),
+  'analytics-dashboard-showcase': loadTemplate(() => import('./templates/36-analytics')),
+  'membership-portal-showcase': loadTemplate(() => import('./templates/37-membership')),
+  'crm-system-showcase': loadTemplate(() => import('./templates/38-crm')),
+  'inventory-management-showcase': loadTemplate(() => import('./templates/39-inventory')),
+  'workflow-automation-showcase': loadTemplate(() => import('./templates/40-workflow')),
+}
+
+const GenericDemoTemplate = loadTemplate(() => import('./templates/GenericDemo'))
 
 interface DemoFrameProps {
   demo: Demo
@@ -122,7 +152,7 @@ export default function DemoFrame({ demo }: DemoFrameProps) {
               href={demo.externalUrl}
               target="_blank"
               rel="noopener noreferrer"
-              className="inline-flex items-center gap-2 bg-accent-500 hover:bg-accent-600 text-white px-8 py-4 rounded-lg font-bold text-lg transition-colors"
+              className="inline-flex items-center gap-2 bg-accent-700 hover:bg-accent-800 text-white px-8 py-4 rounded-lg font-bold text-lg transition-colors"
             >
               Visit Live Site →
             </a>
@@ -136,106 +166,8 @@ export default function DemoFrame({ demo }: DemoFrameProps) {
       )
     }
 
-    // Plug & Play demos (1-5)
-    if (demo.slug === 'classic-cuts-barbershop') {
-      return <BarbershopDemo demo={demo} viewMode={viewMode} />
-    } else if (demo.slug === 'fixit-fast-handyman') {
-      return <HandymanDemo demo={demo} viewMode={viewMode} />
-    } else if (demo.slug === 'fc-photo-houston' || demo.slug === 'lens-light-photography') {
-      return <PhotographyDemo demo={demo} viewMode={viewMode} />
-    } else if (demo.slug === 'sparkle-clean-services') {
-      return <CleaningDemo demo={demo} viewMode={viewMode} />
-    } else if (demo.slug === 'smart-start-tutoring') {
-      return <TutoringDemo demo={demo} viewMode={viewMode} />
-
-    // Website Rebuild demos (6-9)
-    } else if (demo.slug === 'green-valley-landscaping') {
-      return <LandscapingDemo demo={demo} viewMode={viewMode} />
-    } else if (demo.slug === 'bright-smile-dental') {
-      return <DentalDemo demo={demo} viewMode={viewMode} />
-    } else if (demo.slug === 'peak-financial-advisors') {
-      return <AccountingDemo demo={demo} viewMode={viewMode} />
-    } else if (demo.slug === 'glamour-studio-salon') {
-      return <SalonDemo demo={demo} viewMode={viewMode} />
-
-    // Standard Website demos (10-15)
-    } else if (demo.slug === 'amw-air-conditioning' || demo.slug === 'cool-breeze-hvac') {
-      return <HvacDemo demo={demo} viewMode={viewMode} />
-    } else if (demo.slug === 'justice-associates-law') {
-      return <LawFirmDemo demo={demo} viewMode={viewMode} />
-    } else if (demo.slug === 'premier-plumbing-pros') {
-      return <PlumbingDemo demo={demo} viewMode={viewMode} />
-    } else if (demo.slug === 'skyline-realty-group') {
-      return <RealEstateDemo demo={demo} viewMode={viewMode} />
-    } else if (demo.slug === 'iron-temple-fitness') {
-      return <GymDemo demo={demo} viewMode={viewMode} />
-    } else if (demo.slug === 'paws-care-animal-hospital') {
-      return <VeterinaryDemo demo={demo} viewMode={viewMode} />
-
-    // E-Commerce demos (16-23)
-    } else if (demo.slug === 'bella-boutique-fashion') {
-      return <BoutiqueDemo demo={demo} viewMode={viewMode} />
-    } else if (demo.slug === 'sweet-dreams-bakery') {
-      return <BakeryDemo demo={demo} viewMode={viewMode} />
-    } else if (demo.slug === 'peak-performance-supplements') {
-      return <SupplementsDemo demo={demo} viewMode={viewMode} />
-    } else if (demo.slug === 'timeless-treasures-jewelry') {
-      return <JewelryDemo demo={demo} viewMode={viewMode} />
-    } else if (demo.slug === 'hoppy-trails-craft-beer') {
-      return <BeerDemo demo={demo} viewMode={viewMode} />
-    } else if (demo.slug === 'urban-jungle-plant-shop') {
-      return <PlantsDemo demo={demo} viewMode={viewMode} />
-    } else if (demo.slug === 'roasted-perfection-coffee') {
-      return <CoffeeDemo demo={demo} viewMode={viewMode} />
-    } else if (demo.slug === 'happy-paws-pet-supplies') {
-      return <PetFoodDemo demo={demo} viewMode={viewMode} />
-
-    // Premium Build demos (24-29)
-    } else if (demo.slug === 'gourmet-kitchen-restaurant') {
-      return <RestaurantDemo demo={demo} viewMode={viewMode} />
-    } else if (demo.slug === 'terracotta-construction') {
-      return <ConstructionDemo demo={demo} viewMode={viewMode} />
-    } else if (demo.slug === 'healthfirst-medical-group') {
-      return <MedicalDemo demo={demo} viewMode={viewMode} />
-    } else if (demo.slug === 'cars-collision-refinish') {
-      return <AutoRepairDemo demo={demo} viewMode={viewMode} />
-    } else if (demo.slug === 'serenity-spa-wellness') {
-      return <SpaDemo demo={demo} viewMode={viewMode} />
-    } else if (demo.slug === 'swift-logistics-services') {
-      return <LogisticsDemo demo={demo} viewMode={viewMode} />
-
-    // Custom Business Platform demos (30-32)
-    } else if (demo.slug === 'elite-property-management') {
-      return <PropertyDemo demo={demo} viewMode={viewMode} />
-    } else if (demo.slug === 'premier-staffing-solutions') {
-      return <StaffingDemo demo={demo} viewMode={viewMode} />
-    } else if (demo.slug === 'celebration-events-company') {
-      return <EventsDemo demo={demo} viewMode={viewMode} />
-
-    // Enterprise Platform demos (33-34)
-    } else if (demo.slug === 'fastserve-franchise-network') {
-      return <FranchiseDemo demo={demo} viewMode={viewMode} />
-    } else if (demo.slug === 'techpro-manufacturing') {
-      return <ManufacturingDemo demo={demo} viewMode={viewMode} />
-
-    // Feature Showcase demos (35-40)
-    } else if (demo.slug === 'booking-system-showcase') {
-      return <BookingDemo demo={demo} viewMode={viewMode} />
-    } else if (demo.slug === 'analytics-dashboard-showcase') {
-      return <AnalyticsDemo demo={demo} viewMode={viewMode} />
-    } else if (demo.slug === 'membership-portal-showcase') {
-      return <MembershipDemo demo={demo} viewMode={viewMode} />
-    } else if (demo.slug === 'crm-system-showcase') {
-      return <CrmDemo demo={demo} viewMode={viewMode} />
-    } else if (demo.slug === 'inventory-management-showcase') {
-      return <InventoryDemo demo={demo} viewMode={viewMode} />
-    } else if (demo.slug === 'workflow-automation-showcase') {
-      return <WorkflowDemo demo={demo} viewMode={viewMode} />
-
-    // Default generic template
-    } else {
-      return <GenericDemo demo={demo} viewMode={viewMode} />
-    }
+    const Template = DEMO_TEMPLATES[demo.slug] ?? GenericDemoTemplate
+    return <Template demo={demo} viewMode={viewMode} />
   }
 
   return (
@@ -276,7 +208,7 @@ export default function DemoFrame({ demo }: DemoFrameProps) {
                   onClick={() => setViewMode('admin')}
                   className={`px-4 py-2 rounded text-sm font-semibold transition-colors ${
                     viewMode === 'admin'
-                      ? 'bg-accent-500 text-white'
+                      ? 'bg-accent-700 text-white'
                       : 'text-gray-400 hover:text-white'
                   }`}
                 >
@@ -298,7 +230,7 @@ export default function DemoFrame({ demo }: DemoFrameProps) {
               )}
               <Link
                 href="/contact"
-                className="bg-accent-500 hover:bg-accent-600 px-4 py-2 rounded-lg text-sm font-semibold transition-colors"
+                className="bg-accent-700 hover:bg-accent-800 px-4 py-2 rounded-lg text-sm font-semibold transition-colors"
                 onClick={() => trackEvent('cta_click', { cta: 'Build This', location: `demo_${demo.slug}_controls` })}
               >
                 Build This →
@@ -352,7 +284,7 @@ export default function DemoFrame({ demo }: DemoFrameProps) {
       <div className="fixed bottom-6 right-6 z-40">
         <Link
           href="/contact"
-          className="bg-accent-500 hover:bg-accent-600 text-white px-6 py-4 rounded-full shadow-2xl font-bold text-sm flex items-center gap-2 transition-all"
+          className="bg-accent-700 hover:bg-accent-800 text-white px-6 py-4 rounded-full shadow-2xl font-bold text-sm flex items-center gap-2 transition-all"
           onClick={() => trackEvent('cta_click', { cta: 'Want This for Your Business', location: `demo_${demo.slug}_floating` })}
         >
           <Briefcase className="h-4 w-4" />

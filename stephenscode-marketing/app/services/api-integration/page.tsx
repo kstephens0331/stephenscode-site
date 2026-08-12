@@ -1,4 +1,4 @@
-import Link from 'next/link'
+﻿import Link from 'next/link'
 import type { Metadata } from 'next'
 import { Link2, Phone, Globe, BarChart3, Zap } from 'lucide-react'
 import Breadcrumbs from '@/components/Breadcrumbs'
@@ -192,7 +192,7 @@ export default function APIIntegration() {
               <span>200+ API Integration Projects Completed</span>
             </div>
 
-            <h1 className="text-5xl font-bold tracking-tight sm:text-6xl mb-6">
+            <h1 className="text-5xl font-display font-bold tracking-tight sm:text-6xl mb-6">
               API Integration Services
               <span className="block text-accent-400">Connect Your Business Systems</span>
             </h1>
@@ -215,13 +215,13 @@ export default function APIIntegration() {
             <div className="flex flex-col sm:flex-row items-center gap-4">
               <Link
                 href="/contact"
-                className="w-full sm:w-auto rounded-lg bg-accent-500 px-8 py-4 text-center text-lg font-bold text-white shadow-lg hover:bg-accent-600 transition-all"
+                className="w-full sm:w-auto btn-accent px-8 py-4 text-lg"
               >
                 Discuss Your Integration
               </Link>
               <PhoneLink
                 location="api_integration_page_top"
-                className="w-full sm:w-auto flex items-center justify-center gap-2 rounded-lg border-2 border-surface-border px-8 py-4 text-lg font-bold text-white hover:bg-surface-card/60 transition-all"
+                className="w-full sm:w-auto btn-secondary px-8 py-4 text-lg"
               >
                 <Phone className="h-4 w-4" />
                 <span>(936) 323-4527</span>
@@ -241,7 +241,7 @@ export default function APIIntegration() {
       <section className="bg-surface py-24">
         <div className="mx-auto max-w-7xl px-6 lg:px-8">
           <div className="mx-auto max-w-3xl">
-            <h2 className="text-4xl font-bold tracking-tight text-white mb-8">
+            <h2 className="text-4xl font-display font-bold tracking-tight text-white mb-8">
               What is API Integration & Why Your Business Needs It
             </h2>
 
@@ -262,15 +262,15 @@ export default function APIIntegration() {
                 <h3 className="text-2xl font-bold text-white mb-4">Real Examples</h3>
                 <ul className="space-y-4">
                   <li className="flex items-start gap-3">
-                    <span className="text-green-500 font-bold">→</span>
+                    <span className="text-green-500 font-bold">â†’</span>
                     <span><strong>CRM + Email Marketing:</strong> New lead fills out a form, gets added to Salesforce, and automatically starts receiving your email nurture sequence in Mailchimp.</span>
                   </li>
                   <li className="flex items-start gap-3">
-                    <span className="text-green-500 font-bold">→</span>
+                    <span className="text-green-500 font-bold">â†’</span>
                     <span><strong>E-Commerce + Inventory:</strong> Customer buys product, inventory decreases across all sales channels, and low-stock alerts trigger automatically.</span>
                   </li>
                   <li className="flex items-start gap-3">
-                    <span className="text-green-500 font-bold">→</span>
+                    <span className="text-green-500 font-bold">â†’</span>
                     <span><strong>Payments + Accounting:</strong> Stripe payment received, invoice marked paid in QuickBooks, and customer receives confirmation email.</span>
                   </li>
                 </ul>
@@ -288,7 +288,7 @@ export default function APIIntegration() {
       <section className="bg-surface-card py-24">
         <div className="mx-auto max-w-7xl px-6 lg:px-8">
           <div className="mx-auto max-w-3xl">
-            <h2 className="text-4xl font-bold tracking-tight text-white mb-8">
+            <h2 className="text-4xl font-display font-bold tracking-tight text-white mb-8">
               My API Integration Experience
             </h2>
 
@@ -324,7 +324,7 @@ export default function APIIntegration() {
       <section className="bg-surface py-24">
         <div className="mx-auto max-w-7xl px-6 lg:px-8">
           <div className="mx-auto max-w-2xl text-center mb-16">
-            <h2 className="text-4xl font-bold tracking-tight text-white mb-4">
+            <h2 className="text-4xl font-display font-bold tracking-tight text-white mb-4">
               Common API Integration Solutions
             </h2>
             <p className="text-lg text-gray-400">
@@ -336,7 +336,7 @@ export default function APIIntegration() {
             {commonIntegrations.map((category) => (
               <div
                 key={category.category}
-                className="bg-surface-card rounded-2xl p-8 border-2 border-surface-border hover:border-primary-300 transition-all"
+                className="bg-surface-card rounded-2xl p-8 border-2 border-surface-border card-lift"
               >
                 <h3 className="text-xl font-bold text-white mb-2">{category.category}</h3>
                 <p className="text-gray-400 mb-4">{category.description}</p>
@@ -360,7 +360,7 @@ export default function APIIntegration() {
       <section className="bg-surface-card py-24">
         <div className="mx-auto max-w-7xl px-6 lg:px-8">
           <div className="mx-auto max-w-2xl text-center mb-16">
-            <h2 className="text-4xl font-bold tracking-tight text-white mb-4">
+            <h2 className="text-4xl font-display font-bold tracking-tight text-white mb-4">
               API Integration Process
             </h2>
             <p className="text-lg text-gray-400">
@@ -388,7 +388,7 @@ export default function APIIntegration() {
       <section className="bg-surface py-24">
         <div className="mx-auto max-w-7xl px-6 lg:px-8">
           <div className="mx-auto max-w-3xl">
-            <h2 className="text-4xl font-bold tracking-tight text-white mb-8">
+            <h2 className="text-4xl font-display font-bold tracking-tight text-white mb-8">
               Why Work with a Freelance API Developer
             </h2>
 
@@ -420,7 +420,7 @@ export default function APIIntegration() {
       <section className="bg-surface-card py-24">
         <div className="mx-auto max-w-7xl px-6 lg:px-8">
           <div className="mx-auto max-w-3xl">
-            <h2 className="text-4xl font-bold tracking-tight text-white mb-12">
+            <h2 className="text-4xl font-display font-bold tracking-tight text-white mb-12">
               Frequently Asked Questions
             </h2>
 
@@ -440,7 +440,7 @@ export default function APIIntegration() {
       <section className="relative bg-gradient-to-r from-primary-900 via-primary-800 to-primary-900 text-white py-24">
         <div className="mx-auto max-w-7xl px-6 lg:px-8">
           <div className="mx-auto max-w-3xl text-center">
-            <h2 className="text-4xl font-bold tracking-tight mb-6">
+            <h2 className="text-4xl font-display font-bold tracking-tight mb-6">
               Let's Connect Your Systems
             </h2>
             <p className="text-xl text-gray-200 mb-8">
@@ -450,13 +450,13 @@ export default function APIIntegration() {
             <div className="flex flex-col sm:flex-row items-center justify-center gap-4 mb-8">
               <Link
                 href="/contact"
-                className="w-full sm:w-auto rounded-lg bg-accent-500 px-10 py-5 text-xl font-bold text-white shadow-lg hover:bg-accent-600 transition-all"
+                className="w-full sm:w-auto btn-accent px-10 py-5 text-xl"
               >
                 Discuss Your Integration
               </Link>
               <PhoneLink
                 location="api_integration_page_bottom"
-                className="w-full sm:w-auto flex items-center justify-center gap-2 rounded-lg bg-surface-card/60 px-10 py-5 text-xl font-bold text-white border-2 border-surface-border hover:bg-surface-elevated/80 transition-all"
+                className="w-full sm:w-auto btn-secondary px-10 py-5 text-xl"
               >
                 <Phone className="h-4 w-4" />
                 <span>(936) 323-4527</span>
@@ -474,7 +474,7 @@ export default function APIIntegration() {
       <section className="bg-surface py-24">
         <div className="mx-auto max-w-7xl px-6 lg:px-8">
           <div className="mx-auto max-w-2xl text-center mb-12">
-            <h2 className="text-3xl font-bold tracking-tight text-white mb-4">
+            <h2 className="text-3xl font-display font-bold tracking-tight text-white mb-4">
               Related Services
             </h2>
           </div>
@@ -482,7 +482,7 @@ export default function APIIntegration() {
           <div className="grid md:grid-cols-3 gap-8">
             <Link
               href="/services/conroe-web-development"
-              className="group bg-surface-card rounded-2xl p-8 border-2 border-surface-border hover:border-primary-300 hover:shadow-xl transition-all"
+              className="group bg-surface-card rounded-2xl p-8 border-2 border-surface-border card-lift"
             >
               <Globe className="h-8 w-8 text-primary-500 mb-4" strokeWidth={1.75} />
               <h3 className="text-xl font-bold text-white mb-2 group-hover:text-primary-600">Web Development</h3>
@@ -490,7 +490,7 @@ export default function APIIntegration() {
             </Link>
             <Link
               href="/services/web-scraping"
-              className="group bg-surface-card rounded-2xl p-8 border-2 border-surface-border hover:border-primary-300 hover:shadow-xl transition-all"
+              className="group bg-surface-card rounded-2xl p-8 border-2 border-surface-border card-lift"
             >
               <BarChart3 className="h-8 w-8 text-primary-500 mb-4" strokeWidth={1.75} />
               <h3 className="text-xl font-bold text-white mb-2 group-hover:text-primary-600">Web Scraping</h3>
@@ -498,7 +498,7 @@ export default function APIIntegration() {
             </Link>
             <Link
               href="/services/business-automation"
-              className="group bg-surface-card rounded-2xl p-8 border-2 border-surface-border hover:border-primary-300 hover:shadow-xl transition-all"
+              className="group bg-surface-card rounded-2xl p-8 border-2 border-surface-border card-lift"
             >
               <Zap className="h-8 w-8 text-primary-500 mb-4" strokeWidth={1.75} />
               <h3 className="text-xl font-bold text-white mb-2 group-hover:text-primary-600">Business Automation</h3>

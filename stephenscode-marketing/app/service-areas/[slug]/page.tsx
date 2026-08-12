@@ -138,7 +138,7 @@ export default async function ServiceAreaPage({ params }: ServiceAreaPageProps) 
               All Service Areas
             </Link>
           </div>
-          <h1 className="text-4xl font-bold tracking-tight sm:text-5xl">
+          <h1 className="text-4xl font-display font-bold tracking-tight sm:text-5xl">
             {markdownContent?.h1Override ?? `Professional Web Development in ${area.name}, Texas`}
           </h1>
           <p className="mt-6 text-lg leading-8 text-gray-200 max-w-3xl">
@@ -149,13 +149,13 @@ export default async function ServiceAreaPage({ params }: ServiceAreaPageProps) 
           <div className="mt-8 flex flex-wrap gap-4">
             <Link
               href="/contact"
-              className="rounded-md bg-accent-500 px-6 py-3 text-base font-semibold text-white shadow-sm hover:bg-accent-600"
+              className="btn-accent px-6 py-3 text-base"
             >
               Get Free Quote
             </Link>
             <PhoneLink
               location="service_area_hero"
-              className="rounded-md bg-white/10 px-6 py-3 text-base font-semibold text-white backdrop-blur hover:bg-white/20"
+              className="rounded-md bg-white/10 px-6 py-3 text-base font-semibold text-white backdrop-blur hover:bg-white/20 transition-colors duration-200"
             >
               Call (936) 323-4527
             </PhoneLink>
@@ -218,7 +218,7 @@ export default async function ServiceAreaPage({ params }: ServiceAreaPageProps) 
       {/* Pricing recap */}
       <section className="bg-surface-card py-16 sm:py-24">
         <div className="mx-auto max-w-5xl px-6 lg:px-8">
-          <h2 className="text-3xl font-bold tracking-tight text-white mb-8">
+          <h2 className="text-3xl font-display font-bold tracking-tight text-white mb-8">
             Flat-Rate Pricing for {area.name} Businesses
           </h2>
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
@@ -235,7 +235,7 @@ export default async function ServiceAreaPage({ params }: ServiceAreaPageProps) 
             ))}
           </div>
           <p className="mt-8 text-center">
-            <Link href="/pricing" className="text-sm font-semibold text-primary-600 hover:text-primary-400">
+            <Link href="/pricing" className="text-sm font-semibold text-primary-400 hover:text-primary-300 transition-colors">
               See full pricing and premium builds →
             </Link>
           </p>
@@ -246,7 +246,7 @@ export default async function ServiceAreaPage({ params }: ServiceAreaPageProps) 
       {markdownContent?.faqs && markdownContent.faqs.length > 0 && (
         <section className="bg-surface py-16 sm:py-24">
           <div className="mx-auto max-w-4xl px-6 lg:px-8">
-            <h2 className="text-3xl font-bold tracking-tight text-white mb-12">
+            <h2 className="text-3xl font-display font-bold tracking-tight text-white mb-12">
               {area.name} Website FAQ
             </h2>
             <div className="space-y-6">
@@ -265,7 +265,7 @@ export default async function ServiceAreaPage({ params }: ServiceAreaPageProps) 
       {otherAreas.length > 0 && (
         <section className="bg-surface-card py-16 sm:py-24">
           <div className="mx-auto max-w-7xl px-6 lg:px-8">
-            <h2 className="text-3xl font-bold tracking-tight text-white mb-12">Nearby Service Areas</h2>
+            <h2 className="text-3xl font-display font-bold tracking-tight text-white mb-12">Nearby Service Areas</h2>
             <div className="grid grid-cols-2 gap-4 sm:grid-cols-3 lg:grid-cols-6">
               {otherAreas.map((a) => (
                 <Link
@@ -285,7 +285,7 @@ export default async function ServiceAreaPage({ params }: ServiceAreaPageProps) 
       <section className="bg-primary-900 text-white">
         <div className="px-6 py-16 sm:px-6 sm:py-24 lg:px-8">
           <div className="mx-auto max-w-2xl text-center">
-            <h2 className="text-3xl font-bold tracking-tight sm:text-4xl">
+            <h2 className="text-3xl font-display font-bold tracking-tight sm:text-4xl">
               Ready to Grow Your {area.name} Business Online?
             </h2>
             <p className="mx-auto mt-6 max-w-xl text-lg leading-8 text-gray-200">
@@ -294,7 +294,7 @@ export default async function ServiceAreaPage({ params }: ServiceAreaPageProps) 
             <div className="mt-10 flex items-center justify-center gap-x-6">
               <Link
                 href="/contact"
-                className="rounded-md bg-accent-500 px-6 py-3 text-base font-semibold text-white shadow-sm hover:bg-accent-600"
+                className="btn-accent px-6 py-3 text-base"
               >
                 Get Started
               </Link>

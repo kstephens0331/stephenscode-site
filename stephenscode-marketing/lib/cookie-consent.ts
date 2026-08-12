@@ -2,10 +2,10 @@
  * Shared client-side cookie-consent state.
  *
  * Consent is stored in localStorage only (never sent to the server) and is
- * used purely to gate whether the Google Analytics script tags are injected
- * into the page. The existing Global Privacy Control (GPC) opt-out check in
- * GoogleAnalytics.tsx runs server-side and independently of this -- if GPC is
- * present, analytics never loads regardless of the value stored here.
+ * used purely to gate whether the analytics script tags are injected into
+ * the page. The Global Privacy Control (GPC) opt-out check in
+ * AnalyticsScripts.tsx runs client-side and independently of this -- if GPC
+ * is present, analytics never loads regardless of the value stored here.
  */
 
 export const COOKIE_CONSENT_KEY = 'sc-cookie-consent'

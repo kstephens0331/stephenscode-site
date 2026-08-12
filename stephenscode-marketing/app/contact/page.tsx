@@ -1,4 +1,4 @@
-import type { Metadata } from 'next'
+﻿import type { Metadata } from 'next'
 import Link from 'next/link'
 import { Zap, Gift, Handshake, Flag, Award, CheckCircle2 } from 'lucide-react'
 import ContactForm from '@/components/ContactForm'
@@ -139,7 +139,7 @@ export default function ContactPage() {
             <div className="inline-flex items-center rounded-full bg-accent-500/20 px-4 py-2 text-sm font-semibold text-white ring-1 ring-inset ring-accent-500/30 mb-8 animate-fade-in-up">
               Free Consultation Available
             </div>
-            <h1 className="text-5xl font-bold tracking-tight sm:text-7xl animate-fade-in-up animation-delay-200">
+            <h1 className="text-5xl font-display font-bold tracking-tight sm:text-7xl animate-fade-in-up animation-delay-200">
               Let's Build Something Great
             </h1>
             <p className="mt-6 text-xl leading-8 text-gray-200 animate-fade-in-up animation-delay-400">
@@ -148,7 +148,7 @@ export default function ContactPage() {
             <div className="mt-10 flex flex-col sm:flex-row items-center justify-center gap-6 animate-fade-in-up animation-delay-600">
               <PhoneLink
                 location="contact_hero"
-                className="group flex items-center gap-3 rounded-lg bg-accent-500 px-8 py-4 text-base font-semibold text-white shadow-lg hover:bg-accent-600 transition-all"
+                className="group btn-accent px-8 py-4 text-base"
               >
                 <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                   <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z" />
@@ -205,7 +205,7 @@ export default function ContactPage() {
           <div className="grid gap-12 lg:grid-cols-2 lg:gap-16">
             {/* Contact Info */}
             <div>
-              <h2 className="text-4xl font-bold tracking-tight text-white mb-4">
+              <h2 className="text-4xl font-display font-bold tracking-tight text-white mb-4">
                 Get in Touch
               </h2>
               <p className="text-lg leading-8 text-gray-400 mb-10">
@@ -216,9 +216,9 @@ export default function ContactPage() {
               <div className="space-y-6 mb-10">
                 <PhoneLink
                   location="contact_info_card"
-                  className="group flex items-start gap-4 p-6 rounded-2xl bg-surface-card border-2 border-surface-border hover:border-primary-500 hover:shadow-lg transition-all"
+                  className="group flex items-start gap-4 p-6 rounded-2xl bg-surface-card border-2 border-surface-border card-lift"
                 >
-                  <div className="flex-shrink-0 w-12 h-12 rounded-full bg-gradient-to-br from-primary-500 to-accent-500 flex items-center justify-center text-white">
+                  <div className="flex-shrink-0 w-12 h-12 rounded-full bg-gradient-to-br from-primary-500 to-accent-600 flex items-center justify-center text-white">
                     <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                       <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z" />
                     </svg>
@@ -237,9 +237,9 @@ export default function ContactPage() {
 
                 <a
                   href="mailto:info@stephenscode.dev"
-                  className="group flex items-start gap-4 p-6 rounded-2xl bg-surface-card border-2 border-surface-border hover:border-primary-500 hover:shadow-lg transition-all"
+                  className="group flex items-start gap-4 p-6 rounded-2xl bg-surface-card border-2 border-surface-border card-lift"
                 >
-                  <div className="flex-shrink-0 w-12 h-12 rounded-full bg-gradient-to-br from-primary-500 to-accent-500 flex items-center justify-center text-white">
+                  <div className="flex-shrink-0 w-12 h-12 rounded-full bg-gradient-to-br from-primary-500 to-accent-600 flex items-center justify-center text-white">
                     <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                       <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z" />
                     </svg>
@@ -257,7 +257,7 @@ export default function ContactPage() {
                 </a>
 
                 <div className="flex items-start gap-4 p-6 rounded-2xl bg-surface-card border-2 border-surface-border">
-                  <div className="flex-shrink-0 w-12 h-12 rounded-full bg-gradient-to-br from-green-500 to-teal-500 flex items-center justify-center text-white">
+                  <div className="flex-shrink-0 w-12 h-12 rounded-full bg-gradient-to-br from-green-600 to-teal-600 flex items-center justify-center text-white">
                     <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                       <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z" />
                       <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M15 11a3 3 0 11-6 0 3 3 0 016 0z" />
@@ -273,7 +273,7 @@ export default function ContactPage() {
                       href="https://www.google.com/maps/dir//303+Longmire+Unit+1001+Ste+102+Conroe+TX+77304"
                       target="_blank"
                       rel="noopener noreferrer"
-                      className="inline-flex items-center gap-1 text-sm font-semibold text-primary-600 hover:text-primary-400 mt-2"
+                      className="inline-flex items-center gap-1 text-sm font-semibold text-primary-400 hover:text-primary-300 transition-colors mt-2"
                     >
                       Get Directions
                       <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -326,7 +326,7 @@ export default function ContactPage() {
                 <ul className="space-y-3">
                   <li className="flex items-start gap-3">
                     <div className="flex-shrink-0 w-6 h-6 rounded-full bg-accent-500/15 flex items-center justify-center mt-0.5">
-                      <span className="text-accent-600 text-sm font-bold">1</span>
+                      <span className="text-accent-300 text-sm font-bold">1</span>
                     </div>
                     <div>
                       <div className="font-semibold text-white">Quick Response</div>
@@ -335,7 +335,7 @@ export default function ContactPage() {
                   </li>
                   <li className="flex items-start gap-3">
                     <div className="flex-shrink-0 w-6 h-6 rounded-full bg-accent-500/15 flex items-center justify-center mt-0.5">
-                      <span className="text-accent-600 text-sm font-bold">2</span>
+                      <span className="text-accent-300 text-sm font-bold">2</span>
                     </div>
                     <div>
                       <div className="font-semibold text-white">Free Consultation</div>
@@ -344,7 +344,7 @@ export default function ContactPage() {
                   </li>
                   <li className="flex items-start gap-3">
                     <div className="flex-shrink-0 w-6 h-6 rounded-full bg-accent-500/15 flex items-center justify-center mt-0.5">
-                      <span className="text-accent-600 text-sm font-bold">3</span>
+                      <span className="text-accent-300 text-sm font-bold">3</span>
                     </div>
                     <div>
                       <div className="font-semibold text-white">Custom Quote</div>
@@ -353,7 +353,7 @@ export default function ContactPage() {
                   </li>
                   <li className="flex items-start gap-3">
                     <div className="flex-shrink-0 w-6 h-6 rounded-full bg-accent-500/15 flex items-center justify-center mt-0.5">
-                      <span className="text-accent-600 text-sm font-bold">4</span>
+                      <span className="text-accent-300 text-sm font-bold">4</span>
                     </div>
                     <div>
                       <div className="font-semibold text-white">Zero Pressure</div>
@@ -407,7 +407,7 @@ export default function ContactPage() {
       <section className="bg-surface py-24 sm:py-32">
         <div className="mx-auto max-w-7xl px-6 lg:px-8">
           <div className="mx-auto max-w-2xl text-center mb-16">
-            <h2 className="text-4xl font-bold tracking-tight text-white sm:text-5xl">
+            <h2 className="text-4xl font-display font-bold tracking-tight text-white sm:text-5xl">
               Common Questions
             </h2>
             <p className="mt-4 text-lg text-gray-400">
@@ -417,12 +417,12 @@ export default function ContactPage() {
 
           <div className="mx-auto max-w-3xl space-y-6">
             {contactFaqs.map((faq) => (
-              <div key={faq.question} className="rounded-2xl border border-surface-border bg-surface-card p-8 hover:border-primary-300 transition-colors">
+              <div key={faq.question} className="rounded-2xl border border-surface-border bg-surface-card p-8 card-lift">
                 <h3 className="text-lg font-bold text-white mb-3">{faq.question}</h3>
                 <p className="text-gray-400 leading-relaxed">
                   {faq.question.startsWith("Can I see examples") ? (
                     <>
-                      Absolutely! Check out our <Link href="/demos" className="text-primary-600 font-semibold hover:text-primary-400">Demos page</Link> with 40+ live examples, or visit our <Link href="/work" className="text-primary-600 font-semibold hover:text-primary-400">Work page</Link> to see real client projects.
+                      Absolutely! Check out our <Link href="/demos" className="text-primary-400 font-semibold hover:text-primary-300 transition-colors">Demos page</Link> with 40+ live examples, or visit our <Link href="/work" className="text-primary-400 font-semibold hover:text-primary-300 transition-colors">Work page</Link> to see real client projects.
                     </>
                   ) : (
                     faq.answer
@@ -436,7 +436,7 @@ export default function ContactPage() {
             <p className="text-gray-400 mb-4">Still have questions?</p>
             <PhoneLink
               location="contact_faq_footer"
-              className="inline-flex items-center gap-2 rounded-lg bg-primary-600 px-6 py-3 text-base font-semibold text-white shadow-lg hover:bg-primary-700 transition-all"
+              className="btn-primary px-6 py-3 text-base"
             >
               <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                 <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z" />

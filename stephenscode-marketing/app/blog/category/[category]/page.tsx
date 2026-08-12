@@ -15,9 +15,9 @@ const categoryMap: { [key: string]: string } = {
 // Map categories to icons and colors
 const categoryConfig: { [key: string]: { icon: LucideIcon; color: string; gradient: string } } = {
   'Web Development': { icon: Code2, color: 'from-primary-600 to-primary-800', gradient: 'from-black via-surface to-primary-950' },
-  'SEO': { icon: Search, color: 'from-accent-500 to-accent-700', gradient: 'from-black via-surface to-accent-950' },
-  'Business': { icon: Briefcase, color: 'from-primary-500 to-accent-600', gradient: 'from-black via-surface-card to-primary-900' },
-  'E-Commerce': { icon: ShoppingCart, color: 'from-accent-600 to-primary-700', gradient: 'from-black via-surface-card to-accent-900' },
+  'SEO': { icon: Search, color: 'from-accent-700 to-accent-800', gradient: 'from-black via-surface to-accent-950' },
+  'Business': { icon: Briefcase, color: 'from-primary-600 to-accent-700', gradient: 'from-black via-surface-card to-primary-900' },
+  'E-Commerce': { icon: ShoppingCart, color: 'from-accent-700 to-primary-700', gradient: 'from-black via-surface-card to-accent-900' },
 }
 
 type Props = {
@@ -90,14 +90,14 @@ export default async function CategoryPage({ params }: Props) {
 
   const allPosts = getAllPosts()
   const categoryPosts = allPosts.filter(post => post.category === categoryName)
-  const config = categoryConfig[categoryName] || { icon: BookOpen, color: 'from-primary-500 to-accent-500', gradient: 'from-black via-surface to-surface-card' }
+  const config = categoryConfig[categoryName] || { icon: BookOpen, color: 'from-primary-600 to-accent-700', gradient: 'from-black via-surface to-surface-card' }
 
   const categories = [
-    { name: 'All Posts', slug: 'all', icon: BookOpen, color: 'from-primary-500 to-accent-500' },
+    { name: 'All Posts', slug: 'all', icon: BookOpen, color: 'from-primary-600 to-accent-700' },
     { name: 'Web Development', slug: 'web-development', icon: Code2, color: 'from-primary-600 to-primary-800' },
-    { name: 'SEO', slug: 'seo', icon: Search, color: 'from-accent-500 to-accent-700' },
-    { name: 'Business', slug: 'business', icon: Briefcase, color: 'from-primary-500 to-accent-600' },
-    { name: 'E-Commerce', slug: 'ecommerce', icon: ShoppingCart, color: 'from-accent-600 to-primary-700' },
+    { name: 'SEO', slug: 'seo', icon: Search, color: 'from-accent-700 to-accent-800' },
+    { name: 'Business', slug: 'business', icon: Briefcase, color: 'from-primary-600 to-accent-700' },
+    { name: 'E-Commerce', slug: 'ecommerce', icon: ShoppingCart, color: 'from-accent-700 to-primary-700' },
   ]
 
   return (
@@ -127,7 +127,7 @@ export default async function CategoryPage({ params }: Props) {
             <div className="mb-6 flex justify-center">
               <config.icon className="h-14 w-14" />
             </div>
-            <h1 className="text-5xl font-bold tracking-tight sm:text-7xl animate-fade-in-up">
+            <h1 className="text-5xl font-display font-bold tracking-tight sm:text-7xl animate-fade-in-up">
               {categoryName}
             </h1>
             <p className="mt-6 text-xl leading-8 text-gray-200 animate-fade-in-up animation-delay-200">
@@ -154,16 +154,16 @@ export default async function CategoryPage({ params }: Props) {
                 <Link
                   key={category.slug}
                   href={category.slug === 'all' ? '/blog' : `/blog/category/${category.slug}`}
-                  className={`group relative rounded-2xl px-6 py-4 shadow-md border-2 transition-all  ${
+                  className={`group relative rounded-2xl px-6 py-4 shadow-md border-2 card-lift ${
                     isActive
                       ? 'bg-gradient-to-br ' + category.color + ' text-white border-transparent shadow-lg'
-                      : 'bg-surface-card text-white border-surface-border hover:border-primary-300 hover:shadow-lg'
+                      : 'bg-surface-card text-white border-surface-border'
                   }`}
                   style={{ animationDelay: `${index * 100}ms` }}
                 >
                   <div className="flex items-center gap-3">
                     <category.icon className="h-6 w-6 transition-transform group-hover:scale-110" />
-                    <span className={`font-semibold transition-colors ${isActive ? 'text-white' : 'group-hover:text-primary-600'}`}>
+                    <span className={`font-semibold transition-colors ${isActive ? 'text-white' : 'group-hover:text-primary-400'}`}>
                       {category.name}
                     </span>
                   </div>
@@ -197,14 +197,14 @@ export default async function CategoryPage({ params }: Props) {
                   <div className="flex flex-col sm:flex-row gap-4 justify-center">
                     <Link
                       href="/blog"
-                      className="group rounded-lg bg-gradient-to-r from-primary-600 to-accent-600 px-8 py-4 text-base font-semibold text-white shadow-lg hover:shadow-xl transition-all"
+                      className="group btn-primary px-8 py-4 text-base"
                     >
                       View All Articles
-                      <span className="inline-block transition-transform group-hover:translate-x-1 ml-2">→</span>
+                      <span className="inline-block transition-transform duration-200 ease-brand group-hover:translate-x-0.5">→</span>
                     </Link>
                     <Link
                       href="/contact"
-                      className="rounded-lg bg-surface px-8 py-4 text-base font-semibold text-primary-400 ring-2 ring-inset ring-primary-600 hover:bg-surface-card transition-all"
+                      className="btn-secondary px-8 py-4 text-base"
                     >
                       Get Expert Help
                     </Link>
@@ -215,7 +215,7 @@ export default async function CategoryPage({ params }: Props) {
           ) : (
             <>
               <div className="mx-auto max-w-2xl text-center mb-16">
-                <h2 className="text-4xl font-bold tracking-tight text-white sm:text-5xl mb-4">
+                <h2 className="text-4xl font-display font-bold tracking-tight text-white sm:text-5xl mb-4">
                   {categoryName} Articles
                 </h2>
                 <p className="text-lg text-gray-400">
@@ -227,7 +227,7 @@ export default async function CategoryPage({ params }: Props) {
                 {categoryPosts.map((post, index) => (
                   <article
                     key={post.slug}
-                    className="group flex flex-col bg-surface-card rounded-3xl shadow-lg shadow-black/20 overflow-hidden border-2 border-surface-border hover:border-primary-300 transition-all"
+                    className="group flex flex-col bg-surface-card rounded-3xl shadow-lg shadow-black/20 overflow-hidden border-2 border-surface-border card-lift"
                     style={{ animationDelay: `${index * 100}ms` }}
                   >
                     {post.image && (
@@ -276,7 +276,7 @@ export default async function CategoryPage({ params }: Props) {
                         </div>
                         <Link
                           href={`/blog/${post.slug}`}
-                          className="inline-flex items-center gap-2 text-sm font-bold text-primary-600 hover:text-accent-600 transition-colors"
+                          className="inline-flex items-center gap-2 text-sm font-bold text-primary-400 hover:text-primary-300 transition-colors"
                         >
                           Read Article
                           <span className="inline-block transition-transform group-hover:translate-x-1">→</span>
@@ -305,7 +305,7 @@ export default async function CategoryPage({ params }: Props) {
             <div className="mb-6 flex justify-center">
               <config.icon className="h-12 w-12" />
             </div>
-            <h2 className="text-4xl font-bold tracking-tight sm:text-5xl">
+            <h2 className="text-4xl font-display font-bold tracking-tight sm:text-5xl">
               Need Expert Help?
             </h2>
             <p className="mx-auto mt-6 max-w-xl text-lg leading-8 text-gray-200">

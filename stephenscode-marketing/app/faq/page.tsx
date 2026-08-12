@@ -1,4 +1,4 @@
-import type { Metadata } from 'next'
+﻿import type { Metadata } from 'next'
 import Link from 'next/link'
 import PhoneLink from '@/components/PhoneLink'
 
@@ -308,7 +308,7 @@ export default function FAQPage() {
       <section className="relative bg-gradient-to-br from-black via-surface to-surface-card text-white">
         <div className="mx-auto max-w-7xl px-6 py-16 sm:py-24 lg:px-8">
           <div className="mx-auto max-w-2xl text-center">
-            <h1 className="text-4xl font-bold tracking-tight sm:text-5xl">
+            <h1 className="text-4xl font-display font-bold tracking-tight sm:text-5xl">
               Frequently Asked Questions
             </h1>
             <p className="mt-6 text-lg leading-8 text-gray-200">
@@ -326,7 +326,7 @@ export default function FAQPage() {
               <a
                 key={category}
                 href={`#${category.toLowerCase().replace(/\s+/g, '-')}`}
-                className="text-sm font-medium text-primary-600 hover:text-primary-400 hover:underline"
+                className="text-sm font-medium text-primary-400 hover:text-primary-300 hover:underline transition-colors"
               >
                 {category}
               </a>
@@ -371,7 +371,7 @@ export default function FAQPage() {
       <section className="bg-surface-card py-16 sm:py-24">
         <div className="mx-auto max-w-7xl px-6 lg:px-8">
           <div className="mx-auto max-w-2xl text-center">
-            <h2 className="text-3xl font-bold tracking-tight text-white sm:text-4xl">
+            <h2 className="text-3xl font-display font-bold tracking-tight text-white sm:text-4xl">
               Still Have Questions?
             </h2>
             <p className="mt-6 text-lg leading-8 text-gray-400">
@@ -380,7 +380,7 @@ export default function FAQPage() {
             <div className="mt-10 flex items-center justify-center gap-x-6">
               <Link
                 href="/contact"
-                className="rounded-md bg-primary-600 px-6 py-3 text-base font-semibold text-white shadow-sm hover:bg-primary-700 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-primary-600"
+                className="btn-primary px-6 py-3 text-base"
               >
                 Contact Us
               </Link>
@@ -388,7 +388,7 @@ export default function FAQPage() {
                 location="faq_cta"
                 className="text-base font-semibold leading-7 text-white hover:text-primary-400"
               >
-                Call (936) 323-4527 <span aria-hidden="true">→</span>
+                Call (936) 323-4527 <span aria-hidden="true">â†’</span>
               </PhoneLink>
             </div>
           </div>
@@ -404,7 +404,7 @@ export default function FAQPage() {
           <div className="grid grid-cols-1 gap-8 md:grid-cols-3">
             <Link
               href="/blog/why-houston-businesses-need-custom-websites-2025"
-              className="bg-surface-card rounded-lg p-6 hover:bg-surface-elevated transition-colors"
+              className="bg-surface-card rounded-lg p-6 border border-surface-border card-lift"
             >
               <h3 className="font-semibold text-white mb-2">
                 Why Custom Websites Matter
@@ -415,7 +415,7 @@ export default function FAQPage() {
             </Link>
             <Link
               href="/blog/website-speed-conversion-rates-guide"
-              className="bg-surface-card rounded-lg p-6 hover:bg-surface-elevated transition-colors"
+              className="bg-surface-card rounded-lg p-6 border border-surface-border card-lift"
             >
               <h3 className="font-semibold text-white mb-2">
                 Website Speed Guide
@@ -426,7 +426,7 @@ export default function FAQPage() {
             </Link>
             <Link
               href="/blog/local-seo-guide-houston-businesses"
-              className="bg-surface-card rounded-lg p-6 hover:bg-surface-elevated transition-colors"
+              className="bg-surface-card rounded-lg p-6 border border-surface-border card-lift"
             >
               <h3 className="font-semibold text-white mb-2">
                 Local SEO Guide

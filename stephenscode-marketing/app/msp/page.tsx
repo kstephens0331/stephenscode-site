@@ -1,8 +1,8 @@
-import Link from 'next/link'
+﻿import Link from 'next/link'
 import type { Metadata } from 'next'
 import { managedITServices, cybersecurityServices, cloudServices, supportServices } from '@/lib/msp-services-data'
 import PhoneLink from '@/components/PhoneLink'
-import { Monitor, Lock, Cloud, Wrench, Clock, Award, MapPin, DollarSign, Phone } from 'lucide-react'
+import { Monitor, Lock, Cloud, Wrench, Clock, Award, MapPin, DollarSign, Phone, ArrowRight } from 'lucide-react'
 
 export const metadata: Metadata = {
   title: 'Houston Managed IT Services | $99/User/Mo | 24/7 Support',
@@ -123,7 +123,7 @@ export default function MSPServicesPage() {
       description: 'Defend against ransomware, phishing, and data breaches with enterprise-grade security solutions.',
       services: cybersecurityServices,
       Icon: Lock,
-      gradient: 'from-primary-500 to-primary-700'
+      gradient: 'from-primary-600 to-primary-700'
     },
     {
       title: 'Cloud Solutions',
@@ -131,7 +131,7 @@ export default function MSPServicesPage() {
       description: 'Microsoft 365 management, cloud backup, and migration services to modernize your IT.',
       services: cloudServices,
       Icon: Cloud,
-      gradient: 'from-accent-600 to-accent-800'
+      gradient: 'from-accent-700 to-accent-800'
     },
     {
       title: 'IT Support & Projects',
@@ -203,7 +203,7 @@ export default function MSPServicesPage() {
               <span>Managed IT & Cybersecurity</span>
             </div>
 
-            <h1 className="text-5xl font-bold tracking-tight sm:text-7xl mb-8">
+            <h1 className="text-5xl font-display font-bold tracking-tight sm:text-7xl mb-8">
               IT Services That
               <span className="block text-primary-400 mt-2">Protect & Power</span>
               Your Business
@@ -226,16 +226,14 @@ export default function MSPServicesPage() {
             <div className="mt-12 flex flex-wrap items-center justify-center gap-4">
               <Link
                 href="/contact"
-                className="group inline-flex items-center gap-2 rounded-lg bg-primary-500 px-8 py-4 text-lg font-bold text-white shadow-2xl hover:bg-primary-600 transition-all"
+                className="group btn-primary px-8 py-4 text-lg"
               >
-                <span>Get Free IT Assessment</span>
-                <svg className="w-5 h-5 group-hover:translate-x-1 transition-transform" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M13 7l5 5m0 0l-5 5m5-5H6" />
-                </svg>
+                Get Free IT Assessment
+                <ArrowRight className="h-4 w-4 transition-transform duration-200 ease-brand group-hover:translate-x-0.5" />
               </Link>
               <PhoneLink
                 location="msp_page_top"
-                className="inline-flex items-center gap-2 rounded-lg bg-surface-card/60 px-8 py-4 text-lg font-bold text-white backdrop-blur-lg border-2 border-surface-border hover:bg-surface-elevated/80 transition-all"
+                className="btn-secondary px-8 py-4 text-lg"
               >
                 <Phone className="h-5 w-5" />
                 (936) 323-4527
@@ -260,7 +258,7 @@ export default function MSPServicesPage() {
                 <category.Icon className="h-7 w-7" />
                 <span className="font-bold">{category.subtitle}</span>
               </div>
-              <h2 className="text-4xl font-bold tracking-tight text-white sm:text-5xl mb-6">
+              <h2 className="text-4xl font-display font-bold tracking-tight text-white sm:text-5xl mb-6">
                 {category.title}
               </h2>
               <p className="text-lg leading-8 text-gray-400">
@@ -272,7 +270,7 @@ export default function MSPServicesPage() {
               {category.services.map((service) => (
                 <article
                   key={service.id}
-                  className="group relative flex flex-col rounded-2xl bg-surface-card border-2 border-surface-border p-8 shadow-lg hover:border-primary-500 transition-all"
+                  className="group relative flex flex-col rounded-2xl bg-surface-card border-2 border-surface-border p-8 shadow-lg card-lift"
                 >
                   <div className="mb-4">
                     <h3 className="text-2xl font-bold text-white group-hover:text-primary-400 transition-colors">
@@ -308,9 +306,10 @@ export default function MSPServicesPage() {
 
                   <Link
                     href={`/msp/${service.slug}`}
-                    className="block w-full rounded-lg bg-primary-600 px-6 py-3 text-center text-sm font-bold text-white hover:bg-primary-700 transition-colors"
+                    className="btn-primary w-full px-6 py-3 text-sm"
                   >
-                    Learn More →
+                    Learn More
+                    <ArrowRight className="h-4 w-4 transition-transform duration-200 ease-brand group-hover:translate-x-0.5" />
                   </Link>
                 </article>
               ))}
@@ -324,7 +323,7 @@ export default function MSPServicesPage() {
         <div className="mx-auto max-w-7xl px-6 lg:px-8">
           <div className="mx-auto max-w-2xl text-center mb-16">
             <h2 className="text-base font-semibold leading-7 text-primary-400">Why StephensCode MSP?</h2>
-            <p className="mt-2 text-4xl font-bold tracking-tight text-white sm:text-5xl">
+            <p className="mt-2 text-4xl font-display font-bold tracking-tight text-white sm:text-5xl">
               IT Support You Can Trust
             </p>
           </div>
@@ -358,7 +357,7 @@ export default function MSPServicesPage() {
         <div className="mx-auto max-w-4xl px-6 lg:px-8">
           <div className="mx-auto max-w-2xl text-center mb-16">
             <h2 className="text-base font-semibold leading-7 text-primary-400">Frequently Asked Questions</h2>
-            <p className="mt-2 text-4xl font-bold tracking-tight text-white sm:text-5xl">
+            <p className="mt-2 text-4xl font-display font-bold tracking-tight text-white sm:text-5xl">
               Managed IT Services FAQ
             </p>
           </div>
@@ -367,7 +366,7 @@ export default function MSPServicesPage() {
             {mspFaqs.map((faq, index) => (
               <details
                 key={index}
-                className="group rounded-2xl border-2 border-surface-border bg-surface-card hover:border-primary-300 transition-colors"
+                className="group rounded-2xl border-2 border-surface-border bg-surface-card card-lift"
               >
                 <summary className="flex cursor-pointer items-center justify-between p-6 text-lg font-bold text-white">
                   <span>{faq.question}</span>
@@ -391,7 +390,7 @@ export default function MSPServicesPage() {
               className="inline-flex items-center gap-2 text-primary-600 font-bold hover:text-primary-700"
             >
               <span>Schedule your free IT assessment</span>
-              <span>→</span>
+              <span>â†’</span>
             </Link>
           </div>
         </div>
@@ -407,7 +406,7 @@ export default function MSPServicesPage() {
 
         <div className="relative px-6 py-24 sm:px-6 sm:py-32 lg:px-8">
           <div className="mx-auto max-w-3xl text-center">
-            <h2 className="text-4xl font-bold tracking-tight sm:text-6xl mb-8">
+            <h2 className="text-4xl font-display font-bold tracking-tight sm:text-6xl mb-8">
               Is Your Business Protected?
             </h2>
             <p className="mx-auto max-w-2xl text-xl leading-8 text-primary-100 mb-12">

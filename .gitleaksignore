@@ -1,0 +1,6 @@
+# Ahrefs Web Analytics site-tag key: a public, client-side telemetry ID shipped
+# in the page HTML to every visitor (same class as a GA measurement ID). It has
+# been publicly visible in app/layout.tsx's script tag since it was added; the
+# cookie-consent refactor moved it into a named constant, which trips gitleaks'
+# generic-api-key heuristic. Not a credential.
+stephenscode-marketing/components/AnalyticsScripts.tsx:generic-api-key:8

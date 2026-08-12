@@ -1,4 +1,4 @@
-import type { Metadata } from 'next'
+﻿import type { Metadata } from 'next'
 import Link from 'next/link'
 import { Palette, MousePointerClick, ClipboardList, LayoutDashboard, Smartphone } from 'lucide-react'
 import { allDemos, demoCategories, demosByIndustry } from '@/lib/demos-data'
@@ -37,7 +37,7 @@ export default function DemosPage() {
               <Palette className="h-5 w-5" />
               <span>40+ Live Interactive Demos</span>
             </div>
-            <h1 className="text-4xl font-bold tracking-tight sm:text-6xl">
+            <h1 className="text-4xl font-display font-bold tracking-tight sm:text-6xl">
               Custom Website Houston Examples
             </h1>
             <p className="mt-6 text-lg leading-8 text-gray-200">
@@ -46,7 +46,7 @@ export default function DemosPage() {
             <div className="mt-10 flex items-center justify-center gap-x-6">
               <a
                 href="#demos-grid"
-                className="rounded-md bg-accent-500 px-6 py-3 text-base font-semibold text-white shadow-sm hover:bg-accent-600"
+                className="btn-accent px-6 py-3 text-base"
               >
                 Browse Demos
               </a>
@@ -54,7 +54,7 @@ export default function DemosPage() {
                 href="/pricing"
                 className="text-base font-semibold leading-7 text-white hover:text-gray-200"
               >
-                View Pricing <span aria-hidden="true">→</span>
+                View Pricing <span aria-hidden="true">â†’</span>
               </Link>
             </div>
           </div>
@@ -67,19 +67,19 @@ export default function DemosPage() {
           <dl className="grid grid-cols-1 gap-8 sm:grid-cols-2 lg:grid-cols-4">
             <div className="flex flex-col items-center border-l-4 border-accent-500 pl-6">
               <dt className="text-base leading-7 text-gray-400">Total Demos</dt>
-              <dd className="order-first text-4xl font-bold tracking-tight text-primary-600">{allDemos.length}</dd>
+              <dd className="order-first text-4xl font-display font-bold tracking-tight text-primary-600">{allDemos.length}</dd>
             </div>
             <div className="flex flex-col items-center border-l-4 border-accent-500 pl-6">
               <dt className="text-base leading-7 text-gray-400">Industries</dt>
-              <dd className="order-first text-4xl font-bold tracking-tight text-primary-600">{Object.keys(demosByIndustry).length}</dd>
+              <dd className="order-first text-4xl font-display font-bold tracking-tight text-primary-600">{Object.keys(demosByIndustry).length}</dd>
             </div>
             <div className="flex flex-col items-center border-l-4 border-accent-500 pl-6">
               <dt className="text-base leading-7 text-gray-400">Unique Layouts</dt>
-              <dd className="order-first text-4xl font-bold tracking-tight text-primary-600">6</dd>
+              <dd className="order-first text-4xl font-display font-bold tracking-tight text-primary-600">6</dd>
             </div>
             <div className="flex flex-col items-center border-l-4 border-accent-500 pl-6">
               <dt className="text-base leading-7 text-gray-400">Fully Interactive</dt>
-              <dd className="order-first text-4xl font-bold tracking-tight text-primary-600">100%</dd>
+              <dd className="order-first text-4xl font-display font-bold tracking-tight text-primary-600">100%</dd>
             </div>
           </dl>
         </div>
@@ -94,7 +94,7 @@ export default function DemosPage() {
       <section className="bg-surface py-24 sm:py-32">
         <div className="mx-auto max-w-7xl px-6 lg:px-8">
           <div className="mx-auto max-w-2xl text-center mb-16">
-            <h2 className="text-3xl font-bold tracking-tight text-white sm:text-4xl">
+            <h2 className="text-3xl font-display font-bold tracking-tight text-white sm:text-4xl">
               Fully Interactive Demos
             </h2>
             <p className="mt-4 text-lg leading-8 text-gray-400">
@@ -139,7 +139,7 @@ export default function DemosPage() {
       <section className="bg-primary-900 text-white">
         <div className="px-6 py-24 sm:px-6 sm:py-32 lg:px-8">
           <div className="mx-auto max-w-2xl text-center">
-            <h2 className="text-3xl font-bold tracking-tight sm:text-4xl">
+            <h2 className="text-3xl font-display font-bold tracking-tight sm:text-4xl">
               Ready to Build Yours?
             </h2>
             <p className="mx-auto mt-6 max-w-xl text-lg leading-8 text-gray-200">
@@ -148,7 +148,7 @@ export default function DemosPage() {
             <div className="mt-10 flex items-center justify-center gap-x-6">
               <Link
                 href="/contact"
-                className="rounded-md bg-accent-500 px-6 py-3 text-base font-semibold text-white shadow-sm hover:bg-accent-600"
+                className="btn-accent px-6 py-3 text-base"
               >
                 Get Started
               </Link>
@@ -156,7 +156,7 @@ export default function DemosPage() {
                 href="/pricing"
                 className="text-base font-semibold leading-7 text-white hover:text-gray-200"
               >
-                View Pricing <span aria-hidden="true">→</span>
+                View Pricing <span aria-hidden="true">â†’</span>
               </Link>
             </div>
           </div>

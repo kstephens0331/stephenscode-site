@@ -124,7 +124,7 @@ export default async function BlogPostPage({ params }: BlogPostPageProps) {
                 {post.readTime}
               </span>
             </div>
-            <h1 className="text-3xl font-bold tracking-tight sm:text-5xl mb-6">
+            <h1 className="text-3xl font-display font-bold tracking-tight sm:text-5xl mb-6">
               {post.title}
             </h1>
             <p className="text-xl leading-8 text-gray-200">
@@ -150,14 +150,14 @@ export default async function BlogPostPage({ params }: BlogPostPageProps) {
             className="prose prose-lg prose-primary prose-invert max-w-none prose-headings:font-bold prose-headings:text-white prose-h2:text-3xl prose-h2:mt-12 prose-h2:mb-6
               prose-h3:text-2xl prose-h3:mt-8 prose-h3:mb-4
               prose-p:text-gray-400 prose-p:leading-8 prose-p:mb-6
-              prose-a:text-primary-600 prose-a:no-underline hover:prose-a:text-primary-700
+              prose-a:text-primary-400 prose-a:no-underline hover:prose-a:text-primary-300
               prose-strong:text-white prose-strong:font-semibold
               prose-ul:my-6 prose-ul:list-disc prose-ul:pl-6
               prose-ol:my-6 prose-ol:list-decimal prose-ol:pl-6
               prose-li:text-gray-400 prose-li:my-2
               prose-blockquote:border-l-4 prose-blockquote:border-primary-500
               prose-blockquote:pl-6 prose-blockquote:italic prose-blockquote:text-gray-300
-              prose-code:text-primary-600 prose-code:bg-surface-card prose-code:px-1 prose-code:py-0.5 prose-code:rounded
+              prose-code:text-primary-400 prose-code:bg-surface-card prose-code:px-1 prose-code:py-0.5 prose-code:rounded
               prose-pre:bg-gray-900 prose-pre:text-gray-100"
             dangerouslySetInnerHTML={{ __html: post.content }}
           />
@@ -170,7 +170,7 @@ export default async function BlogPostPage({ params }: BlogPostPageProps) {
                 {post.tags.map((tag) => (
                   <span
                     key={tag}
-                    className="inline-flex items-center rounded-full bg-primary-100 px-3 py-1 text-sm font-medium text-primary-700"
+                    className="inline-flex items-center rounded-full bg-primary-500/15 px-3 py-1 text-sm font-medium text-primary-300"
                   >
                     #{tag}
                   </span>
@@ -218,7 +218,7 @@ export default async function BlogPostPage({ params }: BlogPostPageProps) {
               </div>
               <div className="flex-1">
                 <h3 className="text-lg font-semibold text-white">About the Author</h3>
-                <p className="text-sm font-medium text-primary-600 mb-2">{post.author}</p>
+                <p className="text-sm font-medium text-primary-400 mb-2">{post.author}</p>
                 <p className="text-gray-400 text-sm leading-6">
                   Kyle Stephens is a Marine Corps veteran and founder of StephensCode, a web development company
                   serving small businesses in the Greater Houston area. With 14+ years of experience building
@@ -228,13 +228,13 @@ export default async function BlogPostPage({ params }: BlogPostPageProps) {
                 <div className="mt-4 flex gap-4">
                   <Link
                     href="/about"
-                    className="text-sm font-semibold text-primary-600 hover:text-primary-400"
+                    className="text-sm font-semibold text-primary-400 hover:text-primary-300"
                   >
                     Learn more about Kyle →
                   </Link>
                   <Link
                     href="/contact"
-                    className="text-sm font-semibold text-primary-600 hover:text-primary-400"
+                    className="text-sm font-semibold text-primary-400 hover:text-primary-300"
                   >
                     Get in touch →
                   </Link>
@@ -249,7 +249,7 @@ export default async function BlogPostPage({ params }: BlogPostPageProps) {
       {relatedPosts.length > 0 && (
         <section className="bg-surface-card py-16 sm:py-24">
           <div className="mx-auto max-w-7xl px-6 lg:px-8">
-            <h2 className="text-3xl font-bold tracking-tight text-white mb-12">
+            <h2 className="text-3xl font-display font-bold tracking-tight text-white mb-12">
               Related Articles
             </h2>
             <div className="grid grid-cols-1 gap-8 md:grid-cols-3">
@@ -270,7 +270,7 @@ export default async function BlogPostPage({ params }: BlogPostPageProps) {
                     </div>
                     <div className="flex-1">
                       <h3 className="text-lg font-semibold leading-7 text-white mb-2">
-                        <Link href={`/blog/${relatedPost.slug}`} className="hover:text-primary-600">
+                        <Link href={`/blog/${relatedPost.slug}`} className="hover:text-primary-400 transition-colors">
                           {relatedPost.title}
                         </Link>
                       </h3>
@@ -281,7 +281,7 @@ export default async function BlogPostPage({ params }: BlogPostPageProps) {
                     <div className="mt-4">
                       <Link
                         href={`/blog/${relatedPost.slug}`}
-                        className="text-sm font-semibold text-primary-600 hover:text-primary-400"
+                        className="text-sm font-semibold text-primary-400 hover:text-primary-300"
                       >
                         Read more <span aria-hidden="true">→</span>
                       </Link>
@@ -298,7 +298,7 @@ export default async function BlogPostPage({ params }: BlogPostPageProps) {
       <section className="bg-primary-900 text-white">
         <div className="px-6 py-16 sm:px-6 sm:py-24 lg:px-8">
           <div className="mx-auto max-w-2xl text-center">
-            <h2 className="text-3xl font-bold tracking-tight sm:text-4xl">
+            <h2 className="text-3xl font-display font-bold tracking-tight sm:text-4xl">
               Need Help with Your Website?
             </h2>
             <p className="mx-auto mt-6 max-w-xl text-lg leading-8 text-gray-200">
@@ -307,13 +307,13 @@ export default async function BlogPostPage({ params }: BlogPostPageProps) {
             <div className="mt-10 flex items-center justify-center gap-x-6">
               <Link
                 href="/contact"
-                className="rounded-md bg-accent-500 px-6 py-3 text-base font-semibold text-white shadow-sm hover:bg-accent-600"
+                className="btn-accent px-6 py-3 text-base"
               >
                 Get Started
               </Link>
               <Link
                 href="/services"
-                className="text-base font-semibold leading-7 text-white hover:text-gray-200"
+                className="text-base font-semibold leading-7 text-white hover:underline underline-offset-4"
               >
                 View Services <span aria-hidden="true">→</span>
               </Link>

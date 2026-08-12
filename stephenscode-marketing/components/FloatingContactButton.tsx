@@ -2,30 +2,41 @@
 
 import { useState } from 'react'
 import Link from 'next/link'
-import { trackEvent, trackConversion } from '@/lib/analytics'
+import PhoneLink from '@/components/PhoneLink'
+import { trackEvent } from '@/lib/analytics'
 
+/*
+ * Site z-index scale (keep in sync when adding fixed/sticky elements):
+ *   100  skip-link
+ *    60  cookie consent banner
+ *    50  header, desktop dropdowns, this floating button
+ *    40  mobile menu backdrop + panel
+ *
+ * The button offsets its bottom by --consent-offset (published by
+ * CookieConsentBanner via ResizeObserver) so the pre-consent banner never
+ * buries it, plus the iOS safe-area inset.
+ */
 export default function FloatingContactButton() {
   const [isOpen, setIsOpen] = useState(false)
 
   return (
-    <div className="fixed bottom-6 right-6 z-50">
+    <div
+      className="fixed right-6 z-50 transition-[bottom] duration-300"
+      style={{ bottom: 'calc(1.5rem + env(safe-area-inset-bottom, 0px) + var(--consent-offset, 0px))' }}
+    >
       {/* Expanded Menu */}
       {isOpen && (
         <div className="absolute bottom-16 right-0 mb-2 flex flex-col gap-3 animate-fade-in">
           {/* Call Button */}
-          <a
-            href="tel:+19363234527"
-            onClick={() => {
-              trackEvent('phone_call_click', { link_location: 'floating_contact_button' })
-              trackConversion('phoneCall')
-            }}
+          <PhoneLink
+            location="floating_contact_button"
             className="flex items-center gap-3 rounded-full bg-green-500 pl-4 pr-6 py-3 text-white shadow-lg hover:bg-green-600 transition-all"
           >
             <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
               <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z" />
             </svg>
             <span className="font-semibold whitespace-nowrap">Call Now</span>
-          </a>
+          </PhoneLink>
 
           {/* Email Button */}
           <a
@@ -47,7 +58,7 @@ export default function FloatingContactButton() {
             onClick={() => {
               trackEvent('cta_click', { cta: 'Get Quote', location: 'floating_contact_button' })
             }}
-            className="flex items-center gap-3 rounded-full bg-primary-500 pl-4 pr-6 py-3 text-white hover:bg-primary-600 transition-all"
+            className="flex items-center gap-3 rounded-full bg-primary-600 pl-4 pr-6 py-3 text-white hover:bg-primary-700 transition-all"
           >
             <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
               <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M8 12h.01M12 12h.01M16 12h.01M21 12c0 4.418-4.03 8-9 8a9.863 9.863 0 01-4.255-.949L3 20l1.395-3.72C3.512 15.042 3 13.574 3 12c0-4.418 4.03-8 9-8s9 3.582 9 8z" />
@@ -57,7 +68,7 @@ export default function FloatingContactButton() {
         </div>
       )}
 
-      {/* Main Toggle Button */}
+      {/* Main Toggle Button (icon-only fill: primary-500 passes the 3:1 non-text bar) */}
       <button
         onClick={() => setIsOpen(!isOpen)}
         className={`flex items-center justify-center w-14 h-14 rounded-full transition-all  ${

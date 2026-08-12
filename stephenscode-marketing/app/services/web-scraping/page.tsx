@@ -1,4 +1,4 @@
-import Link from 'next/link'
+﻿import Link from 'next/link'
 import type { Metadata } from 'next'
 import {
   ClipboardList, DollarSign, Home, Briefcase, Star, Newspaper,
@@ -221,7 +221,7 @@ export default function WebScraping() {
               <span>200+ Projects Completed</span>
             </div>
 
-            <h1 className="text-5xl font-bold tracking-tight sm:text-6xl mb-6">
+            <h1 className="text-5xl font-display font-bold tracking-tight sm:text-6xl mb-6">
               Web Scraping Services
               <span className="block text-accent-400">Custom Data Extraction Solutions</span>
             </h1>
@@ -244,13 +244,13 @@ export default function WebScraping() {
             <div className="flex flex-col sm:flex-row items-center gap-4">
               <Link
                 href="/contact"
-                className="w-full sm:w-auto rounded-lg bg-accent-500 px-8 py-4 text-center text-lg font-bold text-white shadow-lg hover:bg-accent-600 transition-all"
+                className="w-full sm:w-auto btn-accent px-8 py-4 text-lg"
               >
                 Discuss Your Data Needs
               </Link>
               <PhoneLink
                 location="web_scraping_page_top"
-                className="w-full sm:w-auto flex items-center justify-center gap-2 rounded-lg border-2 border-surface-border px-8 py-4 text-lg font-bold text-white hover:bg-surface-card/60 transition-all"
+                className="w-full sm:w-auto btn-secondary px-8 py-4 text-lg"
               >
                 <Phone className="h-4 w-4" />
                 <span>(936) 323-4527</span>
@@ -270,7 +270,7 @@ export default function WebScraping() {
       <section className="bg-surface py-24">
         <div className="mx-auto max-w-7xl px-6 lg:px-8">
           <div className="mx-auto max-w-3xl">
-            <h2 className="text-4xl font-bold tracking-tight text-white mb-8">
+            <h2 className="text-4xl font-display font-bold tracking-tight text-white mb-8">
               What Can Web Scraping Do for Your Business
             </h2>
 
@@ -295,7 +295,7 @@ export default function WebScraping() {
       <section className="bg-surface-card py-24">
         <div className="mx-auto max-w-7xl px-6 lg:px-8">
           <div className="mx-auto max-w-2xl text-center mb-16">
-            <h2 className="text-4xl font-bold tracking-tight text-white mb-4">
+            <h2 className="text-4xl font-display font-bold tracking-tight text-white mb-4">
               Web Scraping Use Cases
             </h2>
             <p className="text-lg text-gray-400">
@@ -309,7 +309,7 @@ export default function WebScraping() {
               return (
                 <div
                   key={useCase.name}
-                  className="bg-surface rounded-2xl p-8 shadow-md border-2 border-surface-border hover:border-primary-300 transition-all"
+                  className="bg-surface rounded-2xl p-8 shadow-md border-2 border-surface-border card-lift"
                 >
                   <Icon className="h-9 w-9 text-primary-500 mb-4" strokeWidth={1.75} />
                   <h3 className="text-xl font-bold text-white mb-2">{useCase.name}</h3>
@@ -333,7 +333,7 @@ export default function WebScraping() {
       <section className="bg-surface py-24">
         <div className="mx-auto max-w-7xl px-6 lg:px-8">
           <div className="mx-auto max-w-3xl">
-            <h2 className="text-4xl font-bold tracking-tight text-white mb-8">
+            <h2 className="text-4xl font-display font-bold tracking-tight text-white mb-8">
               Web Scraping Experience & Technologies
             </h2>
 
@@ -348,34 +348,34 @@ export default function WebScraping() {
                   <div>
                     <h4 className="font-bold text-white mb-2">Languages</h4>
                     <ul className="space-y-1 text-gray-400">
-                      <li>• Python (primary)</li>
-                      <li>• Node.js</li>
-                      <li>• TypeScript</li>
+                      <li>â€¢ Python (primary)</li>
+                      <li>â€¢ Node.js</li>
+                      <li>â€¢ TypeScript</li>
                     </ul>
                   </div>
                   <div>
                     <h4 className="font-bold text-white mb-2">Frameworks</h4>
                     <ul className="space-y-1 text-gray-400">
-                      <li>• Scrapy (large-scale)</li>
-                      <li>• BeautifulSoup (parsing)</li>
-                      <li>• Playwright (JavaScript sites)</li>
-                      <li>• Selenium (browser automation)</li>
+                      <li>â€¢ Scrapy (large-scale)</li>
+                      <li>â€¢ BeautifulSoup (parsing)</li>
+                      <li>â€¢ Playwright (JavaScript sites)</li>
+                      <li>â€¢ Selenium (browser automation)</li>
                     </ul>
                   </div>
                   <div>
                     <h4 className="font-bold text-white mb-2">Infrastructure</h4>
                     <ul className="space-y-1 text-gray-400">
-                      <li>• Rotating proxies</li>
-                      <li>• Distributed scraping</li>
-                      <li>• Cloud deployment</li>
+                      <li>â€¢ Rotating proxies</li>
+                      <li>â€¢ Distributed scraping</li>
+                      <li>â€¢ Cloud deployment</li>
                     </ul>
                   </div>
                   <div>
                     <h4 className="font-bold text-white mb-2">Capabilities</h4>
                     <ul className="space-y-1 text-gray-400">
-                      <li>• JavaScript rendering</li>
-                      <li>• Anti-bot bypass (ethical)</li>
-                      <li>• Data cleaning & validation</li>
+                      <li>â€¢ JavaScript rendering</li>
+                      <li>â€¢ Anti-bot bypass (ethical)</li>
+                      <li>â€¢ Data cleaning & validation</li>
                     </ul>
                   </div>
                 </div>
@@ -389,7 +389,7 @@ export default function WebScraping() {
       <section className="bg-surface-card py-24">
         <div className="mx-auto max-w-7xl px-6 lg:px-8">
           <div className="mx-auto max-w-3xl">
-            <h2 className="text-4xl font-bold tracking-tight text-white mb-8">
+            <h2 className="text-4xl font-display font-bold tracking-tight text-white mb-8">
               Our Approach to Ethical Web Scraping
             </h2>
 
@@ -415,7 +415,7 @@ export default function WebScraping() {
       <section className="bg-surface py-24">
         <div className="mx-auto max-w-7xl px-6 lg:px-8">
           <div className="mx-auto max-w-2xl text-center mb-16">
-            <h2 className="text-4xl font-bold tracking-tight text-white mb-4">
+            <h2 className="text-4xl font-display font-bold tracking-tight text-white mb-4">
               Deliverables & Data Formats
             </h2>
             <p className="text-lg text-gray-400">
@@ -429,7 +429,7 @@ export default function WebScraping() {
               return (
                 <div
                   key={item.format}
-                  className="bg-surface-card rounded-2xl p-6 text-center border-2 border-surface-border hover:border-primary-300 transition-all"
+                  className="bg-surface-card rounded-2xl p-6 text-center border-2 border-surface-border card-lift"
                 >
                   {typeof Icon === 'string' ? (
                     <div className="text-4xl mb-3 font-mono text-primary-500">{Icon}</div>
@@ -449,7 +449,7 @@ export default function WebScraping() {
       <section className="bg-surface-card py-24">
         <div className="mx-auto max-w-7xl px-6 lg:px-8">
           <div className="mx-auto max-w-3xl">
-            <h2 className="text-4xl font-bold tracking-tight text-white mb-8">
+            <h2 className="text-4xl font-display font-bold tracking-tight text-white mb-8">
               Pricing Models
             </h2>
 
@@ -489,7 +489,7 @@ export default function WebScraping() {
       <section className="bg-surface py-24">
         <div className="mx-auto max-w-7xl px-6 lg:px-8">
           <div className="mx-auto max-w-3xl">
-            <h2 className="text-4xl font-bold tracking-tight text-white mb-12">
+            <h2 className="text-4xl font-display font-bold tracking-tight text-white mb-12">
               Frequently Asked Questions
             </h2>
 
@@ -509,7 +509,7 @@ export default function WebScraping() {
       <section className="relative bg-gradient-to-r from-primary-900 via-primary-800 to-primary-900 text-white py-24">
         <div className="mx-auto max-w-7xl px-6 lg:px-8">
           <div className="mx-auto max-w-3xl text-center">
-            <h2 className="text-4xl font-bold tracking-tight mb-6">
+            <h2 className="text-4xl font-display font-bold tracking-tight mb-6">
               Let's Extract Your Data
             </h2>
             <p className="text-xl text-gray-200 mb-8">
@@ -519,13 +519,13 @@ export default function WebScraping() {
             <div className="flex flex-col sm:flex-row items-center justify-center gap-4 mb-8">
               <Link
                 href="/contact"
-                className="w-full sm:w-auto rounded-lg bg-accent-500 px-10 py-5 text-xl font-bold text-white shadow-lg hover:bg-accent-600 transition-all"
+                className="w-full sm:w-auto btn-accent px-10 py-5 text-xl"
               >
                 Discuss Your Data Needs
               </Link>
               <PhoneLink
                 location="web_scraping_page_bottom"
-                className="w-full sm:w-auto flex items-center justify-center gap-2 rounded-lg bg-surface-card/60 px-10 py-5 text-xl font-bold text-white border-2 border-surface-border hover:bg-surface-elevated/80 transition-all"
+                className="w-full sm:w-auto btn-secondary px-10 py-5 text-xl"
               >
                 <Phone className="h-4 w-4" />
                 <span>(936) 323-4527</span>
@@ -543,7 +543,7 @@ export default function WebScraping() {
       <section className="bg-surface py-24">
         <div className="mx-auto max-w-7xl px-6 lg:px-8">
           <div className="mx-auto max-w-2xl text-center mb-12">
-            <h2 className="text-3xl font-bold tracking-tight text-white mb-4">
+            <h2 className="text-3xl font-display font-bold tracking-tight text-white mb-4">
               Related Services
             </h2>
           </div>
@@ -551,7 +551,7 @@ export default function WebScraping() {
           <div className="grid md:grid-cols-3 gap-8">
             <Link
               href="/services/conroe-web-development"
-              className="group bg-surface-card rounded-2xl p-8 border-2 border-surface-border hover:border-primary-300 hover:shadow-xl transition-all"
+              className="group bg-surface-card rounded-2xl p-8 border-2 border-surface-border card-lift"
             >
               <Globe className="h-8 w-8 text-primary-500 mb-4" strokeWidth={1.75} />
               <h3 className="text-xl font-bold text-white mb-2 group-hover:text-primary-600">Web Development</h3>
@@ -559,7 +559,7 @@ export default function WebScraping() {
             </Link>
             <Link
               href="/services/api-integration"
-              className="group bg-surface-card rounded-2xl p-8 border-2 border-surface-border hover:border-primary-300 hover:shadow-xl transition-all"
+              className="group bg-surface-card rounded-2xl p-8 border-2 border-surface-border card-lift"
             >
               <Link2 className="h-8 w-8 text-primary-500 mb-4" strokeWidth={1.75} />
               <h3 className="text-xl font-bold text-white mb-2 group-hover:text-primary-600">API Integration</h3>
@@ -567,7 +567,7 @@ export default function WebScraping() {
             </Link>
             <Link
               href="/services/business-automation"
-              className="group bg-surface-card rounded-2xl p-8 border-2 border-surface-border hover:border-primary-300 hover:shadow-xl transition-all"
+              className="group bg-surface-card rounded-2xl p-8 border-2 border-surface-border card-lift"
             >
               <Zap className="h-8 w-8 text-primary-500 mb-4" strokeWidth={1.75} />
               <h3 className="text-xl font-bold text-white mb-2 group-hover:text-primary-600">Business Automation</h3>

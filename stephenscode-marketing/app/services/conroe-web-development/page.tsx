@@ -1,8 +1,8 @@
-import Link from 'next/link'
+﻿import Link from 'next/link'
 import type { Metadata } from 'next'
 import {
   Wrench, Car, HardHat, Briefcase, UtensilsCrossed, ShoppingCart,
-  Flag, Phone, Link2, BarChart3, Zap,
+  Flag, Phone, Link2, BarChart3, Zap, ArrowRight,
 } from 'lucide-react'
 import Breadcrumbs from '@/components/Breadcrumbs'
 import PhoneLink from '@/components/PhoneLink'
@@ -259,7 +259,7 @@ export default function ConroeWebDevelopment() {
               <span>Veteran-Owned | Based in Conroe, TX</span>
             </div>
 
-            <h1 className="text-5xl font-bold tracking-tight sm:text-6xl mb-6">
+            <h1 className="text-5xl font-display font-bold tracking-tight sm:text-6xl mb-6">
               Conroe Web Developer
               <span className="block text-accent-400">Custom Websites for Local Businesses</span>
             </h1>
@@ -286,13 +286,13 @@ export default function ConroeWebDevelopment() {
             <div className="flex flex-col sm:flex-row items-center gap-4">
               <Link
                 href="/contact"
-                className="w-full sm:w-auto rounded-lg bg-accent-500 px-8 py-4 text-center text-lg font-bold text-white shadow-lg hover:bg-accent-600 transition-all"
+                className="w-full sm:w-auto btn-accent px-8 py-4 text-lg"
               >
                 Get Free Quote
               </Link>
               <PhoneLink
                 location="conroe_web_development_page_top"
-                className="w-full sm:w-auto flex items-center justify-center gap-2 rounded-lg border-2 border-surface-border px-8 py-4 text-lg font-bold text-white hover:bg-surface-card/60 transition-all"
+                className="w-full sm:w-auto btn-secondary px-8 py-4 text-lg"
               >
                 <Phone className="h-4 w-4" />
                 <span>(936) 323-4527</span>
@@ -312,7 +312,7 @@ export default function ConroeWebDevelopment() {
       <section className="bg-surface py-24">
         <div className="mx-auto max-w-7xl px-6 lg:px-8">
           <div className="mx-auto max-w-3xl">
-            <h2 className="text-4xl font-bold tracking-tight text-white mb-8">
+            <h2 className="text-4xl font-display font-bold tracking-tight text-white mb-8">
               Why Choose a Local Conroe Web Developer
             </h2>
 
@@ -352,7 +352,7 @@ export default function ConroeWebDevelopment() {
       <section className="bg-surface-card py-24">
         <div className="mx-auto max-w-7xl px-6 lg:px-8">
           <div className="mx-auto max-w-2xl text-center mb-16">
-            <h2 className="text-4xl font-bold tracking-tight text-white mb-4">
+            <h2 className="text-4xl font-display font-bold tracking-tight text-white mb-4">
               Web Development Services
             </h2>
             <p className="text-lg text-gray-400">
@@ -364,7 +364,7 @@ export default function ConroeWebDevelopment() {
             {services.map((service) => (
               <div
                 key={service.name}
-                className="bg-surface rounded-2xl p-6 shadow-md border-2 border-surface-border hover:border-primary-300 hover:shadow-xl transition-all"
+                className="bg-surface rounded-2xl p-6 shadow-md border-2 border-surface-border card-lift"
               >
                 <h3 className="text-xl font-bold text-white mb-2">{service.name}</h3>
                 <p className="text-gray-400 mb-4">{service.description}</p>
@@ -379,7 +379,7 @@ export default function ConroeWebDevelopment() {
       <section className="bg-surface py-24">
         <div className="mx-auto max-w-7xl px-6 lg:px-8">
           <div className="mx-auto max-w-2xl text-center mb-16">
-            <h2 className="text-4xl font-bold tracking-tight text-white mb-4">
+            <h2 className="text-4xl font-display font-bold tracking-tight text-white mb-4">
               Industries We Serve in Conroe & Montgomery County
             </h2>
             <p className="text-lg text-gray-400">
@@ -393,7 +393,7 @@ export default function ConroeWebDevelopment() {
               return (
                 <div
                   key={industry.name}
-                  className="bg-surface-card rounded-2xl p-8 border-2 border-surface-border hover:border-primary-300 transition-all"
+                  className="bg-surface-card rounded-2xl p-8 border-2 border-surface-border card-lift"
                 >
                   <Icon className="h-9 w-9 text-primary-500 mb-4" strokeWidth={1.75} />
                   <h3 className="text-xl font-bold text-white mb-2">{industry.name}</h3>
@@ -409,7 +409,7 @@ export default function ConroeWebDevelopment() {
       <section className="bg-surface-card py-24">
         <div className="mx-auto max-w-7xl px-6 lg:px-8">
           <div className="mx-auto max-w-2xl text-center mb-16">
-            <h2 className="text-4xl font-bold tracking-tight text-white mb-4">
+            <h2 className="text-4xl font-display font-bold tracking-tight text-white mb-4">
               Our Process
             </h2>
             <p className="text-lg text-gray-400">
@@ -437,7 +437,7 @@ export default function ConroeWebDevelopment() {
       <section className="bg-surface py-24">
         <div className="mx-auto max-w-7xl px-6 lg:px-8">
           <div className="mx-auto max-w-3xl">
-            <h2 className="text-4xl font-bold tracking-tight text-white mb-8">
+            <h2 className="text-4xl font-display font-bold tracking-tight text-white mb-8">
               Transparent Pricing
             </h2>
 
@@ -490,10 +490,10 @@ export default function ConroeWebDevelopment() {
             <div className="mt-8">
               <Link
                 href="/contact"
-                className="inline-flex items-center gap-2 rounded-lg bg-primary-600 px-8 py-4 text-lg font-bold text-white shadow-lg hover:bg-primary-700 transition-all"
+                className="group btn-primary px-8 py-4 text-lg"
               >
                 Get Your Custom Quote
-                <span>→</span>
+                <ArrowRight className="h-4 w-4 transition-transform duration-200 ease-brand group-hover:translate-x-0.5" />
               </Link>
             </div>
           </div>
@@ -504,7 +504,7 @@ export default function ConroeWebDevelopment() {
       <section className="bg-surface-card py-24">
         <div className="mx-auto max-w-7xl px-6 lg:px-8">
           <div className="mx-auto max-w-3xl">
-            <h2 className="text-4xl font-bold tracking-tight text-white mb-12">
+            <h2 className="text-4xl font-display font-bold tracking-tight text-white mb-12">
               Frequently Asked Questions
             </h2>
 
@@ -524,7 +524,7 @@ export default function ConroeWebDevelopment() {
       <section className="relative bg-gradient-to-r from-primary-900 via-primary-800 to-primary-900 text-white py-24">
         <div className="mx-auto max-w-7xl px-6 lg:px-8">
           <div className="mx-auto max-w-3xl text-center">
-            <h2 className="text-4xl font-bold tracking-tight mb-6">
+            <h2 className="text-4xl font-display font-bold tracking-tight mb-6">
               Ready to Get Started?
             </h2>
             <p className="text-xl text-gray-200 mb-8">
@@ -534,13 +534,13 @@ export default function ConroeWebDevelopment() {
             <div className="flex flex-col sm:flex-row items-center justify-center gap-4 mb-8">
               <Link
                 href="/contact"
-                className="w-full sm:w-auto rounded-lg bg-accent-500 px-10 py-5 text-xl font-bold text-white shadow-lg hover:bg-accent-600 transition-all"
+                className="w-full sm:w-auto btn-accent px-10 py-5 text-xl"
               >
                 Get Free Quote
               </Link>
               <PhoneLink
                 location="conroe_web_development_page_bottom"
-                className="w-full sm:w-auto flex items-center justify-center gap-2 rounded-lg bg-surface-card/60 px-10 py-5 text-xl font-bold text-white border-2 border-surface-border hover:bg-surface-elevated/80 transition-all"
+                className="w-full sm:w-auto btn-secondary px-10 py-5 text-xl"
               >
                 <Phone className="h-4 w-4" />
                 <span>(936) 323-4527</span>
@@ -563,7 +563,7 @@ export default function ConroeWebDevelopment() {
       <section className="bg-surface py-24">
         <div className="mx-auto max-w-7xl px-6 lg:px-8">
           <div className="mx-auto max-w-2xl text-center mb-12">
-            <h2 className="text-3xl font-bold tracking-tight text-white mb-4">
+            <h2 className="text-3xl font-display font-bold tracking-tight text-white mb-4">
               Other Services You Might Need
             </h2>
           </div>
@@ -571,7 +571,7 @@ export default function ConroeWebDevelopment() {
           <div className="grid md:grid-cols-3 gap-8">
             <Link
               href="/services/api-integration"
-              className="group bg-surface-card rounded-2xl p-8 border-2 border-surface-border hover:border-primary-300 hover:shadow-xl transition-all"
+              className="group bg-surface-card rounded-2xl p-8 border-2 border-surface-border card-lift"
             >
               <Link2 className="h-8 w-8 text-primary-500 mb-4" strokeWidth={1.75} />
               <h3 className="text-xl font-bold text-white mb-2 group-hover:text-primary-600">API Integration</h3>
@@ -579,7 +579,7 @@ export default function ConroeWebDevelopment() {
             </Link>
             <Link
               href="/services/web-scraping"
-              className="group bg-surface-card rounded-2xl p-8 border-2 border-surface-border hover:border-primary-300 hover:shadow-xl transition-all"
+              className="group bg-surface-card rounded-2xl p-8 border-2 border-surface-border card-lift"
             >
               <BarChart3 className="h-8 w-8 text-primary-500 mb-4" strokeWidth={1.75} />
               <h3 className="text-xl font-bold text-white mb-2 group-hover:text-primary-600">Web Scraping</h3>
@@ -587,7 +587,7 @@ export default function ConroeWebDevelopment() {
             </Link>
             <Link
               href="/services/business-automation"
-              className="group bg-surface-card rounded-2xl p-8 border-2 border-surface-border hover:border-primary-300 hover:shadow-xl transition-all"
+              className="group bg-surface-card rounded-2xl p-8 border-2 border-surface-border card-lift"
             >
               <Zap className="h-8 w-8 text-primary-500 mb-4" strokeWidth={1.75} />
               <h3 className="text-xl font-bold text-white mb-2 group-hover:text-primary-600">Business Automation</h3>

@@ -5,6 +5,74 @@
 body {
   color: #f5f5f5;
   background: #000000;
+  /* +0.01em is the standard compensation for light text on near-black, which
+     optically tightens vs dark-on-light; headings override it with their
+     explicit tracking classes so only body/UI copy is affected. */
+  letter-spacing: 0.01em;
+}
+
+/* Brand text selection. primary-600 behind white is 4.7:1 (AA); alpha stays
+   at .99 so Safari/Chrome do not substitute their own translucent default. */
+::selection {
+  background-color: rgb(214 57 18 / 0.99);
+  color: #ffffff;
+  text-shadow: none;
+}
+
+/* Firefox + Chromium 121+: standard properties (these override ::-webkit-* in
+   Chromium when set). Thumb: surface-border, track: surface-card. */
+@supports (scrollbar-color: auto) {
+  html {
+    scrollbar-width: thin;
+    scrollbar-color: #262626 #0d0d0d;
+  }
+}
+/* Safari and older Chromium. */
+::-webkit-scrollbar {
+  width: 10px;
+  height: 10px;
+}
+::-webkit-scrollbar-track {
+  background: #0d0d0d;
+}
+::-webkit-scrollbar-thumb {
+  background: #262626;
+  border-radius: 8px;
+  /* Creates inset padding so the thumb reads thin. */
+  border: 2px solid #0d0d0d;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: #3d3d3d;
+}
+::-webkit-scrollbar-corner {
+  background: #0d0d0d;
+}
+
+@layer base {
+  html {
+    scroll-behavior: smooth;
+    /* Sticky header is ~69px; keep anchor targets (#packages, #main-content)
+       clear of it. */
+    scroll-padding-top: 5.5rem;
+  }
+  /* Brand focus ring for keyboard users, sitewide. primary-400 on black is 7.9:1. */
+  :focus-visible {
+    outline: 2px solid theme('colors.primary.400');
+    outline-offset: 3px;
+    border-radius: 4px;
+  }
+}
+
+@layer components {
+  .btn-primary {
+    @apply inline-flex items-center justify-center gap-2 rounded-lg bg-primary-600 font-semibold text-white shadow-btn transition-all duration-200 ease-brand hover:bg-primary-500 hover:-translate-y-px hover:shadow-btn-hover active:translate-y-0 active:bg-primary-700 active:shadow-btn active:duration-75 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary-400 focus-visible:ring-offset-2 focus-visible:ring-offset-black;
+  }
+  .btn-secondary {
+    @apply inline-flex items-center justify-center gap-2 rounded-lg border border-surface-border font-semibold text-white transition-all duration-200 ease-brand hover:border-primary-500/60 hover:bg-surface-card hover:-translate-y-px hover:shadow-card-hover active:translate-y-0 active:shadow-none active:duration-75 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary-400 focus-visible:ring-offset-2 focus-visible:ring-offset-black;
+  }
+  .btn-accent {
+    @apply inline-flex items-center justify-center gap-2 rounded-lg bg-accent-500 font-semibold text-black shadow-btn transition-all duration-200 ease-brand hover:bg-accent-400 hover:-translate-y-px hover:shadow-[inset_0_1px_0_rgb(255_255_255/0.25),0_8px_24px_-8px_rgb(245_158_11/0.45)] active:translate-y-0 active:bg-accent-600 active:duration-75 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-accent-300 focus-visible:ring-offset-2 focus-visible:ring-offset-black;
+  }
 }
 
 @keyframes fadeInUp {
@@ -14,6 +82,36 @@ body {
 @keyframes fadeIn {
   from { opacity: 0; }
   to   { opacity: 1; }
+}
+@keyframes dropdownIn {
+  from { opacity: 0; transform: translateY(-4px) scale(0.98); }
+  to   { opacity: 1; transform: translateY(0) scale(1); }
+}
+/* Zero-JS scroll-driven reveals (scrubbed by animation-timeline: view()). */
+@keyframes reveal-rise {
+  from { opacity: 0; transform: translateY(28px); }
+  to   { opacity: 1; transform: none; }
+}
+@keyframes reveal-card {
+  from { opacity: 0; transform: perspective(1200px) rotateX(6deg) translateY(32px); }
+  to   { opacity: 1; transform: none; }
+}
+@keyframes draw-line {
+  from { transform: scaleX(0); }
+  to   { transform: scaleX(1); }
+}
+@keyframes menuPanelIn {
+  from { opacity: 0; transform: translateY(-8px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+@keyframes menuItemIn {
+  from { opacity: 0; transform: translateY(6px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+@keyframes aurora-drift {
+  to { transform: translate3d(7%, 5%, 0); }
 }
 
 @layer utilities {
@@ -34,14 +132,29 @@ body {
   .animation-delay-600 { animation-delay: 0.15s; }
   .animation-delay-800 { animation-delay: 0.2s; }
 
-  /* Single restrained card hover used across the site. 2px lift, border
-     color shift to the brand red-orange. Subtle, intentional, not flashy. */
+  /* Archivo carries a variable wdth axis (62-125); these only do anything on
+     font-display elements. On Public Sans they are a no-op, so they are safe. */
+  .font-expanded {
+    font-stretch: 125%;
+  }
+  .font-semi-expanded {
+    font-stretch: 112%;
+  }
+
+  /* THE sitewide card hover system. 3px lift, brand border, layered shadow.
+     Cards must use border-*, not ring-* (ring is box-shadow based, so the
+     border-color transition would silently no-op). Already-highlighted cards
+     opt into a full-strength hover border via [--card-hover-border:#ef4e22]. */
   .card-lift {
-    transition: transform 200ms ease, border-color 200ms ease, background-color 200ms ease;
+    transition: transform 300ms cubic-bezier(0.22, 1, 0.36, 1),
+                border-color 300ms cubic-bezier(0.22, 1, 0.36, 1),
+                box-shadow 300ms cubic-bezier(0.22, 1, 0.36, 1),
+                background-color 300ms cubic-bezier(0.22, 1, 0.36, 1);
   }
   .card-lift:hover {
-    transform: translateY(-2px);
-    border-color: rgb(239 78 34 / 0.5);
+    transform: translateY(-3px);
+    border-color: var(--card-hover-border, rgb(239 78 34 / 0.45));
+    box-shadow: 0 12px 32px -16px rgb(0 0 0 / 0.6), 0 4px 24px -12px rgb(239 78 34 / 0.18);
   }
 
   /* Link underline hover used on text links inside body copy. */
@@ -54,5 +167,158 @@ body {
   }
   .link-underline:hover {
     background-size: 100% 1px;
+  }
+
+  /* Nav underline: draws in from the left on hover, stays drawn on the
+     active page via aria-current. Sits at -6px so it clears chevron icons. */
+  .nav-link {
+    position: relative;
+  }
+  .nav-link::after {
+    content: '';
+    position: absolute;
+    left: 0;
+    bottom: -6px;
+    height: 2px;
+    width: 100%;
+    border-radius: 9999px;
+    background: linear-gradient(to right, #ef4e22, #ff7547);
+    transform: scaleX(0);
+    transform-origin: left;
+    transition: transform 250ms cubic-bezier(0.22, 1, 0.36, 1);
+  }
+  .nav-link:hover::after,
+  .nav-link[aria-current="page"]::after {
+    transform: scaleX(1);
+  }
+
+  .animate-dropdown {
+    animation: dropdownIn 150ms cubic-bezier(0.22, 1, 0.36, 1);
+    transform-origin: top center;
+  }
+
+  /* Mobile menu panel + staggered link reveals (Header.tsx) */
+  .animate-menu-panel {
+    animation: menuPanelIn 250ms cubic-bezier(0.22, 1, 0.36, 1);
+  }
+  .menu-stagger > * {
+    animation: menuItemIn 300ms cubic-bezier(0.22, 1, 0.36, 1) both;
+  }
+  .menu-stagger > *:nth-child(1) { animation-delay: 30ms; }
+  .menu-stagger > *:nth-child(2) { animation-delay: 60ms; }
+  .menu-stagger > *:nth-child(3) { animation-delay: 90ms; }
+  .menu-stagger > *:nth-child(4) { animation-delay: 120ms; }
+  .menu-stagger > *:nth-child(5) { animation-delay: 150ms; }
+  .menu-stagger > *:nth-child(6) { animation-delay: 180ms; }
+  .menu-stagger > *:nth-child(7) { animation-delay: 210ms; }
+  .menu-stagger > *:nth-child(8) { animation-delay: 240ms; }
+  .menu-stagger > *:nth-child(n + 9) { animation-delay: 270ms; }
+
+  /* Film-grain for hero/CTA bands. ::before paints under positioned children,
+     so the section's existing 'relative' content wrapper stays crisp above it.
+     No mix-blend-mode: soft-light/overlay both compute to pure black over the
+     #000 backgrounds; plain low-opacity luminance noise is correct here. */
+  .texture-grain {
+    position: relative;
+  }
+  .texture-grain::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    pointer-events: none;
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='200' height='200'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.65' numOctaves='3' stitchTiles='stitch'/%3E%3CfeColorMatrix type='saturate' values='0'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
+    background-repeat: repeat;
+    opacity: 0.05;
+  }
+
+  /* Short primary rule above a left-aligned solid-white h2 -- the sanctioned
+     replacement for gradient-clip headings when a section header has no
+     bracket eyebrow. Use on at most 2-3 sections per page. */
+  .heading-rule::before {
+    content: '';
+    display: block;
+    width: 2.5rem;
+    height: 3px;
+    background-color: #ef4e22;
+    margin-bottom: 1rem;
+  }
+
+  /* Aurora drift blobs for the hero static fallback layer. Pre-softened
+     radial gradients animated by transform only (no filter: blur), so they
+     composite cheaply. */
+  .aurora {
+    position: absolute;
+    border-radius: 9999px;
+    will-change: transform;
+  }
+  .aurora-a {
+    width: 55vw;
+    aspect-ratio: 1;
+    top: -18%;
+    left: -12%;
+    background: radial-gradient(closest-side, rgba(239, 78, 34, 0.1), transparent 70%);
+    animation: aurora-drift 26s ease-in-out infinite alternate;
+  }
+  .aurora-b {
+    width: 45vw;
+    aspect-ratio: 1;
+    bottom: -25%;
+    right: -10%;
+    background: radial-gradient(closest-side, rgba(245, 158, 11, 0.05), transparent 70%);
+    animation: aurora-drift 22s ease-in-out infinite alternate-reverse;
+  }
+
+  /* Zero-JS scroll-driven reveals: the hidden 'from' state exists ONLY via
+     animation-fill inside this @supports block, so Firefox/older Safari and
+     no-JS crawlers see fully visible content with zero cost. linear timing is
+     correct -- scroll-scrubbed animations read as physical. */
+  @supports (animation-timeline: view()) {
+    .reveal-rise {
+      animation: reveal-rise linear both;
+      animation-timeline: view();
+      animation-range: entry 10% cover 30%;
+    }
+    .reveal-card {
+      animation: reveal-card linear both;
+      animation-timeline: view();
+      animation-range: entry 5% cover 35%;
+    }
+    .draw-line {
+      animation: draw-line linear both;
+      animation-timeline: view();
+      animation-range: entry 20% cover 55%;
+      transform-origin: left center;
+    }
+    @media (prefers-reduced-motion: reduce) {
+      .reveal-rise,
+      .reveal-card,
+      .draw-line {
+        animation: none;
+      }
+    }
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+  .card-lift:hover,
+  .btn-primary:hover,
+  .btn-secondary:hover,
+  .btn-accent:hover {
+    transform: none;
+  }
+  .animate-fade-in-up,
+  .animate-fade-in,
+  .animate-dropdown,
+  .animate-menu-panel,
+  .menu-stagger > * {
+    animation-duration: 1ms;
+    animation-delay: 0ms;
+  }
+  .aurora-a,
+  .aurora-b {
+    animation: none;
   }
 }

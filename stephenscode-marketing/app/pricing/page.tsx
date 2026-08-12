@@ -1,9 +1,10 @@
-import Link from 'next/link'
+﻿import Link from 'next/link'
 import type { Metadata } from 'next'
 import { corePackages, premiumBuilds } from '@/lib/services-data'
 import PhoneLink from '@/components/PhoneLink'
+import BracketEyebrow from '@/components/BracketEyebrow'
 import { basicAddOns, advancedAddOns } from '@/lib/addons-data'
-import { DollarSign, Zap, Trophy, Target, Rocket, Check, Clock, Star, TrendingUp } from 'lucide-react'
+import { DollarSign, Target, Rocket, Check, Clock, Star, TrendingUp, ArrowRight, Phone } from 'lucide-react'
 
 export const metadata: Metadata = {
   title: 'Houston Web Development | Flat-Rate Small Business Websites from $250',
@@ -87,11 +88,11 @@ const pricingSchema = {
 const pricingFaqs = [
   {
     question: 'Why do you use flat-rate pricing instead of hourly rates?',
-    answer: "Flat-rate pricing provides complete transparency and eliminates surprises. You know the exact cost upfront, can budget accurately, and we focus on delivering quality rather than padding hours. Our incentives are aligned: we succeed when you succeed.",
+    answer: "Hourly billing rewards slow work. A flat rate means you know the full cost before I write a line of code, and it puts the pressure where it belongs: on me to build efficiently. If the job takes longer than I quoted, that is my problem, not your bill.",
   },
   {
     question: 'Can I combine packages with add-ons?',
-    answer: 'Absolutely! Our pricing is modular: start with any core package or premium build, then add any combination of our 40+ add-ons to customize your website to your exact needs and budget.',
+    answer: 'Yes. Pricing is modular: start with any core package or premium build, then add any combination of our 40+ add-ons to customize your website to your exact needs and budget.',
   },
   {
     question: 'Are there any hidden fees or recurring costs?',
@@ -115,7 +116,7 @@ const pricingFaqs = [
   },
   {
     question: 'Do you offer ongoing maintenance and support?',
-    answer: 'Yes! We offer optional maintenance plans starting at $50-100/month that include updates, security monitoring, backups, and minor content changes. We also provide hourly support for larger updates or changes outside the maintenance scope.',
+    answer: 'Yes. We offer optional maintenance plans starting at $50-100/month that include updates, security monitoring, backups, and minor content changes. We also provide hourly support for larger updates or changes outside the maintenance scope.',
   },
   {
     question: 'What about hosting and domain costs?',
@@ -123,15 +124,15 @@ const pricingFaqs = [
   },
   {
     question: 'Can I see examples of your work before committing?',
-    answer: 'Absolutely! Visit our Demos page to explore 40+ fully interactive website examples across all our packages and industries. You can click around and test every feature.',
+    answer: 'Yes. Visit our Demos page to explore 40+ fully interactive website examples across all our packages and industries. You can click around and test every feature.',
   },
   {
     question: "What if I need custom features not listed?",
-    answer: "No problem! We can build custom features tailored to your specific needs. Just let us know what you're looking for during the consultation, and we'll provide a clear quote for the additional functionality.",
+    answer: "Yes. We can build custom features tailored to your specific needs. Just let us know what you're looking for during the consultation, and we'll provide a clear quote for the additional functionality.",
   },
   {
     question: 'Do you provide training on how to update my website?',
-    answer: "Yes! Every package includes training documentation and a walkthrough session so you can confidently update content, images, and other elements yourself. We'll teach you everything you need to know, and we're always available if you need help.",
+    answer: "Yes. Every package includes training documentation and a walkthrough session so you can confidently update content, images, and other elements yourself. We'll teach you everything you need to know, and we're always available if you need help.",
   },
   {
     question: 'What happens if I want to add features later?',
@@ -139,11 +140,11 @@ const pricingFaqs = [
   },
   {
     question: 'Are your websites mobile-friendly and SEO-optimized?',
-    answer: '100% yes! Every website we build is fully responsive (works perfectly on phones, tablets, and desktops) and includes foundational SEO optimization: meta tags, structured data, sitemaps, fast load times, and clean URLs. This is standard in every package.',
+    answer: 'Yes, in every package. Responsive layout for phones, tablets, and desktops, plus the SEO groundwork: meta tags, structured data, sitemaps, fast load times, and clean URLs. That is baseline work, not an add-on.',
   },
   {
     question: 'Will I own the website and all the code?',
-    answer: "Yes! Once the project is completed and paid for, you own 100% of the website, domain, content, and code. We'll provide access to everything, and you're free to maintain it yourself or hire anyone else in the future.",
+    answer: "Yes. Once the project is completed and paid for, you own 100% of the website, domain, content, and code. We'll provide access to everything, and you're free to maintain it yourself or hire anyone else in the future.",
   },
   {
     question: "What if I'm not happy with the final result?",
@@ -151,7 +152,7 @@ const pricingFaqs = [
   },
   {
     question: 'Do you work with clients outside Houston?',
-    answer: "Yes! While we're based in Houston and serve the local area, we work with clients nationwide through remote collaboration via video calls, screen sharing, and project management tools. Location is no barrier to great results.",
+    answer: "Yes. While we're based in Houston and serve the local area, we work with clients nationwide through remote collaboration via video calls, screen sharing, and project management tools.",
   },
 ]
 
@@ -181,92 +182,107 @@ export default function PricingPage() {
         dangerouslySetInnerHTML={{ __html: JSON.stringify(faqSchema) }}
       />
 
-      {/* Hero Section */}
-      <section className="relative bg-gradient-to-br from-black via-surface to-surface-card text-white overflow-hidden">
-        {/* Pattern overlay */}
-        <div className="absolute inset-0 opacity-10">
-          <svg className="absolute w-full h-full" xmlns="http://www.w3.org/2000/svg">
-            <defs>
-              <pattern id="pricing-pattern" x="0" y="0" width="40" height="40" patternUnits="userSpaceOnUse">
-                <circle cx="20" cy="20" r="1.5" fill="currentColor" />
-              </pattern>
-            </defs>
-            <rect width="100%" height="100%" fill="url(#pricing-pattern)" />
-          </svg>
-        </div>
+      {/* Hero -- homepage design language: black canvas, bracket eyebrow, hairline stats */}
+      <section className="relative bg-black border-b border-surface-border overflow-hidden">
+        <div className="pointer-events-none absolute inset-0 bg-gradient-to-b from-surface-card/60 via-black to-black" />
 
-        <div className="relative mx-auto max-w-7xl px-6 py-24 sm:py-32 lg:px-8">
-          <div className="mx-auto max-w-3xl text-center">
-            <div className="inline-flex items-center gap-2 rounded-full bg-accent-500/20 px-4 py-2 text-sm font-semibold text-white ring-1 ring-inset ring-accent-500/30 mb-8 animate-fade-in-up">
-              <DollarSign className="h-4 w-4" />
-              100% Transparent Pricing
+        <div className="relative mx-auto max-w-7xl px-6 py-20 sm:py-24 lg:px-8">
+          <div className="max-w-3xl">
+            <div className="animate-fade-in-up">
+              <BracketEyebrow label="Flat-Rate Pricing" />
             </div>
-            <h1 className="text-5xl font-bold tracking-tight sm:text-7xl animate-fade-in-up animation-delay-200">
-              Simple, Transparent Pricing
+
+            <h1 className="mt-8 font-display text-display font-bold text-white animate-fade-in-up animation-delay-200">
+              One number. Paid up front.
+              <span className="block text-gray-500 mt-2">That is the whole model.</span>
             </h1>
-            <p className="mt-6 text-xl leading-8 text-gray-200 animate-fade-in-up animation-delay-400">
-              No hidden fees, no hourly rates, no surprises. Every service has a <span className="font-bold text-accent-400">flat rate</span> so you know exactly what you're paying before we start.
+
+            <p className="mt-6 max-w-2xl text-lg leading-8 text-gray-300 animate-fade-in-up animation-delay-400">
+              Seven flat-rate tiers from $250 to $7,500+, every one with 90 days of post-launch support included. No hourly billing, no hidden fees. You know the exact cost before we start.
             </p>
-            <div className="mt-10 flex items-center justify-center gap-x-6 animate-fade-in-up animation-delay-600">
+
+            <div className="mt-10 flex flex-col gap-3 sm:flex-row sm:items-center animate-fade-in-up animation-delay-600">
               <Link
                 href="/contact"
-                className="group rounded-lg bg-accent-500 px-6 py-3.5 text-base font-semibold text-white shadow-lg hover:bg-accent-600 transition-all"
+                className="group btn-primary w-full px-6 py-3 text-base sm:w-auto"
               >
                 Get a Flat Quote
-                <span className="inline-block transition-transform group-hover:translate-x-1 ml-2">→</span>
+                <ArrowRight className="h-4 w-4 transition-transform duration-200 ease-brand group-hover:translate-x-0.5" />
               </Link>
               <PhoneLink
                 location="pricing_page_top"
-                className="text-base font-semibold leading-7 text-white hover:text-gray-200 transition-colors"
+                className="inline-flex min-h-[44px] w-full items-center justify-center gap-2 rounded-lg px-6 py-3 text-base font-semibold text-gray-400 hover:text-primary-400 transition-colors sm:w-auto"
               >
-                Call (936) 323-4527 <span aria-hidden="true">→</span>
+                <Phone className="h-4 w-4" />
+                (936) 323-4527
               </PhoneLink>
             </div>
-          </div>
-        </div>
 
-        {/* Wave divider */}
-        <div className="absolute bottom-0 left-0 right-0">
-          <svg className="w-full h-16 fill-surface" viewBox="0 0 1200 120" preserveAspectRatio="none">
-            <path d="M321.39,56.44c58-10.79,114.16-30.13,172-41.86,82.39-16.72,168.19-17.73,250.45-.39C823.78,31,906.67,72,985.66,92.83c70.05,18.48,146.53,26.09,214.34,3V0H0V27.35A600.21,600.21,0,0,0,321.39,56.44Z" />
-          </svg>
+            {/* Quick facts -- hairline dl, plainly stated */}
+            <dl className="mt-16 grid grid-cols-2 gap-x-8 gap-y-8 sm:grid-cols-4 animate-fade-in-up animation-delay-800">
+              <div className="border-l border-primary-500/40 pl-4">
+                <dt className="text-[10px] uppercase tracking-[0.18em] text-gray-500">Starting price</dt>
+                <dd className="mt-1.5 font-display font-expanded text-3xl font-display font-bold tracking-tight tabular-nums text-white">$250</dd>
+              </div>
+              <div className="border-l border-primary-500/40 pl-4">
+                <dt className="text-[10px] uppercase tracking-[0.18em] text-gray-500">Add-on options</dt>
+                <dd className="mt-1.5 font-display font-expanded text-3xl font-display font-bold tracking-tight tabular-nums text-white">40+</dd>
+              </div>
+              <div className="border-l border-primary-500/40 pl-4">
+                <dt className="text-[10px] uppercase tracking-[0.18em] text-gray-500">Hidden fees</dt>
+                <dd className="mt-1.5 font-display font-expanded text-3xl font-display font-bold tracking-tight tabular-nums text-white">0%</dd>
+              </div>
+              <div className="border-l border-primary-500/40 pl-4">
+                <dt className="text-[10px] uppercase tracking-[0.18em] text-gray-500">Flat-rate tiers</dt>
+                <dd className="mt-1.5 font-display font-expanded text-3xl font-display font-bold tracking-tight tabular-nums text-white">7</dd>
+              </div>
+            </dl>
+          </div>
         </div>
       </section>
 
-      {/* Quick Stats Section */}
-      <section className="bg-surface py-16 border-b border-surface-border">
-        <div className="mx-auto max-w-7xl px-6 lg:px-8">
-          <div className="grid grid-cols-2 md:grid-cols-4 gap-8 text-center">
-            <div className="animate-fade-in-up">
-              <div className="text-4xl font-bold text-primary-200">$250</div>
-              <div className="text-sm text-gray-400 mt-2">Starting Price</div>
+      {/* Proof and positioning -- value framing before the tier grid */}
+      <section className="bg-surface-card border-b border-surface-border py-16 sm:py-20">
+        <div className="mx-auto max-w-4xl px-6 lg:px-8">
+          <div className="rounded-3xl bg-surface border border-surface-border p-8 md:p-12 shadow-xl shadow-black/40">
+            <div className="inline-flex items-center gap-2 rounded-full bg-accent-500/15 px-4 py-2 text-sm font-semibold text-accent-400 mb-6">
+              <TrendingUp className="h-4 w-4" />
+              Real Client Result
             </div>
-            <div className="animate-fade-in-up animation-delay-200">
-              <div className="text-4xl font-bold text-primary-200">40+</div>
-              <div className="text-sm text-gray-400 mt-2">Add-On Options</div>
-            </div>
-            <div className="animate-fade-in-up animation-delay-400">
-              <div className="text-4xl font-bold text-primary-200">0%</div>
-              <div className="text-sm text-gray-400 mt-2">Hidden Fees</div>
-            </div>
-            <div className="animate-fade-in-up animation-delay-600">
-              <div className="text-4xl font-bold text-primary-200">7</div>
-              <div className="text-sm text-gray-400 mt-2">Flat-Rate Tiers</div>
-            </div>
+            <p className="text-2xl md:text-3xl font-bold text-white leading-snug mb-4">
+              Benefit Builder grew from roughly $1,000 MRR to $52,000 MRR after we built their platform.
+            </p>
+            <p className="text-gray-400 leading-relaxed mb-6">
+              We built their public website and their entire internal operating platform, automating the workflows their small team needed to run the business day to day. Admin work dropped by 60%, and the company now runs on a team of three.
+            </p>
+            <Link
+              href="/work"
+              className="group inline-flex items-center gap-2 text-sm font-semibold text-accent-500 hover:text-accent-400 transition-colors"
+            >
+              See the full case study
+              <ArrowRight className="h-3.5 w-3.5 transition-transform duration-200 ease-brand group-hover:translate-x-0.5" />
+            </Link>
+          </div>
+
+          <div className="mt-8 rounded-2xl border border-primary-500/30 bg-surface p-8 md:p-10">
+            <h3 className="text-xl font-bold text-white mb-3">
+              These aren't just websites. They're business systems.
+            </h3>
+            <p className="text-gray-300 leading-relaxed">
+              Most freelancers and small studios at the $2,000-$5,000 price point hand you a marketing site and stop there. Our $2,000 Premium Build ships with a custom admin portal, a real-time analytics dashboard, and CRM/accounting integrations built in. Step up to the $5,000 Custom Business Platform and you get a complete CRM, a client login portal, and integrated invoicing and payments, the kind of system most businesses are still stitching together out of three or four separate monthly SaaS subscriptions.
+            </p>
           </div>
         </div>
       </section>
 
       {/* Core Packages */}
-      <section className="bg-surface py-24 sm:py-32">
+      <section className="bg-surface py-24 sm:py-32 border-b border-surface-border">
         <div className="mx-auto max-w-7xl px-6 lg:px-8">
           <div className="mx-auto max-w-2xl text-center mb-16">
-            <div className="inline-flex items-center gap-3 text-[11px] font-semibold uppercase tracking-[0.22em] text-primary-500 mb-4">
-              <span aria-hidden="true" className="font-mono text-primary-500/80">&lt;</span>
-              <span>Core Tiers</span>
-              <span aria-hidden="true" className="font-mono text-primary-500/80">/&gt;</span>
+            <div className="mb-4">
+              <BracketEyebrow label="Core Tiers" />
             </div>
-            <h2 className="text-3xl font-bold tracking-tight text-white sm:text-4xl">
+            <h2 className="font-display text-display-sm font-bold text-white">
               Four tiers, one flat price each.
             </h2>
             <p className="mt-4 text-lg leading-8 text-gray-400">
@@ -275,70 +291,59 @@ export default function PricingPage() {
           </div>
 
           <div className="grid gap-8 lg:grid-cols-2 xl:grid-cols-4">
-            {corePackages.map((pkg, index) => {
+            {corePackages.map((pkg) => {
               const isPopular = pkg.id === 'standard-website'
               return (
                 <div
                   key={pkg.id}
-                  className={`relative flex flex-col rounded-3xl bg-surface p-8 shadow-lg  transition-all  ${
-                    isPopular ? 'border-2 border-accent-500 ring-4 ring-accent-500/20' : 'border border-surface-border'
+                  className={`relative flex flex-col rounded-3xl bg-surface p-8 card-lift ${
+                    isPopular
+                      ? 'border-2 border-primary-500 [--card-hover-border:#ef4e22] shadow-glow-primary'
+                      : 'border border-surface-border shadow-lg'
                   }`}
                 >
                   {isPopular && (
-                    <div className="absolute -top-4 left-1/2 -translate-x-1/2">
-                      <span className="inline-flex items-center gap-1 rounded-full bg-gradient-to-r from-accent-500 to-accent-600 px-4 py-1.5 text-xs font-bold text-white shadow-lg">
-                        <Star className="h-3.5 w-3.5" />
-                        MOST POPULAR
-                      </span>
+                    <div className="absolute -top-3 left-7">
+                      <div className="rounded-full bg-primary-600 px-3 py-0.5 text-[10px] font-semibold uppercase tracking-[0.18em] text-white">
+                        Most picked
+                      </div>
                     </div>
                   )}
                   <h3 className="text-2xl font-bold text-white">{pkg.name}</h3>
                   <p className="mt-4 text-sm text-gray-400 leading-relaxed">{pkg.shortDescription}</p>
                   <p className="mt-6 flex items-baseline gap-x-1">
-                    <span className="text-5xl font-bold tracking-tight bg-gradient-to-r from-primary-400 to-accent-400 bg-clip-text text-transparent">
+                    <span className="font-display font-expanded text-5xl font-display font-bold tracking-tight tabular-nums text-white">
                       {pkg.priceLabel}
                     </span>
                   </p>
                   <div className="mt-2 flex items-center gap-2">
-                    <svg className="w-4 h-4 text-gray-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z" />
-                    </svg>
+                    <Clock className="w-4 h-4 text-gray-400" />
                     <p className="text-sm text-gray-400">{pkg.timeline}</p>
                   </div>
                   <ul className="mt-8 space-y-3 text-sm leading-6 text-gray-400 flex-grow">
                     {pkg.features.slice(0, 6).map((feature) => (
                       <li key={feature} className="flex gap-x-3">
-                        <svg
-                          className="h-6 w-5 flex-none text-accent-600"
-                          viewBox="0 0 20 20"
-                          fill="currentColor"
-                        >
-                          <path
-                            fillRule="evenodd"
-                            d="M16.704 4.153a.75.75 0 01.143 1.052l-8 10.5a.75.75 0 01-1.127.075l-4.5-4.5a.75.75 0 011.06-1.06l3.894 3.893 7.48-9.817a.75.75 0 011.05-.143z"
-                            clipRule="evenodd"
-                          />
-                        </svg>
+                        <Check className="h-4 w-4 flex-none mt-1 text-primary-500" strokeWidth={2.5} />
                         {feature}
                       </li>
                     ))}
                   </ul>
                   <Link
                     href={`/services/${pkg.slug}`}
-                    className={`mt-8 block rounded-lg px-3.5 py-2.5 text-center text-sm font-semibold shadow-sm transition-all  ${
-                      isPopular
-                        ? 'bg-gradient-to-r from-accent-500 to-accent-600 text-white hover:from-accent-600 hover:to-accent-700'
-                        : 'bg-primary-600 text-white hover:bg-primary-700'
+                    className={`group mt-8 w-full px-3.5 py-2.5 text-sm ${
+                      isPopular ? 'btn-accent' : 'btn-primary'
                     }`}
                   >
-                    View Full Details →
+                    View Full Details
+                    <ArrowRight className="h-4 w-4 transition-transform duration-200 ease-brand group-hover:translate-x-0.5" />
                   </Link>
                   {pkg.demoSlug && (
                     <Link
                       href={`/demos/${pkg.demoSlug}`}
-                      className="mt-3 block text-center text-xs font-semibold text-gray-400 hover:text-accent-500 transition-colors"
+                      className="group mt-1 flex min-h-[44px] items-center justify-center gap-1 text-xs font-semibold text-gray-400 hover:text-accent-500 transition-colors"
                     >
-                      See a live example →
+                      See a live example
+                      <ArrowRight className="h-3.5 w-3.5 transition-transform duration-200 ease-brand group-hover:translate-x-0.5" />
                     </Link>
                   )}
                 </div>
@@ -349,14 +354,13 @@ export default function PricingPage() {
       </section>
 
       {/* Premium Builds */}
-      <section className="bg-surface py-24 sm:py-32">
+      <section className="bg-surface py-24 sm:py-32 border-b border-surface-border">
         <div className="mx-auto max-w-7xl px-6 lg:px-8">
           <div className="mx-auto max-w-2xl text-center mb-16">
-            <div className="inline-flex items-center gap-2 rounded-full bg-gradient-to-r from-primary-500/15 to-accent-500/15 px-4 py-2 text-sm font-semibold text-primary-200 mb-4">
-              <Zap className="h-4 w-4" />
-              Premium Solutions
+            <div className="mb-4">
+              <BracketEyebrow label="Premium Solutions" />
             </div>
-            <h2 className="text-4xl font-bold tracking-tight text-white sm:text-5xl">
+            <h2 className="font-display text-display-sm font-bold text-white">
               Advanced Full-Stack Platforms
             </h2>
             <p className="mt-4 text-lg leading-8 text-gray-400">
@@ -368,84 +372,61 @@ export default function PricingPage() {
             {premiumBuilds.map((pkg) => (
               <div
                 key={pkg.id}
-                className="relative flex flex-col rounded-3xl border-2 border-primary-600 bg-gradient-to-br from-surface-card to-surface-elevated p-8 shadow-2xl hover:shadow-3xl transition-all"
+                className="relative flex flex-col rounded-3xl border border-primary-500/40 bg-surface-card p-8 card-lift [--card-hover-border:#ef4e22]"
               >
-                <div className="absolute -top-3 -right-3 w-16 h-16 bg-gradient-to-br from-accent-500 to-primary-600 rounded-full flex items-center justify-center shadow-lg">
-                  <Trophy className="h-7 w-7 text-white" />
-                </div>
                 <h3 className="text-2xl font-bold text-white">{pkg.name}</h3>
                 <p className="mt-4 text-sm text-gray-400 leading-relaxed">{pkg.shortDescription}</p>
                 <p className="mt-6 flex items-baseline gap-x-1">
-                  <span className="text-5xl font-bold tracking-tight bg-gradient-to-r from-primary-400 via-accent-400 to-primary-400 bg-clip-text text-transparent">
+                  <span className="font-display font-expanded text-5xl font-display font-bold tracking-tight tabular-nums text-white">
                     {pkg.priceLabel}
                   </span>
                 </p>
                 <div className="mt-2 flex items-center gap-2">
-                  <svg className="w-4 h-4 text-gray-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z" />
-                  </svg>
+                  <Clock className="w-4 h-4 text-gray-400" />
                   <p className="text-sm text-gray-400">{pkg.timeline}</p>
                 </div>
                 <ul className="mt-8 space-y-3 text-sm leading-6 text-gray-400 flex-grow">
                   {pkg.features.slice(0, 7).map((feature) => (
                     <li key={feature} className="flex gap-x-3">
-                      <svg
-                        className="h-6 w-5 flex-none text-accent-600"
-                        viewBox="0 0 20 20"
-                        fill="currentColor"
-                      >
-                        <path
-                          fillRule="evenodd"
-                          d="M16.704 4.153a.75.75 0 01.143 1.052l-8 10.5a.75.75 0 01-1.127.075l-4.5-4.5a.75.75 0 011.06-1.06l3.894 3.893 7.48-9.817a.75.75 0 011.05-.143z"
-                          clipRule="evenodd"
-                        />
-                      </svg>
+                      <Check className="h-4 w-4 flex-none mt-1 text-primary-500" strokeWidth={2.5} />
                       {feature}
                     </li>
                   ))}
                 </ul>
                 <Link
                   href={`/services/${pkg.slug}`}
-                  className="mt-8 block rounded-lg bg-gradient-to-r from-primary-600 to-accent-600 px-3.5 py-2.5 text-center text-sm font-semibold text-white shadow-lg hover:shadow-xl transition-all"
+                  className="group btn-primary mt-8 w-full px-3.5 py-2.5 text-sm"
                 >
-                  Explore Premium Details →
+                  Explore Premium Details
+                  <ArrowRight className="h-4 w-4 transition-transform duration-200 ease-brand group-hover:translate-x-0.5" />
                 </Link>
                 {pkg.demoSlug && (
                   <Link
                     href={`/demos/${pkg.demoSlug}`}
-                    className="mt-3 block text-center text-xs font-semibold text-gray-400 hover:text-accent-500 transition-colors"
+                    className="group mt-1 flex min-h-[44px] items-center justify-center gap-1 text-xs font-semibold text-gray-400 hover:text-accent-500 transition-colors"
                   >
-                    See a live example →
+                    See a live example
+                    <ArrowRight className="h-3.5 w-3.5 transition-transform duration-200 ease-brand group-hover:translate-x-0.5" />
                   </Link>
                 )}
               </div>
             ))}
           </div>
-
-          <div className="mt-12 rounded-2xl border border-primary-600/30 bg-surface-card/60 p-8 md:p-10">
-            <h3 className="text-xl font-bold text-white mb-3">
-              These aren't just websites. They're business systems.
-            </h3>
-            <p className="text-gray-300 leading-relaxed">
-              Most freelancers and small studios at the $2,000-$5,000 price point hand you a marketing site and stop there. Our $2,000 Premium Build ships with a custom admin portal, a real-time analytics dashboard, and CRM/accounting integrations built in. Step up to the $5,000 Custom Business Platform and you get a complete CRM, a client login portal, and integrated invoicing and payments, the kind of system most businesses are still stitching together out of three or four separate monthly SaaS subscriptions.
-            </p>
-          </div>
         </div>
       </section>
 
       {/* Add-Ons Overview */}
-      <section className="bg-surface py-24 sm:py-32">
+      <section className="bg-surface-card py-24 sm:py-32 border-b border-surface-border">
         <div className="mx-auto max-w-7xl px-6 lg:px-8">
           <div className="mx-auto max-w-2xl text-center mb-16">
-            <div className="inline-flex items-center gap-2 rounded-full bg-accent-500/15 px-4 py-2 text-sm font-semibold text-accent-200 mb-4">
-              <Target className="h-4 w-4" />
-              40+ Add-Ons Available
+            <div className="mb-4">
+              <BracketEyebrow label="40+ Add-Ons Available" />
             </div>
-            <h2 className="text-4xl font-bold tracking-tight text-white sm:text-5xl">
+            <h2 className="font-display text-display-sm font-bold text-white">
               Customize Your Website
             </h2>
             <p className="mt-4 text-lg leading-8 text-gray-400">
-              Enhance any package with powerful features. Mix and match to build your perfect website.
+              Start with a tier, then add only what your business will actually use. Every add-on has its own flat price.
             </p>
           </div>
 
@@ -460,17 +441,18 @@ export default function PricingPage() {
                 <Link
                   key={addon.id}
                   href={`/services/${addon.slug}`}
-                  className="group rounded-xl border border-surface-border bg-surface p-6 hover:border-accent-500 hover:shadow-lg transition-all"
+                  className="group rounded-xl border border-surface-border bg-surface p-6 card-lift"
                 >
                   <div className="flex items-center justify-between mb-3">
-                    <h4 className="text-lg font-semibold text-white group-hover:text-primary-600 transition-colors">
+                    <h4 className="text-lg font-semibold text-white group-hover:text-primary-400 transition-colors">
                       {addon.name}
                     </h4>
-                    <p className="text-lg font-bold text-accent-600">{addon.priceLabel}</p>
+                    <p className="text-lg font-bold tabular-nums text-white">{addon.priceLabel}</p>
                   </div>
                   <p className="text-sm text-gray-400 leading-relaxed">{addon.shortDescription}</p>
-                  <div className="mt-4 text-sm font-semibold text-accent-600 group-hover:text-primary-600 transition-colors">
-                    Learn more <span aria-hidden="true" className="inline-block transition-transform group-hover:translate-x-1">→</span>
+                  <div className="mt-4 inline-flex items-center gap-1 text-sm font-semibold text-primary-400 group-hover:text-primary-300 transition-colors">
+                    Learn more
+                    <ArrowRight className="h-3.5 w-3.5 transition-transform duration-200 ease-brand group-hover:translate-x-0.5" />
                   </div>
                 </Link>
               ))}
@@ -493,13 +475,13 @@ export default function PricingPage() {
                 <Link
                   key={addon.id}
                   href={`/services/${addon.slug}`}
-                  className="group rounded-xl border-2 border-surface-border bg-surface p-6 hover:border-primary-500 hover:shadow-xl transition-all"
+                  className="group rounded-xl border border-surface-border bg-surface p-6 card-lift"
                 >
                   <div className="flex items-center justify-between mb-3">
-                    <h4 className="text-lg font-semibold text-white group-hover:text-primary-600 transition-colors">
+                    <h4 className="text-lg font-semibold text-white group-hover:text-primary-400 transition-colors">
                       {addon.name}
                     </h4>
-                    <p className="text-xl font-bold text-primary-600">{addon.priceLabel}</p>
+                    <p className="text-xl font-bold tabular-nums text-white">{addon.priceLabel}</p>
                   </div>
                   <p className="text-sm text-gray-400 mb-4 leading-relaxed">{addon.shortDescription}</p>
                   <div className="flex items-center justify-between text-sm">
@@ -507,8 +489,9 @@ export default function PricingPage() {
                     <Clock className="h-3.5 w-3.5" />
                     {addon.timeline}
                   </span>
-                    <span className="font-semibold text-primary-600 group-hover:text-accent-600 transition-colors">
-                      Details <span aria-hidden="true" className="inline-block transition-transform group-hover:translate-x-1">→</span>
+                    <span className="inline-flex items-center gap-1 font-semibold text-primary-400 group-hover:text-primary-300 transition-colors">
+                      Details
+                      <ArrowRight className="h-3.5 w-3.5 transition-transform duration-200 ease-brand group-hover:translate-x-0.5" />
                     </span>
                   </div>
                 </Link>
@@ -525,36 +508,26 @@ export default function PricingPage() {
           <div className="mt-12 text-center">
             <Link
               href="/pricing/add-ons"
-              className="inline-flex items-center gap-2 rounded-lg bg-primary-600 px-6 py-3 text-base font-semibold text-white shadow-lg hover:bg-primary-700 transition-all"
+              className="group btn-primary px-6 py-3 text-base"
             >
               View All 40+ Add-Ons
-              <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M17 8l4 4m0 0l-4 4m4-4H3" />
-              </svg>
+              <ArrowRight className="h-4 w-4 transition-transform duration-200 ease-brand group-hover:translate-x-0.5" />
             </Link>
           </div>
         </div>
       </section>
 
       {/* Custom Solutions CTA */}
-      <section className="relative bg-gradient-to-br from-surface via-surface-card to-surface py-24 sm:py-32 overflow-hidden">
-        {/* Background pattern */}
-        <div className="absolute inset-0 opacity-10">
-          <div className="absolute inset-0" style={{
-            backgroundImage: 'radial-gradient(circle at 2px 2px, white 1px, transparent 0)',
-            backgroundSize: '32px 32px'
-          }} />
-        </div>
-
-        <div className="relative mx-auto max-w-7xl px-6 lg:px-8">
+      <section className="bg-gradient-to-br from-surface via-surface-card to-surface py-24 sm:py-32">
+        <div className="mx-auto max-w-7xl px-6 lg:px-8">
           <div className="mx-auto max-w-4xl">
-            <div className="rounded-3xl bg-gradient-to-br from-surface-card to-surface-elevated p-12 border-2 border-primary-500/30 shadow-2xl shadow-primary-500/10">
+            <div className="rounded-3xl bg-gradient-to-br from-surface-card to-surface-elevated p-12 border border-primary-500/30 shadow-2xl shadow-primary-500/10">
               <div className="text-center mb-8">
                 <div className="inline-flex items-center gap-2 rounded-full bg-primary-500/20 border border-primary-500/30 px-4 py-2 text-sm font-semibold text-primary-400 mb-6">
                   <Rocket className="h-4 w-4" />
                   Need Something Different?
                 </div>
-                <h2 className="text-4xl md:text-5xl font-bold text-white mb-4">
+                <h2 className="font-display text-display-sm font-bold text-white mb-4">
                   Custom Solutions
                 </h2>
                 <p className="text-xl text-gray-300 leading-relaxed">
@@ -581,7 +554,7 @@ export default function PricingPage() {
 
                 <div className="bg-surface-card/70 rounded-xl p-6 border border-surface-border/30">
                   <div className="flex items-start gap-4">
-                    <div className="flex-shrink-0 w-12 h-12 rounded-xl bg-gradient-to-br from-accent-500 to-accent-600 flex items-center justify-center">
+                    <div className="flex-shrink-0 w-12 h-12 rounded-xl bg-gradient-to-br from-accent-600 to-accent-700 flex items-center justify-center">
                       <svg className="w-6 h-6 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                         <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z" />
                       </svg>
@@ -599,15 +572,13 @@ export default function PricingPage() {
               <div className="text-center">
                 <Link
                   href="/custom-solutions"
-                  className="inline-flex items-center gap-2 px-8 py-4 bg-gradient-to-r from-primary-500 to-accent-500 text-white font-bold rounded-xl hover:from-primary-600 hover:to-accent-600 transition-all duration-300 shadow-lg shadow-primary-500/30"
+                  className="group btn-primary px-8 py-4 text-base"
                 >
                   Explore Custom Solutions
-                  <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M17 8l4 4m0 0l-4 4m4-4H3" />
-                  </svg>
+                  <ArrowRight className="h-4 w-4 transition-transform duration-200 ease-brand group-hover:translate-x-0.5" />
                 </Link>
                 <p className="mt-4 text-sm text-gray-400">
-                  Get a detailed quote within 24 hours • No obligation
+                  Get a detailed quote within 24 hours â€¢ No obligation
                 </p>
               </div>
             </div>
@@ -616,46 +587,38 @@ export default function PricingPage() {
       </section>
 
       {/* Why Flat-Rate Pricing */}
-      <section className="relative bg-gradient-to-br from-black via-surface to-surface-card py-24 sm:py-32 overflow-hidden">
-        {/* Background pattern */}
-        <div className="absolute inset-0 opacity-10">
-          <div className="absolute inset-0" style={{
-            backgroundImage: 'radial-gradient(circle at 2px 2px, white 1px, transparent 0)',
-            backgroundSize: '40px 40px'
-          }} />
-        </div>
-
-        <div className="relative mx-auto max-w-7xl px-6 lg:px-8">
+      <section className="bg-gradient-to-br from-black via-surface to-surface-card py-24 sm:py-32">
+        <div className="mx-auto max-w-7xl px-6 lg:px-8">
           <div className="mx-auto max-w-2xl text-center mb-16">
-            <h2 className="text-4xl font-bold tracking-tight text-white sm:text-5xl">
+            <h2 className="font-display text-display-sm font-bold text-white">
               Why Flat-Rate Pricing?
             </h2>
             <p className="mt-4 text-lg text-gray-200">
-              Transparent pricing that puts you in control of your budget.
+              You should know what a website costs before you agree to build one.
             </p>
           </div>
 
           <div className="mx-auto max-w-5xl">
             <div className="grid grid-cols-1 gap-8 lg:grid-cols-3">
-              <div className="rounded-2xl bg-surface-card/60 backdrop-blur-sm p-8 border border-surface-border hover:bg-surface-elevated/40 transition-all">
+              <div className="rounded-2xl bg-surface-card/60 backdrop-blur-sm p-8 border border-surface-border card-lift">
                 <Target className="h-9 w-9 text-accent-400 mb-4" />
                 <h3 className="text-xl font-bold text-white mb-3">No Surprises</h3>
                 <p className="text-gray-200 leading-relaxed">
                   You know the exact cost upfront. No hourly billing that spirals out of control or unexpected charges at the end.
                 </p>
               </div>
-              <div className="rounded-2xl bg-surface-card/60 backdrop-blur-sm p-8 border border-surface-border hover:bg-surface-elevated/40 transition-all">
+              <div className="rounded-2xl bg-surface-card/60 backdrop-blur-sm p-8 border border-surface-border card-lift">
                 <DollarSign className="h-9 w-9 text-accent-400 mb-4" />
-                <h3 className="text-xl font-bold text-white mb-3">Budget-Friendly</h3>
+                <h3 className="text-xl font-bold text-white mb-3">One Number</h3>
                 <p className="text-gray-200 leading-relaxed">
-                  Plan your budget accurately. Mix and match packages and add-ons to get exactly what you need within your budget.
+                  The quote covers design, build, revisions, testing, and launch. You can plan around it because it does not move.
                 </p>
               </div>
-              <div className="rounded-2xl bg-surface-card/60 backdrop-blur-sm p-8 border border-surface-border hover:bg-surface-elevated/40 transition-all">
+              <div className="rounded-2xl bg-surface-card/60 backdrop-blur-sm p-8 border border-surface-border card-lift">
                 <Star className="h-9 w-9 text-accent-400 mb-4" />
                 <h3 className="text-xl font-bold text-white mb-3">Quality Focus</h3>
                 <p className="text-gray-200 leading-relaxed">
-                  We focus on delivering quality, not padding hours. Flat rates align our incentives: we succeed when you succeed.
+                  Hourly shops earn more when work drags. I get paid the same either way, so the only thing worth optimizing is doing the job right the first time.
                 </p>
               </div>
             </div>
@@ -664,28 +627,28 @@ export default function PricingPage() {
           {/* Additional benefits */}
           <div className="mt-16 grid grid-cols-1 md:grid-cols-2 gap-6 max-w-4xl mx-auto">
             <div className="flex items-start gap-4 text-white">
-              <div className="flex-shrink-0 w-8 h-8 rounded-full bg-accent-500 flex items-center justify-center"><Check className="h-4 w-4 text-white" strokeWidth={3} /></div>
+              <div className="flex-shrink-0 w-8 h-8 rounded-full bg-accent-600 flex items-center justify-center"><Check className="h-4 w-4 text-white" strokeWidth={3} /></div>
               <div>
                 <h4 className="font-semibold mb-1">All-Inclusive Packages</h4>
                 <p className="text-sm text-gray-300">Design, development, revisions, testing, and launch all included</p>
               </div>
             </div>
             <div className="flex items-start gap-4 text-white">
-              <div className="flex-shrink-0 w-8 h-8 rounded-full bg-accent-500 flex items-center justify-center"><Check className="h-4 w-4 text-white" strokeWidth={3} /></div>
+              <div className="flex-shrink-0 w-8 h-8 rounded-full bg-accent-600 flex items-center justify-center"><Check className="h-4 w-4 text-white" strokeWidth={3} /></div>
               <div>
                 <h4 className="font-semibold mb-1">Clear Timelines</h4>
                 <p className="text-sm text-gray-300">Every package has a defined timeline so you know when to expect results</p>
               </div>
             </div>
             <div className="flex items-start gap-4 text-white">
-              <div className="flex-shrink-0 w-8 h-8 rounded-full bg-accent-500 flex items-center justify-center"><Check className="h-4 w-4 text-white" strokeWidth={3} /></div>
+              <div className="flex-shrink-0 w-8 h-8 rounded-full bg-accent-600 flex items-center justify-center"><Check className="h-4 w-4 text-white" strokeWidth={3} /></div>
               <div>
                 <h4 className="font-semibold mb-1">Scalable Solutions</h4>
                 <p className="text-sm text-gray-300">Start small and add features later as your business grows</p>
               </div>
             </div>
             <div className="flex items-start gap-4 text-white">
-              <div className="flex-shrink-0 w-8 h-8 rounded-full bg-accent-500 flex items-center justify-center"><Check className="h-4 w-4 text-white" strokeWidth={3} /></div>
+              <div className="flex-shrink-0 w-8 h-8 rounded-full bg-accent-600 flex items-center justify-center"><Check className="h-4 w-4 text-white" strokeWidth={3} /></div>
               <div>
                 <h4 className="font-semibold mb-1">Dedicated Support</h4>
                 <p className="text-sm text-gray-300">Direct access to your developer throughout the entire project</p>
@@ -699,7 +662,7 @@ export default function PricingPage() {
       <section className="bg-surface py-24 sm:py-32">
         <div className="mx-auto max-w-7xl px-6 lg:px-8">
           <div className="mx-auto max-w-2xl text-center mb-16">
-            <h2 className="text-4xl font-bold tracking-tight text-white sm:text-5xl">
+            <h2 className="font-display text-display-sm font-bold text-white">
               Pricing Questions?
             </h2>
             <p className="mt-4 text-lg leading-8 text-gray-400">
@@ -710,14 +673,14 @@ export default function PricingPage() {
           <div className="mx-auto max-w-3xl">
             <div className="space-y-6">
               {pricingFaqs.map((faq) => (
-                <div key={faq.question} className="rounded-2xl border border-surface-border bg-surface-card p-8 hover:border-primary-300 transition-colors">
+                <div key={faq.question} className="rounded-2xl border border-surface-border bg-surface-card p-8 card-lift">
                   <h3 className="text-lg font-bold text-white mb-3">
                     {faq.question}
                   </h3>
                   <p className="text-gray-400 leading-relaxed">
                     {faq.question.startsWith('Can I see examples') ? (
                       <>
-                        Absolutely! Visit our <Link href="/demos" className="text-primary-600 font-semibold hover:text-primary-400">Demos page</Link> to explore 40+ fully interactive website examples across all our packages and industries. You can click around and test every feature.
+                        Yes. Visit our <Link href="/demos" className="text-primary-400 font-semibold hover:text-primary-300">Demos page</Link> to explore 40+ fully interactive website examples across all our packages and industries. You can click around and test every feature.
                       </>
                     ) : (
                       faq.answer
@@ -731,67 +694,44 @@ export default function PricingPage() {
               <p className="text-gray-400 mb-4">Have more questions?</p>
               <Link
                 href="/faq"
-                className="inline-flex items-center gap-2 text-primary-600 font-bold hover:text-primary-400"
+                className="group inline-flex items-center gap-2 text-primary-400 font-bold hover:text-primary-300 transition-colors"
               >
                 <span>View our full FAQ</span>
-                <span>→</span>
+                <ArrowRight className="h-4 w-4 transition-transform duration-200 ease-brand group-hover:translate-x-0.5" />
               </Link>
             </div>
           </div>
         </div>
       </section>
 
-      {/* Real Results */}
-      <section className="bg-surface-card py-16">
-        <div className="mx-auto max-w-4xl px-6 lg:px-8">
-          <div className="rounded-3xl bg-surface p-8 md:p-12 shadow-xl border border-surface-border">
-            <div className="inline-flex items-center gap-2 rounded-full bg-accent-500/15 px-4 py-2 text-sm font-semibold text-accent-400 mb-6">
-              <TrendingUp className="h-4 w-4" />
-              Real Client Result
-            </div>
-            <p className="text-2xl md:text-3xl font-bold text-white leading-snug mb-4">
-              Benefit Builder grew from roughly $1,000 MRR to $52,000 MRR after we built their platform.
-            </p>
-            <p className="text-gray-400 leading-relaxed mb-6">
-              We built their public website and their entire internal operating platform, automating the workflows their small team needed to run the business day to day. Admin work dropped by 60%, and the company now runs on a team of three.
-            </p>
-            <Link
-              href="/work"
-              className="group inline-flex items-center gap-2 text-sm font-semibold text-accent-500 hover:text-accent-400 transition-colors"
-            >
-              See the full case study
-              <span aria-hidden="true" className="inline-block transition-transform group-hover:translate-x-1">→</span>
-            </Link>
-          </div>
-        </div>
-      </section>
-
-      {/* Final CTA */}
-      <section className="bg-primary-900 text-white">
-        <div className="px-6 py-16 sm:px-6 sm:py-24 lg:px-8">
-          <div className="mx-auto max-w-2xl text-center">
-            <h2 className="text-3xl font-bold tracking-tight sm:text-4xl">
+      {/* Final CTA -- plain, sober, matches the homepage closer */}
+      <section className="bg-surface border-t border-surface-border">
+        <div className="mx-auto max-w-4xl px-6 py-20 sm:py-24 lg:px-8">
+          <div className="text-center">
+            <h2 className="font-display text-display-sm font-bold text-white">
               Ready to get started?
             </h2>
-            <p className="mx-auto mt-6 max-w-xl text-lg leading-8 text-gray-200">
-              Get a free consultation and custom quote. We'll help you choose the right package and add-ons for your needs and budget.
+            <p className="mx-auto mt-6 max-w-xl text-lg leading-8 text-gray-300">
+              Tell me what you need and I'll come back with the tier that fits and one flat number. If the $250 tier covers it, that's what I'll quote.
             </p>
-            <div className="mt-10 flex items-center justify-center gap-x-6">
+            <div className="mt-10 flex flex-col items-center gap-3 sm:flex-row sm:justify-center">
               <Link
                 href="/contact"
-                className="rounded-md bg-accent-500 px-6 py-3 text-base font-semibold text-white shadow-sm hover:bg-accent-600"
+                className="group btn-primary w-full px-6 py-3 text-base sm:w-auto"
               >
                 Get a Flat Quote
+                <ArrowRight className="h-4 w-4 transition-transform duration-200 ease-brand group-hover:translate-x-0.5" />
               </Link>
               <PhoneLink
                 location="pricing_page_bottom"
-                className="text-base font-semibold leading-7 text-white hover:text-gray-200"
+                className="btn-secondary w-full px-6 py-3 text-base sm:w-auto"
               >
-                Call (936) 323-4527 <span aria-hidden="true">→</span>
+                <Phone className="h-4 w-4" />
+                (936) 323-4527
               </PhoneLink>
             </div>
             <p className="mt-6 text-sm text-gray-300">
-              Free consultation • Quick response • Transparent pricing
+              Free consultation â€¢ Quick response â€¢ Transparent pricing
             </p>
           </div>
         </div>

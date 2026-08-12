@@ -124,7 +124,7 @@ export default function DemosClient({ demos, categories }: DemosClientProps) {
     return (
       <article
         key={demo.id}
-        className="flex flex-col bg-surface-card rounded-2xl shadow-lg overflow-hidden transition-shadow group"
+        className="flex flex-col bg-surface-card rounded-2xl border border-surface-border shadow-lg overflow-hidden card-lift group"
         style={{ animationDelay: `${index * 100}ms` }}
       >
         {/* Demo Preview */}
@@ -145,8 +145,8 @@ export default function DemosClient({ demos, categories }: DemosClientProps) {
           {/* Badge - Real Client or Interactive */}
           <div className={`absolute top-4 right-4 flex items-center gap-1 px-3 py-1 rounded-full text-xs font-bold shadow-lg ${
             demo.isRealClient
-              ? 'bg-green-500 text-white'
-              : 'bg-accent-500 text-white'
+              ? 'bg-green-700 text-white'
+              : 'bg-accent-700 text-white'
           }`}>
             {demo.isRealClient && <Check className="h-3 w-3" strokeWidth={3} />}
             <span>{demo.isRealClient ? 'REAL CLIENT' : 'INTERACTIVE'}</span>
@@ -169,7 +169,7 @@ export default function DemosClient({ demos, categories }: DemosClientProps) {
           </p>
 
           <div className="mb-4">
-            <p className="text-xs font-semibold text-primary-600 mb-2">FEATURES INCLUDED:</p>
+            <p className="text-xs font-semibold text-primary-400 mb-2">FEATURES INCLUDED:</p>
             <div className="flex flex-wrap gap-1">
               {demo.features.slice(0, 4).map((feature, index) => (
                 <span
@@ -199,14 +199,14 @@ export default function DemosClient({ demos, categories }: DemosClientProps) {
                 href={demo.externalUrl}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="block w-full text-center rounded-lg bg-green-600 px-4 py-2.5 text-sm font-semibold text-white shadow-sm hover:bg-green-700 transition-colors"
+                className="block w-full text-center rounded-lg bg-green-700 px-4 py-2.5 text-sm font-semibold text-white shadow-sm hover:bg-green-800 transition-colors"
               >
                 Visit Live Site →
               </a>
             ) : (
               <Link
                 href={`/demos/${demo.slug}`}
-                className="block w-full text-center rounded-lg bg-primary-600 px-4 py-2.5 text-sm font-semibold text-white shadow-sm hover:bg-primary-700 transition-colors"
+                className="btn-primary w-full px-4 py-2.5 text-sm"
               >
                 Launch Demo →
               </Link>
@@ -301,7 +301,7 @@ export default function DemosClient({ demos, categories }: DemosClientProps) {
                   <p className="text-gray-400 mb-6">Try selecting a different category</p>
                   <button
                     onClick={() => setSelectedFilter('all')}
-                    className="rounded-lg bg-primary-600 px-6 py-3 text-base font-semibold text-white hover:bg-primary-700 transition-colors"
+                    className="btn-primary px-6 py-3 text-base"
                   >
                     View All Demos
                   </button>

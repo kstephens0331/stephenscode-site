@@ -1,8 +1,9 @@
-import Link from 'next/link'
+﻿import Link from 'next/link'
 import type { Metadata } from 'next'
 import { corePackages, premiumBuilds } from '@/lib/services-data'
 import { allAddOns } from '@/lib/addons-data'
-import { Globe, Rocket, Zap, DollarSign, Award } from 'lucide-react'
+import { Globe, Zap, DollarSign, Award, ArrowRight } from 'lucide-react'
+import BracketEyebrow from '@/components/BracketEyebrow'
 
 export const metadata: Metadata = {
   title: 'Houston Web Development | Flat-Rate Web Design from $250',
@@ -143,24 +144,18 @@ export default function ServicesPage() {
       subtitle: 'Perfect for most businesses',
       description: 'Get online fast with our professionally designed core packages. From simple 4-page sites to comprehensive business websites.',
       services: corePackages.slice(0, 4),
-      Icon: Globe,
-      gradient: 'from-primary-600 to-primary-800'
     },
     {
       title: 'Premium Builds',
       subtitle: 'Advanced business solutions',
       description: 'Full-stack enterprise platforms with custom features, admin dashboards, and advanced functionality.',
       services: premiumBuilds,
-      Icon: Rocket,
-      gradient: 'from-accent-500 to-accent-700'
     },
     {
       title: 'Add-On Features',
       subtitle: 'Enhance your website',
       description: 'Extend your website with powerful add-ons. From booking systems to e-commerce to membership portals.',
       services: allAddOns.slice(0, 6),
-      Icon: Zap,
-      gradient: 'from-primary-400 to-primary-600'
     }
   ]
 
@@ -192,18 +187,18 @@ export default function ServicesPage() {
   ]
 
   const technologies = [
-    { name: 'Next.js', category: 'Frontend', color: 'bg-black' },
-    { name: 'React', category: 'Frontend', color: 'bg-primary-500' },
-    { name: 'TypeScript', category: 'Language', color: 'bg-primary-600' },
-    { name: 'Tailwind CSS', category: 'Styling', color: 'bg-accent-500' },
-    { name: 'Node.js', category: 'Backend', color: 'bg-primary-700' },
-    { name: 'Python', category: 'Backend', color: 'bg-accent-400' },
-    { name: 'Firebase', category: 'Database', color: 'bg-primary-500' },
-    { name: 'PostgreSQL', category: 'Database', color: 'bg-primary-800' },
-    { name: 'Stripe', category: 'Payments', color: 'bg-accent-600' },
-    { name: 'Vercel', category: 'Hosting', color: 'bg-black' },
-    { name: 'Railway', category: 'Hosting', color: 'bg-accent-700' },
-    { name: 'Express', category: 'Backend', color: 'bg-gray-700' }
+    { name: 'Next.js', category: 'Frontend' },
+    { name: 'React', category: 'Frontend' },
+    { name: 'TypeScript', category: 'Language' },
+    { name: 'Tailwind CSS', category: 'Styling' },
+    { name: 'Node.js', category: 'Backend' },
+    { name: 'Python', category: 'Backend' },
+    { name: 'Firebase', category: 'Database' },
+    { name: 'PostgreSQL', category: 'Database' },
+    { name: 'Stripe', category: 'Payments' },
+    { name: 'Vercel', category: 'Hosting' },
+    { name: 'Railway', category: 'Hosting' },
+    { name: 'Express', category: 'Backend' }
   ]
 
   const processSteps = [
@@ -249,64 +244,32 @@ export default function ServicesPage() {
         dangerouslySetInnerHTML={{ __html: JSON.stringify(servicesFaqSchema) }}
       />
 
-      {/* Hero Section with Advanced Design */}
-      <section className="relative overflow-hidden bg-gradient-to-br from-black via-surface to-surface-card text-white">
-        <div className="absolute inset-0 opacity-10">
-          <div className="absolute inset-0" style={{
-            backgroundImage: `url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%23ffffff' fill-opacity='1'%3E%3Cpath d='M36 34v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4zm0-30V0h-2v4h-4v2h4v4h2V6h4V4h-4zM6 34v-4H4v4H0v2h4v4h2v-4h4v-2H6zM6 4V0H4v4H0v2h4v4h2V6h4V4H6z'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E")`
-          }}></div>
-        </div>
+      {/* Hero Section */}
+      <section className="relative bg-black border-b border-surface-border overflow-hidden">
+        <div className="pointer-events-none absolute inset-0 bg-gradient-to-b from-surface-card/60 via-black to-black" />
+        <div className="relative mx-auto max-w-7xl px-6 py-20 sm:py-24 lg:px-8">
+          <div className="max-w-3xl">
+            <BracketEyebrow label="49 Service Packages & Add-Ons" />
 
-        <div className="relative mx-auto max-w-7xl px-6 py-32 sm:py-40 lg:px-8">
-          <div className="mx-auto max-w-4xl text-center">
-            <div className="mb-8 inline-flex items-center gap-3 rounded-full bg-surface-card/60 px-6 py-3 text-sm font-semibold backdrop-blur-lg border border-surface-border shadow-2xl">
-              <Globe className="h-5 w-5" />
-              <span>49 Service Packages & Add-Ons</span>
-            </div>
-
-            <h1 className="text-5xl font-bold tracking-tight sm:text-7xl mb-8">
+            <h1 className="mt-8 text-4xl font-display font-bold tracking-tight text-white sm:text-6xl leading-[1.05]">
               Houston Web Development & Affordable Web Design
-              <span className="block text-accent-400 mt-2">Custom Websites for Small Business</span>
+              <span className="block text-gray-500 mt-2">Custom Websites for Small Business</span>
             </h1>
 
-            <p className="mt-8 text-xl leading-8 text-gray-100 max-w-3xl mx-auto">
+            <p className="mt-6 max-w-2xl text-lg leading-8 text-gray-300">
               Conroe web developer offering flat-rate small business websites from $250. Affordable web design for Houston, The Woodlands, and Montgomery County. <strong className="text-white">Veteran owned web developer</strong> with transparent pricing. No hourly rates, no surprises.
             </p>
 
-            <div className="mt-12 flex flex-wrap items-center justify-center gap-4">
-              <Link
-                href="/pricing"
-                className="group inline-flex items-center gap-2 rounded-lg bg-accent-500 px-8 py-4 text-lg font-bold text-white shadow-2xl hover:bg-accent-600 transition-all"
-              >
-                <span>View All Pricing</span>
-                <svg className="w-5 h-5 group-hover:translate-x-1 transition-transform" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M13 7l5 5m0 0l-5 5m5-5H6" />
-                </svg>
+            <div className="mt-8 flex flex-wrap items-center gap-3">
+              <Link href="/contact" className="group btn-primary px-6 py-3 text-base">
+                Get a Flat Quote
+                <ArrowRight className="h-4 w-4 transition-transform duration-200 ease-brand group-hover:translate-x-0.5" />
               </Link>
-              <Link
-                href="/contact"
-                className="group inline-flex items-center gap-2 rounded-lg bg-primary-600 px-8 py-4 text-lg font-bold text-white shadow-2xl hover:bg-primary-700 transition-all"
-              >
-                <span>Get a Flat Quote</span>
-                <svg className="w-5 h-5 group-hover:translate-x-1 transition-transform" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M13 7l5 5m0 0l-5 5m5-5H6" />
-                </svg>
-              </Link>
-              <Link
-                href="/demos"
-                className="inline-flex items-center gap-2 rounded-lg bg-surface-card/60 px-8 py-4 text-lg font-bold text-white backdrop-blur-lg border-2 border-surface-border hover:bg-surface-elevated/80 transition-all"
-              >
-                <span>View Live Demos</span>
+              <Link href="/pricing" className="btn-secondary px-6 py-3 text-base">
+                View All Pricing
               </Link>
             </div>
           </div>
-        </div>
-
-        <div className="absolute bottom-0 left-0 right-0">
-          <svg viewBox="0 0 1440 120" fill="none" xmlns="http://www.w3.org/2000/svg" className="w-full">
-            {/* fill matches the surface token (#000000) so the wave blends into the section below */}
-            <path d="M0 120L60 105C120 90 240 60 360 45C480 30 600 30 720 37.5C840 45 960 60 1080 67.5C1200 75 1320 75 1380 75L1440 75V120H1380C1320 120 1200 120 1080 120C960 120 840 120 720 120C600 120 480 120 360 120C240 120 120 120 60 120H0Z" fill="#000000"/>
-          </svg>
         </div>
       </section>
 
@@ -315,11 +278,8 @@ export default function ServicesPage() {
         <section key={category.title} className={catIndex % 2 === 0 ? 'bg-surface py-24 sm:py-32' : 'bg-surface-card py-24 sm:py-32'}>
           <div className="mx-auto max-w-7xl px-6 lg:px-8">
             <div className="mx-auto max-w-2xl text-center mb-16">
-              <div className={`inline-flex items-center gap-3 rounded-full bg-gradient-to-r ${category.gradient} px-6 py-3 text-white shadow-xl mb-6`}>
-                <category.Icon className="h-7 w-7" />
-                <span className="font-bold">{category.subtitle}</span>
-              </div>
-              <h2 className="text-4xl font-bold tracking-tight text-white sm:text-5xl mb-6">
+              <BracketEyebrow label={category.subtitle} />
+              <h2 className="mt-4 text-4xl font-display font-bold tracking-tight text-white sm:text-5xl mb-6">
                 {category.title}
               </h2>
               <p className="text-lg leading-8 text-gray-400">
@@ -331,7 +291,7 @@ export default function ServicesPage() {
               {category.services.map((service, index) => (
                 <article
                   key={service.id}
-                  className="group relative flex flex-col rounded-2xl bg-surface border-2 border-surface-border p-8 shadow-lg hover:border-primary-500 transition-all"
+                  className="group relative flex flex-col rounded-2xl bg-surface border-2 border-surface-border p-8 shadow-lg card-lift"
                 >
                   <div className="mb-4">
                     <h3 className="text-2xl font-bold text-white group-hover:text-primary-600 transition-colors">
@@ -367,9 +327,10 @@ export default function ServicesPage() {
 
                   <Link
                     href={`/services/${service.slug}`}
-                    className="block w-full rounded-lg bg-primary-600 px-6 py-3 text-center text-sm font-bold text-white hover:bg-primary-700 transition-colors"
+                    className="btn-primary w-full px-6 py-3 text-sm"
                   >
-                    Learn More & See Details →
+                    Learn More & See Details
+                    <ArrowRight className="h-4 w-4 transition-transform duration-200 ease-brand group-hover:translate-x-0.5" />
                   </Link>
                 </article>
               ))}
@@ -379,10 +340,10 @@ export default function ServicesPage() {
               <div className="mt-12 text-center">
                 <Link
                   href="/services/custom-websites"
-                  className="inline-flex items-center gap-2 rounded-lg bg-primary-600 px-8 py-4 text-lg font-bold text-white shadow-lg hover:bg-primary-700 transition-all"
+                  className="group btn-primary px-8 py-4 text-lg"
                 >
-                  <span>See Full Custom Website Details</span>
-                  <span>→</span>
+                  See Full Custom Website Details
+                  <ArrowRight className="h-4 w-4 transition-transform duration-200 ease-brand group-hover:translate-x-0.5" />
                 </Link>
               </div>
             )}
@@ -391,10 +352,10 @@ export default function ServicesPage() {
               <div className="mt-12 text-center">
                 <Link
                   href="/pricing"
-                  className="inline-flex items-center gap-2 rounded-lg bg-primary-600 px-8 py-4 text-lg font-bold text-white shadow-lg hover:bg-primary-700 transition-all"
+                  className="group btn-primary px-8 py-4 text-lg"
                 >
-                  <span>View All 41 Add-Ons</span>
-                  <span>→</span>
+                  View All 41 Add-Ons
+                  <ArrowRight className="h-4 w-4 transition-transform duration-200 ease-brand group-hover:translate-x-0.5" />
                 </Link>
               </div>
             )}
@@ -407,7 +368,7 @@ export default function ServicesPage() {
         <div className="mx-auto max-w-7xl px-6 lg:px-8">
           <div className="mx-auto max-w-2xl text-center mb-16">
             <h2 className="text-base font-semibold leading-7 text-primary-600">Why Choose a Veteran Owned Web Developer?</h2>
-            <p className="mt-2 text-4xl font-bold tracking-tight text-white sm:text-5xl">
+            <p className="mt-2 text-4xl font-display font-bold tracking-tight text-white sm:text-5xl">
               Affordable Web Design You Can Trust
             </p>
           </div>
@@ -437,52 +398,51 @@ export default function ServicesPage() {
       </section>
 
       {/* Process Section */}
-      <section className="bg-surface py-24 sm:py-32">
+      <section className="bg-surface py-24 sm:py-28 border-b border-surface-border">
         <div className="mx-auto max-w-7xl px-6 lg:px-8">
-          <div className="mx-auto max-w-2xl text-center mb-16">
-            <h2 className="text-base font-semibold leading-7 text-primary-600">Our Process</h2>
-            <p className="mt-2 text-4xl font-bold tracking-tight text-white sm:text-5xl">
-              From Idea to Launch
-            </p>
-            <p className="mt-6 text-lg leading-8 text-gray-400">
-              Transparent, efficient, and collaborative. Here's exactly how we work together.
-            </p>
-          </div>
-
-          <div className="grid grid-cols-1 gap-12 lg:grid-cols-4">
-            {processSteps.map((step, index) => (
-              <div key={step.number} className="relative group">
-                {index < processSteps.length - 1 && (
-                  <div className="hidden lg:block absolute top-24 left-full w-full h-1 bg-gradient-to-r from-primary-600 to-primary-200 -translate-x-1/2"></div>
-                )}
-                <div className="relative flex flex-col items-center text-center">
-                  <div className="flex h-24 w-24 items-center justify-center rounded-full bg-primary-600 text-white text-5xl mb-6 group-hover:scale-110 transition-transform shadow-2xl">
-                    {step.number}
-                  </div>
-                  <h3 className="text-xl font-bold text-white mb-3">{step.title}</h3>
-                  <p className="text-gray-400 mb-4">{step.description}</p>
-                  <div className="space-y-2 text-sm">
-                    <div className="inline-flex items-center gap-2 text-primary-600 font-semibold">
-                      <svg className="h-4 w-4" fill="currentColor" viewBox="0 0 20 20">
-                        <path fillRule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm1-12a1 1 0 10-2 0v4a1 1 0 00.293.707l2.828 2.829a1 1 0 101.415-1.415L11 9.586V6z" clipRule="evenodd" />
-                      </svg>
-                      <span>{step.timeline}</span>
-                    </div>
-                    <p className="text-gray-400">→ {step.deliverable}</p>
-                  </div>
-                </div>
+          <div className="grid gap-16 lg:grid-cols-12">
+            <div className="lg:col-span-4">
+              <div className="lg:sticky lg:top-28">
+                <BracketEyebrow label="Our Process" />
+                <h2 className="mt-4 text-3xl font-display font-bold tracking-tight text-white sm:text-4xl">
+                  From Idea to Launch
+                </h2>
+                <p className="mt-4 text-lg leading-8 text-gray-400">
+                  Transparent, efficient, and collaborative. Here's exactly how we work together.
+                </p>
+                <Link href="/contact" className="group btn-primary mt-8 px-6 py-3 text-base">
+                  Get a Flat Quote
+                  <ArrowRight className="h-4 w-4 transition-transform duration-200 ease-brand group-hover:translate-x-0.5" />
+                </Link>
               </div>
-            ))}
+            </div>
+
+            <ol className="lg:col-span-8 relative border-l border-surface-border pl-8 sm:pl-10 space-y-12">
+              {processSteps.map((step) => (
+                <li key={step.number} className="relative">
+                  <span aria-hidden className="absolute top-1.5 -left-[43px] sm:-left-[51px] flex h-5 w-5 items-center justify-center rounded-full border border-primary-500 bg-surface">
+                    <span className="h-1.5 w-1.5 rounded-full bg-primary-500" />
+                  </span>
+                  <p className="font-mono text-xs tracking-[0.18em] text-primary-500">{step.number}</p>
+                  <h3 className="mt-2 text-xl font-semibold text-white">{step.title}</h3>
+                  <p className="mt-2 max-w-xl leading-7 text-gray-400">{step.description}</p>
+                  <div className="mt-3 flex flex-wrap gap-x-6 gap-y-1 text-sm">
+                    <span className="text-primary-400 font-semibold">{step.timeline}</span>
+                    <span className="text-gray-500">{step.deliverable}</span>
+                  </div>
+                </li>
+              ))}
+            </ol>
           </div>
         </div>
       </section>
 
       {/* Technology Stack */}
-      <section className="bg-gray-900 text-white py-24 sm:py-32">
+      <section className="bg-surface-card border-y border-surface-border text-white py-24 sm:py-32">
         <div className="mx-auto max-w-7xl px-6 lg:px-8">
           <div className="mx-auto max-w-2xl text-center mb-16">
             <h2 className="text-base font-semibold leading-7 text-accent-400">Tech Stack</h2>
-            <p className="mt-2 text-4xl font-bold tracking-tight text-white sm:text-5xl">
+            <p className="mt-2 text-4xl font-display font-bold tracking-tight text-white sm:text-5xl">
               Modern, Reliable Technologies
             </p>
             <p className="mt-6 text-lg leading-8 text-gray-300">
@@ -490,17 +450,17 @@ export default function ServicesPage() {
             </p>
           </div>
 
-          <div className="grid grid-cols-2 gap-4 md:grid-cols-3 lg:grid-cols-4">
+          <ul className="grid grid-cols-2 gap-x-8 sm:grid-cols-3 lg:grid-cols-4 divide-y-0">
             {technologies.map((tech) => (
-              <div
+              <li
                 key={tech.name}
-                className="group relative overflow-hidden rounded-xl bg-surface-card/60 backdrop-blur-lg border border-surface-border p-6 text-center hover:bg-surface-elevated/80 transition-all shadow-xl"
+                className="flex items-baseline justify-between border-b border-surface-border py-3"
               >
-                <p className="text-lg font-bold text-white mb-1">{tech.name}</p>
-                <p className="text-xs text-gray-300">{tech.category}</p>
-              </div>
+                <span className="font-semibold text-white">{tech.name}</span>
+                <span className="text-xs uppercase tracking-wider text-gray-500">{tech.category}</span>
+              </li>
             ))}
-          </div>
+          </ul>
         </div>
       </section>
 
@@ -509,7 +469,7 @@ export default function ServicesPage() {
         <div className="mx-auto max-w-4xl px-6 lg:px-8">
           <div className="mx-auto max-w-2xl text-center mb-16">
             <h2 className="text-base font-semibold leading-7 text-primary-600">Frequently Asked Questions</h2>
-            <p className="mt-2 text-4xl font-bold tracking-tight text-white sm:text-5xl">
+            <p className="mt-2 text-4xl font-display font-bold tracking-tight text-white sm:text-5xl">
               Web Development FAQ
             </p>
           </div>
@@ -518,7 +478,7 @@ export default function ServicesPage() {
             {servicesFaqs.map((faq, index) => (
               <details
                 key={index}
-                className="group rounded-2xl border-2 border-surface-border bg-surface-card hover:border-primary-300 transition-colors"
+                className="group rounded-2xl border-2 border-surface-border bg-surface-card card-lift"
               >
                 <summary className="flex cursor-pointer items-center justify-between p-6 text-lg font-bold text-white">
                   <span>{faq.question}</span>
@@ -542,23 +502,17 @@ export default function ServicesPage() {
               className="inline-flex items-center gap-2 text-primary-600 font-bold hover:text-primary-400"
             >
               <span>Contact us for a free consultation</span>
-              <span>→</span>
+              <span>â†’</span>
             </Link>
           </div>
         </div>
       </section>
 
       {/* Final CTA */}
-      <section className="relative overflow-hidden bg-gradient-to-br from-black via-surface to-surface-card text-white">
-        <div className="absolute inset-0 opacity-10">
-          <div className="absolute inset-0" style={{
-            backgroundImage: `url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%23ffffff' fill-opacity='1'%3E%3Cpath d='M36 34v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4zm0-30V0h-2v4h-4v2h4v4h2V6h4V4h-4zM6 34v-4H4v4H0v2h4v4h2v-4h4v-2H6zM6 4V0H4v4H0v2h4v4h2V6h4V4H6z'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E")`
-          }}></div>
-        </div>
-
-        <div className="relative px-6 py-24 sm:px-6 sm:py-32 lg:px-8">
+      <section className="bg-surface border-t border-surface-border text-white">
+        <div className="px-6 py-20 sm:px-6 sm:py-24 lg:px-8">
           <div className="mx-auto max-w-3xl text-center">
-            <h2 className="text-4xl font-bold tracking-tight sm:text-6xl mb-8">
+            <h2 className="text-4xl font-display font-bold tracking-tight sm:text-6xl mb-8">
               Let's Build Something Great
             </h2>
             <p className="mx-auto max-w-2xl text-xl leading-8 text-gray-200 mb-12">
@@ -567,18 +521,16 @@ export default function ServicesPage() {
             <div className="flex flex-wrap items-center justify-center gap-4">
               <Link
                 href="/contact"
-                className="group inline-flex items-center gap-2 rounded-lg bg-accent-500 px-10 py-5 text-xl font-bold text-white shadow-2xl hover:bg-accent-600 transition-all"
+                className="group btn-primary px-8 py-4 text-lg"
               >
-                <span>Get Free Quote</span>
-                <svg className="w-6 h-6 group-hover:translate-x-1 transition-transform" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M13 7l5 5m0 0l-5 5m5-5H6" />
-                </svg>
+                Get Free Quote
+                <ArrowRight className="h-4 w-4 transition-transform duration-200 ease-brand group-hover:translate-x-0.5" />
               </Link>
               <Link
                 href="/pricing"
-                className="inline-flex items-center gap-2 rounded-lg bg-surface-card/60 px-10 py-5 text-xl font-bold text-white backdrop-blur-lg border-2 border-surface-border hover:bg-surface-elevated/80 transition-all"
+                className="btn-secondary px-8 py-4 text-lg"
               >
-                <span>View All Pricing</span>
+                View All Pricing
               </Link>
             </div>
           </div>

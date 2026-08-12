@@ -1,10 +1,11 @@
-import type { Metadata } from 'next'
+﻿import type { Metadata } from 'next'
 import Link from 'next/link'
 import {
-  Clock, Rocket, Smile, Award, Star, Gem, Handshake, Medal,
-  Flame, Users, Target, Shield, Zap, DollarSign, MapPin,
+  Clock, Rocket, Smile, Award, Star, Gem, Handshake,
+  DollarSign, MapPin, Zap, ArrowRight,
 } from 'lucide-react'
 import PhoneLink from '@/components/PhoneLink'
+import BracketEyebrow from '@/components/BracketEyebrow'
 
 export const metadata: Metadata = {
   title: 'Veteran Owned Web Developer | About Us | Houston TX',
@@ -48,25 +49,21 @@ export default function About() {
       name: 'Integrity',
       description: 'We do what we say we\'ll do. No hidden fees, no surprises, no empty promises. Military values guide everything we do.',
       Icon: Award,
-      color: 'from-primary-500 to-primary-600'
     },
     {
       name: 'Excellence',
       description: 'We don\'t cut corners. Every project gets the same attention to detail and commitment to quality, whether it\'s $250 or $7,500.',
       Icon: Star,
-      color: 'from-accent-500 to-accent-600'
     },
     {
       name: 'Transparency',
       description: 'Flat-rate pricing, clear timelines, honest recommendations. You always know where your project stands and what you\'re paying for.',
       Icon: Gem,
-      color: 'from-surface-elevated to-surface-border'
     },
     {
       name: 'Service',
       description: 'We serve our clients the way we served our country, with dedication, reliability, and a mission-first mentality.',
       Icon: Handshake,
-      color: 'from-primary-600 to-accent-600'
     },
   ]
 
@@ -74,7 +71,7 @@ export default function About() {
     {
       year: '2011',
       title: 'Company Founded',
-      description: 'Kyle Stephens, U.S. military veteran, founded StephensCode with a mission to bring honest web development to Houston small businesses.'
+      description: 'Kyle Stephens, U.S. Marine Corps veteran, founded StephensCode to bring honest web development to Houston small businesses.'
     },
     {
       year: '2013',
@@ -94,7 +91,7 @@ export default function About() {
     {
       year: '2022',
       title: 'Modern Stack Adoption',
-      description: 'Fully transitioned to cutting-edge technologies: Next.js, React, TypeScript, Firebase, and Supabase for faster, more powerful websites and applications.'
+      description: 'Rebuilt the toolchain on Next.js, React, TypeScript, and Firebase. Same flat pricing, faster and more maintainable builds.'
     },
     {
       year: '2025',
@@ -108,54 +105,34 @@ export default function About() {
       {/* Entity schema (Person/Organization) is provided sitewide by components/LocalBusinessSchema.tsx */}
 
       {/* Hero Section */}
-      <section className="relative bg-gradient-to-br from-black via-surface to-surface-card text-white overflow-hidden">
-        {/* Pattern overlay */}
-        <div className="absolute inset-0 opacity-10">
-          <svg className="absolute w-full h-full" xmlns="http://www.w3.org/2000/svg">
-            <defs>
-              <pattern id="about-pattern" x="0" y="0" width="40" height="40" patternUnits="userSpaceOnUse">
-                <circle cx="20" cy="20" r="1.5" fill="currentColor" />
-              </pattern>
-            </defs>
-            <rect width="100%" height="100%" fill="url(#about-pattern)" />
-          </svg>
-        </div>
+      <section className="relative bg-black border-b border-surface-border overflow-hidden">
+        <div className="pointer-events-none absolute inset-0 bg-gradient-to-b from-surface-card/60 via-black to-black" />
 
-        <div className="relative mx-auto max-w-7xl px-6 py-24 sm:py-32 lg:px-8">
-          <div className="mx-auto max-w-3xl text-center">
-            <div className="mb-8 inline-flex items-center gap-3 rounded-full bg-surface-card/60 px-6 py-3 text-sm font-semibold backdrop-blur-sm border border-surface-border animate-fade-in-up">
-              <Medal className="h-7 w-7 text-accent-400" strokeWidth={1.75} />
-              <span className="text-base">Veteran-Owned & Operated Since 2011</span>
-            </div>
-            <h1 className="text-5xl font-bold tracking-tight sm:text-7xl animate-fade-in-up animation-delay-200">
+        <div className="relative mx-auto max-w-7xl px-6 py-20 sm:py-24 lg:px-8">
+          <div className="max-w-3xl">
+            <BracketEyebrow label="Veteran-Owned & Operated Since 2011" />
+            <h1 className="mt-8 text-4xl font-display font-bold tracking-tight text-white sm:text-6xl leading-[1.05]">
               About StephensCode
             </h1>
-            <p className="mt-6 text-xl leading-8 text-gray-200 animate-fade-in-up animation-delay-400">
-              A veteran-owned web development company bringing <span className="font-bold text-accent-400">military discipline</span>, technical expertise, and honest service to Houston businesses.
+            <p className="mt-6 max-w-2xl text-lg leading-8 text-gray-300">
+              A veteran-owned web development company bringing <span className="font-bold text-accent-400">Marine Corps discipline</span>, technical expertise, and honest service to Houston businesses.
             </p>
-            <div className="mt-10 flex flex-col sm:flex-row items-center justify-center gap-6 animate-fade-in-up animation-delay-600">
+            <div className="mt-8 flex flex-wrap items-center gap-3">
               <Link
                 href="/contact"
-                className="group rounded-lg bg-accent-500 px-8 py-4 text-base font-semibold text-white shadow-lg hover:bg-accent-600 transition-all"
+                className="group inline-flex items-center gap-2 rounded-md bg-primary-600 px-6 py-3 text-base font-semibold text-white hover:bg-primary-700 transition-colors"
               >
                 Work With Us
-                <span className="inline-block transition-transform group-hover:translate-x-1 ml-2">→</span>
+                <ArrowRight className="h-4 w-4 transition-transform group-hover:translate-x-0.5" />
               </Link>
               <Link
                 href="/work"
-                className="text-base font-semibold leading-7 text-white hover:text-gray-200 transition-colors"
+                className="inline-flex items-center gap-2 rounded-md border border-surface-border px-6 py-3 text-base font-semibold text-white hover:border-primary-500/60 hover:bg-surface-card transition-colors"
               >
-                View Our Work <span aria-hidden="true">→</span>
+                View Our Work
               </Link>
             </div>
           </div>
-        </div>
-
-        {/* Wave divider */}
-        <div className="absolute bottom-0 left-0 right-0">
-          <svg className="w-full h-16 fill-surface" viewBox="0 0 1200 120" preserveAspectRatio="none">
-            <path d="M321.39,56.44c58-10.79,114.16-30.13,172-41.86,82.39-16.72,168.19-17.73,250.45-.39C823.78,31,906.67,72,985.66,92.83c70.05,18.48,146.53,26.09,214.34,3V0H0V27.35A600.21,600.21,0,0,0,321.39,56.44Z" />
-          </svg>
         </div>
       </section>
 
@@ -172,7 +149,7 @@ export default function About() {
                 <div className="mb-3 flex justify-center text-primary-400 group-hover:scale-110 transition-transform">
                   <stat.Icon className="h-12 w-12" strokeWidth={1.75} />
                 </div>
-                <div className="text-4xl font-bold bg-gradient-to-r from-primary-400 to-accent-400 bg-clip-text text-transparent">
+                <div className="text-4xl font-bold text-white">
                   {stat.value}
                 </div>
                 <div className="text-sm text-gray-400 mt-2">{stat.label}</div>
@@ -191,13 +168,13 @@ export default function About() {
               <div className="inline-flex items-center rounded-full bg-primary-500/15 px-4 py-2 text-sm font-semibold text-primary-300 mb-6">
                 Our Story
               </div>
-              <h2 className="text-4xl font-bold tracking-tight text-white sm:text-5xl mb-8">
-                Built on Military Values, Driven by Results
+              <h2 className="text-4xl font-display font-bold tracking-tight text-white sm:text-5xl mb-8">
+                Why I started StephensCode
               </h2>
 
               <div className="space-y-6 text-lg text-gray-400 leading-relaxed">
                 <p>
-                  <span className="font-bold text-white">StephensCode was founded in 2011</span> by Kyle Stephens, a U.S. military veteran with a passion for technology and service. After completing his military service and earning a B.S. in Information Technology, Kyle saw a gap in the market: small businesses in Houston needed professional websites but couldn't afford the $3,000-$5,000+ price tags that agencies were charging for basic sites.
+                  <span className="font-bold text-white">StephensCode was founded in 2011</span> by Kyle Stephens, a U.S. Marine Corps veteran. After completing his military service and earning a B.S. in Information Technology, Kyle saw a gap in the market: small businesses in Houston needed professional websites but couldn't afford the $3,000-$5,000+ price tags that agencies were charging for basic sites.
                 </p>
 
                 <p>
@@ -221,47 +198,22 @@ export default function About() {
               </div>
             </div>
 
-            {/* Visual Element */}
-            <div className="relative">
-              <div className="rounded-3xl bg-gradient-to-br from-primary-700 via-primary-600 to-accent-500 p-12 shadow-2xl">
-                <div className="text-center text-white">
-                  <Award className="h-24 w-24 mb-6" strokeWidth={1.5} />
-                  <h3 className="text-3xl font-bold mb-4">USMC Core Values</h3>
-                  <div className="grid grid-cols-2 gap-6 mt-8">
-                    <div className="bg-surface-card/60 backdrop-blur-sm rounded-xl p-4 border border-surface-border">
-                      <Medal className="h-8 w-8 mb-2" strokeWidth={1.75} />
-                      <div className="text-sm font-semibold">Honor</div>
+            {/* Values panel */}
+            <div className="rounded-2xl border border-surface-border bg-surface-card p-8">
+              <p className="text-[10px] font-semibold uppercase tracking-[0.22em] text-gray-500">Carried over from the Corps</p>
+              <ul className="mt-6 divide-y divide-surface-border">
+                {values.map((value) => (
+                  <li key={value.name} className="flex gap-4 py-5 first:pt-0 last:pb-0">
+                    <span className="mt-1 h-4 w-4 flex-none text-primary-500">
+                      <value.Icon className="h-4 w-4" strokeWidth={2} />
+                    </span>
+                    <div>
+                      <p className="font-semibold text-white">{value.name}</p>
+                      <p className="mt-1 text-sm leading-6 text-gray-400">{value.description}</p>
                     </div>
-                    <div className="bg-surface-card/60 backdrop-blur-sm rounded-xl p-4 border border-surface-border">
-                      <Flame className="h-8 w-8 mb-2" strokeWidth={1.75} />
-                      <div className="text-sm font-semibold">Courage</div>
-                    </div>
-                    <div className="bg-surface-card/60 backdrop-blur-sm rounded-xl p-4 border border-surface-border">
-                      <Users className="h-8 w-8 mb-2" strokeWidth={1.75} />
-                      <div className="text-sm font-semibold">Commitment</div>
-                    </div>
-                    <div className="bg-surface-card/60 backdrop-blur-sm rounded-xl p-4 border border-surface-border">
-                      <Target className="h-8 w-8 mb-2" strokeWidth={1.75} />
-                      <div className="text-sm font-semibold">Mission-Focused</div>
-                    </div>
-                    <div className="bg-surface-card/60 backdrop-blur-sm rounded-xl p-4 border border-surface-border">
-                      <Gem className="h-8 w-8 mb-2" strokeWidth={1.75} />
-                      <div className="text-sm font-semibold">Integrity</div>
-                    </div>
-                    <div className="bg-surface-card/60 backdrop-blur-sm rounded-xl p-4 border border-surface-border">
-                      <Shield className="h-8 w-8 mb-2" strokeWidth={1.75} />
-                      <div className="text-sm font-semibold">Service</div>
-                    </div>
-                    <div className="bg-surface-card/60 backdrop-blur-sm rounded-xl p-4 border border-surface-border">
-                      <Zap className="h-8 w-8 mb-2" strokeWidth={1.75} />
-                      <div className="text-sm font-semibold">Excellence</div>
-                    </div>
-                  </div>
-                </div>
-              </div>
-              {/* Decorative elements */}
-              <div className="absolute -top-6 -right-6 w-32 h-32 bg-accent-400 rounded-full opacity-20 blur-3xl"></div>
-              <div className="absolute -bottom-6 -left-6 w-32 h-32 bg-primary-400 rounded-full opacity-20 blur-3xl"></div>
+                  </li>
+                ))}
+              </ul>
             </div>
           </div>
         </div>
@@ -270,11 +222,9 @@ export default function About() {
       {/* Timeline Section */}
       <section className="bg-surface py-24 sm:py-32">
         <div className="mx-auto max-w-7xl px-6 lg:px-8">
-          <div className="mx-auto max-w-2xl text-center mb-16">
-            <div className="inline-flex items-center rounded-full bg-accent-500/15 px-4 py-2 text-sm font-semibold text-accent-300 mb-4">
-              Our Journey
-            </div>
-            <h2 className="text-4xl font-bold tracking-tight text-white sm:text-5xl">
+          <div className="max-w-2xl mb-16">
+            <BracketEyebrow label="Our Journey" />
+            <h2 className="mt-4 text-3xl font-display font-bold tracking-tight text-white sm:text-4xl">
               14+ Years of Growth
             </h2>
             <p className="mt-4 text-lg text-gray-400">
@@ -282,71 +232,18 @@ export default function About() {
             </p>
           </div>
 
-          <div className="mx-auto max-w-4xl">
-            {timeline.map((item, index) => (
-              <div key={item.year} className="relative pb-12 last:pb-0">
-                {/* Connecting line */}
-                {index !== timeline.length - 1 && (
-                  <div className="absolute left-8 top-16 bottom-0 w-0.5 bg-gradient-to-b from-primary-500 to-accent-500"></div>
-                )}
-
-                <div className="relative flex gap-6 group">
-                  {/* Year badge */}
-                  <div className="flex-shrink-0 w-16 h-16 rounded-full bg-gradient-to-br from-primary-600 to-accent-600 flex items-center justify-center text-white font-bold shadow-lg group-hover:scale-110 transition-transform z-10">
-                    {item.year.slice(2)}
-                  </div>
-
-                  {/* Content */}
-                  <div className="flex-grow pb-8">
-                    <div className="bg-surface-card rounded-2xl p-8 shadow-lg shadow-black/20 border border-surface-border group-hover:border-primary-300 group-hover:shadow-xl transition-all">
-                      <div className="text-sm font-semibold text-accent-600 mb-2">{item.year}</div>
-                      <h3 className="text-2xl font-bold text-white mb-3">{item.title}</h3>
-                      <p className="text-gray-400 leading-relaxed">{item.description}</p>
-                    </div>
-                  </div>
-                </div>
-              </div>
+          <ol className="relative max-w-3xl border-l border-surface-border pl-8 sm:pl-10 space-y-12">
+            {timeline.map((item) => (
+              <li key={item.year} className="relative">
+                <span aria-hidden="true" className="absolute top-1 -left-[43px] sm:-left-[51px] flex h-5 w-5 items-center justify-center rounded-full border border-primary-500 bg-surface">
+                  <span className="h-1.5 w-1.5 rounded-full bg-primary-500" />
+                </span>
+                <p className="font-mono text-xs tracking-[0.18em] text-primary-500">{item.year}</p>
+                <h3 className="mt-2 text-xl font-semibold text-white">{item.title}</h3>
+                <p className="mt-2 max-w-2xl leading-7 text-gray-400">{item.description}</p>
+              </li>
             ))}
-          </div>
-        </div>
-      </section>
-
-      {/* Values Section */}
-      <section className="bg-surface py-24 sm:py-32">
-        <div className="mx-auto max-w-7xl px-6 lg:px-8">
-          <div className="mx-auto max-w-2xl text-center mb-16">
-            <div className="inline-flex items-center rounded-full bg-primary-500/15 px-4 py-2 text-sm font-semibold text-primary-300 mb-4">
-              Core Values
-            </div>
-            <h2 className="text-4xl font-bold tracking-tight text-white sm:text-5xl">
-              Our Guiding Principles
-            </h2>
-            <p className="mt-4 text-lg leading-8 text-gray-400">
-              Military service instilled values that guide everything we do.
-            </p>
-          </div>
-
-          <div className="grid gap-8 lg:grid-cols-2">
-            {values.map((value, index) => (
-              <div
-                key={value.name}
-                className="group relative rounded-3xl bg-surface-card p-10 shadow-lg shadow-black/20 border-2 border-surface-border hover:border-primary-300 transition-all"
-                style={{ animationDelay: `${index * 100}ms` }}
-              >
-                <div className={`absolute -top-6 -left-6 w-20 h-20 rounded-2xl bg-gradient-to-br ${value.color} flex items-center justify-center text-white shadow-xl transform group-hover:rotate-12 transition-transform`}>
-                  <value.Icon className="h-9 w-9" strokeWidth={1.75} />
-                </div>
-                <div className="ml-16">
-                  <h3 className="text-2xl font-bold text-white mb-4">
-                    {value.name}
-                  </h3>
-                  <p className="text-gray-400 leading-relaxed">
-                    {value.description}
-                  </p>
-                </div>
-              </div>
-            ))}
-          </div>
+          </ol>
         </div>
       </section>
 
@@ -357,11 +254,11 @@ export default function About() {
             <div className="inline-flex items-center rounded-full bg-accent-500/15 px-4 py-2 text-sm font-semibold text-accent-300 mb-4">
               Meet the Team
             </div>
-            <h2 className="text-4xl font-bold tracking-tight text-white sm:text-5xl">
-              Veteran-Led Excellence
+            <h2 className="text-4xl font-display font-bold tracking-tight text-white sm:text-5xl">
+              The developer you actually talk to
             </h2>
             <p className="mt-4 text-lg leading-8 text-gray-400">
-              Locally based, veteran-led, and committed to your success.
+              No account managers, no handoffs. You deal with the person who writes the code.
             </p>
           </div>
 
@@ -375,7 +272,7 @@ export default function About() {
                       <Award className="h-20 w-20" strokeWidth={1.5} />
                     </div>
                     <div className="absolute -bottom-4 -right-4 bg-surface-card rounded-2xl px-6 py-3 shadow-xl shadow-black/20 border-2 border-accent-500">
-                      <div className="text-sm font-bold text-accent-600">U.S. Veteran</div>
+                      <div className="text-sm font-bold text-accent-600">USMC Veteran</div>
                     </div>
                   </div>
                 </div>
@@ -386,7 +283,7 @@ export default function About() {
                   <p className="text-xl font-semibold text-primary-600 mb-6">Founder & CTO</p>
 
                   <p className="text-lg text-gray-400 leading-relaxed mb-6">
-                    U.S. military veteran with 14+ years of web development experience. B.S. in Information Technology. Passionate about helping Houston small businesses succeed online with transparent pricing and quality work.
+                    Marine Corps veteran. B.S. in Information Technology. 14+ years building websites and business systems for Houston small businesses. If you call the number on this site, this is who answers.
                   </p>
 
                   <div className="flex flex-wrap gap-3 justify-center lg:justify-start">
@@ -408,7 +305,7 @@ export default function About() {
       <section className="bg-surface-card py-24 sm:py-32">
         <div className="mx-auto max-w-7xl px-6 lg:px-8">
           <div className="mx-auto max-w-2xl text-center mb-16">
-            <h2 className="text-4xl font-bold tracking-tight text-white sm:text-5xl">
+            <h2 className="text-4xl font-display font-bold tracking-tight text-white sm:text-5xl">
               Why Choose StephensCode?
             </h2>
             <p className="mt-4 text-lg text-gray-400">
@@ -494,19 +391,19 @@ export default function About() {
 
         <div className="relative mx-auto max-w-7xl px-6 lg:px-8">
           <div className="mx-auto max-w-2xl text-center">
-            <h2 className="text-4xl font-bold tracking-tight text-white sm:text-5xl">
+            <h2 className="text-4xl font-display font-bold tracking-tight text-white sm:text-5xl">
               Ready to Work Together?
             </h2>
             <p className="mx-auto mt-6 max-w-xl text-lg leading-8 text-gray-400">
-              Let's discuss your project. Free consultation, no obligation, no sales pressure. Experience the StephensCode difference.
+              Tell me what you are trying to build. The consultation is free, and if I am not the right fit for the job, I will say so.
             </p>
             <div className="mt-10 flex flex-col sm:flex-row items-center justify-center gap-6">
               <Link
                 href="/contact"
-                className="group rounded-lg bg-gradient-to-r from-primary-600 to-accent-600 px-8 py-4 text-base font-semibold text-white shadow-lg hover:shadow-xl transition-all"
+                className="group rounded-lg bg-gradient-to-r from-primary-600 to-accent-700 px-8 py-4 text-base font-semibold text-white shadow-lg hover:shadow-xl transition-all"
               >
                 Get in Touch
-                <span className="inline-block transition-transform group-hover:translate-x-1 ml-2">→</span>
+                <span className="inline-block transition-transform group-hover:translate-x-1 ml-2">â†’</span>
               </Link>
               <PhoneLink
                 location="about_page"

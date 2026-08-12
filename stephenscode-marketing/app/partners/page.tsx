@@ -1,4 +1,4 @@
-import Link from 'next/link'
+﻿import Link from 'next/link'
 import type { Metadata } from 'next'
 
 export const metadata: Metadata = {
@@ -341,7 +341,7 @@ export default function PartnersPage() {
       <section className="bg-gradient-to-br from-surface via-surface-card to-surface py-16 sm:py-20">
         <div className="mx-auto max-w-7xl px-6 lg:px-8">
           <div className="text-center">
-            <h1 className="text-4xl font-bold tracking-tight text-white sm:text-5xl">
+            <h1 className="text-4xl font-display font-bold tracking-tight text-white sm:text-5xl">
               Our Portfolio & Client Projects
             </h1>
             <p className="mt-4 text-lg text-blue-100 max-w-2xl mx-auto">
@@ -373,7 +373,7 @@ export default function PartnersPage() {
                   </p>
                   <span className="text-primary-600 font-medium group-hover:text-primary-400 transition-colors">
                     View Listing
-                    <span aria-hidden="true" className="inline-block ml-1 transition-transform group-hover:translate-x-1">→</span>
+                    <span aria-hidden="true" className="inline-block ml-1 transition-transform group-hover:translate-x-1">â†’</span>
                   </span>
                 </a>
               ))}
@@ -404,7 +404,7 @@ export default function PartnersPage() {
                   </p>
                   <span className="text-accent-600 font-medium group-hover:text-accent-700 transition-colors">
                     Learn More
-                    <span aria-hidden="true" className="inline-block ml-1 transition-transform group-hover:translate-x-1">→</span>
+                    <span aria-hidden="true" className="inline-block ml-1 transition-transform group-hover:translate-x-1">â†’</span>
                   </span>
                 </a>
               ))}
@@ -435,7 +435,7 @@ export default function PartnersPage() {
                   </p>
                   <span className="text-primary-600 font-medium group-hover:text-primary-400 transition-colors">
                     Visit Partner
-                    <span aria-hidden="true" className="inline-block ml-1 transition-transform group-hover:translate-x-1">→</span>
+                    <span aria-hidden="true" className="inline-block ml-1 transition-transform group-hover:translate-x-1">â†’</span>
                   </span>
                 </a>
               ))}
@@ -487,7 +487,7 @@ export default function PartnersPage() {
                     className="inline-flex items-center text-accent-600 font-semibold group-hover:text-accent-700 transition-colors"
                   >
                     Visit {client.shortName} Website
-                    <span aria-hidden="true" className="inline-block ml-2 transition-transform group-hover:translate-x-1">→</span>
+                    <span aria-hidden="true" className="inline-block ml-2 transition-transform group-hover:translate-x-1">â†’</span>
                   </a>
                 </article>
               ))}

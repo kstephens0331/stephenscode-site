@@ -123,7 +123,7 @@ export default async function MSPServiceDetailPage({ params }: MSPPageProps) {
               All IT Services
             </Link>
           </div>
-          <h1 className="text-4xl font-bold tracking-tight sm:text-5xl">{service.name}</h1>
+          <h1 className="text-4xl font-display font-bold tracking-tight sm:text-5xl">{service.name}</h1>
           <p className="mt-6 text-lg leading-8 text-gray-200 max-w-3xl">{service.shortDescription}</p>
           <div className="mt-8 flex flex-wrap items-center gap-6">
             <span className="text-3xl font-bold text-accent-400">
@@ -135,13 +135,13 @@ export default async function MSPServiceDetailPage({ params }: MSPPageProps) {
           <div className="mt-8 flex flex-wrap gap-4">
             <Link
               href="/contact"
-              className="rounded-md bg-accent-500 px-6 py-3 text-base font-semibold text-white shadow-sm hover:bg-accent-600"
+              className="btn-accent px-6 py-3 text-base"
             >
               Get Free Quote
             </Link>
             <PhoneLink
               location="msp_service_hero"
-              className="rounded-md bg-white/10 px-6 py-3 text-base font-semibold text-white backdrop-blur hover:bg-white/20"
+              className="btn-secondary px-6 py-3 text-base"
             >
               Call (936) 323-4527
             </PhoneLink>
@@ -237,13 +237,13 @@ export default async function MSPServiceDetailPage({ params }: MSPPageProps) {
       {related.length > 0 && (
         <section className="bg-surface-card py-16 sm:py-24">
           <div className="mx-auto max-w-7xl px-6 lg:px-8">
-            <h2 className="text-3xl font-bold tracking-tight text-white mb-12">Related IT Services</h2>
+            <h2 className="text-3xl font-display font-bold tracking-tight text-white mb-12">Related IT Services</h2>
             <div className="grid grid-cols-1 gap-8 md:grid-cols-3">
               {related.map((s) => (
                 <Link
                   key={s.slug}
                   href={`/msp/${s.slug}`}
-                  className="block bg-surface rounded-2xl p-6 shadow-lg shadow-black/20 hover:shadow-xl transition-shadow"
+                  className="block bg-surface rounded-2xl border border-surface-border p-6 shadow-lg shadow-black/20 card-lift"
                 >
                   <h3 className="text-lg font-semibold text-white mb-2">{s.name}</h3>
                   <p className="text-primary-600 font-semibold mb-2">{s.priceLabel}</p>
@@ -259,14 +259,14 @@ export default async function MSPServiceDetailPage({ params }: MSPPageProps) {
       <section className="bg-primary-900 text-white">
         <div className="px-6 py-16 sm:px-6 sm:py-24 lg:px-8">
           <div className="mx-auto max-w-2xl text-center">
-            <h2 className="text-3xl font-bold tracking-tight sm:text-4xl">Ready to Get Started?</h2>
+            <h2 className="text-3xl font-display font-bold tracking-tight sm:text-4xl">Ready to Get Started?</h2>
             <p className="mx-auto mt-6 max-w-xl text-lg leading-8 text-gray-200">
               Free consultation, transparent pricing, veteran-owned quality.
             </p>
             <div className="mt-10 flex items-center justify-center gap-x-6">
               <Link
                 href="/contact"
-                className="rounded-md bg-accent-500 px-6 py-3 text-base font-semibold text-white shadow-sm hover:bg-accent-600"
+                className="btn-accent px-6 py-3 text-base"
               >
                 Get Started
               </Link>

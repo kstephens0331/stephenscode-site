@@ -1,6 +1,8 @@
 import type { Metadata } from 'next'
 import Link from 'next/link'
-import Image from 'next/image'
+import { ArrowRight } from 'lucide-react'
+import BracketEyebrow from '@/components/BracketEyebrow'
+import BrowserFrame from '@/components/BrowserFrame'
 
 export const metadata: Metadata = {
   title: 'Web Development Portfolio | Custom Websites Houston | Case Studies',
@@ -44,6 +46,20 @@ const portfolioSchema = {
   }
 }
 
+interface CaseStudy {
+  client: string
+  industry: string
+  project: string
+  challenge: string
+  solution: string
+  results: string[]
+  services: string[]
+  /** Portfolio screenshot path when the asset exists, otherwise null. */
+  screenshot: string | null
+  /** Bare display domain for the BrowserFrame URL chip. */
+  domain: string | null
+}
+
 function getInitials(name: string) {
   const words = name.trim().split(/\s+/)
   if (words.length === 1) {
@@ -52,16 +68,73 @@ function getInitials(name: string) {
   return (words[0][0] + words[1][0]).toUpperCase()
 }
 
+/** Strips protocol and www for the BrowserFrame URL chip. */
+function displayDomain(url: string) {
+  return url.replace(/^https?:\/\//, '').replace(/^www\./, '').replace(/\/$/, '')
+}
+
 function CheckIcon() {
   return (
-    <svg className="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+    <svg className="w-3.5 h-3.5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
       <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={3} d="M5 13l4 4L19 7" />
     </svg>
   )
 }
 
+function CaseStudyBody({ study, wide = false }: { study: CaseStudy; wide?: boolean }) {
+  return (
+    <div>
+      <p className="text-[11px] font-semibold uppercase tracking-[0.18em] text-primary-400">
+        {study.industry}
+      </p>
+      <h3 className="mt-3 text-3xl font-bold text-white">{study.client}</h3>
+      <p className="mt-2 text-lg font-semibold text-primary-400">{study.project}</p>
+
+      <div className={wide ? 'mt-8 grid gap-8 lg:grid-cols-2' : 'mt-8 space-y-6'}>
+        <div>
+          <h4 className="text-sm font-semibold uppercase tracking-[0.14em] text-gray-500">
+            The Challenge
+          </h4>
+          <p className="mt-2 leading-7 text-gray-300">{study.challenge}</p>
+        </div>
+        <div>
+          <h4 className="text-sm font-semibold uppercase tracking-[0.14em] text-gray-500">
+            Our Solution
+          </h4>
+          <p className="mt-2 leading-7 text-gray-300">{study.solution}</p>
+        </div>
+      </div>
+
+      <div className="mt-8">
+        <h4 className="text-sm font-semibold uppercase tracking-[0.14em] text-gray-500">Results</h4>
+        <ul className={wide ? 'mt-4 grid gap-3 sm:grid-cols-2' : 'mt-4 space-y-3'}>
+          {study.results.map((result) => (
+            <li key={result} className="flex items-start gap-3">
+              <span className="mt-0.5 flex h-6 w-6 flex-shrink-0 items-center justify-center rounded-full bg-gradient-to-br from-primary-500 to-primary-700 text-white">
+                <CheckIcon />
+              </span>
+              <span className="font-semibold leading-6 text-white">{result}</span>
+            </li>
+          ))}
+        </ul>
+      </div>
+
+      <div className="mt-8 flex flex-wrap gap-2">
+        {study.services.map((service) => (
+          <span
+            key={service}
+            className="rounded-full bg-primary-500/10 px-3 py-1 text-sm font-medium text-primary-400"
+          >
+            {service}
+          </span>
+        ))}
+      </div>
+    </div>
+  )
+}
+
 export default function Work() {
-  const caseStudies = [
+  const caseStudies: CaseStudy[] = [
     {
       client: 'Lefty Cartel',
       industry: 'E-Commerce / Membership',
@@ -72,7 +145,8 @@ export default function Work() {
         'Started generating revenue within 30 days of launch'
       ],
       services: ['Membership Platform', 'Stripe Subscriptions', 'Admin Dashboard', 'Shipping Integration'],
-      color: 'from-surface-elevated to-surface'
+      screenshot: '/images/portfolio/lefty-cartel.png',
+      domain: 'leftycartel.net'
     },
     {
       client: 'AMW Air Conditioning',
@@ -85,7 +159,8 @@ export default function Work() {
         'Hired 2 new employees to keep up with the increase in service demand'
       ],
       services: ['Website Rebuild', 'SEO', 'GEO / Local Marketing', 'Google Ads', 'Local Services Ads'],
-      color: 'from-accent-500 to-accent-700'
+      screenshot: '/images/portfolio/amw-air-conditioning.png',
+      domain: 'amwairconditioning.com'
     },
     {
       client: 'Benefit Builder',
@@ -99,7 +174,8 @@ export default function Work() {
         'Entire company now runs on a team of 3'
       ],
       services: ['Full-Stack SaaS', 'QuickBooks Integration', 'Automated Billing', 'Analytics Dashboard'],
-      color: 'from-primary-600 to-primary-800'
+      screenshot: null,
+      domain: null
     },
     {
       client: 'Sunset Harbor Owners Association',
@@ -113,7 +189,8 @@ export default function Work() {
         'HOA documents -- assessments, notices, governing documents -- available as generated PDFs on demand'
       ],
       services: ['Resident Portal', 'Self-Hosted PocketBase', 'Magic-Link Authentication', 'Transactional Email', 'PDF Generation'],
-      color: 'from-primary-500 to-accent-500'
+      screenshot: null,
+      domain: null
     },
     {
       client: 'ColorFuse Prints',
@@ -129,7 +206,8 @@ export default function Work() {
         'Fixed a contact form that was silently discarding customer messages'
       ],
       services: ['Security Hardening', 'Server-Side Pricing', 'Vulnerability Remediation', 'E-Commerce Reliability'],
-      color: 'from-accent-500 to-primary-500'
+      screenshot: '/images/portfolio/colorfuse-prints.png',
+      domain: 'colorfuseprints.com'
     },
     {
       client: 'Terracotta Construction',
@@ -143,7 +221,8 @@ export default function Work() {
         'Own dedicated Supabase instance instead of dependence on third-party SaaS'
       ],
       services: ['Website Rebuild', 'Customer Portal', 'Admin Dashboard', 'Self-Hosted Supabase', 'Back Office'],
-      color: 'from-primary-500 to-primary-700'
+      screenshot: '/images/portfolio/terracotta-construction.png',
+      domain: 'terracottaconstruction.com'
     }
   ]
 
@@ -157,7 +236,7 @@ export default function Work() {
       shortDesc: 'Real-time emergency incident monitoring and property owner lead generation for restoration companies.',
       description: 'Built for Clarketon Restoration, this automated system monitors 7 fire departments across San Diego County in real-time, tracking structure fires, water emergencies, and flooding incidents. The system automatically identifies affected properties, enriches data with property owner information, and delivers qualified leads directly to the restoration company via SMS and Google Sheets integration. This enables rapid dispatch of restoration crews before competitors even know about the incident.',
       services: ['Real-time API Integration', 'Property Data Enrichment', 'SMS Notifications', 'Lead Generation Automation'],
-      color: 'from-primary-500 to-accent-500'
+      color: 'from-primary-600 to-accent-700'
     },
     {
       name: 'Stephen Long for Congress TX-8',
@@ -187,7 +266,7 @@ export default function Work() {
       shortDesc: 'Professional website for Houston-based clinical research company.',
       description: 'JustWell Clinical Research conducts medical research studies in the Houston area with their tagline "Research You Can Trust." We built their professional website featuring information about their therapeutic areas, company background, and contact capabilities. The clean, trustworthy design with their signature teal and gold branding helps patients and sponsors learn about their clinical trial services.',
       services: ['Custom Website', 'Mobile Responsive', 'Contact Forms', 'SEO Optimization'],
-      color: 'from-accent-500 to-accent-700'
+      color: 'from-accent-700 to-accent-800'
     },
     {
       name: 'Benefit Builder Backoffice',
@@ -207,7 +286,7 @@ export default function Work() {
       shortDesc: 'Multi-tenant scheduling SaaS platform with payments and automated notifications.',
       description: 'CalenFlow is a complete scheduling and workflow automation platform built for service businesses. The system features multi-tenant business management, Google OAuth authentication, customizable service catalogs, staff scheduling and availability management, branded booking widgets, Stripe payment processing, and automated email/SMS notifications. The admin dashboard provides full visibility into bookings, revenue, and client management.',
       services: ['Full-Stack SaaS', 'Stripe Payments', 'Booking System', 'SMS/Email Automation'],
-      color: 'from-accent-500 to-primary-500'
+      color: 'from-accent-700 to-primary-600'
     },
     {
       name: 'SentinelForge',
@@ -217,7 +296,7 @@ export default function Work() {
       shortDesc: 'Online gaming safety platform protecting players from cheaters and toxic behavior.',
       description: 'SentinelForge is a powerful online gaming safety platform designed to protect gaming communities. The system features automated player behavior monitoring, cheat detection algorithms, toxicity analysis, and community moderation tools. Built with a scalable architecture to handle high-volume gaming data, it helps game developers and server administrators maintain fair, enjoyable gaming environments.',
       services: ['Platform Development', 'Data Analytics', 'Automation', 'Admin Dashboard'],
-      color: 'from-primary-500 to-primary-700'
+      color: 'from-primary-600 to-primary-700'
     },
     {
       name: 'Project Ironclad',
@@ -247,7 +326,7 @@ export default function Work() {
       shortDesc: 'Bot operations platform for managing automated workflows and integrations.',
       description: 'BotOpsHQ is a centralized platform for managing bots, automated workflows, and system integrations. The hub architecture allows teams to deploy, monitor, and maintain multiple automation bots from a single dashboard. Features include workflow templates, real-time monitoring, error handling, and integration management across various services and APIs.',
       services: ['Automation Platform', 'Workflow Management', 'Bot Development', 'Integration Hub'],
-      color: 'from-primary-500 to-primary-700'
+      color: 'from-primary-600 to-primary-700'
     },
     {
       name: 'Autopilot System',
@@ -267,7 +346,7 @@ export default function Work() {
       shortDesc: 'AI-powered lead machine finding businesses with poor websites and nurturing them to close.',
       description: 'An intelligent lead generation system that scrapes Google Maps daily for 20-30 businesses with website issues, analyzes and grades their sites, calculates fixed-price quotes from 50+ services, sends AI-written personalized outreach emails, manages 7-touch follow-up sequences over 90 days, analyzes reply sentiment, and alerts when leads are ready to close. Expected results: 500-700 leads/month with 3-10 hot leads monthly.',
       services: ['Lead Scraping', 'AI Email Writing', 'Automated Follow-ups', 'Sentiment Analysis'],
-      color: 'from-primary-500 to-accent-500'
+      color: 'from-primary-600 to-accent-700'
     },
     {
       name: 'GradeStack',
@@ -277,7 +356,7 @@ export default function Work() {
       shortDesc: 'Self-hosted 125-point SEO audit platform with actionable fix instructions.',
       description: 'GradeStack is a self-hosted SEO health check system that runs 125 meaningful checks on websites. Unlike competitors that show inflated issues to upsell services, GradeStack provides accurate, actionable analysis with step-by-step fix instructions, transparent documented scoring, and real data from Google APIs. Built for agencies and businesses who want honest SEO insights.',
       services: ['SEO Auditing', 'Google API Integration', 'Automated Reporting', 'Fix Instructions'],
-      color: 'from-accent-500 to-primary-500'
+      color: 'from-accent-700 to-primary-600'
     },
     {
       name: 'ThinkSync',
@@ -287,7 +366,7 @@ export default function Work() {
       shortDesc: 'Family command center app designed for neurodivergent families.',
       description: 'ThinkSync is a custom-built family management application specifically designed for neurodivergent families. Features include task assignment and tracking, shared family calendars, a needs tracker for shopping items, and comprehensive kid profiles for tracking important information. Role-based dashboards provide different views for parents and children with a flexible family structure system.',
       services: ['Custom App Development', 'Task Management', 'Family Scheduling', 'User Profiles'],
-      color: 'from-accent-500 to-accent-700'
+      color: 'from-accent-700 to-accent-800'
     },
     {
       name: 'Homeschool Management System',
@@ -297,7 +376,7 @@ export default function Work() {
       shortDesc: 'Comprehensive homeschool platform with adaptive learning and OMR scanning.',
       description: 'A full-featured homeschool management system with AI-powered adaptive learning that generates custom educational packets based on student mastery levels. Features include Optical Mark Recognition (OMR) scanning for answer sheets, multi-guardian support, parent-controlled online mode with travel overrides, automatic quarter coverage tracking, PDF report cards with mastery tracking, real-time notifications, and portfolio management for work exemplars.',
       services: ['Adaptive Learning AI', 'OMR Scanning', 'Report Generation', 'Curriculum Tracking'],
-      color: 'from-primary-500 to-primary-700'
+      color: 'from-primary-600 to-primary-700'
     },
     {
       name: 'MedSim',
@@ -317,7 +396,7 @@ export default function Work() {
       shortDesc: 'Houston-area general contractor specializing in residential and commercial construction.',
       description: 'Terracotta Construction is a trusted Houston-area general contractor delivering quality residential and commercial construction services. We built their professional website featuring project galleries showcasing their craftsmanship, detailed service pages for each construction specialty, and integrated lead capture forms that connect potential clients directly with their team. The mobile-responsive design ensures homeowners can explore their portfolio from any device.',
       services: ['Custom Website', 'SEO Optimization', 'Contact Forms', 'Project Gallery'],
-      color: 'from-primary-500 to-primary-700'
+      color: 'from-primary-600 to-primary-700'
     },
     {
       name: "Car's Collision & Refinish Shop",
@@ -327,7 +406,7 @@ export default function Work() {
       shortDesc: 'Professional auto body repair and collision center serving the Houston community.',
       description: "Car's Collision & Refinish Shop provides expert auto body repair, paint refinishing, and collision restoration services. Their website showcases dramatic before-and-after galleries of their restoration work, detailed service explanations for insurance claims, and an easy-to-use online quote request system. The site helps customers understand the repair process and builds trust through visual proof of their quality workmanship.",
       services: ['Custom Website', 'Photo Gallery', 'Quote System', 'Service Pages'],
-      color: 'from-primary-500 to-accent-500'
+      color: 'from-primary-600 to-accent-700'
     },
     {
       name: 'AMW Air Conditioning',
@@ -337,7 +416,7 @@ export default function Work() {
       shortDesc: 'Reliable HVAC services including AC repair, installation, and maintenance plans.',
       description: 'AMW Air Conditioning delivers reliable heating and cooling solutions for homes and businesses throughout the Houston area. We rebuilt their website with emergency service prominently featured for urgent AC repairs, detailed maintenance plan options, and online scheduling, then added SEO, GEO (local) marketing, Google Ads, and Local Services Ads to drive qualified leads. See the full case study below.',
       services: ['Website Rebuild', 'SEO', 'GEO / Local Marketing', 'Google Ads', 'Local Services Ads'],
-      color: 'from-accent-500 to-accent-700'
+      color: 'from-accent-700 to-accent-800'
     },
     {
       name: 'Forge-X',
@@ -347,7 +426,7 @@ export default function Work() {
       shortDesc: 'Advanced technology platform delivering innovative software solutions.',
       description: 'Forge-X represents our capabilities in building sophisticated technology platforms. This full-stack application features secure user authentication, interactive dashboards with real-time data visualization, and complex business logic handling. The platform demonstrates our ability to architect and develop enterprise-grade software solutions that scale with business needs.',
       services: ['Full-Stack Platform', 'User Portal', 'API Development', 'Dashboard Design'],
-      color: 'from-accent-500 to-primary-500'
+      color: 'from-accent-700 to-primary-600'
     },
     {
       name: 'SACVPN',
@@ -367,7 +446,7 @@ export default function Work() {
       shortDesc: 'Custom printing and promotional products with easy online ordering.',
       description: 'ColorFuse Prints offers custom printing services for businesses and individuals, from business cards to promotional materials. We built their complete e-commerce platform with product customization tools that let customers design their own products, a robust shopping cart system, secure payment processing, and order management backend. The intuitive interface makes ordering custom prints simple for both first-time and returning customers.',
       services: ['E-Commerce', 'Product Customization', 'Order System', 'Payment Integration'],
-      color: 'from-accent-500 to-primary-500'
+      color: 'from-accent-700 to-primary-600'
     },
     {
       name: 'FC Photo Houston',
@@ -384,29 +463,12 @@ export default function Work() {
   const liveSites = livePortfolio.filter((project) => project.screenshot)
   const internalTools = livePortfolio.filter((project) => !project.screenshot)
 
-  const testimonials = [
-    {
-      quote: 'The photography portfolio and booking system Kyle built has transformed how we manage our business. Beautiful design, flawless functionality.',
-      author: 'FC Photo Team',
-      company: 'FC Photo Houston',
-      rating: 5
-    }
-  ]
-
-  const industries = [
-    { name: 'Home Services' },
-    { name: 'Healthcare' },
-    { name: 'Restaurants' },
-    { name: 'Retail' },
-    { name: 'Real Estate' },
-    { name: 'Legal' },
-    { name: 'Fitness' },
-    { name: 'Education' },
-    { name: 'Automotive' },
-    { name: 'Construction' },
-    { name: 'Landscaping' },
-    { name: 'E-Commerce' }
-  ]
+  // The one real client quote on file -- rendered inside the FC Photo Houston
+  // portfolio card, verbatim.
+  const fcPhotoQuote = {
+    quote: 'The photography portfolio and booking system Kyle built has transformed how we manage our business. Beautiful design, flawless functionality.',
+    author: 'FC Photo Team',
+  }
 
   return (
     <>
@@ -416,147 +478,167 @@ export default function Work() {
         dangerouslySetInnerHTML={{ __html: JSON.stringify(portfolioSchema) }}
       />
 
-      {/* Hero Section */}
-      <section className="relative bg-gradient-to-br from-black via-surface to-surface-card text-white overflow-hidden">
-        {/* Pattern overlay */}
-        <div className="absolute inset-0 opacity-10">
-          <svg className="absolute w-full h-full" xmlns="http://www.w3.org/2000/svg">
-            <defs>
-              <pattern id="work-pattern" x="0" y="0" width="40" height="40" patternUnits="userSpaceOnUse">
-                <circle cx="20" cy="20" r="1.5" fill="currentColor" />
-              </pattern>
-            </defs>
-            <rect width="100%" height="100%" fill="url(#work-pattern)" />
-          </svg>
-        </div>
+      {/* Hero -- homepage design language: black canvas, bracket eyebrow, hairline trust row */}
+      <section className="relative bg-black border-b border-surface-border overflow-hidden texture-grain">
+        <div className="pointer-events-none absolute inset-0 bg-gradient-to-b from-surface-card/60 via-black to-black" />
 
-        <div className="relative mx-auto max-w-7xl px-6 py-24 sm:py-32 lg:px-8">
-          <div className="mx-auto max-w-3xl text-center">
-            <div className="inline-flex items-center rounded-full bg-accent-500/20 px-4 py-2 text-sm font-semibold text-white ring-1 ring-inset ring-accent-500/30 mb-8 animate-fade-in-up">
-              200+ Projects Completed
+        <div className="relative mx-auto max-w-7xl px-6 py-20 sm:py-24 lg:px-8">
+          <div className="max-w-3xl">
+            <div className="animate-fade-in-up">
+              <BracketEyebrow label="Client Work" />
             </div>
-            <h1 className="text-5xl font-bold tracking-tight sm:text-7xl animate-fade-in-up animation-delay-200">
+            <h1 className="mt-8 text-4xl sm:text-6xl leading-[1.05] font-display font-bold tracking-tight text-white animate-fade-in-up animation-delay-200">
               Our Work
             </h1>
-            <p className="mt-6 text-xl leading-8 text-gray-200 animate-fade-in-up animation-delay-400">
-              Real projects. <span className="font-bold text-accent-400">Real results</span>. Real businesses. See how we've helped Houston companies grow with custom web solutions and measurable outcomes.
+            <p className="mt-6 max-w-2xl text-lg leading-8 text-gray-300 animate-fade-in-up animation-delay-400">
+              Real projects. <span className="font-bold text-accent-400">Real results</span>. Real businesses. See how we&apos;ve helped Houston companies grow with custom web solutions and measurable outcomes.
             </p>
-            <div className="mt-10 flex flex-col sm:flex-row items-center justify-center gap-6 animate-fade-in-up animation-delay-600">
-              <Link
-                href="/contact"
-                className="group rounded-lg bg-accent-500 px-8 py-4 text-base font-semibold text-white shadow-lg hover:bg-accent-600 transition-all"
-              >
+            <div className="mt-8 flex flex-wrap items-center gap-3 animate-fade-in-up animation-delay-600">
+              <Link href="/contact" className="group btn-primary px-6 py-3 text-base">
                 Get a Flat Quote
-                <span className="inline-block transition-transform group-hover:translate-x-1 ml-2">→</span>
+                <ArrowRight className="h-4 w-4 transition-transform duration-200 ease-brand group-hover:translate-x-0.5" />
               </Link>
-              <Link
-                href="/pricing"
-                className="text-base font-semibold leading-7 text-white hover:text-gray-200 transition-colors"
+              <Link href="/pricing" className="btn-secondary px-6 py-3 text-base">
+                View Pricing
+              </Link>
+            </div>
+          </div>
+
+          {/* Trust row -- facts, plainly stated, separated by hairlines */}
+          <dl className="mt-16 grid grid-cols-2 gap-x-8 gap-y-8 sm:grid-cols-4 animate-fade-in-up animation-delay-800">
+            <div className="border-l border-primary-500/40 pl-4">
+              <dt className="text-[10px] uppercase tracking-[0.18em] text-gray-500">Projects completed</dt>
+              <dd className="mt-1.5 text-3xl font-semibold text-white tracking-tight">200+</dd>
+            </div>
+            <div className="border-l border-primary-500/40 pl-4">
+              <dt className="text-[10px] uppercase tracking-[0.18em] text-gray-500">Years experience</dt>
+              <dd className="mt-1.5 text-3xl font-semibold text-white tracking-tight">14+</dd>
+            </div>
+            <div className="border-l border-primary-500/40 pl-4">
+              <dt className="text-[10px] uppercase tracking-[0.18em] text-gray-500">Average project time</dt>
+              <dd className="mt-1.5 text-3xl font-semibold text-white tracking-tight">2 weeks</dd>
+            </div>
+            <div className="border-l border-primary-500/40 pl-4">
+              <dt className="text-[10px] uppercase tracking-[0.18em] text-gray-500">Hidden fees</dt>
+              <dd className="mt-1.5 text-3xl font-semibold text-white tracking-tight">0%</dd>
+            </div>
+          </dl>
+        </div>
+      </section>
+
+      {/* Case Studies -- the quantified client outcomes lead the page */}
+      <section className="bg-surface py-24 sm:py-28 border-b border-surface-border">
+        <div className="mx-auto max-w-7xl px-6 lg:px-8">
+          <div className="max-w-3xl mb-16">
+            <BracketEyebrow label="Case Studies" />
+            <h2 className="mt-4 text-3xl sm:text-4xl font-display font-bold tracking-tight text-white">
+              Success Stories
+            </h2>
+            <p className="mt-4 text-lg leading-8 text-gray-400">
+              Deep dives into how we&apos;ve solved real business problems with measurable results.
+            </p>
+          </div>
+
+          <div className="space-y-10">
+            {caseStudies.map((study, index) => (
+              <article
+                key={study.client}
+                className="rounded-2xl border border-surface-border bg-surface-card p-8 shadow-card card-lift lg:p-10"
               >
-                View Pricing <span aria-hidden="true">→</span>
-              </Link>
-            </div>
-          </div>
-        </div>
-
-        {/* Wave divider */}
-        <div className="absolute bottom-0 left-0 right-0">
-          <svg className="w-full h-16 fill-surface" viewBox="0 0 1200 120" preserveAspectRatio="none">
-            <path d="M321.39,56.44c58-10.79,114.16-30.13,172-41.86,82.39-16.72,168.19-17.73,250.45-.39C823.78,31,906.67,72,985.66,92.83c70.05,18.48,146.53,26.09,214.34,3V0H0V27.35A600.21,600.21,0,0,0,321.39,56.44Z" />
-          </svg>
-        </div>
-      </section>
-
-      {/* Stats Section */}
-      <section className="bg-surface py-16 border-b border-surface-border">
-        <div className="mx-auto max-w-7xl px-6 lg:px-8">
-          <div className="grid grid-cols-2 md:grid-cols-4 gap-8 text-center">
-            <div className="animate-fade-in-up">
-              <div className="text-4xl font-bold bg-gradient-to-r from-primary-400 to-accent-400 bg-clip-text text-transparent">200+</div>
-              <div className="text-sm text-gray-400 mt-2">Projects Completed</div>
-            </div>
-            <div className="animate-fade-in-up animation-delay-200">
-              <div className="text-4xl font-bold bg-gradient-to-r from-primary-400 to-accent-400 bg-clip-text text-transparent">14+</div>
-              <div className="text-sm text-gray-400 mt-2">Years Experience</div>
-            </div>
-            <div className="animate-fade-in-up animation-delay-400">
-              <div className="text-4xl font-bold bg-gradient-to-r from-primary-400 to-accent-400 bg-clip-text text-transparent">2 Weeks</div>
-              <div className="text-sm text-gray-400 mt-2">Average Project Time</div>
-            </div>
-            <div className="animate-fade-in-up animation-delay-600">
-              <div className="text-4xl font-bold bg-gradient-to-r from-primary-400 to-accent-400 bg-clip-text text-transparent">0%</div>
-              <div className="text-sm text-gray-400 mt-2">Hidden Fees</div>
-            </div>
+                {study.screenshot ? (
+                  <div className="grid gap-10 lg:grid-cols-[0.9fr,1.1fr] lg:items-start">
+                    <div className={index % 2 === 1 ? 'lg:order-2' : undefined}>
+                      <BrowserFrame
+                        src={study.screenshot}
+                        alt={`${study.client} website screenshot`}
+                        url={study.domain ?? undefined}
+                        sizes="(min-width: 1024px) 45vw, 100vw"
+                      />
+                    </div>
+                    <CaseStudyBody study={study} />
+                  </div>
+                ) : (
+                  <CaseStudyBody study={study} wide />
+                )}
+              </article>
+            ))}
           </div>
         </div>
       </section>
 
-      {/* Live Portfolio Section */}
-      <section className="bg-surface py-24 sm:py-32">
+      {/* Live Portfolio */}
+      <section className="bg-surface-card py-24 sm:py-28 border-b border-surface-border">
         <div className="mx-auto max-w-7xl px-6 lg:px-8">
-          <div className="mx-auto max-w-2xl text-center mb-6">
-            <div className="inline-flex items-center rounded-full bg-accent-500/10 px-4 py-2 text-sm font-semibold text-accent-400 mb-4">
-              Live Portfolio
-            </div>
-            <h2 className="text-4xl font-bold tracking-tight text-white sm:text-5xl">
+          <div className="max-w-3xl mb-16">
+            <BracketEyebrow label="Live Portfolio" />
+            <h2 className="mt-4 text-3xl sm:text-4xl font-display font-bold tracking-tight text-white">
               See Our Work Live
             </h2>
             <p className="mt-4 text-lg leading-8 text-gray-400">
-              Real projects we've built for real businesses. Live sites and custom solutions.
+              Real projects we&apos;ve built for real businesses. Live sites and custom solutions.
+            </p>
+            <p className="mt-3 text-sm text-gray-400">
+              This is a selection of recent projects, not a complete list of everything we&apos;ve built.
             </p>
           </div>
-
-          <p className="mx-auto max-w-2xl text-center text-sm text-gray-500 mb-16">
-            This is a selection of recent projects, not a complete list of everything we've
-            built.
-          </p>
 
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-8">
             {liveSites.map((project) => (
               <article
                 key={project.name}
-                className="group relative bg-surface-card rounded-3xl shadow-xl shadow-black/20 overflow-hidden border-2 border-surface-border hover:border-primary-300 transition-all flex flex-col"
+                className="group relative flex flex-col rounded-2xl border border-surface-border bg-surface p-5 shadow-card card-lift"
               >
-                {/* Homepage screenshot - full width, matches the captured 1440x900 ratio so nothing gets cropped */}
+                {/* Browser-framed homepage screenshot, links to the live site */}
                 <a
                   href={project.url ?? undefined}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="relative block w-full aspect-[8/5] bg-surface-elevated overflow-hidden"
+                  className="relative block transition-transform duration-500 ease-out group-hover:scale-[1.02]"
                 >
-                  <Image
+                  <BrowserFrame
                     src={project.screenshot!}
                     alt={`${project.name} homepage screenshot`}
-                    fill
+                    url={project.url ? displayDomain(project.url) : undefined}
                     sizes="(min-width: 1024px) 50vw, 100vw"
-                    className="object-cover object-top transition-transform duration-500 group-hover:scale-[1.03]"
+                  />
+                  <div
+                    aria-hidden="true"
+                    className="pointer-events-none absolute inset-0 rounded-2xl bg-gradient-to-t from-black/25 via-transparent to-transparent opacity-0 transition-opacity duration-300 group-hover:opacity-100"
                   />
                 </a>
 
-                <div className="p-6 md:p-8 flex-1 flex flex-col">
-                  {/* Industry badge */}
-                  <div className="inline-flex items-center self-start rounded-full bg-surface-elevated px-3 py-1 text-xs font-semibold text-gray-300 mb-3">
+                <div className="flex flex-1 flex-col pt-6">
+                  <p className="text-[11px] font-semibold uppercase tracking-[0.18em] text-primary-400">
                     {project.industry}
-                  </div>
+                  </p>
 
-                  <h3 className="text-2xl font-bold text-white mb-2 group-hover:text-primary-600 transition-colors">
+                  <h3 className="mt-2 text-2xl font-bold text-white transition-colors group-hover:text-primary-400">
                     {project.name}
                   </h3>
 
-                  <p className="text-primary-600 font-medium text-sm mb-4">
+                  <p className="mt-1 text-sm font-medium text-primary-400">
                     {project.shortDesc}
                   </p>
 
-                  <p className="text-gray-300 mb-6 leading-relaxed">
+                  <p className="mt-4 leading-relaxed text-gray-300">
                     {project.description}
                   </p>
 
+                  {project.name === 'FC Photo Houston' ? (
+                    <figure className="mt-4 border-l-2 border-primary-500/40 pl-4 text-sm italic text-gray-400">
+                      <blockquote>&quot;{fcPhotoQuote.quote}&quot;</blockquote>
+                      <figcaption className="mt-1 not-italic text-xs text-gray-500">
+                        {fcPhotoQuote.author}
+                      </figcaption>
+                    </figure>
+                  ) : null}
+
                   {/* Services tags */}
-                  <div className="flex flex-wrap gap-2 mb-6">
+                  <div className="mt-4 mb-6 flex flex-wrap gap-2">
                     {project.services.map((service) => (
                       <span
                         key={service}
-                        className="px-3 py-1 bg-primary-500/10 text-primary-400 text-sm font-medium rounded-full"
+                        className="rounded-full bg-primary-500/10 px-3 py-1 text-sm font-medium text-primary-400"
                       >
                         {service}
                       </span>
@@ -567,7 +649,7 @@ export default function Work() {
                     href={project.url!}
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="mt-auto inline-flex items-center gap-2 self-start px-6 py-3 bg-primary-600 text-white font-bold rounded-lg hover:bg-primary-700 transition-colors"
+                    className="btn-primary mt-auto self-start px-5 py-2.5 text-sm"
                   >
                     <span>Visit {project.name}</span>
                     <svg className="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
@@ -583,29 +665,24 @@ export default function Work() {
             <p className="text-gray-400 mb-6">
               Want your business featured here?
             </p>
-            <Link
-              href="/contact"
-              className="inline-flex items-center gap-2 rounded-lg bg-primary-600 px-8 py-4 text-lg font-bold text-white shadow-lg hover:bg-primary-700 transition-all"
-            >
-              <span>Get a Flat Quote</span>
-              <span>→</span>
+            <Link href="/contact" className="group btn-primary px-6 py-3 text-base">
+              Get a Flat Quote
+              <ArrowRight className="h-4 w-4 transition-transform duration-200 ease-brand group-hover:translate-x-0.5" />
             </Link>
           </div>
         </div>
       </section>
 
-      {/* Internal Tools & Systems Section (projects without a public URL/screenshot) */}
-      <section className="bg-surface-card py-24 sm:py-32">
+      {/* Internal Tools & Systems (projects without a public URL/screenshot) */}
+      <section className="bg-surface py-24 sm:py-28">
         <div className="mx-auto max-w-7xl px-6 lg:px-8">
-          <div className="mx-auto max-w-2xl text-center mb-16">
-            <div className="inline-flex items-center rounded-full bg-primary-500/10 px-4 py-2 text-sm font-semibold text-primary-400 mb-4">
-              Tools &amp; Systems We've Built
-            </div>
-            <h2 className="text-4xl font-bold tracking-tight text-white sm:text-5xl">
+          <div className="max-w-3xl mb-16">
+            <BracketEyebrow label={"Tools & Systems We've Built"} />
+            <h2 className="mt-4 text-3xl sm:text-4xl font-display font-bold tracking-tight text-white">
               Behind the Scenes
             </h2>
             <p className="mt-4 text-lg leading-8 text-gray-400">
-              Private and internal platforms we've built that don't have a public homepage to
+              Private and internal platforms we&apos;ve built that don&apos;t have a public homepage to
               show. A selection of recent work, not a complete list.
             </p>
           </div>
@@ -614,10 +691,10 @@ export default function Work() {
             {internalTools.map((project) => (
               <div
                 key={project.name}
-                className="group relative bg-surface rounded-2xl p-6 shadow-lg shadow-black/20 border-2 border-surface-border hover:border-primary-300 transition-all flex flex-col"
+                className="group relative flex flex-col rounded-2xl border border-surface-border bg-surface-card p-6 shadow-card card-lift"
               >
-                <div className="flex items-center gap-3 mb-4">
-                  <div className={`w-11 h-11 flex-shrink-0 rounded-full bg-gradient-to-br ${project.color} flex items-center justify-center text-white font-bold text-sm`}>
+                <div className="mb-4 flex items-center gap-3">
+                  <div className={`flex h-11 w-11 flex-shrink-0 items-center justify-center rounded-full bg-gradient-to-br ${project.color} text-sm font-bold text-white`}>
                     {getInitials(project.name)}
                   </div>
                   <div className="inline-flex items-center rounded-full bg-surface-elevated px-3 py-1 text-xs font-semibold text-gray-300">
@@ -625,15 +702,15 @@ export default function Work() {
                   </div>
                 </div>
 
-                <h3 className="text-lg font-bold text-white mb-2">{project.name}</h3>
-                <p className="text-primary-600 font-medium text-sm mb-3">{project.shortDesc}</p>
-                <p className="text-gray-300 text-sm leading-relaxed mb-4 flex-1">{project.description}</p>
+                <h3 className="mb-2 text-lg font-bold text-white">{project.name}</h3>
+                <p className="mb-3 text-sm font-medium text-primary-400">{project.shortDesc}</p>
+                <p className="mb-4 flex-1 text-sm leading-relaxed text-gray-300">{project.description}</p>
 
                 <div className="flex flex-wrap gap-2">
                   {project.services.map((service) => (
                     <span
                       key={service}
-                      className="px-2.5 py-1 bg-primary-500/10 text-primary-400 text-xs font-medium rounded-full"
+                      className="rounded-full bg-primary-500/10 px-2.5 py-1 text-xs font-medium text-primary-400"
                     >
                       {service}
                     </span>
@@ -645,202 +722,27 @@ export default function Work() {
         </div>
       </section>
 
-      {/* Case Studies Section */}
-      <section className="bg-surface py-24 sm:py-32">
-        <div className="mx-auto max-w-7xl px-6 lg:px-8">
-          <div className="mx-auto max-w-2xl text-center mb-16">
-            <div className="inline-flex items-center rounded-full bg-primary-500/10 px-4 py-2 text-sm font-semibold text-primary-400 mb-4">
-              Case Studies
-            </div>
-            <h2 className="text-4xl font-bold tracking-tight text-white sm:text-5xl">
-              Success Stories
-            </h2>
-            <p className="mt-4 text-lg leading-8 text-gray-400">
-              Deep dives into how we've solved real business problems with measurable results.
-            </p>
+      {/* Final CTA -- plain, sober, matches the homepage closing band */}
+      <section className="bg-surface border-t border-surface-border">
+        <div className="mx-auto max-w-4xl px-6 py-20 sm:py-24 lg:px-8 text-center">
+          <h2 className="text-3xl sm:text-4xl font-display font-bold tracking-tight text-white">
+            Ready to Get Started?
+          </h2>
+          <p className="mx-auto mt-4 max-w-2xl text-lg text-gray-300">
+            200+ projects completed. Let&apos;s build something great together with transparent pricing and proven results.
+          </p>
+          <div className="mt-10 flex flex-wrap items-center justify-center gap-3">
+            <Link href="/contact" className="group btn-primary px-6 py-3 text-base">
+              Get a Flat Quote
+              <ArrowRight className="h-4 w-4 transition-transform duration-200 ease-brand group-hover:translate-x-0.5" />
+            </Link>
+            <Link href="/pricing" className="btn-secondary px-6 py-3 text-base">
+              View Pricing
+            </Link>
           </div>
-
-          <div className="space-y-12">
-            {caseStudies.map((study, index) => (
-              <article
-                key={index}
-                className="group relative bg-surface-card rounded-3xl shadow-xl shadow-black/20 overflow-hidden border-2 border-surface-border hover:border-primary-300 transition-all"
-              >
-                {/* Industry badge */}
-                <div className="absolute top-6 right-6 z-10">
-                  <div className={`px-6 py-3 rounded-full bg-gradient-to-r ${study.color} text-white font-semibold shadow-lg text-lg`}>
-                    {study.industry}
-                  </div>
-                </div>
-
-                <div className="p-8 lg:p-12">
-                  {/* Header */}
-                  <div className="mb-8">
-                    <h3 className="text-3xl font-bold text-white mb-3">{study.client}</h3>
-                    <p className="text-lg text-primary-600 font-semibold">{study.project}</p>
-                  </div>
-
-                  {/* Challenge & Solution */}
-                  <div className="grid lg:grid-cols-2 gap-8 mb-10">
-                    <div className="rounded-2xl bg-surface-elevated/70 p-8 border-l-4 border-primary-500">
-                      <h4 className="text-xl font-bold text-white mb-4">The Challenge</h4>
-                      <p className="text-gray-300 leading-relaxed">{study.challenge}</p>
-                    </div>
-                    <div className="rounded-2xl bg-surface-elevated/70 p-8 border-l-4 border-accent-500">
-                      <h4 className="text-xl font-bold text-white mb-4">Our Solution</h4>
-                      <p className="text-gray-300 leading-relaxed">{study.solution}</p>
-                    </div>
-                  </div>
-
-                  {/* Results */}
-                  <div className="mb-10">
-                    <h4 className="text-2xl font-bold text-white mb-6">Results</h4>
-                    <div className="grid sm:grid-cols-2 gap-4">
-                      {study.results.map((result, i) => (
-                        <div key={i} className="flex items-start gap-4 bg-accent-500/10 rounded-xl p-6 border border-surface-border">
-                          <div className="flex-shrink-0 w-8 h-8 rounded-full bg-gradient-to-br from-primary-500 to-primary-700 flex items-center justify-center text-white shadow-lg">
-                            <CheckIcon />
-                          </div>
-                          <span className="text-white font-semibold leading-relaxed">{result}</span>
-                        </div>
-                      ))}
-                    </div>
-                  </div>
-
-                  {/* Services Provided */}
-                  <div className="bg-surface-elevated/70 rounded-2xl p-8 border-2 border-surface-border">
-                    <h4 className="text-lg font-bold text-white mb-4">Services Provided</h4>
-                    <div className="flex flex-wrap gap-2">
-                      {study.services.map((service) => (
-                        <span
-                          key={service}
-                          className="px-3 py-1 bg-primary-500/10 text-primary-400 text-sm font-medium rounded-full"
-                        >
-                          {service}
-                        </span>
-                      ))}
-                    </div>
-                  </div>
-                </div>
-              </article>
-            ))}
-          </div>
-        </div>
-      </section>
-
-      {/* Testimonials Grid */}
-      <section className="bg-surface py-24 sm:py-32">
-        <div className="mx-auto max-w-7xl px-6 lg:px-8">
-          <div className="mx-auto max-w-2xl text-center mb-16">
-            <div className="inline-flex items-center rounded-full bg-accent-500/10 px-4 py-2 text-sm font-semibold text-accent-400 mb-4">
-              Client Testimonials
-            </div>
-            <h2 className="text-4xl font-bold tracking-tight text-white sm:text-5xl">
-              What Our Clients Say
-            </h2>
-            <p className="mt-4 text-lg text-gray-400">
-              Real feedback from real businesses we've helped grow
-            </p>
-          </div>
-
-          <div className="grid grid-cols-1 gap-8 max-w-2xl mx-auto">
-            {testimonials.map((testimonial, index) => (
-              <div
-                key={index}
-                className="group rounded-3xl bg-surface-card p-10 shadow-lg shadow-black/20 border-2 border-surface-border hover:border-primary-300 transition-all"
-              >
-                <div className="flex gap-1 mb-6">
-                  {[...Array(testimonial.rating)].map((_, i) => (
-                    <svg key={i} className="h-6 w-6 text-accent-500" fill="currentColor" viewBox="0 0 20 20">
-                      <path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z" />
-                    </svg>
-                  ))}
-                </div>
-                <p className="text-lg text-white italic mb-6 leading-relaxed">
-                  "{testimonial.quote}"
-                </p>
-                <div className="flex items-center gap-4">
-                  <div className="w-12 h-12 rounded-full bg-gradient-to-br from-primary-500 to-accent-500 flex items-center justify-center text-white font-bold text-lg">
-                    {testimonial.author.charAt(0)}
-                  </div>
-                  <div>
-                    <p className="font-bold text-white">{testimonial.author}</p>
-                    <p className="text-sm text-gray-400">{testimonial.company}</p>
-                  </div>
-                </div>
-              </div>
-            ))}
-          </div>
-        </div>
-      </section>
-
-      {/* Industries Section */}
-      <section className="bg-surface-card py-24 sm:py-32">
-        <div className="mx-auto max-w-7xl px-6 lg:px-8">
-          <div className="mx-auto max-w-2xl text-center mb-16">
-            <div className="inline-flex items-center rounded-full bg-primary-500/10 px-4 py-2 text-sm font-semibold text-primary-400 mb-4">
-              Industries We Serve
-            </div>
-            <h2 className="text-4xl font-bold tracking-tight text-white sm:text-5xl">
-              Diverse Experience
-            </h2>
-            <p className="mt-4 text-lg leading-8 text-gray-400">
-              Proven success across 12+ industries in the Houston area
-            </p>
-          </div>
-
-          <div className="grid grid-cols-2 gap-6 sm:grid-cols-3 lg:grid-cols-4">
-            {industries.map((industry) => (
-              <div
-                key={industry.name}
-                className="group relative rounded-2xl bg-surface p-8 shadow-lg shadow-black/20 border-2 border-surface-border hover:border-primary-300 transition-all text-center"
-              >
-                <p className="font-bold text-white text-lg">{industry.name}</p>
-              </div>
-            ))}
-          </div>
-        </div>
-      </section>
-
-      {/* CTA Section */}
-      <section className="relative bg-gradient-to-r from-primary-600 via-accent-500 to-primary-600 text-white overflow-hidden">
-        <div className="absolute inset-0 opacity-20">
-          <div className="absolute inset-0" style={{
-            backgroundImage: 'linear-gradient(45deg, transparent 45%, rgba(255,255,255,0.1) 50%, transparent 55%)',
-            backgroundSize: '20px 20px'
-          }} />
-        </div>
-
-        <div className="relative px-6 py-24 sm:px-6 sm:py-32 lg:px-8">
-          <div className="mx-auto max-w-2xl text-center">
-            <h2 className="text-4xl font-bold tracking-tight sm:text-5xl">
-              Ready to Get Started?
-            </h2>
-            <p className="mx-auto mt-6 max-w-xl text-lg leading-8 text-gray-200">
-              200+ projects completed. Let's build something great together with transparent pricing and proven results.
-            </p>
-            <div className="mt-10 flex flex-col sm:flex-row items-center justify-center gap-6">
-              <Link
-                href="/contact"
-                className="group rounded-lg bg-surface-card px-8 py-4 text-base font-semibold text-white shadow-2xl hover:bg-surface-elevated transition-all"
-              >
-                Get a Flat Quote
-                <span className="inline-block transition-transform group-hover:translate-x-1 ml-2">→</span>
-              </Link>
-              <Link
-                href="/pricing"
-                className="flex items-center gap-2 text-base font-semibold leading-7 text-white hover:text-gray-200 transition-colors"
-              >
-                <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 8c-1.657 0-3 .895-3 2s1.343 2 3 2 3 .895 3 2-1.343 2-3 2m0-8c1.11 0 2.08.402 2.599 1M12 8V7m0 1v8m0 0v1m0-1c-1.11 0-2.08-.402-2.599-1M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
-                </svg>
-                View Pricing
-              </Link>
-            </div>
-            <p className="mt-6 text-sm text-gray-300">
-              Free consultation &bull; Fast turnaround &bull; Transparent pricing
-            </p>
-          </div>
+          <p className="mt-6 text-sm text-gray-400">
+            Free consultation &bull; Fast turnaround &bull; Transparent pricing
+          </p>
         </div>
       </section>
     </>

@@ -1,15 +1,32 @@
 import type { Metadata, Viewport } from 'next'
-import { Inter } from 'next/font/google'
+import { Archivo, Public_Sans, JetBrains_Mono } from 'next/font/google'
 import './globals.css'
 import Header from '@/components/layout/Header'
 import Footer from '@/components/layout/Footer'
 import LocalBusinessSchema from '@/components/LocalBusinessSchema'
 import FloatingContactButton from '@/components/FloatingContactButton'
-import GoogleAnalytics from '@/components/GoogleAnalytics'
-import TrustedTypesPolicy from '@/components/TrustedTypesPolicy'
+import AnalyticsScripts from '@/components/AnalyticsScripts'
 import CookieConsentBanner from '@/components/CookieConsentBanner'
 
-const inter = Inter({ subsets: ['latin'] })
+const publicSans = Public_Sans({
+  subsets: ['latin'],
+  display: 'swap',
+  variable: '--font-public-sans',
+})
+
+const archivo = Archivo({
+  subsets: ['latin'],
+  display: 'swap',
+  variable: '--font-archivo',
+  axes: ['wdth'],
+})
+
+const jetbrainsMono = JetBrains_Mono({
+  subsets: ['latin'],
+  display: 'swap',
+  variable: '--font-mono',
+  weight: ['400', '500'],
+})
 
 export const metadata: Metadata = {
   metadataBase: new URL('https://www.stephenscode.dev'),
@@ -107,6 +124,7 @@ export const viewport: Viewport = {
     { media: '(prefers-color-scheme: light)', color: '#0a0a0a' },
     { media: '(prefers-color-scheme: dark)', color: '#0a0a0a' },
   ],
+  viewportFit: 'cover',
 }
 
 export default function RootLayout({
@@ -117,13 +135,11 @@ export default function RootLayout({
   return (
     <html lang="en">
       <head>
-        <TrustedTypesPolicy />
         <LocalBusinessSchema />
-        {/* Ahrefs Analytics */}
-        <script src="https://analytics.ahrefs.com/analytics.js" data-key="FWknMXQC00ZmslHU5xYYhQ" async></script>
       </head>
-      <body className={inter.className}>
-        <GoogleAnalytics />
+      <body className={`${publicSans.variable} ${archivo.variable} ${jetbrainsMono.variable} font-sans antialiased`}>
+        {/* GA + Ahrefs, gated behind cookie consent and Global Privacy Control */}
+        <AnalyticsScripts />
 
         {/* Skip to content link for accessibility */}
         <a

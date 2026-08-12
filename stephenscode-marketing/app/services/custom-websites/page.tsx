@@ -1,4 +1,4 @@
-import Link from 'next/link'
+﻿import Link from 'next/link'
 import type { Metadata } from 'next'
 import { serviceSchema } from '@/lib/schemas'
 import PhoneLink from '@/components/PhoneLink'
@@ -95,7 +95,7 @@ export default function CustomWebsitesPage() {
       <section className="bg-gradient-to-br from-black via-surface to-surface-card text-white">
         <div className="mx-auto max-w-7xl px-6 py-24 sm:py-32 lg:px-8">
           <div className="mx-auto max-w-2xl text-center">
-            <h1 className="text-4xl font-bold tracking-tight sm:text-6xl">
+            <h1 className="text-4xl font-display font-bold tracking-tight sm:text-6xl">
               Custom Website Development
             </h1>
             <p className="mt-6 text-lg leading-8 text-gray-200">
@@ -104,7 +104,7 @@ export default function CustomWebsitesPage() {
             <div className="mt-10 flex items-center justify-center gap-x-6">
               <Link
                 href="/contact"
-                className="rounded-md bg-accent-500 px-6 py-3 text-base font-semibold text-white shadow-sm hover:bg-accent-600"
+                className="btn-accent px-6 py-3 text-base"
               >
                 Get Started
               </Link>
@@ -112,7 +112,7 @@ export default function CustomWebsitesPage() {
                 href="/pricing"
                 className="text-base font-semibold leading-7 text-white hover:text-gray-200"
               >
-                View All Pricing <span aria-hidden="true">→</span>
+                View All Pricing <span aria-hidden="true">â†’</span>
               </Link>
             </div>
           </div>
@@ -123,7 +123,7 @@ export default function CustomWebsitesPage() {
       <section className="bg-surface py-24 sm:py-32">
         <div className="mx-auto max-w-7xl px-6 lg:px-8">
           <div className="mx-auto max-w-2xl lg:text-center">
-            <h2 className="text-3xl font-bold tracking-tight text-white sm:text-4xl">
+            <h2 className="text-3xl font-display font-bold tracking-tight text-white sm:text-4xl">
               What We Build
             </h2>
             <p className="mt-6 text-lg leading-8 text-gray-400">
@@ -172,7 +172,7 @@ export default function CustomWebsitesPage() {
       <section className="bg-surface-card py-24 sm:py-32">
         <div className="mx-auto max-w-7xl px-6 lg:px-8">
           <div className="mx-auto max-w-2xl text-center mb-16">
-            <h2 className="text-3xl font-bold tracking-tight text-white sm:text-4xl">
+            <h2 className="text-3xl font-display font-bold tracking-tight text-white sm:text-4xl">
               Website Packages
             </h2>
             <p className="mt-4 text-lg leading-8 text-gray-400">
@@ -202,7 +202,7 @@ export default function CustomWebsitesPage() {
                   {pkg.description}
                 </p>
                 <p className="mt-6 flex items-baseline gap-x-1">
-                  <span className="text-5xl font-bold tracking-tight">{pkg.price}</span>
+                  <span className="text-5xl font-display font-bold tracking-tight">{pkg.price}</span>
                 </p>
                 <ul className="mt-8 space-y-3 text-sm leading-6">
                   {pkg.features.map((feature) => (
@@ -242,7 +242,7 @@ export default function CustomWebsitesPage() {
       <section className="bg-surface py-24 sm:py-32">
         <div className="mx-auto max-w-7xl px-6 lg:px-8">
           <div className="mx-auto max-w-2xl text-center mb-16">
-            <h2 className="text-3xl font-bold tracking-tight text-white sm:text-4xl">
+            <h2 className="text-3xl font-display font-bold tracking-tight text-white sm:text-4xl">
               Available Add-Ons
             </h2>
             <p className="mt-4 text-lg leading-8 text-gray-400">
@@ -254,7 +254,7 @@ export default function CustomWebsitesPage() {
             {addOns.map((addon) => (
               <div
                 key={addon.name}
-                className="rounded-lg border border-surface-border p-6 hover:border-primary-500 hover:shadow-md transition-all"
+                className="rounded-lg border border-surface-border p-6 card-lift"
               >
                 <div className="flex items-center justify-between">
                   <h3 className="text-lg font-semibold text-white">{addon.name}</h3>
@@ -270,7 +270,7 @@ export default function CustomWebsitesPage() {
               href="/pricing"
               className="text-base font-semibold text-primary-600 hover:text-primary-400"
             >
-              View all 40+ add-ons <span aria-hidden="true">→</span>
+              View all 40+ add-ons <span aria-hidden="true">â†’</span>
             </Link>
           </div>
         </div>
@@ -280,7 +280,7 @@ export default function CustomWebsitesPage() {
       <section className="bg-surface-card py-24 sm:py-32">
         <div className="mx-auto max-w-7xl px-6 lg:px-8">
           <div className="mx-auto max-w-2xl lg:text-center">
-            <h2 className="text-3xl font-bold tracking-tight text-white sm:text-4xl">
+            <h2 className="text-3xl font-display font-bold tracking-tight text-white sm:text-4xl">
               Why Custom vs Template?
             </h2>
           </div>
@@ -320,7 +320,7 @@ export default function CustomWebsitesPage() {
       <section className="bg-primary-900 text-white">
         <div className="px-6 py-24 sm:px-6 sm:py-32 lg:px-8">
           <div className="mx-auto max-w-2xl text-center">
-            <h2 className="text-3xl font-bold tracking-tight sm:text-4xl">
+            <h2 className="text-3xl font-display font-bold tracking-tight sm:text-4xl">
               Ready for a custom website?
             </h2>
             <p className="mx-auto mt-6 max-w-xl text-lg leading-8 text-gray-200">
@@ -329,7 +329,7 @@ export default function CustomWebsitesPage() {
             <div className="mt-10 flex items-center justify-center gap-x-6">
               <Link
                 href="/contact"
-                className="rounded-md bg-accent-500 px-6 py-3 text-base font-semibold text-white shadow-sm hover:bg-accent-600"
+                className="btn-accent px-6 py-3 text-base"
               >
                 Get Free Quote
               </Link>
@@ -337,7 +337,7 @@ export default function CustomWebsitesPage() {
                 location="custom_websites_page"
                 className="text-base font-semibold leading-7 text-white hover:text-gray-200"
               >
-                Call (936) 323-4527 <span aria-hidden="true">→</span>
+                Call (936) 323-4527 <span aria-hidden="true">â†’</span>
               </PhoneLink>
             </div>
           </div>

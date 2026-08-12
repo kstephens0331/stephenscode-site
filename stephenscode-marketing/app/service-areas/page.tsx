@@ -1,4 +1,4 @@
-import type { Metadata } from 'next'
+﻿import type { Metadata } from 'next'
 import Link from 'next/link'
 import { serviceAreas, getServiceAreasByRegion } from '@/lib/service-areas-data'
 import PhoneLink from '@/components/PhoneLink'
@@ -51,7 +51,7 @@ export default function ServiceAreasPage() {
     <Link
       key={area.slug}
       href={`/service-areas/${area.slug}`}
-      className="group bg-surface-card rounded-lg p-6 hover:bg-primary-500/10 hover:shadow-md hover:shadow-black/20 transition-all"
+      className="group bg-surface-card rounded-lg p-6 border border-surface-border card-lift"
     >
       <h4 className="text-lg font-semibold text-white group-hover:text-primary-400">
         {area.name}
@@ -68,10 +68,10 @@ export default function ServiceAreasPage() {
         {area.distanceFromConroe} from Conroe
       </p>
       <p className="mt-2 text-xs text-gray-500 line-clamp-2">
-        {area.businessTypes.slice(0, 4).join(' · ')}
+        {area.businessTypes.slice(0, 4).join(' Â· ')}
       </p>
-      <p className="mt-3 text-sm font-semibold text-primary-600 group-hover:text-primary-400">
-        View details →
+      <p className="mt-3 text-sm font-semibold text-primary-400 group-hover:text-primary-300 transition-colors">
+        View details â†’
       </p>
     </Link>
   )
@@ -99,7 +99,7 @@ export default function ServiceAreasPage() {
       <section className="relative bg-gradient-to-br from-black via-surface to-surface-card text-white">
         <div className="mx-auto max-w-7xl px-6 py-16 sm:py-24 lg:px-8">
           <div className="mx-auto max-w-2xl text-center">
-            <h1 className="text-4xl font-bold tracking-tight sm:text-5xl">
+            <h1 className="text-4xl font-display font-bold tracking-tight sm:text-5xl">
               Web Development Across Greater Houston
             </h1>
             <p className="mt-6 text-lg leading-8 text-gray-200">
@@ -109,7 +109,7 @@ export default function ServiceAreasPage() {
             <div className="mt-8 flex items-center justify-center gap-x-6">
               <Link
                 href="/contact"
-                className="rounded-md bg-accent-500 px-6 py-3 text-base font-semibold text-white shadow-sm hover:bg-accent-600"
+                className="btn-accent px-6 py-3 text-base"
               >
                 Get Free Quote
               </Link>
@@ -117,7 +117,7 @@ export default function ServiceAreasPage() {
                 location="service_areas_hero"
                 className="text-base font-semibold leading-7 text-white hover:text-gray-200"
               >
-                Call (936) 323-4527 <span aria-hidden="true">→</span>
+                Call (936) 323-4527 <span aria-hidden="true">â†’</span>
               </PhoneLink>
             </div>
           </div>
@@ -152,7 +152,7 @@ export default function ServiceAreasPage() {
       <section className="bg-surface py-16 sm:py-24">
         <div className="mx-auto max-w-7xl px-6 lg:px-8">
           <div className="mx-auto max-w-3xl text-center mb-12">
-            <h2 className="text-3xl font-bold tracking-tight text-white">
+            <h2 className="text-3xl font-display font-bold tracking-tight text-white">
               All Service Areas
             </h2>
             <p className="mt-4 text-lg text-gray-400">
@@ -203,7 +203,7 @@ export default function ServiceAreasPage() {
       <section className="bg-surface-card py-16 sm:py-24">
         <div className="mx-auto max-w-7xl px-6 lg:px-8">
           <div className="mx-auto max-w-3xl text-center">
-            <h2 className="text-3xl font-bold tracking-tight text-white sm:text-4xl">
+            <h2 className="text-3xl font-display font-bold tracking-tight text-white sm:text-4xl">
               Not in Your Area? We Work Nationwide.
             </h2>
             <p className="mt-4 text-lg text-gray-300">
@@ -235,7 +235,7 @@ export default function ServiceAreasPage() {
             <div className="mt-10 flex items-center justify-center gap-x-6">
               <Link
                 href="/contact"
-                className="rounded-md bg-primary-600 px-6 py-3 text-base font-semibold text-white shadow-sm hover:bg-primary-700"
+                className="btn-primary px-6 py-3 text-base"
               >
                 Start Your Project
               </Link>
@@ -243,7 +243,7 @@ export default function ServiceAreasPage() {
                 location="service_areas_nationwide_cta"
                 className="text-base font-semibold text-gray-300 hover:text-primary-400"
               >
-                Call (936) 323-4527 <span aria-hidden="true">→</span>
+                Call (936) 323-4527 <span aria-hidden="true">â†’</span>
               </PhoneLink>
             </div>
           </div>
@@ -254,7 +254,7 @@ export default function ServiceAreasPage() {
       <section className="bg-primary-900 text-white">
         <div className="px-6 py-16 sm:px-6 sm:py-24 lg:px-8">
           <div className="mx-auto max-w-2xl text-center">
-            <h2 className="text-3xl font-bold tracking-tight sm:text-4xl">
+            <h2 className="text-3xl font-display font-bold tracking-tight sm:text-4xl">
               Ready to Get Started?
             </h2>
             <p className="mx-auto mt-6 max-w-xl text-lg leading-8 text-gray-200">
@@ -263,7 +263,7 @@ export default function ServiceAreasPage() {
             <div className="mt-10 flex items-center justify-center gap-x-6">
               <Link
                 href="/contact"
-                className="rounded-md bg-accent-500 px-6 py-3 text-base font-semibold text-white shadow-sm hover:bg-accent-600"
+                className="btn-accent px-6 py-3 text-base"
               >
                 Get Free Quote
               </Link>
@@ -271,7 +271,7 @@ export default function ServiceAreasPage() {
                 href="/services"
                 className="text-base font-semibold leading-7 text-white hover:text-gray-200"
               >
-                View Services <span aria-hidden="true">→</span>
+                View Services <span aria-hidden="true">â†’</span>
               </Link>
             </div>
           </div>
