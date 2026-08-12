@@ -222,19 +222,19 @@ export default function PricingPage() {
             <dl className="mt-16 grid grid-cols-2 gap-x-8 gap-y-8 sm:grid-cols-4 animate-fade-in-up animation-delay-800">
               <div className="border-l border-primary-500/40 pl-4">
                 <dt className="text-[10px] uppercase tracking-[0.18em] text-gray-500">Starting price</dt>
-                <dd className="mt-1.5 font-display font-expanded text-3xl font-display font-bold tracking-tight tabular-nums text-white">$250</dd>
+                <dd className="mt-1.5 font-display font-expanded text-3xl font-bold tracking-tight tabular-nums text-white">$250</dd>
               </div>
               <div className="border-l border-primary-500/40 pl-4">
                 <dt className="text-[10px] uppercase tracking-[0.18em] text-gray-500">Add-on options</dt>
-                <dd className="mt-1.5 font-display font-expanded text-3xl font-display font-bold tracking-tight tabular-nums text-white">40+</dd>
+                <dd className="mt-1.5 font-display font-expanded text-3xl font-bold tracking-tight tabular-nums text-white">40+</dd>
               </div>
               <div className="border-l border-primary-500/40 pl-4">
                 <dt className="text-[10px] uppercase tracking-[0.18em] text-gray-500">Hidden fees</dt>
-                <dd className="mt-1.5 font-display font-expanded text-3xl font-display font-bold tracking-tight tabular-nums text-white">0%</dd>
+                <dd className="mt-1.5 font-display font-expanded text-3xl font-bold tracking-tight tabular-nums text-white">0%</dd>
               </div>
               <div className="border-l border-primary-500/40 pl-4">
                 <dt className="text-[10px] uppercase tracking-[0.18em] text-gray-500">Flat-rate tiers</dt>
-                <dd className="mt-1.5 font-display font-expanded text-3xl font-display font-bold tracking-tight tabular-nums text-white">7</dd>
+                <dd className="mt-1.5 font-display font-expanded text-3xl font-bold tracking-tight tabular-nums text-white">7</dd>
               </div>
             </dl>
           </div>
@@ -312,7 +312,7 @@ export default function PricingPage() {
                   <h3 className="text-2xl font-bold text-white">{pkg.name}</h3>
                   <p className="mt-4 text-sm text-gray-400 leading-relaxed">{pkg.shortDescription}</p>
                   <p className="mt-6 flex items-baseline gap-x-1">
-                    <span className="font-display font-expanded text-5xl font-display font-bold tracking-tight tabular-nums text-white">
+                    <span className="font-display font-expanded text-5xl font-bold tracking-tight tabular-nums text-white">
                       {pkg.priceLabel}
                     </span>
                   </p>
@@ -377,7 +377,7 @@ export default function PricingPage() {
                 <h3 className="text-2xl font-bold text-white">{pkg.name}</h3>
                 <p className="mt-4 text-sm text-gray-400 leading-relaxed">{pkg.shortDescription}</p>
                 <p className="mt-6 flex items-baseline gap-x-1">
-                  <span className="font-display font-expanded text-5xl font-display font-bold tracking-tight tabular-nums text-white">
+                  <span className="font-display font-expanded text-5xl font-bold tracking-tight tabular-nums text-white">
                     {pkg.priceLabel}
                   </span>
                 </p>

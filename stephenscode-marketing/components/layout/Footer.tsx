@@ -66,7 +66,7 @@ export default function Footer() {
           <p className="mb-4 text-[11px] font-semibold uppercase tracking-[0.22em] text-primary-500">
             <span className="font-mono text-primary-500/80">&lt;</span> Next project <span className="font-mono text-primary-500/80">/&gt;</span>
           </p>
-          <h2 id="footer-heading" className="max-w-3xl font-display text-4xl font-display font-bold tracking-tight text-white sm:text-5xl">
+          <h2 id="footer-heading" className="max-w-3xl font-display text-4xl font-bold tracking-tight text-white sm:text-5xl">
             Tell me what you need. You get a flat number back.
           </h2>
           <div className="mt-8 flex flex-wrap items-center gap-3">

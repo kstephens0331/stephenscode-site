@@ -151,8 +151,12 @@ export default function Home() {
                   full JetBrains Mono lockup (400/500 loaded, so font-medium) */}
               <div className="mb-10 inline-flex items-center gap-3 font-mono text-[11px] font-medium uppercase tracking-[0.16em] text-primary-500 animate-fade-in-up">
                 <span aria-hidden="true" className="text-primary-500/80">&lt;</span>
-                <span>Custom-Built &middot; Fully Yours &middot; Veteran Owned</span>
-                <span aria-hidden="true" className="text-primary-500/80">/&gt;</span>
+                <span>
+                  Custom-Built &middot; Fully Yours &middot;{' '}
+                  <span className="whitespace-nowrap">
+                    Veteran Owned<span aria-hidden="true" className="ml-3 text-primary-500/80">/&gt;</span>
+                  </span>
+                </span>
               </div>
 
               <h1 className="font-display text-display font-bold text-white animate-fade-in-up animation-delay-200">
@@ -215,19 +219,19 @@ export default function Home() {
           <dl className="mt-20 grid grid-cols-2 gap-x-8 gap-y-8 sm:grid-cols-4 animate-fade-in-up animation-delay-800">
             <div className="border-l border-primary-500/40 pl-4">
               <dt className="text-[10px] uppercase tracking-[0.18em] text-gray-500">Built since</dt>
-              <dd className="mt-1.5 font-display font-expanded text-3xl font-display font-bold tracking-tight tabular-nums text-white">2011</dd>
+              <dd className="mt-1.5 font-display font-expanded text-3xl font-bold tracking-tight tabular-nums text-white">2011</dd>
             </div>
             <div className="border-l border-primary-500/40 pl-4">
               <dt className="text-[10px] uppercase tracking-[0.18em] text-gray-500">Projects shipped</dt>
-              <dd className="mt-1.5 font-display font-expanded text-3xl font-display font-bold tracking-tight tabular-nums text-white">200+</dd>
+              <dd className="mt-1.5 font-display font-expanded text-3xl font-bold tracking-tight tabular-nums text-white">200+</dd>
             </div>
             <div className="border-l border-primary-500/40 pl-4">
               <dt className="text-[10px] uppercase tracking-[0.18em] text-gray-500">Standard site</dt>
-              <dd className="mt-1.5 font-display font-expanded text-3xl font-display font-bold tracking-tight tabular-nums text-white">$950</dd>
+              <dd className="mt-1.5 font-display font-expanded text-3xl font-bold tracking-tight tabular-nums text-white">$950</dd>
             </div>
             <div className="border-l border-primary-500/40 pl-4">
               <dt className="text-[10px] uppercase tracking-[0.18em] text-gray-500">Based in</dt>
-              <dd className="mt-1.5 font-display font-expanded text-3xl font-display font-bold tracking-tight text-white">Conroe, TX</dd>
+              <dd className="mt-1.5 font-display font-expanded text-3xl font-bold tracking-tight text-white">Conroe, TX</dd>
             </div>
           </dl>
         </div>
@@ -282,7 +286,7 @@ export default function Home() {
                           Most picked
                         </p>
                         <div className="mt-2 flex items-baseline gap-1">
-                          <span className="font-display font-expanded text-5xl font-display font-bold tracking-tight tabular-nums text-white">{pkg.price}</span>
+                          <span className="font-display font-expanded text-5xl font-bold tracking-tight tabular-nums text-white">{pkg.price}</span>
                           {!pkg.price.includes('+') && (
                             <span className="text-xs text-gray-500">flat</span>
                           )}
