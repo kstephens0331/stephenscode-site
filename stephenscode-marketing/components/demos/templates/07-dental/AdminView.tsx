@@ -168,6 +168,7 @@ export default function AdminView() {
                 </h2>
                 <input
                   type="date"
+                  aria-label="Schedule date"
                   value={selectedDate}
                   onChange={(e) => setSelectedDate(e.target.value)}
                   className="px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-[#0077b6] focus:border-transparent"

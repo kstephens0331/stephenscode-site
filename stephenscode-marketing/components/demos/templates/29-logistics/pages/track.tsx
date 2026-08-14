@@ -37,6 +37,7 @@ export default function TrackPage({ colors, onNavigate }: TrackPageProps) {
             <input
               type="text"
               placeholder="Enter tracking number (e.g., SLS123456789)"
+              aria-label="Tracking number"
               className="flex-1 px-4 py-3 rounded-lg border"
               style={{ borderColor: colors.border }}
               value={trackingNumber}

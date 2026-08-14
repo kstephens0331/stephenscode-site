@@ -231,12 +231,12 @@ export default function ContactPage({ onNavigate }: ContactPageProps) {
               <form onSubmit={handleSubmit} className="space-y-6">
                 <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
                   <div>
-                    <label htmlFor="name" className="block text-sm font-semibold text-gray-900 mb-2">
+                    <label htmlFor="cleaning-contact-name" className="block text-sm font-semibold text-gray-900 mb-2">
                       Full Name *
                     </label>
                     <input
                       type="text"
-                      id="name"
+                      id="cleaning-contact-name"
                       name="name"
                       value={formData.name}
                       onChange={handleChange}
@@ -247,12 +247,12 @@ export default function ContactPage({ onNavigate }: ContactPageProps) {
                   </div>
 
                   <div>
-                    <label htmlFor="phone" className="block text-sm font-semibold text-gray-900 mb-2">
+                    <label htmlFor="cleaning-contact-phone" className="block text-sm font-semibold text-gray-900 mb-2">
                       Phone Number *
                     </label>
                     <input
                       type="tel"
-                      id="phone"
+                      id="cleaning-contact-phone"
                       name="phone"
                       value={formData.phone}
                       onChange={handleChange}
@@ -264,12 +264,12 @@ export default function ContactPage({ onNavigate }: ContactPageProps) {
                 </div>
 
                 <div>
-                  <label htmlFor="email" className="block text-sm font-semibold text-gray-900 mb-2">
+                  <label htmlFor="cleaning-contact-email" className="block text-sm font-semibold text-gray-900 mb-2">
                     Email Address *
                   </label>
                   <input
                     type="email"
-                    id="email"
+                    id="cleaning-contact-email"
                     name="email"
                     value={formData.email}
                     onChange={handleChange}
@@ -281,11 +281,11 @@ export default function ContactPage({ onNavigate }: ContactPageProps) {
 
                 <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
                   <div>
-                    <label htmlFor="service" className="block text-sm font-semibold text-gray-900 mb-2">
+                    <label htmlFor="cleaning-contact-service" className="block text-sm font-semibold text-gray-900 mb-2">
                       Service Type *
                     </label>
                     <select
-                      id="service"
+                      id="cleaning-contact-service"
                       name="service"
                       value={formData.service}
                       onChange={handleChange}
@@ -303,11 +303,11 @@ export default function ContactPage({ onNavigate }: ContactPageProps) {
                   </div>
 
                   <div>
-                    <label htmlFor="propertySize" className="block text-sm font-semibold text-gray-900 mb-2">
+                    <label htmlFor="cleaning-contact-property-size" className="block text-sm font-semibold text-gray-900 mb-2">
                       Property Size *
                     </label>
                     <select
-                      id="propertySize"
+                      id="cleaning-contact-property-size"
                       name="propertySize"
                       value={formData.propertySize}
                       onChange={handleChange}
@@ -327,11 +327,11 @@ export default function ContactPage({ onNavigate }: ContactPageProps) {
 
                 <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
                   <div>
-                    <label htmlFor="frequency" className="block text-sm font-semibold text-gray-900 mb-2">
+                    <label htmlFor="cleaning-contact-frequency" className="block text-sm font-semibold text-gray-900 mb-2">
                       Frequency *
                     </label>
                     <select
-                      id="frequency"
+                      id="cleaning-contact-frequency"
                       name="frequency"
                       value={formData.frequency}
                       onChange={handleChange}
@@ -347,12 +347,12 @@ export default function ContactPage({ onNavigate }: ContactPageProps) {
                   </div>
 
                   <div>
-                    <label htmlFor="preferredDate" className="block text-sm font-semibold text-gray-900 mb-2">
+                    <label htmlFor="cleaning-contact-preferred-date" className="block text-sm font-semibold text-gray-900 mb-2">
                       Preferred Date
                     </label>
                     <input
                       type="date"
-                      id="preferredDate"
+                      id="cleaning-contact-preferred-date"
                       name="preferredDate"
                       value={formData.preferredDate}
                       onChange={handleChange}
@@ -362,11 +362,11 @@ export default function ContactPage({ onNavigate }: ContactPageProps) {
                 </div>
 
                 <div>
-                  <label htmlFor="message" className="block text-sm font-semibold text-gray-900 mb-2">
+                  <label htmlFor="cleaning-contact-message" className="block text-sm font-semibold text-gray-900 mb-2">
                     Additional Details
                   </label>
                   <textarea
-                    id="message"
+                    id="cleaning-contact-message"
                     name="message"
                     value={formData.message}
                     onChange={handleChange}

@@ -104,6 +104,7 @@ export default function ContactPage({ colors, onNavigate }: ContactPageProps) {
                 <input
                   type="text"
                   placeholder="Your Name"
+                  aria-label="Your Name"
                   required
                   value={formData.name}
                   onChange={(e) => setFormData({ ...formData, name: e.target.value })}
@@ -113,6 +114,7 @@ export default function ContactPage({ colors, onNavigate }: ContactPageProps) {
                 <input
                   type="email"
                   placeholder="Your Email"
+                  aria-label="Your Email"
                   required
                   value={formData.email}
                   onChange={(e) => setFormData({ ...formData, email: e.target.value })}
@@ -121,6 +123,7 @@ export default function ContactPage({ colors, onNavigate }: ContactPageProps) {
                 />
                 <textarea
                   placeholder="Your Message"
+                  aria-label="Your Message"
                   rows={4}
                   required
                   value={formData.message}

@@ -220,6 +220,7 @@ const MarketTrendsPage: React.FC = () => {
               <p className="text-gray-600">Year-over-year comparison</p>
             </div>
             <select
+              aria-label="Sales trends timeframe"
               value={selectedTimeframe}
               onChange={(e) => setSelectedTimeframe(e.target.value)}
               className="px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-[#ffc300] focus:border-transparent"
@@ -265,6 +266,7 @@ const MarketTrendsPage: React.FC = () => {
               <p className="text-gray-600">Compare market performance by area</p>
             </div>
             <select
+              aria-label="Neighborhood filter"
               value={selectedNeighborhood}
               onChange={(e) => setSelectedNeighborhood(e.target.value)}
               className="px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-[#ffc300] focus:border-transparent"

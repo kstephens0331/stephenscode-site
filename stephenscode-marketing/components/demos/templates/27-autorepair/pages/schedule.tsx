@@ -19,20 +19,20 @@ export default function SchedulePage({ colors, onNavigate }: SchedulePageProps) 
         <div className="bg-white rounded-lg shadow-xl p-8">
           <div className="space-y-6">
             <div>
-              <label className="block text-sm font-medium mb-2" style={{ color: colors.text }}>Service Type</label>
-              <select className="w-full px-4 py-3 rounded-lg border" style={{ borderColor: colors.border }}>
+              <label htmlFor="autorepair-schedule-service-type" className="block text-sm font-medium mb-2" style={{ color: colors.text }}>Service Type</label>
+              <select id="autorepair-schedule-service-type" className="w-full px-4 py-3 rounded-lg border" style={{ borderColor: colors.border }}>
                 <option>Collision Repair Inspection</option>
                 <option>Paint & Refinish Quote</option>
                 <option>Insurance Assessment</option>
               </select>
             </div>
             <div>
-              <label className="block text-sm font-medium mb-2" style={{ color: colors.text }}>Preferred Date</label>
-              <input type="date" className="w-full px-4 py-3 rounded-lg border" style={{ borderColor: colors.border }} />
+              <label htmlFor="autorepair-schedule-date" className="block text-sm font-medium mb-2" style={{ color: colors.text }}>Preferred Date</label>
+              <input id="autorepair-schedule-date" type="date" className="w-full px-4 py-3 rounded-lg border" style={{ borderColor: colors.border }} />
             </div>
             <div>
-              <label className="block text-sm font-medium mb-2" style={{ color: colors.text }}>Preferred Time</label>
-              <select className="w-full px-4 py-3 rounded-lg border" style={{ borderColor: colors.border }}>
+              <label htmlFor="autorepair-schedule-time" className="block text-sm font-medium mb-2" style={{ color: colors.text }}>Preferred Time</label>
+              <select id="autorepair-schedule-time" className="w-full px-4 py-3 rounded-lg border" style={{ borderColor: colors.border }}>
                 <option>8:00 AM - 10:00 AM</option>
                 <option>10:00 AM - 12:00 PM</option>
                 <option>12:00 PM - 2:00 PM</option>

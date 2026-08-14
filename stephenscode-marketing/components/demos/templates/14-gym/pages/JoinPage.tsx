@@ -185,10 +185,11 @@ export default function JoinPage({ basePath }: JoinPageProps) {
                     </h3>
                     <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
                       <div>
-                        <label className="block text-sm font-medium text-zinc-400 mb-2">
+                        <label htmlFor="gym-join-first-name" className="block text-sm font-medium text-zinc-400 mb-2">
                           First Name *
                         </label>
                         <input
+                          id="gym-join-first-name"
                           type="text"
                           name="firstName"
                           value={formData.firstName}
@@ -199,10 +200,11 @@ export default function JoinPage({ basePath }: JoinPageProps) {
                         />
                       </div>
                       <div>
-                        <label className="block text-sm font-medium text-zinc-400 mb-2">
+                        <label htmlFor="gym-join-last-name" className="block text-sm font-medium text-zinc-400 mb-2">
                           Last Name *
                         </label>
                         <input
+                          id="gym-join-last-name"
                           type="text"
                           name="lastName"
                           value={formData.lastName}
@@ -223,10 +225,11 @@ export default function JoinPage({ basePath }: JoinPageProps) {
                     </h3>
                     <div className="space-y-4">
                       <div>
-                        <label className="block text-sm font-medium text-zinc-400 mb-2">
+                        <label htmlFor="gym-join-email" className="block text-sm font-medium text-zinc-400 mb-2">
                           Email Address *
                         </label>
                         <input
+                          id="gym-join-email"
                           type="email"
                           name="email"
                           value={formData.email}
@@ -237,10 +240,11 @@ export default function JoinPage({ basePath }: JoinPageProps) {
                         />
                       </div>
                       <div>
-                        <label className="block text-sm font-medium text-zinc-400 mb-2">
+                        <label htmlFor="gym-join-phone" className="block text-sm font-medium text-zinc-400 mb-2">
                           Phone Number *
                         </label>
                         <input
+                          id="gym-join-phone"
                           type="tel"
                           name="phone"
                           value={formData.phone}
@@ -263,6 +267,7 @@ export default function JoinPage({ basePath }: JoinPageProps) {
                       {plans.map((plan, index) => (
                         <label
                           key={index}
+                          htmlFor={`gym-join-plan-${plan.name.toLowerCase()}`}
                           className={`block border-2 rounded-lg p-4 cursor-pointer transition-all ${
                             selectedPlan === plan.name
                               ? 'border-[#c1121f] bg-[#c1121f]/5'
@@ -272,6 +277,7 @@ export default function JoinPage({ basePath }: JoinPageProps) {
                           <div className="flex items-center justify-between">
                             <div className="flex items-center space-x-4">
                               <input
+                                id={`gym-join-plan-${plan.name.toLowerCase()}`}
                                 type="radio"
                                 name="plan"
                                 value={plan.name}
@@ -311,10 +317,11 @@ export default function JoinPage({ basePath }: JoinPageProps) {
                     </h3>
                     <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
                       <div>
-                        <label className="block text-sm font-medium text-zinc-400 mb-2">
+                        <label htmlFor="gym-join-emergency-name" className="block text-sm font-medium text-zinc-400 mb-2">
                           Contact Name
                         </label>
                         <input
+                          id="gym-join-emergency-name"
                           type="text"
                           name="emergencyName"
                           value={formData.emergencyName}
@@ -324,10 +331,11 @@ export default function JoinPage({ basePath }: JoinPageProps) {
                         />
                       </div>
                       <div>
-                        <label className="block text-sm font-medium text-zinc-400 mb-2">
+                        <label htmlFor="gym-join-emergency-phone" className="block text-sm font-medium text-zinc-400 mb-2">
                           Contact Phone
                         </label>
                         <input
+                          id="gym-join-emergency-phone"
                           type="tel"
                           name="emergencyPhone"
                           value={formData.emergencyPhone}
@@ -341,8 +349,9 @@ export default function JoinPage({ basePath }: JoinPageProps) {
 
                   {/* Terms */}
                   <div className="pt-6 border-t border-zinc-800">
-                    <label className="flex items-start space-x-3 cursor-pointer">
+                    <label htmlFor="gym-join-agree-terms" className="flex items-start space-x-3 cursor-pointer">
                       <input
+                        id="gym-join-agree-terms"
                         type="checkbox"
                         name="agreeToTerms"
                         checked={formData.agreeToTerms}

@@ -278,6 +278,7 @@ export default function BlogPage({ onNavigate, accentColor = '#c9a227' }: BlogPa
           <div className="flex flex-col sm:flex-row gap-4 max-w-xl mx-auto">
             <input
               type="email"
+              aria-label="Email address for newsletter"
               placeholder="Enter your email address"
               className="flex-1 px-4 py-3 rounded-lg border-2 border-gray-300 focus:outline-none focus:border-opacity-50"
               style={{ borderColor: '#e5e7eb' }}

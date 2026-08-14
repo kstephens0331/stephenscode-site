@@ -227,8 +227,8 @@ export default function CustomerView({ demo, colors }: CustomerViewProps) {
             <h2 className="text-2xl font-bold text-gray-900 mb-6">Design Your Piece</h2>
             <div className="space-y-6">
               <div>
-                <label className="block font-semibold text-gray-700 mb-2">Jewelry Type</label>
-                <select className="w-full px-4 py-3 border-2 border-gray-200 rounded-lg">
+                <label htmlFor="jewelry-design-type" className="block font-semibold text-gray-700 mb-2">Jewelry Type</label>
+                <select id="jewelry-design-type" className="w-full px-4 py-3 border-2 border-gray-200 rounded-lg">
                   <option>Ring</option>
                   <option>Necklace</option>
                   <option>Earrings</option>
@@ -246,8 +246,8 @@ export default function CustomerView({ demo, colors }: CustomerViewProps) {
                 </div>
               </div>
               <div>
-                <label className="block font-semibold text-gray-700 mb-2">Stone</label>
-                <select className="w-full px-4 py-3 border-2 border-gray-200 rounded-lg">
+                <label htmlFor="jewelry-design-stone" className="block font-semibold text-gray-700 mb-2">Stone</label>
+                <select id="jewelry-design-stone" className="w-full px-4 py-3 border-2 border-gray-200 rounded-lg">
                   <option>Diamond</option>
                   <option>Sapphire</option>
                   <option>Emerald</option>
@@ -255,8 +255,8 @@ export default function CustomerView({ demo, colors }: CustomerViewProps) {
                 </select>
               </div>
               <div>
-                <label className="block font-semibold text-gray-700 mb-2">Additional Notes</label>
-                <textarea rows={4} className="w-full px-4 py-3 border-2 border-gray-200 rounded-lg" placeholder="Describe your vision..."></textarea>
+                <label htmlFor="jewelry-design-notes" className="block font-semibold text-gray-700 mb-2">Additional Notes</label>
+                <textarea id="jewelry-design-notes" rows={4} className="w-full px-4 py-3 border-2 border-gray-200 rounded-lg" placeholder="Describe your vision..."></textarea>
               </div>
               <button className="w-full text-white py-4 rounded-lg font-semibold hover:opacity-90" style={{ backgroundColor: colors.primary }}>
                 Request Consultation
@@ -414,14 +414,14 @@ export default function CustomerView({ demo, colors }: CustomerViewProps) {
           </div>
           <form className="space-y-6">
             <div className="grid grid-cols-2 gap-6">
-              <input type="text" placeholder="First Name" className="px-4 py-3 border-2 border-gray-200 rounded-lg" />
-              <input type="text" placeholder="Last Name" className="px-4 py-3 border-2 border-gray-200 rounded-lg" />
+              <input type="text" aria-label="First name" placeholder="First Name" className="px-4 py-3 border-2 border-gray-200 rounded-lg" />
+              <input type="text" aria-label="Last name" placeholder="Last Name" className="px-4 py-3 border-2 border-gray-200 rounded-lg" />
             </div>
-            <input type="email" placeholder="Email" className="w-full px-4 py-3 border-2 border-gray-200 rounded-lg" />
-            <input type="text" placeholder="Card Number" className="w-full px-4 py-3 border-2 border-gray-200 rounded-lg" />
+            <input type="email" aria-label="Email address" placeholder="Email" className="w-full px-4 py-3 border-2 border-gray-200 rounded-lg" />
+            <input type="text" aria-label="Card number" placeholder="Card Number" className="w-full px-4 py-3 border-2 border-gray-200 rounded-lg" />
             <div className="grid grid-cols-2 gap-6">
-              <input type="text" placeholder="MM/YY" className="px-4 py-3 border-2 border-gray-200 rounded-lg" />
-              <input type="text" placeholder="CVV" className="px-4 py-3 border-2 border-gray-200 rounded-lg" />
+              <input type="text" aria-label="Card expiry date" placeholder="MM/YY" className="px-4 py-3 border-2 border-gray-200 rounded-lg" />
+              <input type="text" aria-label="Card security code" placeholder="CVV" className="px-4 py-3 border-2 border-gray-200 rounded-lg" />
             </div>
             <button type="submit" className="w-full text-white py-4 rounded-lg font-semibold hover:opacity-90" style={{ backgroundColor: colors.primary }}>
               Complete Purchase (${cartTotal.toLocaleString()})
@@ -500,9 +500,9 @@ export default function CustomerView({ demo, colors }: CustomerViewProps) {
           <div className="bg-white rounded-xl shadow-md p-8">
             <h2 className="text-2xl font-bold text-gray-900 mb-6">Send a Message</h2>
             <form className="space-y-4">
-              <input type="text" placeholder="Name" className="w-full px-4 py-3 border-2 border-gray-200 rounded-lg" />
-              <input type="email" placeholder="Email" className="w-full px-4 py-3 border-2 border-gray-200 rounded-lg" />
-              <textarea rows={5} placeholder="Message" className="w-full px-4 py-3 border-2 border-gray-200 rounded-lg"></textarea>
+              <input type="text" aria-label="Your name" placeholder="Name" className="w-full px-4 py-3 border-2 border-gray-200 rounded-lg" />
+              <input type="email" aria-label="Email address" placeholder="Email" className="w-full px-4 py-3 border-2 border-gray-200 rounded-lg" />
+              <textarea rows={5} aria-label="Message" placeholder="Message" className="w-full px-4 py-3 border-2 border-gray-200 rounded-lg"></textarea>
               <button type="submit" className="w-full text-white py-4 rounded-lg font-semibold hover:opacity-90" style={{ backgroundColor: colors.primary }}>
                 Send Message
               </button>

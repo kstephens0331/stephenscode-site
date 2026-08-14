@@ -39,8 +39,9 @@ export default function QuotePage({ colors, onNavigate }: QuotePageProps) {
         <div className="bg-white rounded-lg shadow-xl p-8">
           <div className="space-y-6">
             <div>
-              <label className="block text-sm font-medium mb-2" style={{ color: colors.text }}>Service Type</label>
+              <label htmlFor="logistics-quote-service" className="block text-sm font-medium mb-2" style={{ color: colors.text }}>Service Type</label>
               <select
+                id="logistics-quote-service"
                 className="w-full px-4 py-3 rounded-lg border"
                 style={{ borderColor: colors.border }}
                 value={formData.service}
@@ -54,8 +55,9 @@ export default function QuotePage({ colors, onNavigate }: QuotePageProps) {
 
             <div className="grid md:grid-cols-2 gap-4">
               <div>
-                <label className="block text-sm font-medium mb-2" style={{ color: colors.text }}>Weight (lbs)</label>
+                <label htmlFor="logistics-quote-weight" className="block text-sm font-medium mb-2" style={{ color: colors.text }}>Weight (lbs)</label>
                 <input
+                  id="logistics-quote-weight"
                   type="number"
                   placeholder="1000"
                   className="w-full px-4 py-3 rounded-lg border"
@@ -65,8 +67,9 @@ export default function QuotePage({ colors, onNavigate }: QuotePageProps) {
                 />
               </div>
               <div>
-                <label className="block text-sm font-medium mb-2" style={{ color: colors.text }}>Distance (miles)</label>
+                <label htmlFor="logistics-quote-distance" className="block text-sm font-medium mb-2" style={{ color: colors.text }}>Distance (miles)</label>
                 <input
+                  id="logistics-quote-distance"
                   type="number"
                   placeholder="500"
                   className="w-full px-4 py-3 rounded-lg border"

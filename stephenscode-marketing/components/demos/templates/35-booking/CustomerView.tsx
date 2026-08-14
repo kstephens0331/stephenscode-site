@@ -195,8 +195,9 @@ export default function CustomerView({ demo, colors }: CustomerViewProps) {
                 </div>
 
                 <div className="mb-6">
-                  <label className="block text-sm font-semibold mb-2" style={{ color: colors.text }}>Date</label>
+                  <label htmlFor="booking-appointment-date" className="block text-sm font-semibold mb-2" style={{ color: colors.text }}>Date</label>
                   <input
+                    id="booking-appointment-date"
                     type="date"
                     value={selectedDate || ''}
                     onChange={(e) => setSelectedDate(e.target.value)}

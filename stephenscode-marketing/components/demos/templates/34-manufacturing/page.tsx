@@ -319,6 +319,7 @@ const TechProManufacturing = ({ viewMode }: TechProManufacturingProps = {}) => {
             <div className="flex items-center gap-2 bg-[#161a1d] px-3 py-2 rounded-lg border border-[#ba181b]">
               <span className="text-sm">Role:</span>
               <select
+                aria-label="Role"
                 value={userRole}
                 onChange={(e) => setUserRole(e.target.value as UserRole)}
                 className="bg-transparent border-none text-white font-semibold text-sm focus:outline-none"
@@ -535,10 +536,11 @@ const TechProManufacturing = ({ viewMode }: TechProManufacturingProps = {}) => {
         <div className="bg-[#0b090a] rounded-lg shadow-xl p-6 mb-6 border border-gray-800">
           <div className="grid grid-cols-1 md:grid-cols-4 gap-4">
             <div>
-              <label className="block text-sm font-semibold text-gray-300 mb-2">Search</label>
+              <label htmlFor="manufacturing-products-search" className="block text-sm font-semibold text-gray-300 mb-2">Search</label>
               <div className="relative">
                 <Search className="w-5 h-5 absolute left-3 top-1/2 transform -translate-y-1/2 text-gray-500" />
                 <input
+                  id="manufacturing-products-search"
                   type="text"
                   value={searchTerm}
                   onChange={(e) => setSearchTerm(e.target.value)}
@@ -548,8 +550,8 @@ const TechProManufacturing = ({ viewMode }: TechProManufacturingProps = {}) => {
               </div>
             </div>
             <div>
-              <label className="block text-sm font-semibold text-gray-300 mb-2">Category</label>
-              <select className="w-full px-4 py-2 bg-[#161a1d] border border-gray-700 rounded-lg text-white focus:ring-2 focus:ring-[#ba181b]">
+              <label htmlFor="manufacturing-products-category" className="block text-sm font-semibold text-gray-300 mb-2">Category</label>
+              <select id="manufacturing-products-category" className="w-full px-4 py-2 bg-[#161a1d] border border-gray-700 rounded-lg text-white focus:ring-2 focus:ring-[#ba181b]">
                 <option>All Categories</option>
                 <option>Control Systems</option>
                 <option>Motors & Drives</option>
@@ -558,8 +560,8 @@ const TechProManufacturing = ({ viewMode }: TechProManufacturingProps = {}) => {
               </select>
             </div>
             <div>
-              <label className="block text-sm font-semibold text-gray-300 mb-2">Availability</label>
-              <select className="w-full px-4 py-2 bg-[#161a1d] border border-gray-700 rounded-lg text-white focus:ring-2 focus:ring-[#ba181b]">
+              <label htmlFor="manufacturing-products-availability" className="block text-sm font-semibold text-gray-300 mb-2">Availability</label>
+              <select id="manufacturing-products-availability" className="w-full px-4 py-2 bg-[#161a1d] border border-gray-700 rounded-lg text-white focus:ring-2 focus:ring-[#ba181b]">
                 <option>All Products</option>
                 <option>In Stock</option>
                 <option>Made to Order</option>
@@ -567,8 +569,8 @@ const TechProManufacturing = ({ viewMode }: TechProManufacturingProps = {}) => {
               </select>
             </div>
             <div>
-              <label className="block text-sm font-semibold text-gray-300 mb-2">Sort By</label>
-              <select className="w-full px-4 py-2 bg-[#161a1d] border border-gray-700 rounded-lg text-white focus:ring-2 focus:ring-[#ba181b]">
+              <label htmlFor="manufacturing-products-sort" className="block text-sm font-semibold text-gray-300 mb-2">Sort By</label>
+              <select id="manufacturing-products-sort" className="w-full px-4 py-2 bg-[#161a1d] border border-gray-700 rounded-lg text-white focus:ring-2 focus:ring-[#ba181b]">
                 <option>Price: Low to High</option>
                 <option>Price: High to Low</option>
                 <option>Stock Level</option>
@@ -776,6 +778,7 @@ const TechProManufacturing = ({ viewMode }: TechProManufacturingProps = {}) => {
             <p className="text-gray-400">Real-time manufacturing floor monitoring</p>
           </div>
           <select
+            aria-label="Select facility"
             value={selectedFacility}
             onChange={(e) => setSelectedFacility(e.target.value)}
             className="px-4 py-2 bg-[#0b090a] border border-gray-700 rounded-lg text-white focus:ring-2 focus:ring-[#ba181b]"
@@ -1400,6 +1403,7 @@ const TechProManufacturing = ({ viewMode }: TechProManufacturingProps = {}) => {
             <p className="text-gray-400">Real-time insights and performance metrics</p>
           </div>
           <select
+            aria-label="Select date range"
             value={dateRange}
             onChange={(e) => setDateRange(e.target.value)}
             className="px-4 py-2 bg-[#0b090a] border border-gray-700 rounded-lg text-white focus:ring-2 focus:ring-[#ba181b]"
@@ -1500,8 +1504,9 @@ const TechProManufacturing = ({ viewMode }: TechProManufacturingProps = {}) => {
                 <form className="space-y-4" onSubmit={handleContactSubmit}>
                   <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
                     <div>
-                      <label className="block text-sm font-semibold text-gray-300 mb-2">Name</label>
+                      <label htmlFor="manufacturing-contact-name" className="block text-sm font-semibold text-gray-300 mb-2">Name</label>
                       <input
+                        id="manufacturing-contact-name"
                         type="text"
                         name="name"
                         required
@@ -1510,8 +1515,9 @@ const TechProManufacturing = ({ viewMode }: TechProManufacturingProps = {}) => {
                       />
                     </div>
                     <div>
-                      <label className="block text-sm font-semibold text-gray-300 mb-2">Company</label>
+                      <label htmlFor="manufacturing-contact-company" className="block text-sm font-semibold text-gray-300 mb-2">Company</label>
                       <input
+                        id="manufacturing-contact-company"
                         type="text"
                         name="company"
                         className="w-full px-4 py-3 bg-[#161a1d] border border-gray-700 rounded-lg text-white focus:ring-2 focus:ring-[#ba181b] focus:border-transparent"
@@ -1521,8 +1527,9 @@ const TechProManufacturing = ({ viewMode }: TechProManufacturingProps = {}) => {
                   </div>
 
                   <div>
-                    <label className="block text-sm font-semibold text-gray-300 mb-2">Email</label>
+                    <label htmlFor="manufacturing-contact-email" className="block text-sm font-semibold text-gray-300 mb-2">Email</label>
                     <input
+                      id="manufacturing-contact-email"
                       type="email"
                       name="email"
                       required
@@ -1532,8 +1539,8 @@ const TechProManufacturing = ({ viewMode }: TechProManufacturingProps = {}) => {
                   </div>
 
                   <div>
-                    <label className="block text-sm font-semibold text-gray-300 mb-2">Department</label>
-                    <select name="department" className="w-full px-4 py-3 bg-[#161a1d] border border-gray-700 rounded-lg text-white focus:ring-2 focus:ring-[#ba181b] focus:border-transparent">
+                    <label htmlFor="manufacturing-contact-department" className="block text-sm font-semibold text-gray-300 mb-2">Department</label>
+                    <select id="manufacturing-contact-department" name="department" className="w-full px-4 py-3 bg-[#161a1d] border border-gray-700 rounded-lg text-white focus:ring-2 focus:ring-[#ba181b] focus:border-transparent">
                       <option>Sales Inquiry</option>
                       <option>Technical Support</option>
                       <option>Quality Assurance</option>
@@ -1543,8 +1550,9 @@ const TechProManufacturing = ({ viewMode }: TechProManufacturingProps = {}) => {
                   </div>
 
                   <div>
-                    <label className="block text-sm font-semibold text-gray-300 mb-2">Message</label>
+                    <label htmlFor="manufacturing-contact-message" className="block text-sm font-semibold text-gray-300 mb-2">Message</label>
                     <textarea
+                      id="manufacturing-contact-message"
                       name="message"
                       rows={6}
                       required

@@ -142,8 +142,8 @@ export default function PricingPage({ onNavigate }: PricingPageProps) {
               <div>
                 {/* Property Size */}
                 <div className="mb-6">
-                  <label className="block text-sm font-semibold text-gray-900 mb-3">Property Size</label>
-                  <div className="grid grid-cols-2 gap-3">
+                  <label id="cleaning-pricing-size-label" className="block text-sm font-semibold text-gray-900 mb-3">Property Size</label>
+                  <div role="group" aria-labelledby="cleaning-pricing-size-label" className="grid grid-cols-2 gap-3">
                     {Object.keys(pricing).map((size) => (
                       <button
                         key={size}
@@ -162,8 +162,8 @@ export default function PricingPage({ onNavigate }: PricingPageProps) {
 
                 {/* Frequency */}
                 <div className="mb-6">
-                  <label className="block text-sm font-semibold text-gray-900 mb-3">Cleaning Frequency</label>
-                  <div className="space-y-2">
+                  <label id="cleaning-pricing-frequency-label" className="block text-sm font-semibold text-gray-900 mb-3">Cleaning Frequency</label>
+                  <div role="group" aria-labelledby="cleaning-pricing-frequency-label" className="space-y-2">
                     {frequencies.map((freq) => (
                       <button
                         key={freq.id}
@@ -187,8 +187,8 @@ export default function PricingPage({ onNavigate }: PricingPageProps) {
 
                 {/* Add-ons */}
                 <div>
-                  <label className="block text-sm font-semibold text-gray-900 mb-3">Add-ons (Optional)</label>
-                  <div className="space-y-2">
+                  <label id="cleaning-pricing-addons-label" className="block text-sm font-semibold text-gray-900 mb-3">Add-ons (Optional)</label>
+                  <div role="group" aria-labelledby="cleaning-pricing-addons-label" className="space-y-2">
                     {addons.map((addon) => (
                       <button
                         key={addon.id}

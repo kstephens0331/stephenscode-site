@@ -459,9 +459,9 @@ export default function CustomerView({ demo, colors }: CustomerViewProps) {
           <div className="bg-white rounded-xl shadow-md p-8">
             <h2 className="text-2xl font-bold text-gray-900 mb-6">Send a Message</h2>
             <form className="space-y-4">
-              <input type="text" placeholder="Name" className="w-full px-4 py-3 border-2 border-gray-200 rounded-lg" />
-              <input type="email" placeholder="Email" className="w-full px-4 py-3 border-2 border-gray-200 rounded-lg" />
-              <textarea rows={5} placeholder="Message" className="w-full px-4 py-3 border-2 border-gray-200 rounded-lg"></textarea>
+              <input type="text" aria-label="Your name" placeholder="Name" className="w-full px-4 py-3 border-2 border-gray-200 rounded-lg" />
+              <input type="email" aria-label="Email address" placeholder="Email" className="w-full px-4 py-3 border-2 border-gray-200 rounded-lg" />
+              <textarea rows={5} aria-label="Message" placeholder="Message" className="w-full px-4 py-3 border-2 border-gray-200 rounded-lg"></textarea>
               <button type="submit" className="w-full bg-[var(--color-primary)] text-white py-4 rounded-lg font-semibold hover:bg-opacity-90">
                 Send Message
               </button>

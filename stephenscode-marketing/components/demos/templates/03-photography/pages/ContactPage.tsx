@@ -161,12 +161,12 @@ export default function ContactPage({ onNavigate }: ContactPageProps) {
 
               <form onSubmit={handleSubmit} className="space-y-6">
                 <div>
-                  <label htmlFor="name" className="block text-sm font-medium text-[#2d3142] mb-2">
+                  <label htmlFor="photography-contact-name" className="block text-sm font-medium text-[#2d3142] mb-2">
                     Full Name *
                   </label>
                   <input
                     type="text"
-                    id="name"
+                    id="photography-contact-name"
                     name="name"
                     required
                     value={formData.name}
@@ -178,12 +178,12 @@ export default function ContactPage({ onNavigate }: ContactPageProps) {
 
                 <div className="grid grid-cols-1 sm:grid-cols-2 gap-6">
                   <div>
-                    <label htmlFor="email" className="block text-sm font-medium text-[#2d3142] mb-2">
+                    <label htmlFor="photography-contact-email" className="block text-sm font-medium text-[#2d3142] mb-2">
                       Email *
                     </label>
                     <input
                       type="email"
-                      id="email"
+                      id="photography-contact-email"
                       name="email"
                       required
                       value={formData.email}
@@ -194,12 +194,12 @@ export default function ContactPage({ onNavigate }: ContactPageProps) {
                   </div>
 
                   <div>
-                    <label htmlFor="phone" className="block text-sm font-medium text-[#2d3142] mb-2">
+                    <label htmlFor="photography-contact-phone" className="block text-sm font-medium text-[#2d3142] mb-2">
                       Phone *
                     </label>
                     <input
                       type="tel"
-                      id="phone"
+                      id="photography-contact-phone"
                       name="phone"
                       required
                       value={formData.phone}
@@ -212,11 +212,11 @@ export default function ContactPage({ onNavigate }: ContactPageProps) {
 
                 <div className="grid grid-cols-1 sm:grid-cols-2 gap-6">
                   <div>
-                    <label htmlFor="service" className="block text-sm font-medium text-[#2d3142] mb-2">
+                    <label htmlFor="photography-contact-service" className="block text-sm font-medium text-[#2d3142] mb-2">
                       Service Needed *
                     </label>
                     <select
-                      id="service"
+                      id="photography-contact-service"
                       name="service"
                       required
                       value={formData.service}
@@ -233,12 +233,12 @@ export default function ContactPage({ onNavigate }: ContactPageProps) {
                   </div>
 
                   <div>
-                    <label htmlFor="date" className="block text-sm font-medium text-[#2d3142] mb-2">
+                    <label htmlFor="photography-contact-date" className="block text-sm font-medium text-[#2d3142] mb-2">
                       Preferred Date
                     </label>
                     <input
                       type="date"
-                      id="date"
+                      id="photography-contact-date"
                       name="date"
                       value={formData.date}
                       onChange={handleChange}
@@ -248,11 +248,11 @@ export default function ContactPage({ onNavigate }: ContactPageProps) {
                 </div>
 
                 <div>
-                  <label htmlFor="message" className="block text-sm font-medium text-[#2d3142] mb-2">
+                  <label htmlFor="photography-contact-message" className="block text-sm font-medium text-[#2d3142] mb-2">
                     Tell Us About Your Vision *
                   </label>
                   <textarea
-                    id="message"
+                    id="photography-contact-message"
                     name="message"
                     required
                     value={formData.message}

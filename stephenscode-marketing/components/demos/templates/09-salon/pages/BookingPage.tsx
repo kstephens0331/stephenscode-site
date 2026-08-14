@@ -390,8 +390,9 @@ export default function BookingPage({ onNavigate }: BookingPageProps) {
                 <div className="space-y-6">
                   <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
                     <div>
-                      <label className="block text-sm font-semibold mb-2">First Name *</label>
+                      <label htmlFor="salon-booking-first-name" className="block text-sm font-semibold mb-2">First Name *</label>
                       <input
+                        id="salon-booking-first-name"
                         type="text"
                         required
                         value={bookingData.firstName}
@@ -403,8 +404,9 @@ export default function BookingPage({ onNavigate }: BookingPageProps) {
                       />
                     </div>
                     <div>
-                      <label className="block text-sm font-semibold mb-2">Last Name *</label>
+                      <label htmlFor="salon-booking-last-name" className="block text-sm font-semibold mb-2">Last Name *</label>
                       <input
+                        id="salon-booking-last-name"
                         type="text"
                         required
                         value={bookingData.lastName}
@@ -418,8 +420,9 @@ export default function BookingPage({ onNavigate }: BookingPageProps) {
                   </div>
 
                   <div>
-                    <label className="block text-sm font-semibold mb-2">Email *</label>
+                    <label htmlFor="salon-booking-email" className="block text-sm font-semibold mb-2">Email *</label>
                     <input
+                      id="salon-booking-email"
                       type="email"
                       required
                       value={bookingData.email}
@@ -432,8 +435,9 @@ export default function BookingPage({ onNavigate }: BookingPageProps) {
                   </div>
 
                   <div>
-                    <label className="block text-sm font-semibold mb-2">Phone *</label>
+                    <label htmlFor="salon-booking-phone" className="block text-sm font-semibold mb-2">Phone *</label>
                     <input
+                      id="salon-booking-phone"
                       type="tel"
                       required
                       value={bookingData.phone}
@@ -446,10 +450,11 @@ export default function BookingPage({ onNavigate }: BookingPageProps) {
                   </div>
 
                   <div>
-                    <label className="block text-sm font-semibold mb-2">
+                    <label htmlFor="salon-booking-notes" className="block text-sm font-semibold mb-2">
                       Special Requests or Notes (Optional)
                     </label>
                     <textarea
+                      id="salon-booking-notes"
                       value={bookingData.notes}
                       onChange={(e) =>
                         setBookingData({ ...bookingData, notes: e.target.value })

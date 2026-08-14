@@ -67,6 +67,7 @@ export default function ShopPage({ addToCart, addToWishlist }: any) {
           </button>
 
           <select
+            aria-label="Sort products"
             value={sortBy}
             onChange={(e) => setSortBy(e.target.value)}
             className="px-6 py-3 bg-white border-2 border-gray-200 rounded-lg focus:outline-none focus:border-[var(--color-primary)]"
@@ -162,6 +163,7 @@ export default function ShopPage({ addToCart, addToWishlist }: any) {
                 <div className="space-y-4">
                   <input
                     type="range"
+                    aria-label="Maximum price"
                     min="0"
                     max="500"
                     value={priceRange[1]}

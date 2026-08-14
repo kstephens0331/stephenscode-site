@@ -126,8 +126,9 @@ export default function ContactPage() {
               <form onSubmit={handleSubmit} className="space-y-6">
                 <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
                   <div>
-                    <label className="block text-sm font-semibold text-gray-700 mb-2">First Name</label>
+                    <label htmlFor="boutique-contact-first-name" className="block text-sm font-semibold text-gray-700 mb-2">First Name</label>
                     <input
+                      id="boutique-contact-first-name"
                       type="text"
                       required
                       value={formData.firstName}
@@ -137,8 +138,9 @@ export default function ContactPage() {
                     />
                   </div>
                   <div>
-                    <label className="block text-sm font-semibold text-gray-700 mb-2">Last Name</label>
+                    <label htmlFor="boutique-contact-last-name" className="block text-sm font-semibold text-gray-700 mb-2">Last Name</label>
                     <input
+                      id="boutique-contact-last-name"
                       type="text"
                       required
                       value={formData.lastName}
@@ -150,8 +152,9 @@ export default function ContactPage() {
                 </div>
 
                 <div>
-                  <label className="block text-sm font-semibold text-gray-700 mb-2">Email</label>
+                  <label htmlFor="boutique-contact-email" className="block text-sm font-semibold text-gray-700 mb-2">Email</label>
                   <input
+                    id="boutique-contact-email"
                     type="email"
                     required
                     value={formData.email}
@@ -162,8 +165,9 @@ export default function ContactPage() {
                 </div>
 
                 <div>
-                  <label className="block text-sm font-semibold text-gray-700 mb-2">Phone (Optional)</label>
+                  <label htmlFor="boutique-contact-phone" className="block text-sm font-semibold text-gray-700 mb-2">Phone (Optional)</label>
                   <input
+                    id="boutique-contact-phone"
                     type="tel"
                     value={formData.phone}
                     onChange={(e) => setFormData({ ...formData, phone: e.target.value })}
@@ -173,8 +177,9 @@ export default function ContactPage() {
                 </div>
 
                 <div>
-                  <label className="block text-sm font-semibold text-gray-700 mb-2">Subject</label>
+                  <label htmlFor="boutique-contact-subject" className="block text-sm font-semibold text-gray-700 mb-2">Subject</label>
                   <select
+                    id="boutique-contact-subject"
                     value={formData.subject}
                     onChange={(e) => setFormData({ ...formData, subject: e.target.value })}
                     className="w-full px-4 py-3 border-2 border-gray-200 rounded-lg focus:outline-none focus:border-[var(--color-primary)]"
@@ -189,8 +194,9 @@ export default function ContactPage() {
                 </div>
 
                 <div>
-                  <label className="block text-sm font-semibold text-gray-700 mb-2">Message</label>
+                  <label htmlFor="boutique-contact-message" className="block text-sm font-semibold text-gray-700 mb-2">Message</label>
                   <textarea
+                    id="boutique-contact-message"
                     rows={5}
                     required
                     value={formData.message}

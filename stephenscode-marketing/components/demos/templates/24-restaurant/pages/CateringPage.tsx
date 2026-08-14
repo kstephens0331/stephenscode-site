@@ -167,8 +167,9 @@ export default function CateringPage({ colors }: CateringPageProps) {
             <form className="max-w-3xl mx-auto space-y-6" onSubmit={handleSubmit}>
               <div className="grid md:grid-cols-2 gap-6">
                 <div>
-                  <label style={{ color: '#1a1a1a' }} className="block font-bold mb-2">Contact Name *</label>
+                  <label htmlFor="restaurant-catering-contact-name" style={{ color: '#1a1a1a' }} className="block font-bold mb-2">Contact Name *</label>
                   <input
+                    id="restaurant-catering-contact-name"
                     type="text"
                     required
                     value={formData.contactName}
@@ -178,8 +179,9 @@ export default function CateringPage({ colors }: CateringPageProps) {
                   />
                 </div>
                 <div>
-                  <label style={{ color: '#1a1a1a' }} className="block font-bold mb-2">Company/Organization</label>
+                  <label htmlFor="restaurant-catering-company" style={{ color: '#1a1a1a' }} className="block font-bold mb-2">Company/Organization</label>
                   <input
+                    id="restaurant-catering-company"
                     type="text"
                     value={formData.company}
                     onChange={(e) => setFormData({ ...formData, company: e.target.value })}
@@ -190,8 +192,9 @@ export default function CateringPage({ colors }: CateringPageProps) {
               </div>
               <div className="grid md:grid-cols-2 gap-6">
                 <div>
-                  <label style={{ color: '#1a1a1a' }} className="block font-bold mb-2">Email *</label>
+                  <label htmlFor="restaurant-catering-email" style={{ color: '#1a1a1a' }} className="block font-bold mb-2">Email *</label>
                   <input
+                    id="restaurant-catering-email"
                     type="email"
                     required
                     value={formData.email}
@@ -201,8 +204,9 @@ export default function CateringPage({ colors }: CateringPageProps) {
                   />
                 </div>
                 <div>
-                  <label style={{ color: '#1a1a1a' }} className="block font-bold mb-2">Phone *</label>
+                  <label htmlFor="restaurant-catering-phone" style={{ color: '#1a1a1a' }} className="block font-bold mb-2">Phone *</label>
                   <input
+                    id="restaurant-catering-phone"
                     type="tel"
                     required
                     value={formData.phone}
@@ -214,8 +218,9 @@ export default function CateringPage({ colors }: CateringPageProps) {
               </div>
               <div className="grid md:grid-cols-3 gap-6">
                 <div>
-                  <label style={{ color: '#1a1a1a' }} className="block font-bold mb-2">Event Date *</label>
+                  <label htmlFor="restaurant-catering-event-date" style={{ color: '#1a1a1a' }} className="block font-bold mb-2">Event Date *</label>
                   <input
+                    id="restaurant-catering-event-date"
                     type="date"
                     required
                     value={formData.eventDate}
@@ -225,8 +230,9 @@ export default function CateringPage({ colors }: CateringPageProps) {
                   />
                 </div>
                 <div>
-                  <label style={{ color: '#1a1a1a' }} className="block font-bold mb-2">Event Time</label>
+                  <label htmlFor="restaurant-catering-event-time" style={{ color: '#1a1a1a' }} className="block font-bold mb-2">Event Time</label>
                   <input
+                    id="restaurant-catering-event-time"
                     type="time"
                     value={formData.eventTime}
                     onChange={(e) => setFormData({ ...formData, eventTime: e.target.value })}
@@ -235,8 +241,9 @@ export default function CateringPage({ colors }: CateringPageProps) {
                   />
                 </div>
                 <div>
-                  <label style={{ color: '#1a1a1a' }} className="block font-bold mb-2">Guest Count *</label>
+                  <label htmlFor="restaurant-catering-guest-count" style={{ color: '#1a1a1a' }} className="block font-bold mb-2">Guest Count *</label>
                   <input
+                    id="restaurant-catering-guest-count"
                     type="number"
                     required
                     value={formData.guestCount}
@@ -247,8 +254,9 @@ export default function CateringPage({ colors }: CateringPageProps) {
                 </div>
               </div>
               <div>
-                <label style={{ color: '#1a1a1a' }} className="block font-bold mb-2">Event Location *</label>
+                <label htmlFor="restaurant-catering-location" style={{ color: '#1a1a1a' }} className="block font-bold mb-2">Event Location *</label>
                 <input
+                  id="restaurant-catering-location"
                   type="text"
                   required
                   value={formData.location}
@@ -259,8 +267,9 @@ export default function CateringPage({ colors }: CateringPageProps) {
                 />
               </div>
               <div>
-                <label style={{ color: '#1a1a1a' }} className="block font-bold mb-2">Package Interest</label>
+                <label htmlFor="restaurant-catering-package" style={{ color: '#1a1a1a' }} className="block font-bold mb-2">Package Interest</label>
                 <select
+                  id="restaurant-catering-package"
                   value={formData.packageInterest}
                   onChange={(e) => setFormData({ ...formData, packageInterest: e.target.value })}
                   style={{ backgroundColor: '#ffffff', border: '2px solid #e5e5e5', color: '#1a1a1a' }}
@@ -273,8 +282,9 @@ export default function CateringPage({ colors }: CateringPageProps) {
                 </select>
               </div>
               <div>
-                <label style={{ color: '#1a1a1a' }} className="block font-bold mb-2">Additional Details</label>
+                <label htmlFor="restaurant-catering-details" style={{ color: '#1a1a1a' }} className="block font-bold mb-2">Additional Details</label>
                 <textarea
+                  id="restaurant-catering-details"
                   value={formData.details}
                   onChange={(e) => setFormData({ ...formData, details: e.target.value })}
                   style={{ backgroundColor: '#ffffff', border: '2px solid #e5e5e5', color: '#1a1a1a' }}

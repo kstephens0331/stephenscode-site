@@ -208,10 +208,11 @@ export default function ContactPage({ onNavigate, colors }: ContactPageProps) {
                 ) : (
                   <form onSubmit={handleSubmit} className="space-y-6">
                     <div>
-                      <label className="block text-sm font-semibold text-gray-700 mb-2">
+                      <label htmlFor="handyman-contact-name" className="block text-sm font-semibold text-gray-700 mb-2">
                         Full Name *
                       </label>
                       <input
+                        id="handyman-contact-name"
                         type="text"
                         name="name"
                         value={formData.name}
@@ -225,10 +226,11 @@ export default function ContactPage({ onNavigate, colors }: ContactPageProps) {
 
                     <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
                       <div>
-                        <label className="block text-sm font-semibold text-gray-700 mb-2">
+                        <label htmlFor="handyman-contact-email" className="block text-sm font-semibold text-gray-700 mb-2">
                           Email *
                         </label>
                         <input
+                          id="handyman-contact-email"
                           type="email"
                           name="email"
                           value={formData.email}
@@ -240,10 +242,11 @@ export default function ContactPage({ onNavigate, colors }: ContactPageProps) {
                         />
                       </div>
                       <div>
-                        <label className="block text-sm font-semibold text-gray-700 mb-2">
+                        <label htmlFor="handyman-contact-phone" className="block text-sm font-semibold text-gray-700 mb-2">
                           Phone *
                         </label>
                         <input
+                          id="handyman-contact-phone"
                           type="tel"
                           name="phone"
                           value={formData.phone}
@@ -257,10 +260,11 @@ export default function ContactPage({ onNavigate, colors }: ContactPageProps) {
                     </div>
 
                     <div>
-                      <label className="block text-sm font-semibold text-gray-700 mb-2">
+                      <label htmlFor="handyman-contact-service" className="block text-sm font-semibold text-gray-700 mb-2">
                         Service Needed *
                       </label>
                       <select
+                        id="handyman-contact-service"
                         name="service"
                         value={formData.service}
                         onChange={handleChange}
@@ -278,10 +282,10 @@ export default function ContactPage({ onNavigate, colors }: ContactPageProps) {
                     </div>
 
                     <div>
-                      <label className="block text-sm font-semibold text-gray-700 mb-2">
+                      <label id="handyman-contact-urgency-label" className="block text-sm font-semibold text-gray-700 mb-2">
                         Urgency *
                       </label>
-                      <div className="grid grid-cols-3 gap-4">
+                      <div role="radiogroup" aria-labelledby="handyman-contact-urgency-label" className="grid grid-cols-3 gap-4">
                         {[
                           { value: 'emergency', label: 'Emergency', desc: 'ASAP' },
                           { value: 'urgent', label: 'Urgent', desc: '1-2 days' },
@@ -289,6 +293,7 @@ export default function ContactPage({ onNavigate, colors }: ContactPageProps) {
                         ].map((option) => (
                           <label
                             key={option.value}
+                            htmlFor={`handyman-contact-urgency-${option.value}`}
                             className={`cursor-pointer border-2 rounded-lg p-4 text-center transition-all ${
                               formData.urgency === option.value
                                 ? 'border-current shadow-md'
@@ -301,6 +306,7 @@ export default function ContactPage({ onNavigate, colors }: ContactPageProps) {
                             }
                           >
                             <input
+                              id={`handyman-contact-urgency-${option.value}`}
                               type="radio"
                               name="urgency"
                               value={option.value}
@@ -318,10 +324,11 @@ export default function ContactPage({ onNavigate, colors }: ContactPageProps) {
                     </div>
 
                     <div>
-                      <label className="block text-sm font-semibold text-gray-700 mb-2">
+                      <label htmlFor="handyman-contact-message" className="block text-sm font-semibold text-gray-700 mb-2">
                         Project Details *
                       </label>
                       <textarea
+                        id="handyman-contact-message"
                         name="message"
                         value={formData.message}
                         onChange={handleChange}

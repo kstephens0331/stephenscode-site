@@ -290,16 +290,18 @@ export default function CustomerView({ demo, colors }: CustomerViewProps) {
                 </h2>
                 <form className="space-y-6 max-w-md mx-auto">
                   <div>
-                    <label style={{ color: '#1a1a1a' }} className="block font-bold mb-2">Email Address</label>
+                    <label htmlFor="construction-login-email" style={{ color: '#1a1a1a' }} className="block font-bold mb-2">Email Address</label>
                     <input
+                      id="construction-login-email"
                       type="email"
                       style={{ backgroundColor: '#ffffff', border: '2px solid #e5e5e5', color: '#1a1a1a' }}
                       className="w-full px-4 py-3"
                     />
                   </div>
                   <div>
-                    <label style={{ color: '#1a1a1a' }} className="block font-bold mb-2">Password</label>
+                    <label htmlFor="construction-login-password" style={{ color: '#1a1a1a' }} className="block font-bold mb-2">Password</label>
                     <input
+                      id="construction-login-password"
                       type="password"
                       style={{ backgroundColor: '#ffffff', border: '2px solid #e5e5e5', color: '#1a1a1a' }}
                       className="w-full px-4 py-3"
@@ -458,8 +460,9 @@ export default function CustomerView({ demo, colors }: CustomerViewProps) {
 
               <form onSubmit={handleQuoteSubmit} className="space-y-6">
                 <div>
-                  <label style={{ color: '#1a1a1a' }} className="block font-bold mb-2">Project Type *</label>
+                  <label htmlFor="construction-quote-project-type" style={{ color: '#1a1a1a' }} className="block font-bold mb-2">Project Type *</label>
                   <select
+                    id="construction-quote-project-type"
                     value={quoteData.projectType}
                     onChange={(e) => setQuoteData({ ...quoteData, projectType: e.target.value })}
                     style={{ backgroundColor: '#f5f5f5', border: '2px solid #e5e5e5', color: '#1a1a1a' }}
@@ -475,8 +478,9 @@ export default function CustomerView({ demo, colors }: CustomerViewProps) {
 
                 <div className="grid md:grid-cols-2 gap-6">
                   <div>
-                    <label style={{ color: '#1a1a1a' }} className="block font-bold mb-2">Approximate Square Footage</label>
+                    <label htmlFor="construction-quote-sqft" style={{ color: '#1a1a1a' }} className="block font-bold mb-2">Approximate Square Footage</label>
                     <input
+                      id="construction-quote-sqft"
                       type="number"
                       value={quoteData.sqft}
                       onChange={(e) => setQuoteData({ ...quoteData, sqft: e.target.value })}
@@ -486,8 +490,9 @@ export default function CustomerView({ demo, colors }: CustomerViewProps) {
                     />
                   </div>
                   <div>
-                    <label style={{ color: '#1a1a1a' }} className="block font-bold mb-2">Timeline</label>
+                    <label htmlFor="construction-quote-timeline" style={{ color: '#1a1a1a' }} className="block font-bold mb-2">Timeline</label>
                     <select
+                      id="construction-quote-timeline"
                       value={quoteData.timeline}
                       onChange={(e) => setQuoteData({ ...quoteData, timeline: e.target.value })}
                       style={{ backgroundColor: '#f5f5f5', border: '2px solid #e5e5e5', color: '#1a1a1a' }}
@@ -502,8 +507,9 @@ export default function CustomerView({ demo, colors }: CustomerViewProps) {
                 </div>
 
                 <div>
-                  <label style={{ color: '#1a1a1a' }} className="block font-bold mb-2">Budget Range</label>
+                  <label htmlFor="construction-quote-budget" style={{ color: '#1a1a1a' }} className="block font-bold mb-2">Budget Range</label>
                   <select
+                    id="construction-quote-budget"
                     value={quoteData.budget}
                     onChange={(e) => setQuoteData({ ...quoteData, budget: e.target.value })}
                     style={{ backgroundColor: '#f5f5f5', border: '2px solid #e5e5e5', color: '#1a1a1a' }}
@@ -519,8 +525,9 @@ export default function CustomerView({ demo, colors }: CustomerViewProps) {
                 </div>
 
                 <div>
-                  <label style={{ color: '#1a1a1a' }} className="block font-bold mb-2">Project Details</label>
+                  <label htmlFor="construction-quote-details" style={{ color: '#1a1a1a' }} className="block font-bold mb-2">Project Details</label>
                   <textarea
+                    id="construction-quote-details"
                     value={quoteData.details}
                     onChange={(e) => setQuoteData({ ...quoteData, details: e.target.value })}
                     style={{ backgroundColor: '#f5f5f5', border: '2px solid #e5e5e5', color: '#1a1a1a' }}
@@ -531,8 +538,9 @@ export default function CustomerView({ demo, colors }: CustomerViewProps) {
 
                 <div className="grid md:grid-cols-3 gap-6">
                   <div>
-                    <label style={{ color: '#1a1a1a' }} className="block font-bold mb-2">Name *</label>
+                    <label htmlFor="construction-quote-name" style={{ color: '#1a1a1a' }} className="block font-bold mb-2">Name *</label>
                     <input
+                      id="construction-quote-name"
                       type="text"
                       required
                       value={quoteData.name}
@@ -542,8 +550,9 @@ export default function CustomerView({ demo, colors }: CustomerViewProps) {
                     />
                   </div>
                   <div>
-                    <label style={{ color: '#1a1a1a' }} className="block font-bold mb-2">Email *</label>
+                    <label htmlFor="construction-quote-email" style={{ color: '#1a1a1a' }} className="block font-bold mb-2">Email *</label>
                     <input
+                      id="construction-quote-email"
                       type="email"
                       required
                       value={quoteData.email}
@@ -553,8 +562,9 @@ export default function CustomerView({ demo, colors }: CustomerViewProps) {
                     />
                   </div>
                   <div>
-                    <label style={{ color: '#1a1a1a' }} className="block font-bold mb-2">Phone *</label>
+                    <label htmlFor="construction-quote-phone" style={{ color: '#1a1a1a' }} className="block font-bold mb-2">Phone *</label>
                     <input
+                      id="construction-quote-phone"
                       type="tel"
                       required
                       value={quoteData.phone}

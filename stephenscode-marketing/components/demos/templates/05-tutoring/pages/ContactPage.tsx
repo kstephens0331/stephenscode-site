@@ -211,10 +211,11 @@ export default function ContactPage({ onNavigate }: ContactPageProps) {
                 <form onSubmit={handleSubmit} className="space-y-6">
                   <div className="grid md:grid-cols-2 gap-6">
                     <div>
-                      <label className="block text-sm font-semibold text-gray-700 mb-2">
+                      <label htmlFor="tutoring-contact-name" className="block text-sm font-semibold text-gray-700 mb-2">
                         Parent/Guardian Name *
                       </label>
                       <input
+                        id="tutoring-contact-name"
                         type="text"
                         required
                         value={formData.name}
@@ -225,10 +226,11 @@ export default function ContactPage({ onNavigate }: ContactPageProps) {
                     </div>
 
                     <div>
-                      <label className="block text-sm font-semibold text-gray-700 mb-2">
+                      <label htmlFor="tutoring-contact-email" className="block text-sm font-semibold text-gray-700 mb-2">
                         Email Address *
                       </label>
                       <input
+                        id="tutoring-contact-email"
                         type="email"
                         required
                         value={formData.email}
@@ -241,10 +243,11 @@ export default function ContactPage({ onNavigate }: ContactPageProps) {
 
                   <div className="grid md:grid-cols-2 gap-6">
                     <div>
-                      <label className="block text-sm font-semibold text-gray-700 mb-2">
+                      <label htmlFor="tutoring-contact-phone" className="block text-sm font-semibold text-gray-700 mb-2">
                         Phone Number *
                       </label>
                       <input
+                        id="tutoring-contact-phone"
                         type="tel"
                         required
                         value={formData.phone}
@@ -255,10 +258,11 @@ export default function ContactPage({ onNavigate }: ContactPageProps) {
                     </div>
 
                     <div>
-                      <label className="block text-sm font-semibold text-gray-700 mb-2">
+                      <label htmlFor="tutoring-contact-grade-level" className="block text-sm font-semibold text-gray-700 mb-2">
                         Student's Grade Level *
                       </label>
                       <input
+                        id="tutoring-contact-grade-level"
                         type="text"
                         required
                         value={formData.gradeLevel}
@@ -270,10 +274,11 @@ export default function ContactPage({ onNavigate }: ContactPageProps) {
                   </div>
 
                   <div>
-                    <label className="block text-sm font-semibold text-gray-700 mb-2">
+                    <label htmlFor="tutoring-contact-subject" className="block text-sm font-semibold text-gray-700 mb-2">
                       Subject of Interest *
                     </label>
                     <select
+                      id="tutoring-contact-subject"
                       required
                       value={formData.subject}
                       onChange={(e) => setFormData({ ...formData, subject: e.target.value })}
@@ -292,12 +297,13 @@ export default function ContactPage({ onNavigate }: ContactPageProps) {
                   </div>
 
                   <div>
-                    <label className="block text-sm font-semibold text-gray-700 mb-2">
+                    <label id="tutoring-contact-method-label" className="block text-sm font-semibold text-gray-700 mb-2">
                       Preferred Contact Method *
                     </label>
-                    <div className="flex space-x-4">
-                      <label className="flex items-center space-x-2 cursor-pointer">
+                    <div role="radiogroup" aria-labelledby="tutoring-contact-method-label" className="flex space-x-4">
+                      <label htmlFor="tutoring-contact-method-email" className="flex items-center space-x-2 cursor-pointer">
                         <input
+                          id="tutoring-contact-method-email"
                           type="radio"
                           name="contactMethod"
                           value="email"
@@ -307,8 +313,9 @@ export default function ContactPage({ onNavigate }: ContactPageProps) {
                         />
                         <span className="text-gray-700">Email</span>
                       </label>
-                      <label className="flex items-center space-x-2 cursor-pointer">
+                      <label htmlFor="tutoring-contact-method-phone" className="flex items-center space-x-2 cursor-pointer">
                         <input
+                          id="tutoring-contact-method-phone"
                           type="radio"
                           name="contactMethod"
                           value="phone"
@@ -318,8 +325,9 @@ export default function ContactPage({ onNavigate }: ContactPageProps) {
                         />
                         <span className="text-gray-700">Phone</span>
                       </label>
-                      <label className="flex items-center space-x-2 cursor-pointer">
+                      <label htmlFor="tutoring-contact-method-text" className="flex items-center space-x-2 cursor-pointer">
                         <input
+                          id="tutoring-contact-method-text"
                           type="radio"
                           name="contactMethod"
                           value="text"
@@ -333,10 +341,11 @@ export default function ContactPage({ onNavigate }: ContactPageProps) {
                   </div>
 
                   <div>
-                    <label className="block text-sm font-semibold text-gray-700 mb-2">
+                    <label htmlFor="tutoring-contact-message" className="block text-sm font-semibold text-gray-700 mb-2">
                       Additional Information
                     </label>
                     <textarea
+                      id="tutoring-contact-message"
                       value={formData.message}
                       onChange={(e) => setFormData({ ...formData, message: e.target.value })}
                       rows={4}

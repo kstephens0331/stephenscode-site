@@ -165,6 +165,7 @@ export default function BlogPage({ onNavigate }: BlogPageProps) {
             <Search className="absolute left-4 top-1/2 transform -translate-y-1/2 w-5 h-5 text-gray-400" />
             <input
               type="text"
+              aria-label="Search articles"
               placeholder="Search articles..."
               className="w-full pl-12 pr-4 py-4 rounded-lg border-2 border-gray-200 focus:border-[#003049] focus:outline-none text-lg"
             />
@@ -300,6 +301,7 @@ export default function BlogPage({ onNavigate }: BlogPageProps) {
               <div className="flex gap-3">
                 <input
                   type="email"
+                  aria-label="Email address for newsletter"
                   placeholder="Enter your email"
                   className="flex-1 px-6 py-4 rounded-lg text-gray-900 text-lg focus:outline-none focus:ring-4 focus:ring-[#f77f00]"
                 />

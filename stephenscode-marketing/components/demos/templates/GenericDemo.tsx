@@ -127,8 +127,9 @@ export default function GenericDemo({ demo, viewMode }: GenericDemoProps) {
                 alert('Form submitted! (Demo only, no data is actually sent)')
               }}>
                 <div>
-                  <label className="block text-sm font-semibold text-gray-700 mb-2">Your Name</label>
+                  <label htmlFor="generic-demo-contact-name" className="block text-sm font-semibold text-gray-700 mb-2">Your Name</label>
                   <input
+                    id="generic-demo-contact-name"
                     type="text"
                     required
                     className="w-full border border-gray-300 rounded-lg px-4 py-3"
@@ -137,8 +138,9 @@ export default function GenericDemo({ demo, viewMode }: GenericDemoProps) {
                   />
                 </div>
                 <div>
-                  <label className="block text-sm font-semibold text-gray-700 mb-2">Email</label>
+                  <label htmlFor="generic-demo-contact-email" className="block text-sm font-semibold text-gray-700 mb-2">Email</label>
                   <input
+                    id="generic-demo-contact-email"
                     type="email"
                     required
                     className="w-full border border-gray-300 rounded-lg px-4 py-3"
@@ -147,8 +149,9 @@ export default function GenericDemo({ demo, viewMode }: GenericDemoProps) {
                   />
                 </div>
                 <div>
-                  <label className="block text-sm font-semibold text-gray-700 mb-2">Message</label>
+                  <label htmlFor="generic-demo-contact-message" className="block text-sm font-semibold text-gray-700 mb-2">Message</label>
                   <textarea
+                    id="generic-demo-contact-message"
                     rows={4}
                     className="w-full border border-gray-300 rounded-lg px-4 py-3"
                     value={formData.message || ''}

@@ -212,17 +212,17 @@ export default function AccountPage() {
                   <h2 className="text-2xl font-bold text-gray-900 mb-6">Account Settings</h2>
                   <div className="space-y-6">
                     <div>
-                      <label className="block text-sm font-semibold text-gray-700 mb-2">Email</label>
-                      <input type="email" defaultValue="sarah.johnson@email.com" className="w-full px-4 py-3 border-2 border-gray-200 rounded-lg focus:outline-none focus:border-[var(--color-primary)]" />
+                      <label htmlFor="boutique-account-email" className="block text-sm font-semibold text-gray-700 mb-2">Email</label>
+                      <input id="boutique-account-email" type="email" defaultValue="sarah.johnson@email.com" className="w-full px-4 py-3 border-2 border-gray-200 rounded-lg focus:outline-none focus:border-[var(--color-primary)]" />
                     </div>
                     <div>
-                      <label className="block text-sm font-semibold text-gray-700 mb-2">Phone</label>
-                      <input type="tel" defaultValue="(555) 123-4567" className="w-full px-4 py-3 border-2 border-gray-200 rounded-lg focus:outline-none focus:border-[var(--color-primary)]" />
+                      <label htmlFor="boutique-account-phone" className="block text-sm font-semibold text-gray-700 mb-2">Phone</label>
+                      <input id="boutique-account-phone" type="tel" defaultValue="(555) 123-4567" className="w-full px-4 py-3 border-2 border-gray-200 rounded-lg focus:outline-none focus:border-[var(--color-primary)]" />
                     </div>
                     <div>
-                      <label className="block text-sm font-semibold text-gray-700 mb-2">Newsletter</label>
-                      <label className="flex items-center space-x-3">
-                        <input type="checkbox" defaultChecked className="w-5 h-5 text-[var(--color-primary)]" />
+                      <label htmlFor="boutique-account-newsletter" className="block text-sm font-semibold text-gray-700 mb-2">Newsletter</label>
+                      <label htmlFor="boutique-account-newsletter" className="flex items-center space-x-3">
+                        <input id="boutique-account-newsletter" type="checkbox" defaultChecked className="w-5 h-5 text-[var(--color-primary)]" />
                         <span className="text-gray-700">Receive email updates about new arrivals and exclusive offers</span>
                       </label>
                     </div>

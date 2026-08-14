@@ -124,6 +124,7 @@ export default function CartPage({ cart, updateQuantity, removeFromCart, clearCa
               <div className="flex gap-3">
                 <input
                   type="text"
+                  aria-label="Promo code"
                   placeholder="Enter code"
                   className="flex-1 px-4 py-3 border-2 border-gray-200 rounded-lg focus:outline-none focus:border-[var(--color-primary)]"
                 />

@@ -143,10 +143,11 @@ const BuyerResourcesPage: React.FC = () => {
             {/* Calculator Inputs */}
             <div className="space-y-6">
               <div>
-                <label className="block text-sm font-medium text-gray-700 mb-2">
+                <label htmlFor="realestate-calc-home-price" className="block text-sm font-medium text-gray-700 mb-2">
                   Home Price
                 </label>
                 <input
+                  id="realestate-calc-home-price"
                   type="number"
                   value={loanAmount}
                   onChange={(e) => setLoanAmount(Number(e.target.value))}
@@ -154,6 +155,7 @@ const BuyerResourcesPage: React.FC = () => {
                 />
                 <input
                   type="range"
+                  aria-label="Home price slider"
                   min="100000"
                   max="5000000"
                   step="10000"
@@ -164,10 +166,11 @@ const BuyerResourcesPage: React.FC = () => {
               </div>
 
               <div>
-                <label className="block text-sm font-medium text-gray-700 mb-2">
+                <label htmlFor="realestate-calc-down-payment" className="block text-sm font-medium text-gray-700 mb-2">
                   Down Payment
                 </label>
                 <input
+                  id="realestate-calc-down-payment"
                   type="number"
                   value={downPayment}
                   onChange={(e) => setDownPayment(Number(e.target.value))}
@@ -175,6 +178,7 @@ const BuyerResourcesPage: React.FC = () => {
                 />
                 <input
                   type="range"
+                  aria-label="Down payment slider"
                   min="0"
                   max={loanAmount}
                   step="5000"
@@ -188,10 +192,11 @@ const BuyerResourcesPage: React.FC = () => {
               </div>
 
               <div>
-                <label className="block text-sm font-medium text-gray-700 mb-2">
+                <label htmlFor="realestate-calc-interest-rate" className="block text-sm font-medium text-gray-700 mb-2">
                   Interest Rate (%)
                 </label>
                 <input
+                  id="realestate-calc-interest-rate"
                   type="number"
                   step="0.1"
                   value={interestRate}
@@ -201,10 +206,11 @@ const BuyerResourcesPage: React.FC = () => {
               </div>
 
               <div>
-                <label className="block text-sm font-medium text-gray-700 mb-2">
+                <label htmlFor="realestate-calc-loan-term" className="block text-sm font-medium text-gray-700 mb-2">
                   Loan Term (years)
                 </label>
                 <select
+                  id="realestate-calc-loan-term"
                   value={loanTerm}
                   onChange={(e) => setLoanTerm(Number(e.target.value))}
                   className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-[#ffc300] focus:border-transparent"

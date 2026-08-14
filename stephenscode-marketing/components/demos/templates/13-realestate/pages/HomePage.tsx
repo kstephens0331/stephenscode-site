@@ -105,12 +105,13 @@ const HomePage: React.FC<HomePageProps> = ({ onNavigate }) => {
               {/* Search Form */}
               <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
                 <div className="md:col-span-1">
-                  <label className="block text-sm font-medium text-gray-700 mb-2">
+                  <label htmlFor="realestate-home-location" className="block text-sm font-medium text-gray-700 mb-2">
                     Location
                   </label>
                   <div className="relative">
                     <MapPin className="absolute left-3 top-1/2 transform -translate-y-1/2 text-gray-400 w-5 h-5" />
                     <input
+                      id="realestate-home-location"
                       type="text"
                       placeholder="City, neighborhood, or ZIP"
                       className="w-full pl-10 pr-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-[#ffc300] focus:border-transparent text-gray-900"
@@ -119,10 +120,11 @@ const HomePage: React.FC<HomePageProps> = ({ onNavigate }) => {
                 </div>
 
                 <div>
-                  <label className="block text-sm font-medium text-gray-700 mb-2">
+                  <label htmlFor="realestate-home-property-type" className="block text-sm font-medium text-gray-700 mb-2">
                     Property Type
                   </label>
                   <select
+                    id="realestate-home-property-type"
                     value={propertyType}
                     onChange={(e) => setPropertyType(e.target.value)}
                     className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-[#ffc300] focus:border-transparent text-gray-900"
@@ -136,10 +138,10 @@ const HomePage: React.FC<HomePageProps> = ({ onNavigate }) => {
                 </div>
 
                 <div>
-                  <label className="block text-sm font-medium text-gray-700 mb-2">
+                  <label htmlFor="realestate-home-price-range" className="block text-sm font-medium text-gray-700 mb-2">
                     Price Range
                   </label>
-                  <select className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-[#ffc300] focus:border-transparent text-gray-900">
+                  <select id="realestate-home-price-range" className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-[#ffc300] focus:border-transparent text-gray-900">
                     <option>Any Price</option>
                     <option>$0 - $500,000</option>
                     <option>$500,000 - $1M</option>

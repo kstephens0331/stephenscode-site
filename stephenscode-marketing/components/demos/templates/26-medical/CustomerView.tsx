@@ -244,16 +244,18 @@ export default function CustomerView({ demo, colors }: CustomerViewProps) {
                 </h2>
                 <form className="space-y-6 max-w-md mx-auto">
                   <div>
-                    <label style={{ color: '#0353a4' }} className="block font-bold mb-2">Email or Username</label>
+                    <label htmlFor="medical-login-username" style={{ color: '#0353a4' }} className="block font-bold mb-2">Email or Username</label>
                     <input
+                      id="medical-login-username"
                       type="text"
                       style={{ backgroundColor: '#ffffff', border: '2px solid #e5e5e5', color: '#1a1a1a' }}
                       className="w-full px-4 py-3"
                     />
                   </div>
                   <div>
-                    <label style={{ color: '#0353a4' }} className="block font-bold mb-2">Password</label>
+                    <label htmlFor="medical-login-password" style={{ color: '#0353a4' }} className="block font-bold mb-2">Password</label>
                     <input
+                      id="medical-login-password"
                       type="password"
                       style={{ backgroundColor: '#ffffff', border: '2px solid #e5e5e5', color: '#1a1a1a' }}
                       className="w-full px-4 py-3"
@@ -447,8 +449,9 @@ export default function CustomerView({ demo, colors }: CustomerViewProps) {
 
               <form className="space-y-6">
                 <div>
-                  <label style={{ color: '#0353a4' }} className="block font-bold mb-2">Appointment Type *</label>
+                  <label htmlFor="medical-appt-type" style={{ color: '#0353a4' }} className="block font-bold mb-2">Appointment Type *</label>
                   <select
+                    id="medical-appt-type"
                     style={{ backgroundColor: '#f5f5f5', border: '2px solid #e5e5e5', color: '#1a1a1a' }}
                     className="w-full px-4 py-3"
                   >
@@ -463,8 +466,9 @@ export default function CustomerView({ demo, colors }: CustomerViewProps) {
                 </div>
 
                 <div>
-                  <label style={{ color: '#0353a4' }} className="block font-bold mb-2">Preferred Physician</label>
+                  <label htmlFor="medical-appt-physician" style={{ color: '#0353a4' }} className="block font-bold mb-2">Preferred Physician</label>
                   <select
+                    id="medical-appt-physician"
                     style={{ backgroundColor: '#f5f5f5', border: '2px solid #e5e5e5', color: '#1a1a1a' }}
                     className="w-full px-4 py-3"
                   >
@@ -478,16 +482,18 @@ export default function CustomerView({ demo, colors }: CustomerViewProps) {
 
                 <div className="grid md:grid-cols-2 gap-6">
                   <div>
-                    <label style={{ color: '#0353a4' }} className="block font-bold mb-2">Preferred Date *</label>
+                    <label htmlFor="medical-appt-date" style={{ color: '#0353a4' }} className="block font-bold mb-2">Preferred Date *</label>
                     <input
+                      id="medical-appt-date"
                       type="date"
                       style={{ backgroundColor: '#f5f5f5', border: '2px solid #e5e5e5', color: '#1a1a1a' }}
                       className="w-full px-4 py-3"
                     />
                   </div>
                   <div>
-                    <label style={{ color: '#0353a4' }} className="block font-bold mb-2">Preferred Time *</label>
+                    <label htmlFor="medical-appt-time" style={{ color: '#0353a4' }} className="block font-bold mb-2">Preferred Time *</label>
                     <select
+                      id="medical-appt-time"
                       style={{ backgroundColor: '#f5f5f5', border: '2px solid #e5e5e5', color: '#1a1a1a' }}
                       className="w-full px-4 py-3"
                     >
@@ -500,8 +506,9 @@ export default function CustomerView({ demo, colors }: CustomerViewProps) {
                 </div>
 
                 <div>
-                  <label style={{ color: '#0353a4' }} className="block font-bold mb-2">Reason for Visit *</label>
+                  <label htmlFor="medical-appt-reason" style={{ color: '#0353a4' }} className="block font-bold mb-2">Reason for Visit *</label>
                   <textarea
+                    id="medical-appt-reason"
                     style={{ backgroundColor: '#f5f5f5', border: '2px solid #e5e5e5', color: '#1a1a1a' }}
                     className="w-full px-4 py-3 h-24"
                     placeholder="Brief description of your symptoms or reason for appointment..."
@@ -510,16 +517,18 @@ export default function CustomerView({ demo, colors }: CustomerViewProps) {
 
                 <div className="grid md:grid-cols-2 gap-6">
                   <div>
-                    <label style={{ color: '#0353a4' }} className="block font-bold mb-2">Full Name *</label>
+                    <label htmlFor="medical-appt-name" style={{ color: '#0353a4' }} className="block font-bold mb-2">Full Name *</label>
                     <input
+                      id="medical-appt-name"
                       type="text"
                       style={{ backgroundColor: '#f5f5f5', border: '2px solid #e5e5e5', color: '#1a1a1a' }}
                       className="w-full px-4 py-3"
                     />
                   </div>
                   <div>
-                    <label style={{ color: '#0353a4' }} className="block font-bold mb-2">Date of Birth *</label>
+                    <label htmlFor="medical-appt-dob" style={{ color: '#0353a4' }} className="block font-bold mb-2">Date of Birth *</label>
                     <input
+                      id="medical-appt-dob"
                       type="date"
                       style={{ backgroundColor: '#f5f5f5', border: '2px solid #e5e5e5', color: '#1a1a1a' }}
                       className="w-full px-4 py-3"
@@ -529,16 +538,18 @@ export default function CustomerView({ demo, colors }: CustomerViewProps) {
 
                 <div className="grid md:grid-cols-2 gap-6">
                   <div>
-                    <label style={{ color: '#0353a4' }} className="block font-bold mb-2">Phone *</label>
+                    <label htmlFor="medical-appt-phone" style={{ color: '#0353a4' }} className="block font-bold mb-2">Phone *</label>
                     <input
+                      id="medical-appt-phone"
                       type="tel"
                       style={{ backgroundColor: '#f5f5f5', border: '2px solid #e5e5e5', color: '#1a1a1a' }}
                       className="w-full px-4 py-3"
                     />
                   </div>
                   <div>
-                    <label style={{ color: '#0353a4' }} className="block font-bold mb-2">Email *</label>
+                    <label htmlFor="medical-appt-email" style={{ color: '#0353a4' }} className="block font-bold mb-2">Email *</label>
                     <input
+                      id="medical-appt-email"
                       type="email"
                       style={{ backgroundColor: '#f5f5f5', border: '2px solid #e5e5e5', color: '#1a1a1a' }}
                       className="w-full px-4 py-3"
@@ -547,8 +558,9 @@ export default function CustomerView({ demo, colors }: CustomerViewProps) {
                 </div>
 
                 <div>
-                  <label style={{ color: '#0353a4' }} className="block font-bold mb-2">Insurance Provider</label>
+                  <label htmlFor="medical-appt-insurance" style={{ color: '#0353a4' }} className="block font-bold mb-2">Insurance Provider</label>
                   <input
+                    id="medical-appt-insurance"
                     type="text"
                     style={{ backgroundColor: '#f5f5f5', border: '2px solid #e5e5e5', color: '#1a1a1a' }}
                     className="w-full px-4 py-3"

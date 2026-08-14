@@ -171,7 +171,7 @@ export default function CustomerView({ demo, colors }: CustomerViewProps) {
                   <Zap className="w-6 h-6" style={{ color: colors.accent }} />
                   <h3 className="font-bold text-lg" style={{ color: colors.text }}>Trigger</h3>
                 </div>
-                <select className="w-full px-4 py-3 rounded-lg border-2 focus:outline-none focus:ring-2" style={{ borderColor: colors.border }}>
+                <select aria-label="Select a trigger" className="w-full px-4 py-3 rounded-lg border-2 focus:outline-none focus:ring-2" style={{ borderColor: colors.border }}>
                   <option>Select a trigger...</option>
                   <option>When a new contact is created</option>
                   <option>When a deal is won</option>

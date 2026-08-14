@@ -169,10 +169,11 @@ const SellerResourcesPage: React.FC = () => {
             {/* Calculator Inputs */}
             <div className="space-y-6">
               <div>
-                <label className="block text-sm font-medium text-gray-700 mb-2">
+                <label htmlFor="realestate-seller-sale-price" className="block text-sm font-medium text-gray-700 mb-2">
                   Estimated Sale Price
                 </label>
                 <input
+                  id="realestate-seller-sale-price"
                   type="number"
                   value={homeValue}
                   onChange={(e) => setHomeValue(Number(e.target.value))}
@@ -180,6 +181,7 @@ const SellerResourcesPage: React.FC = () => {
                 />
                 <input
                   type="range"
+                  aria-label="Estimated sale price slider"
                   min="100000"
                   max="5000000"
                   step="10000"
@@ -190,10 +192,11 @@ const SellerResourcesPage: React.FC = () => {
               </div>
 
               <div>
-                <label className="block text-sm font-medium text-gray-700 mb-2">
+                <label htmlFor="realestate-seller-commission" className="block text-sm font-medium text-gray-700 mb-2">
                   Commission Rate (%)
                 </label>
                 <input
+                  id="realestate-seller-commission"
                   type="number"
                   step="0.5"
                   value={commission}
@@ -206,10 +209,11 @@ const SellerResourcesPage: React.FC = () => {
               </div>
 
               <div>
-                <label className="block text-sm font-medium text-gray-700 mb-2">
+                <label htmlFor="realestate-seller-closing-costs" className="block text-sm font-medium text-gray-700 mb-2">
                   Closing Costs (%)
                 </label>
                 <input
+                  id="realestate-seller-closing-costs"
                   type="number"
                   step="0.5"
                   value={closingCosts}

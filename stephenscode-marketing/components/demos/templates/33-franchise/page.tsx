@@ -294,6 +294,7 @@ const FastServeFranchiseNetwork = ({ viewMode }: FastServeFranchiseNetworkProps 
             <div className="flex items-center gap-2 bg-[#a33f41] px-3 py-2 rounded-lg">
               <span className="text-sm">Role:</span>
               <select
+                aria-label="Role"
                 value={userRole}
                 onChange={(e) => setUserRole(e.target.value as UserRole)}
                 className="bg-transparent border-none text-white font-semibold text-sm focus:outline-none"
@@ -488,10 +489,11 @@ const FastServeFranchiseNetwork = ({ viewMode }: FastServeFranchiseNetworkProps 
       <div className="bg-white rounded-lg shadow-md p-6 mb-6">
         <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
           <div>
-            <label className="block text-sm font-semibold text-gray-700 mb-2">Search</label>
+            <label htmlFor="franchise-locations-search" className="block text-sm font-semibold text-gray-700 mb-2">Search</label>
             <div className="relative">
               <Search className="w-5 h-5 absolute left-3 top-1/2 transform -translate-y-1/2 text-gray-400" />
               <input
+                id="franchise-locations-search"
                 type="text"
                 value={searchTerm}
                 onChange={(e) => setSearchTerm(e.target.value)}
@@ -501,8 +503,8 @@ const FastServeFranchiseNetwork = ({ viewMode }: FastServeFranchiseNetworkProps 
             </div>
           </div>
           <div>
-            <label className="block text-sm font-semibold text-gray-700 mb-2">Status</label>
-            <select className="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-[#bc4749] focus:border-transparent">
+            <label htmlFor="franchise-locations-status" className="block text-sm font-semibold text-gray-700 mb-2">Status</label>
+            <select id="franchise-locations-status" className="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-[#bc4749] focus:border-transparent">
               <option>All Statuses</option>
               <option>Active</option>
               <option>Pending</option>
@@ -510,8 +512,8 @@ const FastServeFranchiseNetwork = ({ viewMode }: FastServeFranchiseNetworkProps 
             </select>
           </div>
           <div>
-            <label className="block text-sm font-semibold text-gray-700 mb-2">Sort By</label>
-            <select className="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-[#bc4749] focus:border-transparent">
+            <label htmlFor="franchise-locations-sort" className="block text-sm font-semibold text-gray-700 mb-2">Sort By</label>
+            <select id="franchise-locations-sort" className="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-[#bc4749] focus:border-transparent">
               <option>Revenue (High to Low)</option>
               <option>Revenue (Low to High)</option>
               <option>Compliance Score</option>
@@ -825,8 +827,9 @@ const FastServeFranchiseNetwork = ({ viewMode }: FastServeFranchiseNetworkProps 
       <div className="bg-white rounded-lg shadow-md p-6 mb-6">
         <div className="grid grid-cols-1 md:grid-cols-4 gap-4">
           <div>
-            <label className="block text-sm font-semibold text-gray-700 mb-2">Location</label>
+            <label htmlFor="franchise-inventory-location" className="block text-sm font-semibold text-gray-700 mb-2">Location</label>
             <select
+              id="franchise-inventory-location"
               value={selectedLocation}
               onChange={(e) => setSelectedLocation(e.target.value)}
               className="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-[#bc4749]"
@@ -838,8 +841,9 @@ const FastServeFranchiseNetwork = ({ viewMode }: FastServeFranchiseNetworkProps 
             </select>
           </div>
           <div>
-            <label className="block text-sm font-semibold text-gray-700 mb-2">Category</label>
+            <label htmlFor="franchise-inventory-category" className="block text-sm font-semibold text-gray-700 mb-2">Category</label>
             <select
+              id="franchise-inventory-category"
               value={selectedCategory}
               onChange={(e) => setSelectedCategory(e.target.value)}
               className="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-[#bc4749]"
@@ -852,8 +856,8 @@ const FastServeFranchiseNetwork = ({ viewMode }: FastServeFranchiseNetworkProps 
             </select>
           </div>
           <div>
-            <label className="block text-sm font-semibold text-gray-700 mb-2">Status</label>
-            <select className="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-[#bc4749]">
+            <label htmlFor="franchise-inventory-status" className="block text-sm font-semibold text-gray-700 mb-2">Status</label>
+            <select id="franchise-inventory-status" className="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-[#bc4749]">
               <option>All Items</option>
               <option>Low Stock</option>
               <option>In Stock</option>
@@ -861,10 +865,11 @@ const FastServeFranchiseNetwork = ({ viewMode }: FastServeFranchiseNetworkProps 
             </select>
           </div>
           <div>
-            <label className="block text-sm font-semibold text-gray-700 mb-2">Search</label>
+            <label htmlFor="franchise-inventory-search" className="block text-sm font-semibold text-gray-700 mb-2">Search</label>
             <div className="relative">
               <Search className="w-5 h-5 absolute left-3 top-1/2 transform -translate-y-1/2 text-gray-400" />
               <input
+                id="franchise-inventory-search"
                 type="text"
                 placeholder="Search items..."
                 className="w-full pl-10 pr-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-[#bc4749]"
@@ -957,6 +962,7 @@ const FastServeFranchiseNetwork = ({ viewMode }: FastServeFranchiseNetworkProps 
         </div>
         <div className="flex gap-3">
           <select
+            aria-label="Select date range"
             value={dateRange}
             onChange={(e) => setDateRange(e.target.value)}
             className="px-4 py-2 border-2 border-[#bc4749] rounded-lg font-semibold text-[#bc4749] focus:outline-none"
@@ -1489,8 +1495,9 @@ const FastServeFranchiseNetwork = ({ viewMode }: FastServeFranchiseNetworkProps 
               <form className="space-y-4" onSubmit={handleContactSubmit}>
                 <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
                   <div>
-                    <label className="block text-sm font-semibold text-gray-700 mb-2">Your Name</label>
+                    <label htmlFor="franchise-contact-name" className="block text-sm font-semibold text-gray-700 mb-2">Your Name</label>
                     <input
+                      id="franchise-contact-name"
                       type="text"
                       name="name"
                       required
@@ -1499,8 +1506,8 @@ const FastServeFranchiseNetwork = ({ viewMode }: FastServeFranchiseNetworkProps 
                     />
                   </div>
                   <div>
-                    <label className="block text-sm font-semibold text-gray-700 mb-2">Location</label>
-                    <select name="location" className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-[#bc4749] focus:border-transparent">
+                    <label htmlFor="franchise-contact-location" className="block text-sm font-semibold text-gray-700 mb-2">Location</label>
+                    <select id="franchise-contact-location" name="location" className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-[#bc4749] focus:border-transparent">
                       <option>Select your location</option>
                       {locations.map(loc => (
                         <option key={loc.id}>{loc.name}</option>
@@ -1510,8 +1517,9 @@ const FastServeFranchiseNetwork = ({ viewMode }: FastServeFranchiseNetworkProps 
                 </div>
 
                 <div>
-                  <label className="block text-sm font-semibold text-gray-700 mb-2">Email</label>
+                  <label htmlFor="franchise-contact-email" className="block text-sm font-semibold text-gray-700 mb-2">Email</label>
                   <input
+                    id="franchise-contact-email"
                     type="email"
                     name="email"
                     required
@@ -1521,8 +1529,8 @@ const FastServeFranchiseNetwork = ({ viewMode }: FastServeFranchiseNetworkProps 
                 </div>
 
                 <div>
-                  <label className="block text-sm font-semibold text-gray-700 mb-2">Department</label>
-                  <select name="department" className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-[#bc4749] focus:border-transparent">
+                  <label htmlFor="franchise-contact-department" className="block text-sm font-semibold text-gray-700 mb-2">Department</label>
+                  <select id="franchise-contact-department" name="department" className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-[#bc4749] focus:border-transparent">
                     <option>General Inquiry</option>
                     <option>Operations Support</option>
                     <option>Technical Support</option>
@@ -1534,8 +1542,9 @@ const FastServeFranchiseNetwork = ({ viewMode }: FastServeFranchiseNetworkProps 
                 </div>
 
                 <div>
-                  <label className="block text-sm font-semibold text-gray-700 mb-2">Subject</label>
+                  <label htmlFor="franchise-contact-subject" className="block text-sm font-semibold text-gray-700 mb-2">Subject</label>
                   <input
+                    id="franchise-contact-subject"
                     type="text"
                     name="subject"
                     className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-[#bc4749] focus:border-transparent"
@@ -1544,8 +1553,9 @@ const FastServeFranchiseNetwork = ({ viewMode }: FastServeFranchiseNetworkProps 
                 </div>
 
                 <div>
-                  <label className="block text-sm font-semibold text-gray-700 mb-2">Message</label>
+                  <label htmlFor="franchise-contact-message" className="block text-sm font-semibold text-gray-700 mb-2">Message</label>
                   <textarea
+                    id="franchise-contact-message"
                     name="message"
                     rows={6}
                     required

@@ -188,10 +188,11 @@ export default function ContactPage({ onNavigate, accentColor = '#c9a227' }: Con
               ) : (
                 <form onSubmit={handleSubmit} className="space-y-4">
                   <div>
-                    <label className="block text-sm font-bold mb-2" style={{ color: '#1a1a2e' }}>
+                    <label htmlFor="lawfirm-contact-name" className="block text-sm font-bold mb-2" style={{ color: '#1a1a2e' }}>
                       Full Name *
                     </label>
                     <input
+                      id="lawfirm-contact-name"
                       type="text"
                       name="name"
                       value={formData.name}
@@ -205,10 +206,11 @@ export default function ContactPage({ onNavigate, accentColor = '#c9a227' }: Con
 
                   <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
                     <div>
-                      <label className="block text-sm font-bold mb-2" style={{ color: '#1a1a2e' }}>
+                      <label htmlFor="lawfirm-contact-email" className="block text-sm font-bold mb-2" style={{ color: '#1a1a2e' }}>
                         Email Address *
                       </label>
                       <input
+                        id="lawfirm-contact-email"
                         type="email"
                         name="email"
                         value={formData.email}
@@ -221,10 +223,11 @@ export default function ContactPage({ onNavigate, accentColor = '#c9a227' }: Con
                     </div>
 
                     <div>
-                      <label className="block text-sm font-bold mb-2" style={{ color: '#1a1a2e' }}>
+                      <label htmlFor="lawfirm-contact-phone" className="block text-sm font-bold mb-2" style={{ color: '#1a1a2e' }}>
                         Phone Number *
                       </label>
                       <input
+                        id="lawfirm-contact-phone"
                         type="tel"
                         name="phone"
                         value={formData.phone}
@@ -238,10 +241,11 @@ export default function ContactPage({ onNavigate, accentColor = '#c9a227' }: Con
                   </div>
 
                   <div>
-                    <label className="block text-sm font-bold mb-2" style={{ color: '#1a1a2e' }}>
+                    <label htmlFor="lawfirm-contact-practice-area" className="block text-sm font-bold mb-2" style={{ color: '#1a1a2e' }}>
                       Practice Area *
                     </label>
                     <select
+                      id="lawfirm-contact-practice-area"
                       name="practiceArea"
                       value={formData.practiceArea}
                       onChange={handleChange}
@@ -263,10 +267,11 @@ export default function ContactPage({ onNavigate, accentColor = '#c9a227' }: Con
                   </div>
 
                   <div>
-                    <label className="block text-sm font-bold mb-2" style={{ color: '#1a1a2e' }}>
+                    <label htmlFor="lawfirm-contact-message" className="block text-sm font-bold mb-2" style={{ color: '#1a1a2e' }}>
                       Brief Description of Your Legal Matter *
                     </label>
                     <textarea
+                      id="lawfirm-contact-message"
                       name="message"
                       value={formData.message}
                       onChange={handleChange}

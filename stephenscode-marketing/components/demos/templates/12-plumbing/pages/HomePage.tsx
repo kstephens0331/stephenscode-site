@@ -144,6 +144,7 @@ const HomePage: React.FC<HomePageProps> = ({ onNavigate }) => {
                   <form className="space-y-4" onSubmit={handleSubmit}>
                     <input
                       type="text"
+                      aria-label="Your name"
                       placeholder="Your Name"
                       value={formData.name}
                       onChange={(e) => setFormData({ ...formData, name: e.target.value })}
@@ -151,12 +152,14 @@ const HomePage: React.FC<HomePageProps> = ({ onNavigate }) => {
                     />
                     <input
                       type="tel"
+                      aria-label="Phone number"
                       placeholder="Phone Number"
                       value={formData.phone}
                       onChange={(e) => setFormData({ ...formData, phone: e.target.value })}
                       className="w-full px-4 py-3 rounded-lg bg-white/20 border border-white/30 text-white placeholder-blue-200 focus:outline-none focus:ring-2 focus:ring-white"
                     />
                     <select
+                      aria-label="Service type"
                       value={formData.service}
                       onChange={(e) => setFormData({ ...formData, service: e.target.value })}
                       className="w-full px-4 py-3 rounded-lg bg-white/20 border border-white/30 text-white focus:outline-none focus:ring-2 focus:ring-white"
@@ -169,6 +172,7 @@ const HomePage: React.FC<HomePageProps> = ({ onNavigate }) => {
                       <option>Other</option>
                     </select>
                     <textarea
+                      aria-label="Describe your plumbing issue"
                       placeholder="Describe your plumbing issue"
                       rows={4}
                       value={formData.notes}

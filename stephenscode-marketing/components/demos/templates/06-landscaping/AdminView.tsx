@@ -339,32 +339,36 @@ export default function AdminView({ onSwitchToCustomer }: AdminViewProps) {
             <div className="space-y-6">
               <div className="grid md:grid-cols-2 gap-6">
                 <div>
-                  <label className="block text-sm font-semibold text-[#386641] mb-2">Business Name</label>
+                  <label htmlFor="landscaping-admin-business-name" className="block text-sm font-semibold text-[#386641] mb-2">Business Name</label>
                   <input
+                    id="landscaping-admin-business-name"
                     type="text"
                     defaultValue="Green Valley Landscaping"
                     className="w-full px-4 py-3 rounded-lg border-2 border-gray-200 focus:border-[#a7c957] focus:outline-none"
                   />
                 </div>
                 <div>
-                  <label className="block text-sm font-semibold text-[#386641] mb-2">Phone Number</label>
+                  <label htmlFor="landscaping-admin-phone" className="block text-sm font-semibold text-[#386641] mb-2">Phone Number</label>
                   <input
+                    id="landscaping-admin-phone"
                     type="tel"
                     defaultValue="(555) 012-3456"
                     className="w-full px-4 py-3 rounded-lg border-2 border-gray-200 focus:border-[#a7c957] focus:outline-none"
                   />
                 </div>
                 <div>
-                  <label className="block text-sm font-semibold text-[#386641] mb-2">Email Address</label>
+                  <label htmlFor="landscaping-admin-email" className="block text-sm font-semibold text-[#386641] mb-2">Email Address</label>
                   <input
+                    id="landscaping-admin-email"
                     type="email"
                     defaultValue="info@greenvalley.com"
                     className="w-full px-4 py-3 rounded-lg border-2 border-gray-200 focus:border-[#a7c957] focus:outline-none"
                   />
                 </div>
                 <div>
-                  <label className="block text-sm font-semibold text-[#386641] mb-2">Address</label>
+                  <label htmlFor="landscaping-admin-address" className="block text-sm font-semibold text-[#386641] mb-2">Address</label>
                   <input
+                    id="landscaping-admin-address"
                     type="text"
                     defaultValue="123 Garden Lane, Green Valley, ST 12345"
                     className="w-full px-4 py-3 rounded-lg border-2 border-gray-200 focus:border-[#a7c957] focus:outline-none"
@@ -372,8 +376,9 @@ export default function AdminView({ onSwitchToCustomer }: AdminViewProps) {
                 </div>
               </div>
               <div>
-                <label className="block text-sm font-semibold text-[#386641] mb-2">Business Description</label>
+                <label htmlFor="landscaping-admin-description" className="block text-sm font-semibold text-[#386641] mb-2">Business Description</label>
                 <textarea
+                  id="landscaping-admin-description"
                   rows={4}
                   defaultValue="Professional landscaping services for over 15 years. We create beautiful, sustainable outdoor environments."
                   className="w-full px-4 py-3 rounded-lg border-2 border-gray-200 focus:border-[#a7c957] focus:outline-none resize-none"

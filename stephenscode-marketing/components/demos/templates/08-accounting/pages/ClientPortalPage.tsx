@@ -38,11 +38,12 @@ export default function ClientPortalPage({ onNavigate }: ClientPortalPageProps) 
 
             <form onSubmit={handleLogin} className="space-y-6">
               <div>
-                <label className="block text-sm font-semibold text-gray-700 mb-2">
+                <label htmlFor="accounting-portal-email" className="block text-sm font-semibold text-gray-700 mb-2">
                   Email Address
                 </label>
                 <div className="relative">
                   <input
+                    id="accounting-portal-email"
                     type="email"
                     value={email}
                     onChange={(e) => setEmail(e.target.value)}
@@ -55,11 +56,12 @@ export default function ClientPortalPage({ onNavigate }: ClientPortalPageProps) 
               </div>
 
               <div>
-                <label className="block text-sm font-semibold text-gray-700 mb-2">
+                <label htmlFor="accounting-portal-password" className="block text-sm font-semibold text-gray-700 mb-2">
                   Password
                 </label>
                 <div className="relative">
                   <input
+                    id="accounting-portal-password"
                     type={showPassword ? 'text' : 'password'}
                     value={password}
                     onChange={(e) => setPassword(e.target.value)}
@@ -79,8 +81,8 @@ export default function ClientPortalPage({ onNavigate }: ClientPortalPageProps) 
               </div>
 
               <div className="flex items-center justify-between">
-                <label className="flex items-center gap-2 cursor-pointer">
-                  <input type="checkbox" className="w-4 h-4 text-[#fca311] border-gray-300 rounded focus:ring-[#fca311]" />
+                <label htmlFor="accounting-portal-remember" className="flex items-center gap-2 cursor-pointer">
+                  <input id="accounting-portal-remember" type="checkbox" className="w-4 h-4 text-[#fca311] border-gray-300 rounded focus:ring-[#fca311]" />
                   <span className="text-sm text-gray-700">Remember me</span>
                 </label>
                 <a href="#" className="text-sm text-[#fca311] hover:text-[#e59400] font-semibold">

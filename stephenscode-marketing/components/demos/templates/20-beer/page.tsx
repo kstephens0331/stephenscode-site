@@ -626,8 +626,9 @@ const HoppyTrailsCraftBeer = () => {
       <div className="bg-white rounded-lg shadow-md p-6 mb-8">
         <div className="grid grid-cols-1 md:grid-cols-4 gap-4">
           <div>
-            <label className="block text-sm font-semibold text-gray-700 mb-2">Search</label>
+            <label htmlFor="beer-shop-search" className="block text-sm font-semibold text-gray-700 mb-2">Search</label>
             <input
+              id="beer-shop-search"
               type="text"
               value={searchTerm}
               onChange={(e) => setSearchTerm(e.target.value)}
@@ -636,8 +637,9 @@ const HoppyTrailsCraftBeer = () => {
             />
           </div>
           <div>
-            <label className="block text-sm font-semibold text-gray-700 mb-2">Beer Style</label>
+            <label htmlFor="beer-shop-style" className="block text-sm font-semibold text-gray-700 mb-2">Beer Style</label>
             <select
+              id="beer-shop-style"
               value={selectedStyle}
               onChange={(e) => setSelectedStyle(e.target.value)}
               className="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-[#582f0e] focus:border-transparent"
@@ -648,8 +650,9 @@ const HoppyTrailsCraftBeer = () => {
             </select>
           </div>
           <div>
-            <label className="block text-sm font-semibold text-gray-700 mb-2">Brewery</label>
+            <label htmlFor="beer-shop-brewery" className="block text-sm font-semibold text-gray-700 mb-2">Brewery</label>
             <select
+              id="beer-shop-brewery"
               value={selectedBrewery}
               onChange={(e) => setSelectedBrewery(e.target.value)}
               className="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-[#582f0e] focus:border-transparent"
@@ -661,8 +664,9 @@ const HoppyTrailsCraftBeer = () => {
             </select>
           </div>
           <div>
-            <label className="block text-sm font-semibold text-gray-700 mb-2">Sort By</label>
+            <label htmlFor="beer-shop-sort" className="block text-sm font-semibold text-gray-700 mb-2">Sort By</label>
             <select
+              id="beer-shop-sort"
               value={sortBy}
               onChange={(e) => setSortBy(e.target.value)}
               className="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-[#582f0e] focus:border-transparent"
@@ -823,8 +827,9 @@ const HoppyTrailsCraftBeer = () => {
           </div>
 
           <div>
-            <label className="block text-lg font-semibold text-gray-800 mb-3">Bitterness Level?</label>
+            <label htmlFor="beer-finder-bitterness" className="block text-lg font-semibold text-gray-800 mb-3">Bitterness Level?</label>
             <input
+              id="beer-finder-bitterness"
               type="range"
               min="0"
               max="100"
@@ -1133,8 +1138,9 @@ const HoppyTrailsCraftBeer = () => {
               </div>
 
               <div className="mb-6">
-                <label className="block text-sm font-semibold text-gray-700 mb-2">Pickup Location</label>
+                <label htmlFor="beer-cart-pickup-location" className="block text-sm font-semibold text-gray-700 mb-2">Pickup Location</label>
                 <select
+                  id="beer-cart-pickup-location"
                   value={selectedPickup}
                   onChange={(e) => {
                     setSelectedPickup(e.target.value);
@@ -1332,6 +1338,7 @@ const HoppyTrailsCraftBeer = () => {
           <div className="flex gap-3 max-w-md mx-auto">
             <input
               type="email"
+              aria-label="Email address for newsletter"
               placeholder="Enter your email"
               className="flex-1 px-4 py-3 rounded-lg text-gray-900"
             />
@@ -1355,32 +1362,35 @@ const HoppyTrailsCraftBeer = () => {
             <h2 className="text-2xl font-bold text-[#582f0e] mb-6">Send Us a Message</h2>
             <form className="space-y-4">
               <div>
-                <label className="block text-sm font-semibold text-gray-700 mb-2">Name</label>
+                <label htmlFor="beer-contact-name" className="block text-sm font-semibold text-gray-700 mb-2">Name</label>
                 <input
+                  id="beer-contact-name"
                   type="text"
                   className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-[#582f0e] focus:border-transparent"
                   placeholder="Your name"
                 />
               </div>
               <div>
-                <label className="block text-sm font-semibold text-gray-700 mb-2">Email</label>
+                <label htmlFor="beer-contact-email" className="block text-sm font-semibold text-gray-700 mb-2">Email</label>
                 <input
+                  id="beer-contact-email"
                   type="email"
                   className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-[#582f0e] focus:border-transparent"
                   placeholder="your@email.com"
                 />
               </div>
               <div>
-                <label className="block text-sm font-semibold text-gray-700 mb-2">Phone</label>
+                <label htmlFor="beer-contact-phone" className="block text-sm font-semibold text-gray-700 mb-2">Phone</label>
                 <input
+                  id="beer-contact-phone"
                   type="tel"
                   className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-[#582f0e] focus:border-transparent"
                   placeholder="(555) 123-4567"
                 />
               </div>
               <div>
-                <label className="block text-sm font-semibold text-gray-700 mb-2">Subject</label>
-                <select className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-[#582f0e] focus:border-transparent">
+                <label htmlFor="beer-contact-subject" className="block text-sm font-semibold text-gray-700 mb-2">Subject</label>
+                <select id="beer-contact-subject" className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-[#582f0e] focus:border-transparent">
                   <option>General Inquiry</option>
                   <option>Order Support</option>
                   <option>Subscription Question</option>
@@ -1389,8 +1399,9 @@ const HoppyTrailsCraftBeer = () => {
                 </select>
               </div>
               <div>
-                <label className="block text-sm font-semibold text-gray-700 mb-2">Message</label>
+                <label htmlFor="beer-contact-message" className="block text-sm font-semibold text-gray-700 mb-2">Message</label>
                 <textarea
+                  id="beer-contact-message"
                   rows={5}
                   className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-[#582f0e] focus:border-transparent"
                   placeholder="How can we help you?"

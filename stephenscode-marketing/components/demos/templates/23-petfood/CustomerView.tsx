@@ -693,6 +693,7 @@ const CustomerView: React.FC = () => {
             <input
               type="email"
               placeholder="Enter your email"
+              aria-label="Email address"
               className="flex-1 px-4 py-3 border-2 border-gray-300 rounded-lg focus:outline-none focus:border-[#f4a261]"
             />
             <button className="bg-[#e76f51] text-white px-8 py-3 rounded-lg font-semibold hover:bg-[#d65d41] transition-colors whitespace-nowrap">
@@ -911,10 +912,10 @@ const CustomerView: React.FC = () => {
               </div>
 
               <div className="mb-4">
-                <label className="block text-sm font-medium text-gray-700 mb-2">
+                <label htmlFor={`petfood-sub-frequency-${product.id}`} className="block text-sm font-medium text-gray-700 mb-2">
                   Delivery Frequency
                 </label>
-                <select className="w-full px-4 py-2 border-2 border-gray-300 rounded-lg focus:outline-none focus:border-[#f4a261]">
+                <select id={`petfood-sub-frequency-${product.id}`} className="w-full px-4 py-2 border-2 border-gray-300 rounded-lg focus:outline-none focus:border-[#f4a261]">
                   <option>Every 2 weeks</option>
                   <option>Every 3 weeks</option>
                   <option>Every month</option>
@@ -1798,20 +1799,22 @@ const CustomerView: React.FC = () => {
             <form className="space-y-4">
               <div className="grid md:grid-cols-2 gap-4">
                 <div>
-                  <label className="block text-sm font-medium text-gray-700 mb-2">
+                  <label htmlFor="petfood-support-first-name" className="block text-sm font-medium text-gray-700 mb-2">
                     First Name *
                   </label>
                   <input
+                    id="petfood-support-first-name"
                     type="text"
                     className="w-full px-4 py-3 border-2 border-gray-300 rounded-lg focus:outline-none focus:border-[#f4a261]"
                     placeholder="John"
                   />
                 </div>
                 <div>
-                  <label className="block text-sm font-medium text-gray-700 mb-2">
+                  <label htmlFor="petfood-support-last-name" className="block text-sm font-medium text-gray-700 mb-2">
                     Last Name *
                   </label>
                   <input
+                    id="petfood-support-last-name"
                     type="text"
                     className="w-full px-4 py-3 border-2 border-gray-300 rounded-lg focus:outline-none focus:border-[#f4a261]"
                     placeholder="Doe"
@@ -1820,10 +1823,11 @@ const CustomerView: React.FC = () => {
               </div>
 
               <div>
-                <label className="block text-sm font-medium text-gray-700 mb-2">
+                <label htmlFor="petfood-support-email" className="block text-sm font-medium text-gray-700 mb-2">
                   Email Address *
                 </label>
                 <input
+                  id="petfood-support-email"
                   type="email"
                   className="w-full px-4 py-3 border-2 border-gray-300 rounded-lg focus:outline-none focus:border-[#f4a261]"
                   placeholder="john@example.com"
@@ -1831,10 +1835,11 @@ const CustomerView: React.FC = () => {
               </div>
 
               <div>
-                <label className="block text-sm font-medium text-gray-700 mb-2">
+                <label htmlFor="petfood-support-phone" className="block text-sm font-medium text-gray-700 mb-2">
                   Phone Number
                 </label>
                 <input
+                  id="petfood-support-phone"
                   type="tel"
                   className="w-full px-4 py-3 border-2 border-gray-300 rounded-lg focus:outline-none focus:border-[#f4a261]"
                   placeholder="(555) 123-4567"
@@ -1842,10 +1847,10 @@ const CustomerView: React.FC = () => {
               </div>
 
               <div>
-                <label className="block text-sm font-medium text-gray-700 mb-2">
+                <label htmlFor="petfood-support-subject" className="block text-sm font-medium text-gray-700 mb-2">
                   Subject *
                 </label>
-                <select className="w-full px-4 py-3 border-2 border-gray-300 rounded-lg focus:outline-none focus:border-[#f4a261]">
+                <select id="petfood-support-subject" className="w-full px-4 py-3 border-2 border-gray-300 rounded-lg focus:outline-none focus:border-[#f4a261]">
                   <option>General Inquiry</option>
                   <option>Order Question</option>
                   <option>Product Question</option>
@@ -1857,10 +1862,11 @@ const CustomerView: React.FC = () => {
               </div>
 
               <div>
-                <label className="block text-sm font-medium text-gray-700 mb-2">
+                <label htmlFor="petfood-support-message" className="block text-sm font-medium text-gray-700 mb-2">
                   Message *
                 </label>
                 <textarea
+                  id="petfood-support-message"
                   rows={5}
                   className="w-full px-4 py-3 border-2 border-gray-300 rounded-lg focus:outline-none focus:border-[#f4a261]"
                   placeholder="How can we help you?"

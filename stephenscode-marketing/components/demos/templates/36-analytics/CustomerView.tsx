@@ -57,6 +57,7 @@ export default function CustomerView({ demo, colors }: CustomerViewProps) {
             </div>
             <div className="flex gap-3">
               <select
+                aria-label="Select date range"
                 value={dateRange}
                 onChange={(e) => setDateRange(e.target.value)}
                 className="px-4 py-2 rounded-lg border font-medium focus:outline-none focus:ring-2"

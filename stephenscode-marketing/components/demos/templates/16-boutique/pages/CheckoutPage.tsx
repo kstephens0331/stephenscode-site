@@ -99,28 +99,28 @@ export default function CheckoutPage({ cart, clearCart, setCurrentPage }: Checko
                   </div>
                   <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
                     <div>
-                      <label className="block text-sm font-semibold text-gray-700 mb-2">First Name</label>
-                      <input type="text" className="w-full px-4 py-3 border-2 border-gray-200 rounded-lg focus:outline-none focus:border-[var(--color-primary)]" />
+                      <label htmlFor="boutique-checkout-first-name" className="block text-sm font-semibold text-gray-700 mb-2">First Name</label>
+                      <input id="boutique-checkout-first-name" type="text" className="w-full px-4 py-3 border-2 border-gray-200 rounded-lg focus:outline-none focus:border-[var(--color-primary)]" />
                     </div>
                     <div>
-                      <label className="block text-sm font-semibold text-gray-700 mb-2">Last Name</label>
-                      <input type="text" className="w-full px-4 py-3 border-2 border-gray-200 rounded-lg focus:outline-none focus:border-[var(--color-primary)]" />
+                      <label htmlFor="boutique-checkout-last-name" className="block text-sm font-semibold text-gray-700 mb-2">Last Name</label>
+                      <input id="boutique-checkout-last-name" type="text" className="w-full px-4 py-3 border-2 border-gray-200 rounded-lg focus:outline-none focus:border-[var(--color-primary)]" />
                     </div>
                     <div className="md:col-span-2">
-                      <label className="block text-sm font-semibold text-gray-700 mb-2">Email</label>
-                      <input type="email" className="w-full px-4 py-3 border-2 border-gray-200 rounded-lg focus:outline-none focus:border-[var(--color-primary)]" />
+                      <label htmlFor="boutique-checkout-email" className="block text-sm font-semibold text-gray-700 mb-2">Email</label>
+                      <input id="boutique-checkout-email" type="email" className="w-full px-4 py-3 border-2 border-gray-200 rounded-lg focus:outline-none focus:border-[var(--color-primary)]" />
                     </div>
                     <div className="md:col-span-2">
-                      <label className="block text-sm font-semibold text-gray-700 mb-2">Address</label>
-                      <input type="text" className="w-full px-4 py-3 border-2 border-gray-200 rounded-lg focus:outline-none focus:border-[var(--color-primary)]" />
+                      <label htmlFor="boutique-checkout-address" className="block text-sm font-semibold text-gray-700 mb-2">Address</label>
+                      <input id="boutique-checkout-address" type="text" className="w-full px-4 py-3 border-2 border-gray-200 rounded-lg focus:outline-none focus:border-[var(--color-primary)]" />
                     </div>
                     <div>
-                      <label className="block text-sm font-semibold text-gray-700 mb-2">City</label>
-                      <input type="text" className="w-full px-4 py-3 border-2 border-gray-200 rounded-lg focus:outline-none focus:border-[var(--color-primary)]" />
+                      <label htmlFor="boutique-checkout-city" className="block text-sm font-semibold text-gray-700 mb-2">City</label>
+                      <input id="boutique-checkout-city" type="text" className="w-full px-4 py-3 border-2 border-gray-200 rounded-lg focus:outline-none focus:border-[var(--color-primary)]" />
                     </div>
                     <div>
-                      <label className="block text-sm font-semibold text-gray-700 mb-2">State</label>
-                      <select className="w-full px-4 py-3 border-2 border-gray-200 rounded-lg focus:outline-none focus:border-[var(--color-primary)]">
+                      <label htmlFor="boutique-checkout-state" className="block text-sm font-semibold text-gray-700 mb-2">State</label>
+                      <select id="boutique-checkout-state" className="w-full px-4 py-3 border-2 border-gray-200 rounded-lg focus:outline-none focus:border-[var(--color-primary)]">
                         <option>Select State</option>
                         <option>California</option>
                         <option>New York</option>
@@ -128,12 +128,12 @@ export default function CheckoutPage({ cart, clearCart, setCurrentPage }: Checko
                       </select>
                     </div>
                     <div>
-                      <label className="block text-sm font-semibold text-gray-700 mb-2">ZIP Code</label>
-                      <input type="text" className="w-full px-4 py-3 border-2 border-gray-200 rounded-lg focus:outline-none focus:border-[var(--color-primary)]" />
+                      <label htmlFor="boutique-checkout-zip" className="block text-sm font-semibold text-gray-700 mb-2">ZIP Code</label>
+                      <input id="boutique-checkout-zip" type="text" className="w-full px-4 py-3 border-2 border-gray-200 rounded-lg focus:outline-none focus:border-[var(--color-primary)]" />
                     </div>
                     <div>
-                      <label className="block text-sm font-semibold text-gray-700 mb-2">Phone</label>
-                      <input type="tel" className="w-full px-4 py-3 border-2 border-gray-200 rounded-lg focus:outline-none focus:border-[var(--color-primary)]" />
+                      <label htmlFor="boutique-checkout-phone" className="block text-sm font-semibold text-gray-700 mb-2">Phone</label>
+                      <input id="boutique-checkout-phone" type="tel" className="w-full px-4 py-3 border-2 border-gray-200 rounded-lg focus:outline-none focus:border-[var(--color-primary)]" />
                     </div>
                   </div>
                   <button
@@ -153,21 +153,21 @@ export default function CheckoutPage({ cart, clearCart, setCurrentPage }: Checko
                   </div>
                   <div className="space-y-6">
                     <div>
-                      <label className="block text-sm font-semibold text-gray-700 mb-2">Card Number</label>
-                      <input type="text" placeholder="1234 5678 9012 3456" className="w-full px-4 py-3 border-2 border-gray-200 rounded-lg focus:outline-none focus:border-[var(--color-primary)]" />
+                      <label htmlFor="boutique-checkout-card-number" className="block text-sm font-semibold text-gray-700 mb-2">Card Number</label>
+                      <input id="boutique-checkout-card-number" type="text" placeholder="1234 5678 9012 3456" className="w-full px-4 py-3 border-2 border-gray-200 rounded-lg focus:outline-none focus:border-[var(--color-primary)]" />
                     </div>
                     <div>
-                      <label className="block text-sm font-semibold text-gray-700 mb-2">Cardholder Name</label>
-                      <input type="text" className="w-full px-4 py-3 border-2 border-gray-200 rounded-lg focus:outline-none focus:border-[var(--color-primary)]" />
+                      <label htmlFor="boutique-checkout-cardholder-name" className="block text-sm font-semibold text-gray-700 mb-2">Cardholder Name</label>
+                      <input id="boutique-checkout-cardholder-name" type="text" className="w-full px-4 py-3 border-2 border-gray-200 rounded-lg focus:outline-none focus:border-[var(--color-primary)]" />
                     </div>
                     <div className="grid grid-cols-2 gap-6">
                       <div>
-                        <label className="block text-sm font-semibold text-gray-700 mb-2">Expiry Date</label>
-                        <input type="text" placeholder="MM/YY" className="w-full px-4 py-3 border-2 border-gray-200 rounded-lg focus:outline-none focus:border-[var(--color-primary)]" />
+                        <label htmlFor="boutique-checkout-expiry" className="block text-sm font-semibold text-gray-700 mb-2">Expiry Date</label>
+                        <input id="boutique-checkout-expiry" type="text" placeholder="MM/YY" className="w-full px-4 py-3 border-2 border-gray-200 rounded-lg focus:outline-none focus:border-[var(--color-primary)]" />
                       </div>
                       <div>
-                        <label className="block text-sm font-semibold text-gray-700 mb-2">CVV</label>
-                        <input type="text" placeholder="123" className="w-full px-4 py-3 border-2 border-gray-200 rounded-lg focus:outline-none focus:border-[var(--color-primary)]" />
+                        <label htmlFor="boutique-checkout-cvv" className="block text-sm font-semibold text-gray-700 mb-2">CVV</label>
+                        <input id="boutique-checkout-cvv" type="text" placeholder="123" className="w-full px-4 py-3 border-2 border-gray-200 rounded-lg focus:outline-none focus:border-[var(--color-primary)]" />
                       </div>
                     </div>
                     <div className="flex items-center space-x-2 text-sm text-gray-600 bg-gray-50 p-4 rounded-lg">

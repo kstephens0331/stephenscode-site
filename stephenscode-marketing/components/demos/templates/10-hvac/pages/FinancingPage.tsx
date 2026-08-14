@@ -97,10 +97,11 @@ export default function FinancingPage({ onNavigate }: FinancingPageProps) {
 
             <div className="bg-white/10 backdrop-blur-sm rounded-xl p-6 mb-6">
               <div className="mb-6">
-                <label className="block text-sm font-semibold mb-3">
+                <label htmlFor="hvac-financing-project-cost" className="block text-sm font-semibold mb-3">
                   Project Cost: ${loanAmount.toLocaleString()}
                 </label>
                 <input
+                  id="hvac-financing-project-cost"
                   type="range"
                   min="1000"
                   max="15000"
@@ -116,10 +117,11 @@ export default function FinancingPage({ onNavigate }: FinancingPageProps) {
               </div>
 
               <div>
-                <label className="block text-sm font-semibold mb-3">
+                <label htmlFor="hvac-financing-payment-term" className="block text-sm font-semibold mb-3">
                   Payment Term: {loanTerm} months
                 </label>
                 <input
+                  id="hvac-financing-payment-term"
                   type="range"
                   min="12"
                   max="60"

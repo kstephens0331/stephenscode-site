@@ -90,8 +90,8 @@ export default function AdminView({ demo, colors }: AdminViewProps) {
                   <div key={index} className="p-4 rounded-lg" style={{ backgroundColor: colors.backgroundAlt }}>
                     <div className="flex items-center justify-between mb-2">
                       <Zap className="w-5 h-5" style={{ color: colors.accent }} />
-                      <label className="relative inline-flex items-center cursor-pointer">
-                        <input type="checkbox" checked={automation.active} readOnly className="sr-only peer" />
+                      <label htmlFor={`crm-automation-toggle-${index}`} className="relative inline-flex items-center cursor-pointer">
+                        <input id={`crm-automation-toggle-${index}`} type="checkbox" aria-label={`Toggle automation: ${automation.trigger}`} checked={automation.active} readOnly className="sr-only peer" />
                         <div className="w-11 h-6 rounded-full peer peer-checked:after:translate-x-full peer-checked:after:border-white after:content-[''] after:absolute after:top-[2px] after:left-[2px] after:bg-white after:border-gray-300 after:border after:rounded-full after:h-5 after:w-5 after:transition-all"
                           style={{ backgroundColor: automation.active ? colors.primary : colors.border }}
                         />

@@ -194,16 +194,16 @@ export default function CustomerView({ demo, colors }: CustomerViewProps) {
             <h2 className="text-2xl font-bold text-gray-900 mb-6">Design Your Cake</h2>
             <div className="space-y-6">
               <div>
-                <label className="block font-semibold text-gray-700 mb-2">Size</label>
-                <select className="w-full px-4 py-3 border-2 border-gray-200 rounded-lg">
+                <label htmlFor="bakery-cake-size" className="block font-semibold text-gray-700 mb-2">Size</label>
+                <select id="bakery-cake-size" className="w-full px-4 py-3 border-2 border-gray-200 rounded-lg">
                   <option>6" Round (Serves 8-10)</option>
                   <option>8" Round (Serves 12-16)</option>
                   <option>10" Round (Serves 20-24)</option>
                 </select>
               </div>
               <div>
-                <label className="block font-semibold text-gray-700 mb-2">Flavor</label>
-                <select className="w-full px-4 py-3 border-2 border-gray-200 rounded-lg">
+                <label htmlFor="bakery-cake-flavor" className="block font-semibold text-gray-700 mb-2">Flavor</label>
+                <select id="bakery-cake-flavor" className="w-full px-4 py-3 border-2 border-gray-200 rounded-lg">
                   <option>Chocolate</option>
                   <option>Vanilla</option>
                   <option>Red Velvet</option>
@@ -211,16 +211,16 @@ export default function CustomerView({ demo, colors }: CustomerViewProps) {
                 </select>
               </div>
               <div>
-                <label className="block font-semibold text-gray-700 mb-2">Frosting</label>
-                <select className="w-full px-4 py-3 border-2 border-gray-200 rounded-lg">
+                <label htmlFor="bakery-cake-frosting" className="block font-semibold text-gray-700 mb-2">Frosting</label>
+                <select id="bakery-cake-frosting" className="w-full px-4 py-3 border-2 border-gray-200 rounded-lg">
                   <option>Buttercream</option>
                   <option>Cream Cheese</option>
                   <option>Fondant</option>
                 </select>
               </div>
               <div>
-                <label className="block font-semibold text-gray-700 mb-2">Message</label>
-                <input type="text" placeholder="Happy Birthday!" className="w-full px-4 py-3 border-2 border-gray-200 rounded-lg" />
+                <label htmlFor="bakery-cake-message" className="block font-semibold text-gray-700 mb-2">Message</label>
+                <input id="bakery-cake-message" type="text" placeholder="Happy Birthday!" className="w-full px-4 py-3 border-2 border-gray-200 rounded-lg" />
               </div>
               <button className="w-full bg-[var(--color-primary)] text-white py-4 rounded-lg font-semibold hover:bg-opacity-90">
                 Add to Cart ($65.99)
@@ -476,6 +476,7 @@ export default function CustomerView({ demo, colors }: CustomerViewProps) {
               <form className="space-y-4" onSubmit={handleContactSubmit}>
                 <input
                   type="text"
+                  aria-label="Your name"
                   placeholder="Name"
                   required
                   value={contactForm.name}
@@ -484,6 +485,7 @@ export default function CustomerView({ demo, colors }: CustomerViewProps) {
                 />
                 <input
                   type="email"
+                  aria-label="Email address"
                   placeholder="Email"
                   required
                   value={contactForm.email}
@@ -492,6 +494,7 @@ export default function CustomerView({ demo, colors }: CustomerViewProps) {
                 />
                 <textarea
                   rows={4}
+                  aria-label="Message"
                   placeholder="Message"
                   required
                   value={contactForm.message}

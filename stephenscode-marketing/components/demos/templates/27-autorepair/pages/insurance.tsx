@@ -20,16 +20,16 @@ export default function InsurancePage({ colors, onNavigate }: InsurancePageProps
           </h2>
           <div className="space-y-6">
             <div>
-              <label className="block text-sm font-medium mb-2" style={{ color: colors.text }}>Insurance Company</label>
-              <input type="text" className="w-full px-4 py-3 rounded-lg border" style={{ borderColor: colors.border }} />
+              <label htmlFor="autorepair-insurance-company" className="block text-sm font-medium mb-2" style={{ color: colors.text }}>Insurance Company</label>
+              <input id="autorepair-insurance-company" type="text" className="w-full px-4 py-3 rounded-lg border" style={{ borderColor: colors.border }} />
             </div>
             <div>
-              <label className="block text-sm font-medium mb-2" style={{ color: colors.text }}>Policy Number</label>
-              <input type="text" className="w-full px-4 py-3 rounded-lg border" style={{ borderColor: colors.border }} />
+              <label htmlFor="autorepair-insurance-policy" className="block text-sm font-medium mb-2" style={{ color: colors.text }}>Policy Number</label>
+              <input id="autorepair-insurance-policy" type="text" className="w-full px-4 py-3 rounded-lg border" style={{ borderColor: colors.border }} />
             </div>
             <div>
-              <label className="block text-sm font-medium mb-2" style={{ color: colors.text }}>Claim Number (if applicable)</label>
-              <input type="text" className="w-full px-4 py-3 rounded-lg border" style={{ borderColor: colors.border }} />
+              <label htmlFor="autorepair-insurance-claim" className="block text-sm font-medium mb-2" style={{ color: colors.text }}>Claim Number (if applicable)</label>
+              <input id="autorepair-insurance-claim" type="text" className="w-full px-4 py-3 rounded-lg border" style={{ borderColor: colors.border }} />
             </div>
             <div>
               <label className="block text-sm font-medium mb-2" style={{ color: colors.text }}>Upload Photos</label>

@@ -215,6 +215,7 @@ export default function CustomerView({ demo, colors }: CustomerViewProps) {
                 <div key={task.id} className="flex items-center gap-4 p-4 rounded-lg border-2" style={{ borderColor: colors.border }}>
                   <input
                     type="checkbox"
+                    aria-label={`Mark ${task.task} as complete`}
                     checked={task.completed}
                     readOnly
                     className="w-5 h-5 rounded"

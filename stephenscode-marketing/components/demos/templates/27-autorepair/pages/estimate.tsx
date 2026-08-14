@@ -66,10 +66,11 @@ export default function EstimatePage({ colors, onNavigate }: EstimatePageProps) 
             </h2>
             <div className="grid md:grid-cols-3 gap-4">
               <div>
-                <label className="block text-sm font-medium mb-2" style={{ color: colors.text }}>
+                <label htmlFor="autorepair-estimate-year" className="block text-sm font-medium mb-2" style={{ color: colors.text }}>
                   Year
                 </label>
                 <input
+                  id="autorepair-estimate-year"
                   type="text"
                   placeholder="2020"
                   value={estimate.vehicleYear}
@@ -79,10 +80,11 @@ export default function EstimatePage({ colors, onNavigate }: EstimatePageProps) 
                 />
               </div>
               <div>
-                <label className="block text-sm font-medium mb-2" style={{ color: colors.text }}>
+                <label htmlFor="autorepair-estimate-make" className="block text-sm font-medium mb-2" style={{ color: colors.text }}>
                   Make
                 </label>
                 <input
+                  id="autorepair-estimate-make"
                   type="text"
                   placeholder="Toyota"
                   value={estimate.vehicleMake}
@@ -92,10 +94,11 @@ export default function EstimatePage({ colors, onNavigate }: EstimatePageProps) 
                 />
               </div>
               <div>
-                <label className="block text-sm font-medium mb-2" style={{ color: colors.text }}>
+                <label htmlFor="autorepair-estimate-model" className="block text-sm font-medium mb-2" style={{ color: colors.text }}>
                   Model
                 </label>
                 <input
+                  id="autorepair-estimate-model"
                   type="text"
                   placeholder="Camry"
                   value={estimate.vehicleModel}

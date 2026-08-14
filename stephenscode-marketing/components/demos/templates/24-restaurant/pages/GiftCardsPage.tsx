@@ -107,10 +107,11 @@ export default function GiftCardsPage({ colors }: GiftCardsPageProps) {
                     ))}
                   </div>
                   <div>
-                    <label style={{ color: '#666666' }} className="block text-sm mb-2">Or enter custom amount</label>
+                    <label htmlFor="restaurant-gift-custom-amount" style={{ color: '#666666' }} className="block text-sm mb-2">Or enter custom amount</label>
                     <div className="flex items-center">
                       <span style={{ color: '#1a1a1a' }} className="text-2xl font-bold mr-3">$</span>
                       <input
+                        id="restaurant-gift-custom-amount"
                         type="number"
                         min="10"
                         max="500"
@@ -127,22 +128,22 @@ export default function GiftCardsPage({ colors }: GiftCardsPageProps) {
                 <div>
                   <label style={{ color: '#1a1a1a' }} className="block font-bold mb-2">Delivery Method</label>
                   <div className="space-y-3">
-                    <label style={{ backgroundColor: '#ffffff', border: '2px solid #e5e5e5' }} className="flex items-center p-4 cursor-pointer">
-                      <input type="radio" name="delivery" value="email" checked={delivery === 'email'} onChange={(e) => setDelivery(e.target.value)} className="mr-3" />
+                    <label htmlFor="restaurant-gift-delivery-email" style={{ backgroundColor: '#ffffff', border: '2px solid #e5e5e5' }} className="flex items-center p-4 cursor-pointer">
+                      <input id="restaurant-gift-delivery-email" type="radio" name="delivery" value="email" checked={delivery === 'email'} onChange={(e) => setDelivery(e.target.value)} className="mr-3" />
                       <div>
                         <div style={{ color: '#1a1a1a' }} className="font-bold">Email Delivery (Instant)</div>
                         <div style={{ color: '#666666' }} className="text-sm">Delivered within minutes to recipient's inbox</div>
                       </div>
                     </label>
-                    <label style={{ backgroundColor: '#ffffff', border: '2px solid #e5e5e5' }} className="flex items-center p-4 cursor-pointer">
-                      <input type="radio" name="delivery" value="physical" checked={delivery === 'physical'} onChange={(e) => setDelivery(e.target.value)} className="mr-3" />
+                    <label htmlFor="restaurant-gift-delivery-physical" style={{ backgroundColor: '#ffffff', border: '2px solid #e5e5e5' }} className="flex items-center p-4 cursor-pointer">
+                      <input id="restaurant-gift-delivery-physical" type="radio" name="delivery" value="physical" checked={delivery === 'physical'} onChange={(e) => setDelivery(e.target.value)} className="mr-3" />
                       <div>
                         <div style={{ color: '#1a1a1a' }} className="font-bold">Physical Card (Mail)</div>
                         <div style={{ color: '#666666' }} className="text-sm">Beautiful gift card mailed in presentation box (3-5 business days)</div>
                       </div>
                     </label>
-                    <label style={{ backgroundColor: '#ffffff', border: '2px solid #e5e5e5' }} className="flex items-center p-4 cursor-pointer">
-                      <input type="radio" name="delivery" value="pickup" checked={delivery === 'pickup'} onChange={(e) => setDelivery(e.target.value)} className="mr-3" />
+                    <label htmlFor="restaurant-gift-delivery-pickup" style={{ backgroundColor: '#ffffff', border: '2px solid #e5e5e5' }} className="flex items-center p-4 cursor-pointer">
+                      <input id="restaurant-gift-delivery-pickup" type="radio" name="delivery" value="pickup" checked={delivery === 'pickup'} onChange={(e) => setDelivery(e.target.value)} className="mr-3" />
                       <div>
                         <div style={{ color: '#1a1a1a' }} className="font-bold">In-Store Pickup</div>
                         <div style={{ color: '#666666' }} className="text-sm">Pick up at restaurant within 2 hours</div>
@@ -152,8 +153,9 @@ export default function GiftCardsPage({ colors }: GiftCardsPageProps) {
                 </div>
 
                 <div>
-                  <label style={{ color: '#1a1a1a' }} className="block font-bold mb-2">Recipient Email</label>
+                  <label htmlFor="restaurant-gift-recipient-email" style={{ color: '#1a1a1a' }} className="block font-bold mb-2">Recipient Email</label>
                   <input
+                    id="restaurant-gift-recipient-email"
                     type="email"
                     required
                     value={recipientEmail}
@@ -164,8 +166,9 @@ export default function GiftCardsPage({ colors }: GiftCardsPageProps) {
                 </div>
 
                 <div>
-                  <label style={{ color: '#1a1a1a' }} className="block font-bold mb-2">Recipient Name</label>
+                  <label htmlFor="restaurant-gift-recipient-name" style={{ color: '#1a1a1a' }} className="block font-bold mb-2">Recipient Name</label>
                   <input
+                    id="restaurant-gift-recipient-name"
                     type="text"
                     required
                     value={recipientName}
@@ -176,8 +179,9 @@ export default function GiftCardsPage({ colors }: GiftCardsPageProps) {
                 </div>
 
                 <div>
-                  <label style={{ color: '#1a1a1a' }} className="block font-bold mb-2">Personal Message (Optional)</label>
+                  <label htmlFor="restaurant-gift-message" style={{ color: '#1a1a1a' }} className="block font-bold mb-2">Personal Message (Optional)</label>
                   <textarea
+                    id="restaurant-gift-message"
                     value={message}
                     onChange={(e) => setMessage(e.target.value)}
                     style={{ backgroundColor: '#ffffff', border: '2px solid #e5e5e5', color: '#1a1a1a' }}
@@ -187,8 +191,9 @@ export default function GiftCardsPage({ colors }: GiftCardsPageProps) {
                 </div>
 
                 <div>
-                  <label style={{ color: '#1a1a1a' }} className="block font-bold mb-2">Your Name</label>
+                  <label htmlFor="restaurant-gift-buyer-name" style={{ color: '#1a1a1a' }} className="block font-bold mb-2">Your Name</label>
                   <input
+                    id="restaurant-gift-buyer-name"
                     type="text"
                     required
                     value={buyerName}
@@ -199,8 +204,9 @@ export default function GiftCardsPage({ colors }: GiftCardsPageProps) {
                 </div>
 
                 <div>
-                  <label style={{ color: '#1a1a1a' }} className="block font-bold mb-2">Your Email</label>
+                  <label htmlFor="restaurant-gift-buyer-email" style={{ color: '#1a1a1a' }} className="block font-bold mb-2">Your Email</label>
                   <input
+                    id="restaurant-gift-buyer-email"
                     type="email"
                     required
                     value={buyerEmail}
@@ -307,6 +313,7 @@ export default function GiftCardsPage({ colors }: GiftCardsPageProps) {
                 <input
                   type="text"
                   placeholder="Enter gift card number"
+                  aria-label="Gift card number"
                   style={{ backgroundColor: '#ffffff', border: '2px solid #e5e5e5', color: '#1a1a1a' }}
                   className="flex-1 px-4 py-3"
                 />

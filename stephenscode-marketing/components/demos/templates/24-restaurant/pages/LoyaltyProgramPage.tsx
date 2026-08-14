@@ -282,6 +282,7 @@ export default function LoyaltyProgramPage({ colors }: LoyaltyProgramPageProps) 
                 <input
                   type="text"
                   placeholder="First Name"
+                  aria-label="First Name"
                   value={firstName}
                   onChange={(e) => setFirstName(e.target.value)}
                   style={{ backgroundColor: '#ffffff', border: '2px solid #9b2226', color: '#1a1a1a' }}
@@ -290,6 +291,7 @@ export default function LoyaltyProgramPage({ colors }: LoyaltyProgramPageProps) 
                 <input
                   type="text"
                   placeholder="Last Name"
+                  aria-label="Last Name"
                   value={lastName}
                   onChange={(e) => setLastName(e.target.value)}
                   style={{ backgroundColor: '#ffffff', border: '2px solid #9b2226', color: '#1a1a1a' }}
@@ -299,6 +301,7 @@ export default function LoyaltyProgramPage({ colors }: LoyaltyProgramPageProps) 
               <input
                 type="email"
                 placeholder="Email Address"
+                aria-label="Email Address"
                 value={email}
                 onChange={(e) => setEmail(e.target.value)}
                 style={{ backgroundColor: '#ffffff', border: '2px solid #9b2226', color: '#1a1a1a' }}
@@ -307,6 +310,7 @@ export default function LoyaltyProgramPage({ colors }: LoyaltyProgramPageProps) 
               <input
                 type="tel"
                 placeholder="Phone Number"
+                aria-label="Phone Number"
                 value={phone}
                 onChange={(e) => setPhone(e.target.value)}
                 style={{ backgroundColor: '#ffffff', border: '2px solid #9b2226', color: '#1a1a1a' }}
@@ -315,6 +319,7 @@ export default function LoyaltyProgramPage({ colors }: LoyaltyProgramPageProps) 
               <input
                 type="date"
                 placeholder="Birthday (for special rewards)"
+                aria-label="Birthday (for special rewards)"
                 value={birthday}
                 onChange={(e) => setBirthday(e.target.value)}
                 style={{ backgroundColor: '#ffffff', border: '2px solid #9b2226', color: '#1a1a1a' }}

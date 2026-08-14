@@ -90,8 +90,9 @@ export default function ContactPage({ colors }: ContactPageProps) {
               <form className="space-y-6" onSubmit={handleSubmit}>
                 <div className="grid md:grid-cols-2 gap-6">
                   <div>
-                    <label style={{ color: '#1a1a1a' }} className="block font-bold mb-2">First Name *</label>
+                    <label htmlFor="restaurant-contact-first-name" style={{ color: '#1a1a1a' }} className="block font-bold mb-2">First Name *</label>
                     <input
+                      id="restaurant-contact-first-name"
                       type="text"
                       required
                       value={formData.firstName}
@@ -101,8 +102,9 @@ export default function ContactPage({ colors }: ContactPageProps) {
                     />
                   </div>
                   <div>
-                    <label style={{ color: '#1a1a1a' }} className="block font-bold mb-2">Last Name *</label>
+                    <label htmlFor="restaurant-contact-last-name" style={{ color: '#1a1a1a' }} className="block font-bold mb-2">Last Name *</label>
                     <input
+                      id="restaurant-contact-last-name"
                       type="text"
                       required
                       value={formData.lastName}
@@ -113,8 +115,9 @@ export default function ContactPage({ colors }: ContactPageProps) {
                   </div>
                 </div>
                 <div>
-                  <label style={{ color: '#1a1a1a' }} className="block font-bold mb-2">Email *</label>
+                  <label htmlFor="restaurant-contact-email" style={{ color: '#1a1a1a' }} className="block font-bold mb-2">Email *</label>
                   <input
+                    id="restaurant-contact-email"
                     type="email"
                     required
                     value={formData.email}
@@ -124,8 +127,9 @@ export default function ContactPage({ colors }: ContactPageProps) {
                   />
                 </div>
                 <div>
-                  <label style={{ color: '#1a1a1a' }} className="block font-bold mb-2">Phone</label>
+                  <label htmlFor="restaurant-contact-phone" style={{ color: '#1a1a1a' }} className="block font-bold mb-2">Phone</label>
                   <input
+                    id="restaurant-contact-phone"
                     type="tel"
                     value={formData.phone}
                     onChange={(e) => setFormData({ ...formData, phone: e.target.value })}
@@ -134,8 +138,9 @@ export default function ContactPage({ colors }: ContactPageProps) {
                   />
                 </div>
                 <div>
-                  <label style={{ color: '#1a1a1a' }} className="block font-bold mb-2">Subject *</label>
+                  <label htmlFor="restaurant-contact-subject" style={{ color: '#1a1a1a' }} className="block font-bold mb-2">Subject *</label>
                   <select
+                    id="restaurant-contact-subject"
                     required
                     value={formData.subject}
                     onChange={(e) => setFormData({ ...formData, subject: e.target.value })}
@@ -151,8 +156,9 @@ export default function ContactPage({ colors }: ContactPageProps) {
                   </select>
                 </div>
                 <div>
-                  <label style={{ color: '#1a1a1a' }} className="block font-bold mb-2">Message *</label>
+                  <label htmlFor="restaurant-contact-message" style={{ color: '#1a1a1a' }} className="block font-bold mb-2">Message *</label>
                   <textarea
+                    id="restaurant-contact-message"
                     required
                     value={formData.message}
                     onChange={(e) => setFormData({ ...formData, message: e.target.value })}

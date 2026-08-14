@@ -320,6 +320,7 @@ const ServiceAreasPage: React.FC<ServiceAreasPageProps> = ({ onNavigate }) => {
                 <div className="space-y-4">
                   <input
                     type="text"
+                    aria-label="ZIP code"
                     placeholder="Enter your ZIP code"
                     className="w-full px-4 py-3 rounded-lg bg-white/20 border border-white/30 text-white placeholder-blue-200 focus:outline-none focus:ring-2 focus:ring-white"
                   />

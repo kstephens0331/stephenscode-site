@@ -167,6 +167,7 @@ export default function AdminView({ demo, colors }: AdminViewProps) {
                   <input
                     type="text"
                     placeholder="Search members..."
+                    aria-label="Search members"
                     className="pl-10 pr-4 py-2 rounded-lg border focus:outline-none focus:ring-2"
                     style={{ borderColor: colors.border }}
                   />

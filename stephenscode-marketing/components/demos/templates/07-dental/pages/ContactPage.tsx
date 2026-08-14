@@ -169,11 +169,12 @@ export default function ContactPage({ onNavigate }: ContactPageProps) {
                   <form onSubmit={handleSubmit} className="p-8">
                     <div className="space-y-4">
                       <div>
-                        <label className="block text-sm font-semibold text-gray-700 mb-2">
+                        <label htmlFor="dental-contact-name" className="block text-sm font-semibold text-gray-700 mb-2">
                           Full Name *
                         </label>
                         <input
                           type="text"
+                          id="dental-contact-name"
                           name="name"
                           required
                           value={formData.name}
@@ -184,11 +185,12 @@ export default function ContactPage({ onNavigate }: ContactPageProps) {
                       </div>
 
                       <div>
-                        <label className="block text-sm font-semibold text-gray-700 mb-2">
+                        <label htmlFor="dental-contact-email" className="block text-sm font-semibold text-gray-700 mb-2">
                           Email Address *
                         </label>
                         <input
                           type="email"
+                          id="dental-contact-email"
                           name="email"
                           required
                           value={formData.email}
@@ -199,11 +201,12 @@ export default function ContactPage({ onNavigate }: ContactPageProps) {
                       </div>
 
                       <div>
-                        <label className="block text-sm font-semibold text-gray-700 mb-2">
+                        <label htmlFor="dental-contact-phone" className="block text-sm font-semibold text-gray-700 mb-2">
                           Phone Number
                         </label>
                         <input
                           type="tel"
+                          id="dental-contact-phone"
                           name="phone"
                           value={formData.phone}
                           onChange={handleChange}
@@ -213,10 +216,11 @@ export default function ContactPage({ onNavigate }: ContactPageProps) {
                       </div>
 
                       <div>
-                        <label className="block text-sm font-semibold text-gray-700 mb-2">
+                        <label htmlFor="dental-contact-subject" className="block text-sm font-semibold text-gray-700 mb-2">
                           Subject *
                         </label>
                         <select
+                          id="dental-contact-subject"
                           name="subject"
                           required
                           value={formData.subject}
@@ -233,10 +237,11 @@ export default function ContactPage({ onNavigate }: ContactPageProps) {
                       </div>
 
                       <div>
-                        <label className="block text-sm font-semibold text-gray-700 mb-2">
+                        <label htmlFor="dental-contact-message" className="block text-sm font-semibold text-gray-700 mb-2">
                           Message *
                         </label>
                         <textarea
+                          id="dental-contact-message"
                           name="message"
                           required
                           value={formData.message}

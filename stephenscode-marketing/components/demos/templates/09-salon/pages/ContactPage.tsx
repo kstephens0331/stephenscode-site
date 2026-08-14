@@ -131,8 +131,9 @@ export default function ContactPage({ onNavigate }: ContactPageProps) {
 
               <form onSubmit={handleSubmit} className="space-y-6">
                 <div>
-                  <label className="block text-sm font-semibold mb-2">Your Name *</label>
+                  <label htmlFor="salon-contact-name" className="block text-sm font-semibold mb-2">Your Name *</label>
                   <input
+                    id="salon-contact-name"
                     type="text"
                     required
                     value={formData.name}
@@ -144,8 +145,9 @@ export default function ContactPage({ onNavigate }: ContactPageProps) {
 
                 <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
                   <div>
-                    <label className="block text-sm font-semibold mb-2">Email *</label>
+                    <label htmlFor="salon-contact-email" className="block text-sm font-semibold mb-2">Email *</label>
                     <input
+                      id="salon-contact-email"
                       type="email"
                       required
                       value={formData.email}
@@ -156,8 +158,9 @@ export default function ContactPage({ onNavigate }: ContactPageProps) {
                   </div>
 
                   <div>
-                    <label className="block text-sm font-semibold mb-2">Phone</label>
+                    <label htmlFor="salon-contact-phone" className="block text-sm font-semibold mb-2">Phone</label>
                     <input
+                      id="salon-contact-phone"
                       type="tel"
                       value={formData.phone}
                       onChange={(e) => setFormData({ ...formData, phone: e.target.value })}
@@ -168,8 +171,9 @@ export default function ContactPage({ onNavigate }: ContactPageProps) {
                 </div>
 
                 <div>
-                  <label className="block text-sm font-semibold mb-2">Subject *</label>
+                  <label htmlFor="salon-contact-subject" className="block text-sm font-semibold mb-2">Subject *</label>
                   <select
+                    id="salon-contact-subject"
                     required
                     value={formData.subject}
                     onChange={(e) => setFormData({ ...formData, subject: e.target.value })}
@@ -187,8 +191,9 @@ export default function ContactPage({ onNavigate }: ContactPageProps) {
                 </div>
 
                 <div>
-                  <label className="block text-sm font-semibold mb-2">Message *</label>
+                  <label htmlFor="salon-contact-message" className="block text-sm font-semibold mb-2">Message *</label>
                   <textarea
+                    id="salon-contact-message"
                     required
                     value={formData.message}
                     onChange={(e) => setFormData({ ...formData, message: e.target.value })}

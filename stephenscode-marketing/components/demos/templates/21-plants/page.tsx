@@ -523,8 +523,9 @@ const UrbanJunglePlantShop = () => {
       <div className="bg-white rounded-lg shadow-md p-6 mb-8">
         <div className="grid grid-cols-1 md:grid-cols-4 gap-4">
           <div>
-            <label className="block text-sm font-semibold text-gray-700 mb-2">Search</label>
+            <label htmlFor="plants-shop-search" className="block text-sm font-semibold text-gray-700 mb-2">Search</label>
             <input
+              id="plants-shop-search"
               type="text"
               value={searchTerm}
               onChange={(e) => setSearchTerm(e.target.value)}
@@ -533,8 +534,9 @@ const UrbanJunglePlantShop = () => {
             />
           </div>
           <div>
-            <label className="block text-sm font-semibold text-gray-700 mb-2">Category</label>
+            <label htmlFor="plants-shop-category" className="block text-sm font-semibold text-gray-700 mb-2">Category</label>
             <select
+              id="plants-shop-category"
               value={selectedCategory}
               onChange={(e) => setSelectedCategory(e.target.value)}
               className="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-[#2d6a4f] focus:border-transparent"
@@ -545,8 +547,9 @@ const UrbanJunglePlantShop = () => {
             </select>
           </div>
           <div>
-            <label className="block text-sm font-semibold text-gray-700 mb-2">Difficulty</label>
+            <label htmlFor="plants-shop-difficulty" className="block text-sm font-semibold text-gray-700 mb-2">Difficulty</label>
             <select
+              id="plants-shop-difficulty"
               value={selectedDifficulty}
               onChange={(e) => setSelectedDifficulty(e.target.value)}
               className="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-[#2d6a4f] focus:border-transparent"
@@ -557,8 +560,9 @@ const UrbanJunglePlantShop = () => {
             </select>
           </div>
           <div>
-            <label className="block text-sm font-semibold text-gray-700 mb-2">Sort By</label>
+            <label htmlFor="plants-shop-sort" className="block text-sm font-semibold text-gray-700 mb-2">Sort By</label>
             <select
+              id="plants-shop-sort"
               value={sortBy}
               onChange={(e) => setSortBy(e.target.value)}
               className="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-[#2d6a4f] focus:border-transparent"
@@ -1195,24 +1199,26 @@ const UrbanJunglePlantShop = () => {
             <h2 className="text-2xl font-bold text-[#2d6a4f] mb-6">Send Us a Message</h2>
             <form className="space-y-4">
               <div>
-                <label className="block text-sm font-semibold text-gray-700 mb-2">Name</label>
+                <label htmlFor="plants-contact-name" className="block text-sm font-semibold text-gray-700 mb-2">Name</label>
                 <input
+                  id="plants-contact-name"
                   type="text"
                   className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-[#2d6a4f] focus:border-transparent"
                   placeholder="Your name"
                 />
               </div>
               <div>
-                <label className="block text-sm font-semibold text-gray-700 mb-2">Email</label>
+                <label htmlFor="plants-contact-email" className="block text-sm font-semibold text-gray-700 mb-2">Email</label>
                 <input
+                  id="plants-contact-email"
                   type="email"
                   className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-[#2d6a4f] focus:border-transparent"
                   placeholder="your@email.com"
                 />
               </div>
               <div>
-                <label className="block text-sm font-semibold text-gray-700 mb-2">Subject</label>
-                <select className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-[#2d6a4f] focus:border-transparent">
+                <label htmlFor="plants-contact-subject" className="block text-sm font-semibold text-gray-700 mb-2">Subject</label>
+                <select id="plants-contact-subject" className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-[#2d6a4f] focus:border-transparent">
                   <option>General Question</option>
                   <option>Order Support</option>
                   <option>Plant Care Help</option>
@@ -1221,8 +1227,9 @@ const UrbanJunglePlantShop = () => {
                 </select>
               </div>
               <div>
-                <label className="block text-sm font-semibold text-gray-700 mb-2">Message</label>
+                <label htmlFor="plants-contact-message" className="block text-sm font-semibold text-gray-700 mb-2">Message</label>
                 <textarea
+                  id="plants-contact-message"
                   rows={5}
                   className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-[#2d6a4f] focus:border-transparent"
                   placeholder="How can we help you?"

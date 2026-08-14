@@ -92,6 +92,7 @@ export default function ContactPage({ colors, onNavigate }: ContactPageProps) {
                   type="text"
                   required
                   placeholder="Your Name"
+                  aria-label="Your Name"
                   value={formData.name}
                   onChange={(e) => setFormData({ ...formData, name: e.target.value })}
                   className="w-full px-4 py-3 rounded-lg border"
@@ -101,6 +102,7 @@ export default function ContactPage({ colors, onNavigate }: ContactPageProps) {
                   type="email"
                   required
                   placeholder="Your Email"
+                  aria-label="Your Email"
                   value={formData.email}
                   onChange={(e) => setFormData({ ...formData, email: e.target.value })}
                   className="w-full px-4 py-3 rounded-lg border"
@@ -108,6 +110,7 @@ export default function ContactPage({ colors, onNavigate }: ContactPageProps) {
                 />
                 <textarea
                   placeholder="Your Message"
+                  aria-label="Your Message"
                   rows={4}
                   required
                   value={formData.message}

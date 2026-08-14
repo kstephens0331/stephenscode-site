@@ -511,8 +511,9 @@ const RoastedPerfectionCoffee = () => {
       <div className="bg-white rounded-lg shadow-md p-6 mb-8">
         <div className="grid grid-cols-1 md:grid-cols-4 gap-4">
           <div>
-            <label className="block text-sm font-semibold text-gray-700 mb-2">Search</label>
+            <label htmlFor="coffee-shop-search" className="block text-sm font-semibold text-gray-700 mb-2">Search</label>
             <input
+              id="coffee-shop-search"
               type="text"
               value={searchTerm}
               onChange={(e) => setSearchTerm(e.target.value)}
@@ -521,8 +522,9 @@ const RoastedPerfectionCoffee = () => {
             />
           </div>
           <div>
-            <label className="block text-sm font-semibold text-gray-700 mb-2">Roast Level</label>
+            <label htmlFor="coffee-shop-roast" className="block text-sm font-semibold text-gray-700 mb-2">Roast Level</label>
             <select
+              id="coffee-shop-roast"
               value={selectedRoast}
               onChange={(e) => setSelectedRoast(e.target.value)}
               className="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-[#3e2723] focus:border-transparent"
@@ -533,8 +535,9 @@ const RoastedPerfectionCoffee = () => {
             </select>
           </div>
           <div>
-            <label className="block text-sm font-semibold text-gray-700 mb-2">Origin</label>
+            <label htmlFor="coffee-shop-origin" className="block text-sm font-semibold text-gray-700 mb-2">Origin</label>
             <select
+              id="coffee-shop-origin"
               value={selectedOrigin}
               onChange={(e) => setSelectedOrigin(e.target.value)}
               className="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-[#3e2723] focus:border-transparent"
@@ -545,8 +548,9 @@ const RoastedPerfectionCoffee = () => {
             </select>
           </div>
           <div>
-            <label className="block text-sm font-semibold text-gray-700 mb-2">Sort By</label>
+            <label htmlFor="coffee-shop-sort" className="block text-sm font-semibold text-gray-700 mb-2">Sort By</label>
             <select
+              id="coffee-shop-sort"
               value={sortBy}
               onChange={(e) => setSortBy(e.target.value)}
               className="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-[#3e2723] focus:border-transparent"
@@ -595,8 +599,9 @@ const RoastedPerfectionCoffee = () => {
                 {coffee.tastingNotes.slice(0, 3).join(', ')}
               </p>
               <div className="mb-3">
-                <label className="block text-xs font-semibold text-gray-700 mb-1">Grind</label>
+                <label htmlFor={`coffee-grind-${coffee.id}`} className="block text-xs font-semibold text-gray-700 mb-1">Grind</label>
                 <select
+                  id={`coffee-grind-${coffee.id}`}
                   className="w-full text-sm px-2 py-1 border border-gray-300 rounded"
                   onChange={(e) => setSelectedGrind(e.target.value)}
                 >
@@ -882,16 +887,16 @@ const RoastedPerfectionCoffee = () => {
         <h2 className="text-2xl font-bold text-[#3e2723] mb-6">Get In Touch</h2>
         <form className="space-y-4">
           <div>
-            <label className="block text-sm font-semibold text-gray-700 mb-2">Name</label>
-            <input type="text" className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-[#3e2723]" />
+            <label htmlFor="coffee-contact-name" className="block text-sm font-semibold text-gray-700 mb-2">Name</label>
+            <input id="coffee-contact-name" type="text" className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-[#3e2723]" />
           </div>
           <div>
-            <label className="block text-sm font-semibold text-gray-700 mb-2">Email</label>
-            <input type="email" className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-[#3e2723]" />
+            <label htmlFor="coffee-contact-email" className="block text-sm font-semibold text-gray-700 mb-2">Email</label>
+            <input id="coffee-contact-email" type="email" className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-[#3e2723]" />
           </div>
           <div>
-            <label className="block text-sm font-semibold text-gray-700 mb-2">Message</label>
-            <textarea rows={5} className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-[#3e2723]"></textarea>
+            <label htmlFor="coffee-contact-message" className="block text-sm font-semibold text-gray-700 mb-2">Message</label>
+            <textarea id="coffee-contact-message" rows={5} className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-[#3e2723]"></textarea>
           </div>
           <button className="w-full bg-[#3e2723] text-white px-6 py-3 rounded-lg font-semibold hover:bg-[#5d4037] transition-colors">
             Send Message

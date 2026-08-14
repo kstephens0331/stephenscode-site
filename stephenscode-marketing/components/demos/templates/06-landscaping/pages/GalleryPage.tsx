@@ -259,6 +259,7 @@ export default function GalleryPage({ onNavigate }: GalleryPageProps) {
                     {/* Slider Input */}
                     <input
                       type="range"
+                      aria-label="Before and after comparison slider"
                       min="0"
                       max="100"
                       value={sliderValue}
@@ -415,6 +416,7 @@ export default function GalleryPage({ onNavigate }: GalleryPageProps) {
 
                     <input
                       type="range"
+                      aria-label="Before and after comparison slider"
                       min="0"
                       max="100"
                       value={sliderValue}

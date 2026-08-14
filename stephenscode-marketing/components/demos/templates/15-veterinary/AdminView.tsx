@@ -210,11 +210,12 @@ export default function AdminView({
             <div className="bg-white rounded-xl shadow-md p-8">
               <div className="space-y-6">
                 <div>
-                  <label className="flex items-center gap-2 text-sm font-semibold text-gray-700 mb-2">
+                  <label htmlFor="vet-admin-business-name" className="flex items-center gap-2 text-sm font-semibold text-gray-700 mb-2">
                     <Type className="w-4 h-4" />
                     Business Name
                   </label>
                   <input
+                    id="vet-admin-business-name"
                     type="text"
                     value={businessInfo.name}
                     onChange={(e) => onUpdateBusinessInfo({ ...businessInfo, name: e.target.value })}
@@ -224,11 +225,12 @@ export default function AdminView({
 
                 <div className="grid md:grid-cols-2 gap-6">
                   <div>
-                    <label className="flex items-center gap-2 text-sm font-semibold text-gray-700 mb-2">
+                    <label htmlFor="vet-admin-business-phone" className="flex items-center gap-2 text-sm font-semibold text-gray-700 mb-2">
                       <Phone className="w-4 h-4" />
                       Phone Number
                     </label>
                     <input
+                      id="vet-admin-business-phone"
                       type="tel"
                       value={businessInfo.phone}
                       onChange={(e) => onUpdateBusinessInfo({ ...businessInfo, phone: e.target.value })}
@@ -237,11 +239,12 @@ export default function AdminView({
                   </div>
 
                   <div>
-                    <label className="flex items-center gap-2 text-sm font-semibold text-gray-700 mb-2">
+                    <label htmlFor="vet-admin-business-email" className="flex items-center gap-2 text-sm font-semibold text-gray-700 mb-2">
                       <Mail className="w-4 h-4" />
                       Email Address
                     </label>
                     <input
+                      id="vet-admin-business-email"
                       type="email"
                       value={businessInfo.email}
                       onChange={(e) => onUpdateBusinessInfo({ ...businessInfo, email: e.target.value })}
@@ -251,11 +254,12 @@ export default function AdminView({
                 </div>
 
                 <div>
-                  <label className="flex items-center gap-2 text-sm font-semibold text-gray-700 mb-2">
+                  <label htmlFor="vet-admin-business-address" className="flex items-center gap-2 text-sm font-semibold text-gray-700 mb-2">
                     <MapPin className="w-4 h-4" />
                     Address
                   </label>
                   <input
+                    id="vet-admin-business-address"
                     type="text"
                     value={businessInfo.address}
                     onChange={(e) => onUpdateBusinessInfo({ ...businessInfo, address: e.target.value })}
@@ -264,11 +268,12 @@ export default function AdminView({
                 </div>
 
                 <div>
-                  <label className="flex items-center gap-2 text-sm font-semibold text-gray-700 mb-2">
+                  <label htmlFor="vet-admin-business-hours" className="flex items-center gap-2 text-sm font-semibold text-gray-700 mb-2">
                     <Clock className="w-4 h-4" />
                     Business Hours
                   </label>
                   <input
+                    id="vet-admin-business-hours"
                     type="text"
                     value={businessInfo.hours}
                     onChange={(e) => onUpdateBusinessInfo({ ...businessInfo, hours: e.target.value })}
@@ -294,11 +299,12 @@ export default function AdminView({
 
                   <div className="grid md:grid-cols-3 gap-6">
                     <div>
-                      <label className="block text-sm font-medium text-gray-600 mb-2">
+                      <label htmlFor="vet-admin-color-primary" className="block text-sm font-medium text-gray-600 mb-2">
                         Primary Color (Teal)
                       </label>
                       <div className="flex items-center gap-3">
                         <input
+                          id="vet-admin-color-primary"
                           type="color"
                           value={colors.primary}
                           onChange={(e) => onUpdateColors({ ...colors, primary: e.target.value })}
@@ -307,6 +313,7 @@ export default function AdminView({
                         <div>
                           <input
                             type="text"
+                            aria-label="Primary color hex value"
                             value={colors.primary}
                             onChange={(e) => onUpdateColors({ ...colors, primary: e.target.value })}
                             className="w-32 px-3 py-2 border-2 border-gray-200 rounded-lg font-mono text-sm"
@@ -317,11 +324,12 @@ export default function AdminView({
                     </div>
 
                     <div>
-                      <label className="block text-sm font-medium text-gray-600 mb-2">
+                      <label htmlFor="vet-admin-color-secondary" className="block text-sm font-medium text-gray-600 mb-2">
                         Secondary Color (Green)
                       </label>
                       <div className="flex items-center gap-3">
                         <input
+                          id="vet-admin-color-secondary"
                           type="color"
                           value={colors.secondary}
                           onChange={(e) => onUpdateColors({ ...colors, secondary: e.target.value })}
@@ -330,6 +338,7 @@ export default function AdminView({
                         <div>
                           <input
                             type="text"
+                            aria-label="Secondary color hex value"
                             value={colors.secondary}
                             onChange={(e) => onUpdateColors({ ...colors, secondary: e.target.value })}
                             className="w-32 px-3 py-2 border-2 border-gray-200 rounded-lg font-mono text-sm"
@@ -340,11 +349,12 @@ export default function AdminView({
                     </div>
 
                     <div>
-                      <label className="block text-sm font-medium text-gray-600 mb-2">
+                      <label htmlFor="vet-admin-color-accent" className="block text-sm font-medium text-gray-600 mb-2">
                         Accent Color (Light Green)
                       </label>
                       <div className="flex items-center gap-3">
                         <input
+                          id="vet-admin-color-accent"
                           type="color"
                           value={colors.accent}
                           onChange={(e) => onUpdateColors({ ...colors, accent: e.target.value })}
@@ -353,6 +363,7 @@ export default function AdminView({
                         <div>
                           <input
                             type="text"
+                            aria-label="Accent color hex value"
                             value={colors.accent}
                             onChange={(e) => onUpdateColors({ ...colors, accent: e.target.value })}
                             className="w-32 px-3 py-2 border-2 border-gray-200 rounded-lg font-mono text-sm"

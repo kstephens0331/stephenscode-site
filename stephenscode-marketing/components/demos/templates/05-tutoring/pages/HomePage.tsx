@@ -360,8 +360,9 @@ export default function HomePage({ onNavigate }: HomePageProps) {
             ) : (
               <form onSubmit={handleSubmit} className="space-y-4">
                 <div>
-                  <label className="block text-sm font-medium text-gray-700 mb-1">Parent Name *</label>
+                  <label htmlFor="tutoring-home-name" className="block text-sm font-medium text-gray-700 mb-1">Parent Name *</label>
                   <input
+                    id="tutoring-home-name"
                     type="text"
                     required
                     value={formData.name}
@@ -370,8 +371,9 @@ export default function HomePage({ onNavigate }: HomePageProps) {
                   />
                 </div>
                 <div>
-                  <label className="block text-sm font-medium text-gray-700 mb-1">Email *</label>
+                  <label htmlFor="tutoring-home-email" className="block text-sm font-medium text-gray-700 mb-1">Email *</label>
                   <input
+                    id="tutoring-home-email"
                     type="email"
                     required
                     value={formData.email}
@@ -380,8 +382,9 @@ export default function HomePage({ onNavigate }: HomePageProps) {
                   />
                 </div>
                 <div>
-                  <label className="block text-sm font-medium text-gray-700 mb-1">Phone *</label>
+                  <label htmlFor="tutoring-home-phone" className="block text-sm font-medium text-gray-700 mb-1">Phone *</label>
                   <input
+                    id="tutoring-home-phone"
                     type="tel"
                     required
                     value={formData.phone}
@@ -390,8 +393,9 @@ export default function HomePage({ onNavigate }: HomePageProps) {
                   />
                 </div>
                 <div>
-                  <label className="block text-sm font-medium text-gray-700 mb-1">Subject Needed *</label>
+                  <label htmlFor="tutoring-home-subject" className="block text-sm font-medium text-gray-700 mb-1">Subject Needed *</label>
                   <select
+                    id="tutoring-home-subject"
                     required
                     value={formData.subject}
                     onChange={(e) => setFormData({ ...formData, subject: e.target.value })}
@@ -407,8 +411,9 @@ export default function HomePage({ onNavigate }: HomePageProps) {
                   </select>
                 </div>
                 <div>
-                  <label className="block text-sm font-medium text-gray-700 mb-1">Grade Level *</label>
+                  <label htmlFor="tutoring-home-grade-level" className="block text-sm font-medium text-gray-700 mb-1">Grade Level *</label>
                   <input
+                    id="tutoring-home-grade-level"
                     type="text"
                     required
                     placeholder="e.g., 9th grade"

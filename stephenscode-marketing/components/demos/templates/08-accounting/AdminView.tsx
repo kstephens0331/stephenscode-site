@@ -255,7 +255,7 @@ export default function AdminView() {
           {pendingTasks.map((task, index) => (
             <div key={index} className="flex items-center justify-between p-4 bg-gray-50 rounded-lg hover:bg-gray-100 transition-colors">
               <div className="flex items-center gap-4 flex-grow">
-                <input type="checkbox" className="w-5 h-5 text-[#fca311] border-gray-300 rounded focus:ring-[#fca311]" />
+                <input type="checkbox" aria-label={`Mark task complete: ${task.task}`} className="w-5 h-5 text-[#fca311] border-gray-300 rounded focus:ring-[#fca311]" />
                 <div className="flex-grow">
                   <p className="font-semibold text-[#14213d]">{task.task}</p>
                   <p className="text-sm text-gray-600">Assigned to: {task.assignee}</p>
@@ -292,6 +292,7 @@ export default function AdminView() {
             <div className="relative">
               <input
                 type="text"
+                aria-label="Search clients"
                 placeholder="Search clients..."
                 className="pl-10 pr-4 py-2 border-2 border-gray-300 rounded-lg focus:outline-none focus:border-[#fca311]"
               />

@@ -90,6 +90,7 @@ export default function ContactPage({ colors, onNavigate }: ContactPageProps) {
                   value={formData.name}
                   onChange={(e) => setFormData({ ...formData, name: e.target.value })}
                   placeholder="Your Name"
+                  aria-label="Your Name"
                   className="w-full px-4 py-3 rounded-lg border"
                   style={{ borderColor: colors.border }}
                 />
@@ -98,6 +99,7 @@ export default function ContactPage({ colors, onNavigate }: ContactPageProps) {
                   value={formData.email}
                   onChange={(e) => setFormData({ ...formData, email: e.target.value })}
                   placeholder="Your Email"
+                  aria-label="Your Email"
                   className="w-full px-4 py-3 rounded-lg border"
                   style={{ borderColor: colors.border }}
                 />
@@ -105,6 +107,7 @@ export default function ContactPage({ colors, onNavigate }: ContactPageProps) {
                   value={formData.message}
                   onChange={(e) => setFormData({ ...formData, message: e.target.value })}
                   placeholder="Your Message"
+                  aria-label="Your Message"
                   rows={4}
                   className="w-full px-4 py-3 rounded-lg border"
                   style={{ borderColor: colors.border }}

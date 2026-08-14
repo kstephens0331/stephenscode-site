@@ -195,11 +195,12 @@ export default function BookingPage({ onNavigate }: BookingPageProps) {
                   </h3>
                   <div className="grid md:grid-cols-2 gap-4">
                     <div>
-                      <label className="block text-sm font-semibold text-gray-700 mb-2">
+                      <label htmlFor="dental-booking-first-name" className="block text-sm font-semibold text-gray-700 mb-2">
                         First Name *
                       </label>
                       <input
                         type="text"
+                        id="dental-booking-first-name"
                         name="firstName"
                         required
                         value={formData.firstName}
@@ -209,11 +210,12 @@ export default function BookingPage({ onNavigate }: BookingPageProps) {
                       />
                     </div>
                     <div>
-                      <label className="block text-sm font-semibold text-gray-700 mb-2">
+                      <label htmlFor="dental-booking-last-name" className="block text-sm font-semibold text-gray-700 mb-2">
                         Last Name *
                       </label>
                       <input
                         type="text"
+                        id="dental-booking-last-name"
                         name="lastName"
                         required
                         value={formData.lastName}
@@ -223,11 +225,12 @@ export default function BookingPage({ onNavigate }: BookingPageProps) {
                       />
                     </div>
                     <div>
-                      <label className="block text-sm font-semibold text-gray-700 mb-2">
+                      <label htmlFor="dental-booking-email" className="block text-sm font-semibold text-gray-700 mb-2">
                         Email Address *
                       </label>
                       <input
                         type="email"
+                        id="dental-booking-email"
                         name="email"
                         required
                         value={formData.email}
@@ -237,11 +240,12 @@ export default function BookingPage({ onNavigate }: BookingPageProps) {
                       />
                     </div>
                     <div>
-                      <label className="block text-sm font-semibold text-gray-700 mb-2">
+                      <label htmlFor="dental-booking-phone" className="block text-sm font-semibold text-gray-700 mb-2">
                         Phone Number *
                       </label>
                       <input
                         type="tel"
+                        id="dental-booking-phone"
                         name="phone"
                         required
                         value={formData.phone}
@@ -261,10 +265,11 @@ export default function BookingPage({ onNavigate }: BookingPageProps) {
                   </h3>
                   <div className="grid md:grid-cols-2 gap-4">
                     <div>
-                      <label className="block text-sm font-semibold text-gray-700 mb-2">
+                      <label htmlFor="dental-booking-new-patient" className="block text-sm font-semibold text-gray-700 mb-2">
                         Are you a new patient? *
                       </label>
                       <select
+                        id="dental-booking-new-patient"
                         name="isNewPatient"
                         required
                         value={formData.isNewPatient}
@@ -277,10 +282,11 @@ export default function BookingPage({ onNavigate }: BookingPageProps) {
                       </select>
                     </div>
                     <div>
-                      <label className="block text-sm font-semibold text-gray-700 mb-2">
+                      <label htmlFor="dental-booking-visit-type" className="block text-sm font-semibold text-gray-700 mb-2">
                         Type of Visit *
                       </label>
                       <select
+                        id="dental-booking-visit-type"
                         name="visitType"
                         required
                         value={formData.visitType}
@@ -296,10 +302,11 @@ export default function BookingPage({ onNavigate }: BookingPageProps) {
                       </select>
                     </div>
                     <div>
-                      <label className="block text-sm font-semibold text-gray-700 mb-2">
+                      <label htmlFor="dental-booking-dentist" className="block text-sm font-semibold text-gray-700 mb-2">
                         Preferred Dentist
                       </label>
                       <select
+                        id="dental-booking-dentist"
                         name="dentist"
                         value={formData.dentist}
                         onChange={handleChange}
@@ -314,11 +321,12 @@ export default function BookingPage({ onNavigate }: BookingPageProps) {
                       </select>
                     </div>
                     <div>
-                      <label className="block text-sm font-semibold text-gray-700 mb-2">
+                      <label htmlFor="dental-booking-date" className="block text-sm font-semibold text-gray-700 mb-2">
                         Preferred Date *
                       </label>
                       <input
                         type="date"
+                        id="dental-booking-date"
                         name="date"
                         required
                         value={formData.date}
@@ -328,10 +336,11 @@ export default function BookingPage({ onNavigate }: BookingPageProps) {
                       />
                     </div>
                     <div className="md:col-span-2">
-                      <label className="block text-sm font-semibold text-gray-700 mb-2">
+                      <label htmlFor="dental-booking-time" className="block text-sm font-semibold text-gray-700 mb-2">
                         Preferred Time *
                       </label>
                       <select
+                        id="dental-booking-time"
                         name="time"
                         required
                         value={formData.time}
@@ -353,10 +362,11 @@ export default function BookingPage({ onNavigate }: BookingPageProps) {
                 <div className="mb-8">
                   <h3 className="text-xl font-bold text-[#023e8a] mb-4">Insurance Information</h3>
                   <div>
-                    <label className="block text-sm font-semibold text-gray-700 mb-2">
+                    <label htmlFor="dental-booking-insurance" className="block text-sm font-semibold text-gray-700 mb-2">
                       Do you have dental insurance?
                     </label>
                     <select
+                      id="dental-booking-insurance"
                       name="insurance"
                       value={formData.insurance}
                       onChange={handleChange}
@@ -380,10 +390,11 @@ export default function BookingPage({ onNavigate }: BookingPageProps) {
                     Additional Information
                   </h3>
                   <div>
-                    <label className="block text-sm font-semibold text-gray-700 mb-2">
+                    <label htmlFor="dental-booking-message" className="block text-sm font-semibold text-gray-700 mb-2">
                       Is there anything we should know? (Optional)
                     </label>
                     <textarea
+                      id="dental-booking-message"
                       name="message"
                       value={formData.message}
                       onChange={handleChange}

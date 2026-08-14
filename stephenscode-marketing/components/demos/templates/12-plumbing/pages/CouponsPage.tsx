@@ -313,6 +313,7 @@ const CouponsPage: React.FC<CouponsPageProps> = ({ onNavigate }) => {
               <div className="flex flex-col sm:flex-row gap-4">
                 <input
                   type="email"
+                  aria-label="Email address for coupons"
                   placeholder="Enter your email address"
                   className="flex-1 px-4 py-3 rounded-lg border-2 border-gray-300 focus:outline-none focus:ring-2 focus:ring-[#0466c8] focus:border-transparent"
                 />

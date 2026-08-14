@@ -195,8 +195,8 @@ export default function AdminView({ demo, colors }: AdminViewProps) {
                       <h3 className="font-bold mb-1" style={{ color: colors.text }}>{widget.name}</h3>
                       <p className="text-sm" style={{ color: colors.textLight }}>{widget.type}</p>
                     </div>
-                    <label className="relative inline-flex items-center cursor-pointer">
-                      <input type="checkbox" checked={widget.enabled} readOnly className="sr-only peer" />
+                    <label htmlFor={`analytics-widget-toggle-${index}`} className="relative inline-flex items-center cursor-pointer">
+                      <input id={`analytics-widget-toggle-${index}`} type="checkbox" aria-label={`Toggle ${widget.name}`} checked={widget.enabled} readOnly className="sr-only peer" />
                       <div className="w-11 h-6 rounded-full peer peer-checked:after:translate-x-full peer-checked:after:border-white after:content-[''] after:absolute after:top-[2px] after:left-[2px] after:bg-white after:border-gray-300 after:border after:rounded-full after:h-5 after:w-5 after:transition-all"
                         style={{
                           backgroundColor: widget.enabled ? colors.primary : colors.border
@@ -230,8 +230,8 @@ export default function AdminView({ demo, colors }: AdminViewProps) {
 
               <div className="space-y-6">
                 <div>
-                  <label className="block text-sm font-semibold mb-2" style={{ color: colors.text }}>Select Report</label>
-                  <select className="w-full px-4 py-3 rounded-lg border-2 focus:outline-none focus:ring-2" style={{ borderColor: colors.border }}>
+                  <label htmlFor="analytics-export-report" className="block text-sm font-semibold mb-2" style={{ color: colors.text }}>Select Report</label>
+                  <select id="analytics-export-report" className="w-full px-4 py-3 rounded-lg border-2 focus:outline-none focus:ring-2" style={{ borderColor: colors.border }}>
                     {customReports.map(report => (
                       <option key={report.id}>{report.name}</option>
                     ))}
@@ -258,11 +258,13 @@ export default function AdminView({ demo, colors }: AdminViewProps) {
                   <div className="grid grid-cols-2 gap-3">
                     <input
                       type="date"
+                      aria-label="Start date"
                       className="px-4 py-3 rounded-lg border-2 focus:outline-none focus:ring-2"
                       style={{ borderColor: colors.border }}
                     />
                     <input
                       type="date"
+                      aria-label="End date"
                       className="px-4 py-3 rounded-lg border-2 focus:outline-none focus:ring-2"
                       style={{ borderColor: colors.border }}
                     />

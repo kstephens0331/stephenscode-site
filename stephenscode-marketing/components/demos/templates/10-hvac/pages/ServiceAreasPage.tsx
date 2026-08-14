@@ -79,6 +79,7 @@ export default function ServiceAreasPage({ onNavigate }: ServiceAreasPageProps) 
               <div className="flex gap-3">
                 <input
                   type="text"
+                  aria-label="Zip code"
                   value={zipCode}
                   onChange={(e) => {
                     setZipCode(e.target.value);

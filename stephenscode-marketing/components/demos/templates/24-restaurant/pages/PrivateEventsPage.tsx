@@ -190,8 +190,9 @@ export default function PrivateEventsPage({ colors }: PrivateEventsPageProps) {
             <form className="max-w-3xl mx-auto space-y-6" onSubmit={handleSubmit}>
               <div className="grid md:grid-cols-2 gap-6">
                 <div>
-                  <label style={{ color: '#1a1a1a' }} className="block font-bold mb-2">Name *</label>
+                  <label htmlFor="restaurant-events-name" style={{ color: '#1a1a1a' }} className="block font-bold mb-2">Name *</label>
                   <input
+                    id="restaurant-events-name"
                     type="text"
                     required
                     value={formData.name}
@@ -201,8 +202,9 @@ export default function PrivateEventsPage({ colors }: PrivateEventsPageProps) {
                   />
                 </div>
                 <div>
-                  <label style={{ color: '#1a1a1a' }} className="block font-bold mb-2">Email *</label>
+                  <label htmlFor="restaurant-events-email" style={{ color: '#1a1a1a' }} className="block font-bold mb-2">Email *</label>
                   <input
+                    id="restaurant-events-email"
                     type="email"
                     required
                     value={formData.email}
@@ -214,8 +216,9 @@ export default function PrivateEventsPage({ colors }: PrivateEventsPageProps) {
               </div>
               <div className="grid md:grid-cols-3 gap-6">
                 <div>
-                  <label style={{ color: '#1a1a1a' }} className="block font-bold mb-2">Phone *</label>
+                  <label htmlFor="restaurant-events-phone" style={{ color: '#1a1a1a' }} className="block font-bold mb-2">Phone *</label>
                   <input
+                    id="restaurant-events-phone"
                     type="tel"
                     required
                     value={formData.phone}
@@ -225,8 +228,9 @@ export default function PrivateEventsPage({ colors }: PrivateEventsPageProps) {
                   />
                 </div>
                 <div>
-                  <label style={{ color: '#1a1a1a' }} className="block font-bold mb-2">Event Date</label>
+                  <label htmlFor="restaurant-events-date" style={{ color: '#1a1a1a' }} className="block font-bold mb-2">Event Date</label>
                   <input
+                    id="restaurant-events-date"
                     type="date"
                     value={formData.eventDate}
                     onChange={(e) => setFormData({ ...formData, eventDate: e.target.value })}
@@ -235,8 +239,9 @@ export default function PrivateEventsPage({ colors }: PrivateEventsPageProps) {
                   />
                 </div>
                 <div>
-                  <label style={{ color: '#1a1a1a' }} className="block font-bold mb-2">Guest Count</label>
+                  <label htmlFor="restaurant-events-guest-count" style={{ color: '#1a1a1a' }} className="block font-bold mb-2">Guest Count</label>
                   <input
+                    id="restaurant-events-guest-count"
                     type="number"
                     value={formData.guestCount}
                     onChange={(e) => setFormData({ ...formData, guestCount: e.target.value })}
@@ -247,8 +252,9 @@ export default function PrivateEventsPage({ colors }: PrivateEventsPageProps) {
                 </div>
               </div>
               <div>
-                <label style={{ color: '#1a1a1a' }} className="block font-bold mb-2">Event Type</label>
+                <label htmlFor="restaurant-events-type" style={{ color: '#1a1a1a' }} className="block font-bold mb-2">Event Type</label>
                 <select
+                  id="restaurant-events-type"
                   value={formData.eventType}
                   onChange={(e) => setFormData({ ...formData, eventType: e.target.value })}
                   style={{ backgroundColor: '#ffffff', border: '2px solid #e5e5e5', color: '#1a1a1a' }}
@@ -263,8 +269,9 @@ export default function PrivateEventsPage({ colors }: PrivateEventsPageProps) {
                 </select>
               </div>
               <div>
-                <label style={{ color: '#1a1a1a' }} className="block font-bold mb-2">Additional Details</label>
+                <label htmlFor="restaurant-events-details" style={{ color: '#1a1a1a' }} className="block font-bold mb-2">Additional Details</label>
                 <textarea
+                  id="restaurant-events-details"
                   value={formData.details}
                   onChange={(e) => setFormData({ ...formData, details: e.target.value })}
                   style={{ backgroundColor: '#ffffff', border: '2px solid #e5e5e5', color: '#1a1a1a' }}

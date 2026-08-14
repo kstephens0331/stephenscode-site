@@ -30,12 +30,12 @@ export default function GiftsPage({ colors, onNavigate }: GiftsPageProps) {
               </div>
             </div>
             <div>
-              <label className="block text-sm font-medium mb-2" style={{ color: colors.text }}>Recipient Email</label>
-              <input type="email" className="w-full px-4 py-3 rounded-lg border" style={{ borderColor: colors.border }} />
+              <label htmlFor="spa-gift-recipient-email" className="block text-sm font-medium mb-2" style={{ color: colors.text }}>Recipient Email</label>
+              <input id="spa-gift-recipient-email" type="email" className="w-full px-4 py-3 rounded-lg border" style={{ borderColor: colors.border }} />
             </div>
             <div>
-              <label className="block text-sm font-medium mb-2" style={{ color: colors.text }}>Personal Message</label>
-              <textarea rows={4} className="w-full px-4 py-3 rounded-lg border" style={{ borderColor: colors.border }} />
+              <label htmlFor="spa-gift-message" className="block text-sm font-medium mb-2" style={{ color: colors.text }}>Personal Message</label>
+              <textarea id="spa-gift-message" rows={4} className="w-full px-4 py-3 rounded-lg border" style={{ borderColor: colors.border }} />
             </div>
             <button className="w-full py-4 rounded-lg font-semibold" style={{ backgroundColor: colors.primary, color: '#ffffff' }}>
               Purchase Gift Certificate

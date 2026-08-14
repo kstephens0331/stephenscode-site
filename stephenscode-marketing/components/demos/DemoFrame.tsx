@@ -92,9 +92,6 @@ const INTERFACE_PREVIEW_ONLY_SLUGS = new Set([
   'crm-system-showcase',
   'inventory-management-showcase',
   'workflow-automation-showcase',
-  'elite-property-management',
-  'premier-staffing-solutions',
-  'celebration-events-company',
 ])
 
 // These templates are single-view (no separate admin dashboard exists in the

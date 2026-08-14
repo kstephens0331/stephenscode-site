@@ -195,10 +195,11 @@ const ContactPage: React.FC<ContactPageProps> = ({ onNavigate }) => {
                 <form className="space-y-6" onSubmit={handleSubmit}>
                   <div className="grid grid-cols-1 sm:grid-cols-2 gap-6">
                     <div>
-                      <label className="block text-sm font-medium text-gray-700 mb-2">
+                      <label htmlFor="plumbing-contact-first-name" className="block text-sm font-medium text-gray-700 mb-2">
                         First Name *
                       </label>
                       <input
+                        id="plumbing-contact-first-name"
                         type="text"
                         required
                         value={formData.firstName}
@@ -208,10 +209,11 @@ const ContactPage: React.FC<ContactPageProps> = ({ onNavigate }) => {
                       />
                     </div>
                     <div>
-                      <label className="block text-sm font-medium text-gray-700 mb-2">
+                      <label htmlFor="plumbing-contact-last-name" className="block text-sm font-medium text-gray-700 mb-2">
                         Last Name *
                       </label>
                       <input
+                        id="plumbing-contact-last-name"
                         type="text"
                         required
                         value={formData.lastName}
@@ -222,10 +224,11 @@ const ContactPage: React.FC<ContactPageProps> = ({ onNavigate }) => {
                     </div>
                   </div>
                   <div>
-                    <label className="block text-sm font-medium text-gray-700 mb-2">
+                    <label htmlFor="plumbing-contact-email" className="block text-sm font-medium text-gray-700 mb-2">
                       Email Address *
                     </label>
                     <input
+                      id="plumbing-contact-email"
                       type="email"
                       required
                       value={formData.email}
@@ -235,10 +238,11 @@ const ContactPage: React.FC<ContactPageProps> = ({ onNavigate }) => {
                     />
                   </div>
                   <div>
-                    <label className="block text-sm font-medium text-gray-700 mb-2">
+                    <label htmlFor="plumbing-contact-phone" className="block text-sm font-medium text-gray-700 mb-2">
                       Phone Number *
                     </label>
                     <input
+                      id="plumbing-contact-phone"
                       type="tel"
                       required
                       value={formData.phone}
@@ -248,10 +252,11 @@ const ContactPage: React.FC<ContactPageProps> = ({ onNavigate }) => {
                     />
                   </div>
                   <div>
-                    <label className="block text-sm font-medium text-gray-700 mb-2">
+                    <label htmlFor="plumbing-contact-service-type" className="block text-sm font-medium text-gray-700 mb-2">
                       Service Type
                     </label>
                     <select
+                      id="plumbing-contact-service-type"
                       value={formData.serviceType}
                       onChange={(e) => setFormData({ ...formData, serviceType: e.target.value })}
                       className="w-full px-4 py-3 rounded-lg border border-gray-300 focus:outline-none focus:ring-2 focus:ring-[#0466c8] focus:border-transparent"
@@ -268,10 +273,11 @@ const ContactPage: React.FC<ContactPageProps> = ({ onNavigate }) => {
                     </select>
                   </div>
                   <div>
-                    <label className="block text-sm font-medium text-gray-700 mb-2">
+                    <label htmlFor="plumbing-contact-preferred-time" className="block text-sm font-medium text-gray-700 mb-2">
                       Preferred Contact Time
                     </label>
                     <select
+                      id="plumbing-contact-preferred-time"
                       value={formData.preferredContactTime}
                       onChange={(e) => setFormData({ ...formData, preferredContactTime: e.target.value })}
                       className="w-full px-4 py-3 rounded-lg border border-gray-300 focus:outline-none focus:ring-2 focus:ring-[#0466c8] focus:border-transparent"
@@ -283,10 +289,11 @@ const ContactPage: React.FC<ContactPageProps> = ({ onNavigate }) => {
                     </select>
                   </div>
                   <div>
-                    <label className="block text-sm font-medium text-gray-700 mb-2">
+                    <label htmlFor="plumbing-contact-message" className="block text-sm font-medium text-gray-700 mb-2">
                       Message *
                     </label>
                     <textarea
+                      id="plumbing-contact-message"
                       required
                       rows={5}
                       value={formData.message}

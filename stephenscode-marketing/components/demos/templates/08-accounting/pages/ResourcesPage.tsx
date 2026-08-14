@@ -156,6 +156,7 @@ export default function ResourcesPage({ onNavigate }: ResourcesPageProps) {
             <div className="relative">
               <input
                 type="text"
+                aria-label="Search resources"
                 placeholder="Search resources..."
                 className="w-full px-6 py-4 rounded-lg text-gray-900 pl-12 focus:outline-none focus:ring-2 focus:ring-[#fca311]"
               />
@@ -304,6 +305,7 @@ export default function ResourcesPage({ onNavigate }: ResourcesPageProps) {
           <div className="flex flex-col sm:flex-row gap-4 max-w-2xl mx-auto">
             <input
               type="email"
+              aria-label="Email address for newsletter"
               placeholder="Enter your email address"
               className="flex-grow px-6 py-4 rounded-lg text-gray-900 focus:outline-none focus:ring-2 focus:ring-[#fca311]"
             />

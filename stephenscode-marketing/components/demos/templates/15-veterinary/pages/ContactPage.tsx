@@ -200,10 +200,11 @@ export default function ContactPage({ onNavigate, colors }: ContactPageProps) {
               {/* Personal Information */}
               <div className="grid md:grid-cols-2 gap-6">
                 <div>
-                  <label className="block text-sm font-semibold mb-2" style={{ color: colors.primary }}>
+                  <label htmlFor="vet-contact-name" className="block text-sm font-semibold mb-2" style={{ color: colors.primary }}>
                     Your Name *
                   </label>
                   <input
+                    id="vet-contact-name"
                     type="text"
                     name="name"
                     value={formData.name}
@@ -215,10 +216,11 @@ export default function ContactPage({ onNavigate, colors }: ContactPageProps) {
                 </div>
 
                 <div>
-                  <label className="block text-sm font-semibold mb-2" style={{ color: colors.primary }}>
+                  <label htmlFor="vet-contact-email" className="block text-sm font-semibold mb-2" style={{ color: colors.primary }}>
                     Email Address *
                   </label>
                   <input
+                    id="vet-contact-email"
                     type="email"
                     name="email"
                     value={formData.email}
@@ -232,10 +234,11 @@ export default function ContactPage({ onNavigate, colors }: ContactPageProps) {
 
               <div className="grid md:grid-cols-2 gap-6">
                 <div>
-                  <label className="block text-sm font-semibold mb-2" style={{ color: colors.primary }}>
+                  <label htmlFor="vet-contact-phone" className="block text-sm font-semibold mb-2" style={{ color: colors.primary }}>
                     Phone Number *
                   </label>
                   <input
+                    id="vet-contact-phone"
                     type="tel"
                     name="phone"
                     value={formData.phone}
@@ -247,10 +250,11 @@ export default function ContactPage({ onNavigate, colors }: ContactPageProps) {
                 </div>
 
                 <div>
-                  <label className="block text-sm font-semibold mb-2" style={{ color: colors.primary }}>
+                  <label htmlFor="vet-contact-pet-name" className="block text-sm font-semibold mb-2" style={{ color: colors.primary }}>
                     Pet's Name *
                   </label>
                   <input
+                    id="vet-contact-pet-name"
                     type="text"
                     name="petName"
                     value={formData.petName}
@@ -265,10 +269,11 @@ export default function ContactPage({ onNavigate, colors }: ContactPageProps) {
               {/* Pet Information */}
               <div className="grid md:grid-cols-2 gap-6">
                 <div>
-                  <label className="block text-sm font-semibold mb-2" style={{ color: colors.primary }}>
+                  <label htmlFor="vet-contact-pet-type" className="block text-sm font-semibold mb-2" style={{ color: colors.primary }}>
                     Pet Type *
                   </label>
                   <select
+                    id="vet-contact-pet-type"
                     name="petType"
                     value={formData.petType}
                     onChange={handleChange}
@@ -285,10 +290,11 @@ export default function ContactPage({ onNavigate, colors }: ContactPageProps) {
                 </div>
 
                 <div>
-                  <label className="block text-sm font-semibold mb-2" style={{ color: colors.primary }}>
+                  <label htmlFor="vet-contact-reason" className="block text-sm font-semibold mb-2" style={{ color: colors.primary }}>
                     Reason for Visit *
                   </label>
                   <select
+                    id="vet-contact-reason"
                     name="reason"
                     value={formData.reason}
                     onChange={handleChange}
@@ -310,10 +316,11 @@ export default function ContactPage({ onNavigate, colors }: ContactPageProps) {
               {/* Appointment Preferences */}
               <div className="grid md:grid-cols-2 gap-6">
                 <div>
-                  <label className="block text-sm font-semibold mb-2" style={{ color: colors.primary }}>
+                  <label htmlFor="vet-contact-preferred-date" className="block text-sm font-semibold mb-2" style={{ color: colors.primary }}>
                     Preferred Date
                   </label>
                   <input
+                    id="vet-contact-preferred-date"
                     type="date"
                     name="preferredDate"
                     value={formData.preferredDate}
@@ -323,10 +330,11 @@ export default function ContactPage({ onNavigate, colors }: ContactPageProps) {
                 </div>
 
                 <div>
-                  <label className="block text-sm font-semibold mb-2" style={{ color: colors.primary }}>
+                  <label htmlFor="vet-contact-preferred-time" className="block text-sm font-semibold mb-2" style={{ color: colors.primary }}>
                     Preferred Time
                   </label>
                   <select
+                    id="vet-contact-preferred-time"
                     name="preferredTime"
                     value={formData.preferredTime}
                     onChange={handleChange}
@@ -343,10 +351,11 @@ export default function ContactPage({ onNavigate, colors }: ContactPageProps) {
 
               {/* Message */}
               <div>
-                <label className="block text-sm font-semibold mb-2" style={{ color: colors.primary }}>
+                <label htmlFor="vet-contact-message" className="block text-sm font-semibold mb-2" style={{ color: colors.primary }}>
                   Additional Information
                 </label>
                 <textarea
+                  id="vet-contact-message"
                   name="message"
                   value={formData.message}
                   onChange={handleChange}

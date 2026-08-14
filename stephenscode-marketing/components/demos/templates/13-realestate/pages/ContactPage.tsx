@@ -187,12 +187,13 @@ const ContactPage: React.FC = () => {
             ) : (
               <form onSubmit={handleSubmit} className="space-y-6">
                 <div>
-                  <label className="block text-sm font-medium text-gray-700 mb-2">
+                  <label htmlFor="realestate-contact-name" className="block text-sm font-medium text-gray-700 mb-2">
                     Full Name *
                   </label>
                   <div className="relative">
                     <User className="absolute left-3 top-1/2 transform -translate-y-1/2 text-gray-400 w-5 h-5" />
                     <input
+                      id="realestate-contact-name"
                       type="text"
                       name="name"
                       value={formData.name}
@@ -205,12 +206,13 @@ const ContactPage: React.FC = () => {
                 </div>
 
                 <div>
-                  <label className="block text-sm font-medium text-gray-700 mb-2">
+                  <label htmlFor="realestate-contact-email" className="block text-sm font-medium text-gray-700 mb-2">
                     Email Address *
                   </label>
                   <div className="relative">
                     <Mail className="absolute left-3 top-1/2 transform -translate-y-1/2 text-gray-400 w-5 h-5" />
                     <input
+                      id="realestate-contact-email"
                       type="email"
                       name="email"
                       value={formData.email}
@@ -223,12 +225,13 @@ const ContactPage: React.FC = () => {
                 </div>
 
                 <div>
-                  <label className="block text-sm font-medium text-gray-700 mb-2">
+                  <label htmlFor="realestate-contact-phone" className="block text-sm font-medium text-gray-700 mb-2">
                     Phone Number
                   </label>
                   <div className="relative">
                     <Phone className="absolute left-3 top-1/2 transform -translate-y-1/2 text-gray-400 w-5 h-5" />
                     <input
+                      id="realestate-contact-phone"
                       type="tel"
                       name="phone"
                       value={formData.phone}
@@ -240,10 +243,11 @@ const ContactPage: React.FC = () => {
                 </div>
 
                 <div>
-                  <label className="block text-sm font-medium text-gray-700 mb-2">
+                  <label htmlFor="realestate-contact-inquiry" className="block text-sm font-medium text-gray-700 mb-2">
                     I'm Interested In *
                   </label>
                   <select
+                    id="realestate-contact-inquiry"
                     name="inquiry"
                     value={formData.inquiry}
                     onChange={handleChange}
@@ -260,10 +264,11 @@ const ContactPage: React.FC = () => {
                 </div>
 
                 <div>
-                  <label className="block text-sm font-medium text-gray-700 mb-2">
+                  <label htmlFor="realestate-contact-message" className="block text-sm font-medium text-gray-700 mb-2">
                     Message *
                   </label>
                   <textarea
+                    id="realestate-contact-message"
                     name="message"
                     value={formData.message}
                     onChange={handleChange}

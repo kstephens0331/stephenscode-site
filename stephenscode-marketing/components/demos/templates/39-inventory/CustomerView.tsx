@@ -167,6 +167,7 @@ export default function CustomerView({ demo, colors }: CustomerViewProps) {
                 <input
                   type="text"
                   placeholder="Search products..."
+                  aria-label="Search products"
                   className="pl-10 pr-4 py-2 rounded-lg border focus:outline-none focus:ring-2"
                   style={{ borderColor: colors.border }}
                 />

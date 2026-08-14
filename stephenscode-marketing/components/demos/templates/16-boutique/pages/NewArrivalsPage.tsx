@@ -109,6 +109,7 @@ export default function NewArrivalsPage({ addToCart, addToWishlist }: any) {
           <div className="flex flex-col md:flex-row gap-4 max-w-md mx-auto">
             <input
               type="email"
+              aria-label="Email address for newsletter"
               placeholder="Enter your email"
               className="flex-1 px-6 py-4 rounded-lg text-gray-900 focus:outline-none focus:ring-2 focus:ring-white"
             />

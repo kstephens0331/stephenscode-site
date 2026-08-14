@@ -231,10 +231,11 @@ export default function ContactPage({ onNavigate }: ContactPageProps) {
                     {/* Personal Info */}
                     <div className="grid md:grid-cols-2 gap-4">
                       <div>
-                        <label className="block text-sm font-semibold text-[#386641] mb-2">
+                        <label htmlFor="landscaping-contact-name" className="block text-sm font-semibold text-[#386641] mb-2">
                           Full Name *
                         </label>
                         <input
+                          id="landscaping-contact-name"
                           type="text"
                           required
                           value={formData.name}
@@ -245,10 +246,11 @@ export default function ContactPage({ onNavigate }: ContactPageProps) {
                       </div>
 
                       <div>
-                        <label className="block text-sm font-semibold text-[#386641] mb-2">
+                        <label htmlFor="landscaping-contact-email" className="block text-sm font-semibold text-[#386641] mb-2">
                           Email Address *
                         </label>
                         <input
+                          id="landscaping-contact-email"
                           type="email"
                           required
                           value={formData.email}
@@ -261,10 +263,11 @@ export default function ContactPage({ onNavigate }: ContactPageProps) {
 
                     <div className="grid md:grid-cols-2 gap-4">
                       <div>
-                        <label className="block text-sm font-semibold text-[#386641] mb-2">
+                        <label htmlFor="landscaping-contact-phone" className="block text-sm font-semibold text-[#386641] mb-2">
                           Phone Number *
                         </label>
                         <input
+                          id="landscaping-contact-phone"
                           type="tel"
                           required
                           value={formData.phone}
@@ -275,10 +278,11 @@ export default function ContactPage({ onNavigate }: ContactPageProps) {
                       </div>
 
                       <div>
-                        <label className="block text-sm font-semibold text-[#386641] mb-2">
+                        <label htmlFor="landscaping-contact-property-size" className="block text-sm font-semibold text-[#386641] mb-2">
                           Property Size
                         </label>
                         <select
+                          id="landscaping-contact-property-size"
                           value={formData.propertySize}
                           onChange={(e) => setFormData({...formData, propertySize: e.target.value})}
                           className="w-full px-4 py-3 rounded-lg border-2 border-gray-200 focus:border-[#a7c957] focus:outline-none transition-colors"
@@ -293,10 +297,11 @@ export default function ContactPage({ onNavigate }: ContactPageProps) {
                     </div>
 
                     <div>
-                      <label className="block text-sm font-semibold text-[#386641] mb-2">
+                      <label htmlFor="landscaping-contact-address" className="block text-sm font-semibold text-[#386641] mb-2">
                         Property Address
                       </label>
                       <input
+                        id="landscaping-contact-address"
                         type="text"
                         value={formData.address}
                         onChange={(e) => setFormData({...formData, address: e.target.value})}
@@ -307,10 +312,10 @@ export default function ContactPage({ onNavigate }: ContactPageProps) {
 
                     {/* Service Interest */}
                     <div>
-                      <label className="block text-sm font-semibold text-[#386641] mb-3">
+                      <label id="landscaping-contact-services-label" className="block text-sm font-semibold text-[#386641] mb-3">
                         Services You're Interested In *
                       </label>
-                      <div className="grid md:grid-cols-2 gap-3">
+                      <div role="group" aria-labelledby="landscaping-contact-services-label" className="grid md:grid-cols-2 gap-3">
                         {services.map((service) => (
                           <button
                             key={service.id}
@@ -344,10 +349,11 @@ export default function ContactPage({ onNavigate }: ContactPageProps) {
                     {/* Project Details */}
                     <div className="grid md:grid-cols-3 gap-4">
                       <div>
-                        <label className="block text-sm font-semibold text-[#386641] mb-2">
+                        <label htmlFor="landscaping-contact-project-type" className="block text-sm font-semibold text-[#386641] mb-2">
                           Project Type
                         </label>
                         <select
+                          id="landscaping-contact-project-type"
                           value={formData.projectType}
                           onChange={(e) => setFormData({...formData, projectType: e.target.value})}
                           className="w-full px-4 py-3 rounded-lg border-2 border-gray-200 focus:border-[#a7c957] focus:outline-none transition-colors"
@@ -361,10 +367,11 @@ export default function ContactPage({ onNavigate }: ContactPageProps) {
                       </div>
 
                       <div>
-                        <label className="block text-sm font-semibold text-[#386641] mb-2">
+                        <label htmlFor="landscaping-contact-timeline" className="block text-sm font-semibold text-[#386641] mb-2">
                           Timeline
                         </label>
                         <select
+                          id="landscaping-contact-timeline"
                           value={formData.timeline}
                           onChange={(e) => setFormData({...formData, timeline: e.target.value})}
                           className="w-full px-4 py-3 rounded-lg border-2 border-gray-200 focus:border-[#a7c957] focus:outline-none transition-colors"
@@ -378,10 +385,11 @@ export default function ContactPage({ onNavigate }: ContactPageProps) {
                       </div>
 
                       <div>
-                        <label className="block text-sm font-semibold text-[#386641] mb-2">
+                        <label htmlFor="landscaping-contact-budget" className="block text-sm font-semibold text-[#386641] mb-2">
                           Budget Range
                         </label>
                         <select
+                          id="landscaping-contact-budget"
                           value={formData.budget}
                           onChange={(e) => setFormData({...formData, budget: e.target.value})}
                           className="w-full px-4 py-3 rounded-lg border-2 border-gray-200 focus:border-[#a7c957] focus:outline-none transition-colors"
@@ -398,10 +406,11 @@ export default function ContactPage({ onNavigate }: ContactPageProps) {
 
                     {/* Message */}
                     <div>
-                      <label className="block text-sm font-semibold text-[#386641] mb-2">
+                      <label htmlFor="landscaping-contact-message" className="block text-sm font-semibold text-[#386641] mb-2">
                         Project Details
                       </label>
                       <textarea
+                        id="landscaping-contact-message"
                         value={formData.message}
                         onChange={(e) => setFormData({...formData, message: e.target.value})}
                         rows={5}
@@ -412,10 +421,10 @@ export default function ContactPage({ onNavigate }: ContactPageProps) {
 
                     {/* Preferred Contact Method */}
                     <div>
-                      <label className="block text-sm font-semibold text-[#386641] mb-3">
+                      <label id="landscaping-contact-preferred-label" className="block text-sm font-semibold text-[#386641] mb-3">
                         Preferred Contact Method
                       </label>
-                      <div className="flex gap-4">
+                      <div role="group" aria-labelledby="landscaping-contact-preferred-label" className="flex gap-4">
                         <button
                           type="button"
                           onClick={() => setFormData({...formData, preferredContact: 'email'})}

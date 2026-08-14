@@ -93,8 +93,9 @@ export default function ReservationsPage({ colors }: ReservationsPageProps) {
               <form className="space-y-4" onSubmit={handleSubmit}>
                 <div className="grid grid-cols-2 gap-4">
                   <div>
-                    <label style={{ color: '#1a1a1a' }} className="block font-bold mb-2">First Name *</label>
+                    <label htmlFor="restaurant-reservation-first-name" style={{ color: '#1a1a1a' }} className="block font-bold mb-2">First Name *</label>
                     <input
+                      id="restaurant-reservation-first-name"
                       type="text"
                       required
                       value={formData.firstName}
@@ -104,8 +105,9 @@ export default function ReservationsPage({ colors }: ReservationsPageProps) {
                     />
                   </div>
                   <div>
-                    <label style={{ color: '#1a1a1a' }} className="block font-bold mb-2">Last Name *</label>
+                    <label htmlFor="restaurant-reservation-last-name" style={{ color: '#1a1a1a' }} className="block font-bold mb-2">Last Name *</label>
                     <input
+                      id="restaurant-reservation-last-name"
                       type="text"
                       required
                       value={formData.lastName}
@@ -117,8 +119,9 @@ export default function ReservationsPage({ colors }: ReservationsPageProps) {
                 </div>
                 <div className="grid grid-cols-2 gap-4">
                   <div>
-                    <label style={{ color: '#1a1a1a' }} className="block font-bold mb-2">Phone *</label>
+                    <label htmlFor="restaurant-reservation-phone" style={{ color: '#1a1a1a' }} className="block font-bold mb-2">Phone *</label>
                     <input
+                      id="restaurant-reservation-phone"
                       type="tel"
                       required
                       value={formData.phone}
@@ -128,8 +131,9 @@ export default function ReservationsPage({ colors }: ReservationsPageProps) {
                     />
                   </div>
                   <div>
-                    <label style={{ color: '#1a1a1a' }} className="block font-bold mb-2">Email *</label>
+                    <label htmlFor="restaurant-reservation-email" style={{ color: '#1a1a1a' }} className="block font-bold mb-2">Email *</label>
                     <input
+                      id="restaurant-reservation-email"
                       type="email"
                       required
                       value={formData.email}
@@ -141,8 +145,9 @@ export default function ReservationsPage({ colors }: ReservationsPageProps) {
                 </div>
                 <div className="grid grid-cols-3 gap-4">
                   <div>
-                    <label style={{ color: '#1a1a1a' }} className="block font-bold mb-2">Date *</label>
+                    <label htmlFor="restaurant-reservation-date" style={{ color: '#1a1a1a' }} className="block font-bold mb-2">Date *</label>
                     <input
+                      id="restaurant-reservation-date"
                       type="date"
                       required
                       value={formData.date}
@@ -152,8 +157,9 @@ export default function ReservationsPage({ colors }: ReservationsPageProps) {
                     />
                   </div>
                   <div>
-                    <label style={{ color: '#1a1a1a' }} className="block font-bold mb-2">Time *</label>
+                    <label htmlFor="restaurant-reservation-time" style={{ color: '#1a1a1a' }} className="block font-bold mb-2">Time *</label>
                     <select
+                      id="restaurant-reservation-time"
                       required
                       value={formData.time}
                       onChange={(e) => setFormData({ ...formData, time: e.target.value })}
@@ -172,8 +178,9 @@ export default function ReservationsPage({ colors }: ReservationsPageProps) {
                     </select>
                   </div>
                   <div>
-                    <label style={{ color: '#1a1a1a' }} className="block font-bold mb-2">Party Size *</label>
+                    <label htmlFor="restaurant-reservation-party-size" style={{ color: '#1a1a1a' }} className="block font-bold mb-2">Party Size *</label>
                     <select
+                      id="restaurant-reservation-party-size"
                       required
                       value={formData.partySize}
                       onChange={(e) => setFormData({ ...formData, partySize: e.target.value })}
@@ -191,8 +198,9 @@ export default function ReservationsPage({ colors }: ReservationsPageProps) {
                   </div>
                 </div>
                 <div>
-                  <label style={{ color: '#1a1a1a' }} className="block font-bold mb-2">Special Requests</label>
+                  <label htmlFor="restaurant-reservation-notes" style={{ color: '#1a1a1a' }} className="block font-bold mb-2">Special Requests</label>
                   <textarea
+                    id="restaurant-reservation-notes"
                     value={formData.notes}
                     onChange={(e) => setFormData({ ...formData, notes: e.target.value })}
                     style={{ backgroundColor: '#f5f5f5', border: '2px solid #e5e5e5', color: '#1a1a1a' }}

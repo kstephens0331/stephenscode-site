@@ -180,12 +180,13 @@ export default function ContactPage({ onNavigate }: ContactPageProps) {
                 <form onSubmit={handleSubmit} className="space-y-6">
                   <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
                     <div>
-                      <label className="block text-sm font-semibold text-gray-700 mb-2">
+                      <label htmlFor="hvac-contact-name" className="block text-sm font-semibold text-gray-700 mb-2">
                         <User className="inline w-4 h-4 mr-1" />
                         Full Name *
                       </label>
                       <input
                         type="text"
+                        id="hvac-contact-name"
                         name="name"
                         value={formData.name}
                         onChange={handleChange}
@@ -196,12 +197,13 @@ export default function ContactPage({ onNavigate }: ContactPageProps) {
                     </div>
 
                     <div>
-                      <label className="block text-sm font-semibold text-gray-700 mb-2">
+                      <label htmlFor="hvac-contact-phone" className="block text-sm font-semibold text-gray-700 mb-2">
                         <Phone className="inline w-4 h-4 mr-1" />
                         Phone Number *
                       </label>
                       <input
                         type="tel"
+                        id="hvac-contact-phone"
                         name="phone"
                         value={formData.phone}
                         onChange={handleChange}
@@ -213,12 +215,13 @@ export default function ContactPage({ onNavigate }: ContactPageProps) {
                   </div>
 
                   <div>
-                    <label className="block text-sm font-semibold text-gray-700 mb-2">
+                    <label htmlFor="hvac-contact-email" className="block text-sm font-semibold text-gray-700 mb-2">
                       <Mail className="inline w-4 h-4 mr-1" />
                       Email Address *
                     </label>
                     <input
                       type="email"
+                      id="hvac-contact-email"
                       name="email"
                       value={formData.email}
                       onChange={handleChange}
@@ -229,12 +232,13 @@ export default function ContactPage({ onNavigate }: ContactPageProps) {
                   </div>
 
                   <div>
-                    <label className="block text-sm font-semibold text-gray-700 mb-2">
+                    <label htmlFor="hvac-contact-address" className="block text-sm font-semibold text-gray-700 mb-2">
                       <Home className="inline w-4 h-4 mr-1" />
                       Service Address *
                     </label>
                     <input
                       type="text"
+                      id="hvac-contact-address"
                       name="address"
                       value={formData.address}
                       onChange={handleChange}
@@ -245,11 +249,12 @@ export default function ContactPage({ onNavigate }: ContactPageProps) {
                   </div>
 
                   <div>
-                    <label className="block text-sm font-semibold text-gray-700 mb-2">
+                    <label htmlFor="hvac-contact-service" className="block text-sm font-semibold text-gray-700 mb-2">
                       <FileText className="inline w-4 h-4 mr-1" />
                       Service Needed *
                     </label>
                     <select
+                      id="hvac-contact-service"
                       name="service"
                       value={formData.service}
                       onChange={handleChange}
@@ -267,12 +272,13 @@ export default function ContactPage({ onNavigate }: ContactPageProps) {
 
                   <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
                     <div>
-                      <label className="block text-sm font-semibold text-gray-700 mb-2">
+                      <label htmlFor="hvac-contact-preferred-date" className="block text-sm font-semibold text-gray-700 mb-2">
                         <Calendar className="inline w-4 h-4 mr-1" />
                         Preferred Date
                       </label>
                       <input
                         type="date"
+                        id="hvac-contact-preferred-date"
                         name="preferredDate"
                         value={formData.preferredDate}
                         onChange={handleChange}
@@ -281,11 +287,12 @@ export default function ContactPage({ onNavigate }: ContactPageProps) {
                     </div>
 
                     <div>
-                      <label className="block text-sm font-semibold text-gray-700 mb-2">
+                      <label htmlFor="hvac-contact-preferred-time" className="block text-sm font-semibold text-gray-700 mb-2">
                         <Clock className="inline w-4 h-4 mr-1" />
                         Preferred Time
                       </label>
                       <select
+                        id="hvac-contact-preferred-time"
                         name="preferredTime"
                         value={formData.preferredTime}
                         onChange={handleChange}
@@ -301,11 +308,12 @@ export default function ContactPage({ onNavigate }: ContactPageProps) {
                   </div>
 
                   <div>
-                    <label className="block text-sm font-semibold text-gray-700 mb-2">
+                    <label htmlFor="hvac-contact-message" className="block text-sm font-semibold text-gray-700 mb-2">
                       <MessageSquare className="inline w-4 h-4 mr-1" />
                       Additional Details
                     </label>
                     <textarea
+                      id="hvac-contact-message"
                       name="message"
                       value={formData.message}
                       onChange={handleChange}

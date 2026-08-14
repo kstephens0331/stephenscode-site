@@ -216,8 +216,9 @@ export default function CustomerView({ demo, colors }: CustomerViewProps) {
                 <form onSubmit={handleSubmit} className="space-y-6">
                   <div className="grid md:grid-cols-2 gap-6">
                     <div>
-                      <label style={{ color: '#1a1a1a' }} className="block font-bold mb-2">Full Name *</label>
+                      <label htmlFor="barbershop-book-name" style={{ color: '#1a1a1a' }} className="block font-bold mb-2">Full Name *</label>
                       <input
+                        id="barbershop-book-name"
                         type="text"
                         required
                         value={formData.name}
@@ -228,8 +229,9 @@ export default function CustomerView({ demo, colors }: CustomerViewProps) {
                       />
                     </div>
                     <div>
-                      <label style={{ color: '#1a1a1a' }} className="block font-bold mb-2">Phone *</label>
+                      <label htmlFor="barbershop-book-phone" style={{ color: '#1a1a1a' }} className="block font-bold mb-2">Phone *</label>
                       <input
+                        id="barbershop-book-phone"
                         type="tel"
                         required
                         value={formData.phone}
@@ -241,8 +243,9 @@ export default function CustomerView({ demo, colors }: CustomerViewProps) {
                     </div>
                   </div>
                   <div>
-                    <label style={{ color: '#1a1a1a' }} className="block font-bold mb-2">Email</label>
+                    <label htmlFor="barbershop-book-email" style={{ color: '#1a1a1a' }} className="block font-bold mb-2">Email</label>
                     <input
+                      id="barbershop-book-email"
                       type="email"
                       value={formData.email}
                       onChange={(e) => setFormData({ ...formData, email: e.target.value })}
@@ -252,8 +255,9 @@ export default function CustomerView({ demo, colors }: CustomerViewProps) {
                     />
                   </div>
                   <div>
-                    <label style={{ color: '#1a1a1a' }} className="block font-bold mb-2">Service *</label>
+                    <label htmlFor="barbershop-book-service" style={{ color: '#1a1a1a' }} className="block font-bold mb-2">Service *</label>
                     <select
+                      id="barbershop-book-service"
                       required
                       value={formData.service}
                       onChange={(e) => setFormData({ ...formData, service: e.target.value })}
@@ -268,8 +272,9 @@ export default function CustomerView({ demo, colors }: CustomerViewProps) {
                   </div>
                   <div className="grid md:grid-cols-2 gap-6">
                     <div>
-                      <label style={{ color: '#1a1a1a' }} className="block font-bold mb-2">Preferred Date *</label>
+                      <label htmlFor="barbershop-book-date" style={{ color: '#1a1a1a' }} className="block font-bold mb-2">Preferred Date *</label>
                       <input
+                        id="barbershop-book-date"
                         type="date"
                         required
                         value={formData.date}
@@ -279,8 +284,9 @@ export default function CustomerView({ demo, colors }: CustomerViewProps) {
                       />
                     </div>
                     <div>
-                      <label style={{ color: '#1a1a1a' }} className="block font-bold mb-2">Preferred Time *</label>
+                      <label htmlFor="barbershop-book-time" style={{ color: '#1a1a1a' }} className="block font-bold mb-2">Preferred Time *</label>
                       <input
+                        id="barbershop-book-time"
                         type="time"
                         required
                         value={formData.time}
@@ -291,8 +297,9 @@ export default function CustomerView({ demo, colors }: CustomerViewProps) {
                     </div>
                   </div>
                   <div>
-                    <label style={{ color: '#1a1a1a' }} className="block font-bold mb-2">Special Requests</label>
+                    <label htmlFor="barbershop-book-notes" style={{ color: '#1a1a1a' }} className="block font-bold mb-2">Special Requests</label>
                     <textarea
+                      id="barbershop-book-notes"
                       value={formData.notes}
                       onChange={(e) => setFormData({ ...formData, notes: e.target.value })}
                       style={{ backgroundColor: '#f5f5f5', border: '1px solid #e5e5e5', color: '#1a1a1a' }}

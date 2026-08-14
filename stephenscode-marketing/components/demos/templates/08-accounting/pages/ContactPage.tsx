@@ -181,11 +181,12 @@ export default function ContactPage({ onNavigate }: ContactPageProps) {
               ) : (
                 <form onSubmit={handleSubmit} className="space-y-6">
                   <div>
-                    <label className="block text-sm font-semibold text-gray-700 mb-2">
+                    <label htmlFor="accounting-contact-name" className="block text-sm font-semibold text-gray-700 mb-2">
                       Full Name *
                     </label>
                     <input
                       type="text"
+                      id="accounting-contact-name"
                       name="name"
                       value={formData.name}
                       onChange={handleChange}
@@ -196,11 +197,12 @@ export default function ContactPage({ onNavigate }: ContactPageProps) {
 
                   <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
                     <div>
-                      <label className="block text-sm font-semibold text-gray-700 mb-2">
+                      <label htmlFor="accounting-contact-email" className="block text-sm font-semibold text-gray-700 mb-2">
                         Email Address *
                       </label>
                       <input
                         type="email"
+                        id="accounting-contact-email"
                         name="email"
                         value={formData.email}
                         onChange={handleChange}
@@ -209,11 +211,12 @@ export default function ContactPage({ onNavigate }: ContactPageProps) {
                       />
                     </div>
                     <div>
-                      <label className="block text-sm font-semibold text-gray-700 mb-2">
+                      <label htmlFor="accounting-contact-phone" className="block text-sm font-semibold text-gray-700 mb-2">
                         Phone Number *
                       </label>
                       <input
                         type="tel"
+                        id="accounting-contact-phone"
                         name="phone"
                         value={formData.phone}
                         onChange={handleChange}
@@ -224,10 +227,11 @@ export default function ContactPage({ onNavigate }: ContactPageProps) {
                   </div>
 
                   <div>
-                    <label className="block text-sm font-semibold text-gray-700 mb-2">
+                    <label htmlFor="accounting-contact-service" className="block text-sm font-semibold text-gray-700 mb-2">
                       Service Interest *
                     </label>
                     <select
+                      id="accounting-contact-service"
                       name="service"
                       value={formData.service}
                       onChange={handleChange}
@@ -242,12 +246,13 @@ export default function ContactPage({ onNavigate }: ContactPageProps) {
                   </div>
 
                   <div>
-                    <label className="block text-sm font-semibold text-gray-700 mb-2">
+                    <label id="accounting-contact-preferred-label" className="block text-sm font-semibold text-gray-700 mb-2">
                       Preferred Contact Method
                     </label>
-                    <div className="flex gap-6">
-                      <label className="flex items-center gap-2 cursor-pointer">
+                    <div role="radiogroup" aria-labelledby="accounting-contact-preferred-label" className="flex gap-6">
+                      <label htmlFor="accounting-contact-preferred-email" className="flex items-center gap-2 cursor-pointer">
                         <input
+                          id="accounting-contact-preferred-email"
                           type="radio"
                           name="preferredContact"
                           value="email"
@@ -257,8 +262,9 @@ export default function ContactPage({ onNavigate }: ContactPageProps) {
                         />
                         <span className="text-gray-700">Email</span>
                       </label>
-                      <label className="flex items-center gap-2 cursor-pointer">
+                      <label htmlFor="accounting-contact-preferred-phone" className="flex items-center gap-2 cursor-pointer">
                         <input
+                          id="accounting-contact-preferred-phone"
                           type="radio"
                           name="preferredContact"
                           value="phone"
@@ -272,10 +278,11 @@ export default function ContactPage({ onNavigate }: ContactPageProps) {
                   </div>
 
                   <div>
-                    <label className="block text-sm font-semibold text-gray-700 mb-2">
+                    <label htmlFor="accounting-contact-message" className="block text-sm font-semibold text-gray-700 mb-2">
                       Message
                     </label>
                     <textarea
+                      id="accounting-contact-message"
                       name="message"
                       value={formData.message}
                       onChange={handleChange}

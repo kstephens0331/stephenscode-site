@@ -296,6 +296,7 @@ export default function BlogPage({ basePath }: BlogPageProps) {
             <div className="flex flex-col sm:flex-row gap-4 max-w-md mx-auto">
               <input
                 type="email"
+                aria-label="Email address for newsletter"
                 placeholder="Enter your email"
                 className="flex-1 px-4 py-3 bg-zinc-900 border border-zinc-800 rounded-lg text-zinc-50 placeholder-zinc-500 focus:outline-none focus:border-[#c1121f]"
               />
