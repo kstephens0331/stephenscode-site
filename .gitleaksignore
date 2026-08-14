@@ -4,3 +4,4 @@
 # cookie-consent refactor moved it into a named constant, which trips gitleaks'
 # generic-api-key heuristic. Not a credential.
 stephenscode-marketing/components/AnalyticsScripts.tsx:generic-api-key:8
+stephenscode-marketing/components/AnalyticsScripts.tsx:generic-api-key:9
