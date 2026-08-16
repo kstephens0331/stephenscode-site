@@ -1,7 +1,11 @@
-import React from 'react';
-import { Mail, Phone, Award, TrendingUp, Home, Star, MapPin, Linkedin, MessageSquare } from 'lucide-react';
+import React, { useState } from 'react';
+import { Mail, Phone, Award, TrendingUp, Home, Star, MessageSquare } from 'lucide-react';
+import LeadModal from '../components/LeadModal';
 
 const AgentsPage: React.FC = () => {
+  const [messageAgent, setMessageAgent] = useState<string | null>(null);
+  const [showConsultation, setShowConsultation] = useState(false);
+
   const agents = [
     {
       id: 1,
@@ -226,7 +230,11 @@ const AgentsPage: React.FC = () => {
                       <Phone className="w-4 h-4 mr-2" />
                       Call
                     </a>
-                    <button className="flex items-center justify-center bg-[#ffc300] text-[#000814] px-4 py-3 rounded-lg font-semibold hover:bg-[#ffcd1a] transition-colors">
+                    <button
+                      onClick={() => setMessageAgent(agent.name)}
+                      aria-label={`Message ${agent.name}`}
+                      className="flex items-center justify-center bg-[#ffc300] text-[#000814] px-4 py-3 rounded-lg font-semibold hover:bg-[#ffcd1a] transition-colors"
+                    >
                       <MessageSquare className="w-4 h-4" />
                     </button>
                   </div>
@@ -244,12 +252,40 @@ const AgentsPage: React.FC = () => {
           <p className="text-gray-300 text-lg mb-8">
             Our agents are standing by to help you find your perfect property or sell your home for the best price.
           </p>
-          <button className="bg-[#ffc300] text-[#000814] px-8 py-4 rounded-lg font-semibold hover:bg-[#ffcd1a] transition-colors inline-flex items-center">
+          <button
+            onClick={() => setShowConsultation(true)}
+            className="bg-[#ffc300] text-[#000814] px-8 py-4 rounded-lg font-semibold hover:bg-[#ffcd1a] transition-colors inline-flex items-center"
+          >
             <MessageSquare className="w-5 h-5 mr-2" />
             Schedule a Consultation
           </button>
         </div>
       </div>
+
+      {/* Message Agent Modal */}
+      <LeadModal
+        open={messageAgent !== null}
+        onClose={() => setMessageAgent(null)}
+        title={messageAgent ? `Message ${messageAgent}` : 'Message Agent'}
+        subtitle="Send a direct message and get a reply within 24 hours."
+        service={messageAgent ? `Agent Message: ${messageAgent}` : 'Agent Message'}
+        formName="agent_message"
+        submitLabel="Send Message"
+        messageLabel="Your Message *"
+        messagePlaceholder="Hi, I would love to talk about a property..."
+      />
+
+      {/* Consultation Modal */}
+      <LeadModal
+        open={showConsultation}
+        onClose={() => setShowConsultation(false)}
+        title="Schedule a Consultation"
+        subtitle="Free and no obligation. Pick a time that works for you."
+        service="Agent Consultation"
+        formName="agent_consultation"
+        showDateTime
+        submitLabel="Request Consultation"
+      />
     </div>
   );
 };

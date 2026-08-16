@@ -1,6 +1,46 @@
 import React from 'react';
 import { Menu, X, Phone, Clock, MapPin, Heart, Facebook, Instagram, Twitter } from 'lucide-react';
 
+type SocialKey = 'facebook' | 'instagram' | 'twitter';
+
+const socialProfiles: Record<SocialKey, {
+  label: string;
+  handle: string;
+  followers: string;
+  posts: { text: string; time: string; likes: number; comments: number }[];
+}> = {
+  facebook: {
+    label: 'Paws & Care on Facebook',
+    handle: '@pawsandcareanimalhospital',
+    followers: '4,280 followers',
+    posts: [
+      { text: 'Max the Golden Retriever went home today after emergency bloat surgery. Seeing him wag his way out the door is why we do this. Get well soon, buddy!', time: '2 days ago', likes: 214, comments: 38 },
+      { text: 'February is Pet Dental Health Month! Book a dental cleaning this month and receive a free take-home dental care kit for your pet.', time: '5 days ago', likes: 96, comments: 12 },
+      { text: 'Welcome to the team, Dr. Foster! She specializes in puppy and kitten care and is now accepting new patients.', time: '1 week ago', likes: 183, comments: 27 },
+    ],
+  },
+  instagram: {
+    label: 'Paws & Care on Instagram',
+    handle: '@pawsandcare',
+    followers: '6,150 followers',
+    posts: [
+      { text: 'Kitten season is here! Meet the foster litter Dr. Foster is bottle-feeding between appointments. All five will be ready for adoption soon.', time: '1 day ago', likes: 542, comments: 64 },
+      { text: 'Before and after: Luna the Beagle after her dental cleaning. Healthy teeth, happy dog, fresh breath. Her family says the snuggles improved too.', time: '4 days ago', likes: 318, comments: 22 },
+      { text: 'Our boarding suites got an upgrade! Climate control, orthopedic bedding, and a webcam so you can check in on your pet anytime.', time: '1 week ago', likes: 276, comments: 19 },
+    ],
+  },
+  twitter: {
+    label: 'Paws & Care on X',
+    handle: '@pawsandcarevet',
+    followers: '2,940 followers',
+    posts: [
+      { text: 'Reminder: chocolate, grapes, xylitol, and lilies are toxic to pets. Save our 24/7 emergency line: (555) 123-4567.', time: '3 days ago', likes: 87, comments: 9 },
+      { text: 'Heat advisory this weekend. Walk dogs early morning or after sunset, and never leave pets in parked cars, even for a minute.', time: '6 days ago', likes: 142, comments: 15 },
+      { text: 'We are now offering drop-off appointments for busy pet parents. Drop off in the morning, pick up after work. Call to schedule.', time: '1 week ago', likes: 63, comments: 7 },
+    ],
+  },
+};
+
 interface LayoutProps {
   children: React.ReactNode;
   currentPage: string;
@@ -21,6 +61,7 @@ interface LayoutProps {
 
 export default function Layout({ children, currentPage, onNavigate, businessInfo, colors }: LayoutProps) {
   const [mobileMenuOpen, setMobileMenuOpen] = React.useState(false);
+  const [socialModal, setSocialModal] = React.useState<SocialKey | null>(null);
 
   const navItems = [
     { label: 'Home', page: 'home' },
@@ -58,15 +99,27 @@ export default function Layout({ children, currentPage, onNavigate, businessInfo
             </span>
           </div>
           <div className="flex items-center gap-4">
-            <a href="#" className="hover:opacity-80 transition-opacity">
+            <button
+              onClick={() => setSocialModal('facebook')}
+              aria-label="View our Facebook page"
+              className="hover:opacity-80 transition-opacity"
+            >
               <Facebook className="w-4 h-4" />
-            </a>
-            <a href="#" className="hover:opacity-80 transition-opacity">
+            </button>
+            <button
+              onClick={() => setSocialModal('instagram')}
+              aria-label="View our Instagram profile"
+              className="hover:opacity-80 transition-opacity"
+            >
               <Instagram className="w-4 h-4" />
-            </a>
-            <a href="#" className="hover:opacity-80 transition-opacity">
+            </button>
+            <button
+              onClick={() => setSocialModal('twitter')}
+              aria-label="View our X profile"
+              className="hover:opacity-80 transition-opacity"
+            >
               <Twitter className="w-4 h-4" />
-            </a>
+            </button>
           </div>
         </div>
       </div>
@@ -261,6 +314,74 @@ export default function Layout({ children, currentPage, onNavigate, businessInfo
           </div>
         </div>
       </footer>
+
+      {/* Social Media Modal */}
+      {socialModal && (
+        <div
+          className="fixed inset-0 z-50 flex items-center justify-center p-4 bg-black/60"
+          onClick={() => setSocialModal(null)}
+        >
+          <div
+            className="bg-white rounded-2xl shadow-2xl max-w-lg w-full max-h-[85vh] overflow-y-auto"
+            onClick={(e) => e.stopPropagation()}
+            role="dialog"
+            aria-modal="true"
+            aria-label={socialProfiles[socialModal].label}
+          >
+            <div className="sticky top-0 bg-white border-b px-6 py-4 flex items-center justify-between rounded-t-2xl">
+              <h3 className="text-xl font-bold" style={{ color: colors.primary }}>
+                {socialProfiles[socialModal].label}
+              </h3>
+              <button
+                onClick={() => setSocialModal(null)}
+                aria-label="Close social media preview"
+                className="p-2 rounded-lg hover:bg-gray-100 transition-colors"
+              >
+                <X className="w-5 h-5 text-gray-600" />
+              </button>
+            </div>
+
+            <div className="p-6">
+              <div className="flex items-center gap-3 mb-6 pb-4 border-b border-gray-200">
+                <div
+                  className="w-12 h-12 rounded-full flex items-center justify-center flex-shrink-0"
+                  style={{ backgroundColor: colors.primary }}
+                >
+                  <Heart className="w-6 h-6 text-white" fill="currentColor" />
+                </div>
+                <div>
+                  <p className="font-bold text-gray-900">{socialProfiles[socialModal].handle}</p>
+                  <p className="text-sm text-gray-600">{socialProfiles[socialModal].followers}</p>
+                </div>
+              </div>
+
+              <div className="space-y-4">
+                {socialProfiles[socialModal].posts.map((post, i) => (
+                  <div key={i} className="bg-teal-50 rounded-xl p-4 border border-teal-100">
+                    <p className="text-gray-800 mb-3 leading-relaxed">{post.text}</p>
+                    <div className="flex items-center gap-4 text-sm text-gray-500">
+                      <span>{post.time}</span>
+                      <span>{post.likes} likes</span>
+                      <span>{post.comments} comments</span>
+                    </div>
+                  </div>
+                ))}
+              </div>
+
+              <button
+                onClick={() => {
+                  setSocialModal(null);
+                  onNavigate('contact');
+                }}
+                className="mt-6 w-full px-6 py-3 rounded-full text-white font-semibold hover:opacity-90 transition-all"
+                style={{ backgroundColor: colors.primary }}
+              >
+                Book an Appointment
+              </button>
+            </div>
+          </div>
+        </div>
+      )}
     </div>
   );
 }

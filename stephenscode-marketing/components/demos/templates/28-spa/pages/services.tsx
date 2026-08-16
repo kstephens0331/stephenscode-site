@@ -26,6 +26,15 @@ export default function ServicesPage({ colors, onNavigate }: ServicesPageProps) 
     ]}
   ]
 
+  const bookTreatment = (treatmentName: string) => {
+    try {
+      window.localStorage.setItem('spa-demo-book-prefill', treatmentName)
+    } catch {
+      // localStorage unavailable -- booking page still works without prefill
+    }
+    onNavigate('book')
+  }
+
   return (
     <div className="min-h-screen py-12" style={{ backgroundColor: colors.backgroundAlt }}>
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
@@ -36,12 +45,21 @@ export default function ServicesPage({ colors, onNavigate }: ServicesPageProps) 
               <h2 className="text-2xl font-bold mb-6 font-serif" style={{ color: colors.primary }}>{category.category}</h2>
               <div className="space-y-4">
                 {category.treatments.map((treatment, i) => (
-                  <div key={i} className="flex justify-between items-center p-4 rounded-lg" style={{ backgroundColor: colors.backgroundAlt }}>
+                  <div key={i} className="flex flex-wrap gap-4 justify-between items-center p-4 rounded-lg" style={{ backgroundColor: colors.backgroundAlt }}>
                     <div>
                       <h3 className="font-bold" style={{ color: colors.text }}>{treatment.name}</h3>
                       <p className="text-sm" style={{ color: colors.textLight }}>{treatment.duration}</p>
                     </div>
-                    <div className="text-xl font-bold" style={{ color: colors.primary }}>{treatment.price}</div>
+                    <div className="flex items-center gap-4">
+                      <div className="text-xl font-bold" style={{ color: colors.primary }}>{treatment.price}</div>
+                      <button
+                        onClick={() => bookTreatment(treatment.name)}
+                        className="px-4 py-2 rounded-lg text-sm font-semibold border-2 transition-all hover:opacity-80"
+                        style={{ borderColor: colors.primary, color: colors.primary }}
+                      >
+                        Book
+                      </button>
+                    </div>
                   </div>
                 ))}
               </div>

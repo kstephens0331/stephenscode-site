@@ -19,9 +19,11 @@ export default function PrivateEventsPage({ colors }: PrivateEventsPageProps) {
     details: ''
   })
   const [submitted, setSubmitted] = useState(false)
+  const [submitError, setSubmitError] = useState('')
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault()
+    setSubmitError('')
     try {
       const response = await fetch('/api/demo-lead', {
         method: 'POST',
@@ -48,11 +50,10 @@ export default function PrivateEventsPage({ colors }: PrivateEventsPageProps) {
         trackConversion('leadForm')
         setSubmitted(true)
       } else {
-        alert('There was an issue submitting your event inquiry. Please email events@gourmetkitchen.com.')
+        setSubmitError('There was an issue submitting your event inquiry. Please email events@gourmetkitchen.com.')
       }
-    } catch (error) {
-      console.error('Private events form error:', error)
-      alert('There was an issue submitting your event inquiry. Please email events@gourmetkitchen.com.')
+    } catch {
+      setSubmitError('There was an issue submitting your event inquiry. Please email events@gourmetkitchen.com.')
     }
   }
 
@@ -279,6 +280,11 @@ export default function PrivateEventsPage({ colors }: PrivateEventsPageProps) {
                   placeholder="Tell us about your event vision, budget, menu preferences, or any special requirements..."
                 />
               </div>
+              {submitError && (
+                <div style={{ backgroundColor: '#fef2f2', border: '2px solid #ef4444', color: '#991b1b' }} className="p-4 text-sm font-bold">
+                  {submitError}
+                </div>
+              )}
               <button
                 type="submit"
                 style={{ backgroundColor: '#9b2226', color: '#ffffff' }}

@@ -1,6 +1,124 @@
 import React from 'react';
 import { ClipboardCheck, FileText, CreditCard, Clock, MapPin, Phone, Mail, Download, CheckCircle, Heart } from 'lucide-react';
 
+const formContents: Record<string, string[]> = {
+  'New Patient Registration Form': [
+    'OWNER INFORMATION',
+    'Full Name: ______________________________',
+    'Address: ________________________________',
+    'City / State / ZIP: ______________________',
+    'Phone: __________________________________',
+    'Email: __________________________________',
+    'Preferred Contact Method:  [ ] Phone  [ ] Email  [ ] Text',
+    '',
+    'PET INFORMATION',
+    'Pet Name: _______________________________',
+    'Species:  [ ] Dog  [ ] Cat  [ ] Bird  [ ] Reptile  [ ] Other: __________',
+    'Breed: __________________________________',
+    'Date of Birth (approx.): _________________',
+    'Sex:  [ ] Male  [ ] Female    Spayed/Neutered:  [ ] Yes  [ ] No',
+    'Color / Markings: ________________________',
+    'Microchip Number (if known): _____________',
+    '',
+    'How did you hear about Paws & Care Animal Hospital? ______________',
+  ],
+  'Medical History Questionnaire': [
+    'PET MEDICAL HISTORY',
+    'Pet Name: _______________________________',
+    'Previous Veterinary Clinic: ______________',
+    'Date of Last Exam: _______________________',
+    'Current Medications (name / dose / frequency):',
+    '1. ______________________________________',
+    '2. ______________________________________',
+    '3. ______________________________________',
+    '',
+    'Known Allergies: _________________________',
+    'Previous Surgeries: ______________________',
+    'Chronic Conditions:  [ ] Arthritis  [ ] Diabetes  [ ] Kidney  [ ] Heart  [ ] Skin  [ ] Other',
+    'Current Diet (brand and amount): _________',
+    'Flea/Tick Prevention:  [ ] Yes  [ ] No   Product: _______________',
+    'Heartworm Prevention:  [ ] Yes  [ ] No   Product: _______________',
+    '',
+    'Any current concerns you would like the doctor to address?',
+    '_________________________________________',
+    '_________________________________________',
+  ],
+  'Records Release Authorization': [
+    'AUTHORIZATION FOR RELEASE OF VETERINARY RECORDS',
+    '',
+    'I authorize the release of all medical records for my pet:',
+    'Pet Name: _______________________________',
+    'From (previous clinic name): _____________',
+    'Clinic Phone: ____________________________',
+    'Clinic Address: __________________________',
+    '',
+    'To: Paws & Care Animal Hospital',
+    '123 Veterinary Lane, Anytown, ST 12345',
+    'Phone: (555) 123-4567   Fax: (555) 123-4568',
+    '',
+    'Owner Name (print): ______________________',
+    'Owner Signature: _________________________',
+    'Date: ____________________________________',
+  ],
+  'Payment & Insurance Information': [
+    'PAYMENT AND INSURANCE INFORMATION',
+    '',
+    'Payment is due at the time of service.',
+    'Accepted methods: cash, check, all major credit cards,',
+    'CareCredit financing, and Scratchpay payment plans.',
+    '',
+    'PET INSURANCE',
+    'Insurance Provider: ______________________',
+    'Policy Number: ___________________________',
+    'Would you like help submitting claims?  [ ] Yes  [ ] No',
+    '',
+    'Cardholder Name: _________________________',
+    'Billing ZIP Code: ________________________',
+    '',
+    'I understand and agree to the payment policy above.',
+    'Signature: _______________________________',
+    'Date: ____________________________________',
+  ],
+  'Boarding & Emergency Contact': [
+    'BOARDING AND EMERGENCY CONTACT FORM',
+    '',
+    'Pet Name: _______________________________',
+    'Feeding Instructions: ____________________',
+    'Medications During Stay: _________________',
+    'Belongings Left With Pet: ________________',
+    '',
+    'EMERGENCY CONTACT (other than owner)',
+    'Name: ___________________________________',
+    'Relationship: ____________________________',
+    'Phone: __________________________________',
+    '',
+    'In case of a medical emergency during boarding, I authorize',
+    'Paws & Care Animal Hospital to provide necessary treatment',
+    'up to: [ ] $250  [ ] $500  [ ] $1,000  [ ] Any amount needed',
+    '',
+    'Owner Signature: _________________________',
+    'Date: ____________________________________',
+  ],
+};
+
+function buildFormFile(formName: string): string {
+  const lines = [
+    'PAWS & CARE ANIMAL HOSPITAL',
+    '123 Veterinary Lane, Anytown, ST 12345',
+    '(555) 123-4567 | info@pawsandcare.com',
+    '='.repeat(50),
+    formName.toUpperCase(),
+    '='.repeat(50),
+    '',
+    ...(formContents[formName] || []),
+    '',
+    '-'.repeat(50),
+    'Please bring this completed form to your first visit,',
+    'or arrive 10 minutes early to complete it in office.',
+  ];
+  return lines.join('\n');
+}
+
 interface NewPatientsPageProps {
   onNavigate: (page: string) => void;
   colors: {
@@ -11,6 +129,24 @@ interface NewPatientsPageProps {
 }
 
 export default function NewPatientsPage({ onNavigate, colors }: NewPatientsPageProps) {
+  const [downloadedForm, setDownloadedForm] = React.useState<string | null>(null);
+
+  const handleDownloadForm = (formName: string) => {
+    const blob = new Blob([buildFormFile(formName)], { type: 'text/plain;charset=utf-8' });
+    const url = URL.createObjectURL(blob);
+    const link = document.createElement('a');
+    link.href = url;
+    link.download = `${formName.replace(/[^a-z0-9]+/gi, '-')}.txt`;
+    document.body.appendChild(link);
+    link.click();
+    document.body.removeChild(link);
+    URL.revokeObjectURL(url);
+    setDownloadedForm(formName);
+    window.setTimeout(() => {
+      setDownloadedForm((current) => (current === formName ? null : current));
+    }, 3000);
+  };
+
   const steps = [
     {
       number: '1',
@@ -93,11 +229,11 @@ export default function NewPatientsPage({ onNavigate, colors }: NewPatientsPageP
   ];
 
   const forms = [
-    { name: 'New Patient Registration Form', required: true, type: 'PDF Download' },
-    { name: 'Medical History Questionnaire', required: true, type: 'PDF Download' },
-    { name: 'Records Release Authorization', required: false, type: 'PDF Download' },
-    { name: 'Payment & Insurance Information', required: true, type: 'PDF Download' },
-    { name: 'Boarding & Emergency Contact', required: false, type: 'PDF Download' },
+    { name: 'New Patient Registration Form', required: true, type: 'Printable Form' },
+    { name: 'Medical History Questionnaire', required: true, type: 'Printable Form' },
+    { name: 'Records Release Authorization', required: false, type: 'Printable Form' },
+    { name: 'Payment & Insurance Information', required: true, type: 'Printable Form' },
+    { name: 'Boarding & Emergency Contact', required: false, type: 'Printable Form' },
   ];
 
   return (
@@ -321,10 +457,21 @@ export default function NewPatientsPage({ onNavigate, colors }: NewPatientsPageP
                     </div>
                   </div>
                   <button
-                    className="px-6 py-2 rounded-full text-white font-medium hover:opacity-90 transition-all"
-                    style={{ backgroundColor: colors.secondary }}
+                    onClick={() => handleDownloadForm(form.name)}
+                    className="px-6 py-2 rounded-full text-white font-medium hover:opacity-90 transition-all inline-flex items-center gap-2"
+                    style={{ backgroundColor: downloadedForm === form.name ? '#059669' : colors.secondary }}
                   >
-                    Download
+                    {downloadedForm === form.name ? (
+                      <>
+                        <CheckCircle className="w-4 h-4" />
+                        Downloaded
+                      </>
+                    ) : (
+                      <>
+                        <Download className="w-4 h-4" />
+                        Download
+                      </>
+                    )}
                   </button>
                 </div>
               ))}

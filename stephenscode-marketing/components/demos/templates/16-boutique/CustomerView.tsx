@@ -1,6 +1,6 @@
 'use client'
 
-import { useState } from 'react'
+import { useEffect, useRef, useState } from 'react'
 import type { Demo } from '@/lib/demos-data'
 import type { ColorPalette } from '@/lib/demo-colors'
 import Layout from './components/Layout'
@@ -39,10 +39,68 @@ export interface WishlistItem {
   colors: string[]
 }
 
+const CART_KEY = 'boutique-demo-cart'
+const WISHLIST_KEY = 'boutique-demo-wishlist'
+const PROMO_KEY = 'boutique-demo-promo'
+
 export default function CustomerView({ demo, colors }: CustomerViewProps) {
   const [currentPage, setCurrentPage] = useState('home')
   const [cart, setCart] = useState<CartItem[]>([])
   const [wishlist, setWishlist] = useState<WishlistItem[]>([])
+  const [appliedPromo, setAppliedPromo] = useState<string | null>(null)
+  const hydrated = useRef(false)
+
+  useEffect(() => {
+    try {
+      const storedCart = localStorage.getItem(CART_KEY)
+      if (storedCart) setCart(JSON.parse(storedCart))
+      const storedWishlist = localStorage.getItem(WISHLIST_KEY)
+      if (storedWishlist) setWishlist(JSON.parse(storedWishlist))
+      const storedPromo = localStorage.getItem(PROMO_KEY)
+      if (storedPromo) setAppliedPromo(storedPromo)
+    } catch {
+      // Ignore malformed stored state -- start fresh
+    }
+    hydrated.current = true
+  }, [])
+
+  useEffect(() => {
+    if (!hydrated.current) return
+    try {
+      localStorage.setItem(CART_KEY, JSON.stringify(cart))
+    } catch {
+      // Storage unavailable -- cart still works in memory
+    }
+  }, [cart])
+
+  useEffect(() => {
+    if (!hydrated.current) return
+    try {
+      localStorage.setItem(WISHLIST_KEY, JSON.stringify(wishlist))
+    } catch {
+      // Storage unavailable -- wishlist still works in memory
+    }
+  }, [wishlist])
+
+  useEffect(() => {
+    if (!hydrated.current) return
+    try {
+      if (appliedPromo) {
+        localStorage.setItem(PROMO_KEY, appliedPromo)
+      } else {
+        localStorage.removeItem(PROMO_KEY)
+      }
+    } catch {
+      // Storage unavailable -- promo still works in memory
+    }
+  }, [appliedPromo])
+
+  const navigate = (page: string) => {
+    setCurrentPage(page)
+    if (typeof window !== 'undefined') {
+      window.scrollTo({ top: 0, behavior: 'smooth' })
+    }
+  }
 
   const addToCart = (item: Omit<CartItem, 'quantity'>) => {
     setCart(prevCart => {
@@ -76,6 +134,7 @@ export default function CustomerView({ demo, colors }: CustomerViewProps) {
 
   const clearCart = () => {
     setCart([])
+    setAppliedPromo(null)
   }
 
   const addToWishlist = (item: WishlistItem) => {
@@ -92,7 +151,7 @@ export default function CustomerView({ demo, colors }: CustomerViewProps) {
   const totalItems = cart.reduce((sum, item) => sum + item.quantity, 0)
 
   const renderPage = () => {
-    const pageProps = { demo, colors, setCurrentPage, addToCart, addToWishlist, removeFromWishlist, wishlist }
+    const pageProps = { demo, colors, setCurrentPage: navigate, addToCart, addToWishlist, removeFromWishlist, wishlist }
 
     switch (currentPage) {
       case 'home':
@@ -106,13 +165,15 @@ export default function CustomerView({ demo, colors }: CustomerViewProps) {
       case 'sale':
         return <SalePage {...pageProps} />
       case 'cart':
-        return <CartPage {...pageProps} cart={cart} updateQuantity={updateQuantity} removeFromCart={removeFromCart} clearCart={clearCart} />
+        return <CartPage {...pageProps} cart={cart} updateQuantity={updateQuantity} removeFromCart={removeFromCart} clearCart={clearCart} appliedPromo={appliedPromo} setAppliedPromo={setAppliedPromo} />
       case 'checkout':
-        return <CheckoutPage {...pageProps} cart={cart} clearCart={clearCart} />
+        return <CheckoutPage {...pageProps} cart={cart} clearCart={clearCart} appliedPromo={appliedPromo} />
       case 'account':
-        return <AccountPage />
+        return <AccountPage wishlist={wishlist} removeFromWishlist={removeFromWishlist} addToCart={addToCart} setCurrentPage={navigate} />
+      case 'wishlist':
+        return <AccountPage wishlist={wishlist} removeFromWishlist={removeFromWishlist} addToCart={addToCart} setCurrentPage={navigate} initialTab="wishlist" />
       case 'about':
-        return <AboutPage setCurrentPage={setCurrentPage} />
+        return <AboutPage setCurrentPage={navigate} />
       case 'contact':
         return <ContactPage />
       default:
@@ -124,9 +185,10 @@ export default function CustomerView({ demo, colors }: CustomerViewProps) {
     <Layout
       demo={demo}
       currentPage={currentPage}
-      onNavigate={setCurrentPage}
+      onNavigate={navigate}
       cartItemCount={totalItems}
       wishlistCount={wishlist.length}
+      addToCart={addToCart}
     >
       {renderPage()}
     </Layout>

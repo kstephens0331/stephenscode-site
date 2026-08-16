@@ -1,5 +1,115 @@
 import React from 'react';
-import { Heart, Droplet, Utensils, Activity, Moon, Thermometer, Bone, Stethoscope, Sparkles, ShieldCheck, Dog, Cat } from 'lucide-react';
+import { Heart, Droplet, Utensils, Activity, Moon, Thermometer, Bone, Stethoscope, Sparkles, ShieldCheck, Dog, Cat, Download, CheckCircle } from 'lucide-react';
+
+const readingGuides: { title: string; content: string[] }[] = [
+  {
+    title: 'Complete Guide to Puppy Care',
+    content: [
+      'FIRST WEEK HOME',
+      '- Set up a quiet space with a crate, bed, water, and toys',
+      '- Keep the same food the breeder or shelter used, transition slowly',
+      '- Schedule a first wellness exam within 72 hours',
+      '',
+      'VACCINATION SCHEDULE',
+      '- 6-8 weeks: DHPP first dose',
+      '- 10-12 weeks: DHPP booster, Bordetella',
+      '- 14-16 weeks: DHPP booster, Rabies',
+      '',
+      'HOUSE TRAINING BASICS',
+      '- Take your puppy out after meals, naps, and play',
+      '- Reward outdoor success immediately, never punish accidents',
+      '- Most puppies are reliable by 4-6 months with consistency',
+      '',
+      'SOCIALIZATION WINDOW (3-14 WEEKS)',
+      '- Introduce new people, sounds, surfaces, and gentle handling',
+      '- Puppy kindergarten classes are strongly recommended',
+    ],
+  },
+  {
+    title: 'Senior Pet Wellness Checklist',
+    content: [
+      'TWICE-YEARLY VET VISITS',
+      '[ ] Comprehensive physical exam every 6 months',
+      '[ ] Senior bloodwork panel annually',
+      '[ ] Blood pressure check',
+      '[ ] Dental evaluation',
+      '',
+      'AT-HOME MONITORING',
+      '[ ] Weigh monthly and note changes over 5 percent',
+      '[ ] Watch water intake, increased thirst warrants a call',
+      '[ ] Note stiffness after rest or reluctance on stairs',
+      '[ ] Track appetite and litter box or bathroom habits',
+      '',
+      'COMFORT UPGRADES',
+      '[ ] Orthopedic bed in a warm, draft-free spot',
+      '[ ] Ramps or steps for furniture and cars',
+      '[ ] Rugs or runners on slippery floors',
+      '[ ] Raised food and water bowls',
+    ],
+  },
+  {
+    title: 'Emergency First Aid for Pets',
+    content: [
+      'EMERGENCY NUMBERS',
+      'Paws & Care 24/7 line: (555) 123-4567',
+      'ASPCA Poison Control: (888) 426-4435',
+      'Pet Poison Helpline: (855) 764-7661',
+      '',
+      'BLEEDING',
+      '- Apply firm pressure with a clean cloth for 5 minutes',
+      '- Do not remove embedded objects, stabilize and transport',
+      '',
+      'CHOKING',
+      '- Open the mouth and look, remove visible objects only',
+      '- If the airway stays blocked, come in immediately',
+      '',
+      'POISONING',
+      '- Do NOT induce vomiting unless a vet instructs you to',
+      '- Bring the packaging or a photo of what was eaten',
+      '',
+      'HEAT STROKE',
+      '- Move to shade, wet with cool (not ice-cold) water',
+      '- Offer small sips of water and head to the clinic',
+    ],
+  },
+  {
+    title: 'Nutrition Guide by Life Stage',
+    content: [
+      'PUPPIES AND KITTENS (0-12 MONTHS)',
+      '- Growth formula food, 3-4 small meals daily',
+      '- Large-breed puppies need controlled-calcium formulas',
+      '',
+      'ADULTS (1-7 YEARS)',
+      '- Feed measured portions 1-2 times daily',
+      '- Treats should stay under 10 percent of daily calories',
+      '- Choose AAFCO-approved complete diets',
+      '',
+      'SENIORS (7+ YEARS)',
+      '- Lower calorie, higher fiber senior formulas',
+      '- Joint-support nutrients such as glucosamine',
+      '- Wet food can help hydration, especially for cats',
+      '',
+      'NEVER FEED',
+      'Chocolate, grapes, raisins, onions, garlic, xylitol,',
+      'macadamia nuts, alcohol, caffeine, raw dough, cooked bones',
+    ],
+  },
+];
+
+function buildGuideFile(guide: { title: string; content: string[] }): string {
+  return [
+    'PAWS & CARE ANIMAL HOSPITAL',
+    'Pet Parent Resource Library',
+    '='.repeat(50),
+    guide.title.toUpperCase(),
+    '='.repeat(50),
+    '',
+    ...guide.content,
+    '',
+    '-'.repeat(50),
+    'Questions? Call us at (555) 123-4567 anytime.',
+  ].join('\n');
+}
 
 interface PetCarePageProps {
   onNavigate: (page: string) => void;
@@ -12,6 +122,23 @@ interface PetCarePageProps {
 
 export default function PetCarePage({ onNavigate, colors }: PetCarePageProps) {
   const [selectedCategory, setSelectedCategory] = React.useState('general');
+  const [downloadedGuide, setDownloadedGuide] = React.useState<string | null>(null);
+
+  const handleDownloadGuide = (guide: { title: string; content: string[] }) => {
+    const blob = new Blob([buildGuideFile(guide)], { type: 'text/plain;charset=utf-8' });
+    const url = URL.createObjectURL(blob);
+    const link = document.createElement('a');
+    link.href = url;
+    link.download = `${guide.title.replace(/[^a-z0-9]+/gi, '-')}.txt`;
+    document.body.appendChild(link);
+    link.click();
+    document.body.removeChild(link);
+    URL.revokeObjectURL(url);
+    setDownloadedGuide(guide.title);
+    window.setTimeout(() => {
+      setDownloadedGuide((current) => (current === guide.title ? null : current));
+    }, 3000);
+  };
 
   const categories = [
     { id: 'general', label: 'General Care', icon: Heart },
@@ -434,14 +561,31 @@ export default function PetCarePage({ onNavigate, colors }: PetCarePageProps) {
             <div className="space-y-6">
               <div>
                 <h3 className="text-xl font-bold mb-3" style={{ color: colors.secondary }}>
-                  Recommended Reading
+                  Free Guides to Download
                 </h3>
-                <ul className="space-y-2 text-gray-700">
-                  <li>• Complete Guide to Puppy Care (Free Download)</li>
-                  <li>• Senior Pet Wellness Checklist</li>
-                  <li>• Emergency First Aid for Pets</li>
-                  <li>• Nutrition Guide by Life Stage</li>
-                </ul>
+                <div className="space-y-3">
+                  {readingGuides.map((guide) => (
+                    <button
+                      key={guide.title}
+                      onClick={() => handleDownloadGuide(guide)}
+                      className="w-full flex items-center justify-between gap-3 p-3 rounded-xl border-2 text-left hover:shadow-md transition-all"
+                      style={{ borderColor: colors.accent + '40', backgroundColor: colors.accent + '10' }}
+                    >
+                      <span className="font-medium text-gray-800">{guide.title}</span>
+                      {downloadedGuide === guide.title ? (
+                        <span className="flex items-center gap-1 text-sm font-semibold text-emerald-600 flex-shrink-0">
+                          <CheckCircle className="w-4 h-4" />
+                          Saved
+                        </span>
+                      ) : (
+                        <span className="flex items-center gap-1 text-sm font-semibold flex-shrink-0" style={{ color: colors.primary }}>
+                          <Download className="w-4 h-4" />
+                          Download
+                        </span>
+                      )}
+                    </button>
+                  ))}
+                </div>
               </div>
 
               <div>

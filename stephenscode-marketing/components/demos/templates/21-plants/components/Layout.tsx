@@ -68,7 +68,11 @@ export default function Layout({ demo, currentPage, onNavigate, cartItemCount, c
 
             {/* Right Actions */}
             <div className="flex items-center gap-3">
-              <button className="p-2 hover:bg-gray-100 rounded-lg hidden sm:block">
+              <button
+                onClick={() => onNavigate('shop')}
+                className="p-2 hover:bg-gray-100 rounded-lg hidden sm:block"
+                aria-label="Search plants"
+              >
                 <Search className="w-5 h-5 text-gray-600" />
               </button>
               <button
@@ -77,7 +81,11 @@ export default function Layout({ demo, currentPage, onNavigate, cartItemCount, c
               >
                 <User className="w-5 h-5 text-gray-600" />
               </button>
-              <button className="p-2 hover:bg-gray-100 rounded-lg hidden sm:block">
+              <button
+                onClick={() => onNavigate('account')}
+                className="p-2 hover:bg-gray-100 rounded-lg hidden sm:block"
+                aria-label="Wishlist"
+              >
                 <Heart className="w-5 h-5 text-gray-600" />
               </button>
               <button

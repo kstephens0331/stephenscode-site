@@ -1,14 +1,13 @@
 'use client'
 
+import { useState } from 'react'
 import { ArrowRight, Star, TrendingUp, Heart, ShoppingBag } from 'lucide-react'
+import { shopProducts, getSwatchColor, type BoutiqueProduct } from '../data/products'
+import ProductQuickView from '../components/ProductQuickView'
 
-export default function HomePage({ demo, colors, setCurrentPage, addToCart, addToWishlist }: any) {
-  const featuredProducts = [
-    { id: '1', name: 'Silk Evening Dress', price: 299.99, image: 'https://images.unsplash.com/photo-1595777457583-95e059d581b8?w=400', rating: 4.9, sizes: ['XS', 'S', 'M', 'L'], colors: ['Black', 'Navy', 'Burgundy'] },
-    { id: '2', name: 'Designer Handbag', price: 199.99, image: 'https://images.unsplash.com/photo-1584917865442-de89df76afd3?w=400', rating: 4.8, sizes: ['One Size'], colors: ['Tan', 'Black', 'White'] },
-    { id: '3', name: 'Cashmere Sweater', price: 159.99, image: 'https://images.unsplash.com/photo-1576566588028-4147f3842f27?w=400', rating: 4.7, sizes: ['XS', 'S', 'M', 'L', 'XL'], colors: ['Cream', 'Gray', 'Camel'] },
-    { id: '4', name: 'Leather Boots', price: 249.99, image: 'https://images.unsplash.com/photo-1543163521-1bf539c55dd2?w=400', rating: 4.9, sizes: ['6', '7', '8', '9', '10'], colors: ['Black', 'Brown', 'Tan'] },
-  ]
+export default function HomePage({ setCurrentPage, addToCart, addToWishlist }: any) {
+  const [quickViewProduct, setQuickViewProduct] = useState<BoutiqueProduct | null>(null)
+  const featuredProducts = shopProducts.slice(0, 4)
 
   const collections = [
     { name: 'Spring Collection', image: 'https://images.unsplash.com/photo-1490481651871-ab68de25d43d?w=600', items: '42 items' },
@@ -18,6 +17,14 @@ export default function HomePage({ demo, colors, setCurrentPage, addToCart, addT
 
   return (
     <div>
+      <ProductQuickView
+        product={quickViewProduct}
+        onClose={() => setQuickViewProduct(null)}
+        addToCart={addToCart}
+        addToWishlist={addToWishlist}
+        onViewCart={() => { setQuickViewProduct(null); setCurrentPage('cart') }}
+      />
+
       {/* Hero Section */}
       <section className="relative bg-gradient-to-r from-purple-100 via-pink-50 to-purple-100 py-20">
         <div className="container mx-auto px-4">
@@ -86,13 +93,20 @@ export default function HomePage({ demo, colors, setCurrentPage, addToCart, addT
             {featuredProducts.map((product) => (
               <div key={product.id} className="group bg-white rounded-xl overflow-hidden shadow-md transition-all duration-300">
                 <div className="relative overflow-hidden">
-                  <img
-                    src={product.image}
-                    alt={product.name}
-                    className="w-full h-80 object-cover group-hover:scale-110 transition-transform duration-500"
-                  />
+                  <button
+                    onClick={() => setQuickViewProduct(product)}
+                    aria-label={`View ${product.name}`}
+                    className="block w-full"
+                  >
+                    <img
+                      src={product.image}
+                      alt={product.name}
+                      className="w-full h-80 object-cover group-hover:scale-110 transition-transform duration-500"
+                    />
+                  </button>
                   <button
                     onClick={() => addToWishlist(product)}
+                    aria-label={`Add ${product.name} to wishlist`}
                     className="absolute top-4 right-4 bg-white p-2 rounded-full shadow-lg hover:bg-[var(--color-primary)] hover:text-white transition-colors"
                   >
                     <Heart className="w-5 h-5" />
@@ -114,11 +128,13 @@ export default function HomePage({ demo, colors, setCurrentPage, addToCart, addT
                     ))}
                     <span className="ml-2 text-sm text-gray-600">({product.rating})</span>
                   </div>
-                  <h3 className="font-semibold text-gray-900 mb-2 group-hover:text-[var(--color-primary)] transition-colors">{product.name}</h3>
+                  <button onClick={() => setQuickViewProduct(product)} className="block text-left">
+                    <h3 className="font-semibold text-gray-900 mb-2 group-hover:text-[var(--color-primary)] transition-colors">{product.name}</h3>
+                  </button>
                   <p className="text-2xl font-bold text-gray-900">${product.price}</p>
                   <div className="mt-3 flex flex-wrap gap-1">
                     {product.colors.slice(0, 3).map((color) => (
-                      <div key={color} className="w-6 h-6 rounded-full border-2 border-gray-300" style={{ backgroundColor: color.toLowerCase() }}></div>
+                      <div key={color} className="w-6 h-6 rounded-full border-2 border-gray-300" style={{ backgroundColor: getSwatchColor(color) }}></div>
                     ))}
                   </div>
                 </div>

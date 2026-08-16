@@ -20,6 +20,7 @@ export default function CustomerView({ demo, colors }: CustomerViewProps) {
   const [showBooking, setShowBooking] = useState(false)
   const [formData, setFormData] = useState({ name: '', phone: '', email: '', service: '', date: '', time: '', notes: '' })
   const [submitted, setSubmitted] = useState(false)
+  const [submitError, setSubmitError] = useState(false)
 
   const services = [
     {
@@ -112,6 +113,7 @@ export default function CustomerView({ demo, colors }: CustomerViewProps) {
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault()
+    setSubmitError(false)
 
     try {
       const response = await fetch('/api/demo-lead', {
@@ -145,11 +147,11 @@ export default function CustomerView({ demo, colors }: CustomerViewProps) {
           setFormData({ name: '', phone: '', email: '', service: '', date: '', time: '', notes: '' })
         }, 3000)
       } else {
-        alert('There was an issue submitting your request. Please call us at (832) 555-2887')
+        setSubmitError(true)
       }
-    } catch (error) {
-      console.error('Booking error:', error)
-      alert('There was an issue submitting your request. Please call us at (832) 555-2887')
+    } catch {
+      // Network/API failure: surface the inline error so the visitor can retry or call
+      setSubmitError(true)
     }
   }
 
@@ -201,7 +203,7 @@ export default function CustomerView({ demo, colors }: CustomerViewProps) {
           <div style={{ backgroundColor: '#ffffff' }} className="max-w-2xl w-full max-h-[90vh] overflow-y-auto">
             <div style={{ backgroundColor: '#1a1a1a', color: '#ffffff' }} className="p-6 flex justify-between items-center">
               <h3 className="text-2xl font-bold">Book Your Appointment</h3>
-              <button onClick={() => setShowBooking(false)} className="text-3xl hover:opacity-70">&times;</button>
+              <button onClick={() => { setShowBooking(false); setSubmitError(false) }} className="text-3xl hover:opacity-70">&times;</button>
             </div>
             <div className="p-8">
               {submitted ? (
@@ -307,6 +309,11 @@ export default function CustomerView({ demo, colors }: CustomerViewProps) {
                       placeholder="Preferred barber, style preferences, etc."
                     />
                   </div>
+                  {submitError && (
+                    <div style={{ backgroundColor: '#fdecea', border: '1px solid #f0b8b8', color: '#8a1f1f' }} className="p-4 text-sm font-semibold">
+                      We could not submit your request online. Please try again, or call us at (832) 555-2887 and we will get you booked right away.
+                    </div>
+                  )}
                   <button
                     type="submit"
                     style={{ backgroundColor: '#d4af37', color: '#1a1a1a' }}

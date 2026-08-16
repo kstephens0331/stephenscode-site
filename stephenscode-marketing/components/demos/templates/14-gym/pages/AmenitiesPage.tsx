@@ -1,13 +1,54 @@
 'use client';
 
-import { Dumbbell, Droplets, Wind, Wifi, Lock, Car, Coffee, Heart, Zap, Shield } from 'lucide-react';
+import { Dumbbell, Droplets, Wind, Wifi, Lock, Car, Coffee, Heart, Zap, Shield, X, ChevronLeft, ChevronRight } from 'lucide-react';
+import { useState } from 'react';
 import Link from 'next/link';
 
 interface AmenitiesPageProps {
   basePath: string;
 }
 
+const tourStops = [
+  {
+    name: 'Main Training Floor',
+    icon: Dumbbell,
+    description: 'Step into 15,000 square feet of open training space. Ten power racks, eight squat cages, Olympic lifting platforms, and a full dumbbell set running from 5 to 150 pounds. Rubber flooring throughout means you can train hard at any hour.',
+    highlight: '10 power racks, zero wait times',
+  },
+  {
+    name: 'Cardio Zone',
+    icon: Heart,
+    description: 'Seventy-five cardio machines face floor-to-ceiling windows: treadmills, ellipticals, rowers, stair climbers, and assault bikes. Every station has its own screen, phone charger, and heart rate integration.',
+    highlight: '75 machines with personal screens',
+  },
+  {
+    name: 'Group Studios',
+    icon: Zap,
+    description: 'Our 3,000 square foot main studio hosts CrossFit, bootcamp, and boxing with a full-size ring. Next door, the dedicated spin studio runs immersive ride classes, and the Mind-Body Studio hosts yoga and Pilates in a calm, sound-treated space.',
+    highlight: '3 dedicated studios, 100+ classes weekly',
+  },
+  {
+    name: 'Spa & Recovery Suite',
+    icon: Droplets,
+    description: 'Finish your session in the Finnish sauna or steam room, then contrast with the hot and cold plunge pools. Massage therapy rooms are available for booked sessions, and Elite members receive two sessions monthly.',
+    highlight: 'Sauna, steam, and plunge pools',
+  },
+  {
+    name: 'Fuel Bar & Lounge',
+    icon: Coffee,
+    description: 'Refuel at the smoothie and supplement bar with fresh juices, protein shakes, and healthy snacks. The member lounge has high-speed WiFi and comfortable seating if you want to settle in before or after training.',
+    highlight: 'Fresh smoothies made to order',
+  },
+  {
+    name: 'Locker Rooms & Parking',
+    icon: Lock,
+    description: 'Premium changing facilities with private showers, towel service, and day-use or monthly rental lockers. Outside, 200+ well-lit parking spots with EV charging sit steps from the front door, accessible 24/7.',
+    highlight: 'Towel service and 200+ parking spots',
+  },
+];
+
 export default function AmenitiesPage({ basePath }: AmenitiesPageProps) {
+  const [tourStop, setTourStop] = useState<number | null>(null);
   const amenities = [
     {
       icon: Dumbbell,
@@ -142,12 +183,12 @@ export default function AmenitiesPage({ basePath }: AmenitiesPageProps) {
               and facilities designed to elevate every workout.
             </p>
 
-            <Link
-              href={`${basePath}/join`}
+            <button
+              onClick={() => setTourStop(0)}
               className="inline-flex items-center px-8 py-4 bg-gradient-to-r from-[#c1121f] to-[#780000] text-zinc-50 rounded-lg font-bold text-lg hover:shadow-xl hover:shadow-[#c1121f]/30 transition-all"
             >
               Take a Virtual Tour
-            </Link>
+            </button>
           </div>
         </div>
       </section>
@@ -328,6 +369,89 @@ export default function AmenitiesPage({ basePath }: AmenitiesPageProps) {
           </div>
         </div>
       </section>
+
+      {/* Virtual Tour Modal */}
+      {tourStop !== null && (() => {
+        const stop = tourStops[tourStop];
+        const StopIcon = stop.icon;
+        return (
+          <div className="fixed inset-0 z-50 flex items-center justify-center p-4">
+            <div className="absolute inset-0 bg-zinc-950/80 backdrop-blur-sm" onClick={() => setTourStop(null)}></div>
+            <div className="relative bg-zinc-900 border border-zinc-800 rounded-2xl max-w-lg w-full overflow-hidden">
+              <button
+                onClick={() => setTourStop(null)}
+                aria-label="Close virtual tour"
+                className="absolute top-4 right-4 z-10 p-2 rounded-lg text-zinc-300 hover:text-zinc-50 hover:bg-zinc-950/50 transition-colors"
+              >
+                <X className="h-5 w-5" />
+              </button>
+
+              {/* Stop Visual */}
+              <div className="bg-gradient-to-br from-[#c1121f]/30 to-[#780000]/30 p-10 text-center border-b border-zinc-800">
+                <div className="inline-flex items-center justify-center w-20 h-20 bg-gradient-to-br from-[#c1121f] to-[#780000] rounded-2xl mb-4">
+                  <StopIcon className="h-10 w-10 text-[#fdf0d5]" />
+                </div>
+                <div className="text-xs font-semibold text-[#fdf0d5] tracking-wider mb-1">
+                  VIRTUAL TOUR: STOP {tourStop + 1} OF {tourStops.length}
+                </div>
+                <h3 className="text-2xl font-bold text-zinc-50">{stop.name}</h3>
+              </div>
+
+              <div className="p-8">
+                <p className="text-zinc-300 leading-relaxed mb-4">{stop.description}</p>
+                <div className="inline-flex items-center px-3 py-1.5 bg-[#c1121f]/10 border border-[#c1121f]/20 rounded-full text-sm font-medium text-[#c1121f] mb-6">
+                  {stop.highlight}
+                </div>
+
+                {/* Progress dots */}
+                <div className="flex items-center justify-center space-x-2 mb-6">
+                  {tourStops.map((s, index) => (
+                    <button
+                      key={index}
+                      onClick={() => setTourStop(index)}
+                      aria-label={`Go to tour stop: ${s.name}`}
+                      className={`h-2 rounded-full transition-all ${
+                        index === tourStop ? 'w-6 bg-[#c1121f]' : 'w-2 bg-zinc-700 hover:bg-zinc-600'
+                      }`}
+                    />
+                  ))}
+                </div>
+
+                <div className="flex items-center gap-3">
+                  <button
+                    onClick={() => setTourStop(Math.max(0, tourStop - 1))}
+                    disabled={tourStop === 0}
+                    className={`flex items-center justify-center px-4 py-3 rounded-lg font-semibold transition-colors ${
+                      tourStop === 0
+                        ? 'bg-zinc-800/50 text-zinc-600 cursor-not-allowed'
+                        : 'bg-zinc-800 text-zinc-50 hover:bg-zinc-700'
+                    }`}
+                  >
+                    <ChevronLeft className="h-5 w-5 mr-1" />
+                    Back
+                  </button>
+                  {tourStop < tourStops.length - 1 ? (
+                    <button
+                      onClick={() => setTourStop(tourStop + 1)}
+                      className="flex-1 flex items-center justify-center py-3 bg-gradient-to-r from-[#c1121f] to-[#780000] text-zinc-50 rounded-lg font-bold hover:shadow-lg hover:shadow-[#c1121f]/30 transition-all"
+                    >
+                      Next Stop
+                      <ChevronRight className="h-5 w-5 ml-1" />
+                    </button>
+                  ) : (
+                    <Link
+                      href={`${basePath}/join`}
+                      className="flex-1 flex items-center justify-center py-3 bg-gradient-to-r from-[#c1121f] to-[#780000] text-zinc-50 rounded-lg font-bold hover:shadow-lg hover:shadow-[#c1121f]/30 transition-all"
+                    >
+                      See It in Person: Join Free
+                    </Link>
+                  )}
+                </div>
+              </div>
+            </div>
+          </div>
+        );
+      })()}
     </div>
   );
 }

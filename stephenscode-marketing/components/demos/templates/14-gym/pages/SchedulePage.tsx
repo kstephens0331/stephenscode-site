@@ -1,15 +1,69 @@
 'use client';
 
-import { Calendar, Clock, Users, MapPin, Filter } from 'lucide-react';
-import { useState } from 'react';
+import { Calendar, Clock, Users, MapPin, Filter, X, CheckCircle2 } from 'lucide-react';
+import { useState, useEffect } from 'react';
+import Link from 'next/link';
 
 interface SchedulePageProps {
   basePath: string;
 }
 
+interface ScheduleItem {
+  time: string;
+  class: string;
+  trainer: string;
+  duration: string;
+  spots: number;
+  room: string;
+}
+
+const BOOKINGS_KEY = 'iron-temple-class-bookings';
+
 export default function SchedulePage({ basePath }: SchedulePageProps) {
   const [selectedDay, setSelectedDay] = useState('Monday');
   const [selectedFilter, setSelectedFilter] = useState('All');
+  const [bookings, setBookings] = useState<string[]>([]);
+  const [bookingTarget, setBookingTarget] = useState<ScheduleItem | null>(null);
+  const [bookingConfirmed, setBookingConfirmed] = useState(false);
+
+  useEffect(() => {
+    try {
+      const saved = window.localStorage.getItem(BOOKINGS_KEY);
+      if (saved) setBookings(JSON.parse(saved));
+    } catch {
+      // Ignore unreadable storage -- demo starts with no bookings
+    }
+  }, []);
+
+  const saveBookings = (next: string[]) => {
+    setBookings(next);
+    try {
+      window.localStorage.setItem(BOOKINGS_KEY, JSON.stringify(next));
+    } catch {
+      // Storage unavailable -- bookings still work for this session
+    }
+  };
+
+  const bookingId = (item: ScheduleItem) => `${selectedDay}|${item.time}|${item.class}`;
+  const isBooked = (item: ScheduleItem) => bookings.includes(bookingId(item));
+
+  const confirmBooking = (item: ScheduleItem) => {
+    if (!isBooked(item)) {
+      saveBookings([...bookings, bookingId(item)]);
+    }
+    setBookingConfirmed(true);
+  };
+
+  const cancelBooking = (item: ScheduleItem) => {
+    saveBookings(bookings.filter((id) => id !== bookingId(item)));
+    setBookingTarget(null);
+    setBookingConfirmed(false);
+  };
+
+  const closeModal = () => {
+    setBookingTarget(null);
+    setBookingConfirmed(false);
+  };
 
   const days = ['Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday', 'Sunday'];
   const filters = ['All', 'CrossFit', 'HIIT', 'Yoga', 'Spin', 'Boxing', 'Strength', 'Bootcamp', 'Pilates'];
@@ -209,11 +263,30 @@ export default function SchedulePage({ basePath }: SchedulePageProps) {
 
                         <div className="flex items-center space-x-4">
                           <div className="text-center">
-                            <div className="text-2xl font-bold text-[#c1121f]">{item.spots}</div>
+                            <div className="text-2xl font-bold text-[#c1121f]">
+                              {isBooked(item) ? item.spots - 1 : item.spots}
+                            </div>
                             <div className="text-xs text-zinc-500">spots left</div>
                           </div>
-                          <button className="px-6 py-3 bg-gradient-to-r from-[#c1121f] to-[#780000] text-zinc-50 rounded-lg font-semibold hover:shadow-lg hover:shadow-[#c1121f]/30 transition-all whitespace-nowrap">
-                            Book Now
+                          <button
+                            onClick={() => {
+                              setBookingConfirmed(false);
+                              setBookingTarget(item);
+                            }}
+                            className={`px-6 py-3 rounded-lg font-semibold transition-all whitespace-nowrap ${
+                              isBooked(item)
+                                ? 'bg-zinc-800 text-[#fdf0d5] border border-[#c1121f]/50 hover:bg-zinc-700'
+                                : 'bg-gradient-to-r from-[#c1121f] to-[#780000] text-zinc-50 hover:shadow-lg hover:shadow-[#c1121f]/30'
+                            }`}
+                          >
+                            {isBooked(item) ? (
+                              <span className="flex items-center">
+                                <CheckCircle2 className="h-4 w-4 mr-2" />
+                                Booked
+                              </span>
+                            ) : (
+                              'Book Now'
+                            )}
                           </button>
                         </div>
                       </div>
@@ -271,11 +344,99 @@ export default function SchedulePage({ basePath }: SchedulePageProps) {
           <p className="text-xl text-zinc-300 mb-8">
             Join today and try your first class absolutely FREE!
           </p>
-          <button className="inline-flex items-center px-8 py-4 bg-gradient-to-r from-[#c1121f] to-[#780000] text-zinc-50 rounded-lg font-bold text-lg hover:shadow-xl hover:shadow-[#c1121f]/30 transition-all">
+          <Link
+            href={`${basePath}/join`}
+            className="inline-flex items-center px-8 py-4 bg-gradient-to-r from-[#c1121f] to-[#780000] text-zinc-50 rounded-lg font-bold text-lg hover:shadow-xl hover:shadow-[#c1121f]/30 transition-all"
+          >
             Start Free Trial
-          </button>
+          </Link>
         </div>
       </section>
+
+      {/* Booking Modal */}
+      {bookingTarget && (
+        <div className="fixed inset-0 z-50 flex items-center justify-center p-4">
+          <div className="absolute inset-0 bg-zinc-950/80 backdrop-blur-sm" onClick={closeModal}></div>
+          <div className="relative bg-zinc-900 border border-zinc-800 rounded-2xl max-w-md w-full p-8">
+            <button
+              onClick={closeModal}
+              aria-label="Close booking dialog"
+              className="absolute top-4 right-4 p-2 rounded-lg text-zinc-400 hover:text-zinc-50 hover:bg-zinc-800 transition-colors"
+            >
+              <X className="h-5 w-5" />
+            </button>
+
+            {bookingConfirmed ? (
+              <div className="text-center py-4">
+                <div className="inline-flex items-center justify-center w-16 h-16 bg-[#c1121f]/10 rounded-full mb-4">
+                  <CheckCircle2 className="h-8 w-8 text-[#c1121f]" />
+                </div>
+                <h3 className="text-2xl font-bold text-zinc-50 mb-2">Spot Reserved!</h3>
+                <p className="text-zinc-400 mb-6">
+                  You're booked for {bookingTarget.class} on {selectedDay} at {bookingTarget.time} in the {bookingTarget.room}. See you there!
+                </p>
+                <button
+                  onClick={closeModal}
+                  className="w-full py-3 bg-gradient-to-r from-[#c1121f] to-[#780000] text-zinc-50 rounded-lg font-bold hover:shadow-lg hover:shadow-[#c1121f]/30 transition-all"
+                >
+                  Done
+                </button>
+              </div>
+            ) : (
+              <div>
+                <h3 className="text-2xl font-bold text-zinc-50 mb-1">
+                  {isBooked(bookingTarget) ? 'Your Booking' : 'Confirm Your Spot'}
+                </h3>
+                <p className="text-zinc-400 text-sm mb-6">
+                  {isBooked(bookingTarget)
+                    ? 'You already have a spot reserved for this class.'
+                    : 'Review the class details and reserve your spot.'}
+                </p>
+
+                <div className="bg-zinc-950 border border-zinc-800 rounded-xl p-5 space-y-3 mb-6">
+                  <div className="text-xl font-bold text-zinc-50">{bookingTarget.class}</div>
+                  <div className="flex items-center text-sm text-zinc-400">
+                    <Calendar className="h-4 w-4 mr-2 text-[#c1121f]" />
+                    {selectedDay} at {bookingTarget.time} ({bookingTarget.duration})
+                  </div>
+                  <div className="flex items-center text-sm text-zinc-400">
+                    <Users className="h-4 w-4 mr-2 text-[#c1121f]" />
+                    Instructor: {bookingTarget.trainer}
+                  </div>
+                  <div className="flex items-center text-sm text-zinc-400">
+                    <MapPin className="h-4 w-4 mr-2 text-[#c1121f]" />
+                    {bookingTarget.room}
+                  </div>
+                </div>
+
+                {isBooked(bookingTarget) ? (
+                  <div className="space-y-3">
+                    <button
+                      onClick={() => cancelBooking(bookingTarget)}
+                      className="w-full py-3 bg-zinc-800 text-zinc-50 rounded-lg font-semibold hover:bg-zinc-700 transition-colors"
+                    >
+                      Cancel This Booking
+                    </button>
+                    <button
+                      onClick={closeModal}
+                      className="w-full py-3 bg-gradient-to-r from-[#c1121f] to-[#780000] text-zinc-50 rounded-lg font-bold hover:shadow-lg hover:shadow-[#c1121f]/30 transition-all"
+                    >
+                      Keep My Spot
+                    </button>
+                  </div>
+                ) : (
+                  <button
+                    onClick={() => confirmBooking(bookingTarget)}
+                    className="w-full py-3 bg-gradient-to-r from-[#c1121f] to-[#780000] text-zinc-50 rounded-lg font-bold hover:shadow-lg hover:shadow-[#c1121f]/30 transition-all"
+                  >
+                    Confirm Booking
+                  </button>
+                )}
+              </div>
+            )}
+          </div>
+        </div>
+      )}
     </div>
   );
 }

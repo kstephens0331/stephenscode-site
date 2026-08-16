@@ -232,16 +232,18 @@ export default function HomePage({ onNavigate }: HomePageProps) {
             {subjects.map((subject, index) => {
               const Icon = subject.icon;
               return (
-                <div
+                <button
                   key={index}
-                  className="group bg-white rounded-2xl p-6 shadow-md transition-all duration-300 border border-gray-100 hover:border-[#5f0f40] cursor-pointer"
+                  type="button"
+                  onClick={() => onNavigate('subjects')}
+                  className="group bg-white rounded-2xl p-6 shadow-md transition-all duration-300 border border-gray-100 hover:border-[#5f0f40] cursor-pointer text-left w-full"
                 >
                   <div className={`inline-flex p-4 bg-gradient-to-br ${subject.color} rounded-xl mb-4 group-hover:scale-110 transition-transform duration-300 shadow-lg`}>
                     <Icon className="h-8 w-8 text-white" />
                   </div>
                   <h3 className="text-xl font-bold text-gray-900 mb-2">{subject.name}</h3>
                   <p className="text-gray-600">{subject.description}</p>
-                </div>
+                </button>
               );
             })}
           </div>

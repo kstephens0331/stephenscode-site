@@ -1,7 +1,7 @@
 'use client';
 
-import React, { useState } from 'react';
-import { Star, Quote, ThumbsUp, Award, TrendingUp, Users, ChevronLeft, ChevronRight } from 'lucide-react';
+import React, { useEffect, useState } from 'react';
+import { Star, Quote, ThumbsUp, Award, TrendingUp, Users, ChevronLeft, ChevronRight, Play, Pause, X, RotateCcw } from 'lucide-react';
 
 interface TestimonialsPageProps {
   onNavigate: (page: string) => void;
@@ -9,6 +9,49 @@ interface TestimonialsPageProps {
 
 export default function TestimonialsPage({ onNavigate }: TestimonialsPageProps) {
   const [currentTestimonial, setCurrentTestimonial] = useState(0);
+  const [activeVideo, setActiveVideo] = useState<number | null>(null);
+  const [isPlaying, setIsPlaying] = useState(false);
+  const [progress, setProgress] = useState(0);
+
+  useEffect(() => {
+    if (!isPlaying) return;
+    const id = setInterval(() => {
+      setProgress((prev) => {
+        if (prev >= 100) {
+          return 100;
+        }
+        return Math.min(prev + 1.5, 100);
+      });
+    }, 100);
+    return () => clearInterval(id);
+  }, [isPlaying]);
+
+  useEffect(() => {
+    if (progress >= 100) {
+      setIsPlaying(false);
+    }
+  }, [progress]);
+
+  const openVideo = (index: number) => {
+    setActiveVideo(index);
+    setProgress(0);
+    setIsPlaying(true);
+  };
+
+  const closeVideo = () => {
+    setActiveVideo(null);
+    setIsPlaying(false);
+    setProgress(0);
+  };
+
+  const togglePlayback = () => {
+    if (progress >= 100) {
+      setProgress(0);
+      setIsPlaying(true);
+      return;
+    }
+    setIsPlaying((prev) => !prev);
+  };
 
   const testimonials = [
     {
@@ -135,19 +178,22 @@ export default function TestimonialsPage({ onNavigate }: TestimonialsPageProps) 
       name: 'The Johnson Family',
       project: 'Complete Landscape Transformation',
       duration: '2:34',
-      thumbnail: 'JF'
+      thumbnail: 'JF',
+      summary: 'The Johnsons walk through their full backyard transformation, from the first design consultation to the finished patio, plantings, and lighting.'
     },
     {
       name: 'Mark & Susan Davis',
       project: 'Outdoor Living Space',
       duration: '1:52',
-      thumbnail: 'MD'
+      thumbnail: 'MD',
+      summary: 'Mark and Susan tour their new outdoor living space and share what the build process was like from start to finish.'
     },
     {
       name: 'Patricia Hughes',
       project: 'Front Yard Redesign',
       duration: '2:15',
-      thumbnail: 'PH'
+      thumbnail: 'PH',
+      summary: 'Patricia explains how the front yard redesign changed the entire look of her home and boosted its curb appeal.'
     }
   ];
 
@@ -343,6 +389,15 @@ export default function TestimonialsPage({ onNavigate }: TestimonialsPageProps) 
             {videoTestimonials.map((video, index) => (
               <div
                 key={index}
+                role="button"
+                tabIndex={0}
+                onClick={() => openVideo(index)}
+                onKeyDown={(e) => {
+                  if (e.key === 'Enter' || e.key === ' ') {
+                    e.preventDefault();
+                    openVideo(index);
+                  }
+                }}
                 className="bg-white rounded-2xl shadow-xl overflow-hidden transition-all group cursor-pointer"
               >
                 <div className="relative aspect-video bg-gradient-to-br from-[#386641] to-[#6a994e] flex items-center justify-center">
@@ -426,6 +481,82 @@ export default function TestimonialsPage({ onNavigate }: TestimonialsPageProps) 
           </button>
         </div>
       </section>
+
+      {/* Video Player Modal */}
+      {activeVideo !== null && (
+        <div
+          className="fixed inset-0 bg-black/90 z-50 flex items-center justify-center p-4"
+          onClick={closeVideo}
+        >
+          <div
+            className="max-w-3xl w-full bg-white rounded-2xl overflow-hidden shadow-2xl"
+            onClick={(e) => e.stopPropagation()}
+          >
+            {/* Player Area */}
+            <div className="relative aspect-video bg-gradient-to-br from-[#386641] to-[#6a994e] flex items-center justify-center">
+              <button
+                onClick={closeVideo}
+                aria-label="Close video"
+                className="absolute top-4 right-4 w-10 h-10 bg-black/40 backdrop-blur-sm rounded-full flex items-center justify-center hover:bg-black/60 transition-all z-10"
+              >
+                <X className="h-5 w-5 text-white" />
+              </button>
+
+              <div className="text-center">
+                <div className="w-24 h-24 bg-white/20 backdrop-blur-sm rounded-full flex items-center justify-center mx-auto mb-6">
+                  <span className="text-3xl font-bold text-white">
+                    {videoTestimonials[activeVideo].thumbnail}
+                  </span>
+                </div>
+                <button
+                  onClick={togglePlayback}
+                  aria-label={progress >= 100 ? 'Replay video' : isPlaying ? 'Pause video' : 'Play video'}
+                  className="w-20 h-20 bg-[#a7c957] rounded-full flex items-center justify-center mx-auto hover:scale-110 transition-transform shadow-2xl"
+                >
+                  {progress >= 100 ? (
+                    <RotateCcw className="h-9 w-9 text-[#386641]" />
+                  ) : isPlaying ? (
+                    <Pause className="h-9 w-9 text-[#386641]" />
+                  ) : (
+                    <Play className="h-9 w-9 text-[#386641] ml-1" />
+                  )}
+                </button>
+                {progress >= 100 && (
+                  <div className="mt-4 text-white font-semibold">Watch Again</div>
+                )}
+              </div>
+
+              {/* Progress Bar */}
+              <div className="absolute bottom-0 left-0 right-0 p-4">
+                <div className="flex items-center gap-3">
+                  <div className="flex-1 h-1.5 bg-white/30 rounded-full overflow-hidden">
+                    <div
+                      className="h-full bg-[#a7c957] rounded-full transition-all duration-100"
+                      style={{ width: `${progress}%` }}
+                    />
+                  </div>
+                  <span className="text-xs font-semibold text-white">
+                    {videoTestimonials[activeVideo].duration}
+                  </span>
+                </div>
+              </div>
+            </div>
+
+            {/* Video Details */}
+            <div className="p-6">
+              <h3 className="text-2xl font-bold text-[#386641] mb-1">
+                {videoTestimonials[activeVideo].name}
+              </h3>
+              <p className="text-[#6a994e] font-semibold mb-3">
+                {videoTestimonials[activeVideo].project}
+              </p>
+              <p className="text-gray-600">
+                {videoTestimonials[activeVideo].summary}
+              </p>
+            </div>
+          </div>
+        </div>
+      )}
     </div>
   );
 }

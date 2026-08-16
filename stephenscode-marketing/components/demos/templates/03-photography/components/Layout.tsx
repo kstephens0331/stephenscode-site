@@ -42,10 +42,22 @@ export default function Layout({ children, currentPage, onNavigate, isAdmin = fa
             </a>
           </div>
           <div className="flex items-center gap-4">
-            <a href="#" className="hover:text-[#bfc0c0] transition-colors">
+            <a
+              href="https://www.instagram.com/"
+              target="_blank"
+              rel="noopener noreferrer"
+              aria-label="Instagram"
+              className="hover:text-[#bfc0c0] transition-colors"
+            >
               <Instagram size={16} />
             </a>
-            <a href="#" className="hover:text-[#bfc0c0] transition-colors">
+            <a
+              href="https://www.facebook.com/"
+              target="_blank"
+              rel="noopener noreferrer"
+              aria-label="Facebook"
+              className="hover:text-[#bfc0c0] transition-colors"
+            >
               <Facebook size={16} />
             </a>
           </div>
@@ -177,10 +189,22 @@ export default function Layout({ children, currentPage, onNavigate, isAdmin = fa
                 and corporate events.
               </p>
               <div className="flex gap-4">
-                <a href="#" className="w-10 h-10 bg-[#4f5d75] rounded-full flex items-center justify-center hover:bg-white hover:text-[#2d3142] transition-all duration-300">
+                <a
+                  href="https://www.instagram.com/"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  aria-label="Instagram"
+                  className="w-10 h-10 bg-[#4f5d75] rounded-full flex items-center justify-center hover:bg-white hover:text-[#2d3142] transition-all duration-300"
+                >
                   <Instagram size={18} />
                 </a>
-                <a href="#" className="w-10 h-10 bg-[#4f5d75] rounded-full flex items-center justify-center hover:bg-white hover:text-[#2d3142] transition-all duration-300">
+                <a
+                  href="https://www.facebook.com/"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  aria-label="Facebook"
+                  className="w-10 h-10 bg-[#4f5d75] rounded-full flex items-center justify-center hover:bg-white hover:text-[#2d3142] transition-all duration-300"
+                >
                   <Facebook size={18} />
                 </a>
               </div>

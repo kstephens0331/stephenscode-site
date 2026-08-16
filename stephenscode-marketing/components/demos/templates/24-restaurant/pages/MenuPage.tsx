@@ -1,57 +1,15 @@
 'use client'
 
 import type { ColorPalette } from '@/lib/demo-colors'
+import { menuCategories } from '../data/menu'
 
 interface MenuPageProps {
   colors: ColorPalette
   onOrderOpen: () => void
-  setOrderItem: (item: string) => void
+  onAddToCart: (item: string) => void
 }
 
-export default function MenuPage({ colors, onOrderOpen, setOrderItem }: MenuPageProps) {
-  const menuCategories = [
-    {
-      name: 'Antipasti (Appetizers)',
-      items: [
-        { name: 'Bruschetta al Pomodoro', price: '$12', description: 'Grilled bread with fresh tomatoes, basil, and extra virgin olive oil' },
-        { name: 'Carpaccio di Manzo', price: '$18', description: 'Thinly sliced beef tenderloin with arugula, capers, and Parmesan' },
-        { name: 'Burrata Caprese', price: '$16', description: 'Creamy burrata with heirloom tomatoes and aged balsamic' },
-        { name: 'Calamari Fritti', price: '$15', description: 'Crispy fried squid with marinara and lemon aioli' }
-      ]
-    },
-    {
-      name: 'Primi (First Courses)',
-      items: [
-        { name: 'Truffle Carbonara', price: '$32', description: 'Fettuccine with pancetta, eggs, Parmigiano, and black truffles', popular: true },
-        { name: 'Lobster Ravioli', price: '$36', description: 'House-made ravioli filled with Maine lobster in saffron cream sauce' },
-        { name: 'Pappardelle Bolognese', price: '$28', description: 'Wide ribbon pasta with traditional meat ragù, slow-cooked 8 hours' },
-        { name: 'Risotto ai Funghi', price: '$26', description: 'Creamy Arborio rice with porcini mushrooms and truffle oil' }
-      ]
-    },
-    {
-      name: 'Secondi (Main Courses)',
-      items: [
-        { name: 'Osso Buco Milanese', price: '$48', description: 'Braised veal shanks with saffron risotto and gremolata', popular: true },
-        { name: 'Branzino al Forno', price: '$42', description: 'Oven-roasted Mediterranean sea bass with lemon and herbs' },
-        { name: 'Bistecca Fiorentina', price: '$65', description: '24oz Porterhouse steak, grilled rare, with rosemary potatoes (serves 2)' },
-        { name: 'Pollo alla Parmigiana', price: '$32', description: 'Breaded chicken breast with tomato sauce and melted mozzarella' }
-      ]
-    },
-    {
-      name: 'Dolci (Desserts)',
-      items: [
-        { name: 'Tiramisu Classico', price: '$12', description: 'Espresso-soaked ladyfingers with mascarpone cream', popular: true },
-        { name: 'Panna Cotta', price: '$10', description: 'Vanilla-infused cream with berry compote' },
-        { name: 'Cannoli Siciliani', price: '$11', description: 'Crispy shells filled with sweet ricotta and chocolate chips' },
-        { name: 'Gelato Trio', price: '$9', description: 'Three flavors of house-made Italian ice cream' }
-      ]
-    }
-  ]
-
-  const handleOrderItem = (itemName: string) => {
-    setOrderItem(itemName)
-    onOrderOpen()
-  }
+export default function MenuPage({ colors, onOrderOpen, onAddToCart }: MenuPageProps) {
 
   return (
     <div>
@@ -111,11 +69,11 @@ export default function MenuPage({ colors, onOrderOpen, setOrderItem }: MenuPage
                       </p>
                     </div>
                     <div style={{ color: '#9b2226' }} className="text-2xl font-bold ml-6">
-                      {item.price}
+                      ${item.price}
                     </div>
                   </div>
                   <button
-                    onClick={() => handleOrderItem(item.name)}
+                    onClick={() => onAddToCart(item.name)}
                     style={{ backgroundColor: '#9b2226', color: '#ffffff' }}
                     className="px-6 py-2 font-bold text-sm hover:opacity-90 transition"
                   >

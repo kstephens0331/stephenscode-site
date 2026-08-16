@@ -15,9 +15,11 @@ export default function LoyaltyProgramPage({ colors }: LoyaltyProgramPageProps) 
   const [phone, setPhone] = useState('')
   const [birthday, setBirthday] = useState('')
   const [submitted, setSubmitted] = useState(false)
+  const [submitError, setSubmitError] = useState('')
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault()
+    setSubmitError('')
     try {
       const response = await fetch('/api/demo-lead', {
         method: 'POST',
@@ -44,11 +46,10 @@ export default function LoyaltyProgramPage({ colors }: LoyaltyProgramPageProps) 
         trackConversion('leadForm')
         setSubmitted(true)
       } else {
-        alert('There was an issue signing you up. Please email info@gourmetkitchen.com.')
+        setSubmitError('There was an issue signing you up. Please email info@gourmetkitchen.com.')
       }
-    } catch (error) {
-      console.error('Loyalty signup form error:', error)
-      alert('There was an issue signing you up. Please email info@gourmetkitchen.com.')
+    } catch {
+      setSubmitError('There was an issue signing you up. Please email info@gourmetkitchen.com.')
     }
   }
 
@@ -283,6 +284,7 @@ export default function LoyaltyProgramPage({ colors }: LoyaltyProgramPageProps) 
                   type="text"
                   placeholder="First Name"
                   aria-label="First Name"
+                  required
                   value={firstName}
                   onChange={(e) => setFirstName(e.target.value)}
                   style={{ backgroundColor: '#ffffff', border: '2px solid #9b2226', color: '#1a1a1a' }}
@@ -292,6 +294,7 @@ export default function LoyaltyProgramPage({ colors }: LoyaltyProgramPageProps) 
                   type="text"
                   placeholder="Last Name"
                   aria-label="Last Name"
+                  required
                   value={lastName}
                   onChange={(e) => setLastName(e.target.value)}
                   style={{ backgroundColor: '#ffffff', border: '2px solid #9b2226', color: '#1a1a1a' }}
@@ -302,6 +305,7 @@ export default function LoyaltyProgramPage({ colors }: LoyaltyProgramPageProps) 
                 type="email"
                 placeholder="Email Address"
                 aria-label="Email Address"
+                required
                 value={email}
                 onChange={(e) => setEmail(e.target.value)}
                 style={{ backgroundColor: '#ffffff', border: '2px solid #9b2226', color: '#1a1a1a' }}
@@ -325,6 +329,11 @@ export default function LoyaltyProgramPage({ colors }: LoyaltyProgramPageProps) 
                 style={{ backgroundColor: '#ffffff', border: '2px solid #9b2226', color: '#1a1a1a' }}
                 className="px-4 py-3 w-full"
               />
+              {submitError && (
+                <div style={{ backgroundColor: '#fef2f2', border: '2px solid #ef4444', color: '#991b1b' }} className="p-4 text-sm font-bold text-left">
+                  {submitError}
+                </div>
+              )}
               <button
                 type="submit"
                 style={{ backgroundColor: '#9b2226', color: '#ffffff' }}

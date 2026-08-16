@@ -1,18 +1,24 @@
 'use client'
 
-import { Star, Heart, ShoppingBag, Sparkles } from 'lucide-react'
+import { useState } from 'react'
+import { Star, Heart, ShoppingBag, Sparkles, Check } from 'lucide-react'
+import { newArrivalProducts, getSwatchColor, type BoutiqueProduct } from '../data/products'
+import ProductQuickView from '../components/ProductQuickView'
 
-export default function NewArrivalsPage({ addToCart, addToWishlist }: any) {
-  const newProducts = [
-    { id: 'n1', name: 'Silk Midi Dress', price: 289.99, image: 'https://images.unsplash.com/photo-1595777457583-95e059d581b8?w=400', rating: 5.0, sizes: ['XS', 'S', 'M', 'L'], colors: ['Emerald', 'Black', 'Navy'], newTag: 'Just In' },
-    { id: 'n2', name: 'Leather Tote Bag', price: 249.99, image: 'https://images.unsplash.com/photo-1584917865442-de89df76afd3?w=400', rating: 4.9, sizes: ['One Size'], colors: ['Cognac', 'Black'], newTag: 'Just In' },
-    { id: 'n3', name: 'Wool Blend Coat', price: 399.99, image: 'https://images.unsplash.com/photo-1539533018447-63fcce2678e3?w=400', rating: 5.0, sizes: ['XS', 'S', 'M', 'L'], colors: ['Camel', 'Black', 'Gray'], newTag: 'Trending' },
-    { id: 'n4', name: 'Satin Slip Dress', price: 189.99, image: 'https://images.unsplash.com/photo-1566174053879-31528523f8ae?w=400', rating: 4.8, sizes: ['XS', 'S', 'M', 'L', 'XL'], colors: ['Champagne', 'Black', 'Rose'], newTag: 'Just In' },
-    { id: 'n5', name: 'Chunky Gold Hoops', price: 79.99, image: 'https://images.unsplash.com/photo-1535632066927-ab7c9ab60908?w=400', rating: 4.9, sizes: ['One Size'], colors: ['Gold'], newTag: 'Best Seller' },
-    { id: 'n6', name: 'Ribbed Knit Set', price: 169.99, image: 'https://images.unsplash.com/photo-1576566588028-4147f3842f27?w=400', rating: 4.7, sizes: ['XS', 'S', 'M', 'L', 'XL'], colors: ['Cream', 'Mocha', 'Black'], newTag: 'Trending' },
-    { id: 'n7', name: 'Suede Ankle Boots', price: 279.99, image: 'https://images.unsplash.com/photo-1543163521-1bf539c55dd2?w=400', rating: 5.0, sizes: ['6', '7', '8', '9', '10'], colors: ['Tan', 'Black', 'Olive'], newTag: 'Just In' },
-    { id: 'n8', name: 'Cropped Blazer', price: 219.99, image: 'https://images.unsplash.com/photo-1591369822096-ffd140ec948f?w=400', rating: 4.8, sizes: ['XS', 'S', 'M', 'L'], colors: ['Black', 'Ivory', 'Burgundy'], newTag: 'Trending' },
-  ]
+export default function NewArrivalsPage({ setCurrentPage, addToCart, addToWishlist }: any) {
+  const [activeFilter, setActiveFilter] = useState('All New')
+  const [quickViewProduct, setQuickViewProduct] = useState<BoutiqueProduct | null>(null)
+  const [newsletterEmail, setNewsletterEmail] = useState('')
+  const [newsletterSubscribed, setNewsletterSubscribed] = useState(false)
+  const [newsletterError, setNewsletterError] = useState('')
+
+  const filters = ['All New', 'Just In', 'Trending', 'Best Sellers']
+
+  const filteredProducts = newArrivalProducts.filter(product => {
+    if (activeFilter === 'All New') return true
+    if (activeFilter === 'Best Sellers') return product.newTag === 'Best Seller'
+    return product.newTag === activeFilter
+  })
 
   const getTagColor = (tag: string) => {
     switch (tag) {
@@ -23,8 +29,26 @@ export default function NewArrivalsPage({ addToCart, addToWishlist }: any) {
     }
   }
 
+  const handleSubscribe = () => {
+    const email = newsletterEmail.trim()
+    if (!email || !email.includes('@') || !email.includes('.')) {
+      setNewsletterError('Please enter a valid email address.')
+      return
+    }
+    setNewsletterError('')
+    setNewsletterSubscribed(true)
+  }
+
   return (
     <div className="py-12">
+      <ProductQuickView
+        product={quickViewProduct}
+        onClose={() => setQuickViewProduct(null)}
+        addToCart={addToCart}
+        addToWishlist={addToWishlist}
+        onViewCart={() => { setQuickViewProduct(null); setCurrentPage('cart') }}
+      />
+
       <div className="container mx-auto px-4">
         {/* Header */}
         <div className="text-center mb-12">
@@ -40,35 +64,43 @@ export default function NewArrivalsPage({ addToCart, addToWishlist }: any) {
 
         {/* Filter Tabs */}
         <div className="flex flex-wrap justify-center gap-4 mb-12">
-          <button className="px-6 py-3 bg-[var(--color-primary)] text-white rounded-lg font-semibold">
-            All New
-          </button>
-          <button className="px-6 py-3 bg-white text-gray-700 border-2 border-gray-200 rounded-lg font-semibold hover:border-[var(--color-primary)] transition-colors">
-            Just In
-          </button>
-          <button className="px-6 py-3 bg-white text-gray-700 border-2 border-gray-200 rounded-lg font-semibold hover:border-[var(--color-primary)] transition-colors">
-            Trending
-          </button>
-          <button className="px-6 py-3 bg-white text-gray-700 border-2 border-gray-200 rounded-lg font-semibold hover:border-[var(--color-primary)] transition-colors">
-            Best Sellers
-          </button>
+          {filters.map((filter) => (
+            <button
+              key={filter}
+              onClick={() => setActiveFilter(filter)}
+              className={`px-6 py-3 rounded-lg font-semibold transition-colors ${
+                activeFilter === filter
+                  ? 'bg-[var(--color-primary)] text-white'
+                  : 'bg-white text-gray-700 border-2 border-gray-200 hover:border-[var(--color-primary)]'
+              }`}
+            >
+              {filter}
+            </button>
+          ))}
         </div>
 
         {/* Products Grid */}
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
-          {newProducts.map((product) => (
+          {filteredProducts.map((product) => (
             <div key={product.id} className="group bg-white rounded-xl overflow-hidden shadow-md transition-all duration-300">
               <div className="relative overflow-hidden">
-                <img
-                  src={product.image}
-                  alt={product.name}
-                  className="w-full h-80 object-cover group-hover:scale-110 transition-transform duration-500"
-                />
-                <div className={`absolute top-4 left-4 ${getTagColor(product.newTag)} text-white px-3 py-1 rounded-full text-sm font-semibold`}>
+                <button
+                  onClick={() => setQuickViewProduct(product)}
+                  aria-label={`View ${product.name}`}
+                  className="block w-full"
+                >
+                  <img
+                    src={product.image}
+                    alt={product.name}
+                    className="w-full h-80 object-cover group-hover:scale-110 transition-transform duration-500"
+                  />
+                </button>
+                <div className={`absolute top-4 left-4 ${getTagColor(product.newTag || '')} text-white px-3 py-1 rounded-full text-sm font-semibold pointer-events-none`}>
                   {product.newTag}
                 </div>
                 <button
                   onClick={() => addToWishlist(product)}
+                  aria-label={`Add ${product.name} to wishlist`}
                   className="absolute top-4 right-4 bg-white p-2 rounded-full shadow-lg hover:bg-[var(--color-primary)] hover:text-white transition-colors"
                 >
                   <Heart className="w-5 h-5" />
@@ -90,11 +122,13 @@ export default function NewArrivalsPage({ addToCart, addToWishlist }: any) {
                   ))}
                   <span className="ml-2 text-sm text-gray-600">({product.rating})</span>
                 </div>
-                <h3 className="font-semibold text-gray-900 mb-2 group-hover:text-[var(--color-primary)] transition-colors">{product.name}</h3>
+                <button onClick={() => setQuickViewProduct(product)} className="block text-left">
+                  <h3 className="font-semibold text-gray-900 mb-2 group-hover:text-[var(--color-primary)] transition-colors">{product.name}</h3>
+                </button>
                 <p className="text-2xl font-bold text-gray-900">${product.price}</p>
                 <div className="mt-3 flex flex-wrap gap-1">
                   {product.colors.map((color) => (
-                    <div key={color} className="w-6 h-6 rounded-full border-2 border-gray-300" style={{ backgroundColor: color.toLowerCase() }}></div>
+                    <div key={color} className="w-6 h-6 rounded-full border-2 border-gray-300" style={{ backgroundColor: getSwatchColor(color) }}></div>
                   ))}
                 </div>
               </div>
@@ -105,18 +139,38 @@ export default function NewArrivalsPage({ addToCart, addToWishlist }: any) {
         {/* Newsletter CTA */}
         <div className="mt-16 bg-gradient-to-r from-purple-600 to-pink-600 rounded-2xl p-12 text-center text-white">
           <h2 className="text-3xl font-bold mb-4">Never Miss a New Arrival</h2>
-          <p className="text-xl mb-8 opacity-90">Subscribe to get early access to new collections</p>
-          <div className="flex flex-col md:flex-row gap-4 max-w-md mx-auto">
-            <input
-              type="email"
-              aria-label="Email address for newsletter"
-              placeholder="Enter your email"
-              className="flex-1 px-6 py-4 rounded-lg text-gray-900 focus:outline-none focus:ring-2 focus:ring-white"
-            />
-            <button className="bg-white text-[var(--color-primary)] px-8 py-4 rounded-lg font-semibold hover:bg-gray-100 transition-colors">
-              Subscribe
-            </button>
-          </div>
+          {newsletterSubscribed ? (
+            <div className="max-w-md mx-auto">
+              <div className="bg-white/20 backdrop-blur-sm rounded-xl p-6 flex items-center justify-center space-x-3">
+                <Check className="w-6 h-6" />
+                <p className="text-lg font-semibold">You&apos;re on the list! Watch your inbox for early access.</p>
+              </div>
+            </div>
+          ) : (
+            <>
+              <p className="text-xl mb-8 opacity-90">Subscribe to get early access to new collections</p>
+              <div className="flex flex-col md:flex-row gap-4 max-w-md mx-auto">
+                <input
+                  type="email"
+                  aria-label="Email address for newsletter"
+                  placeholder="Enter your email"
+                  value={newsletterEmail}
+                  onChange={(e) => setNewsletterEmail(e.target.value)}
+                  onKeyDown={(e) => { if (e.key === 'Enter') handleSubscribe() }}
+                  className="flex-1 px-6 py-4 rounded-lg text-gray-900 focus:outline-none focus:ring-2 focus:ring-white"
+                />
+                <button
+                  onClick={handleSubscribe}
+                  className="bg-white text-[var(--color-primary)] px-8 py-4 rounded-lg font-semibold hover:bg-gray-100 transition-colors"
+                >
+                  Subscribe
+                </button>
+              </div>
+              {newsletterError && (
+                <p className="mt-4 text-sm font-semibold bg-white/20 inline-block px-4 py-2 rounded-lg">{newsletterError}</p>
+              )}
+            </>
+          )}
         </div>
       </div>
     </div>

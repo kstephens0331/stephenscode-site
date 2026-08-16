@@ -18,9 +18,18 @@ export default function ContactPage({ colors }: ContactPageProps) {
     message: ''
   })
   const [submitted, setSubmitted] = useState(false)
+  const [submitError, setSubmitError] = useState('')
+  const [followed, setFollowed] = useState<string[]>([])
+
+  const toggleFollow = (platform: string) => {
+    setFollowed((prev) =>
+      prev.includes(platform) ? prev.filter((p) => p !== platform) : [...prev, platform]
+    )
+  }
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault()
+    setSubmitError('')
     try {
       const response = await fetch('/api/demo-lead', {
         method: 'POST',
@@ -47,11 +56,10 @@ export default function ContactPage({ colors }: ContactPageProps) {
         trackConversion('leadForm')
         setSubmitted(true)
       } else {
-        alert('There was an issue sending your message. Please call us at (312) 555-FOOD.')
+        setSubmitError('There was an issue sending your message. Please call us at (312) 555-FOOD.')
       }
-    } catch (error) {
-      console.error('Contact form error:', error)
-      alert('There was an issue sending your message. Please call us at (312) 555-FOOD.')
+    } catch {
+      setSubmitError('There was an issue sending your message. Please call us at (312) 555-FOOD.')
     }
   }
 
@@ -167,6 +175,11 @@ export default function ContactPage({ colors }: ContactPageProps) {
                     placeholder="How can we help you?"
                   />
                 </div>
+                {submitError && (
+                  <div style={{ backgroundColor: '#fef2f2', border: '2px solid #ef4444', color: '#991b1b' }} className="p-4 text-sm font-bold">
+                    {submitError}
+                  </div>
+                )}
                 <button
                   type="submit"
                   style={{ backgroundColor: '#9b2226', color: '#ffffff' }}
@@ -255,12 +268,36 @@ export default function ContactPage({ colors }: ContactPageProps) {
                   <h3 style={{ color: '#1a1a1a' }} className="text-xl font-bold mb-3">
                     Follow Us on Social Media
                   </h3>
-                  <div className="flex gap-4 text-3xl">
-                    <button className="hover:opacity-70 transition">📘</button>
-                    <button className="hover:opacity-70 transition">📷</button>
-                    <button className="hover:opacity-70 transition">🐦</button>
-                    <button className="hover:opacity-70 transition">⭐</button>
+                  <div className="flex flex-wrap gap-3">
+                    {[
+                      { icon: '📘', name: 'Facebook' },
+                      { icon: '📷', name: 'Instagram' },
+                      { icon: '🐦', name: 'Twitter' },
+                      { icon: '⭐', name: 'Yelp' }
+                    ].map((platform) => {
+                      const isFollowing = followed.includes(platform.name)
+                      return (
+                        <button
+                          key={platform.name}
+                          onClick={() => toggleFollow(platform.name)}
+                          style={{
+                            backgroundColor: isFollowing ? '#9b2226' : '#ffffff',
+                            border: '2px solid #9b2226',
+                            color: isFollowing ? '#ffffff' : '#1a1a1a'
+                          }}
+                          className="px-4 py-2 font-bold text-sm hover:opacity-80 transition flex items-center gap-2"
+                        >
+                          <span className="text-xl">{platform.icon}</span>
+                          {isFollowing ? `Following on ${platform.name}` : platform.name}
+                        </button>
+                      )
+                    })}
                   </div>
+                  {followed.length > 0 && (
+                    <p style={{ color: '#22c55e' }} className="text-sm mt-4 font-bold">
+                      ✓ Thanks for following @GourmetKitchenCHI on {followed.join(', ')}!
+                    </p>
+                  )}
                   <p style={{ color: '#666666' }} className="text-sm mt-4">
                     Share your dining experience with #GourmetKitchenCHI
                   </p>

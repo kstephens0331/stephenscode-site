@@ -1,6 +1,7 @@
 'use client'
 
-import { Minus, Plus, Trash2, ShoppingBag, ArrowRight, Tag } from 'lucide-react'
+import { useState } from 'react'
+import { Minus, Plus, Trash2, ShoppingBag, ArrowRight, Tag, Check, X } from 'lucide-react'
 import type { CartItem } from '../CustomerView'
 
 interface CartPageProps {
@@ -9,13 +10,46 @@ interface CartPageProps {
   removeFromCart: (id: string, size: string, color: string) => void
   clearCart: () => void
   setCurrentPage: (page: string) => void
+  appliedPromo: string | null
+  setAppliedPromo: (code: string | null) => void
 }
 
-export default function CartPage({ cart, updateQuantity, removeFromCart, clearCart, setCurrentPage }: CartPageProps) {
+export const PROMO_CODES: Record<string, { label: string; type: 'shipping' | 'percent'; value: number }> = {
+  FREESHIP: { label: 'Free standard shipping', type: 'shipping', value: 0 },
+  BELLA10: { label: '10% off your order', type: 'percent', value: 10 },
+}
+
+export function computeTotals(cart: CartItem[], appliedPromo: string | null) {
   const subtotal = cart.reduce((sum, item) => sum + (item.price * item.quantity), 0)
-  const shipping = subtotal > 100 ? 0 : 15
-  const tax = subtotal * 0.08
-  const total = subtotal + shipping + tax
+  const promo = appliedPromo ? PROMO_CODES[appliedPromo] : undefined
+  const discount = promo && promo.type === 'percent' ? subtotal * (promo.value / 100) : 0
+  const freeShipping = subtotal > 100 || (promo ? promo.type === 'shipping' : false)
+  const shipping = cart.length === 0 || freeShipping ? 0 : 15
+  const tax = (subtotal - discount) * 0.08
+  const total = subtotal - discount + shipping + tax
+  return { subtotal, discount, shipping, tax, total }
+}
+
+export default function CartPage({ cart, updateQuantity, removeFromCart, clearCart, setCurrentPage, appliedPromo, setAppliedPromo }: CartPageProps) {
+  const [promoInput, setPromoInput] = useState('')
+  const [promoError, setPromoError] = useState('')
+
+  const { subtotal, discount, shipping, tax, total } = computeTotals(cart, appliedPromo)
+
+  const handleApplyPromo = () => {
+    const code = promoInput.trim().toUpperCase()
+    if (!code) {
+      setPromoError('Enter a promo code first.')
+      return
+    }
+    if (PROMO_CODES[code]) {
+      setAppliedPromo(code)
+      setPromoInput('')
+      setPromoError('')
+    } else {
+      setPromoError(`"${code}" is not a valid code. Try FREESHIP or BELLA10.`)
+    }
+  }
 
   if (cart.length === 0) {
     return (
@@ -83,6 +117,7 @@ export default function CartPage({ cart, updateQuantity, removeFromCart, clearCa
                           <div className="flex items-center space-x-3">
                             <button
                               onClick={() => updateQuantity(item.id, item.size, item.color, item.quantity - 1)}
+                              aria-label="Decrease quantity"
                               className="w-8 h-8 rounded-lg border border-gray-300 flex items-center justify-center hover:bg-gray-100 transition-colors"
                             >
                               <Minus className="w-4 h-4" />
@@ -90,6 +125,7 @@ export default function CartPage({ cart, updateQuantity, removeFromCart, clearCa
                             <span className="font-semibold text-gray-900 w-8 text-center">{item.quantity}</span>
                             <button
                               onClick={() => updateQuantity(item.id, item.size, item.color, item.quantity + 1)}
+                              aria-label="Increase quantity"
                               className="w-8 h-8 rounded-lg border border-gray-300 flex items-center justify-center hover:bg-gray-100 transition-colors"
                             >
                               <Plus className="w-4 h-4" />
@@ -105,6 +141,7 @@ export default function CartPage({ cart, updateQuantity, removeFromCart, clearCa
 
                       <button
                         onClick={() => removeFromCart(item.id, item.size, item.color)}
+                        aria-label={`Remove ${item.name} from cart`}
                         className="p-2 hover:bg-red-50 rounded-lg transition-colors h-fit"
                       >
                         <Trash2 className="w-5 h-5 text-red-600" />
@@ -121,17 +158,45 @@ export default function CartPage({ cart, updateQuantity, removeFromCart, clearCa
                 <Tag className="w-5 h-5 text-[var(--color-primary)]" />
                 <h3 className="font-bold text-gray-900">Have a Promo Code?</h3>
               </div>
-              <div className="flex gap-3">
-                <input
-                  type="text"
-                  aria-label="Promo code"
-                  placeholder="Enter code"
-                  className="flex-1 px-4 py-3 border-2 border-gray-200 rounded-lg focus:outline-none focus:border-[var(--color-primary)]"
-                />
-                <button className="bg-[var(--color-primary)] text-white px-6 py-3 rounded-lg font-semibold hover:bg-opacity-90 transition-all">
-                  Apply
-                </button>
-              </div>
+              {appliedPromo ? (
+                <div className="flex items-center justify-between bg-green-50 border-2 border-green-200 rounded-lg px-4 py-3">
+                  <div className="flex items-center space-x-2 text-green-700">
+                    <Check className="w-5 h-5" />
+                    <span className="font-semibold">{appliedPromo}</span>
+                    <span className="text-sm">-- {PROMO_CODES[appliedPromo]?.label}</span>
+                  </div>
+                  <button
+                    onClick={() => setAppliedPromo(null)}
+                    aria-label="Remove promo code"
+                    className="p-1 hover:bg-green-100 rounded-lg transition-colors"
+                  >
+                    <X className="w-5 h-5 text-green-700" />
+                  </button>
+                </div>
+              ) : (
+                <>
+                  <div className="flex gap-3">
+                    <input
+                      type="text"
+                      aria-label="Promo code"
+                      placeholder="Enter code"
+                      value={promoInput}
+                      onChange={(e) => setPromoInput(e.target.value)}
+                      onKeyDown={(e) => { if (e.key === 'Enter') handleApplyPromo() }}
+                      className="flex-1 px-4 py-3 border-2 border-gray-200 rounded-lg focus:outline-none focus:border-[var(--color-primary)]"
+                    />
+                    <button
+                      onClick={handleApplyPromo}
+                      className="bg-[var(--color-primary)] text-white px-6 py-3 rounded-lg font-semibold hover:bg-opacity-90 transition-all"
+                    >
+                      Apply
+                    </button>
+                  </div>
+                  {promoError && (
+                    <p className="mt-3 text-sm text-red-600 font-semibold">{promoError}</p>
+                  )}
+                </>
+              )}
             </div>
           </div>
 
@@ -145,6 +210,12 @@ export default function CartPage({ cart, updateQuantity, removeFromCart, clearCa
                   <span>Subtotal</span>
                   <span className="font-semibold">${subtotal.toFixed(2)}</span>
                 </div>
+                {discount > 0 && (
+                  <div className="flex justify-between text-green-600">
+                    <span>Discount ({appliedPromo})</span>
+                    <span className="font-semibold">-${discount.toFixed(2)}</span>
+                  </div>
+                )}
                 <div className="flex justify-between text-gray-600">
                   <span>Shipping</span>
                   <span className="font-semibold">{shipping === 0 ? 'FREE' : `$${shipping.toFixed(2)}`}</span>
@@ -153,7 +224,7 @@ export default function CartPage({ cart, updateQuantity, removeFromCart, clearCa
                   <span>Tax</span>
                   <span className="font-semibold">${tax.toFixed(2)}</span>
                 </div>
-                {subtotal < 100 && (
+                {subtotal < 100 && shipping > 0 && (
                   <div className="bg-purple-50 p-3 rounded-lg">
                     <p className="text-sm text-[var(--color-primary)]">
                       Add ${(100 - subtotal).toFixed(2)} more for FREE shipping!

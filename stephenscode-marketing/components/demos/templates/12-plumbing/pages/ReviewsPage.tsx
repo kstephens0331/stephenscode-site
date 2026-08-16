@@ -1,12 +1,50 @@
-import React from 'react';
-import { Star, ThumbsUp, CheckCircle, MessageSquare, TrendingUp } from 'lucide-react';
+import React, { useEffect, useState } from 'react';
+import { Star, ThumbsUp, CheckCircle, MessageSquare, TrendingUp, X, Play } from 'lucide-react';
 
 interface ReviewsPageProps {
   onNavigate: (page: string) => void;
 }
 
-const ReviewsPage: React.FC<ReviewsPageProps> = ({ onNavigate }) => {
-  const reviews = [
+interface Review {
+  name: string;
+  location: string;
+  rating: number;
+  date: string;
+  service: string;
+  text: string;
+  verified: boolean;
+}
+
+interface VideoTestimonial {
+  customer: string;
+  service: string;
+  transcript: string;
+}
+
+const REVIEWS_STORAGE_KEY = 'plumbing-demo-reviews';
+
+const videoTestimonials: VideoTestimonial[] = [
+  {
+    customer: 'Karen Mitchell',
+    service: 'Whole House Repipe',
+    transcript:
+      'We bought a 1970s house knowing the plumbing needed work. Premier Plumbing walked us through every option, gave us a fixed price up front, and finished the whole repipe in four days. The crew covered our floors, cleaned up every evening, and the water pressure now is night and day. I would recommend them to anyone.'
+  },
+  {
+    customer: 'Steve Douglas',
+    service: 'Emergency Sewer Backup',
+    transcript:
+      'Our basement started backing up on a holiday weekend. I called three companies and Premier was the only one that answered with a real person. The technician was here in about 45 minutes, cleared the main line, and showed me the camera footage so I could see exactly what happened. No holiday surcharge either.'
+  },
+  {
+    customer: 'Angela Reyes',
+    service: 'Tankless Water Heater',
+    transcript:
+      'We switched to a tankless water heater on their recommendation and it has been fantastic. They handled the permit, the installation took one day, and they came back a week later just to make sure everything was dialed in. That kind of follow-up is why we use them for everything now.'
+  }
+];
+
+const defaultReviews: Review[] = [
     {
       name: 'Sarah Johnson',
       location: 'Downtown',
@@ -117,12 +155,75 @@ const ReviewsPage: React.FC<ReviewsPageProps> = ({ onNavigate }) => {
     }
   ];
 
-  const platformReviews = [
-    { platform: 'Google', rating: 4.9, count: 287 },
-    { platform: 'Yelp', rating: 4.8, count: 156 },
-    { platform: 'Facebook', rating: 5.0, count: 203 },
-    { platform: 'BBB', rating: 'A+', count: 89 }
-  ];
+const platformReviews = [
+  { platform: 'Google', rating: 4.9, count: 287 },
+  { platform: 'Yelp', rating: 4.8, count: 156 },
+  { platform: 'Facebook', rating: 5.0, count: 203 },
+  { platform: 'BBB', rating: 'A+', count: 89 }
+];
+
+const ReviewsPage: React.FC<ReviewsPageProps> = ({ onNavigate }) => {
+  const [userReviews, setUserReviews] = useState<Review[]>([]);
+
+  useEffect(() => {
+    try {
+      const stored = window.localStorage.getItem(REVIEWS_STORAGE_KEY);
+      if (stored) setUserReviews(JSON.parse(stored) as Review[]);
+    } catch {
+      // Corrupted store -- start fresh
+    }
+  }, []);
+  const [showReviewForm, setShowReviewForm] = useState(false);
+  const [reviewSubmitted, setReviewSubmitted] = useState(false);
+  const [showShareMenu, setShowShareMenu] = useState(false);
+  const [linkCopied, setLinkCopied] = useState(false);
+  const [activeVideo, setActiveVideo] = useState<VideoTestimonial | null>(null);
+  const [reviewForm, setReviewForm] = useState({
+    name: '',
+    location: '',
+    service: '',
+    rating: 5,
+    text: ''
+  });
+
+  const reviews: Review[] = [...userReviews, ...defaultReviews];
+
+  const handleReviewSubmit = (e: React.FormEvent) => {
+    e.preventDefault();
+    const newReview: Review = {
+      name: reviewForm.name.trim(),
+      location: reviewForm.location.trim() || 'Metro Area',
+      rating: reviewForm.rating,
+      date: new Date().toLocaleDateString('en-US', { month: 'long', day: 'numeric', year: 'numeric' }),
+      service: reviewForm.service.trim() || 'General Plumbing',
+      text: reviewForm.text.trim(),
+      verified: false
+    };
+    const updated = [newReview, ...userReviews];
+    setUserReviews(updated);
+    if (typeof window !== 'undefined') {
+      window.localStorage.setItem(REVIEWS_STORAGE_KEY, JSON.stringify(updated));
+    }
+    setReviewSubmitted(true);
+  };
+
+  const closeReviewForm = () => {
+    setShowReviewForm(false);
+    setReviewSubmitted(false);
+    setReviewForm({ name: '', location: '', service: '', rating: 5, text: '' });
+  };
+
+  const handleCopyLink = async () => {
+    try {
+      await navigator.clipboard.writeText(window.location.href);
+      setLinkCopied(true);
+      setTimeout(() => setLinkCopied(false), 2500);
+    } catch {
+      // Clipboard unavailable -- leave the share links as the path forward
+    }
+  };
+
+  const shareUrl = typeof window !== 'undefined' ? window.location.href : 'https://premierplumbing.example.com';
 
   return (
     <div>
@@ -253,8 +354,12 @@ const ReviewsPage: React.FC<ReviewsPageProps> = ({ onNavigate }) => {
             <p className="text-xl text-gray-600">Hear directly from our satisfied customers</p>
           </div>
           <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
-            {[1, 2, 3].map((video) => (
-              <div key={video} className="bg-white rounded-xl overflow-hidden shadow-lg">
+            {videoTestimonials.map((video) => (
+              <div
+                key={video.customer}
+                onClick={() => setActiveVideo(video)}
+                className="bg-white rounded-xl overflow-hidden shadow-lg cursor-pointer hover:shadow-xl transition-shadow"
+              >
                 <div className="h-48 bg-gradient-to-br from-[#0466c8] to-[#023e7d] flex items-center justify-center">
                   <div className="text-white text-center">
                     <div className="bg-white/20 backdrop-blur-sm rounded-full w-16 h-16 flex items-center justify-center mx-auto mb-4">
@@ -262,11 +367,12 @@ const ReviewsPage: React.FC<ReviewsPageProps> = ({ onNavigate }) => {
                         <path d="M8 5v14l11-7z" />
                       </svg>
                     </div>
-                    <p className="font-semibold">Customer Testimonial {video}</p>
+                    <p className="font-semibold">{video.customer}</p>
+                    <p className="text-sm text-blue-200">{video.service}</p>
                   </div>
                 </div>
                 <div className="p-4">
-                  <p className="text-sm text-gray-600">Watch our customer share their experience with Premier Plumbing Pros</p>
+                  <p className="text-sm text-gray-600">Read this customer's full story about their experience with Premier Plumbing Pros</p>
                 </div>
               </div>
             ))}
@@ -285,13 +391,48 @@ const ReviewsPage: React.FC<ReviewsPageProps> = ({ onNavigate }) => {
               us improve and helps others make informed decisions.
             </p>
             <div className="flex flex-col sm:flex-row gap-4 justify-center">
-              <button className="bg-white text-[#0466c8] px-8 py-3 rounded-lg font-bold hover:bg-gray-100 transition-colors">
+              <button
+                onClick={() => setShowReviewForm(true)}
+                className="bg-white text-[#0466c8] px-8 py-3 rounded-lg font-bold hover:bg-gray-100 transition-colors"
+              >
                 Write a Review
               </button>
-              <button className="bg-[#023e7d] text-white px-8 py-3 rounded-lg font-bold hover:bg-[#012a5c] transition-colors">
+              <button
+                onClick={() => setShowShareMenu(!showShareMenu)}
+                className="bg-[#023e7d] text-white px-8 py-3 rounded-lg font-bold hover:bg-[#012a5c] transition-colors"
+              >
                 Share on Social Media
               </button>
             </div>
+            {showShareMenu && (
+              <div className="mt-6 bg-white/10 backdrop-blur-sm border border-white/20 rounded-xl p-6 max-w-md mx-auto">
+                <p className="font-semibold mb-4">Share Premier Plumbing Pros:</p>
+                <div className="flex flex-col sm:flex-row gap-3 justify-center">
+                  <a
+                    href={`https://www.facebook.com/sharer/sharer.php?u=${encodeURIComponent(shareUrl)}`}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="bg-white text-[#0466c8] px-5 py-2 rounded-lg font-semibold hover:bg-gray-100 transition-colors"
+                  >
+                    Facebook
+                  </a>
+                  <a
+                    href={`https://twitter.com/intent/tweet?text=${encodeURIComponent('Great plumbing service from Premier Plumbing Pros!')}&url=${encodeURIComponent(shareUrl)}`}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="bg-white text-[#0466c8] px-5 py-2 rounded-lg font-semibold hover:bg-gray-100 transition-colors"
+                  >
+                    Twitter
+                  </a>
+                  <button
+                    onClick={handleCopyLink}
+                    className="bg-white text-[#0466c8] px-5 py-2 rounded-lg font-semibold hover:bg-gray-100 transition-colors"
+                  >
+                    {linkCopied ? 'Link Copied!' : 'Copy Link'}
+                  </button>
+                </div>
+              </div>
+            )}
           </div>
         </div>
       </section>
@@ -394,12 +535,205 @@ const ReviewsPage: React.FC<ReviewsPageProps> = ({ onNavigate }) => {
             >
               Schedule Service
             </button>
-            <button className="bg-[#023e7d] text-white px-8 py-3 rounded-lg font-bold hover:bg-[#012a5c] transition-colors">
+            <a
+              href="tel:5557658237"
+              className="bg-[#023e7d] text-white px-8 py-3 rounded-lg font-bold hover:bg-[#012a5c] transition-colors inline-block"
+            >
               Call (555) 765-8237
-            </button>
+            </a>
           </div>
         </div>
       </section>
+
+      {/* Write a Review Modal */}
+      {showReviewForm && (
+        <div
+          className="fixed inset-0 bg-black/60 z-50 flex items-center justify-center p-4"
+          onClick={closeReviewForm}
+        >
+          <div
+            className="bg-white rounded-2xl max-w-lg w-full max-h-[85vh] overflow-y-auto shadow-2xl"
+            onClick={(e) => e.stopPropagation()}
+          >
+            <div className="bg-gradient-to-r from-[#0466c8] to-[#0353a4] p-6 text-white flex items-start justify-between">
+              <div>
+                <h3 className="text-2xl font-bold mb-1">Write a Review</h3>
+                <p className="text-blue-100">Tell us about your experience</p>
+              </div>
+              <button
+                onClick={closeReviewForm}
+                aria-label="Close review form"
+                className="bg-white/20 hover:bg-white/30 rounded-full p-2 transition-colors"
+              >
+                <X className="h-5 w-5" />
+              </button>
+            </div>
+            {reviewSubmitted ? (
+              <div className="p-8 text-center">
+                <CheckCircle className="h-14 w-14 text-green-600 mx-auto mb-4" />
+                <h4 className="text-2xl font-bold text-gray-900 mb-2">Thank You!</h4>
+                <p className="text-gray-600 mb-6">
+                  Your review has been posted. We appreciate you taking the time to share your experience.
+                </p>
+                <button
+                  onClick={closeReviewForm}
+                  className="bg-[#0466c8] text-white px-8 py-3 rounded-lg font-bold hover:bg-[#0353a4] transition-colors"
+                >
+                  Done
+                </button>
+              </div>
+            ) : (
+              <form onSubmit={handleReviewSubmit} className="p-6 space-y-4">
+                <div>
+                  <label htmlFor="plumbing-review-name" className="block text-sm font-medium text-gray-700 mb-2">
+                    Your Name *
+                  </label>
+                  <input
+                    id="plumbing-review-name"
+                    type="text"
+                    required
+                    value={reviewForm.name}
+                    onChange={(e) => setReviewForm({ ...reviewForm, name: e.target.value })}
+                    className="w-full px-4 py-3 rounded-lg border border-gray-300 focus:outline-none focus:ring-2 focus:ring-[#0466c8] focus:border-transparent"
+                    placeholder="Jane Smith"
+                  />
+                </div>
+                <div>
+                  <label htmlFor="plumbing-review-location" className="block text-sm font-medium text-gray-700 mb-2">
+                    Neighborhood
+                  </label>
+                  <input
+                    id="plumbing-review-location"
+                    type="text"
+                    value={reviewForm.location}
+                    onChange={(e) => setReviewForm({ ...reviewForm, location: e.target.value })}
+                    className="w-full px-4 py-3 rounded-lg border border-gray-300 focus:outline-none focus:ring-2 focus:ring-[#0466c8] focus:border-transparent"
+                    placeholder="Downtown"
+                  />
+                </div>
+                <div>
+                  <label htmlFor="plumbing-review-service" className="block text-sm font-medium text-gray-700 mb-2">
+                    Service Received
+                  </label>
+                  <select
+                    id="plumbing-review-service"
+                    value={reviewForm.service}
+                    onChange={(e) => setReviewForm({ ...reviewForm, service: e.target.value })}
+                    className="w-full px-4 py-3 rounded-lg border border-gray-300 focus:outline-none focus:ring-2 focus:ring-[#0466c8] focus:border-transparent"
+                  >
+                    <option value="">Select a service</option>
+                    <option>Drain Cleaning</option>
+                    <option>Leak Detection</option>
+                    <option>Water Heater Installation</option>
+                    <option>Water Heater Repair</option>
+                    <option>Pipe Repair</option>
+                    <option>Fixture Installation</option>
+                    <option>Sewer Line Repair</option>
+                    <option>Emergency Service</option>
+                    <option>Commercial Plumbing</option>
+                    <option>Other</option>
+                  </select>
+                </div>
+                <div>
+                  <p className="block text-sm font-medium text-gray-700 mb-2">Your Rating *</p>
+                  <div className="flex space-x-1">
+                    {[1, 2, 3, 4, 5].map((star) => (
+                      <button
+                        key={star}
+                        type="button"
+                        aria-label={`Rate ${star} star${star > 1 ? 's' : ''}`}
+                        onClick={() => setReviewForm({ ...reviewForm, rating: star })}
+                      >
+                        <Star
+                          className={`h-8 w-8 transition-colors ${
+                            star <= reviewForm.rating
+                              ? 'fill-yellow-400 text-yellow-400'
+                              : 'text-gray-300 hover:text-yellow-300'
+                          }`}
+                        />
+                      </button>
+                    ))}
+                  </div>
+                </div>
+                <div>
+                  <label htmlFor="plumbing-review-text" className="block text-sm font-medium text-gray-700 mb-2">
+                    Your Review *
+                  </label>
+                  <textarea
+                    id="plumbing-review-text"
+                    required
+                    rows={4}
+                    value={reviewForm.text}
+                    onChange={(e) => setReviewForm({ ...reviewForm, text: e.target.value })}
+                    className="w-full px-4 py-3 rounded-lg border border-gray-300 focus:outline-none focus:ring-2 focus:ring-[#0466c8] focus:border-transparent"
+                    placeholder="Tell us about your experience..."
+                  />
+                </div>
+                <button
+                  type="submit"
+                  className="w-full bg-[#0466c8] text-white px-6 py-3 rounded-lg font-bold hover:bg-[#0353a4] transition-colors"
+                >
+                  Post Review
+                </button>
+              </form>
+            )}
+          </div>
+        </div>
+      )}
+
+      {/* Video Testimonial Modal */}
+      {activeVideo && (
+        <div
+          className="fixed inset-0 bg-black/60 z-50 flex items-center justify-center p-4"
+          onClick={() => setActiveVideo(null)}
+        >
+          <div
+            className="bg-white rounded-2xl max-w-lg w-full max-h-[85vh] overflow-y-auto shadow-2xl"
+            onClick={(e) => e.stopPropagation()}
+          >
+            <div className="bg-gradient-to-br from-[#0466c8] to-[#023e7d] p-6 text-white">
+              <div className="flex items-start justify-between">
+                <div className="flex items-center space-x-3">
+                  <div className="bg-white/20 rounded-full p-3">
+                    <Play className="h-6 w-6" />
+                  </div>
+                  <div>
+                    <h3 className="text-xl font-bold">{activeVideo.customer}</h3>
+                    <p className="text-blue-200 text-sm">{activeVideo.service}</p>
+                  </div>
+                </div>
+                <button
+                  onClick={() => setActiveVideo(null)}
+                  aria-label="Close testimonial"
+                  className="bg-white/20 hover:bg-white/30 rounded-full p-2 transition-colors"
+                >
+                  <X className="h-5 w-5" />
+                </button>
+              </div>
+            </div>
+            <div className="p-6">
+              <p className="text-sm font-semibold text-[#0466c8] uppercase tracking-wide mb-3">
+                Testimonial Transcript
+              </p>
+              <p className="text-gray-700 italic mb-6">"{activeVideo.transcript}"</p>
+              <div className="flex mb-6">
+                {[...Array(5)].map((_, i) => (
+                  <Star key={i} className="h-5 w-5 fill-yellow-400 text-yellow-400" />
+                ))}
+              </div>
+              <button
+                onClick={() => {
+                  setActiveVideo(null);
+                  onNavigate('contact');
+                }}
+                className="w-full bg-[#0466c8] text-white px-6 py-3 rounded-lg font-bold hover:bg-[#0353a4] transition-colors"
+              >
+                Get the Same Great Service
+              </button>
+            </div>
+          </div>
+        </div>
+      )}
     </div>
   );
 };

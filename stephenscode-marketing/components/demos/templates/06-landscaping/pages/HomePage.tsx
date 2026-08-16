@@ -197,7 +197,16 @@ export default function HomePage({ onNavigate }: HomePageProps) {
             {services.map((service, index) => (
               <div
                 key={index}
-                className="bg-white rounded-2xl p-6 shadow-lg transition-all transform hover:-translate-y-2 border-2 border-transparent hover:border-[#a7c957] relative overflow-hidden group"
+                role="button"
+                tabIndex={0}
+                onClick={() => onNavigate('services')}
+                onKeyDown={(e) => {
+                  if (e.key === 'Enter' || e.key === ' ') {
+                    e.preventDefault();
+                    onNavigate('services');
+                  }
+                }}
+                className="bg-white rounded-2xl p-6 shadow-lg transition-all transform hover:-translate-y-2 border-2 border-transparent hover:border-[#a7c957] relative overflow-hidden group cursor-pointer"
               >
                 {service.badge && (
                   <div className="absolute top-4 right-4 bg-[#a7c957] text-[#386641] px-3 py-1 rounded-full text-xs font-bold">

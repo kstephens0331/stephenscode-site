@@ -1,11 +1,63 @@
-import React from 'react';
-import { Sparkles, Star, Award, Heart, Calendar, Gift } from 'lucide-react';
+import React, { useState } from 'react';
+import { Sparkles, Star, Award, Heart, Calendar, Gift, X, CheckCircle } from 'lucide-react';
+import { trackEvent, trackConversion } from '@/lib/analytics';
 
 interface HomePageProps {
   onNavigate: (page: string) => void;
 }
 
 export default function HomePage({ onNavigate }: HomePageProps) {
+  const [membershipTier, setMembershipTier] = useState<string | null>(null);
+  const [membershipForm, setMembershipForm] = useState({ name: '', email: '', phone: '' });
+  const [membershipSubmitted, setMembershipSubmitted] = useState(false);
+  const [membershipError, setMembershipError] = useState(false);
+
+  const openMembership = (tier: string) => {
+    setMembershipTier(tier);
+    setMembershipSubmitted(false);
+    setMembershipError(false);
+  };
+
+  const closeMembership = () => {
+    setMembershipTier(null);
+    setMembershipForm({ name: '', email: '', phone: '' });
+  };
+
+  const handleMembershipSubmit = async (e: React.FormEvent) => {
+    e.preventDefault();
+    setMembershipError(false);
+    try {
+      const response = await fetch('/api/demo-lead', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({
+          demoName: 'Glamour Studio Salon',
+          demoPackage: 'Website Rebuild ($350)',
+          demoSlug: 'glamour-studio-salon',
+          clientName: membershipForm.name,
+          clientPhone: membershipForm.phone,
+          clientEmail: membershipForm.email,
+          service: `VIP Membership - ${membershipTier}`,
+          preferredDate: '',
+          preferredTime: '',
+          notes: `Interested in joining the ${membershipTier} VIP membership tier.`,
+        }),
+      });
+
+      if (response.ok) {
+        trackEvent('generate_lead', {
+          form_name: 'salon_membership_form',
+          demo_slug: 'glamour-studio-salon',
+        });
+        trackConversion('leadForm');
+        setMembershipSubmitted(true);
+      } else {
+        setMembershipError(true);
+      }
+    } catch {
+      setMembershipError(true);
+    }
+  };
   const features = [
     {
       icon: Star,
@@ -197,6 +249,12 @@ export default function HomePage({ onNavigate }: HomePageProps) {
                 <li>✓ Free styling consultation</li>
                 <li>✓ Birthday gift</li>
               </ul>
+              <button
+                onClick={() => openMembership('Gold')}
+                className="w-full mt-6 bg-white text-[#d00000] py-3 rounded-full font-semibold hover:bg-gray-100 transition-all duration-300"
+              >
+                Join Gold
+              </button>
             </div>
 
             <div className="bg-white text-[#d00000] rounded-2xl p-8 border-4 border-white shadow-2xl transform scale-105">
@@ -214,6 +272,12 @@ export default function HomePage({ onNavigate }: HomePageProps) {
                 <li>✓ Product discounts</li>
                 <li>✓ Free nail refresh</li>
               </ul>
+              <button
+                onClick={() => openMembership('Platinum')}
+                className="w-full mt-6 bg-gradient-to-r from-[#d00000] to-[#e85d04] text-white py-3 rounded-full font-semibold hover:shadow-lg transition-all duration-300"
+              >
+                Join Platinum
+              </button>
             </div>
 
             <div className="bg-white/10 backdrop-blur-lg rounded-2xl p-8 border-2 border-white/20">
@@ -226,6 +290,12 @@ export default function HomePage({ onNavigate }: HomePageProps) {
                 <li>✓ Exclusive products</li>
                 <li>✓ Guest privileges</li>
               </ul>
+              <button
+                onClick={() => openMembership('Diamond')}
+                className="w-full mt-6 bg-white text-[#d00000] py-3 rounded-full font-semibold hover:bg-gray-100 transition-all duration-300"
+              >
+                Join Diamond
+              </button>
             </div>
           </div>
         </div>
@@ -277,6 +347,105 @@ export default function HomePage({ onNavigate }: HomePageProps) {
           </button>
         </div>
       </section>
+
+      {/* VIP Membership Modal */}
+      {membershipTier && (
+        <div
+          className="fixed inset-0 bg-black/70 z-50 flex items-center justify-center p-4"
+          onClick={closeMembership}
+        >
+          <div
+            className="bg-white rounded-2xl max-w-md w-full overflow-hidden"
+            onClick={(e) => e.stopPropagation()}
+          >
+            <div className="bg-gradient-to-r from-[#d00000] to-[#e85d04] text-white px-6 py-4 flex items-center justify-between">
+              <h3 className="text-xl font-bold">Join {membershipTier} Membership</h3>
+              <button onClick={closeMembership} aria-label="Close membership form">
+                <X className="w-6 h-6" />
+              </button>
+            </div>
+
+            {membershipSubmitted ? (
+              <div className="p-8 text-center">
+                <div className="w-16 h-16 bg-green-100 rounded-full flex items-center justify-center mx-auto mb-4">
+                  <CheckCircle className="w-10 h-10 text-green-600" />
+                </div>
+                <h4 className="text-2xl font-bold mb-2">Welcome to the VIP List!</h4>
+                <p className="text-gray-600 mb-6">
+                  Thank you, {membershipForm.name}. We&apos;ve received your {membershipTier} membership
+                  request. Our team will reach out within 24 hours to activate your perks.
+                </p>
+                <button
+                  onClick={closeMembership}
+                  className="bg-gradient-to-r from-[#d00000] to-[#e85d04] text-white px-8 py-3 rounded-full font-semibold hover:shadow-lg transition-all duration-300"
+                >
+                  Done
+                </button>
+              </div>
+            ) : (
+              <form onSubmit={handleMembershipSubmit} className="p-6 space-y-4">
+                <p className="text-gray-600 text-sm">
+                  Tell us how to reach you and we&apos;ll set up your {membershipTier} membership.
+                </p>
+                <div>
+                  <label htmlFor="salon-membership-name" className="block text-sm font-semibold mb-2">
+                    Your Name *
+                  </label>
+                  <input
+                    id="salon-membership-name"
+                    type="text"
+                    required
+                    value={membershipForm.name}
+                    onChange={(e) => setMembershipForm({ ...membershipForm, name: e.target.value })}
+                    className="w-full px-4 py-3 border border-gray-300 rounded-xl focus:outline-none focus:ring-2 focus:ring-[#d00000]"
+                    placeholder="Jane Smith"
+                  />
+                </div>
+                <div>
+                  <label htmlFor="salon-membership-email" className="block text-sm font-semibold mb-2">
+                    Email *
+                  </label>
+                  <input
+                    id="salon-membership-email"
+                    type="email"
+                    required
+                    value={membershipForm.email}
+                    onChange={(e) => setMembershipForm({ ...membershipForm, email: e.target.value })}
+                    className="w-full px-4 py-3 border border-gray-300 rounded-xl focus:outline-none focus:ring-2 focus:ring-[#d00000]"
+                    placeholder="jane@example.com"
+                  />
+                </div>
+                <div>
+                  <label htmlFor="salon-membership-phone" className="block text-sm font-semibold mb-2">
+                    Phone *
+                  </label>
+                  <input
+                    id="salon-membership-phone"
+                    type="tel"
+                    required
+                    value={membershipForm.phone}
+                    onChange={(e) => setMembershipForm({ ...membershipForm, phone: e.target.value })}
+                    className="w-full px-4 py-3 border border-gray-300 rounded-xl focus:outline-none focus:ring-2 focus:ring-[#d00000]"
+                    placeholder="(555) 123-4567"
+                  />
+                </div>
+                {membershipError && (
+                  <p className="text-sm text-red-600 bg-red-50 rounded-xl px-4 py-3">
+                    There was an issue submitting your request. Please try again or call us at
+                    (555) 456-7890.
+                  </p>
+                )}
+                <button
+                  type="submit"
+                  className="w-full bg-gradient-to-r from-[#d00000] to-[#e85d04] text-white py-3 rounded-full font-semibold hover:shadow-lg transition-all duration-300"
+                >
+                  Request {membershipTier} Membership
+                </button>
+              </form>
+            )}
+          </div>
+        </div>
+      )}
     </div>
   );
 }

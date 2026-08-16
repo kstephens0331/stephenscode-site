@@ -1,6 +1,5 @@
 'use client'
 
-import { useState } from 'react'
 import type { Demo } from '@/lib/demos-data'
 import { getDemoColors, generateColorVars } from '@/lib/demo-colors'
 import CustomerView from './CustomerView'

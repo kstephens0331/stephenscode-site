@@ -2,7 +2,7 @@ import React from 'react';
 import { Wrench, Zap, Droplet, Hammer, Paintbrush, Home, DoorOpen, Tv, Fence, CheckCircle, ArrowRight, Phone } from 'lucide-react';
 
 interface ServicesPageProps {
-  onNavigate: (page: string) => void;
+  onNavigate: (page: string, service?: string) => void;
   colors: {
     primary: string;
     secondary: string;
@@ -10,8 +10,18 @@ interface ServicesPageProps {
   };
 }
 
+interface ServiceItem {
+  icon: React.ElementType;
+  title: string;
+  price: string;
+  description: string;
+  includes: string[];
+  /** Contact-form option to preselect when this differs from the card title */
+  quoteAs?: string;
+}
+
 export default function ServicesPage({ onNavigate, colors }: ServicesPageProps) {
-  const services = [
+  const services: ServiceItem[] = [
     {
       icon: Wrench,
       title: 'General Repairs',
@@ -113,6 +123,7 @@ export default function ServicesPage({ onNavigate, colors }: ServicesPageProps) 
     {
       icon: Home,
       title: 'Drywall Repair',
+      quoteAs: 'Painting & Drywall',
       price: 'Starting at $99',
       description: 'Expert drywall repair from small holes to large damaged areas.',
       includes: [
@@ -227,7 +238,7 @@ export default function ServicesPage({ onNavigate, colors }: ServicesPageProps) 
                     </div>
                   </div>
                   <button
-                    onClick={() => onNavigate('contact')}
+                    onClick={() => onNavigate('contact', service.quoteAs ?? service.title)}
                     className="w-full px-6 py-3 rounded-lg text-white font-bold hover:shadow-lg transition-all flex items-center justify-center gap-2"
                     style={{ backgroundColor: colors.primary }}
                   >
@@ -310,14 +321,14 @@ export default function ServicesPage({ onNavigate, colors }: ServicesPageProps) 
               <p className="text-gray-600 mb-4">
                 Not sure if we service your area? Give us a call!
               </p>
-              <button
-                onClick={() => onNavigate('contact')}
+              <a
+                href="tel:5551234567"
                 className="px-8 py-3 rounded-lg text-white font-bold shadow-lg hover:shadow-xl transition-all inline-flex items-center gap-2"
                 style={{ backgroundColor: colors.accent }}
               >
                 <Phone className="h-5 w-5" />
                 (555) 123-4567
-              </button>
+              </a>
             </div>
           </div>
         </div>

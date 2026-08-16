@@ -13,6 +13,7 @@ interface LayoutProps {
 
 export default function Layout({ children, colors, currentPage, onNavigate, onBookingOpen }: LayoutProps) {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false)
+  const [legalDoc, setLegalDoc] = useState<'privacy' | 'terms' | null>(null)
 
   const navLinks = [
     { id: 'home' as const, label: 'Home' },
@@ -167,12 +168,69 @@ export default function Layout({ children, colors, currentPage, onNavigate, onBo
           <div style={{ borderTop: '1px solid #333333' }} className="pt-8 text-center">
             <p style={{ color: '#666666' }} className="text-sm">
               © 2025 Classic Cuts Barbershop. All rights reserved. |
-              <button onClick={() => onNavigate('contact')} className="hover:text-white ml-1">Privacy Policy</button> |
-              <button onClick={() => onNavigate('contact')} className="hover:text-white ml-1">Terms of Service</button>
+              <button onClick={() => setLegalDoc('privacy')} className="hover:text-white ml-1">Privacy Policy</button> |
+              <button onClick={() => setLegalDoc('terms')} className="hover:text-white ml-1">Terms of Service</button>
             </p>
           </div>
         </div>
       </footer>
+
+      {/* Legal Document Modal */}
+      {legalDoc && (
+        <div
+          className="fixed inset-0 bg-black bg-opacity-70 flex items-center justify-center z-50 p-4"
+          onClick={() => setLegalDoc(null)}
+        >
+          <div
+            style={{ backgroundColor: '#ffffff' }}
+            className="max-w-2xl w-full max-h-[85vh] overflow-y-auto"
+            onClick={(e) => e.stopPropagation()}
+          >
+            <div style={{ backgroundColor: '#1a1a1a', color: '#ffffff' }} className="p-6 flex justify-between items-center sticky top-0">
+              <h3 className="text-2xl font-bold">
+                {legalDoc === 'privacy' ? 'Privacy Policy' : 'Terms of Service'}
+              </h3>
+              <button onClick={() => setLegalDoc(null)} className="text-3xl leading-none hover:opacity-70">&times;</button>
+            </div>
+            <div className="p-8 space-y-4" style={{ color: '#666666' }}>
+              {legalDoc === 'privacy' ? (
+                <>
+                  <p style={{ color: '#999999' }} className="text-sm">Last updated: January 2025</p>
+                  <p>
+                    Classic Cuts Barbershop collects only the information needed to serve you: your name, phone number,
+                    email address, and appointment preferences. We use this information to confirm bookings, send
+                    appointment reminders, and keep track of your service history so every visit is a great one.
+                  </p>
+                  <p>
+                    We never sell, rent, or share your personal information with third parties for marketing purposes.
+                    Payment details are processed securely by our payment provider and are never stored on our systems.
+                  </p>
+                  <p>
+                    You may request a copy of the information we hold about you, or ask us to delete it, at any time by
+                    emailing info@classiccuts.com or speaking with any member of our team in the shop.
+                  </p>
+                </>
+              ) : (
+                <>
+                  <p style={{ color: '#999999' }} className="text-sm">Last updated: January 2025</p>
+                  <p>
+                    Appointments may be booked online, by phone, or in person. We hold reserved times for 10 minutes past
+                    the scheduled start. If you are running late, give us a call and we will do our best to accommodate you.
+                  </p>
+                  <p>
+                    Cancellations are free with at least 2 hours of notice. Repeated no-shows may be asked to prepay for
+                    future bookings. Gift certificates are non-refundable but fully transferable and never expire.
+                  </p>
+                  <p>
+                    All services are performed by licensed barbers. If you are ever unsatisfied with a service, let us know
+                    within 7 days and we will make it right at no charge. That is our promise.
+                  </p>
+                </>
+              )}
+            </div>
+          </div>
+        </div>
+      )}
     </div>
   )
 }

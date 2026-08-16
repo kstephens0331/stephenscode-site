@@ -2,8 +2,9 @@
 
 import { ReactNode } from 'react'
 import type { Demo } from '@/lib/demos-data'
-import { ShoppingCart, Heart, User, Menu, X, Search, ChevronDown } from 'lucide-react'
+import { ShoppingCart, Heart, User, Menu, X, Search, ChevronDown, Check, Truck, RotateCcw } from 'lucide-react'
 import { useState } from 'react'
+import { allProducts } from '../data/products'
 
 interface LayoutProps {
   demo: Demo
@@ -11,12 +12,17 @@ interface LayoutProps {
   onNavigate: (page: string) => void
   cartItemCount: number
   wishlistCount: number
+  addToCart: (item: { id: string; name: string; price: number; image: string; size: string; color: string }) => void
   children: ReactNode
 }
 
-export default function Layout({ demo, currentPage, onNavigate, cartItemCount, wishlistCount, children }: LayoutProps) {
+export default function Layout({ demo, currentPage, onNavigate, cartItemCount, wishlistCount, addToCart, children }: LayoutProps) {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false)
   const [shopDropdownOpen, setShopDropdownOpen] = useState(false)
+  const [searchOpen, setSearchOpen] = useState(false)
+  const [searchQuery, setSearchQuery] = useState('')
+  const [addedFromSearch, setAddedFromSearch] = useState<string | null>(null)
+  const [policyModal, setPolicyModal] = useState<'shipping' | 'returns' | null>(null)
 
   const navigation = [
     { name: 'Home', id: 'home' },
@@ -33,6 +39,26 @@ export default function Layout({ demo, currentPage, onNavigate, cartItemCount, w
     { name: 'About', id: 'about' },
     { name: 'Contact', id: 'contact' },
   ]
+
+  const searchResults = searchQuery.trim().length > 0
+    ? allProducts.filter(p =>
+        p.name.toLowerCase().includes(searchQuery.trim().toLowerCase()) ||
+        p.category.toLowerCase().includes(searchQuery.trim().toLowerCase())
+      ).slice(0, 6)
+    : []
+
+  const closeSearch = () => {
+    setSearchOpen(false)
+    setSearchQuery('')
+    setAddedFromSearch(null)
+  }
+
+  const handleSearchAddToCart = (productId: string) => {
+    const product = allProducts.find(p => p.id === productId)
+    if (!product) return
+    addToCart({ id: product.id, name: product.name, price: product.price, image: product.image, size: product.sizes[0], color: product.colors[0] })
+    setAddedFromSearch(productId)
+  }
 
   return (
     <div className="min-h-screen bg-gradient-to-b from-purple-50 via-white to-pink-50">
@@ -112,12 +138,17 @@ export default function Layout({ demo, currentPage, onNavigate, cartItemCount, w
 
             {/* Right Actions */}
             <div className="flex items-center space-x-4">
-              <button className="hidden md:block p-2 hover:bg-gray-100 rounded-lg transition-colors">
+              <button
+                onClick={() => setSearchOpen(true)}
+                aria-label="Search products"
+                className="p-2 hover:bg-gray-100 rounded-lg transition-colors"
+              >
                 <Search className="w-5 h-5 text-gray-700" />
               </button>
 
               <button
                 onClick={() => onNavigate('account')}
+                aria-label="My account"
                 className={`p-2 rounded-lg transition-colors ${
                   currentPage === 'account' ? 'bg-purple-100 text-[var(--color-primary)]' : 'hover:bg-gray-100 text-gray-700'
                 }`}
@@ -127,7 +158,10 @@ export default function Layout({ demo, currentPage, onNavigate, cartItemCount, w
 
               <button
                 onClick={() => onNavigate('wishlist')}
-                className="relative p-2 hover:bg-gray-100 rounded-lg transition-colors text-gray-700"
+                aria-label="Wishlist"
+                className={`relative p-2 rounded-lg transition-colors ${
+                  currentPage === 'wishlist' ? 'bg-purple-100 text-[var(--color-primary)]' : 'hover:bg-gray-100 text-gray-700'
+                }`}
               >
                 <Heart className="w-5 h-5" />
                 {wishlistCount > 0 && (
@@ -139,6 +173,7 @@ export default function Layout({ demo, currentPage, onNavigate, cartItemCount, w
 
               <button
                 onClick={() => onNavigate('cart')}
+                aria-label="Shopping cart"
                 className={`relative p-2 rounded-lg transition-colors ${
                   currentPage === 'cart' ? 'bg-purple-100 text-[var(--color-primary)]' : 'hover:bg-gray-100 text-gray-700'
                 }`}
@@ -153,6 +188,7 @@ export default function Layout({ demo, currentPage, onNavigate, cartItemCount, w
 
               <button
                 onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
+                aria-label="Toggle menu"
                 className="lg:hidden p-2 hover:bg-gray-100 rounded-lg transition-colors"
               >
                 {mobileMenuOpen ? <X className="w-6 h-6" /> : <Menu className="w-6 h-6" />}
@@ -212,6 +248,148 @@ export default function Layout({ demo, currentPage, onNavigate, cartItemCount, w
         </div>
       </header>
 
+      {/* Search Overlay */}
+      {searchOpen && (
+        <div className="fixed inset-0 z-[70] flex items-start justify-center pt-24 px-4">
+          <button
+            aria-label="Close search"
+            onClick={closeSearch}
+            className="absolute inset-0 bg-black/60 cursor-default"
+          />
+          <div className="relative bg-white rounded-2xl shadow-2xl max-w-2xl w-full overflow-hidden">
+            <div className="flex items-center px-6 py-4 border-b border-gray-200">
+              <Search className="w-5 h-5 text-gray-400 mr-3" />
+              <input
+                type="text"
+                autoFocus
+                aria-label="Search products"
+                value={searchQuery}
+                onChange={(e) => setSearchQuery(e.target.value)}
+                placeholder="Search dresses, tops, shoes, accessories..."
+                className="flex-1 text-lg focus:outline-none text-gray-900"
+              />
+              <button onClick={closeSearch} aria-label="Close search" className="p-2 hover:bg-gray-100 rounded-lg transition-colors">
+                <X className="w-5 h-5 text-gray-600" />
+              </button>
+            </div>
+            <div className="max-h-[60vh] overflow-y-auto">
+              {searchQuery.trim().length === 0 ? (
+                <div className="p-8 text-center text-gray-500">
+                  <p className="font-semibold mb-1">Start typing to search our collection</p>
+                  <p className="text-sm">Try &quot;dress&quot;, &quot;boots&quot;, or &quot;accessories&quot;</p>
+                </div>
+              ) : searchResults.length === 0 ? (
+                <div className="p-8 text-center text-gray-500">
+                  <p className="font-semibold mb-1">No matches for &quot;{searchQuery}&quot;</p>
+                  <button
+                    onClick={() => { closeSearch(); onNavigate('shop') }}
+                    className="mt-3 text-[var(--color-primary)] font-semibold hover:underline"
+                  >
+                    Browse all products
+                  </button>
+                </div>
+              ) : (
+                <div className="divide-y divide-gray-100">
+                  {searchResults.map((product) => (
+                    <div key={product.id} className="flex items-center gap-4 p-4 hover:bg-purple-50 transition-colors">
+                      <button
+                        onClick={() => { closeSearch(); onNavigate('shop') }}
+                        className="flex items-center gap-4 flex-1 text-left"
+                      >
+                        <img src={product.image} alt={product.name} className="w-14 h-14 object-cover rounded-lg" />
+                        <div>
+                          <p className="font-semibold text-gray-900">{product.name}</p>
+                          <p className="text-sm text-gray-500 capitalize">{product.category}</p>
+                        </div>
+                      </button>
+                      <div className="text-right">
+                        <p className="font-bold text-gray-900 mb-1">${product.price}</p>
+                        {addedFromSearch === product.id ? (
+                          <span className="inline-flex items-center text-green-600 text-sm font-semibold">
+                            <Check className="w-4 h-4 mr-1" /> Added
+                          </span>
+                        ) : (
+                          <button
+                            onClick={() => handleSearchAddToCart(product.id)}
+                            className="text-sm font-semibold text-[var(--color-primary)] hover:underline"
+                          >
+                            Add to Cart
+                          </button>
+                        )}
+                      </div>
+                    </div>
+                  ))}
+                </div>
+              )}
+            </div>
+          </div>
+        </div>
+      )}
+
+      {/* Policy Modal */}
+      {policyModal && (
+        <div className="fixed inset-0 z-[70] flex items-center justify-center p-4">
+          <button
+            aria-label="Close policy"
+            onClick={() => setPolicyModal(null)}
+            className="absolute inset-0 bg-black/60 cursor-default"
+          />
+          <div className="relative bg-white rounded-2xl shadow-2xl max-w-lg w-full p-8 max-h-[85vh] overflow-y-auto">
+            <button
+              onClick={() => setPolicyModal(null)}
+              aria-label="Close"
+              className="absolute top-4 right-4 p-2 hover:bg-gray-100 rounded-lg transition-colors"
+            >
+              <X className="w-5 h-5 text-gray-600" />
+            </button>
+            {policyModal === 'shipping' ? (
+              <div>
+                <div className="bg-purple-100 w-14 h-14 rounded-full flex items-center justify-center mb-4">
+                  <Truck className="w-7 h-7 text-[var(--color-primary)]" />
+                </div>
+                <h2 className="text-2xl font-bold text-gray-900 mb-4">Shipping Information</h2>
+                <div className="space-y-4 text-gray-600">
+                  <div className="flex justify-between items-center py-3 border-b border-gray-200">
+                    <span className="font-semibold text-gray-900">Standard (3-5 business days)</span>
+                    <span>$5.95</span>
+                  </div>
+                  <div className="flex justify-between items-center py-3 border-b border-gray-200">
+                    <span className="font-semibold text-gray-900">Express (1-2 business days)</span>
+                    <span>$14.95</span>
+                  </div>
+                  <div className="flex justify-between items-center py-3 border-b border-gray-200">
+                    <span className="font-semibold text-gray-900">Orders over $100</span>
+                    <span className="text-green-600 font-semibold">FREE</span>
+                  </div>
+                  <p>Orders placed before 2:00 PM EST ship the same business day. You will receive a tracking number by email as soon as your order leaves our studio.</p>
+                  <p>We ship to all 50 US states plus over 50 countries worldwide. International duties and taxes are calculated at checkout.</p>
+                </div>
+              </div>
+            ) : (
+              <div>
+                <div className="bg-purple-100 w-14 h-14 rounded-full flex items-center justify-center mb-4">
+                  <RotateCcw className="w-7 h-7 text-[var(--color-primary)]" />
+                </div>
+                <h2 className="text-2xl font-bold text-gray-900 mb-4">Returns &amp; Exchanges</h2>
+                <div className="space-y-4 text-gray-600">
+                  <p><span className="font-semibold text-gray-900">30-day returns.</span> Unworn items with original tags attached can be returned for a full refund within 30 days of delivery.</p>
+                  <p><span className="font-semibold text-gray-900">Free return shipping.</span> Every order includes a prepaid return label -- just repack, stick, and drop off.</p>
+                  <p><span className="font-semibold text-gray-900">Fast refunds.</span> Refunds are issued to your original payment method within 3-5 business days of us receiving your return.</p>
+                  <p><span className="font-semibold text-gray-900">Exchanges.</span> Need a different size or color? Start an exchange from your account and we will ship the new item as soon as your return scans.</p>
+                  <p className="text-sm">Final sale items and gift cards are not eligible for return.</p>
+                </div>
+              </div>
+            )}
+            <button
+              onClick={() => setPolicyModal(null)}
+              className="mt-6 w-full bg-[var(--color-primary)] text-white py-3 rounded-lg font-semibold hover:bg-opacity-90 transition-all"
+            >
+              Got It
+            </button>
+          </div>
+        </div>
+      )}
+
       {/* Main Content */}
       <main>{children}</main>
 
@@ -243,8 +421,8 @@ export default function Layout({ demo, currentPage, onNavigate, cartItemCount, w
               <ul className="space-y-2 text-sm">
                 <li><button onClick={() => onNavigate('contact')} className="text-gray-400 hover:text-white transition-colors">Contact Us</button></li>
                 <li><button onClick={() => onNavigate('account')} className="text-gray-400 hover:text-white transition-colors">My Account</button></li>
-                <li><a href="#" className="text-gray-400 hover:text-white transition-colors">Shipping Info</a></li>
-                <li><a href="#" className="text-gray-400 hover:text-white transition-colors">Returns</a></li>
+                <li><button onClick={() => setPolicyModal('shipping')} className="text-gray-400 hover:text-white transition-colors">Shipping Info</button></li>
+                <li><button onClick={() => setPolicyModal('returns')} className="text-gray-400 hover:text-white transition-colors">Returns</button></li>
               </ul>
             </div>
 

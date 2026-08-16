@@ -13,13 +13,15 @@ const colors = {
 
 export default function CustomerView() {
   const [currentPage, setCurrentPage] = useState('home');
+  const [requestedService, setRequestedService] = useState('');
 
   // Scroll to top when page changes
   useEffect(() => {
     window.scrollTo({ top: 0, behavior: 'smooth' });
   }, [currentPage]);
 
-  const handleNavigate = (page: string) => {
+  const handleNavigate = (page: string, service?: string) => {
+    setRequestedService(service || '');
     setCurrentPage(page);
   };
 
@@ -73,7 +75,7 @@ export default function CustomerView() {
       case 'about':
         return <AboutPage onNavigate={handleNavigate} colors={colors} />;
       case 'contact':
-        return <ContactPage onNavigate={handleNavigate} colors={colors} />;
+        return <ContactPage onNavigate={handleNavigate} colors={colors} initialService={requestedService} />;
       default:
         return <HomePage onNavigate={handleNavigate} colors={colors} />;
     }

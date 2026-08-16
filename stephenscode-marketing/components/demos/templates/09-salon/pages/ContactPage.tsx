@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { MapPin, Phone, Mail, Clock, Instagram, Facebook, MessageSquare, Send } from 'lucide-react';
+import { MapPin, Phone, Mail, Clock, Instagram, Facebook, MessageSquare, Send, CheckCircle } from 'lucide-react';
 import { trackEvent, trackConversion } from '@/lib/analytics';
 
 interface ContactPageProps {
@@ -14,9 +14,12 @@ export default function ContactPage({ onNavigate }: ContactPageProps) {
     subject: '',
     message: '',
   });
+  const [submitted, setSubmitted] = useState(false);
+  const [submitError, setSubmitError] = useState(false);
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
+    setSubmitError(false);
 
     try {
       const response = await fetch('/api/demo-lead', {
@@ -43,14 +46,13 @@ export default function ContactPage({ onNavigate }: ContactPageProps) {
         });
         trackConversion('leadForm');
 
-        alert('Thank you for your message! We will respond within 24 hours.');
+        setSubmitted(true);
         setFormData({ name: '', email: '', phone: '', subject: '', message: '' });
       } else {
-        alert('There was an issue sending your message. Please call us at (555) 456-7890.');
+        setSubmitError(true);
       }
-    } catch (error) {
-      console.error('Contact form error:', error);
-      alert('There was an issue sending your message. Please call us at (555) 456-7890.');
+    } catch {
+      setSubmitError(true);
     }
   };
 
@@ -108,9 +110,12 @@ export default function ContactPage({ onNavigate }: ContactPageProps) {
               </div>
               <h3 className="font-bold text-lg mb-2">Follow Us</h3>
               <p className="text-gray-600 text-sm mb-2">50K+ Followers</p>
-              <a href="#" className="text-[#d00000] font-semibold hover:underline">
+              <button
+                onClick={() => onNavigate('gallery')}
+                className="text-[#d00000] font-semibold hover:underline"
+              >
                 @glamourstudio
-              </a>
+              </button>
             </div>
           </div>
         </div>
@@ -129,6 +134,23 @@ export default function ContactPage({ onNavigate }: ContactPageProps) {
                 Fill out the form below and we&apos;ll get back to you as soon as possible.
               </p>
 
+              {submitted ? (
+                <div className="bg-gray-50 rounded-2xl p-8 text-center">
+                  <div className="w-16 h-16 bg-green-100 rounded-full flex items-center justify-center mx-auto mb-4">
+                    <CheckCircle className="w-10 h-10 text-green-600" />
+                  </div>
+                  <h3 className="text-2xl font-bold mb-2">Message Sent!</h3>
+                  <p className="text-gray-600 mb-6">
+                    Thank you for contacting Glamour Studio. We&apos;ll respond within 24 hours.
+                  </p>
+                  <button
+                    onClick={() => setSubmitted(false)}
+                    className="text-[#d00000] font-semibold hover:text-[#dc2f02] transition-colors"
+                  >
+                    Send Another Message
+                  </button>
+                </div>
+              ) : (
               <form onSubmit={handleSubmit} className="space-y-6">
                 <div>
                   <label htmlFor="salon-contact-name" className="block text-sm font-semibold mb-2">Your Name *</label>
@@ -203,6 +225,13 @@ export default function ContactPage({ onNavigate }: ContactPageProps) {
                   />
                 </div>
 
+                {submitError && (
+                  <p className="text-sm text-red-600 bg-red-50 rounded-xl px-4 py-3">
+                    There was an issue sending your message. Please try again or call us at
+                    (555) 456-7890.
+                  </p>
+                )}
+
                 <button
                   type="submit"
                   className="w-full bg-gradient-to-r from-[#d00000] to-[#e85d04] text-white py-4 rounded-full font-semibold text-lg hover:shadow-lg transition-all duration-300 flex items-center justify-center gap-2"
@@ -211,6 +240,7 @@ export default function ContactPage({ onNavigate }: ContactPageProps) {
                   Send Message
                 </button>
               </form>
+              )}
             </div>
 
             {/* Map & Hours */}
@@ -330,18 +360,20 @@ export default function ContactPage({ onNavigate }: ContactPageProps) {
             Follow us on social media for daily inspiration, special offers, and beauty tips
           </p>
           <div className="flex justify-center gap-6">
-            <a
-              href="#"
+            <button
+              onClick={() => onNavigate('gallery')}
+              aria-label="See our latest work in the gallery"
               className="bg-white/20 backdrop-blur-lg hover:bg-white/30 transition-all duration-300 w-16 h-16 rounded-full flex items-center justify-center"
             >
               <Instagram className="w-8 h-8" />
-            </a>
-            <a
-              href="#"
+            </button>
+            <button
+              onClick={() => onNavigate('gallery')}
+              aria-label="See our latest work in the gallery"
               className="bg-white/20 backdrop-blur-lg hover:bg-white/30 transition-all duration-300 w-16 h-16 rounded-full flex items-center justify-center"
             >
               <Facebook className="w-8 h-8" />
-            </a>
+            </button>
           </div>
           <div className="mt-8">
             <p className="text-lg mb-2">Instagram: @glamourstudio</p>

@@ -82,7 +82,7 @@ export default function ContactPage({ onNavigate }: ContactPageProps) {
       title: 'Address',
       detail: '123 Education Lane',
       description: 'Learning City, ST 12345',
-      link: '#',
+      link: 'https://maps.google.com/?q=123+Education+Lane,+Learning+City,+ST+12345',
     },
   ];
 
@@ -158,6 +158,8 @@ export default function ContactPage({ onNavigate }: ContactPageProps) {
                 <a
                   key={index}
                   href={info.link}
+                  target={info.link.startsWith('http') ? '_blank' : undefined}
+                  rel={info.link.startsWith('http') ? 'noopener noreferrer' : undefined}
                   className="bg-white rounded-2xl p-6 shadow-xl transition-all duration-300 border border-gray-100 group"
                 >
                   <div className="flex items-start space-x-4">

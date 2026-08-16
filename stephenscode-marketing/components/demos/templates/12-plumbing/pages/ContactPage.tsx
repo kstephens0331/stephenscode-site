@@ -17,9 +17,11 @@ const ContactPage: React.FC<ContactPageProps> = ({ onNavigate }) => {
     message: ''
   });
   const [submitted, setSubmitted] = useState(false);
+  const [submitError, setSubmitError] = useState(false);
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
+    setSubmitError(false);
     try {
       const notes = formData.preferredContactTime && formData.preferredContactTime !== 'Any time'
         ? `Preferred contact time: ${formData.preferredContactTime}\n\n${formData.message}`
@@ -50,11 +52,10 @@ const ContactPage: React.FC<ContactPageProps> = ({ onNavigate }) => {
         trackConversion('leadForm');
         setSubmitted(true);
       } else {
-        alert('There was an issue submitting your message. Please call us at (555) 765-8237');
+        setSubmitError(true);
       }
-    } catch (error) {
-      console.error('Contact form error:', error);
-      alert('There was an issue submitting your message. Please call us at (555) 765-8237');
+    } catch {
+      setSubmitError(true);
     }
   };
 
@@ -302,6 +303,11 @@ const ContactPage: React.FC<ContactPageProps> = ({ onNavigate }) => {
                       placeholder="Please describe your plumbing issue or service needs..."
                     />
                   </div>
+                  {submitError && (
+                    <p className="bg-red-50 border border-red-200 rounded-lg px-4 py-3 text-sm text-red-700">
+                      There was an issue submitting your message. Please try again or call us at (555) 765-8237.
+                    </p>
+                  )}
                   <button
                     type="submit"
                     className="w-full bg-[#0466c8] text-white px-8 py-4 rounded-lg font-bold hover:bg-[#0353a4] transition-colors flex items-center justify-center space-x-2"

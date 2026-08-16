@@ -1,7 +1,11 @@
 import React from 'react';
 import { Award, Users, Home, TrendingUp, Target, Heart, Shield, Zap, CheckCircle, Star } from 'lucide-react';
 
-const AboutPage: React.FC = () => {
+interface AboutPageProps {
+  onNavigate?: (page: string) => void;
+}
+
+const AboutPage: React.FC<AboutPageProps> = ({ onNavigate }) => {
   const values = [
     {
       title: 'Integrity First',
@@ -284,7 +288,10 @@ const AboutPage: React.FC = () => {
             Join thousands of satisfied clients who have trusted us with their real estate needs.
             Let's write your success story together.
           </p>
-          <button className="bg-[#ffc300] text-[#000814] px-8 py-4 rounded-lg font-semibold hover:bg-[#ffcd1a] transition-colors">
+          <button
+            onClick={() => onNavigate?.('contact')}
+            className="bg-[#ffc300] text-[#000814] px-8 py-4 rounded-lg font-semibold hover:bg-[#ffcd1a] transition-colors"
+          >
             Work With Us
           </button>
         </div>

@@ -1,6 +1,7 @@
 'use client';
 
 import { Zap, Heart, Bike, Box, Dumbbell, TrendingUp, Users2, Flame, Clock, Award } from 'lucide-react';
+import { useRef, useState } from 'react';
 import Link from 'next/link';
 
 interface ClassesPageProps {
@@ -8,6 +9,9 @@ interface ClassesPageProps {
 }
 
 export default function ClassesPage({ basePath }: ClassesPageProps) {
+  const [selectedCategory, setSelectedCategory] = useState<string | null>(null);
+  const offeringsRef = useRef<HTMLElement | null>(null);
+
   const classes = [
     {
       name: 'CrossFit',
@@ -18,6 +22,7 @@ export default function ClassesPage({ basePath }: ClassesPageProps) {
       level: 'All Levels',
       color: 'from-[#c1121f] to-[#780000]',
       benefits: ['Strength', 'Endurance', 'Power'],
+      categories: ['Strength', 'Group Training'],
     },
     {
       name: 'HIIT',
@@ -28,6 +33,7 @@ export default function ClassesPage({ basePath }: ClassesPageProps) {
       level: 'Intermediate',
       color: 'from-orange-600 to-red-700',
       benefits: ['Fat Loss', 'Cardio', 'Agility'],
+      categories: ['Cardio', 'Group Training'],
     },
     {
       name: 'Yoga',
@@ -38,6 +44,7 @@ export default function ClassesPage({ basePath }: ClassesPageProps) {
       level: 'All Levels',
       color: 'from-emerald-600 to-teal-700',
       benefits: ['Flexibility', 'Balance', 'Mindfulness'],
+      categories: ['Mind-Body'],
     },
     {
       name: 'Spin',
@@ -48,6 +55,7 @@ export default function ClassesPage({ basePath }: ClassesPageProps) {
       level: 'All Levels',
       color: 'from-blue-600 to-indigo-700',
       benefits: ['Cardio', 'Endurance', 'Lower Body'],
+      categories: ['Cardio', 'Group Training'],
     },
     {
       name: 'Boxing',
@@ -58,6 +66,7 @@ export default function ClassesPage({ basePath }: ClassesPageProps) {
       level: 'All Levels',
       color: 'from-amber-600 to-orange-700',
       benefits: ['Power', 'Cardio', 'Coordination'],
+      categories: ['Cardio', 'Group Training'],
     },
     {
       name: 'Strength Training',
@@ -68,6 +77,7 @@ export default function ClassesPage({ basePath }: ClassesPageProps) {
       level: 'Intermediate',
       color: 'from-purple-600 to-pink-700',
       benefits: ['Muscle', 'Strength', 'Bone Health'],
+      categories: ['Strength'],
     },
     {
       name: 'Bootcamp',
@@ -78,6 +88,7 @@ export default function ClassesPage({ basePath }: ClassesPageProps) {
       level: 'Intermediate',
       color: 'from-red-600 to-rose-700',
       benefits: ['Full Body', 'Stamina', 'Mental Toughness'],
+      categories: ['Strength', 'Group Training'],
     },
     {
       name: 'Pilates',
@@ -88,6 +99,7 @@ export default function ClassesPage({ basePath }: ClassesPageProps) {
       level: 'All Levels',
       color: 'from-cyan-600 to-blue-700',
       benefits: ['Core', 'Posture', 'Flexibility'],
+      categories: ['Mind-Body'],
     },
   ];
 
@@ -97,6 +109,18 @@ export default function ClassesPage({ basePath }: ClassesPageProps) {
     { name: 'Mind-Body', count: 15, icon: Heart },
     { name: 'Group Training', count: 20, icon: Users2 },
   ];
+
+  const filteredClasses = selectedCategory
+    ? classes.filter((c) => c.categories.includes(selectedCategory))
+    : classes;
+
+  const toggleCategory = (name: string) => {
+    const next = selectedCategory === name ? null : name;
+    setSelectedCategory(next);
+    if (next) {
+      offeringsRef.current?.scrollIntoView({ behavior: 'smooth', block: 'start' });
+    }
+  };
 
   return (
     <div>
@@ -139,14 +163,28 @@ export default function ClassesPage({ basePath }: ClassesPageProps) {
           <div className="grid grid-cols-2 lg:grid-cols-4 gap-6">
             {classCategories.map((category, index) => {
               const Icon = category.icon;
+              const isActive = selectedCategory === category.name;
               return (
-                <div key={index} className="bg-zinc-900 border border-zinc-800 rounded-xl p-6 text-center hover:border-[#c1121f]/50 transition-all">
+                <button
+                  key={index}
+                  type="button"
+                  onClick={() => toggleCategory(category.name)}
+                  aria-pressed={isActive}
+                  className={`rounded-xl p-6 text-center transition-all border ${
+                    isActive
+                      ? 'bg-[#c1121f]/10 border-[#c1121f] shadow-lg shadow-[#c1121f]/10'
+                      : 'bg-zinc-900 border-zinc-800 hover:border-[#c1121f]/50'
+                  }`}
+                >
                   <div className="bg-gradient-to-br from-[#c1121f] to-[#780000] w-12 h-12 rounded-lg flex items-center justify-center mx-auto mb-4">
                     <Icon className="h-6 w-6 text-[#fdf0d5]" />
                   </div>
                   <h3 className="text-lg font-bold text-zinc-50 mb-1">{category.name}</h3>
                   <p className="text-sm text-zinc-400">{category.count} classes/week</p>
-                </div>
+                  <p className={`text-xs font-semibold mt-2 ${isActive ? 'text-[#c1121f]' : 'text-zinc-600'}`}>
+                    {isActive ? 'Showing these classes' : 'Tap to filter'}
+                  </p>
+                </button>
               );
             })}
           </div>
@@ -154,15 +192,30 @@ export default function ClassesPage({ basePath }: ClassesPageProps) {
       </section>
 
       {/* Classes Grid */}
-      <section className="py-20 bg-zinc-950">
+      <section ref={offeringsRef} className="py-20 bg-zinc-950 scroll-mt-24">
         <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-12">
             <h2 className="text-4xl font-bold text-zinc-50 mb-4">Our Class Offerings</h2>
-            <p className="text-xl text-zinc-400">Find your perfect workout</p>
+            {selectedCategory ? (
+              <div className="flex flex-col items-center gap-3">
+                <p className="text-xl text-zinc-400">
+                  Showing {filteredClasses.length} {selectedCategory} class{filteredClasses.length === 1 ? '' : 'es'}
+                </p>
+                <button
+                  type="button"
+                  onClick={() => setSelectedCategory(null)}
+                  className="px-4 py-2 bg-zinc-900 border border-zinc-800 text-zinc-300 rounded-lg text-sm font-medium hover:border-[#c1121f]/50 hover:text-zinc-50 transition-all"
+                >
+                  Show All Classes
+                </button>
+              </div>
+            ) : (
+              <p className="text-xl text-zinc-400">Find your perfect workout</p>
+            )}
           </div>
 
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
-            {classes.map((classItem, index) => {
+            {filteredClasses.map((classItem, index) => {
               const Icon = classItem.icon;
               return (
                 <div key={index} className="bg-zinc-900 border border-zinc-800 rounded-xl overflow-hidden hover:border-[#c1121f]/50 transition-all group">

@@ -110,14 +110,14 @@ export default function HomePage({ onNavigate, colors }: HomePageProps) {
                 From minor fixes to major projects, our licensed handymen deliver quality workmanship with transparent pricing. Same-day service available!
               </p>
               <div className="flex flex-col sm:flex-row gap-4">
-                <button
-                  onClick={() => onNavigate('contact')}
+                <a
+                  href="tel:5551234567"
                   className="px-8 py-4 rounded-lg text-white font-bold text-lg shadow-2xl hover:shadow-3xl transition-all transform flex items-center justify-center gap-2"
                   style={{ backgroundColor: colors.accent }}
                 >
                   <Phone className="h-5 w-5" />
                   Call Now: (555) 123-4567
-                </button>
+                </a>
                 <button
                   onClick={() => onNavigate('contact')}
                   className="px-8 py-4 rounded-lg font-bold text-lg border-2 hover:bg-white hover:text-gray-900 transition-all flex items-center justify-center gap-2"
@@ -291,14 +291,14 @@ export default function HomePage({ onNavigate, colors }: HomePageProps) {
             Call now for same-day service or schedule a free consultation. No job too small!
           </p>
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
-            <button
-              onClick={() => onNavigate('contact')}
+            <a
+              href="tel:5551234567"
               className="px-8 py-4 rounded-lg font-bold text-lg shadow-xl transition-all transform flex items-center justify-center gap-2"
               style={{ backgroundColor: colors.accent, color: 'white' }}
             >
               <Phone className="h-5 w-5" />
               Call (555) 123-4567
-            </button>
+            </a>
             <button
               onClick={() => onNavigate('contact')}
               className="px-8 py-4 rounded-lg font-bold text-lg bg-white hover:bg-gray-100 transition-all flex items-center justify-center gap-2"

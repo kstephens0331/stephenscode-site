@@ -1,9 +1,11 @@
 import React, { useState } from 'react';
-import { TrendingUp, TrendingDown, Home, DollarSign, Clock, MapPin, ArrowUp, ArrowDown, BarChart3, PieChart, Calendar } from 'lucide-react';
+import { TrendingUp, TrendingDown, Home, DollarSign, Clock, MapPin, ArrowUp, ArrowDown, BarChart3, Calendar } from 'lucide-react';
+import LeadModal from '../components/LeadModal';
 
 const MarketTrendsPage: React.FC = () => {
   const [selectedNeighborhood, setSelectedNeighborhood] = useState('all');
   const [selectedTimeframe, setSelectedTimeframe] = useState('12months');
+  const [showConsultation, setShowConsultation] = useState(false);
 
   const marketStats = [
     {
@@ -102,20 +104,35 @@ const MarketTrendsPage: React.FC = () => {
     { range: 'Over $2M', percentage: 8, sales: 27 },
   ];
 
-  const monthlyTrends = [
-    { month: 'Jan', sales: 245, avgPrice: 785000 },
-    { month: 'Feb', sales: 268, avgPrice: 795000 },
-    { month: 'Mar', sales: 312, avgPrice: 805000 },
-    { month: 'Apr', sales: 341, avgPrice: 812000 },
-    { month: 'May', sales: 389, avgPrice: 820000 },
-    { month: 'Jun', sales: 425, avgPrice: 828000 },
-    { month: 'Jul', sales: 398, avgPrice: 832000 },
-    { month: 'Aug', sales: 372, avgPrice: 838000 },
-    { month: 'Sep', sales: 356, avgPrice: 845000 },
-    { month: 'Oct', sales: 334, avgPrice: 850000 },
-    { month: 'Nov', sales: 298, avgPrice: 855000 },
-    { month: 'Dec', sales: 275, avgPrice: 862000 },
+  const monthlyTrendsAll = [
+    { month: "Jan '23", sales: 212, avgPrice: 718000 },
+    { month: "Feb '23", sales: 231, avgPrice: 724000 },
+    { month: "Mar '23", sales: 274, avgPrice: 731000 },
+    { month: "Apr '23", sales: 302, avgPrice: 739000 },
+    { month: "May '23", sales: 348, avgPrice: 746000 },
+    { month: "Jun '23", sales: 381, avgPrice: 752000 },
+    { month: "Jul '23", sales: 362, avgPrice: 758000 },
+    { month: "Aug '23", sales: 341, avgPrice: 763000 },
+    { month: "Sep '23", sales: 322, avgPrice: 768000 },
+    { month: "Oct '23", sales: 301, avgPrice: 772000 },
+    { month: "Nov '23", sales: 266, avgPrice: 776000 },
+    { month: "Dec '23", sales: 244, avgPrice: 781000 },
+    { month: "Jan '24", sales: 245, avgPrice: 785000 },
+    { month: "Feb '24", sales: 268, avgPrice: 795000 },
+    { month: "Mar '24", sales: 312, avgPrice: 805000 },
+    { month: "Apr '24", sales: 341, avgPrice: 812000 },
+    { month: "May '24", sales: 389, avgPrice: 820000 },
+    { month: "Jun '24", sales: 425, avgPrice: 828000 },
+    { month: "Jul '24", sales: 398, avgPrice: 832000 },
+    { month: "Aug '24", sales: 372, avgPrice: 838000 },
+    { month: "Sep '24", sales: 356, avgPrice: 845000 },
+    { month: "Oct '24", sales: 334, avgPrice: 850000 },
+    { month: "Nov '24", sales: 298, avgPrice: 855000 },
+    { month: "Dec '24", sales: 275, avgPrice: 862000 },
   ];
+
+  const timeframeMonths = selectedTimeframe === '6months' ? 6 : selectedTimeframe === '12months' ? 12 : 24;
+  const monthlyTrends = monthlyTrendsAll.slice(-timeframeMonths);
 
   const insights = [
     {
@@ -238,7 +255,7 @@ const MarketTrendsPage: React.FC = () => {
               const barWidth = (data.sales / maxSales) * 100;
               return (
                 <div key={index} className="flex items-center">
-                  <div className="w-12 text-sm font-semibold text-gray-700">{data.month}</div>
+                  <div className="w-16 text-sm font-semibold text-gray-700">{data.month}</div>
                   <div className="flex-1 flex items-center">
                     <div className="flex-1 bg-gray-100 rounded-full h-8 relative overflow-hidden">
                       <div
@@ -272,14 +289,18 @@ const MarketTrendsPage: React.FC = () => {
               className="px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-[#ffc300] focus:border-transparent"
             >
               <option value="all">All Neighborhoods</option>
-              <option value="downtown">Downtown</option>
-              <option value="coastal">Coastal</option>
-              <option value="suburban">Suburban</option>
+              {neighborhoods.map((n) => (
+                <option key={n.name} value={n.name}>
+                  {n.name}
+                </option>
+              ))}
             </select>
           </div>
 
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-            {neighborhoods.map((neighborhood, index) => (
+            {neighborhoods
+              .filter((n) => selectedNeighborhood === 'all' || n.name === selectedNeighborhood)
+              .map((neighborhood, index) => (
               <div
                 key={index}
                 className="bg-white rounded-xl shadow-lg p-6 hover:shadow-xl transition-all"
@@ -376,11 +397,28 @@ const MarketTrendsPage: React.FC = () => {
           <p className="text-gray-300 text-lg mb-8">
             Schedule a consultation with one of our market experts for personalized insights and recommendations.
           </p>
-          <button className="bg-[#ffc300] text-[#000814] px-8 py-4 rounded-lg font-semibold hover:bg-[#ffcd1a] transition-colors">
+          <button
+            onClick={() => setShowConsultation(true)}
+            className="bg-[#ffc300] text-[#000814] px-8 py-4 rounded-lg font-semibold hover:bg-[#ffcd1a] transition-colors"
+          >
             Schedule Market Consultation
           </button>
         </div>
       </div>
+
+      {/* Market Consultation Modal */}
+      <LeadModal
+        open={showConsultation}
+        onClose={() => setShowConsultation(false)}
+        title="Schedule Market Consultation"
+        subtitle="Get personalized market insights from one of our local experts."
+        service="Market Consultation"
+        formName="market_consultation"
+        showDateTime
+        submitLabel="Request Consultation"
+        messageLabel="What Would You Like to Cover?"
+        messagePlaceholder="Neighborhoods, pricing strategy, timing the market..."
+      />
     </div>
   );
 };

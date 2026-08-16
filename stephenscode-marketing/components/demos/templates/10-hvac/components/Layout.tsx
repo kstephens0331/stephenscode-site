@@ -9,6 +9,7 @@ interface LayoutProps {
 
 export default function Layout({ children, currentPage, onNavigate }: LayoutProps) {
   const [mobileMenuOpen, setMobileMenuOpen] = React.useState(false);
+  const [footerModal, setFooterModal] = React.useState<'privacy' | 'terms' | 'sitemap' | null>(null);
 
   const navigation = [
     { name: 'Home', id: 'home' },
@@ -19,6 +20,11 @@ export default function Layout({ children, currentPage, onNavigate }: LayoutProp
     { name: 'Testimonials', id: 'testimonials' },
     { name: 'Blog', id: 'blog' },
     { name: 'Contact', id: 'contact' },
+  ];
+
+  const sitemapPages = [
+    ...navigation,
+    { name: 'Emergency Service', id: 'emergency' },
   ];
 
   return (
@@ -272,9 +278,25 @@ export default function Layout({ children, currentPage, onNavigate }: LayoutProp
                 </li>
               </ul>
               <div className="flex space-x-4 mt-4">
-                <Facebook className="w-5 h-5 cursor-pointer hover:text-[#f77f00] transition" />
-                <Twitter className="w-5 h-5 cursor-pointer hover:text-[#f77f00] transition" />
-                <Mail className="w-5 h-5 cursor-pointer hover:text-[#f77f00] transition" />
+                <a
+                  href="https://www.facebook.com"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  aria-label="Facebook"
+                >
+                  <Facebook className="w-5 h-5 cursor-pointer hover:text-[#f77f00] transition" />
+                </a>
+                <a
+                  href="https://www.twitter.com"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  aria-label="Twitter"
+                >
+                  <Twitter className="w-5 h-5 cursor-pointer hover:text-[#f77f00] transition" />
+                </a>
+                <a href="mailto:info@coolbreezehvac.com" aria-label="Email us">
+                  <Mail className="w-5 h-5 cursor-pointer hover:text-[#f77f00] transition" />
+                </a>
               </div>
             </div>
           </div>
@@ -285,16 +307,114 @@ export default function Layout({ children, currentPage, onNavigate }: LayoutProp
                 <p>&copy; 2024 Cool Breeze HVAC. All rights reserved.</p>
               </div>
               <div className="text-sm text-white/60 md:text-right space-x-4">
-                <button className="hover:text-white transition">Privacy Policy</button>
+                <button onClick={() => setFooterModal('privacy')} className="hover:text-white transition">Privacy Policy</button>
                 <span>|</span>
-                <button className="hover:text-white transition">Terms of Service</button>
+                <button onClick={() => setFooterModal('terms')} className="hover:text-white transition">Terms of Service</button>
                 <span>|</span>
-                <button className="hover:text-white transition">Sitemap</button>
+                <button onClick={() => setFooterModal('sitemap')} className="hover:text-white transition">Sitemap</button>
               </div>
             </div>
           </div>
         </div>
       </footer>
+
+      {/* Footer Info Modal */}
+      {footerModal && (
+        <div
+          className="fixed inset-0 z-50 flex items-center justify-center p-4 bg-black/50"
+          onClick={() => setFooterModal(null)}
+        >
+          <div
+            className="bg-white rounded-2xl shadow-2xl w-full max-w-2xl max-h-[80vh] flex flex-col overflow-hidden"
+            onClick={(e) => e.stopPropagation()}
+          >
+            <div className="bg-[#003049] text-white p-6 flex items-center justify-between">
+              <h2 className="text-2xl font-bold">
+                {footerModal === 'privacy' && 'Privacy Policy'}
+                {footerModal === 'terms' && 'Terms of Service'}
+                {footerModal === 'sitemap' && 'Sitemap'}
+              </h2>
+              <button
+                onClick={() => setFooterModal(null)}
+                aria-label="Close"
+                className="text-white/80 hover:text-white transition"
+              >
+                <X className="w-6 h-6" />
+              </button>
+            </div>
+
+            <div className="p-6 overflow-y-auto text-gray-700 text-sm leading-relaxed">
+              {footerModal === 'privacy' && (
+                <div className="space-y-4">
+                  <p className="text-xs text-gray-500">Last updated: January 2024</p>
+                  <p>
+                    Cool Breeze HVAC respects your privacy. This policy explains what information we collect
+                    and how we use it.
+                  </p>
+                  <h3 className="font-bold text-[#003049]">Information We Collect</h3>
+                  <p>
+                    When you request service, we collect your name, phone number, email address, and service
+                    address so we can schedule and complete your appointment.
+                  </p>
+                  <h3 className="font-bold text-[#003049]">How We Use It</h3>
+                  <p>
+                    Your information is used only to provide HVAC services, confirm appointments, send service
+                    reminders, and respond to your inquiries. We never sell your personal information to third parties.
+                  </p>
+                  <h3 className="font-bold text-[#003049]">Your Choices</h3>
+                  <p>
+                    You may opt out of marketing emails at any time, and you can request a copy or deletion of
+                    your information by contacting us at info@coolbreezehvac.com.
+                  </p>
+                </div>
+              )}
+
+              {footerModal === 'terms' && (
+                <div className="space-y-4">
+                  <p className="text-xs text-gray-500">Last updated: January 2024</p>
+                  <h3 className="font-bold text-[#003049]">Service Agreement</h3>
+                  <p>
+                    All work performed by Cool Breeze HVAC is quoted upfront before any repair or installation
+                    begins. Approved estimates are honored for 30 days.
+                  </p>
+                  <h3 className="font-bold text-[#003049]">Warranties</h3>
+                  <p>
+                    Installations include a 10-year parts and 1-year labor warranty unless otherwise stated.
+                    Repairs carry a 90-day workmanship guarantee.
+                  </p>
+                  <h3 className="font-bold text-[#003049]">Scheduling & Cancellations</h3>
+                  <p>
+                    Appointments may be rescheduled or canceled up to 4 hours before the service window at no
+                    charge. Emergency service is billed at standard rates with no overtime charges.
+                  </p>
+                  <h3 className="font-bold text-[#003049]">Satisfaction Guarantee</h3>
+                  <p>
+                    If you are not satisfied with our work, contact us within 30 days and we will make it right
+                    under our 100% satisfaction guarantee.
+                  </p>
+                </div>
+              )}
+
+              {footerModal === 'sitemap' && (
+                <div className="grid grid-cols-1 sm:grid-cols-2 gap-3">
+                  {sitemapPages.map((page) => (
+                    <button
+                      key={page.id}
+                      onClick={() => {
+                        onNavigate(page.id);
+                        setFooterModal(null);
+                      }}
+                      className="text-left px-4 py-3 rounded-lg bg-gray-50 hover:bg-gray-100 text-[#003049] font-semibold transition"
+                    >
+                      {page.name} →
+                    </button>
+                  ))}
+                </div>
+              )}
+            </div>
+          </div>
+        </div>
+      )}
     </div>
   );
 }

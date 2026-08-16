@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { MapPin, Phone, Mail, Clock, Send, CheckCircle, MessageSquare } from 'lucide-react';
+import { MapPin, Phone, Mail, Clock, Send, CheckCircle, MessageSquare, X, Car, Bus } from 'lucide-react';
 import { trackEvent, trackConversion } from '@/lib/analytics';
 
 interface ContactPageProps {
@@ -16,6 +16,7 @@ export default function ContactPage({ onNavigate }: ContactPageProps) {
   });
 
   const [submitted, setSubmitted] = useState(false);
+  const [showDirections, setShowDirections] = useState(false);
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
@@ -72,7 +73,7 @@ export default function ContactPage({ onNavigate }: ContactPageProps) {
       icon: <MapPin className="w-6 h-6 text-[#0077b6]" />,
       title: 'Address',
       details: ['123 Dental Way', 'Smile City, SC 12345'],
-      action: { label: 'Get Directions', href: '#' }
+      action: { label: 'Get Directions', href: null }
     },
     {
       icon: <Clock className="w-6 h-6 text-[#0077b6]" />,
@@ -121,12 +122,21 @@ export default function ContactPage({ onNavigate }: ContactPageProps) {
                   ))}
                 </div>
                 {item.action && (
-                  <a
-                    href={item.action.href}
-                    className="inline-block text-[#0077b6] font-semibold hover:text-[#023e8a] transition-colors"
-                  >
-                    {item.action.label} →
-                  </a>
+                  item.action.href ? (
+                    <a
+                      href={item.action.href}
+                      className="inline-block text-[#0077b6] font-semibold hover:text-[#023e8a] transition-colors"
+                    >
+                      {item.action.label} →
+                    </a>
+                  ) : (
+                    <button
+                      onClick={() => setShowDirections(true)}
+                      className="inline-block text-[#0077b6] font-semibold hover:text-[#023e8a] transition-colors"
+                    >
+                      {item.action.label} →
+                    </button>
+                  )
                 )}
               </div>
             ))}
@@ -296,7 +306,10 @@ export default function ContactPage({ onNavigate }: ContactPageProps) {
                       <span>Near public transportation routes</span>
                     </div>
                   </div>
-                  <button className="w-full mt-6 bg-[#0077b6] text-white px-6 py-3 rounded-lg font-semibold hover:bg-[#023e8a] transition-all">
+                  <button
+                    onClick={() => setShowDirections(true)}
+                    className="w-full mt-6 bg-[#0077b6] text-white px-6 py-3 rounded-lg font-semibold hover:bg-[#023e8a] transition-all"
+                  >
                     Get Directions
                   </button>
                 </div>
@@ -427,6 +440,77 @@ export default function ContactPage({ onNavigate }: ContactPageProps) {
           </div>
         </div>
       </section>
+
+      {/* Directions Modal */}
+      {showDirections && (
+        <div
+          className="fixed inset-0 z-[60] bg-black/50 flex items-center justify-center p-4"
+          onClick={() => setShowDirections(false)}
+        >
+          <div
+            className="bg-white rounded-2xl shadow-2xl w-full max-w-xl max-h-[85vh] flex flex-col"
+            onClick={(e) => e.stopPropagation()}
+          >
+            <div className="flex items-center justify-between p-5 border-b border-gray-200">
+              <h3 className="text-xl font-bold text-[#023e8a] flex items-center gap-2">
+                <MapPin className="w-5 h-5 text-[#0077b6]" />
+                Directions to Our Office
+              </h3>
+              <button
+                onClick={() => setShowDirections(false)}
+                aria-label="Close"
+                className="p-2 rounded-lg text-gray-500 hover:bg-gray-100 hover:text-gray-700 transition-all"
+              >
+                <X className="w-5 h-5" />
+              </button>
+            </div>
+            <div className="p-6 overflow-y-auto space-y-5">
+              <div className="bg-[#023e8a]/5 rounded-xl p-4">
+                <div className="font-bold text-[#023e8a]">Bright Smile Dental</div>
+                <div className="text-gray-700">123 Dental Way, Smile City, SC 12345</div>
+                <a href="tel:555-123-4567" className="text-[#0077b6] font-semibold hover:underline text-sm">
+                  (555) 123-4567
+                </a>
+              </div>
+
+              <div>
+                <h4 className="font-bold text-[#023e8a] mb-2 flex items-center gap-2">
+                  <Car className="w-5 h-5 text-[#0077b6]" />
+                  Driving
+                </h4>
+                <ul className="space-y-2 text-sm text-gray-700">
+                  <li>From the north: Take Highway 17 South to the Main Street exit. Turn right on Main Street, then left on Dental Way. Our office is on the right.</li>
+                  <li>From the south: Take Highway 17 North to the Downtown exit. Continue on Center Avenue for 2 miles, then turn right on Dental Way.</li>
+                  <li>Free parking is available in our lot directly behind the building, with accessible spaces by the entrance.</li>
+                </ul>
+              </div>
+
+              <div>
+                <h4 className="font-bold text-[#023e8a] mb-2 flex items-center gap-2">
+                  <Bus className="w-5 h-5 text-[#0077b6]" />
+                  Public Transit
+                </h4>
+                <ul className="space-y-2 text-sm text-gray-700">
+                  <li>Bus routes 4 and 12 stop at Main Street and Dental Way, one block from our entrance.</li>
+                  <li>The Downtown transit center is a 10 minute walk from our office.</li>
+                </ul>
+              </div>
+
+              <p className="text-xs text-gray-500">
+                Look for the blue Bright Smile Dental sign. Our entrance is wheelchair accessible. If you have trouble finding us, call and our front desk will guide you in.
+              </p>
+            </div>
+            <div className="p-5 border-t border-gray-200">
+              <button
+                onClick={() => setShowDirections(false)}
+                className="w-full bg-[#0077b6] text-white px-6 py-3 rounded-lg font-semibold hover:bg-[#023e8a] transition-all"
+              >
+                Close
+              </button>
+            </div>
+          </div>
+        </div>
+      )}
     </div>
   );
 }

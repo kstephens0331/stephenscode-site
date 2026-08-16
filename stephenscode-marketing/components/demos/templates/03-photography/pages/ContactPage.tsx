@@ -4,17 +4,19 @@ import React, { useState } from 'react';
 import { motion } from 'framer-motion';
 import { Phone, Mail, MapPin, Clock, Send, CheckCircle } from 'lucide-react';
 import { trackEvent, trackConversion } from '@/lib/analytics';
+import { INQUIRIES_KEY, loadList, saveList, seedInquiries, type Inquiry } from '../data';
 
 interface ContactPageProps {
   onNavigate: (page: string) => void;
+  initialService?: string;
 }
 
-export default function ContactPage({ onNavigate }: ContactPageProps) {
+export default function ContactPage({ onNavigate, initialService }: ContactPageProps) {
   const [formData, setFormData] = useState({
     name: '',
     email: '',
     phone: '',
-    service: '',
+    service: initialService || '',
     date: '',
     message: '',
   });
@@ -28,6 +30,26 @@ export default function ContactPage({ onNavigate }: ContactPageProps) {
     });
   };
 
+  // Store the inquiry locally so it shows up in the demo's Admin Dashboard
+  // (Inquiries tab), keeping the customer and admin views connected.
+  const saveInquiryLocally = () => {
+    const existing = loadList<Inquiry>(INQUIRIES_KEY, seedInquiries);
+    saveList<Inquiry>(INQUIRIES_KEY, [
+      {
+        id: Date.now(),
+        name: formData.name,
+        email: formData.email,
+        phone: formData.phone,
+        service: formData.service,
+        preferredDate: formData.date,
+        message: formData.message,
+        status: 'new',
+        receivedAt: new Date().toISOString(),
+      },
+      ...existing,
+    ]);
+  };
+
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
     setIsSubmitting(true);
@@ -39,9 +61,16 @@ export default function ContactPage({ onNavigate }: ContactPageProps) {
           'Content-Type': 'application/json',
         },
         body: JSON.stringify({
+          demoName: 'Lens & Light Photography',
+          demoPackage: 'Standard Website ($950)',
           demoSlug: 'lens-light-photography',
-          leadData: formData,
-          source: 'contact_form',
+          clientName: formData.name,
+          clientPhone: formData.phone,
+          clientEmail: formData.email,
+          service: formData.service,
+          preferredDate: formData.date,
+          preferredTime: '',
+          notes: formData.message,
         }),
       });
 
@@ -51,6 +80,7 @@ export default function ContactPage({ onNavigate }: ContactPageProps) {
           demo_slug: 'lens-light-photography',
         });
         trackConversion('leadForm');
+        saveInquiryLocally();
 
         setSubmitSuccess(true);
         setFormData({
@@ -63,8 +93,8 @@ export default function ContactPage({ onNavigate }: ContactPageProps) {
         });
         setTimeout(() => setSubmitSuccess(false), 5000);
       }
-    } catch (error) {
-      console.error('Error submitting form:', error);
+    } catch {
+      // Network/API failure -- no-op, form stays visible so the user can retry
     } finally {
       setIsSubmitting(false);
     }

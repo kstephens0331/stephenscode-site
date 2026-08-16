@@ -1,7 +1,8 @@
 'use client';
 
 import React, { useState, useEffect } from 'react';
-import { Beer, ShoppingCart, MapPin, Calendar, Gift, Search, User, Award, Beer as BeerIcon, Wine, Filter, Star, ChevronRight, CheckCircle2, TruckIcon, Clock, Heart, Share2 } from 'lucide-react';
+import { Beer, ShoppingCart, MapPin, Calendar, Gift, Search, User, Award, Star, ChevronRight, CheckCircle2, TruckIcon, Clock, Heart, X, Facebook, Instagram, Twitter } from 'lucide-react';
+import { trackEvent, trackConversion } from '@/lib/analytics';
 
 // Types
 interface BeerProduct {
@@ -59,7 +60,17 @@ interface Event {
   price: number;
 }
 
+interface PastOrder {
+  id: string;
+  date: string;
+  status: string;
+  items: { name: string; qty: number; price: number }[];
+}
+
 type Page = 'home' | 'shop' | 'breweries' | 'finder' | 'pickup' | 'subscriptions' | 'cart' | 'account' | 'events' | 'contact';
+type AccountTab = 'orders' | 'subscription' | 'wishlist' | 'settings';
+
+const STORAGE_KEY = 'hoppy-trails-demo';
 
 const HoppyTrailsCraftBeer = () => {
   const [currentPage, setCurrentPage] = useState<Page>('home');
@@ -77,6 +88,43 @@ const HoppyTrailsCraftBeer = () => {
   const [orderNumber, setOrderNumber] = useState('');
   const [orderTotal, setOrderTotal] = useState(0);
   const [subscribedPlan, setSubscribedPlan] = useState<string | null>(null);
+  const [hydrated, setHydrated] = useState(false);
+
+  // Product detail modal
+  const [detailBeer, setDetailBeer] = useState<BeerProduct | null>(null);
+  const [detailAdded, setDetailAdded] = useState(false);
+
+  // Beer Finder
+  const [finderFlavor, setFinderFlavor] = useState<string | null>(null);
+  const [finderAbv, setFinderAbv] = useState<string | null>(null);
+  const [finderPairing, setFinderPairing] = useState<string | null>(null);
+  const [finderBitterness, setFinderBitterness] = useState(50);
+  const [finderResults, setFinderResults] = useState<BeerProduct[] | null>(null);
+
+  // Newsletter (Events page)
+  const [newsletterEmail, setNewsletterEmail] = useState('');
+  const [newsletterDone, setNewsletterDone] = useState(false);
+  const [newsletterError, setNewsletterError] = useState(false);
+
+  // Contact form
+  const [contactForm, setContactForm] = useState({ name: '', email: '', phone: '', subject: 'General Inquiry', message: '' });
+  const [contactSubmitted, setContactSubmitted] = useState(false);
+
+  // Account
+  const [accountTab, setAccountTab] = useState<AccountTab>('orders');
+  const [accountSettings, setAccountSettings] = useState({ name: 'John Smith', email: 'john.smith@email.com', phone: '(555) 234-8867' });
+  const [settingsSaved, setSettingsSaved] = useState(false);
+  const [subscriptionPaused, setSubscriptionPaused] = useState(false);
+  const [viewOrder, setViewOrder] = useState<PastOrder | null>(null);
+
+  // Events
+  const [registeredEvents, setRegisteredEvents] = useState<string[]>([]);
+  const [eventRegOpen, setEventRegOpen] = useState<Event | null>(null);
+  const [eventRegForm, setEventRegForm] = useState({ name: '', email: '', tickets: 1 });
+  const [eventRegConfirmed, setEventRegConfirmed] = useState(false);
+
+  // Footer info modal
+  const [infoModal, setInfoModal] = useState<{ title: string; body: string[] } | null>(null);
 
   // Sample Data
   const beers: BeerProduct[] = [
@@ -333,18 +381,119 @@ const HoppyTrailsCraftBeer = () => {
     }
   ];
 
+  const pastOrders: PastOrder[] = [
+    {
+      id: '#2024-001',
+      date: 'May 15, 2024',
+      status: 'Delivered',
+      items: [
+        { name: 'Imperial Thunder IPA', qty: 1, price: 15.99 },
+        { name: 'Midnight Stout', qty: 2, price: 14.99 }
+      ]
+    },
+    {
+      id: '#2024-002',
+      date: 'May 8, 2024',
+      status: 'Delivered',
+      items: [
+        { name: 'Hoppy Trails IPA', qty: 2, price: 12.99 },
+        { name: 'Hazy Days NEIPA', qty: 2, price: 13.99 },
+        { name: 'Golden Valley Lager', qty: 1, price: 10.99 }
+      ]
+    },
+    {
+      id: '#2024-003',
+      date: 'May 1, 2024',
+      status: 'Delivered',
+      items: [
+        { name: 'Wheat Field Hefeweizen', qty: 1, price: 10.99 },
+        { name: 'Autumn Amber Ale', qty: 1, price: 11.99 },
+        { name: 'Porter of Call', qty: 1, price: 12.99 }
+      ]
+    }
+  ];
+
   const beerStyles = ['All', 'IPA', 'NEIPA', 'Imperial IPA', 'Stout', 'Porter', 'Lager', 'Wheat Beer', 'Amber Ale'];
+
+  const infoContent: Record<string, string[]> = {
+    'FAQ': [
+      'How does local pickup work? Place your order online, choose one of our three Denver locations at checkout, and we will have it ready within about 2 hours during store hours.',
+      'Do you ship beer? We currently offer free local pickup at all three stores. Subscription boxes on the Craft Connoisseur and Brewmaster Elite plans include free shipping within our service area.',
+      'Can I change my subscription? Yes. You can pause, upgrade, downgrade, or cancel your subscription at any time from your account page with no fees.',
+      'What if a beer I want is out of stock? Add it to your wishlist and it will be waiting in your account when it comes back.'
+    ],
+    'Shipping Info': [
+      'Local pickup is free at all three of our Denver locations. Orders are typically ready within 2 hours during store hours, and we will notify you by email and SMS when your order is ready.',
+      'Subscription boxes ship once per month. Craft Connoisseur and Brewmaster Elite plans include free shipping; Hoppy Explorer boxes are available for free local pickup.',
+      'An adult 21 or older with a valid photo ID must be present to receive any beer order. No exceptions.'
+    ],
+    'Returns': [
+      'Unopened beer in its original packaging may be returned within 14 days of purchase for a full refund.',
+      'If a beer arrives damaged or out of code, contact us within 48 hours and we will replace it or refund you, whichever you prefer.',
+      'Refunds are issued to the original payment method within 5-7 business days.'
+    ],
+    'Terms of Service': [
+      'You must be 21 years of age or older to purchase from Hoppy Trails Craft Beer. A valid photo ID is required at pickup.',
+      'All prices are listed in USD and are subject to change. Sales tax is applied at checkout based on your pickup location.',
+      'Subscriptions renew monthly on the date you signed up and can be paused or cancelled at any time from your account page.',
+      'We reserve the right to refuse service to anyone who cannot provide valid proof of age.'
+    ],
+    'Privacy Policy': [
+      'We collect only the information needed to process your orders: your name, contact details, and purchase history.',
+      'We never sell your personal information to third parties. Order data is shared only with the payment processor and the store fulfilling your pickup.',
+      'You can request a copy of your data, or ask us to delete it, at any time by emailing info@hoppytrails.com.'
+    ],
+    'Age Verification': [
+      'Federal and state law requires that all customers be 21 years of age or older to purchase alcohol.',
+      'Age is verified twice: once when you enter this site, and again with a valid photo ID when you pick up your order.',
+      'Acceptable forms of ID include a driver license, state ID card, passport, or military ID.'
+    ],
+    'Responsible Drinking': [
+      'We are committed to promoting the responsible enjoyment of craft beer.',
+      'Please never drink and drive. Plan ahead with a designated driver or a rideshare.',
+      'If you or someone you know is struggling with alcohol, visit responsibility.org for resources and support.'
+    ]
+  };
+
+  // Persistence -- hydrate once, then write through on change
+  useEffect(() => {
+    try {
+      const saved = localStorage.getItem(STORAGE_KEY);
+      if (saved) {
+        const data = JSON.parse(saved);
+        if (Array.isArray(data.cart)) setCart(data.cart);
+        if (Array.isArray(data.wishlist)) setWishlist(data.wishlist);
+        if (typeof data.subscribedPlan === 'string') setSubscribedPlan(data.subscribedPlan);
+        if (Array.isArray(data.registeredEvents)) setRegisteredEvents(data.registeredEvents);
+        if (data.accountSettings && typeof data.accountSettings.name === 'string') setAccountSettings(data.accountSettings);
+        if (typeof data.subscriptionPaused === 'boolean') setSubscriptionPaused(data.subscriptionPaused);
+      }
+    } catch {
+      // Corrupted or unavailable storage -- start fresh
+    }
+    setHydrated(true);
+  }, []);
+
+  useEffect(() => {
+    if (!hydrated) return;
+    try {
+      localStorage.setItem(STORAGE_KEY, JSON.stringify({ cart, wishlist, subscribedPlan, registeredEvents, accountSettings, subscriptionPaused }));
+    } catch {
+      // Storage unavailable -- state still lives in memory for this session
+    }
+  }, [hydrated, cart, wishlist, subscribedPlan, registeredEvents, accountSettings, subscriptionPaused]);
 
   // Cart functions
   const addToCart = (beer: BeerProduct) => {
-    const existing = cart.find(item => item.id === beer.id);
-    if (existing) {
-      setCart(cart.map(item =>
-        item.id === beer.id ? { ...item, quantity: item.quantity + 1 } : item
-      ));
-    } else {
-      setCart([...cart, { ...beer, quantity: 1 }]);
-    }
+    setCart(prev => {
+      const existing = prev.find(item => item.id === beer.id);
+      if (existing) {
+        return prev.map(item =>
+          item.id === beer.id ? { ...item, quantity: item.quantity + 1 } : item
+        );
+      }
+      return [...prev, { ...beer, quantity: 1 }];
+    });
   };
 
   const removeFromCart = (id: string) => {
@@ -384,6 +533,11 @@ const HoppyTrailsCraftBeer = () => {
     }
   };
 
+  const openDetail = (beer: BeerProduct) => {
+    setDetailBeer(beer);
+    setDetailAdded(false);
+  };
+
   // Filter beers
   const filteredBeers = beers.filter(beer => {
     const matchesSearch = beer.name.toLowerCase().includes(searchTerm.toLowerCase()) ||
@@ -405,6 +559,161 @@ const HoppyTrailsCraftBeer = () => {
       default: return b.reviews - a.reviews; // popular
     }
   });
+
+  // Beer Finder matching
+  const flavorStyles: Record<string, string[]> = {
+    'Hoppy & Bitter': ['IPA', 'NEIPA', 'Imperial IPA'],
+    'Malty & Sweet': ['Amber Ale', 'Wheat Beer', 'Porter'],
+    'Dark & Roasty': ['Stout', 'Porter'],
+    'Light & Crisp': ['Lager', 'Wheat Beer']
+  };
+
+  const pairingKeywords: Record<string, string[]> = {
+    'Spicy Food': ['spicy', 'curry', 'thai', 'tacos', 'wings'],
+    'BBQ & Meat': ['bbq', 'steak', 'burgers', 'ribs', 'pork', 'chicken', 'bratwurst', 'smoked'],
+    'Seafood': ['salmon', 'seafood', 'oysters', 'fish', 'shellfish'],
+    'Cheese & Snacks': ['cheddar', 'cheese', 'brie', 'gouda', 'pretzels'],
+    'Dessert': ['chocolate', 'pie', 'desserts', 'cake'],
+    'Just Drinking': []
+  };
+
+  const runBeerFinder = () => {
+    const scored = beers.map(beer => {
+      let score = 0;
+      if (finderFlavor && (flavorStyles[finderFlavor] || []).includes(beer.style)) score += 3;
+      if (finderAbv === 'Low (4-5%)' && beer.abv <= 5.5) score += 2;
+      if (finderAbv === 'Medium (5-7%)' && beer.abv > 5.5 && beer.abv <= 7) score += 2;
+      if (finderAbv === 'High (7%+)' && beer.abv > 7) score += 2;
+      if (finderPairing) {
+        const keywords = pairingKeywords[finderPairing] || [];
+        if (keywords.length === 0) {
+          score += 1;
+        } else if (beer.foodPairings.some(p => keywords.some(k => p.toLowerCase().includes(k)))) {
+          score += 2;
+        }
+      }
+      score += Math.max(0, 2 - Math.abs(beer.ibu - finderBitterness) / 25);
+      return { beer, score };
+    });
+    scored.sort((a, b) => b.score - a.score || b.beer.rating - a.beer.rating);
+    setFinderResults(scored.slice(0, 3).map(s => s.beer));
+    setTimeout(() => {
+      document.getElementById('beer-finder-results')?.scrollIntoView({ behavior: 'smooth', block: 'start' });
+    }, 50);
+  };
+
+  // Contact form
+  const handleContactChange = (e: React.ChangeEvent<HTMLInputElement | HTMLSelectElement | HTMLTextAreaElement>) => {
+    setContactForm({ ...contactForm, [e.target.name]: e.target.value });
+  };
+
+  const handleContactSubmit = async (e: React.FormEvent) => {
+    e.preventDefault();
+    try {
+      const response = await fetch('/api/demo-lead', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({
+          demoName: 'Hoppy Trails Craft Beer',
+          demoPackage: 'E-Commerce Website ($1,100)',
+          demoSlug: 'hoppy-trails-craft-beer',
+          clientName: contactForm.name,
+          clientPhone: contactForm.phone,
+          clientEmail: contactForm.email,
+          service: contactForm.subject,
+          preferredDate: '',
+          preferredTime: '',
+          notes: contactForm.message
+        })
+      });
+
+      if (response.ok) {
+        trackEvent('generate_lead', { form_name: 'demo_contact_form', demo_slug: 'hoppy-trails-craft-beer' });
+        trackConversion('leadForm');
+        setContactSubmitted(true);
+        setContactForm({ name: '', email: '', phone: '', subject: 'General Inquiry', message: '' });
+      }
+    } catch {
+      // Network/API failure -- form stays visible so the visitor can retry
+    }
+  };
+
+  // Event registration
+  const openEventRegistration = (event: Event) => {
+    setEventRegOpen(event);
+    setEventRegForm({ name: '', email: '', tickets: 1 });
+    setEventRegConfirmed(false);
+  };
+
+  const handleEventRegSubmit = async (e: React.FormEvent) => {
+    e.preventDefault();
+    if (!eventRegOpen) return;
+    try {
+      const response = await fetch('/api/demo-lead', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({
+          demoName: 'Hoppy Trails Craft Beer',
+          demoPackage: 'E-Commerce Website ($1,100)',
+          demoSlug: 'hoppy-trails-craft-beer',
+          clientName: eventRegForm.name,
+          clientPhone: '',
+          clientEmail: eventRegForm.email,
+          service: `Event Registration: ${eventRegOpen.title}`,
+          preferredDate: eventRegOpen.date,
+          preferredTime: eventRegOpen.time,
+          notes: `${eventRegForm.tickets} ticket(s) at $${eventRegOpen.price.toFixed(2)} each. Location: ${eventRegOpen.location}.`
+        })
+      });
+
+      if (response.ok) {
+        trackEvent('generate_lead', { form_name: 'demo_event_registration', demo_slug: 'hoppy-trails-craft-beer' });
+        trackConversion('leadForm');
+        if (!registeredEvents.includes(eventRegOpen.id)) {
+          setRegisteredEvents([...registeredEvents, eventRegOpen.id]);
+        }
+        setEventRegConfirmed(true);
+      }
+    } catch {
+      // Network/API failure -- form stays visible so the visitor can retry
+    }
+  };
+
+  // Newsletter
+  const handleNewsletterSubscribe = () => {
+    const email = newsletterEmail.trim();
+    if (!email || !email.includes('@') || !email.includes('.')) {
+      setNewsletterError(true);
+      return;
+    }
+    setNewsletterError(false);
+    setNewsletterDone(true);
+  };
+
+  // Account helpers
+  const orderTotalOf = (order: PastOrder) => order.items.reduce((s, i) => s + i.qty * i.price, 0);
+  const orderCountOf = (order: PastOrder) => order.items.reduce((s, i) => s + i.qty, 0);
+
+  const reorderPastOrder = (order: PastOrder) => {
+    setCart(prev => {
+      let next = [...prev];
+      order.items.forEach(it => {
+        const beer = beers.find(b => b.name === it.name);
+        if (!beer) return;
+        const existing = next.find(c => c.id === beer.id);
+        if (existing) {
+          next = next.map(c => c.id === beer.id ? { ...c, quantity: c.quantity + it.qty } : c);
+        } else {
+          next.push({ ...beer, quantity: it.qty });
+        }
+      });
+      return next;
+    });
+    setViewOrder(null);
+    setCurrentPage('cart');
+  };
+
+  const activePlan = subscriptions.find(s => s.id === (subscribedPlan ?? '2')) || subscriptions[1];
 
   // Age Verification Modal
   const AgeVerificationModal = () => (
@@ -454,15 +763,24 @@ const HoppyTrailsCraftBeer = () => {
           <div className="flex items-center gap-4">
             <button
               onClick={() => setCurrentPage('account')}
+              aria-label="My account"
               className="hover:text-[#936639] transition-colors"
             >
               <User className="w-5 h-5" />
             </button>
-            <button className="hover:text-[#936639] transition-colors">
+            <button
+              onClick={() => {
+                setCurrentPage('shop');
+                setTimeout(() => document.getElementById('beer-shop-search')?.focus(), 50);
+              }}
+              aria-label="Search beers"
+              className="hover:text-[#936639] transition-colors"
+            >
               <Search className="w-5 h-5" />
             </button>
             <button
               onClick={() => setCurrentPage('cart')}
+              aria-label="Shopping cart"
               className="relative hover:text-[#936639] transition-colors"
             >
               <ShoppingCart className="w-5 h-5" />
@@ -556,17 +874,26 @@ const HoppyTrailsCraftBeer = () => {
           <div className="grid grid-cols-1 md:grid-cols-4 gap-6">
             {beers.slice(0, 4).map(beer => (
               <div key={beer.id} className="bg-white rounded-lg shadow-lg overflow-hidden hover:shadow-xl transition-shadow">
-                <div className="relative h-64">
+                <div className="relative h-64 cursor-pointer" onClick={() => openDetail(beer)}>
                   <img src={beer.image} alt={beer.name} className="w-full h-full object-cover" />
                   <button
-                    onClick={() => toggleWishlist(beer.id)}
+                    onClick={(e) => {
+                      e.stopPropagation();
+                      toggleWishlist(beer.id);
+                    }}
+                    aria-label={wishlist.includes(beer.id) ? `Remove ${beer.name} from wishlist` : `Add ${beer.name} to wishlist`}
                     className="absolute top-3 right-3 bg-white p-2 rounded-full hover:bg-gray-100"
                   >
                     <Heart className={`w-5 h-5 ${wishlist.includes(beer.id) ? 'fill-red-500 text-red-500' : 'text-gray-600'}`} />
                   </button>
                 </div>
                 <div className="p-4">
-                  <h3 className="font-bold text-lg mb-1">{beer.name}</h3>
+                  <h3
+                    className="font-bold text-lg mb-1 cursor-pointer hover:text-[#7f4f24]"
+                    onClick={() => openDetail(beer)}
+                  >
+                    {beer.name}
+                  </h3>
                   <p className="text-sm text-gray-600 mb-2">{beer.brewery}</p>
                   <div className="flex items-center gap-4 text-sm text-gray-700 mb-3">
                     <span className="flex items-center gap-1">
@@ -689,10 +1016,14 @@ const HoppyTrailsCraftBeer = () => {
       <div className="grid grid-cols-1 md:grid-cols-3 lg:grid-cols-4 gap-6">
         {sortedBeers.map(beer => (
           <div key={beer.id} className="bg-white rounded-lg shadow-lg overflow-hidden hover:shadow-xl transition-shadow">
-            <div className="relative h-64">
+            <div className="relative h-64 cursor-pointer" onClick={() => openDetail(beer)}>
               <img src={beer.image} alt={beer.name} className="w-full h-full object-cover" />
               <button
-                onClick={() => toggleWishlist(beer.id)}
+                onClick={(e) => {
+                  e.stopPropagation();
+                  toggleWishlist(beer.id);
+                }}
+                aria-label={wishlist.includes(beer.id) ? `Remove ${beer.name} from wishlist` : `Add ${beer.name} to wishlist`}
                 className="absolute top-3 right-3 bg-white p-2 rounded-full hover:bg-gray-100"
               >
                 <Heart className={`w-5 h-5 ${wishlist.includes(beer.id) ? 'fill-red-500 text-red-500' : 'text-gray-600'}`} />
@@ -702,7 +1033,12 @@ const HoppyTrailsCraftBeer = () => {
               </div>
             </div>
             <div className="p-4">
-              <h3 className="font-bold text-lg mb-1">{beer.name}</h3>
+              <h3
+                className="font-bold text-lg mb-1 cursor-pointer hover:text-[#7f4f24]"
+                onClick={() => openDetail(beer)}
+              >
+                {beer.name}
+              </h3>
               <p className="text-sm text-gray-600 mb-2">{beer.brewery}</p>
               <div className="flex items-center gap-1 mb-2">
                 {[...Array(5)].map((_, i) => (
@@ -797,7 +1133,15 @@ const HoppyTrailsCraftBeer = () => {
             <label className="block text-lg font-semibold text-gray-800 mb-3">What flavor profile do you prefer?</label>
             <div className="grid grid-cols-2 gap-3">
               {['Hoppy & Bitter', 'Malty & Sweet', 'Dark & Roasty', 'Light & Crisp'].map(flavor => (
-                <button key={flavor} className="p-4 border-2 border-gray-300 rounded-lg hover:border-[#582f0e] hover:bg-[#582f0e] hover:text-white transition-colors text-left">
+                <button
+                  key={flavor}
+                  onClick={() => setFinderFlavor(finderFlavor === flavor ? null : flavor)}
+                  className={`p-4 border-2 rounded-lg transition-colors text-left ${
+                    finderFlavor === flavor
+                      ? 'border-[#582f0e] bg-[#582f0e] text-white'
+                      : 'border-gray-300 hover:border-[#582f0e] hover:bg-[#582f0e] hover:text-white'
+                  }`}
+                >
                   {flavor}
                 </button>
               ))}
@@ -808,7 +1152,15 @@ const HoppyTrailsCraftBeer = () => {
             <label className="block text-lg font-semibold text-gray-800 mb-3">Preferred ABV Range?</label>
             <div className="grid grid-cols-3 gap-3">
               {['Low (4-5%)', 'Medium (5-7%)', 'High (7%+)'].map(abv => (
-                <button key={abv} className="p-4 border-2 border-gray-300 rounded-lg hover:border-[#582f0e] hover:bg-[#582f0e] hover:text-white transition-colors">
+                <button
+                  key={abv}
+                  onClick={() => setFinderAbv(finderAbv === abv ? null : abv)}
+                  className={`p-4 border-2 rounded-lg transition-colors ${
+                    finderAbv === abv
+                      ? 'border-[#582f0e] bg-[#582f0e] text-white'
+                      : 'border-gray-300 hover:border-[#582f0e] hover:bg-[#582f0e] hover:text-white'
+                  }`}
+                >
                   {abv}
                 </button>
               ))}
@@ -819,7 +1171,15 @@ const HoppyTrailsCraftBeer = () => {
             <label className="block text-lg font-semibold text-gray-800 mb-3">What are you pairing it with?</label>
             <div className="grid grid-cols-2 gap-3">
               {['Spicy Food', 'BBQ & Meat', 'Seafood', 'Cheese & Snacks', 'Dessert', 'Just Drinking'].map(pairing => (
-                <button key={pairing} className="p-4 border-2 border-gray-300 rounded-lg hover:border-[#582f0e] hover:bg-[#582f0e] hover:text-white transition-colors text-left">
+                <button
+                  key={pairing}
+                  onClick={() => setFinderPairing(finderPairing === pairing ? null : pairing)}
+                  className={`p-4 border-2 rounded-lg transition-colors text-left ${
+                    finderPairing === pairing
+                      ? 'border-[#582f0e] bg-[#582f0e] text-white'
+                      : 'border-gray-300 hover:border-[#582f0e] hover:bg-[#582f0e] hover:text-white'
+                  }`}
+                >
                   {pairing}
                 </button>
               ))}
@@ -833,27 +1193,51 @@ const HoppyTrailsCraftBeer = () => {
               type="range"
               min="0"
               max="100"
+              value={finderBitterness}
+              onChange={(e) => setFinderBitterness(Number(e.target.value))}
               className="w-full h-2 bg-gray-200 rounded-lg appearance-none cursor-pointer accent-[#582f0e]"
             />
             <div className="flex justify-between text-sm text-gray-600 mt-2">
               <span>Not Bitter</span>
+              <span className="font-semibold text-[#582f0e]">Target: about {finderBitterness} IBU</span>
               <span>Very Bitter</span>
             </div>
           </div>
 
-          <button className="w-full bg-[#582f0e] text-white px-8 py-4 rounded-lg font-bold text-lg hover:bg-[#7f4f24] transition-colors">
+          <button
+            onClick={runBeerFinder}
+            className="w-full bg-[#582f0e] text-white px-8 py-4 rounded-lg font-bold text-lg hover:bg-[#7f4f24] transition-colors"
+          >
             Find My Perfect Beer
           </button>
         </div>
 
-        <div className="mt-8 pt-8 border-t">
-          <h3 className="text-xl font-bold text-[#582f0e] mb-4">Recommended For You</h3>
-          <div className="grid grid-cols-2 gap-4">
-            {beers.slice(0, 2).map(beer => (
+        <div className="mt-8 pt-8 border-t" id="beer-finder-results">
+          <h3 className="text-xl font-bold text-[#582f0e] mb-2">
+            {finderResults ? 'Your Top Matches' : 'Popular Right Now'}
+          </h3>
+          {finderResults && (
+            <p className="text-sm text-gray-600 mb-4">
+              Ranked by how well each beer fits your flavor, strength, pairing, and bitterness picks.
+            </p>
+          )}
+          <div className={`grid gap-4 ${finderResults ? 'grid-cols-1 sm:grid-cols-3' : 'grid-cols-2'}`}>
+            {(finderResults ?? beers.slice(0, 2)).map(beer => (
               <div key={beer.id} className="border rounded-lg p-4">
-                <img src={beer.image} alt={beer.name} className="w-full h-32 object-cover rounded mb-3" />
-                <h4 className="font-bold mb-1">{beer.name}</h4>
-                <p className="text-sm text-gray-600 mb-2">{beer.style}</p>
+                <img
+                  src={beer.image}
+                  alt={beer.name}
+                  className="w-full h-32 object-cover rounded mb-3 cursor-pointer"
+                  onClick={() => openDetail(beer)}
+                />
+                <h4
+                  className="font-bold mb-1 cursor-pointer hover:text-[#7f4f24]"
+                  onClick={() => openDetail(beer)}
+                >
+                  {beer.name}
+                </h4>
+                <p className="text-sm text-gray-600 mb-1">{beer.style}</p>
+                <p className="text-xs text-gray-500 mb-2">{beer.abv}% ABV | {beer.ibu} IBU</p>
                 <button
                   onClick={() => addToCart(beer)}
                   className="w-full bg-[#582f0e] text-white px-4 py-2 rounded-lg hover:bg-[#7f4f24] transition-colors text-sm"
@@ -902,6 +1286,23 @@ const HoppyTrailsCraftBeer = () => {
           </div>
         ))}
       </div>
+
+      {selectedPickup && (
+        <div className="mt-8 bg-green-50 border border-green-200 rounded-lg p-4 flex flex-col sm:flex-row sm:items-center gap-3 justify-between">
+          <p className="text-green-800 flex items-center gap-2">
+            <CheckCircle2 className="w-5 h-5 flex-shrink-0" />
+            <span>
+              <strong>{pickupLocations.find(l => l.id === selectedPickup)?.name}</strong> is set as your pickup location for checkout.
+            </span>
+          </p>
+          <button
+            onClick={() => setCurrentPage(cart.length > 0 ? 'cart' : 'shop')}
+            className="bg-[#582f0e] text-white px-6 py-2 rounded-lg font-semibold hover:bg-[#7f4f24] transition-colors whitespace-nowrap"
+          >
+            {cart.length > 0 ? 'Go to Cart' : 'Start Shopping'}
+          </button>
+        </div>
+      )}
 
       <div className="mt-12 bg-[#582f0e] text-white rounded-lg p-8">
         <h2 className="text-2xl font-bold mb-4">How Pickup Works</h2>
@@ -981,7 +1382,10 @@ const HoppyTrailsCraftBeer = () => {
                 ))}
               </ul>
               <button
-                onClick={() => setSubscribedPlan(sub.id)}
+                onClick={() => {
+                  setSubscribedPlan(sub.id);
+                  setSubscriptionPaused(false);
+                }}
                 disabled={isActive}
                 className={`w-full px-6 py-3 rounded-lg font-semibold transition-colors ${
                   isActive
@@ -1089,6 +1493,7 @@ const HoppyTrailsCraftBeer = () => {
                     <div className="flex items-center gap-2">
                       <button
                         onClick={() => updateQuantity(item.id, item.quantity - 1)}
+                        aria-label={`Decrease quantity of ${item.name}`}
                         className="w-8 h-8 bg-gray-200 rounded hover:bg-gray-300 font-bold"
                       >
                         -
@@ -1096,6 +1501,7 @@ const HoppyTrailsCraftBeer = () => {
                       <span className="w-12 text-center font-semibold">{item.quantity}</span>
                       <button
                         onClick={() => updateQuantity(item.id, item.quantity + 1)}
+                        aria-label={`Increase quantity of ${item.name}`}
                         className="w-8 h-8 bg-gray-200 rounded hover:bg-gray-300 font-bold"
                       >
                         +
@@ -1193,98 +1599,207 @@ const HoppyTrailsCraftBeer = () => {
               <div className="w-24 h-24 bg-[#582f0e] rounded-full flex items-center justify-center mx-auto mb-4">
                 <User className="w-12 h-12 text-white" />
               </div>
-              <h2 className="text-xl font-bold text-[#582f0e]">John Smith</h2>
-              <p className="text-gray-600">john.smith@email.com</p>
+              <h2 className="text-xl font-bold text-[#582f0e]">{accountSettings.name}</h2>
+              <p className="text-gray-600">{accountSettings.email}</p>
             </div>
             <div className="space-y-2">
-              <button className="w-full text-left px-4 py-3 hover:bg-gray-50 rounded-lg font-semibold text-[#582f0e]">
-                Order History
-              </button>
-              <button className="w-full text-left px-4 py-3 hover:bg-gray-50 rounded-lg font-semibold text-[#582f0e]">
-                Subscriptions
-              </button>
-              <button className="w-full text-left px-4 py-3 hover:bg-gray-50 rounded-lg font-semibold text-[#582f0e]">
-                Wishlist ({wishlist.length})
-              </button>
-              <button className="w-full text-left px-4 py-3 hover:bg-gray-50 rounded-lg font-semibold text-[#582f0e]">
-                Account Settings
-              </button>
+              {([
+                { tab: 'orders' as AccountTab, label: 'Order History' },
+                { tab: 'subscription' as AccountTab, label: 'Subscriptions' },
+                { tab: 'wishlist' as AccountTab, label: `Wishlist (${wishlist.length})` },
+                { tab: 'settings' as AccountTab, label: 'Account Settings' }
+              ]).map(({ tab, label }) => (
+                <button
+                  key={tab}
+                  onClick={() => setAccountTab(tab)}
+                  className={`w-full text-left px-4 py-3 rounded-lg font-semibold transition-colors ${
+                    accountTab === tab
+                      ? 'bg-[#582f0e] text-white'
+                      : 'hover:bg-gray-50 text-[#582f0e]'
+                  }`}
+                >
+                  {label}
+                </button>
+              ))}
             </div>
           </div>
         </div>
 
         <div className="lg:col-span-2 space-y-8">
-          <div className="bg-white rounded-lg shadow-lg p-6">
-            <h2 className="text-2xl font-bold text-[#582f0e] mb-6">Recent Orders</h2>
-            <div className="space-y-4">
-              {[
-                { id: '#2024-001', date: 'May 15, 2024', status: 'Delivered', total: 45.97, items: 3 },
-                { id: '#2024-002', date: 'May 8, 2024', status: 'Delivered', total: 67.96, items: 5 },
-                { id: '#2024-003', date: 'May 1, 2024', status: 'Delivered', total: 38.98, items: 3 }
-              ].map(order => (
-                <div key={order.id} className="border rounded-lg p-4 hover:shadow-md transition-shadow">
-                  <div className="flex items-center justify-between mb-2">
-                    <div>
-                      <span className="font-bold text-[#582f0e]">{order.id}</span>
-                      <span className="text-gray-600 ml-4">{order.date}</span>
+          {accountTab === 'orders' && (
+            <div className="bg-white rounded-lg shadow-lg p-6">
+              <h2 className="text-2xl font-bold text-[#582f0e] mb-6">Recent Orders</h2>
+              <div className="space-y-4">
+                {pastOrders.map(order => (
+                  <div
+                    key={order.id}
+                    onClick={() => setViewOrder(order)}
+                    className="border rounded-lg p-4 hover:shadow-md transition-shadow cursor-pointer"
+                  >
+                    <div className="flex items-center justify-between mb-2">
+                      <div>
+                        <span className="font-bold text-[#582f0e]">{order.id}</span>
+                        <span className="text-gray-600 ml-4">{order.date}</span>
+                      </div>
+                      <span className="px-3 py-1 bg-green-100 text-green-700 rounded-full text-sm font-semibold">
+                        {order.status}
+                      </span>
                     </div>
-                    <span className="px-3 py-1 bg-green-100 text-green-700 rounded-full text-sm font-semibold">
-                      {order.status}
-                    </span>
-                  </div>
-                  <div className="flex items-center justify-between">
-                    <span className="text-gray-600">{order.items} items</span>
-                    <span className="font-bold text-[#582f0e]">${order.total.toFixed(2)}</span>
-                  </div>
-                </div>
-              ))}
-            </div>
-          </div>
-
-          <div className="bg-white rounded-lg shadow-lg p-6">
-            <h2 className="text-2xl font-bold text-[#582f0e] mb-6">Active Subscription</h2>
-            <div className="border-2 border-[#582f0e] rounded-lg p-6">
-              <div className="flex items-start justify-between mb-4">
-                <div>
-                  <h3 className="text-xl font-bold text-[#582f0e]">Craft Connoisseur</h3>
-                  <p className="text-gray-600">12 beers per month</p>
-                </div>
-                <Gift className="w-8 h-8 text-[#936639]" />
-              </div>
-              <p className="text-gray-700 mb-4">Next delivery: June 1, 2024</p>
-              <div className="flex gap-3">
-                <button className="flex-1 bg-[#582f0e] text-white px-4 py-2 rounded-lg font-semibold hover:bg-[#7f4f24] transition-colors">
-                  Manage Subscription
-                </button>
-                <button className="px-4 py-2 border-2 border-[#582f0e] text-[#582f0e] rounded-lg font-semibold hover:bg-gray-50 transition-colors">
-                  Pause
-                </button>
-              </div>
-            </div>
-          </div>
-
-          <div className="bg-white rounded-lg shadow-lg p-6">
-            <h2 className="text-2xl font-bold text-[#582f0e] mb-6">Wishlist</h2>
-            {wishlist.length === 0 ? (
-              <p className="text-gray-600 text-center py-8">No items in your wishlist</p>
-            ) : (
-              <div className="grid grid-cols-2 gap-4">
-                {beers.filter(beer => wishlist.includes(beer.id)).map(beer => (
-                  <div key={beer.id} className="border rounded-lg p-4">
-                    <img src={beer.image} alt={beer.name} className="w-full h-32 object-cover rounded mb-3" />
-                    <h4 className="font-bold mb-1">{beer.name}</h4>
-                    <p className="text-sm text-gray-600 mb-2">${beer.price.toFixed(2)}</p>
-                    <button
-                      onClick={() => addToCart(beer)}
-                      className="w-full bg-[#582f0e] text-white px-4 py-2 rounded-lg hover:bg-[#7f4f24] transition-colors text-sm"
-                    >
-                      Add to Cart
-                    </button>
+                    <div className="flex items-center justify-between">
+                      <span className="text-gray-600">{orderCountOf(order)} items</span>
+                      <span className="font-bold text-[#582f0e]">${orderTotalOf(order).toFixed(2)}</span>
+                    </div>
+                    <p className="text-sm text-[#936639] font-semibold mt-2 flex items-center gap-1">
+                      View details <ChevronRight className="w-4 h-4" />
+                    </p>
                   </div>
                 ))}
               </div>
-            )}
-          </div>
+            </div>
+          )}
+
+          {accountTab === 'subscription' && (
+            <div className="bg-white rounded-lg shadow-lg p-6">
+              <h2 className="text-2xl font-bold text-[#582f0e] mb-6">Active Subscription</h2>
+              <div className="border-2 border-[#582f0e] rounded-lg p-6">
+                <div className="flex items-start justify-between mb-4">
+                  <div>
+                    <h3 className="text-xl font-bold text-[#582f0e]">{activePlan.name}</h3>
+                    <p className="text-gray-600">{activePlan.beersPerMonth} beers per month</p>
+                  </div>
+                  <div className="flex items-center gap-3">
+                    {subscriptionPaused && (
+                      <span className="px-3 py-1 bg-amber-100 text-amber-700 rounded-full text-sm font-semibold">
+                        Paused
+                      </span>
+                    )}
+                    <Gift className="w-8 h-8 text-[#936639]" />
+                  </div>
+                </div>
+                <p className="text-gray-700 mb-4">
+                  {subscriptionPaused
+                    ? 'Deliveries are paused. Resume anytime to restart your monthly box.'
+                    : 'Next delivery: June 1, 2024'}
+                </p>
+                <div className="flex gap-3">
+                  <button
+                    onClick={() => setCurrentPage('subscriptions')}
+                    className="flex-1 bg-[#582f0e] text-white px-4 py-2 rounded-lg font-semibold hover:bg-[#7f4f24] transition-colors"
+                  >
+                    Manage Subscription
+                  </button>
+                  <button
+                    onClick={() => setSubscriptionPaused(!subscriptionPaused)}
+                    className="px-4 py-2 border-2 border-[#582f0e] text-[#582f0e] rounded-lg font-semibold hover:bg-gray-50 transition-colors"
+                  >
+                    {subscriptionPaused ? 'Resume' : 'Pause'}
+                  </button>
+                </div>
+              </div>
+            </div>
+          )}
+
+          {accountTab === 'wishlist' && (
+            <div className="bg-white rounded-lg shadow-lg p-6">
+              <h2 className="text-2xl font-bold text-[#582f0e] mb-6">Wishlist</h2>
+              {wishlist.length === 0 ? (
+                <div className="text-center py-8">
+                  <p className="text-gray-600 mb-4">No items in your wishlist</p>
+                  <button
+                    onClick={() => setCurrentPage('shop')}
+                    className="bg-[#582f0e] text-white px-6 py-2 rounded-lg font-semibold hover:bg-[#7f4f24] transition-colors"
+                  >
+                    Browse Beers
+                  </button>
+                </div>
+              ) : (
+                <div className="grid grid-cols-2 gap-4">
+                  {beers.filter(beer => wishlist.includes(beer.id)).map(beer => (
+                    <div key={beer.id} className="border rounded-lg p-4">
+                      <img
+                        src={beer.image}
+                        alt={beer.name}
+                        className="w-full h-32 object-cover rounded mb-3 cursor-pointer"
+                        onClick={() => openDetail(beer)}
+                      />
+                      <h4
+                        className="font-bold mb-1 cursor-pointer hover:text-[#7f4f24]"
+                        onClick={() => openDetail(beer)}
+                      >
+                        {beer.name}
+                      </h4>
+                      <p className="text-sm text-gray-600 mb-2">${beer.price.toFixed(2)}</p>
+                      <button
+                        onClick={() => addToCart(beer)}
+                        className="w-full bg-[#582f0e] text-white px-4 py-2 rounded-lg hover:bg-[#7f4f24] transition-colors text-sm mb-2"
+                      >
+                        Add to Cart
+                      </button>
+                      <button
+                        onClick={() => toggleWishlist(beer.id)}
+                        className="w-full border border-gray-300 text-gray-600 px-4 py-2 rounded-lg hover:bg-gray-50 transition-colors text-sm"
+                      >
+                        Remove
+                      </button>
+                    </div>
+                  ))}
+                </div>
+              )}
+            </div>
+          )}
+
+          {accountTab === 'settings' && (
+            <div className="bg-white rounded-lg shadow-lg p-6">
+              <h2 className="text-2xl font-bold text-[#582f0e] mb-6">Account Settings</h2>
+              <div className="space-y-4 max-w-lg">
+                <div>
+                  <label htmlFor="beer-account-name" className="block text-sm font-semibold text-gray-700 mb-2">Full Name</label>
+                  <input
+                    id="beer-account-name"
+                    type="text"
+                    value={accountSettings.name}
+                    onChange={(e) => setAccountSettings({ ...accountSettings, name: e.target.value })}
+                    className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-[#582f0e] focus:border-transparent"
+                  />
+                </div>
+                <div>
+                  <label htmlFor="beer-account-email" className="block text-sm font-semibold text-gray-700 mb-2">Email</label>
+                  <input
+                    id="beer-account-email"
+                    type="email"
+                    value={accountSettings.email}
+                    onChange={(e) => setAccountSettings({ ...accountSettings, email: e.target.value })}
+                    className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-[#582f0e] focus:border-transparent"
+                  />
+                </div>
+                <div>
+                  <label htmlFor="beer-account-phone" className="block text-sm font-semibold text-gray-700 mb-2">Phone</label>
+                  <input
+                    id="beer-account-phone"
+                    type="tel"
+                    value={accountSettings.phone}
+                    onChange={(e) => setAccountSettings({ ...accountSettings, phone: e.target.value })}
+                    className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-[#582f0e] focus:border-transparent"
+                  />
+                </div>
+                <button
+                  onClick={() => {
+                    setSettingsSaved(true);
+                    setTimeout(() => setSettingsSaved(false), 3000);
+                  }}
+                  className="bg-[#582f0e] text-white px-8 py-3 rounded-lg font-semibold hover:bg-[#7f4f24] transition-colors"
+                >
+                  Save Changes
+                </button>
+                {settingsSaved && (
+                  <p className="text-green-600 font-semibold flex items-center gap-2">
+                    <CheckCircle2 className="w-5 h-5" />
+                    Your changes have been saved.
+                  </p>
+                )}
+              </div>
+            </div>
+          )}
         </div>
       </div>
     </div>
@@ -1297,7 +1812,9 @@ const HoppyTrailsCraftBeer = () => {
       <p className="text-gray-600 mb-8">Join us for tastings, festivals, and special beer events</p>
 
       <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-        {events.map(event => (
+        {events.map(event => {
+          const isRegistered = registeredEvents.includes(event.id);
+          return (
           <div key={event.id} className="bg-white rounded-lg shadow-lg overflow-hidden hover:shadow-xl transition-shadow">
             <div className="h-48">
               <img src={event.image} alt={event.title} className="w-full h-full object-cover" />
@@ -1321,13 +1838,24 @@ const HoppyTrailsCraftBeer = () => {
               <p className="text-gray-700 mb-4">{event.description}</p>
               <div className="flex items-center justify-between">
                 <span className="text-2xl font-bold text-[#582f0e]">${event.price.toFixed(2)}</span>
-                <button className="bg-[#582f0e] text-white px-6 py-2 rounded-lg font-semibold hover:bg-[#7f4f24] transition-colors">
-                  Register
-                </button>
+                {isRegistered ? (
+                  <span className="bg-green-100 text-green-700 px-6 py-2 rounded-lg font-semibold flex items-center gap-2">
+                    <CheckCircle2 className="w-5 h-5" />
+                    Registered
+                  </span>
+                ) : (
+                  <button
+                    onClick={() => openEventRegistration(event)}
+                    className="bg-[#582f0e] text-white px-6 py-2 rounded-lg font-semibold hover:bg-[#7f4f24] transition-colors"
+                  >
+                    Register
+                  </button>
+                )}
               </div>
             </div>
           </div>
-        ))}
+          );
+        })}
       </div>
 
       <div className="mt-12 bg-[#582f0e] text-white rounded-lg p-8">
@@ -1335,17 +1863,37 @@ const HoppyTrailsCraftBeer = () => {
           <Calendar className="w-16 h-16 mx-auto mb-4 text-[#936639]" />
           <h2 className="text-3xl font-bold mb-4">Never Miss an Event</h2>
           <p className="text-lg mb-6">Subscribe to our newsletter for updates on upcoming tastings, releases, and events.</p>
-          <div className="flex gap-3 max-w-md mx-auto">
-            <input
-              type="email"
-              aria-label="Email address for newsletter"
-              placeholder="Enter your email"
-              className="flex-1 px-4 py-3 rounded-lg text-gray-900"
-            />
-            <button className="bg-[#936639] px-6 py-3 rounded-lg font-semibold hover:bg-[#7f4f24] transition-colors">
-              Subscribe
-            </button>
-          </div>
+          {newsletterDone ? (
+            <div className="bg-[#7f4f24] rounded-lg p-4 max-w-md mx-auto flex items-center justify-center gap-3">
+              <CheckCircle2 className="w-6 h-6 text-green-300 flex-shrink-0" />
+              <p className="font-semibold">You're on the list! Watch your inbox for event news and new releases.</p>
+            </div>
+          ) : (
+            <div className="max-w-md mx-auto">
+              <div className="flex gap-3">
+                <input
+                  type="email"
+                  aria-label="Email address for newsletter"
+                  placeholder="Enter your email"
+                  value={newsletterEmail}
+                  onChange={(e) => {
+                    setNewsletterEmail(e.target.value);
+                    setNewsletterError(false);
+                  }}
+                  className="flex-1 px-4 py-3 rounded-lg text-gray-900"
+                />
+                <button
+                  onClick={handleNewsletterSubscribe}
+                  className="bg-[#936639] px-6 py-3 rounded-lg font-semibold hover:bg-[#7f4f24] transition-colors"
+                >
+                  Subscribe
+                </button>
+              </div>
+              {newsletterError && (
+                <p className="text-sm text-red-300 mt-2 text-left">Please enter a valid email address.</p>
+              )}
+            </div>
+          )}
         </div>
       </div>
     </div>
@@ -1360,12 +1908,33 @@ const HoppyTrailsCraftBeer = () => {
         <div>
           <div className="bg-white rounded-lg shadow-lg p-8">
             <h2 className="text-2xl font-bold text-[#582f0e] mb-6">Send Us a Message</h2>
-            <form className="space-y-4">
+            {contactSubmitted ? (
+              <div className="text-center py-8">
+                <div className="w-16 h-16 bg-green-100 rounded-full flex items-center justify-center mx-auto mb-4">
+                  <CheckCircle2 className="w-10 h-10 text-green-600" />
+                </div>
+                <h3 className="text-2xl font-bold text-[#582f0e] mb-2">Message Sent!</h3>
+                <p className="text-gray-600 mb-6">
+                  Thanks for reaching out. Our team will get back to you within one business day.
+                </p>
+                <button
+                  onClick={() => setContactSubmitted(false)}
+                  className="text-[#582f0e] font-semibold hover:text-[#7f4f24] transition-colors"
+                >
+                  Send Another Message
+                </button>
+              </div>
+            ) : (
+            <form className="space-y-4" onSubmit={handleContactSubmit}>
               <div>
                 <label htmlFor="beer-contact-name" className="block text-sm font-semibold text-gray-700 mb-2">Name</label>
                 <input
                   id="beer-contact-name"
+                  name="name"
                   type="text"
+                  required
+                  value={contactForm.name}
+                  onChange={handleContactChange}
                   className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-[#582f0e] focus:border-transparent"
                   placeholder="Your name"
                 />
@@ -1374,7 +1943,11 @@ const HoppyTrailsCraftBeer = () => {
                 <label htmlFor="beer-contact-email" className="block text-sm font-semibold text-gray-700 mb-2">Email</label>
                 <input
                   id="beer-contact-email"
+                  name="email"
                   type="email"
+                  required
+                  value={contactForm.email}
+                  onChange={handleContactChange}
                   className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-[#582f0e] focus:border-transparent"
                   placeholder="your@email.com"
                 />
@@ -1383,14 +1956,23 @@ const HoppyTrailsCraftBeer = () => {
                 <label htmlFor="beer-contact-phone" className="block text-sm font-semibold text-gray-700 mb-2">Phone</label>
                 <input
                   id="beer-contact-phone"
+                  name="phone"
                   type="tel"
+                  value={contactForm.phone}
+                  onChange={handleContactChange}
                   className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-[#582f0e] focus:border-transparent"
                   placeholder="(555) 123-4567"
                 />
               </div>
               <div>
                 <label htmlFor="beer-contact-subject" className="block text-sm font-semibold text-gray-700 mb-2">Subject</label>
-                <select id="beer-contact-subject" className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-[#582f0e] focus:border-transparent">
+                <select
+                  id="beer-contact-subject"
+                  name="subject"
+                  value={contactForm.subject}
+                  onChange={handleContactChange}
+                  className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-[#582f0e] focus:border-transparent"
+                >
                   <option>General Inquiry</option>
                   <option>Order Support</option>
                   <option>Subscription Question</option>
@@ -1402,7 +1984,11 @@ const HoppyTrailsCraftBeer = () => {
                 <label htmlFor="beer-contact-message" className="block text-sm font-semibold text-gray-700 mb-2">Message</label>
                 <textarea
                   id="beer-contact-message"
+                  name="message"
                   rows={5}
+                  required
+                  value={contactForm.message}
+                  onChange={handleContactChange}
                   className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-[#582f0e] focus:border-transparent"
                   placeholder="How can we help you?"
                 ></textarea>
@@ -1414,6 +2000,7 @@ const HoppyTrailsCraftBeer = () => {
                 Send Message
               </button>
             </form>
+            )}
           </div>
         </div>
 
@@ -1464,14 +2051,26 @@ const HoppyTrailsCraftBeer = () => {
           <div className="bg-[#582f0e] text-white rounded-lg p-8">
             <h3 className="text-xl font-bold mb-4">Follow Us</h3>
             <div className="flex gap-4">
-              <button className="w-12 h-12 bg-[#936639] rounded-full flex items-center justify-center hover:bg-[#7f4f24] transition-colors">
-                <Share2 className="w-6 h-6" />
+              <button
+                onClick={() => setCurrentPage('events')}
+                aria-label="See our upcoming events on Facebook"
+                className="w-12 h-12 bg-[#936639] rounded-full flex items-center justify-center hover:bg-[#7f4f24] transition-colors"
+              >
+                <Facebook className="w-6 h-6" />
               </button>
-              <button className="w-12 h-12 bg-[#936639] rounded-full flex items-center justify-center hover:bg-[#7f4f24] transition-colors">
-                <Share2 className="w-6 h-6" />
+              <button
+                onClick={() => setCurrentPage('shop')}
+                aria-label="See our latest beers on Instagram"
+                className="w-12 h-12 bg-[#936639] rounded-full flex items-center justify-center hover:bg-[#7f4f24] transition-colors"
+              >
+                <Instagram className="w-6 h-6" />
               </button>
-              <button className="w-12 h-12 bg-[#936639] rounded-full flex items-center justify-center hover:bg-[#7f4f24] transition-colors">
-                <Share2 className="w-6 h-6" />
+              <button
+                onClick={() => setCurrentPage('events')}
+                aria-label="Follow our event announcements on Twitter"
+                className="w-12 h-12 bg-[#936639] rounded-full flex items-center justify-center hover:bg-[#7f4f24] transition-colors"
+              >
+                <Twitter className="w-6 h-6" />
               </button>
             </div>
           </div>
@@ -1507,18 +2106,18 @@ const HoppyTrailsCraftBeer = () => {
             <h4 className="font-bold mb-4">Support</h4>
             <ul className="space-y-2 text-gray-300 text-sm">
               <li><button onClick={() => setCurrentPage('contact')} className="hover:text-white">Contact Us</button></li>
-              <li><button className="hover:text-white">FAQ</button></li>
-              <li><button className="hover:text-white">Shipping Info</button></li>
-              <li><button className="hover:text-white">Returns</button></li>
+              <li><button onClick={() => setInfoModal({ title: 'FAQ', body: infoContent['FAQ'] })} className="hover:text-white">FAQ</button></li>
+              <li><button onClick={() => setInfoModal({ title: 'Shipping Info', body: infoContent['Shipping Info'] })} className="hover:text-white">Shipping Info</button></li>
+              <li><button onClick={() => setInfoModal({ title: 'Returns', body: infoContent['Returns'] })} className="hover:text-white">Returns</button></li>
             </ul>
           </div>
           <div>
             <h4 className="font-bold mb-4">Legal</h4>
             <ul className="space-y-2 text-gray-300 text-sm">
-              <li><button className="hover:text-white">Terms of Service</button></li>
-              <li><button className="hover:text-white">Privacy Policy</button></li>
-              <li><button className="hover:text-white">Age Verification</button></li>
-              <li><button className="hover:text-white">Responsible Drinking</button></li>
+              <li><button onClick={() => setInfoModal({ title: 'Terms of Service', body: infoContent['Terms of Service'] })} className="hover:text-white">Terms of Service</button></li>
+              <li><button onClick={() => setInfoModal({ title: 'Privacy Policy', body: infoContent['Privacy Policy'] })} className="hover:text-white">Privacy Policy</button></li>
+              <li><button onClick={() => setInfoModal({ title: 'Age Verification', body: infoContent['Age Verification'] })} className="hover:text-white">Age Verification</button></li>
+              <li><button onClick={() => setInfoModal({ title: 'Responsible Drinking', body: infoContent['Responsible Drinking'] })} className="hover:text-white">Responsible Drinking</button></li>
             </ul>
           </div>
         </div>
@@ -1530,25 +2129,373 @@ const HoppyTrailsCraftBeer = () => {
     </footer>
   );
 
+  // Modal: Beer detail
+  const BeerDetailModal = () => {
+    if (!detailBeer) return null;
+    return (
+      <div
+        className="fixed inset-0 z-[60] bg-black/60 flex items-center justify-center p-4"
+        onClick={() => setDetailBeer(null)}
+      >
+        <div
+          className="bg-white rounded-2xl shadow-2xl w-full max-w-3xl max-h-[90vh] overflow-y-auto"
+          onClick={(e) => e.stopPropagation()}
+        >
+          <div className="grid grid-cols-1 md:grid-cols-2">
+            <div className="relative h-64 md:h-full min-h-[16rem]">
+              <img src={detailBeer.image} alt={detailBeer.name} className="w-full h-full object-cover md:rounded-l-2xl" />
+              <div className="absolute top-3 left-3 bg-[#582f0e] text-white px-3 py-1 rounded-full text-sm font-semibold">
+                {detailBeer.style}
+              </div>
+            </div>
+            <div className="p-6">
+              <div className="flex items-start justify-between mb-2">
+                <div>
+                  <h2 className="text-2xl font-bold text-[#582f0e]">{detailBeer.name}</h2>
+                  <p className="text-gray-600">{detailBeer.brewery}</p>
+                </div>
+                <button
+                  onClick={() => setDetailBeer(null)}
+                  aria-label="Close"
+                  className="p-2 rounded-lg text-gray-500 hover:bg-gray-100 hover:text-gray-700 transition-colors"
+                >
+                  <X className="w-5 h-5" />
+                </button>
+              </div>
+
+              <div className="flex items-center gap-1 mb-3">
+                {[...Array(5)].map((_, i) => (
+                  <Star
+                    key={i}
+                    className={`w-4 h-4 ${i < Math.floor(detailBeer.rating) ? 'fill-yellow-400 text-yellow-400' : 'text-gray-300'}`}
+                  />
+                ))}
+                <span className="text-sm text-gray-600 ml-1">{detailBeer.rating} ({detailBeer.reviews} reviews)</span>
+              </div>
+
+              <div className="flex items-center gap-4 text-sm text-gray-700 mb-3">
+                <span className="font-semibold">{detailBeer.abv}% ABV</span>
+                <span>{detailBeer.ibu} IBU</span>
+                <span className={detailBeer.inStock ? 'text-green-600 font-semibold' : 'text-red-600 font-semibold'}>
+                  {detailBeer.inStock ? 'In Stock' : 'Out of Stock'}
+                </span>
+              </div>
+
+              <p className="text-gray-700 mb-4">{detailBeer.description}</p>
+
+              <div className="mb-4">
+                <p className="font-semibold text-gray-800 mb-2">Tasting Notes</p>
+                <div className="flex flex-wrap gap-2">
+                  {detailBeer.tastingNotes.map(note => (
+                    <span key={note} className="bg-[#582f0e]/10 text-[#582f0e] px-3 py-1 rounded-full text-sm font-medium">
+                      {note}
+                    </span>
+                  ))}
+                </div>
+              </div>
+
+              <div className="mb-6">
+                <p className="font-semibold text-gray-800 mb-2">Pairs Well With</p>
+                <div className="flex flex-wrap gap-2">
+                  {detailBeer.foodPairings.map(pairing => (
+                    <span key={pairing} className="bg-gray-100 text-gray-700 px-3 py-1 rounded-full text-sm">
+                      {pairing}
+                    </span>
+                  ))}
+                </div>
+              </div>
+
+              <div className="flex items-center justify-between mb-4">
+                <span className="text-3xl font-bold text-[#582f0e]">${detailBeer.price.toFixed(2)}</span>
+                <button
+                  onClick={() => toggleWishlist(detailBeer.id)}
+                  aria-label={wishlist.includes(detailBeer.id) ? 'Remove from wishlist' : 'Add to wishlist'}
+                  className="p-2 rounded-full border border-gray-300 hover:bg-gray-50"
+                >
+                  <Heart className={`w-5 h-5 ${wishlist.includes(detailBeer.id) ? 'fill-red-500 text-red-500' : 'text-gray-600'}`} />
+                </button>
+              </div>
+
+              <button
+                onClick={() => {
+                  addToCart(detailBeer);
+                  setDetailAdded(true);
+                }}
+                className="w-full bg-[#582f0e] text-white px-6 py-3 rounded-lg font-semibold hover:bg-[#7f4f24] transition-colors flex items-center justify-center gap-2"
+              >
+                <ShoppingCart className="w-5 h-5" />
+                Add to Cart
+              </button>
+              {detailAdded && (
+                <div className="mt-3 flex items-center justify-between bg-green-50 border border-green-200 rounded-lg px-4 py-3">
+                  <span className="text-green-700 font-semibold flex items-center gap-2">
+                    <CheckCircle2 className="w-5 h-5" />
+                    Added to cart
+                  </span>
+                  <button
+                    onClick={() => {
+                      setDetailBeer(null);
+                      setCurrentPage('cart');
+                    }}
+                    className="text-[#582f0e] font-semibold hover:underline"
+                  >
+                    View Cart
+                  </button>
+                </div>
+              )}
+            </div>
+          </div>
+        </div>
+      </div>
+    );
+  };
+
+  // Modal: Event registration
+  const EventRegistrationModal = () => {
+    if (!eventRegOpen) return null;
+    return (
+      <div
+        className="fixed inset-0 z-[60] bg-black/60 flex items-center justify-center p-4"
+        onClick={() => setEventRegOpen(null)}
+      >
+        <div
+          className="bg-white rounded-2xl shadow-2xl w-full max-w-lg max-h-[90vh] overflow-y-auto"
+          onClick={(e) => e.stopPropagation()}
+        >
+          <div className="flex items-center justify-between p-5 border-b border-gray-200">
+            <h3 className="text-xl font-bold text-[#582f0e]">
+              {eventRegConfirmed ? 'Registration Confirmed' : `Register: ${eventRegOpen.title}`}
+            </h3>
+            <button
+              onClick={() => setEventRegOpen(null)}
+              aria-label="Close"
+              className="p-2 rounded-lg text-gray-500 hover:bg-gray-100 hover:text-gray-700 transition-colors"
+            >
+              <X className="w-5 h-5" />
+            </button>
+          </div>
+
+          {eventRegConfirmed ? (
+            <div className="p-6 text-center">
+              <div className="w-16 h-16 bg-green-100 rounded-full flex items-center justify-center mx-auto mb-4">
+                <CheckCircle2 className="w-10 h-10 text-green-600" />
+              </div>
+              <h4 className="text-2xl font-bold text-[#582f0e] mb-2">You're Registered!</h4>
+              <p className="text-gray-600 mb-4">
+                {eventRegForm.tickets} ticket{eventRegForm.tickets > 1 ? 's' : ''} reserved for {eventRegOpen.title} at the {eventRegOpen.location}.
+                A confirmation email is headed to {eventRegForm.email}.
+              </p>
+              <p className="text-sm text-gray-500 mb-6">
+                This is a demo storefront, so no payment was processed. Must be 21+ to attend; please bring a valid photo ID.
+              </p>
+              <button
+                onClick={() => setEventRegOpen(null)}
+                className="w-full bg-[#582f0e] text-white px-6 py-3 rounded-lg font-semibold hover:bg-[#7f4f24] transition-colors"
+              >
+                Done
+              </button>
+            </div>
+          ) : (
+            <form onSubmit={handleEventRegSubmit} className="p-6 space-y-4">
+              <div className="bg-gray-50 rounded-lg p-4 text-sm text-gray-700 space-y-1">
+                <p className="flex items-center gap-2">
+                  <Calendar className="w-4 h-4 text-[#582f0e]" />
+                  {new Date(eventRegOpen.date).toLocaleDateString('en-US', { month: 'long', day: 'numeric', year: 'numeric' })}
+                </p>
+                <p className="flex items-center gap-2">
+                  <Clock className="w-4 h-4 text-[#582f0e]" />
+                  {eventRegOpen.time}
+                </p>
+                <p className="flex items-center gap-2">
+                  <MapPin className="w-4 h-4 text-[#582f0e]" />
+                  {eventRegOpen.location}
+                </p>
+              </div>
+              <div>
+                <label htmlFor="beer-event-name" className="block text-sm font-semibold text-gray-700 mb-2">Full Name</label>
+                <input
+                  id="beer-event-name"
+                  type="text"
+                  required
+                  value={eventRegForm.name}
+                  onChange={(e) => setEventRegForm({ ...eventRegForm, name: e.target.value })}
+                  className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-[#582f0e] focus:border-transparent"
+                  placeholder="Your name"
+                />
+              </div>
+              <div>
+                <label htmlFor="beer-event-email" className="block text-sm font-semibold text-gray-700 mb-2">Email</label>
+                <input
+                  id="beer-event-email"
+                  type="email"
+                  required
+                  value={eventRegForm.email}
+                  onChange={(e) => setEventRegForm({ ...eventRegForm, email: e.target.value })}
+                  className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-[#582f0e] focus:border-transparent"
+                  placeholder="your@email.com"
+                />
+              </div>
+              <div>
+                <label htmlFor="beer-event-tickets" className="block text-sm font-semibold text-gray-700 mb-2">Tickets</label>
+                <select
+                  id="beer-event-tickets"
+                  value={eventRegForm.tickets}
+                  onChange={(e) => setEventRegForm({ ...eventRegForm, tickets: Number(e.target.value) })}
+                  className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-[#582f0e] focus:border-transparent"
+                >
+                  {[1, 2, 3, 4, 5, 6].map(n => (
+                    <option key={n} value={n}>{n} ticket{n > 1 ? 's' : ''}</option>
+                  ))}
+                </select>
+              </div>
+              <div className="flex justify-between items-center pt-2 border-t">
+                <span className="text-gray-600 font-semibold">Total</span>
+                <span className="text-2xl font-bold text-[#582f0e]">
+                  ${(eventRegOpen.price * eventRegForm.tickets).toFixed(2)}
+                </span>
+              </div>
+              <button
+                type="submit"
+                className="w-full bg-[#582f0e] text-white px-6 py-3 rounded-lg font-bold hover:bg-[#7f4f24] transition-colors"
+              >
+                Confirm Registration
+              </button>
+              <p className="text-xs text-gray-500 text-center">
+                Must be 21+ to attend. Payment is collected at the door; this reservation holds your spot.
+              </p>
+            </form>
+          )}
+        </div>
+      </div>
+    );
+  };
+
+  // Modal: Past order details
+  const OrderDetailModal = () => {
+    if (!viewOrder) return null;
+    return (
+      <div
+        className="fixed inset-0 z-[60] bg-black/60 flex items-center justify-center p-4"
+        onClick={() => setViewOrder(null)}
+      >
+        <div
+          className="bg-white rounded-2xl shadow-2xl w-full max-w-lg max-h-[90vh] overflow-y-auto"
+          onClick={(e) => e.stopPropagation()}
+        >
+          <div className="flex items-center justify-between p-5 border-b border-gray-200">
+            <div>
+              <h3 className="text-xl font-bold text-[#582f0e]">Order {viewOrder.id}</h3>
+              <p className="text-sm text-gray-600">{viewOrder.date}</p>
+            </div>
+            <button
+              onClick={() => setViewOrder(null)}
+              aria-label="Close"
+              className="p-2 rounded-lg text-gray-500 hover:bg-gray-100 hover:text-gray-700 transition-colors"
+            >
+              <X className="w-5 h-5" />
+            </button>
+          </div>
+          <div className="p-6">
+            <span className="inline-block px-3 py-1 bg-green-100 text-green-700 rounded-full text-sm font-semibold mb-4">
+              {viewOrder.status}
+            </span>
+            <div className="space-y-3 mb-6">
+              {viewOrder.items.map(item => (
+                <div key={item.name} className="flex items-center justify-between border-b pb-3 last:border-b-0">
+                  <div>
+                    <p className="font-semibold text-gray-800">{item.name}</p>
+                    <p className="text-sm text-gray-600">Qty {item.qty} at ${item.price.toFixed(2)}</p>
+                  </div>
+                  <span className="font-bold text-[#582f0e]">${(item.qty * item.price).toFixed(2)}</span>
+                </div>
+              ))}
+            </div>
+            <div className="flex justify-between items-center mb-6">
+              <span className="text-lg font-bold text-gray-800">Order Total</span>
+              <span className="text-2xl font-bold text-[#582f0e]">${orderTotalOf(viewOrder).toFixed(2)}</span>
+            </div>
+            <button
+              onClick={() => reorderPastOrder(viewOrder)}
+              className="w-full bg-[#582f0e] text-white px-6 py-3 rounded-lg font-semibold hover:bg-[#7f4f24] transition-colors mb-3 flex items-center justify-center gap-2"
+            >
+              <ShoppingCart className="w-5 h-5" />
+              Reorder These Beers
+            </button>
+            <button
+              onClick={() => setViewOrder(null)}
+              className="w-full bg-gray-200 text-gray-700 px-6 py-3 rounded-lg font-semibold hover:bg-gray-300 transition-colors"
+            >
+              Close
+            </button>
+          </div>
+        </div>
+      </div>
+    );
+  };
+
+  // Modal: Footer info pages (FAQ, policies)
+  const InfoModal = () => {
+    if (!infoModal) return null;
+    return (
+      <div
+        className="fixed inset-0 z-[60] bg-black/60 flex items-center justify-center p-4"
+        onClick={() => setInfoModal(null)}
+      >
+        <div
+          className="bg-white rounded-2xl shadow-2xl w-full max-w-xl max-h-[85vh] flex flex-col"
+          onClick={(e) => e.stopPropagation()}
+        >
+          <div className="flex items-center justify-between p-5 border-b border-gray-200">
+            <h3 className="text-xl font-bold text-[#582f0e]">{infoModal.title}</h3>
+            <button
+              onClick={() => setInfoModal(null)}
+              aria-label="Close"
+              className="p-2 rounded-lg text-gray-500 hover:bg-gray-100 hover:text-gray-700 transition-colors"
+            >
+              <X className="w-5 h-5" />
+            </button>
+          </div>
+          <div className="p-6 overflow-y-auto space-y-4">
+            {infoModal.body.map((paragraph, i) => (
+              <p key={i} className="text-gray-700">{paragraph}</p>
+            ))}
+          </div>
+          <div className="p-5 border-t border-gray-200">
+            <button
+              onClick={() => setInfoModal(null)}
+              className="w-full bg-[#582f0e] text-white px-6 py-3 rounded-lg font-semibold hover:bg-[#7f4f24] transition-colors"
+            >
+              Close
+            </button>
+          </div>
+        </div>
+      </div>
+    );
+  };
+
   return (
     <div className="min-h-screen bg-gray-50">
-      {showAgeModal && !isAgeVerified && <AgeVerificationModal />}
+      {showAgeModal && !isAgeVerified && AgeVerificationModal()}
       {isAgeVerified && (
         <>
-          <Navigation />
+          {Navigation()}
           <main>
-            {currentPage === 'home' && <HomePage />}
-            {currentPage === 'shop' && <ShopPage />}
-            {currentPage === 'breweries' && <BreweriesPage />}
-            {currentPage === 'finder' && <FinderPage />}
-            {currentPage === 'pickup' && <PickupPage />}
-            {currentPage === 'subscriptions' && <SubscriptionsPage />}
-            {currentPage === 'cart' && <CartPage />}
-            {currentPage === 'account' && <AccountPage />}
-            {currentPage === 'events' && <EventsPage />}
-            {currentPage === 'contact' && <ContactPage />}
+            {currentPage === 'home' && HomePage()}
+            {currentPage === 'shop' && ShopPage()}
+            {currentPage === 'breweries' && BreweriesPage()}
+            {currentPage === 'finder' && FinderPage()}
+            {currentPage === 'pickup' && PickupPage()}
+            {currentPage === 'subscriptions' && SubscriptionsPage()}
+            {currentPage === 'cart' && CartPage()}
+            {currentPage === 'account' && AccountPage()}
+            {currentPage === 'events' && EventsPage()}
+            {currentPage === 'contact' && ContactPage()}
           </main>
-          <Footer />
+          {Footer()}
+          {BeerDetailModal()}
+          {EventRegistrationModal()}
+          {OrderDetailModal()}
+          {InfoModal()}
         </>
       )}
     </div>

@@ -83,6 +83,8 @@ export default function ContactPage({ onNavigate }: ContactPageProps) {
     'General Inquiry',
   ];
 
+  const directionsUrl = 'https://www.google.com/maps/search/?api=1&query=450+Financial+Plaza+Chicago+IL+60606';
+
   const contactMethods = [
     {
       icon: Phone,
@@ -90,6 +92,8 @@ export default function ContactPage({ onNavigate }: ContactPageProps) {
       details: '(555) 123-4567',
       description: 'Mon-Fri: 8:00 AM - 6:00 PM',
       action: 'Call us',
+      href: 'tel:555-123-4567',
+      external: false,
     },
     {
       icon: Mail,
@@ -97,6 +101,8 @@ export default function ContactPage({ onNavigate }: ContactPageProps) {
       details: 'info@peakfinancial.com',
       description: 'We respond within 24 hours',
       action: 'Email us',
+      href: 'mailto:info@peakfinancial.com',
+      external: false,
     },
     {
       icon: MapPin,
@@ -104,6 +110,8 @@ export default function ContactPage({ onNavigate }: ContactPageProps) {
       details: '450 Financial Plaza, Suite 2100',
       description: 'Chicago, IL 60606',
       action: 'Get directions',
+      href: directionsUrl,
+      external: true,
     },
   ];
 
@@ -152,7 +160,13 @@ export default function ContactPage({ onNavigate }: ContactPageProps) {
                   <h3 className="text-xl font-bold text-[#14213d] mb-2">{method.title}</h3>
                   <p className="text-lg font-semibold text-gray-900 mb-1">{method.details}</p>
                   <p className="text-sm text-gray-600 mb-3">{method.description}</p>
-                  <button className="text-[#fca311] font-semibold hover:text-[#e59400]">{method.action} →</button>
+                  <a
+                    href={method.href}
+                    {...(method.external ? { target: '_blank', rel: 'noopener noreferrer' } : {})}
+                    className="text-[#fca311] font-semibold hover:text-[#e59400] inline-block"
+                  >
+                    {method.action} →
+                  </a>
                 </div>
               );
             })}
@@ -371,9 +385,14 @@ export default function ContactPage({ onNavigate }: ContactPageProps) {
                   <p className="font-semibold text-[#14213d]">Peak Financial Advisors</p>
                   <p className="text-gray-600">450 Financial Plaza, Suite 2100</p>
                   <p className="text-gray-600">Chicago, IL 60606</p>
-                  <button className="text-[#fca311] font-semibold hover:text-[#e59400] mt-2">
+                  <a
+                    href={directionsUrl}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="text-[#fca311] font-semibold hover:text-[#e59400] mt-2 inline-block"
+                  >
                     Get Directions →
-                  </button>
+                  </a>
                 </div>
               </div>
             </div>

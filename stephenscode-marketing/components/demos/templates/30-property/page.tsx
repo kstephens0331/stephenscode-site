@@ -109,6 +109,13 @@ interface TenantPayment {
   method: string;
 }
 
+interface DemoSettings {
+  emailNotifications: boolean;
+  smsAlerts: boolean;
+  maintenanceUpdates: boolean;
+  monthlyStatements: boolean;
+}
+
 type UserRole = 'Manager' | 'Tenant' | 'Owner';
 type Page = 'home' | 'properties' | 'tenants' | 'owners' | 'maintenance' | 'payments' | 'leases' | 'reports' | 'messages' | 'contact';
 
@@ -119,7 +126,12 @@ type ModalState =
   | { kind: 'tenant'; id: string }
   | { kind: 'payment'; id: string }
   | { kind: 'payRent' }
+  | { kind: 'receipt'; id: string }
+  | { kind: 'vacancies' }
   | { kind: 'lease'; id: string }
+  | { kind: 'settings' }
+  | { kind: 'signOut' }
+  | { kind: 'policy'; doc: 'privacy' | 'terms' }
   | null;
 
 // localStorage keys -- all data stays mock/local, this is a demo
@@ -127,6 +139,14 @@ const STORAGE_KEYS = {
   maintenance: 'demo_property-management_maintenance',
   tenantPayments: 'demo_property-management_tenant_payments',
   messages: 'demo_property-management_messages',
+  settings: 'demo_property-management_settings',
+};
+
+const DEFAULT_SETTINGS: DemoSettings = {
+  emailNotifications: true,
+  smsAlerts: false,
+  maintenanceUpdates: true,
+  monthlyStatements: true,
 };
 
 function loadStored<T>(key: string, fallback: T): T {
@@ -171,6 +191,20 @@ const PROPERTY_NAMES = [
   'Eastside Gardens', 'Southview Residences'
 ];
 
+// Real, stable Unsplash photo IDs (the old procedurally generated IDs 404'd)
+const PROPERTY_IMAGES = [
+  'https://images.unsplash.com/photo-1560448204-e02f11c3d0e2?w=800&h=600&fit=crop',
+  'https://images.unsplash.com/photo-1512917774080-9991f1c4c750?w=800&h=600&fit=crop',
+  'https://images.unsplash.com/photo-1568605114967-8130f3a36994?w=800&h=600&fit=crop',
+  'https://images.unsplash.com/photo-1570129477492-45c003edd2be?w=800&h=600&fit=crop',
+  'https://images.unsplash.com/photo-1580587771525-78b9dba3b914?w=800&h=600&fit=crop',
+  'https://images.unsplash.com/photo-1564013799919-ab600027ffc6?w=800&h=600&fit=crop',
+  'https://images.unsplash.com/photo-1600585154340-be6161a56a0c?w=800&h=600&fit=crop',
+  'https://images.unsplash.com/photo-1600596542815-ffad4c1539a9?w=800&h=600&fit=crop',
+  'https://images.unsplash.com/photo-1600607687939-ce8a6c25118c?w=800&h=600&fit=crop',
+  'https://images.unsplash.com/photo-1600566753086-00f18fb6b3ea?w=800&h=600&fit=crop'
+];
+
 const buildProperties = (): Property[] => Array.from({ length: 30 }, (_, i) => {
   const units = [12, 8, 24, 16, 4, 32, 6, 20, 10, 28][i % 10];
   return {
@@ -184,7 +218,7 @@ const buildProperties = (): Property[] => Array.from({ length: 30 }, (_, i) => {
     status: ['Active', 'Active', 'Active', 'Active', 'Maintenance', 'Active'][i % 6] as Property['status'],
     owner: `Owner ${Math.floor(i / 3) + 1}`,
     manager: `Manager ${(i % 5) + 1}`,
-    image: `https://images.unsplash.com/photo-${1560184697 + i}?w=800&h=600&fit=crop`
+    image: PROPERTY_IMAGES[i % PROPERTY_IMAGES.length]
   };
 });
 
@@ -401,10 +435,36 @@ const INITIAL_TENANT_PAYMENTS: TenantPayment[] = [
   { id: 'tp-3', label: 'Mar 2024', amount: 1800, method: 'ACH' }
 ];
 
-const NOTIFICATION_ITEMS = [
-  { id: 'n-1', text: 'Emergency maintenance: sparking outlet at River View Estates, Unit 302', time: 'Today' },
-  { id: 'n-2', text: 'Rent payment failed: Michael Brown, River View Estates', time: 'Yesterday' },
-  { id: 'n-3', text: 'Lease expiring soon: Downtown Lofts, Unit 405 (ends Sep 30)', time: '2 days ago' }
+interface NotificationItem {
+  id: string;
+  text: string;
+  time: string;
+  page: Page;
+  focus: ModalState;
+}
+
+const NOTIFICATION_ITEMS: NotificationItem[] = [
+  {
+    id: 'n-1',
+    text: 'Emergency maintenance: sparking outlet at River View Estates, Unit 302',
+    time: 'Today',
+    page: 'maintenance',
+    focus: { kind: 'maintenance', id: 'maint-3' }
+  },
+  {
+    id: 'n-2',
+    text: 'Rent payment failed: Michael Brown, River View Estates',
+    time: 'Yesterday',
+    page: 'payments',
+    focus: { kind: 'payment', id: 'pay-3' }
+  },
+  {
+    id: 'n-3',
+    text: 'Lease expiring soon: Downtown Lofts, Unit 405 (ends Sep 30)',
+    time: '2 days ago',
+    page: 'leases',
+    focus: null
+  }
 ];
 
 const NEXT_MAINT_STATUS: Record<MaintenanceRequest['status'], MaintenanceRequest['status']> = {
@@ -442,7 +502,7 @@ const ElitePropertyManagement = () => {
   const [currentPage, setCurrentPage] = useState<Page>('home');
   const [userRole, setUserRole] = useState<UserRole>('Manager');
   const [searchTerm, setSearchTerm] = useState('');
-  const [notifications, setNotifications] = useState(NOTIFICATION_ITEMS.length);
+  const [readNotificationIds, setReadNotificationIds] = useState<string[]>([]);
   const [notificationsOpen, setNotificationsOpen] = useState(false);
 
   // Data collections (state so demo actions can modify them)
@@ -457,9 +517,9 @@ const ElitePropertyManagement = () => {
   const [tenantPayments, setTenantPayments] = useState<TenantPayment[]>(
     () => loadStored(STORAGE_KEYS.tenantPayments, INITIAL_TENANT_PAYMENTS)
   );
+  const [payments, setPayments] = useState<Payment[]>(PAYMENTS);
   const tenants = INITIAL_TENANTS;
   const owners = INITIAL_OWNERS;
-  const payments = PAYMENTS;
 
   // Filters
   const [typeFilter, setTypeFilter] = useState('all');
@@ -467,6 +527,7 @@ const ElitePropertyManagement = () => {
   const [visibleCount, setVisibleCount] = useState(12);
   const [maintStatusFilter, setMaintStatusFilter] = useState('All Status');
   const [maintPriorityFilter, setMaintPriorityFilter] = useState('All Priorities');
+  const [paymentStatusFilter, setPaymentStatusFilter] = useState<'all' | Payment['status']>('all');
 
   // Modal + toast
   const [modal, setModal] = useState<ModalState>(null);
@@ -486,6 +547,18 @@ const ElitePropertyManagement = () => {
   const [payMethod, setPayMethod] = useState('ACH');
   const [payState, setPayState] = useState<'idle' | 'processing' | 'done'>('idle');
   const payTimer = useRef<ReturnType<typeof setTimeout> | null>(null);
+
+  // Failed payment retry (manager view)
+  const [retryingPaymentId, setRetryingPaymentId] = useState<string | null>(null);
+  const retryTimer = useRef<ReturnType<typeof setTimeout> | null>(null);
+
+  // Account settings (persisted locally)
+  const [settingsDraft, setSettingsDraft] = useState<DemoSettings>(DEFAULT_SETTINGS);
+
+  // Sign out / sign back in flow
+  const [signedOut, setSignedOut] = useState(false);
+  const [loginEmail, setLoginEmail] = useState('manager@elitepm.com');
+  const [loginPassword, setLoginPassword] = useState('demo-password');
 
   // Property add/edit form
   const [propertyDraft, setPropertyDraft] = useState({
@@ -511,6 +584,7 @@ const ElitePropertyManagement = () => {
   useEffect(() => () => {
     if (toastTimer.current) clearTimeout(toastTimer.current);
     if (payTimer.current) clearTimeout(payTimer.current);
+    if (retryTimer.current) clearTimeout(retryTimer.current);
   }, []);
 
   const showToast = (message: string) => {
@@ -526,6 +600,36 @@ const ElitePropertyManagement = () => {
   };
 
   const closeModal = () => setModal(null);
+
+  const unreadNotifications = NOTIFICATION_ITEMS.filter(n => !readNotificationIds.includes(n.id)).length;
+
+  const handleNotificationClick = (item: NotificationItem) => {
+    setReadNotificationIds(prev => prev.includes(item.id) ? prev : [...prev, item.id]);
+    goTo(item.page);
+    if (item.focus) setModal(item.focus);
+  };
+
+  const goToPropertiesWithStatus = (status: string) => {
+    setStatusFilter(status);
+    setTypeFilter('all');
+    setSearchTerm('');
+    setVisibleCount(12);
+    goTo('properties');
+  };
+
+  const goToPaymentsWithStatus = (status: 'all' | Payment['status']) => {
+    setPaymentStatusFilter(status);
+    goTo('payments');
+  };
+
+  const openPropertyByName = (name: string) => {
+    const property = propertiesList.find(p => p.name === name);
+    if (!property) {
+      showToast(`${name} is not in the current portfolio view`);
+      return;
+    }
+    setModal({ kind: 'property', id: property.id });
+  };
 
   const openPropertyForm = (id: string | null) => {
     const existing = id ? propertiesList.find(p => p.id === id) : undefined;
@@ -546,6 +650,54 @@ const ElitePropertyManagement = () => {
     setPayState('idle');
     setPayMethod('ACH');
     setModal({ kind: 'payRent' });
+  };
+
+  const openSettings = () => {
+    setSettingsDraft(loadStored(STORAGE_KEYS.settings, DEFAULT_SETTINGS));
+    setModal({ kind: 'settings' });
+    setNotificationsOpen(false);
+  };
+
+  const handleSettingsSave = (e: React.FormEvent) => {
+    e.preventDefault();
+    saveStored(STORAGE_KEYS.settings, settingsDraft);
+    setModal(null);
+    showToast('Account settings saved');
+  };
+
+  const handleSignIn = (e: React.FormEvent) => {
+    e.preventDefault();
+    setSignedOut(false);
+    setUserRole('Manager');
+    setCurrentPage('home');
+    showToast('Signed in as Property Manager');
+  };
+
+  const handleRetryPayment = (id: string) => {
+    if (retryingPaymentId) return;
+    setRetryingPaymentId(id);
+    retryTimer.current = setTimeout(() => {
+      setPayments(prev => prev.map(p => p.id === id
+        ? { ...p, status: 'Completed', date: new Date().toISOString().slice(0, 10) }
+        : p));
+      setRetryingPaymentId(null);
+      showToast('Payment retried and processed (demo -- no real charge)');
+    }, 900);
+  };
+
+  const handleSendPaymentReminder = (payment: Payment) => {
+    const reminder: Message = {
+      id: `msg-${Date.now()}`,
+      from: 'Property Manager',
+      to: payment.tenant,
+      subject: `Payment Reminder -- ${payment.property}`,
+      message: `Hi ${payment.tenant}, our records show your rent payment of $${payment.amount.toLocaleString()} for ${payment.property} could not be processed. Please update your payment method or contact our office at (555) 123-4567.`,
+      date: new Date().toISOString().slice(0, 10),
+      read: true,
+      attachments: []
+    };
+    setMessagesList(prev => [reminder, ...prev]);
+    showToast(`Payment reminder sent to ${payment.tenant}`);
   };
 
   // Stats Calculations
@@ -665,6 +817,29 @@ const ElitePropertyManagement = () => {
     showToast(`${doc} downloaded (demo document)`);
   };
 
+  const handleDownloadAttachment = (message: Message, attachment: string) => {
+    downloadTextFile(`${attachment.replace(/\.pdf$/i, '')}-DEMO.txt`, [
+      'ELITE PROPERTY MANAGEMENT',
+      `${attachment.replace(/\.pdf$/i, '').replace(/_/g, ' ').toUpperCase()} -- DEMO ATTACHMENT`,
+      '',
+      `Sent by: ${message.from}`,
+      `Sent to: ${message.to}`,
+      `Date: ${new Date(message.date).toLocaleDateString()}`,
+      `Subject: ${message.subject}`,
+      '',
+      `Portfolio: ${propertiesList.length} properties`,
+      `Monthly Revenue: $${propertiesList.reduce((sum, p) => sum + (p.monthlyRent * p.occupiedUnits), 0).toLocaleString()}`,
+      '',
+      'Sample data only -- generated by the Elite Property Management demo.'
+    ].join('\n'));
+    showToast(`${attachment} downloaded (demo document)`);
+  };
+
+  const handleMarkMessageRead = (id: string) => {
+    setMessagesList(prev => prev.map(m => m.id === id ? { ...m, read: true } : m));
+    showToast('Message marked as read');
+  };
+
   const handleDownloadOwnerReport = (owner: Owner) => {
     downloadTextFile(`Owner-Statement-${owner.name.replace(/\s+/g, '-')}-DEMO.txt`, [
       'ELITE PROPERTY MANAGEMENT',
@@ -754,7 +929,7 @@ const ElitePropertyManagement = () => {
         status: 'Vacant',
         owner: 'Owner 1',
         manager: 'Manager 1',
-        image: 'https://images.unsplash.com/photo-1560184697?w=800&h=600&fit=crop'
+        image: PROPERTY_IMAGES[propertiesList.length % PROPERTY_IMAGES.length]
       };
       setPropertiesList(prev => [newProperty, ...prev]);
       showToast(`${newProperty.name} added to the portfolio`);
@@ -797,8 +972,33 @@ const ElitePropertyManagement = () => {
     showToast(`Message sent to ${newMessage.to} (demo)`);
   };
 
-  const handleContactSubmit = (e: React.FormEvent) => {
+  const handleContactSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
+    // Real lead capture -- same pattern as the maintenance request form
+    try {
+      const response = await fetch('/api/demo-lead', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({
+          demoName: 'Elite Property Management',
+          demoPackage: 'Custom Business Platform ($5,000)',
+          demoSlug: 'elite-property-management',
+          clientName: contactForm.name,
+          clientPhone: contactForm.phone,
+          clientEmail: contactForm.email,
+          service: 'Contact Form Inquiry',
+          preferredDate: '',
+          preferredTime: '',
+          notes: contactForm.message
+        })
+      });
+      if (response.ok) {
+        trackEvent('generate_lead', { form_name: 'demo_contact_form', demo_slug: 'elite-property-management' });
+        trackConversion('leadForm');
+      }
+    } catch {
+      // Network/API failure -- the demo confirmation still shows
+    }
     setContactSubmitted(true);
     showToast('Message received -- we will get back to you shortly');
   };
@@ -836,9 +1036,9 @@ const ElitePropertyManagement = () => {
                 className="relative hover:text-[#ffc300] transition-colors"
               >
                 <Bell className="w-5 h-5" />
-                {notifications > 0 && (
+                {unreadNotifications > 0 && (
                   <span className="absolute -top-2 -right-2 bg-red-500 text-white text-xs rounded-full w-5 h-5 flex items-center justify-center">
-                    {notifications}
+                    {unreadNotifications}
                   </span>
                 )}
               </button>
@@ -847,32 +1047,46 @@ const ElitePropertyManagement = () => {
                   <div className="p-3 border-b flex items-center justify-between">
                     <span className="font-bold text-[#003566]">Notifications</span>
                     <button
-                      className="text-xs text-[#003566] font-semibold hover:underline"
-                      onClick={() => { setNotifications(0); showToast('All notifications marked as read'); }}
+                      className="text-xs text-[#003566] font-semibold hover:underline disabled:opacity-50 disabled:no-underline"
+                      disabled={unreadNotifications === 0}
+                      onClick={() => {
+                        setReadNotificationIds(NOTIFICATION_ITEMS.map(n => n.id));
+                        showToast('All notifications marked as read');
+                      }}
                     >
-                      Mark all as read
+                      {unreadNotifications === 0 ? 'All read' : 'Mark all as read'}
                     </button>
                   </div>
                   <div className="max-h-72 overflow-y-auto divide-y">
-                    {NOTIFICATION_ITEMS.map(item => (
-                      <div key={item.id} className="p-3 text-sm">
-                        <p className="text-gray-800">{item.text}</p>
-                        <p className="text-xs text-gray-500 mt-1">{item.time}</p>
-                      </div>
-                    ))}
+                    {NOTIFICATION_ITEMS.map(item => {
+                      const isUnread = !readNotificationIds.includes(item.id);
+                      return (
+                        <button
+                          key={item.id}
+                          onClick={() => handleNotificationClick(item)}
+                          className={`w-full text-left p-3 text-sm hover:bg-gray-50 transition-colors ${isUnread ? 'bg-[#ffc300]/10' : ''}`}
+                        >
+                          <p className="text-gray-800 flex items-start gap-2">
+                            {isUnread && <span className="mt-1.5 w-2 h-2 rounded-full bg-red-500 flex-shrink-0" aria-label="Unread" />}
+                            <span>{item.text}</span>
+                          </p>
+                          <p className="text-xs text-gray-500 mt-1">{item.time} &middot; Open in portal</p>
+                        </button>
+                      );
+                    })}
                   </div>
                 </div>
               )}
             </div>
             <button
-              onClick={() => showToast('Account settings are not part of this demo')}
+              onClick={openSettings}
               aria-label="Settings"
               className="hover:text-[#ffc300] transition-colors"
             >
               <Settings className="w-5 h-5" />
             </button>
             <button
-              onClick={() => showToast('This is a demo -- no login required')}
+              onClick={() => { setNotificationsOpen(false); setModal({ kind: 'signOut' }); }}
               aria-label="Log out"
               className="hover:text-[#ffc300] transition-colors"
             >
@@ -919,7 +1133,10 @@ const ElitePropertyManagement = () => {
 
       {/* Key Metrics */}
       <div className="grid grid-cols-1 md:grid-cols-4 gap-6 mb-8">
-        <div className="bg-white rounded-lg shadow-lg p-6 border-l-4 border-[#003566]">
+        <button
+          onClick={() => goToPropertiesWithStatus('all')}
+          className="text-left bg-white rounded-lg shadow-lg p-6 border-l-4 border-[#003566] hover:shadow-xl hover:-translate-y-0.5 transition-all"
+        >
           <div className="flex items-center justify-between mb-2">
             <Building2 className="w-8 h-8 text-[#003566]" />
             <TrendingUp className="w-5 h-5 text-green-500" />
@@ -927,9 +1144,13 @@ const ElitePropertyManagement = () => {
           <h3 className="text-gray-600 text-sm font-semibold mb-1">Total Properties</h3>
           <p className="text-3xl font-bold text-[#003566]">{totalProperties}</p>
           <p className="text-sm text-green-600 mt-2">+3 this month</p>
-        </div>
+          <p className="text-xs text-[#003566] font-semibold mt-3">View portfolio →</p>
+        </button>
 
-        <div className="bg-white rounded-lg shadow-lg p-6 border-l-4 border-[#ffc300]">
+        <button
+          onClick={() => setModal({ kind: 'vacancies' })}
+          className="text-left bg-white rounded-lg shadow-lg p-6 border-l-4 border-[#ffc300] hover:shadow-xl hover:-translate-y-0.5 transition-all"
+        >
           <div className="flex items-center justify-between mb-2">
             <Home className="w-8 h-8 text-[#ffc300]" />
             <Activity className="w-5 h-5 text-blue-500" />
@@ -937,9 +1158,13 @@ const ElitePropertyManagement = () => {
           <h3 className="text-gray-600 text-sm font-semibold mb-1">Occupancy Rate</h3>
           <p className="text-3xl font-bold text-[#003566]">{occupancyRate}%</p>
           <p className="text-sm text-gray-600 mt-2">{occupiedUnits} of {totalUnits} units</p>
-        </div>
+          <p className="text-xs text-[#003566] font-semibold mt-3">See vacancy breakdown →</p>
+        </button>
 
-        <div className="bg-white rounded-lg shadow-lg p-6 border-l-4 border-green-500">
+        <button
+          onClick={() => goToPaymentsWithStatus('all')}
+          className="text-left bg-white rounded-lg shadow-lg p-6 border-l-4 border-green-500 hover:shadow-xl hover:-translate-y-0.5 transition-all"
+        >
           <div className="flex items-center justify-between mb-2">
             <DollarSign className="w-8 h-8 text-green-500" />
             <ArrowUpRight className="w-5 h-5 text-green-500" />
@@ -947,9 +1172,13 @@ const ElitePropertyManagement = () => {
           <h3 className="text-gray-600 text-sm font-semibold mb-1">Monthly Revenue</h3>
           <p className="text-3xl font-bold text-[#003566]">${(totalMonthlyRevenue / 1000).toFixed(0)}K</p>
           <p className="text-sm text-green-600 mt-2">+8.5% vs last month</p>
-        </div>
+          <p className="text-xs text-[#003566] font-semibold mt-3">Open payments →</p>
+        </button>
 
-        <div className="bg-white rounded-lg shadow-lg p-6 border-l-4 border-red-500">
+        <button
+          onClick={() => { setMaintStatusFilter('All Status'); setMaintPriorityFilter('All Priorities'); goTo('maintenance'); }}
+          className="text-left bg-white rounded-lg shadow-lg p-6 border-l-4 border-red-500 hover:shadow-xl hover:-translate-y-0.5 transition-all"
+        >
           <div className="flex items-center justify-between mb-2">
             <AlertCircle className="w-8 h-8 text-red-500" />
             <Zap className="w-5 h-5 text-red-500" />
@@ -957,7 +1186,8 @@ const ElitePropertyManagement = () => {
           <h3 className="text-gray-600 text-sm font-semibold mb-1">Active Issues</h3>
           <p className="text-3xl font-bold text-[#003566]">{openMaintenanceRequests + overduePayments}</p>
           <p className="text-sm text-gray-600 mt-2">{openMaintenanceRequests} maintenance, {overduePayments} overdue</p>
-        </div>
+          <p className="text-xs text-[#003566] font-semibold mt-3">Work the queue →</p>
+        </button>
       </div>
 
       {/* Recent Activity & Alerts */}
@@ -1043,21 +1273,33 @@ const ElitePropertyManagement = () => {
           Property Portfolio Overview
         </h2>
         <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
-          <div className="text-center p-6 bg-blue-50 rounded-lg">
+          <button
+            onClick={() => goToPropertiesWithStatus('Active')}
+            className="text-center p-6 bg-blue-50 rounded-lg hover:bg-blue-100 transition-colors"
+          >
             <Target className="w-12 h-12 text-blue-600 mx-auto mb-3" />
             <h3 className="font-bold text-2xl text-blue-600 mb-1">{propertiesList.filter(p => p.status === 'Active').length}</h3>
             <p className="text-gray-700">Active Properties</p>
-          </div>
-          <div className="text-center p-6 bg-yellow-50 rounded-lg">
+            <p className="text-xs text-blue-700 font-semibold mt-2">Filter portfolio →</p>
+          </button>
+          <button
+            onClick={() => goToPropertiesWithStatus('Maintenance')}
+            className="text-center p-6 bg-yellow-50 rounded-lg hover:bg-yellow-100 transition-colors"
+          >
             <Wrench className="w-12 h-12 text-yellow-600 mx-auto mb-3" />
             <h3 className="font-bold text-2xl text-yellow-600 mb-1">{propertiesList.filter(p => p.status === 'Maintenance').length}</h3>
             <p className="text-gray-700">Under Maintenance</p>
-          </div>
-          <div className="text-center p-6 bg-gray-50 rounded-lg">
+            <p className="text-xs text-yellow-700 font-semibold mt-2">Filter portfolio →</p>
+          </button>
+          <button
+            onClick={() => setModal({ kind: 'vacancies' })}
+            className="text-center p-6 bg-gray-50 rounded-lg hover:bg-gray-100 transition-colors"
+          >
             <Key className="w-12 h-12 text-gray-600 mx-auto mb-3" />
             <h3 className="font-bold text-2xl text-gray-600 mb-1">{totalUnits - occupiedUnits}</h3>
             <p className="text-gray-700">Vacant Units</p>
-          </div>
+            <p className="text-xs text-gray-700 font-semibold mt-2">See which properties →</p>
+          </button>
         </div>
       </div>
     </div>
@@ -1100,7 +1342,7 @@ const ElitePropertyManagement = () => {
               placeholder="Search properties..."
               aria-label="Search properties"
               value={searchTerm}
-              onChange={(e) => setSearchTerm(e.target.value)}
+              onChange={(e) => { setSearchTerm(e.target.value); setVisibleCount(12); }}
               className="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-[#003566] focus:border-transparent"
             />
           </div>
@@ -1190,8 +1432,14 @@ const ElitePropertyManagement = () => {
         </div>
 
         {shown.length === 0 && (
-          <div className="text-center py-12 text-gray-600">
-            No properties match your filters.
+          <div className="text-center py-12">
+            <p className="text-gray-600 mb-4">No properties match your filters.</p>
+            <button
+              onClick={() => { setSearchTerm(''); setTypeFilter('all'); setStatusFilter('all'); setVisibleCount(12); }}
+              className="bg-[#003566] text-white px-6 py-2 rounded-lg font-semibold hover:bg-[#001d3d] transition-colors"
+            >
+              Clear Filters
+            </button>
           </div>
         )}
 
@@ -1440,7 +1688,10 @@ const ElitePropertyManagement = () => {
                   Download Lease
                 </button>
                 <button
-                  onClick={() => goTo('messages')}
+                  onClick={() => {
+                    setComposeForm({ to: 'Property Managers', subject: 'Question about Unit 201', body: '' });
+                    goTo('messages');
+                  }}
                   className="w-full bg-gray-200 text-gray-700 px-4 py-3 rounded-lg font-semibold hover:bg-gray-300 transition-colors flex items-center justify-center gap-2"
                 >
                   <MessageSquare className="w-5 h-5" />
@@ -1477,10 +1728,17 @@ const ElitePropertyManagement = () => {
               <h2 className="text-xl font-bold text-[#003566] mb-4">Payment History</h2>
               <div className="space-y-2">
                 {tenantPayments.map(payment => (
-                  <div key={payment.id} className="flex items-center justify-between p-2 border-b">
-                    <span className="text-sm text-gray-700">{payment.label}</span>
+                  <button
+                    key={payment.id}
+                    onClick={() => setModal({ kind: 'receipt', id: payment.id })}
+                    className="w-full flex items-center justify-between p-2 border-b hover:bg-gray-50 transition-colors text-left"
+                  >
+                    <span className="text-sm text-gray-700">
+                      {payment.label}
+                      <span className="block text-xs text-gray-500">{payment.method} &middot; View receipt</span>
+                    </span>
                     <span className="text-sm font-semibold text-green-600">${payment.amount.toLocaleString()}</span>
-                  </div>
+                  </button>
                 ))}
               </div>
             </div>
@@ -1540,62 +1798,248 @@ const ElitePropertyManagement = () => {
   );
 
   // Page: Owner Portal
-  const OwnerPortalPage = () => (
-    <div className="max-w-7xl mx-auto px-4 py-8">
-      <h1 className="text-4xl font-bold text-[#003566] mb-8">Owner Portal</h1>
+  const OwnerCard = ({ owner }: { owner: Owner }) => (
+    <div className="bg-white rounded-lg shadow-lg p-6">
+      <div className="flex items-center gap-3 mb-6">
+        <div className="w-12 h-12 bg-[#003566] rounded-full flex items-center justify-center">
+          <UserCheck className="w-6 h-6 text-white" />
+        </div>
+        <div>
+          <h2 className="font-bold text-lg text-[#003566]">{owner.name}</h2>
+          <p className="text-sm text-gray-600">{owner.properties.length} Properties</p>
+        </div>
+      </div>
 
-      <div className="grid grid-cols-1 lg:grid-cols-3 gap-8">
-        {owners.map(owner => (
-          <div key={owner.id} className="bg-white rounded-lg shadow-lg p-6">
-            <div className="flex items-center gap-3 mb-6">
-              <div className="w-12 h-12 bg-[#003566] rounded-full flex items-center justify-center">
-                <UserCheck className="w-6 h-6 text-white" />
-              </div>
-              <div>
-                <h2 className="font-bold text-lg text-[#003566]">{owner.name}</h2>
-                <p className="text-sm text-gray-600">{owner.properties.length} Properties</p>
-              </div>
-            </div>
+      <div className="space-y-4 mb-6">
+        <div className="bg-green-50 p-4 rounded-lg">
+          <p className="text-sm text-gray-600 mb-1">Total Revenue</p>
+          <p className="text-2xl font-bold text-green-600">${owner.totalRevenue.toLocaleString()}</p>
+        </div>
+        <div className="bg-red-50 p-4 rounded-lg">
+          <p className="text-sm text-gray-600 mb-1">Total Expenses</p>
+          <p className="text-2xl font-bold text-red-600">${owner.expenses.toLocaleString()}</p>
+        </div>
+        <div className="bg-blue-50 p-4 rounded-lg">
+          <p className="text-sm text-gray-600 mb-1">Net Income</p>
+          <p className="text-2xl font-bold text-blue-600">${owner.netIncome.toLocaleString()}</p>
+        </div>
+      </div>
 
-            <div className="space-y-4 mb-6">
-              <div className="bg-green-50 p-4 rounded-lg">
-                <p className="text-sm text-gray-600 mb-1">Total Revenue</p>
-                <p className="text-2xl font-bold text-green-600">${owner.totalRevenue.toLocaleString()}</p>
-              </div>
-              <div className="bg-red-50 p-4 rounded-lg">
-                <p className="text-sm text-gray-600 mb-1">Total Expenses</p>
-                <p className="text-2xl font-bold text-red-600">${owner.expenses.toLocaleString()}</p>
-              </div>
-              <div className="bg-blue-50 p-4 rounded-lg">
-                <p className="text-sm text-gray-600 mb-1">Net Income</p>
-                <p className="text-2xl font-bold text-blue-600">${owner.netIncome.toLocaleString()}</p>
-              </div>
-            </div>
-
-            <div className="border-t pt-4 mb-4">
-              <p className="text-sm text-gray-600 mb-2">Properties</p>
-              <div className="space-y-2">
-                {owner.properties.map(prop => (
-                  <div key={prop} className="text-sm text-gray-700 flex items-center gap-2">
-                    <Building2 className="w-4 h-4 text-[#ffc300]" />
-                    {prop}
-                  </div>
-                ))}
-              </div>
-            </div>
-
+      <div className="border-t pt-4 mb-4">
+        <p className="text-sm text-gray-600 mb-2">Properties</p>
+        <div className="space-y-2">
+          {owner.properties.map(prop => (
             <button
-              onClick={() => handleDownloadOwnerReport(owner)}
-              className="w-full bg-[#003566] text-white px-4 py-3 rounded-lg font-semibold hover:bg-[#001d3d] transition-colors flex items-center justify-center gap-2"
+              key={prop}
+              onClick={() => openPropertyByName(prop)}
+              className="w-full text-sm text-gray-700 flex items-center gap-2 p-2 rounded hover:bg-gray-50 hover:text-[#003566] transition-colors text-left"
             >
-              <Download className="w-5 h-5" />
-              Download Report
+              <Building2 className="w-4 h-4 text-[#ffc300] flex-shrink-0" />
+              <span className="flex-1">{prop}</span>
+              <ArrowUpRight className="w-4 h-4 text-gray-400" />
             </button>
-          </div>
-        ))}
+          ))}
+        </div>
+      </div>
+
+      <div className="space-y-2">
+        <button
+          onClick={() => handleDownloadOwnerReport(owner)}
+          className="w-full bg-[#003566] text-white px-4 py-3 rounded-lg font-semibold hover:bg-[#001d3d] transition-colors flex items-center justify-center gap-2"
+        >
+          <Download className="w-5 h-5" />
+          Download Report
+        </button>
+        <button
+          onClick={() => { setComposeForm({ to: owner.name, subject: `Portfolio update for ${owner.name}`, body: '' }); goTo('messages'); }}
+          className="w-full border-2 border-[#003566] text-[#003566] px-4 py-3 rounded-lg font-semibold hover:bg-gray-50 transition-colors flex items-center justify-center gap-2"
+        >
+          <MessageSquare className="w-5 h-5" />
+          Message Owner
+        </button>
       </div>
     </div>
   );
+
+  const OwnerPortalPage = () => {
+    const myOwner = owners[0];
+    const payoutSchedule = [
+      { period: 'May 2024', gross: 42500, fees: 3400, net: 39100, status: 'Deposited' },
+      { period: 'Apr 2024', gross: 41200, fees: 3296, net: 37904, status: 'Deposited' },
+      { period: 'Mar 2024', gross: 41300, fees: 3304, net: 37996, status: 'Deposited' },
+      { period: 'Jun 2024', gross: 43100, fees: 3448, net: 39652, status: 'Scheduled' }
+    ];
+
+    return (
+      <div className="max-w-7xl mx-auto px-4 py-8">
+        <div className="flex flex-wrap items-center justify-between gap-4 mb-8">
+          <h1 className="text-4xl font-bold text-[#003566]">Owner Portal</h1>
+          {userRole === 'Owner' ? (
+            <button
+              onClick={() => setUserRole('Manager')}
+              className="px-4 py-2 border-2 border-[#003566] text-[#003566] rounded-lg font-semibold hover:bg-gray-100 transition-colors text-sm"
+            >
+              Switch to Manager View
+            </button>
+          ) : (
+            <button
+              onClick={() => setUserRole('Owner')}
+              className="px-4 py-2 bg-[#ffc300] text-[#003566] rounded-lg font-semibold hover:bg-[#003566] hover:text-white transition-colors text-sm"
+            >
+              Preview Owner View
+            </button>
+          )}
+        </div>
+
+        {userRole === 'Owner' ? (
+          <div className="grid grid-cols-1 lg:grid-cols-3 gap-8">
+            <div className="lg:col-span-2 space-y-6">
+              <div className="bg-white rounded-lg shadow-lg p-6">
+                <h2 className="text-2xl font-bold text-[#003566] mb-1">Welcome back, {myOwner.name}</h2>
+                <p className="text-gray-600 mb-6">{myOwner.paymentSchedule} distributions across {myOwner.properties.length} properties</p>
+                <div className="grid grid-cols-1 sm:grid-cols-3 gap-4">
+                  <div className="bg-green-50 p-4 rounded-lg">
+                    <p className="text-sm text-gray-600 mb-1">Revenue YTD</p>
+                    <p className="text-2xl font-bold text-green-600">${myOwner.totalRevenue.toLocaleString()}</p>
+                  </div>
+                  <div className="bg-red-50 p-4 rounded-lg">
+                    <p className="text-sm text-gray-600 mb-1">Expenses YTD</p>
+                    <p className="text-2xl font-bold text-red-600">${myOwner.expenses.toLocaleString()}</p>
+                  </div>
+                  <div className="bg-blue-50 p-4 rounded-lg">
+                    <p className="text-sm text-gray-600 mb-1">Net Income</p>
+                    <p className="text-2xl font-bold text-blue-600">${myOwner.netIncome.toLocaleString()}</p>
+                  </div>
+                </div>
+              </div>
+
+              <div className="bg-white rounded-lg shadow-lg p-6">
+                <h2 className="text-2xl font-bold text-[#003566] mb-4">Distribution History</h2>
+                <div className="overflow-x-auto">
+                  <table className="w-full">
+                    <thead className="bg-gray-50">
+                      <tr>
+                        <th className="px-4 py-3 text-left text-xs font-semibold text-gray-700 uppercase">Period</th>
+                        <th className="px-4 py-3 text-left text-xs font-semibold text-gray-700 uppercase">Gross</th>
+                        <th className="px-4 py-3 text-left text-xs font-semibold text-gray-700 uppercase">Mgmt Fee</th>
+                        <th className="px-4 py-3 text-left text-xs font-semibold text-gray-700 uppercase">Net</th>
+                        <th className="px-4 py-3 text-left text-xs font-semibold text-gray-700 uppercase">Status</th>
+                      </tr>
+                    </thead>
+                    <tbody className="divide-y divide-gray-200">
+                      {payoutSchedule.map(row => (
+                        <tr key={row.period} className="hover:bg-gray-50">
+                          <td className="px-4 py-3 text-sm font-semibold text-gray-900">{row.period}</td>
+                          <td className="px-4 py-3 text-sm text-gray-700">${row.gross.toLocaleString()}</td>
+                          <td className="px-4 py-3 text-sm text-red-600">-${row.fees.toLocaleString()}</td>
+                          <td className="px-4 py-3 text-sm font-bold text-green-600">${row.net.toLocaleString()}</td>
+                          <td className="px-4 py-3">
+                            <span className={`px-3 py-1 rounded-full text-xs font-semibold ${
+                              row.status === 'Deposited' ? 'bg-green-100 text-green-700' : 'bg-yellow-100 text-yellow-700'
+                            }`}>
+                              {row.status}
+                            </span>
+                          </td>
+                        </tr>
+                      ))}
+                    </tbody>
+                  </table>
+                </div>
+              </div>
+
+              <div className="bg-white rounded-lg shadow-lg p-6">
+                <h2 className="text-2xl font-bold text-[#003566] mb-4">My Properties</h2>
+                <div className="space-y-3">
+                  {myOwner.properties.map(prop => {
+                    const property = propertiesList.find(p => p.name === prop);
+                    return (
+                      <button
+                        key={prop}
+                        onClick={() => openPropertyByName(prop)}
+                        className="w-full flex items-center justify-between p-4 border rounded-lg hover:shadow-md transition-shadow text-left"
+                      >
+                        <div className="flex items-center gap-3">
+                          <Building2 className="w-5 h-5 text-[#ffc300]" />
+                          <div>
+                            <p className="font-semibold text-gray-900">{prop}</p>
+                            <p className="text-sm text-gray-600">
+                              {property ? `${property.occupiedUnits}/${property.units} units occupied` : 'Details in portfolio'}
+                            </p>
+                          </div>
+                        </div>
+                        <span className="text-sm font-semibold text-[#003566]">View →</span>
+                      </button>
+                    );
+                  })}
+                </div>
+              </div>
+            </div>
+
+            <div className="space-y-6">
+              <div className="bg-white rounded-lg shadow-lg p-6">
+                <h2 className="text-xl font-bold text-[#003566] mb-4">Quick Actions</h2>
+                <div className="space-y-3">
+                  <button
+                    onClick={() => handleDownloadOwnerReport(myOwner)}
+                    className="w-full bg-[#003566] text-white px-4 py-3 rounded-lg font-semibold hover:bg-[#001d3d] transition-colors flex items-center justify-center gap-2"
+                  >
+                    <Download className="w-5 h-5" />
+                    Download Statement
+                  </button>
+                  <button
+                    onClick={() => goTo('reports')}
+                    className="w-full bg-[#ffc300] text-[#003566] px-4 py-3 rounded-lg font-semibold hover:bg-[#003566] hover:text-white transition-colors flex items-center justify-center gap-2"
+                  >
+                    <PieChart className="w-5 h-5" />
+                    Financial Reports
+                  </button>
+                  <button
+                    onClick={() => { setComposeForm({ to: 'Property Managers', subject: 'Question about my portfolio', body: '' }); goTo('messages'); }}
+                    className="w-full bg-gray-200 text-gray-700 px-4 py-3 rounded-lg font-semibold hover:bg-gray-300 transition-colors flex items-center justify-center gap-2"
+                  >
+                    <MessageSquare className="w-5 h-5" />
+                    Message Manager
+                  </button>
+                  <button
+                    onClick={openSettings}
+                    className="w-full border-2 border-[#003566] text-[#003566] px-4 py-3 rounded-lg font-semibold hover:bg-gray-50 transition-colors flex items-center justify-center gap-2"
+                  >
+                    <Settings className="w-5 h-5" />
+                    Statement Preferences
+                  </button>
+                </div>
+              </div>
+
+              <div className="bg-white rounded-lg shadow-lg p-6">
+                <h2 className="text-xl font-bold text-[#003566] mb-4">Open Work Orders</h2>
+                <div className="space-y-3">
+                  {maintenanceList.filter(r => myOwner.properties.includes(r.property) && r.status !== 'Completed').length === 0 && (
+                    <p className="text-sm text-gray-600">No open work orders on your properties.</p>
+                  )}
+                  {maintenanceList
+                    .filter(r => myOwner.properties.includes(r.property) && r.status !== 'Completed')
+                    .map(request => (
+                      <button
+                        key={request.id}
+                        onClick={() => setModal({ kind: 'maintenance', id: request.id })}
+                        className="w-full text-left border-l-4 border-[#ffc300] bg-yellow-50 p-3 rounded"
+                      >
+                        <p className="font-semibold text-sm text-gray-900">{request.property}, {request.unit}</p>
+                        <p className="text-xs text-gray-600">{request.category} &middot; {request.status}</p>
+                      </button>
+                    ))}
+                </div>
+              </div>
+            </div>
+          </div>
+        ) : (
+          <div className="grid grid-cols-1 lg:grid-cols-3 gap-8">
+            {owners.map(owner => <OwnerCard key={owner.id} owner={owner} />)}
+          </div>
+        )}
+      </div>
+    );
+  };
 
   // Page: Maintenance
   const MaintenancePage = () => {
@@ -1718,72 +2162,120 @@ const ElitePropertyManagement = () => {
   };
 
   // Page: Payments
-  const PaymentsPage = () => (
-    <div className="max-w-7xl mx-auto px-4 py-8">
-      <h1 className="text-4xl font-bold text-[#003566] mb-8">Payment Processing</h1>
+  const PaymentsPage = () => {
+    const paymentCards: { status: Payment['status']; label: string; color: string }[] = [
+      { status: 'Completed', label: 'Total Collected', color: 'text-green-600' },
+      { status: 'Pending', label: 'Pending Payments', color: 'text-yellow-600' },
+      { status: 'Failed', label: 'Failed Payments', color: 'text-red-600' }
+    ];
+    const visiblePayments = payments.filter(p => paymentStatusFilter === 'all' || p.status === paymentStatusFilter);
 
-      <div className="grid grid-cols-1 md:grid-cols-3 gap-6 mb-8">
-        <div className="bg-white rounded-lg shadow-lg p-6">
-          <h3 className="text-gray-600 text-sm font-semibold mb-2">Total Collected</h3>
-          <p className="text-3xl font-bold text-green-600">${payments.filter(p => p.status === 'Completed').reduce((sum, p) => sum + p.amount, 0).toLocaleString()}</p>
-        </div>
-        <div className="bg-white rounded-lg shadow-lg p-6">
-          <h3 className="text-gray-600 text-sm font-semibold mb-2">Pending Payments</h3>
-          <p className="text-3xl font-bold text-yellow-600">${payments.filter(p => p.status === 'Pending').reduce((sum, p) => sum + p.amount, 0).toLocaleString()}</p>
-        </div>
-        <div className="bg-white rounded-lg shadow-lg p-6">
-          <h3 className="text-gray-600 text-sm font-semibold mb-2">Failed Payments</h3>
-          <p className="text-3xl font-bold text-red-600">${payments.filter(p => p.status === 'Failed').reduce((sum, p) => sum + p.amount, 0).toLocaleString()}</p>
-        </div>
-      </div>
+    return (
+      <div className="max-w-7xl mx-auto px-4 py-8">
+        <h1 className="text-4xl font-bold text-[#003566] mb-8">Payment Processing</h1>
 
-      <div className="bg-white rounded-lg shadow-lg p-6">
-        <h2 className="text-2xl font-bold text-[#003566] mb-6">All Payments</h2>
-        <div className="overflow-x-auto">
-          <table className="w-full">
-            <thead className="bg-gray-50">
-              <tr>
-                <th className="px-6 py-3 text-left text-xs font-semibold text-gray-700 uppercase">Date</th>
-                <th className="px-6 py-3 text-left text-xs font-semibold text-gray-700 uppercase">Tenant</th>
-                <th className="px-6 py-3 text-left text-xs font-semibold text-gray-700 uppercase">Property</th>
-                <th className="px-6 py-3 text-left text-xs font-semibold text-gray-700 uppercase">Amount</th>
-                <th className="px-6 py-3 text-left text-xs font-semibold text-gray-700 uppercase">Method</th>
-                <th className="px-6 py-3 text-left text-xs font-semibold text-gray-700 uppercase">Status</th>
-                <th className="px-6 py-3 text-left text-xs font-semibold text-gray-700 uppercase">Actions</th>
-              </tr>
-            </thead>
-            <tbody className="divide-y divide-gray-200">
-              {payments.map(payment => (
-                <tr key={payment.id} className="hover:bg-gray-50">
-                  <td className="px-6 py-4 text-sm text-gray-700">{new Date(payment.date).toLocaleDateString()}</td>
-                  <td className="px-6 py-4 text-sm font-semibold text-gray-900">{payment.tenant}</td>
-                  <td className="px-6 py-4 text-sm text-gray-700">{payment.property}</td>
-                  <td className="px-6 py-4 text-sm font-bold text-green-600">${payment.amount.toLocaleString()}</td>
-                  <td className="px-6 py-4 text-sm text-gray-700">{payment.method}</td>
-                  <td className="px-6 py-4">
-                    <span className={`px-3 py-1 rounded-full text-xs font-semibold ${
-                      payment.status === 'Completed' ? 'bg-green-100 text-green-700' :
-                      payment.status === 'Pending' ? 'bg-yellow-100 text-yellow-700' : 'bg-red-100 text-red-700'
-                    }`}>
-                      {payment.status}
-                    </span>
-                  </td>
-                  <td className="px-6 py-4">
-                    <button
-                      onClick={() => setModal({ kind: 'payment', id: payment.id })}
-                      className="text-[#003566] hover:underline font-semibold text-sm"
-                    >
-                      View
-                    </button>
-                  </td>
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-6 mb-8">
+          {paymentCards.map(card => {
+            const active = paymentStatusFilter === card.status;
+            return (
+              <button
+                key={card.status}
+                onClick={() => setPaymentStatusFilter(active ? 'all' : card.status)}
+                aria-pressed={active}
+                className={`text-left bg-white rounded-lg shadow-lg p-6 border-2 transition-all hover:shadow-xl ${
+                  active ? 'border-[#003566] ring-2 ring-[#ffc300]' : 'border-transparent'
+                }`}
+              >
+                <h3 className="text-gray-600 text-sm font-semibold mb-2">{card.label}</h3>
+                <p className={`text-3xl font-bold ${card.color}`}>
+                  ${payments.filter(p => p.status === card.status).reduce((sum, p) => sum + p.amount, 0).toLocaleString()}
+                </p>
+                <p className="text-xs font-semibold text-[#003566] mt-3">
+                  {active ? 'Filtering -- click to clear' : 'Click to filter the table'}
+                </p>
+              </button>
+            );
+          })}
+        </div>
+
+        <div className="bg-white rounded-lg shadow-lg p-6">
+          <div className="flex flex-wrap items-center justify-between gap-4 mb-6">
+            <h2 className="text-2xl font-bold text-[#003566]">
+              {paymentStatusFilter === 'all' ? 'All Payments' : `${paymentStatusFilter} Payments`}
+              <span className="ml-2 text-base font-semibold text-gray-500">({visiblePayments.length})</span>
+            </h2>
+            <div className="flex items-center gap-3">
+              <label htmlFor="property-payment-status" className="text-sm font-semibold text-gray-700">Status</label>
+              <select
+                id="property-payment-status"
+                value={paymentStatusFilter}
+                onChange={(e) => setPaymentStatusFilter(e.target.value as 'all' | Payment['status'])}
+                className="px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-[#003566]"
+              >
+                <option value="all">All Status</option>
+                <option value="Completed">Completed</option>
+                <option value="Pending">Pending</option>
+                <option value="Failed">Failed</option>
+              </select>
+            </div>
+          </div>
+          <div className="overflow-x-auto">
+            <table className="w-full">
+              <thead className="bg-gray-50">
+                <tr>
+                  <th className="px-6 py-3 text-left text-xs font-semibold text-gray-700 uppercase">Date</th>
+                  <th className="px-6 py-3 text-left text-xs font-semibold text-gray-700 uppercase">Tenant</th>
+                  <th className="px-6 py-3 text-left text-xs font-semibold text-gray-700 uppercase">Property</th>
+                  <th className="px-6 py-3 text-left text-xs font-semibold text-gray-700 uppercase">Amount</th>
+                  <th className="px-6 py-3 text-left text-xs font-semibold text-gray-700 uppercase">Method</th>
+                  <th className="px-6 py-3 text-left text-xs font-semibold text-gray-700 uppercase">Status</th>
+                  <th className="px-6 py-3 text-left text-xs font-semibold text-gray-700 uppercase">Actions</th>
                 </tr>
-              ))}
-            </tbody>
-          </table>
+              </thead>
+              <tbody className="divide-y divide-gray-200">
+                {visiblePayments.map(payment => (
+                  <tr key={payment.id} className="hover:bg-gray-50">
+                    <td className="px-6 py-4 text-sm text-gray-700">{new Date(payment.date).toLocaleDateString()}</td>
+                    <td className="px-6 py-4 text-sm font-semibold text-gray-900">{payment.tenant}</td>
+                    <td className="px-6 py-4 text-sm text-gray-700">{payment.property}</td>
+                    <td className="px-6 py-4 text-sm font-bold text-green-600">${payment.amount.toLocaleString()}</td>
+                    <td className="px-6 py-4 text-sm text-gray-700">{payment.method}</td>
+                    <td className="px-6 py-4">
+                      <span className={`px-3 py-1 rounded-full text-xs font-semibold ${
+                        payment.status === 'Completed' ? 'bg-green-100 text-green-700' :
+                        payment.status === 'Pending' ? 'bg-yellow-100 text-yellow-700' : 'bg-red-100 text-red-700'
+                      }`}>
+                        {payment.status}
+                      </span>
+                    </td>
+                    <td className="px-6 py-4">
+                      <button
+                        onClick={() => setModal({ kind: 'payment', id: payment.id })}
+                        className="text-[#003566] hover:underline font-semibold text-sm"
+                      >
+                        View
+                      </button>
+                    </td>
+                  </tr>
+                ))}
+              </tbody>
+            </table>
+          </div>
+          {visiblePayments.length === 0 && (
+            <div className="text-center py-10">
+              <p className="text-gray-600 mb-4">No {paymentStatusFilter.toLowerCase()} payments right now.</p>
+              <button
+                onClick={() => setPaymentStatusFilter('all')}
+                className="bg-[#003566] text-white px-6 py-2 rounded-lg font-semibold hover:bg-[#001d3d] transition-colors"
+              >
+                Show All Payments
+              </button>
+            </div>
+          )}
         </div>
       </div>
-    </div>
-  );
+    );
+  };
 
   // Page: Leases
   const LeasesPage = () => (
@@ -1874,16 +2366,16 @@ const ElitePropertyManagement = () => {
 
       <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
         {[
-          { title: 'Revenue Report', desc: 'Monthly income analysis', icon: DollarSign, color: 'green' },
-          { title: 'Occupancy Report', desc: 'Unit utilization metrics', icon: Home, color: 'blue' },
-          { title: 'Maintenance Report', desc: 'Request tracking & costs', icon: Wrench, color: 'orange' },
-          { title: 'Expense Report', desc: 'Operating cost breakdown', icon: BarChart3, color: 'red' },
-          { title: 'Owner Statement', desc: 'Property owner financials', icon: UserCheck, color: 'purple' },
-          { title: 'Tenant Report', desc: 'Tenant payment history', icon: Users, color: 'teal' }
+          { title: 'Revenue Report', desc: 'Monthly income analysis', icon: DollarSign, iconBg: 'bg-green-100', iconText: 'text-green-600' },
+          { title: 'Occupancy Report', desc: 'Unit utilization metrics', icon: Home, iconBg: 'bg-blue-100', iconText: 'text-blue-600' },
+          { title: 'Maintenance Report', desc: 'Request tracking & costs', icon: Wrench, iconBg: 'bg-orange-100', iconText: 'text-orange-600' },
+          { title: 'Expense Report', desc: 'Operating cost breakdown', icon: BarChart3, iconBg: 'bg-red-100', iconText: 'text-red-600' },
+          { title: 'Owner Statement', desc: 'Property owner financials', icon: UserCheck, iconBg: 'bg-purple-100', iconText: 'text-purple-600' },
+          { title: 'Tenant Report', desc: 'Tenant payment history', icon: Users, iconBg: 'bg-teal-100', iconText: 'text-teal-600' }
         ].map(report => (
           <div key={report.title} className="bg-white rounded-lg shadow-lg p-6 hover:shadow-xl transition-shadow">
-            <div className={`w-12 h-12 bg-${report.color}-100 rounded-lg flex items-center justify-center mb-4`}>
-              <report.icon className={`w-6 h-6 text-${report.color}-600`} />
+            <div className={`w-12 h-12 ${report.iconBg} rounded-lg flex items-center justify-center mb-4`}>
+              <report.icon className={`w-6 h-6 ${report.iconText}`} />
             </div>
             <h3 className="font-bold text-lg text-[#003566] mb-2">{report.title}</h3>
             <p className="text-sm text-gray-600 mb-4">{report.desc}</p>
@@ -1912,15 +2404,34 @@ const ElitePropertyManagement = () => {
               <div className="flex items-start justify-between mb-3">
                 <div>
                   <h3 className="font-bold text-lg text-[#003566]">{message.subject}</h3>
-                  <p className="text-sm text-gray-600">From: {message.from}</p>
+                  <p className="text-sm text-gray-600">From: {message.from} &middot; To: {message.to}</p>
                 </div>
-                <span className="text-sm text-gray-500">{new Date(message.date).toLocaleDateString()}</span>
+                <div className="text-right">
+                  <span className="text-sm text-gray-500 block">{new Date(message.date).toLocaleDateString()}</span>
+                  {!message.read && (
+                    <button
+                      onClick={() => handleMarkMessageRead(message.id)}
+                      className="text-xs font-semibold text-[#003566] hover:underline mt-1"
+                    >
+                      Mark as read
+                    </button>
+                  )}
+                </div>
               </div>
               <p className="text-gray-700 mb-4">{message.message}</p>
               {message.attachments.length > 0 && (
-                <div className="flex items-center gap-2 mb-4">
+                <div className="flex flex-wrap items-center gap-2 mb-4">
                   <Paperclip className="w-4 h-4 text-gray-600" />
-                  <span className="text-sm text-gray-600">{message.attachments.length} attachment(s)</span>
+                  {message.attachments.map(attachment => (
+                    <button
+                      key={attachment}
+                      onClick={() => handleDownloadAttachment(message, attachment)}
+                      className="inline-flex items-center gap-1 bg-gray-100 hover:bg-gray-200 text-[#003566] text-xs font-semibold px-3 py-1.5 rounded transition-colors"
+                    >
+                      <Download className="w-3 h-3" />
+                      {attachment}
+                    </button>
+                  ))}
                 </div>
               )}
               {replyingId === message.id ? (
@@ -1976,9 +2487,17 @@ const ElitePropertyManagement = () => {
                 className="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-[#003566]"
               >
                 <option value="">Select recipient...</option>
-                <option>All Tenants</option>
-                <option>All Owners</option>
-                <option>Property Managers</option>
+                <optgroup label="Groups">
+                  <option>All Tenants</option>
+                  <option>All Owners</option>
+                  <option>Property Managers</option>
+                </optgroup>
+                <optgroup label="Tenants">
+                  {tenants.map(t => <option key={t.id} value={t.name}>{t.name}</option>)}
+                </optgroup>
+                <optgroup label="Owners">
+                  {owners.map(o => <option key={o.id} value={o.name}>{o.name}</option>)}
+                </optgroup>
               </select>
             </div>
             <div>
@@ -2116,14 +2635,14 @@ const ElitePropertyManagement = () => {
                 <Phone className="w-5 h-5 text-[#ffc300] flex-shrink-0 mt-1" />
                 <div>
                   <p className="font-semibold text-gray-900">Phone</p>
-                  <p className="text-gray-600">(555) 123-4567</p>
+                  <a href="tel:+15551234567" className="text-[#003566] font-semibold hover:underline">(555) 123-4567</a>
                 </div>
               </div>
               <div className="flex items-start gap-3">
                 <Mail className="w-5 h-5 text-[#ffc300] flex-shrink-0 mt-1" />
                 <div>
                   <p className="font-semibold text-gray-900">Email</p>
-                  <p className="text-gray-600">info@elitepm.com</p>
+                  <a href="mailto:info@elitepm.com" className="text-[#003566] font-semibold hover:underline">info@elitepm.com</a>
                 </div>
               </div>
               <div className="flex items-start gap-3">
@@ -2139,7 +2658,19 @@ const ElitePropertyManagement = () => {
           <div className="bg-[#003566] text-white rounded-lg p-6">
             <h3 className="text-xl font-bold mb-4">Emergency Contact</h3>
             <p className="mb-4">For urgent maintenance issues outside business hours:</p>
-            <p className="text-2xl font-bold text-[#ffc300]">(555) 999-9999</p>
+            <a href="tel:+15559999999" className="text-2xl font-bold text-[#ffc300] hover:underline block mb-4">(555) 999-9999</a>
+            <button
+              onClick={() => {
+                setUserRole('Tenant');
+                setMaintForm(f => ({ ...f, priority: 'Emergency' }));
+                setMaintSubmitted(false);
+                goTo('tenants');
+              }}
+              className="w-full bg-[#ffc300] text-[#003566] px-4 py-3 rounded-lg font-bold hover:bg-white transition-colors flex items-center justify-center gap-2"
+            >
+              <Wrench className="w-5 h-5" />
+              Report an Emergency Online
+            </button>
           </div>
         </div>
       </div>
@@ -2183,8 +2714,8 @@ const ElitePropertyManagement = () => {
             <ul className="space-y-2 text-gray-300 text-sm">
               <li><button onClick={() => goTo('contact')} className="hover:text-white">About Us</button></li>
               <li><button onClick={() => goTo('contact')} className="hover:text-white">Contact</button></li>
-              <li><button onClick={() => showToast('Privacy policy is not part of this demo')} className="hover:text-white">Privacy Policy</button></li>
-              <li><button onClick={() => showToast('Terms of service are not part of this demo')} className="hover:text-white">Terms of Service</button></li>
+              <li><button onClick={() => setModal({ kind: 'policy', doc: 'privacy' })} className="hover:text-white">Privacy Policy</button></li>
+              <li><button onClick={() => setModal({ kind: 'policy', doc: 'terms' })} className="hover:text-white">Terms of Service</button></li>
             </ul>
           </div>
         </div>
@@ -2472,7 +3003,11 @@ const ElitePropertyManagement = () => {
           </div>
           <div className="flex gap-2">
             <button
-              onClick={() => { closeModal(); goTo('messages'); }}
+              onClick={() => {
+                setComposeForm({ to: tenant.name, subject: `Regarding ${tenant.property}, ${tenant.unit}`, body: '' });
+                closeModal();
+                goTo('messages');
+              }}
               className="flex-1 bg-[#003566] text-white px-4 py-2 rounded-lg hover:bg-[#001d3d] transition-colors text-sm font-semibold"
             >
               Message Tenant
@@ -2533,9 +3068,26 @@ const ElitePropertyManagement = () => {
             </div>
           </div>
           {payment.status === 'Failed' && (
-            <p className="text-sm text-red-600 bg-red-50 rounded p-3 mb-4">
-              This payment failed. In a live system you could retry the charge or send the tenant a payment reminder from here.
-            </p>
+            <div className="mb-4 space-y-3">
+              <p className="text-sm text-red-600 bg-red-50 rounded p-3">
+                This payment failed. Retry the charge or send the tenant a payment reminder.
+              </p>
+              <div className="flex gap-2">
+                <button
+                  onClick={() => handleRetryPayment(payment.id)}
+                  disabled={retryingPaymentId === payment.id}
+                  className="flex-1 bg-green-500 text-white px-4 py-2 rounded-lg hover:bg-green-600 transition-colors text-sm font-semibold disabled:opacity-60"
+                >
+                  {retryingPaymentId === payment.id ? 'Retrying...' : 'Retry Charge'}
+                </button>
+                <button
+                  onClick={() => handleSendPaymentReminder(payment)}
+                  className="flex-1 border-2 border-[#003566] text-[#003566] px-4 py-2 rounded-lg hover:bg-gray-50 transition-colors text-sm font-semibold"
+                >
+                  Send Reminder
+                </button>
+              </div>
+            </div>
           )}
           <button
             onClick={closeModal}
@@ -2606,6 +3158,108 @@ const ElitePropertyManagement = () => {
       );
     }
 
+    if (modal.kind === 'receipt') {
+      const receipt = tenantPayments.find(p => p.id === modal.id);
+      if (!receipt) return null;
+      return (
+        <DemoModal title={`Rent Receipt -- ${receipt.label}`} onClose={closeModal}>
+          <div className="text-center mb-4">
+            <div className="w-14 h-14 bg-green-100 rounded-full flex items-center justify-center mx-auto mb-3">
+              <CheckCircle2 className="w-8 h-8 text-green-600" />
+            </div>
+            <p className="text-3xl font-bold text-[#003566]">${receipt.amount.toLocaleString()}.00</p>
+            <p className="text-sm text-gray-600">Paid in full</p>
+          </div>
+          <div className="bg-gray-50 rounded-lg p-4 text-sm space-y-2 mb-4">
+            <div className="flex justify-between"><span className="text-gray-600">Receipt ID</span><span className="font-semibold uppercase">{receipt.id}</span></div>
+            <div className="flex justify-between"><span className="text-gray-600">Period</span><span className="font-semibold">{receipt.label}</span></div>
+            <div className="flex justify-between"><span className="text-gray-600">Method</span><span className="font-semibold">{receipt.method}</span></div>
+            <div className="flex justify-between"><span className="text-gray-600">Property</span><span className="font-semibold">Sunset Apartments, Unit 201</span></div>
+            <div className="flex justify-between"><span className="text-gray-600">Tenant</span><span className="font-semibold">John Smith</span></div>
+          </div>
+          <div className="flex gap-2">
+            <button
+              onClick={() => {
+                downloadTextFile(`Rent-Receipt-${receipt.label.replace(/\s+/g, '-')}-DEMO.txt`, [
+                  'ELITE PROPERTY MANAGEMENT',
+                  'RENT RECEIPT -- DEMO DOCUMENT',
+                  '',
+                  `Receipt ID: ${receipt.id.toUpperCase()}`,
+                  `Period: ${receipt.label}`,
+                  `Amount: $${receipt.amount.toLocaleString()}.00`,
+                  `Method: ${receipt.method}`,
+                  'Property: Sunset Apartments, Unit 201',
+                  'Tenant: John Smith',
+                  '',
+                  'Sample document generated by the Elite Property Management demo.'
+                ].join('\n'));
+                showToast(`Receipt for ${receipt.label} downloaded`);
+              }}
+              className="flex-1 bg-[#003566] text-white px-4 py-2 rounded-lg hover:bg-[#001d3d] transition-colors text-sm font-semibold flex items-center justify-center gap-2"
+            >
+              <Download className="w-4 h-4" />
+              Download Receipt
+            </button>
+            <button
+              onClick={closeModal}
+              className="px-4 py-2 border-2 border-[#003566] text-[#003566] rounded-lg hover:bg-gray-50 transition-colors text-sm font-semibold"
+            >
+              Close
+            </button>
+          </div>
+        </DemoModal>
+      );
+    }
+
+    if (modal.kind === 'vacancies') {
+      const withVacancies = propertiesList
+        .filter(p => p.units - p.occupiedUnits > 0)
+        .sort((a, b) => (b.units - b.occupiedUnits) - (a.units - a.occupiedUnits));
+      return (
+        <DemoModal title="Vacancy Breakdown" onClose={closeModal}>
+          <div className="bg-gray-50 rounded-lg p-4 text-sm mb-4 grid grid-cols-3 gap-2 text-center">
+            <div>
+              <p className="text-gray-600">Vacant</p>
+              <p className="font-bold text-[#003566] text-lg">{totalUnits - occupiedUnits}</p>
+            </div>
+            <div>
+              <p className="text-gray-600">Occupied</p>
+              <p className="font-bold text-[#003566] text-lg">{occupiedUnits}</p>
+            </div>
+            <div>
+              <p className="text-gray-600">Occupancy</p>
+              <p className="font-bold text-green-600 text-lg">{occupancyRate}%</p>
+            </div>
+          </div>
+          {withVacancies.length === 0 ? (
+            <p className="text-sm text-gray-600 mb-4">Every unit in the portfolio is occupied right now.</p>
+          ) : (
+            <div className="space-y-2 mb-4 max-h-72 overflow-y-auto">
+              {withVacancies.map(property => (
+                <button
+                  key={property.id}
+                  onClick={() => setModal({ kind: 'property', id: property.id })}
+                  className="w-full flex items-center justify-between p-3 border rounded-lg hover:bg-gray-50 transition-colors text-left"
+                >
+                  <div>
+                    <p className="font-semibold text-sm text-gray-900">{property.name}</p>
+                    <p className="text-xs text-gray-600">{property.type} &middot; {property.occupiedUnits}/{property.units} occupied</p>
+                  </div>
+                  <span className="text-sm font-bold text-red-600">{property.units - property.occupiedUnits} vacant</span>
+                </button>
+              ))}
+            </div>
+          )}
+          <button
+            onClick={() => { closeModal(); goToPropertiesWithStatus('all'); }}
+            className="w-full bg-[#003566] text-white px-4 py-2 rounded-lg hover:bg-[#001d3d] transition-colors font-semibold"
+          >
+            Open Full Portfolio
+          </button>
+        </DemoModal>
+      );
+    }
+
     if (modal.kind === 'lease') {
       const lease = leasesList.find(l => l.id === modal.id);
       if (!lease) return null;
@@ -2659,8 +3313,161 @@ const ElitePropertyManagement = () => {
       );
     }
 
+    if (modal.kind === 'settings') {
+      const options: { key: keyof DemoSettings; label: string; desc: string }[] = [
+        { key: 'emailNotifications', label: 'Email notifications', desc: 'Payment receipts and account activity by email' },
+        { key: 'smsAlerts', label: 'SMS alerts', desc: 'Text alerts for emergency maintenance issues' },
+        { key: 'maintenanceUpdates', label: 'Maintenance updates', desc: 'Status changes on open maintenance requests' },
+        { key: 'monthlyStatements', label: 'Monthly statements', desc: 'Owner and tenant statements on the 1st of each month' }
+      ];
+      return (
+        <DemoModal title="Account Settings" onClose={closeModal}>
+          <form className="space-y-4" onSubmit={handleSettingsSave}>
+            <div className="bg-gray-50 rounded-lg p-4 text-sm">
+              <p className="font-semibold text-gray-900">{userRole === 'Tenant' ? 'John Smith' : userRole === 'Owner' ? 'David Wilson' : 'Property Manager'}</p>
+              <p className="text-gray-600">Signed in as {userRole}</p>
+            </div>
+            {options.map(opt => (
+              <label key={opt.key} className="flex items-start gap-3 p-3 border rounded-lg cursor-pointer hover:bg-gray-50 transition-colors">
+                <input
+                  type="checkbox"
+                  checked={settingsDraft[opt.key]}
+                  onChange={(e) => setSettingsDraft(s => ({ ...s, [opt.key]: e.target.checked }))}
+                  className="mt-1 w-4 h-4 accent-[#003566]"
+                />
+                <span>
+                  <span className="block font-semibold text-gray-900 text-sm">{opt.label}</span>
+                  <span className="block text-xs text-gray-600">{opt.desc}</span>
+                </span>
+              </label>
+            ))}
+            <button
+              type="submit"
+              className="w-full bg-[#ffc300] text-[#003566] px-6 py-3 rounded-lg font-bold hover:bg-[#003566] hover:text-white transition-colors"
+            >
+              Save Settings
+            </button>
+            <p className="text-xs text-gray-500 text-center">Preferences are saved in your browser for this demo.</p>
+          </form>
+        </DemoModal>
+      );
+    }
+
+    if (modal.kind === 'signOut') {
+      return (
+        <DemoModal title="Sign Out" onClose={closeModal}>
+          <p className="text-gray-700 mb-6">Sign out of the Elite Property Management portal?</p>
+          <div className="flex gap-2">
+            <button
+              onClick={() => { closeModal(); setSignedOut(true); }}
+              className="flex-1 bg-[#003566] text-white px-4 py-2 rounded-lg hover:bg-[#001d3d] transition-colors font-semibold"
+            >
+              Sign Out
+            </button>
+            <button
+              onClick={closeModal}
+              className="flex-1 border-2 border-[#003566] text-[#003566] px-4 py-2 rounded-lg hover:bg-gray-50 transition-colors font-semibold"
+            >
+              Cancel
+            </button>
+          </div>
+        </DemoModal>
+      );
+    }
+
+    if (modal.kind === 'policy') {
+      const isPrivacy = modal.doc === 'privacy';
+      const sections = isPrivacy
+        ? [
+            { heading: 'Information We Collect', body: 'We collect contact details, lease and payment records, and maintenance history you submit through the portal.' },
+            { heading: 'How We Use Your Information', body: 'Your information is used to manage leases, process rent payments, coordinate maintenance, and send account notices.' },
+            { heading: 'Sharing', body: 'Records are shared only with property owners and service vendors as needed to manage your residence. We never sell your information.' },
+            { heading: 'Your Choices', body: 'Update your notification preferences any time in Account Settings, or request a copy of your records from our office.' }
+          ]
+        : [
+            { heading: 'Portal Use', body: 'The portal is provided to tenants and owners of Elite Property Management for managing leases, payments, and maintenance requests.' },
+            { heading: 'Payments', body: 'Rent payments submitted through the portal are processed on the next business day. Late fees follow the schedule in your lease.' },
+            { heading: 'Maintenance', body: 'Portal requests are triaged by priority. Emergency issues should also be reported by phone at (555) 999-9999.' },
+            { heading: 'Accounts', body: 'Keep your sign-in credentials private. Contact our office to close or transfer an account.' }
+          ];
+      return (
+        <DemoModal title={isPrivacy ? 'Privacy Policy' : 'Terms of Service'} onClose={closeModal}>
+          <div className="space-y-4 text-sm text-gray-700">
+            <p className="text-xs text-gray-500">Sample document for the Elite Property Management demo. Last updated January 2024.</p>
+            {sections.map(section => (
+              <div key={section.heading}>
+                <h4 className="font-bold text-[#003566] mb-1">{section.heading}</h4>
+                <p>{section.body}</p>
+              </div>
+            ))}
+            <button
+              onClick={closeModal}
+              className="w-full bg-[#003566] text-white px-4 py-2 rounded-lg hover:bg-[#001d3d] transition-colors font-semibold"
+            >
+              Close
+            </button>
+          </div>
+        </DemoModal>
+      );
+    }
+
     return null;
   };
+
+  if (signedOut) {
+    return (
+      <div className="min-h-screen bg-gradient-to-br from-[#001d3d] to-[#003566] flex items-center justify-center p-4">
+        <div className="bg-white rounded-lg shadow-2xl w-full max-w-md p-8">
+          <div className="flex items-center justify-center gap-3 mb-2">
+            <Building2 className="w-10 h-10 text-[#ffc300]" />
+            <h1 className="text-2xl font-bold text-[#003566]">Elite Property Management</h1>
+          </div>
+          <p className="text-center text-sm text-gray-600 mb-6">Portal Sign In</p>
+          <p className="text-sm text-green-700 bg-green-50 rounded-lg p-3 mb-6 flex items-center gap-2">
+            <CheckCircle2 className="w-4 h-4 flex-shrink-0" />
+            You have been signed out.
+          </p>
+          <form className="space-y-4" onSubmit={handleSignIn}>
+            <div>
+              <label htmlFor="property-login-email" className="block text-sm font-semibold text-gray-700 mb-2">Email</label>
+              <input
+                id="property-login-email"
+                type="email"
+                required
+                value={loginEmail}
+                onChange={(e) => setLoginEmail(e.target.value)}
+                className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-[#003566]"
+              />
+            </div>
+            <div>
+              <label htmlFor="property-login-password" className="block text-sm font-semibold text-gray-700 mb-2">Password</label>
+              <input
+                id="property-login-password"
+                type="password"
+                required
+                value={loginPassword}
+                onChange={(e) => setLoginPassword(e.target.value)}
+                className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-[#003566]"
+              />
+            </div>
+            <button
+              type="submit"
+              className="w-full bg-[#ffc300] text-[#003566] px-6 py-3 rounded-lg font-bold hover:bg-[#003566] hover:text-white transition-colors"
+            >
+              Sign In
+            </button>
+            <p className="text-xs text-gray-500 text-center">Demo credentials are pre-filled -- click Sign In to return to the portal.</p>
+          </form>
+        </div>
+        {toast && (
+          <div className="fixed bottom-6 right-6 z-[60] bg-[#003566] text-white px-5 py-3 rounded-lg shadow-2xl flex items-center gap-2 max-w-sm">
+            <CheckCircle2 className="w-5 h-5 text-[#ffc300] flex-shrink-0" />
+            <span className="text-sm">{toast}</span>
+          </div>
+        )}
+      </div>
+    );
+  }
 
   return (
     <div className="min-h-screen bg-gray-50">

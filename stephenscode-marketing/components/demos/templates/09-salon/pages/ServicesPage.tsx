@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
-import { Scissors, Sparkles, Palette, Crown, Heart, Users, Package, Video } from 'lucide-react';
+import { Scissors, Sparkles, Palette, Crown, Heart, Package, Video, X, CheckCircle } from 'lucide-react';
+import { trackEvent, trackConversion } from '@/lib/analytics';
 
 interface ServicesPageProps {
   onNavigate: (page: string) => void;
@@ -7,6 +8,57 @@ interface ServicesPageProps {
 
 export default function ServicesPage({ onNavigate }: ServicesPageProps) {
   const [selectedCategory, setSelectedCategory] = useState('all');
+  const [consultOpen, setConsultOpen] = useState(false);
+  const [consultForm, setConsultForm] = useState({ name: '', email: '', phone: '', topic: '' });
+  const [consultSubmitted, setConsultSubmitted] = useState(false);
+  const [consultError, setConsultError] = useState(false);
+
+  const openConsult = () => {
+    setConsultOpen(true);
+    setConsultSubmitted(false);
+    setConsultError(false);
+  };
+
+  const closeConsult = () => {
+    setConsultOpen(false);
+    setConsultForm({ name: '', email: '', phone: '', topic: '' });
+  };
+
+  const handleConsultSubmit = async (e: React.FormEvent) => {
+    e.preventDefault();
+    setConsultError(false);
+    try {
+      const response = await fetch('/api/demo-lead', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({
+          demoName: 'Glamour Studio Salon',
+          demoPackage: 'Website Rebuild ($350)',
+          demoSlug: 'glamour-studio-salon',
+          clientName: consultForm.name,
+          clientPhone: consultForm.phone,
+          clientEmail: consultForm.email,
+          service: 'Virtual Consultation',
+          preferredDate: '',
+          preferredTime: '',
+          notes: consultForm.topic,
+        }),
+      });
+
+      if (response.ok) {
+        trackEvent('generate_lead', {
+          form_name: 'salon_consultation_form',
+          demo_slug: 'glamour-studio-salon',
+        });
+        trackConversion('leadForm');
+        setConsultSubmitted(true);
+      } else {
+        setConsultError(true);
+      }
+    } catch {
+      setConsultError(true);
+    }
+  };
 
   const categories = [
     { id: 'all', name: 'All Services', icon: Sparkles },
@@ -200,9 +252,11 @@ export default function ServicesPage({ onNavigate }: ServicesPageProps) {
                 <div className="p-8">
                   <div className="grid gap-4">
                     {serviceGroup.items.map((item, itemIndex) => (
-                      <div
+                      <button
                         key={itemIndex}
-                        className="flex justify-between items-center py-4 border-b border-gray-200 last:border-0 hover:bg-gray-50 px-4 rounded-lg transition-colors duration-200"
+                        type="button"
+                        onClick={() => onNavigate('booking')}
+                        className="flex justify-between items-center py-4 border-b border-gray-200 last:border-0 hover:bg-gray-50 px-4 rounded-lg transition-colors duration-200 w-full text-left group"
                       >
                         <div>
                           <h4 className="font-semibold text-lg">{item.name}</h4>
@@ -210,8 +264,11 @@ export default function ServicesPage({ onNavigate }: ServicesPageProps) {
                         </div>
                         <div className="text-right">
                           <p className="text-2xl font-bold text-[#d00000]">{item.price}</p>
+                          <p className="text-xs font-semibold text-gray-400 group-hover:text-[#d00000] transition-colors">
+                            Book now
+                          </p>
                         </div>
-                      </div>
+                      </button>
                     ))}
                   </div>
                 </div>
@@ -297,7 +354,10 @@ export default function ServicesPage({ onNavigate }: ServicesPageProps) {
                   <span>Product advice</span>
                 </li>
               </ul>
-              <button className="bg-gradient-to-r from-[#d00000] to-[#e85d04] text-white px-6 py-3 rounded-full font-semibold hover:shadow-lg transition-all duration-300">
+              <button
+                onClick={openConsult}
+                className="bg-gradient-to-r from-[#d00000] to-[#e85d04] text-white px-6 py-3 rounded-full font-semibold hover:shadow-lg transition-all duration-300"
+              >
                 Schedule Consultation
               </button>
             </div>
@@ -350,6 +410,121 @@ export default function ServicesPage({ onNavigate }: ServicesPageProps) {
           </button>
         </div>
       </section>
+
+      {/* Virtual Consultation Modal */}
+      {consultOpen && (
+        <div
+          className="fixed inset-0 bg-black/70 z-50 flex items-center justify-center p-4"
+          onClick={closeConsult}
+        >
+          <div
+            className="bg-white rounded-2xl max-w-md w-full overflow-hidden"
+            onClick={(e) => e.stopPropagation()}
+          >
+            <div className="bg-gradient-to-r from-[#d00000] to-[#e85d04] text-white px-6 py-4 flex items-center justify-between">
+              <h3 className="text-xl font-bold flex items-center gap-2">
+                <Video className="w-5 h-5" />
+                Virtual Consultation
+              </h3>
+              <button onClick={closeConsult} aria-label="Close consultation form">
+                <X className="w-6 h-6" />
+              </button>
+            </div>
+
+            {consultSubmitted ? (
+              <div className="p-8 text-center">
+                <div className="w-16 h-16 bg-green-100 rounded-full flex items-center justify-center mx-auto mb-4">
+                  <CheckCircle className="w-10 h-10 text-green-600" />
+                </div>
+                <h4 className="text-2xl font-bold mb-2">Consultation Requested!</h4>
+                <p className="text-gray-600 mb-6">
+                  Thank you, {consultForm.name}. A stylist will contact you within 24 hours to
+                  schedule your complimentary 15-minute video consultation.
+                </p>
+                <button
+                  onClick={closeConsult}
+                  className="bg-gradient-to-r from-[#d00000] to-[#e85d04] text-white px-8 py-3 rounded-full font-semibold hover:shadow-lg transition-all duration-300"
+                >
+                  Done
+                </button>
+              </div>
+            ) : (
+              <form onSubmit={handleConsultSubmit} className="p-6 space-y-4">
+                <p className="text-gray-600 text-sm">
+                  Complimentary 15-minute video call with one of our expert stylists.
+                </p>
+                <div>
+                  <label htmlFor="salon-consult-name" className="block text-sm font-semibold mb-2">
+                    Your Name *
+                  </label>
+                  <input
+                    id="salon-consult-name"
+                    type="text"
+                    required
+                    value={consultForm.name}
+                    onChange={(e) => setConsultForm({ ...consultForm, name: e.target.value })}
+                    className="w-full px-4 py-3 border border-gray-300 rounded-xl focus:outline-none focus:ring-2 focus:ring-[#d00000]"
+                    placeholder="Jane Smith"
+                  />
+                </div>
+                <div>
+                  <label htmlFor="salon-consult-email" className="block text-sm font-semibold mb-2">
+                    Email *
+                  </label>
+                  <input
+                    id="salon-consult-email"
+                    type="email"
+                    required
+                    value={consultForm.email}
+                    onChange={(e) => setConsultForm({ ...consultForm, email: e.target.value })}
+                    className="w-full px-4 py-3 border border-gray-300 rounded-xl focus:outline-none focus:ring-2 focus:ring-[#d00000]"
+                    placeholder="jane@example.com"
+                  />
+                </div>
+                <div>
+                  <label htmlFor="salon-consult-phone" className="block text-sm font-semibold mb-2">
+                    Phone *
+                  </label>
+                  <input
+                    id="salon-consult-phone"
+                    type="tel"
+                    required
+                    value={consultForm.phone}
+                    onChange={(e) => setConsultForm({ ...consultForm, phone: e.target.value })}
+                    className="w-full px-4 py-3 border border-gray-300 rounded-xl focus:outline-none focus:ring-2 focus:ring-[#d00000]"
+                    placeholder="(555) 123-4567"
+                  />
+                </div>
+                <div>
+                  <label htmlFor="salon-consult-topic" className="block text-sm font-semibold mb-2">
+                    What would you like advice on?
+                  </label>
+                  <textarea
+                    id="salon-consult-topic"
+                    value={consultForm.topic}
+                    onChange={(e) => setConsultForm({ ...consultForm, topic: e.target.value })}
+                    rows={3}
+                    className="w-full px-4 py-3 border border-gray-300 rounded-xl focus:outline-none focus:ring-2 focus:ring-[#d00000]"
+                    placeholder="Color ideas, style change, product recommendations..."
+                  />
+                </div>
+                {consultError && (
+                  <p className="text-sm text-red-600 bg-red-50 rounded-xl px-4 py-3">
+                    There was an issue submitting your request. Please try again or call us at
+                    (555) 456-7890.
+                  </p>
+                )}
+                <button
+                  type="submit"
+                  className="w-full bg-gradient-to-r from-[#d00000] to-[#e85d04] text-white py-3 rounded-full font-semibold hover:shadow-lg transition-all duration-300"
+                >
+                  Request Consultation
+                </button>
+              </form>
+            )}
+          </div>
+        </div>
+      )}
     </div>
   );
 }

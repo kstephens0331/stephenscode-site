@@ -1,12 +1,12 @@
 'use client';
 
-import React, { useRef, useState } from 'react';
+import React, { useEffect, useRef, useState } from 'react';
 import {
   Briefcase, Users, UserCheck, Clock, FileText, DollarSign, BarChart3,
   Phone, Mail, MapPin, Download, Settings, Bell, User, LogOut,
   TrendingUp, CheckCircle2, Star, Target, Activity, Zap, PieChart,
   FileCheck, UserPlus, Send, Building2, GraduationCap, Shield,
-  Edit, Plus, ArrowUpRight, X
+  Edit, Plus, ArrowUpRight, X, ChevronDown, Trash2, RotateCcw
 } from 'lucide-react';
 import { trackEvent, trackConversion } from '@/lib/analytics';
 
@@ -67,6 +67,7 @@ interface Timesheet {
   rate: number;
   total: number;
   status: 'Pending' | 'Approved' | 'Rejected' | 'Paid';
+  billed?: boolean;
 }
 
 interface Invoice {
@@ -91,10 +92,25 @@ interface ComplianceDocument {
   documentType: string;
   status: 'Valid' | 'Expiring' | 'Expired';
   expiryDate: string;
+  lastReminder?: string;
 }
 
 type UserRole = 'Admin' | 'Candidate' | 'Client';
 type Page = 'home' | 'jobs' | 'candidates' | 'clients' | 'timesheets' | 'invoicing' | 'reports' | 'compliance' | 'resources' | 'contact';
+
+// Which workspace each role can reach. The role switcher in the header swaps
+// the whole navigation set so a prospect can see all three portals.
+const ROLE_PAGES: Record<UserRole, Page[]> = {
+  Admin: ['home', 'jobs', 'candidates', 'clients', 'timesheets', 'invoicing', 'reports', 'compliance', 'resources', 'contact'],
+  Client: ['home', 'jobs', 'candidates', 'timesheets', 'invoicing', 'reports', 'contact'],
+  Candidate: ['jobs', 'timesheets', 'compliance', 'resources', 'contact']
+};
+
+const ROLE_DESCRIPTIONS: Record<UserRole, string> = {
+  Admin: 'Full recruiter workspace: jobs, candidates, billing, compliance',
+  Client: 'Hiring manager view: open orders, submitted talent, invoices',
+  Candidate: 'Job seeker view: open roles, hours, documents, resources'
+};
 
 // Sample Data
 const INITIAL_JOBS: Job[] = [
@@ -161,6 +177,86 @@ const INITIAL_JOBS: Job[] = [
     postedDate: '2024-05-12',
     urgency: 'Low',
     applicants: 19
+  },
+  {
+    id: 'job-5',
+    title: 'Medical Assistant',
+    company: 'City Medical Center',
+    location: 'Chicago, IL',
+    type: 'Full-Time',
+    category: 'Healthcare',
+    payRate: '$22 - $28/hour',
+    description: 'Support physicians in a busy outpatient clinic with patient intake and clinical tasks.',
+    requirements: ['CMA or RMA certification', 'EHR experience', 'Phlebotomy skills', 'Bilingual a plus'],
+    benefits: ['Health Insurance', 'Paid Holidays', 'Weekday Schedule', 'Uniform Allowance'],
+    status: 'Open',
+    postedDate: '2024-05-21',
+    urgency: 'Medium',
+    applicants: 14
+  },
+  {
+    id: 'job-6',
+    title: 'DevOps Engineer',
+    company: 'TechCorp Inc.',
+    location: 'Remote',
+    type: 'Contract',
+    category: 'Technology',
+    payRate: '$85 - $105/hour',
+    description: 'Build and maintain CI/CD pipelines and cloud infrastructure for a fast-moving product team.',
+    requirements: ['AWS or Azure', 'Terraform', 'Kubernetes', 'CI/CD pipeline ownership'],
+    benefits: ['Fully Remote', 'Contract to Hire', 'Equipment Stipend'],
+    status: 'Open',
+    postedDate: '2024-05-22',
+    urgency: 'High',
+    applicants: 38
+  },
+  {
+    id: 'job-7',
+    title: 'Forklift Operator',
+    company: 'Logistics Plus',
+    location: 'Dallas, TX',
+    type: 'Temporary',
+    category: 'Logistics',
+    payRate: '$19 - $23/hour',
+    description: 'Seasonal forklift operators needed for a high-volume distribution center.',
+    requirements: ['Forklift certified', 'Warehouse safety training', 'Able to lift 50 lbs', 'Flexible shifts'],
+    benefits: ['Weekly Pay', 'Overtime Available', 'Temp to Perm Path'],
+    status: 'Open',
+    postedDate: '2024-05-23',
+    urgency: 'Medium',
+    applicants: 26
+  },
+  {
+    id: 'job-8',
+    title: 'QA Automation Engineer',
+    company: 'TechCorp Inc.',
+    location: 'Austin, TX',
+    type: 'Full-Time',
+    category: 'Technology',
+    payRate: '$95k - $120k/year',
+    description: 'Own the automated regression suite for a multi-tenant SaaS platform.',
+    requirements: ['Playwright or Cypress', 'TypeScript', 'API testing', 'CI integration'],
+    benefits: ['Health Insurance', '401k Match', 'Hybrid Schedule'],
+    status: 'Filled',
+    postedDate: '2024-04-29',
+    urgency: 'Low',
+    applicants: 52
+  },
+  {
+    id: 'job-9',
+    title: 'Physical Therapist',
+    company: 'City Medical Center',
+    location: 'Naperville, IL',
+    type: 'Part-Time',
+    category: 'Healthcare',
+    payRate: '$48 - $58/hour',
+    description: 'Outpatient rehab clinic seeking a licensed PT for three days per week.',
+    requirements: ['State PT license', 'Outpatient ortho experience', 'Documentation proficiency'],
+    benefits: ['Flexible Schedule', 'Continuing Education', 'Malpractice Coverage'],
+    status: 'On Hold',
+    postedDate: '2024-05-08',
+    urgency: 'Low',
+    applicants: 9
   }
 ];
 
@@ -342,11 +438,29 @@ const COMPLIANCE_DOCUMENTS: ComplianceDocument[] = [
   }
 ];
 
-const NOTIFICATION_ITEMS = [
-  { id: 1, text: '3 new applicants for Senior Software Engineer', time: '10 min ago' },
-  { id: 2, text: 'Timesheet from Emily Rodriguez is awaiting approval', time: '1 hour ago' },
-  { id: 3, text: 'RN License for Michael Chen expires 7/15', time: 'Yesterday' }
+const NOTIFICATION_ITEMS: Array<{ id: number; text: string; time: string; page: Page }> = [
+  { id: 1, text: '3 new applicants for Senior Software Engineer', time: '10 min ago', page: 'jobs' },
+  { id: 2, text: 'Timesheet from Emily Rodriguez is awaiting approval', time: '1 hour ago', page: 'timesheets' },
+  { id: 3, text: 'RN License for Michael Chen expires 7/15', time: 'Yesterday', page: 'compliance' }
 ];
+
+const CLIENT_REVIEWS = [
+  { client: 'TechCorp Inc.', reviewer: 'David Wilson', rating: 5, comment: 'Two senior engineers placed in under three weeks. Screening quality was the difference.' },
+  { client: 'City Medical Center', reviewer: 'Jennifer Lee', rating: 5, comment: 'Credentialing was handled before the first shift. Our unit never went short-staffed.' },
+  { client: 'Logistics Plus', reviewer: 'Robert Martinez', rating: 4, comment: 'Strong temp-to-perm pipeline. Billing detail on the weekly invoice is easy to reconcile.' }
+];
+
+const CATEGORY_BAR_CLASSES: Record<string, string> = {
+  Technology: 'bg-blue-500',
+  Healthcare: 'bg-green-500',
+  Logistics: 'bg-yellow-500',
+  Marketing: 'bg-purple-500'
+};
+
+const plural = (count: number, word: string) => `${count} ${word}${count === 1 ? '' : 's'}`;
+
+const TIMESHEET_STATUSES: Array<Timesheet['status'] | 'All'> = ['All', 'Pending', 'Approved', 'Paid', 'Rejected'];
+const CANDIDATE_STATUSES: Candidate['status'][] = ['Available', 'Interview', 'Placed', 'Not Available'];
 
 const RECENT_PLACEMENTS = [
   { candidate: 'Emily Rodriguez', job: 'Senior Software Engineer', client: 'TechCorp Inc.', date: '2024-05-20' },
@@ -399,6 +513,38 @@ function downloadTextFile(filename: string, content: string) {
   URL.revokeObjectURL(url);
 }
 
+// Everything the recruiter changes in the demo (jobs, candidates, timesheets,
+// invoices, documents, preferences) is kept under one key so a reload picks up
+// exactly where the visitor left off.
+const STATE_KEY = 'demo_staffing_workspace_v1';
+
+interface StoredWorkspace {
+  jobs?: Job[];
+  candidates?: Candidate[];
+  timesheets?: Timesheet[];
+  invoices?: Invoice[];
+  documents?: ComplianceDocument[];
+  settings?: { emailAlerts: boolean; smsAlerts: boolean; weeklySummary: boolean };
+  readNotifications?: number[];
+}
+
+function loadWorkspace(): StoredWorkspace | null {
+  try {
+    const raw = localStorage.getItem(STATE_KEY);
+    return raw ? (JSON.parse(raw) as StoredWorkspace) : null;
+  } catch {
+    return null;
+  }
+}
+
+function saveWorkspace(state: StoredWorkspace) {
+  try {
+    localStorage.setItem(STATE_KEY, JSON.stringify(state));
+  } catch {
+    // Storage unavailable (private mode, quota) -- demo continues in memory
+  }
+}
+
 // Append an entry to a localStorage-backed list -- demo data only.
 function appendToStorage(key: string, entry: unknown) {
   try {
@@ -413,11 +559,16 @@ function appendToStorage(key: string, entry: unknown) {
 
 const PremierStaffingSolutions = () => {
   const [currentPage, setCurrentPage] = useState<Page>('home');
-  const userRole: UserRole = 'Admin';
+  const [userRole, setUserRole] = useState<UserRole>('Admin');
+  const [showRoleMenu, setShowRoleMenu] = useState(false);
   const [searchTerm, setSearchTerm] = useState('');
   const [categoryFilter, setCategoryFilter] = useState('All Categories');
   const [typeFilter, setTypeFilter] = useState('All Types');
-  const [notifications, setNotifications] = useState(NOTIFICATION_ITEMS.length);
+  const [candidateSearch, setCandidateSearch] = useState('');
+  const [candidateStatusFilter, setCandidateStatusFilter] = useState('All Statuses');
+  const [timesheetFilter, setTimesheetFilter] = useState<Timesheet['status'] | 'All'>('All');
+  const [complianceFilter, setComplianceFilter] = useState<ComplianceDocument['status'] | 'All'>('All');
+  const [readNotifications, setReadNotifications] = useState<number[]>([]);
   const [showNotifications, setShowNotifications] = useState(false);
 
   // Data held in local state so demo actions genuinely change what is on screen
@@ -425,6 +576,8 @@ const PremierStaffingSolutions = () => {
   const [candidateList, setCandidateList] = useState<Candidate[]>(INITIAL_CANDIDATES);
   const [timesheetList, setTimesheetList] = useState<Timesheet[]>(INITIAL_TIMESHEETS);
   const [invoiceList, setInvoiceList] = useState<Invoice[]>(INITIAL_INVOICES);
+  const [documentList, setDocumentList] = useState<ComplianceDocument[]>(COMPLIANCE_DOCUMENTS);
+  const [hydrated, setHydrated] = useState(false);
 
   // Modal / panel state
   const [detailJob, setDetailJob] = useState<Job | null>(null);
@@ -447,6 +600,21 @@ const PremierStaffingSolutions = () => {
   const [showPrivacy, setShowPrivacy] = useState(false);
   const [showSettings, setShowSettings] = useState(false);
   const [settingsForm, setSettingsForm] = useState({ emailAlerts: true, smsAlerts: false, weeklySummary: true });
+  const [showReviews, setShowReviews] = useState(false);
+  const [showPipeline, setShowPipeline] = useState(false);
+  const [confirmDeleteJob, setConfirmDeleteJob] = useState(false);
+  const [showNewTimesheet, setShowNewTimesheet] = useState(false);
+  const [timesheetForm, setTimesheetForm] = useState({
+    candidate: '',
+    client: '',
+    weekEnding: '',
+    regularHours: '40',
+    overtimeHours: '0',
+    rate: '45'
+  });
+  const [showCreateInvoice, setShowCreateInvoice] = useState(false);
+  const [invoiceClient, setInvoiceClient] = useState('');
+  const [invoiceSelection, setInvoiceSelection] = useState<string[]>([]);
 
   // Contact form
   const [contactForm, setContactForm] = useState({ name: '', email: '', message: '' });
@@ -462,14 +630,115 @@ const PremierStaffingSolutions = () => {
     toastTimer.current = window.setTimeout(() => setToast(null), 3200);
   };
 
+  // Restore the previous demo session once, after mount (never during SSR)
+  useEffect(() => {
+    const stored = loadWorkspace();
+    if (stored) {
+      if (stored.jobs?.length) setJobList(stored.jobs);
+      if (stored.candidates?.length) setCandidateList(stored.candidates);
+      if (stored.timesheets?.length) setTimesheetList(stored.timesheets);
+      if (stored.invoices?.length) setInvoiceList(stored.invoices);
+      if (stored.documents?.length) setDocumentList(stored.documents);
+      if (stored.settings) setSettingsForm(stored.settings);
+      if (stored.readNotifications) setReadNotifications(stored.readNotifications);
+    }
+    setHydrated(true);
+  }, []);
+
+  // Persist every change so the workspace survives a reload
+  useEffect(() => {
+    if (!hydrated) return;
+    saveWorkspace({
+      jobs: jobList,
+      candidates: candidateList,
+      timesheets: timesheetList,
+      invoices: invoiceList,
+      documents: documentList,
+      settings: settingsForm,
+      readNotifications
+    });
+  }, [hydrated, jobList, candidateList, timesheetList, invoiceList, documentList, settingsForm, readNotifications]);
+
+  const resetDemoData = () => {
+    setJobList(INITIAL_JOBS);
+    setCandidateList(INITIAL_CANDIDATES);
+    setTimesheetList(INITIAL_TIMESHEETS);
+    setInvoiceList(INITIAL_INVOICES);
+    setDocumentList(COMPLIANCE_DOCUMENTS);
+    setSettingsForm({ emailAlerts: true, smsAlerts: false, weeklySummary: true });
+    setReadNotifications([]);
+    setSearchTerm('');
+    setCategoryFilter('All Categories');
+    setTypeFilter('All Types');
+    setCandidateSearch('');
+    setCandidateStatusFilter('All Statuses');
+    setTimesheetFilter('All');
+    setComplianceFilter('All');
+    setShowSettings(false);
+    showToast('Demo data reset to its starting state');
+  };
+
+  const switchRole = (role: UserRole) => {
+    setUserRole(role);
+    setShowRoleMenu(false);
+    const allowed = ROLE_PAGES[role];
+    if (!allowed.includes(currentPage)) setCurrentPage(allowed[0]);
+    showToast(`Switched to the ${role.toLowerCase()} view`);
+  };
+
+  // Navigate from anywhere (footer, cards). If the destination is not part of
+  // the current workspace, hop back to the admin view so the tab bar stays honest.
+  const goTo = (page: Page) => {
+    if (!ROLE_PAGES[userRole].includes(page)) {
+      setUserRole('Admin');
+      showToast('Opened in the admin workspace');
+    }
+    setCurrentPage(page);
+    setShowNotifications(false);
+    setShowRoleMenu(false);
+  };
+
+  const isAdmin = userRole === 'Admin';
+  const canManageJobs = userRole === 'Admin' || userRole === 'Client';
+
   // Stats
   const totalJobs = jobList.length;
   const openJobs = jobList.filter(j => j.status === 'Open').length;
+  const filledJobs = jobList.filter(j => j.status === 'Filled').length;
   const totalCandidates = candidateList.length;
   const availableCandidates = candidateList.filter(c => c.status === 'Available').length;
   const totalClients = CLIENTS.length;
   const pendingTimesheets = timesheetList.filter(t => t.status === 'Pending').length;
   const totalRevenue = invoiceList.reduce((sum, inv) => sum + inv.amount, 0);
+  const docsNeedingAttention = documentList.filter(d => d.status !== 'Valid').length;
+  const invoicesNeedingAttention = invoiceList.filter(i => i.status === 'Draft' || i.status === 'Overdue').length;
+  const pendingActions = pendingTimesheets + docsNeedingAttention + invoicesNeedingAttention;
+  const unreadNotifications = NOTIFICATION_ITEMS.filter(n => !readNotifications.includes(n.id)).length;
+  const totalApplicants = jobList.reduce((sum, job) => sum + job.applicants, 0);
+  const billableTimesheets = timesheetList.filter(t => t.status === 'Approved' && !t.billed);
+  const billableClients = Array.from(new Set(billableTimesheets.map(t => t.client)));
+
+  // Job mix by category, derived from the live job list so the chart and the
+  // filtered board always agree
+  const categoryStats = Array.from(
+    jobList.reduce((map, job) => map.set(job.category, (map.get(job.category) || 0) + 1), new Map<string, number>())
+  )
+    .map(([category, count]) => ({
+      category,
+      count,
+      percentage: totalJobs ? Math.round((count / totalJobs) * 100) : 0,
+      barClass: CATEGORY_BAR_CLASSES[category] || 'bg-[#778da9]'
+    }))
+    .sort((a, b) => b.count - a.count);
+
+  // Simple recruiting funnel derived from live applicant counts
+  const pipelineStages = [
+    { stage: 'Applications received', value: totalApplicants },
+    { stage: 'Screened by a recruiter', value: Math.round(totalApplicants * 0.58) },
+    { stage: 'Submitted to client', value: Math.round(totalApplicants * 0.24) },
+    { stage: 'Client interviews', value: Math.round(totalApplicants * 0.11) },
+    { stage: 'Offers accepted', value: Math.max(RECENT_PLACEMENTS.length, Math.round(totalApplicants * 0.05)) }
+  ];
 
   // ---- Actions ----
 
@@ -525,13 +794,40 @@ const PremierStaffingSolutions = () => {
     setApplySubmitted(true);
   };
 
-  const handleContactSubmit = (e: React.FormEvent) => {
+  const handleContactSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
+    try {
+      const response = await fetch('/api/demo-lead', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({
+          demoName: 'Premier Staffing Solutions',
+          demoPackage: 'Custom Business Platform ($5,000)',
+          demoSlug: 'premier-staffing-solutions',
+          clientName: contactForm.name,
+          clientPhone: '',
+          clientEmail: contactForm.email,
+          service: 'General Inquiry',
+          preferredDate: '',
+          preferredTime: '',
+          notes: contactForm.message
+        })
+      });
+
+      if (response.ok) {
+        trackEvent('generate_lead', { form_name: 'demo_contact_form', demo_slug: 'premier-staffing-solutions' });
+        trackConversion('leadForm');
+      }
+    } catch {
+      // Network/API failure -- the demo still records the message locally below
+    }
+
     appendToStorage('demo_staffing_messages', { ...contactForm, submittedAt: new Date().toISOString() });
     setContactSubmitted(true);
   };
 
   const openEditJob = (job: Job) => {
+    setConfirmDeleteJob(false);
     setEditJob(job);
     setEditJobForm({
       title: job.title,
@@ -619,9 +915,159 @@ const PremierStaffingSolutions = () => {
     showToast(`Candidate added: ${newCandidate.name}`);
   };
 
-  const approveTimesheet = (id: string) => {
-    setTimesheetList(prev => prev.map(t => (t.id === id ? { ...t, status: 'Approved' } : t)));
-    showToast('Timesheet approved');
+  const setTimesheetStatus = (id: string, status: Timesheet['status'], message: string) => {
+    setTimesheetList(prev => prev.map(t => (t.id === id ? { ...t, status } : t)));
+    showToast(message);
+  };
+
+  const approveTimesheet = (id: string) => setTimesheetStatus(id, 'Approved', 'Timesheet approved');
+
+  const downloadTimesheet = (timesheet: Timesheet) => {
+    const lines = [
+      'PREMIER STAFFING SOLUTIONS',
+      'Weekly Time Record',
+      '',
+      `Candidate: ${timesheet.candidate}`,
+      `Client: ${timesheet.client}`,
+      `Week Ending: ${timesheet.weekEnding}`,
+      '',
+      `Regular Hours: ${timesheet.regularHours}`,
+      `Overtime Hours: ${timesheet.overtimeHours}`,
+      `Bill Rate: $${timesheet.rate}/hr`,
+      `Total: $${timesheet.total.toLocaleString()}`,
+      `Status: ${timesheet.status}`,
+      '',
+      'Sample time record generated by this demo.'
+    ];
+    downloadTextFile(`timesheet-${timesheet.candidate.toLowerCase().replace(/\s+/g, '-')}-${timesheet.weekEnding}.txt`, lines.join('\n'));
+    showToast('Time record downloaded');
+  };
+
+  const openNewTimesheet = () => {
+    const first = candidateList[0];
+    setTimesheetForm({
+      candidate: first ? first.name : '',
+      client: CLIENTS[0].companyName,
+      weekEnding: new Date().toISOString().slice(0, 10),
+      regularHours: '40',
+      overtimeHours: '0',
+      rate: '45'
+    });
+    setShowNewTimesheet(true);
+  };
+
+  const handleNewTimesheetSubmit = (e: React.FormEvent) => {
+    e.preventDefault();
+    const regular = Number(timesheetForm.regularHours) || 0;
+    const overtime = Number(timesheetForm.overtimeHours) || 0;
+    const rate = Number(timesheetForm.rate) || 0;
+    const newTimesheet: Timesheet = {
+      id: `ts-${Date.now()}`,
+      candidate: timesheetForm.candidate,
+      client: timesheetForm.client,
+      weekEnding: timesheetForm.weekEnding,
+      regularHours: regular,
+      overtimeHours: overtime,
+      rate,
+      total: Math.round((regular + overtime) * rate),
+      status: 'Pending'
+    };
+    setTimesheetList(prev => [newTimesheet, ...prev]);
+    setShowNewTimesheet(false);
+    setTimesheetFilter('All');
+    showToast(`Timesheet logged for ${newTimesheet.candidate}`);
+  };
+
+  const openCreateInvoice = () => {
+    const first = billableClients[0] || '';
+    setInvoiceClient(first);
+    setInvoiceSelection(billableTimesheets.filter(t => t.client === first).map(t => t.id));
+    setShowCreateInvoice(true);
+  };
+
+  const chooseInvoiceClient = (client: string) => {
+    setInvoiceClient(client);
+    setInvoiceSelection(billableTimesheets.filter(t => t.client === client).map(t => t.id));
+  };
+
+  const toggleInvoiceLine = (id: string) => {
+    setInvoiceSelection(prev => (prev.includes(id) ? prev.filter(x => x !== id) : [...prev, id]));
+  };
+
+  const handleCreateInvoice = () => {
+    const forClient = timesheetList.filter(t => invoiceSelection.includes(t.id) && t.client === invoiceClient);
+    if (forClient.length === 0) {
+      showToast('Select at least one approved timesheet');
+      return;
+    }
+    const client = invoiceClient;
+    const amount = forClient.reduce((sum, t) => sum + t.total, 0);
+    const nextNumber = String(invoiceList.length + 1).padStart(3, '0');
+    const today = new Date();
+    const due = new Date(today.getTime() + 30 * 24 * 60 * 60 * 1000);
+    const newInvoice: Invoice = {
+      id: `inv-${Date.now()}`,
+      client,
+      invoiceNumber: `INV-2024-${nextNumber}`,
+      date: today.toISOString().slice(0, 10),
+      dueDate: due.toISOString().slice(0, 10),
+      amount,
+      status: 'Draft',
+      items: forClient.map(t => ({
+        description: `${t.candidate}, week ending ${t.weekEnding}`,
+        hours: t.regularHours + t.overtimeHours,
+        rate: t.rate,
+        amount: t.total
+      }))
+    };
+    const billedIds = forClient.map(t => t.id);
+    setInvoiceList(prev => [newInvoice, ...prev]);
+    setTimesheetList(prev => prev.map(t => (billedIds.includes(t.id) ? { ...t, billed: true } : t)));
+    setShowCreateInvoice(false);
+    setInvoiceSelection([]);
+    setCurrentPage('invoicing');
+    showToast(`Draft ${newInvoice.invoiceNumber} created for ${client}`);
+  };
+
+  const updateCandidateStatus = (candidate: Candidate, status: Candidate['status']) => {
+    setCandidateList(prev => prev.map(c => (c.id === candidate.id ? { ...c, status } : c)));
+    setDetailCandidate(prev => (prev && prev.id === candidate.id ? { ...prev, status } : prev));
+    showToast(`${candidate.name} marked ${status}`);
+  };
+
+  const submitToClient = (candidate: Candidate, job: Job) => {
+    setCandidateList(prev => prev.map(c => (c.id === candidate.id ? { ...c, status: 'Interview', appliedJobs: c.appliedJobs + 1 } : c)));
+    setJobList(prev => prev.map(j => (j.id === job.id ? { ...j, applicants: j.applicants + 1 } : j)));
+    showToast(`${candidate.name} submitted to ${job.company}`);
+  };
+
+  const removeCandidate = (candidate: Candidate) => {
+    setCandidateList(prev => prev.filter(c => c.id !== candidate.id));
+    setDetailCandidate(null);
+    showToast(`${candidate.name} archived`);
+  };
+
+  const deleteJob = (job: Job) => {
+    setJobList(prev => prev.filter(j => j.id !== job.id));
+    setEditJob(null);
+    setConfirmDeleteJob(false);
+    showToast(`Removed posting: ${job.title}`);
+  };
+
+  const sendRenewalReminder = (doc: ComplianceDocument) => {
+    const stamp = new Date().toISOString().slice(0, 10);
+    setDocumentList(prev => prev.map(d => (d.id === doc.id ? { ...d, lastReminder: stamp } : d)));
+    setDetailDoc(prev => (prev && prev.id === doc.id ? { ...prev, lastReminder: stamp } : prev));
+    showToast(`Renewal reminder sent to ${doc.candidate}`);
+  };
+
+  const recordRenewal = (doc: ComplianceDocument) => {
+    const renewed = new Date();
+    renewed.setFullYear(renewed.getFullYear() + 1);
+    const expiry = renewed.toISOString().slice(0, 10);
+    setDocumentList(prev => prev.map(d => (d.id === doc.id ? { ...d, status: 'Valid', expiryDate: expiry } : d)));
+    setDetailDoc(null);
+    showToast(`${doc.documentType} renewed for ${doc.candidate}`);
   };
 
   const sendInvoice = (invoice: Invoice) => {
@@ -631,6 +1077,12 @@ const PremierStaffingSolutions = () => {
     }
     setInvoiceList(prev => prev.map(inv => (inv.id === invoice.id ? { ...inv, status: 'Sent' } : inv)));
     showToast(`Invoice ${invoice.invoiceNumber} sent to ${invoice.client}`);
+  };
+
+  const markInvoicePaid = (invoice: Invoice) => {
+    setInvoiceList(prev => prev.map(inv => (inv.id === invoice.id ? { ...inv, status: 'Paid' } : inv)));
+    setDetailInvoice(prev => (prev && prev.id === invoice.id ? { ...prev, status: 'Paid' } : prev));
+    showToast(`Payment recorded for ${invoice.invoiceNumber}`);
   };
 
   const downloadInvoice = (invoice: Invoice) => {
@@ -701,7 +1153,7 @@ const PremierStaffingSolutions = () => {
     } else {
       content = [
         'Candidate,Document,Status,Expires',
-        ...COMPLIANCE_DOCUMENTS.map(d => `${d.candidate},${d.documentType},${d.status},${d.expiryDate}`)
+        ...documentList.map(d => `${d.candidate},${d.documentType},${d.status},${d.expiryDate}`)
       ].join('\n');
     }
     downloadTextFile(`${title.toLowerCase().replace(/[^a-z0-9]+/g, '-')}.csv`, content);
@@ -739,6 +1191,35 @@ const PremierStaffingSolutions = () => {
     return matchesSearch && matchesCategory && matchesType;
   });
 
+  const filteredCandidates = candidateList.filter(candidate => {
+    const term = candidateSearch.trim().toLowerCase();
+    const matchesSearch = !term
+      || `${candidate.name} ${candidate.title} ${candidate.location} ${candidate.skills.join(' ')}`.toLowerCase().includes(term);
+    const matchesStatus = candidateStatusFilter === 'All Statuses' || candidate.status === candidateStatusFilter;
+    return matchesSearch && matchesStatus;
+  });
+
+  const filteredTimesheets = timesheetList.filter(t => timesheetFilter === 'All' || t.status === timesheetFilter);
+  const filteredDocuments = documentList.filter(d => complianceFilter === 'All' || d.status === complianceFilter);
+
+  const goToCategory = (category: string) => {
+    setCategoryFilter(category);
+    setTypeFilter('All Types');
+    setSearchTerm('');
+    setCurrentPage('jobs');
+  };
+
+  const openCandidateByName = (name: string) => {
+    const match = candidateList.find(c => c.name === name);
+    if (match) {
+      setDetailCandidate(match);
+      return;
+    }
+    setCurrentPage('candidates');
+    setCandidateSearch(name);
+    showToast(`Showing candidate records for ${name}`);
+  };
+
   // Navigation
   const renderNavigation = () => (
     <nav className="bg-[#1b263b] text-white sticky top-0 z-40 shadow-lg">
@@ -752,22 +1233,45 @@ const PremierStaffingSolutions = () => {
             </div>
           </div>
           <div className="flex items-center gap-4">
-            <div className="flex items-center gap-2 bg-[#415a77] px-3 py-2 rounded-lg">
-              <User className="w-5 h-5" />
-              <div className="text-sm">
-                <p className="font-semibold">{userRole}</p>
-              </div>
+            <div className="relative">
+              <button
+                onClick={() => { setShowRoleMenu(v => !v); setShowNotifications(false); }}
+                aria-expanded={showRoleMenu}
+                className="flex items-center gap-2 bg-[#415a77] px-3 py-2 rounded-lg hover:bg-[#778da9] transition-colors"
+              >
+                <User className="w-5 h-5" />
+                <span className="text-sm font-semibold">{userRole}</span>
+                <ChevronDown className={`w-4 h-4 transition-transform ${showRoleMenu ? 'rotate-180' : ''}`} />
+              </button>
+              {showRoleMenu && (
+                <div className="absolute right-0 top-12 w-72 bg-white text-gray-900 rounded-lg shadow-2xl border border-gray-200 z-50 overflow-hidden">
+                  <p className="px-4 py-2 text-xs font-bold uppercase tracking-wide text-gray-500 bg-gray-50">Switch workspace</p>
+                  {(['Admin', 'Client', 'Candidate'] as UserRole[]).map(role => (
+                    <button
+                      key={role}
+                      onClick={() => switchRole(role)}
+                      className={`w-full text-left px-4 py-3 hover:bg-gray-50 transition-colors ${userRole === role ? 'bg-blue-50' : ''}`}
+                    >
+                      <span className="flex items-center justify-between font-semibold text-sm text-[#1b263b]">
+                        {role}
+                        {userRole === role && <CheckCircle2 className="w-4 h-4 text-green-600" />}
+                      </span>
+                      <span className="block text-xs text-gray-600 mt-0.5">{ROLE_DESCRIPTIONS[role]}</span>
+                    </button>
+                  ))}
+                </div>
+              )}
             </div>
             <div className="relative">
               <button
-                onClick={() => setShowNotifications(v => !v)}
+                onClick={() => { setShowNotifications(v => !v); setShowRoleMenu(false); }}
                 aria-label="Notifications"
                 className="relative hover:text-[#778da9] transition-colors"
               >
                 <Bell className="w-5 h-5" />
-                {notifications > 0 && (
+                {unreadNotifications > 0 && (
                   <span className="absolute -top-2 -right-2 bg-red-500 text-white text-xs rounded-full w-5 h-5 flex items-center justify-center">
-                    {notifications}
+                    {unreadNotifications}
                   </span>
                 )}
               </button>
@@ -776,19 +1280,39 @@ const PremierStaffingSolutions = () => {
                   <div className="flex items-center justify-between px-4 py-3 border-b">
                     <span className="font-bold text-[#1b263b]">Notifications</span>
                     <button
-                      onClick={() => setNotifications(0)}
+                      onClick={() => setReadNotifications(NOTIFICATION_ITEMS.map(n => n.id))}
                       className="text-xs font-semibold text-[#415a77] hover:underline"
                     >
                       Mark all as read
                     </button>
                   </div>
                   <div className="divide-y">
-                    {NOTIFICATION_ITEMS.map(n => (
-                      <div key={n.id} className="px-4 py-3">
-                        <p className="text-sm text-gray-800">{n.text}</p>
-                        <p className="text-xs text-gray-500 mt-1">{n.time}</p>
-                      </div>
-                    ))}
+                    {NOTIFICATION_ITEMS.map(n => {
+                      const isRead = readNotifications.includes(n.id);
+                      return (
+                        <button
+                          key={n.id}
+                          onClick={() => {
+                            setReadNotifications(prev => (prev.includes(n.id) ? prev : [...prev, n.id]));
+                            setShowNotifications(false);
+                            const allowed = ROLE_PAGES[userRole];
+                            setCurrentPage(allowed.includes(n.page) ? n.page : allowed[0]);
+                          }}
+                          className={`w-full text-left px-4 py-3 hover:bg-gray-50 transition-colors ${isRead ? 'opacity-60' : ''}`}
+                        >
+                          <span className="flex items-start gap-2">
+                            {!isRead && <span className="mt-1.5 w-2 h-2 rounded-full bg-[#778da9] flex-shrink-0" />}
+                            <span className={isRead ? 'pl-4' : ''}>
+                              <span className="block text-sm text-gray-800">{n.text}</span>
+                              <span className="block text-xs text-gray-500 mt-1">{n.time}</span>
+                            </span>
+                          </span>
+                        </button>
+                      );
+                    })}
+                  </div>
+                  <div className="px-4 py-2 border-t bg-gray-50 text-xs text-gray-500">
+                    Select a notification to jump straight to the record.
                   </div>
                 </div>
               )}
@@ -802,8 +1326,10 @@ const PremierStaffingSolutions = () => {
             </button>
             <button
               onClick={() => {
+                setUserRole('Admin');
                 setCurrentPage('home');
                 setShowNotifications(false);
+                setShowRoleMenu(false);
                 showToast('Signed out of demo session');
               }}
               className="hover:text-[#778da9] transition-colors"
@@ -814,21 +1340,21 @@ const PremierStaffingSolutions = () => {
           </div>
         </div>
         <div className="flex flex-wrap gap-2">
-          {[
-            { page: 'home' as Page, label: 'Dashboard', icon: BarChart3 },
-            { page: 'jobs' as Page, label: 'Job Board', icon: Briefcase },
-            { page: 'candidates' as Page, label: 'Candidates', icon: Users },
+          {([
+            { page: 'home' as Page, label: userRole === 'Client' ? 'Overview' : 'Dashboard', icon: BarChart3 },
+            { page: 'jobs' as Page, label: userRole === 'Candidate' ? 'Open Roles' : 'Job Board', icon: Briefcase },
+            { page: 'candidates' as Page, label: userRole === 'Client' ? 'Submitted Talent' : 'Candidates', icon: Users },
             { page: 'clients' as Page, label: 'Clients', icon: Building2 },
-            { page: 'timesheets' as Page, label: 'Timesheets', icon: Clock },
+            { page: 'timesheets' as Page, label: userRole === 'Candidate' ? 'My Hours' : 'Timesheets', icon: Clock },
             { page: 'invoicing' as Page, label: 'Invoicing', icon: DollarSign },
             { page: 'reports' as Page, label: 'Reports', icon: PieChart },
-            { page: 'compliance' as Page, label: 'Compliance', icon: Shield },
+            { page: 'compliance' as Page, label: userRole === 'Candidate' ? 'My Documents' : 'Compliance', icon: Shield },
             { page: 'resources' as Page, label: 'Resources', icon: FileText },
             { page: 'contact' as Page, label: 'Contact', icon: Phone }
-          ].map(({ page, label, icon: Icon }) => (
+          ]).filter(item => ROLE_PAGES[userRole].includes(item.page)).map(({ page, label, icon: Icon }) => (
             <button
               key={page}
-              onClick={() => setCurrentPage(page)}
+              onClick={() => { setCurrentPage(page); setShowNotifications(false); setShowRoleMenu(false); }}
               className={`px-4 py-2 rounded-lg transition-colors flex items-center gap-2 text-sm ${
                 currentPage === page ? 'bg-[#778da9] text-white font-semibold' : 'bg-[#415a77] hover:bg-[#778da9]'
               }`}
@@ -862,7 +1388,7 @@ const PremierStaffingSolutions = () => {
           </div>
           <h3 className="text-gray-600 text-sm font-semibold mb-1">Open Jobs</h3>
           <p className="text-3xl font-bold text-[#1b263b]">{openJobs}</p>
-          <p className="text-sm text-green-600 mt-2">+{totalJobs - openJobs} filled this month</p>
+          <p className="text-sm text-green-600 mt-2">{filledJobs} filled this month, {totalJobs} total orders</p>
         </button>
 
         <button
@@ -900,37 +1426,41 @@ const PremierStaffingSolutions = () => {
             <Zap className="w-5 h-5 text-orange-500" />
           </div>
           <h3 className="text-gray-600 text-sm font-semibold mb-1">Pending Actions</h3>
-          <p className="text-3xl font-bold text-[#1b263b]">{pendingTimesheets + 3}</p>
-          <p className="text-sm text-gray-600 mt-2">{pendingTimesheets} timesheets, 3 approvals</p>
+          <p className="text-3xl font-bold text-[#1b263b]">{pendingActions}</p>
+          <p className="text-sm text-gray-600 mt-2">
+            {plural(pendingTimesheets, 'timesheet')}, {plural(docsNeedingAttention, 'document')}, {plural(invoicesNeedingAttention, 'invoice')}
+          </p>
         </button>
       </div>
 
       {/* Charts & Activity */}
       <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 mb-8">
         <div className="bg-white rounded-lg shadow-lg p-6">
-          <h2 className="text-xl font-bold text-[#1b263b] mb-4 flex items-center gap-2">
-            <Target className="w-6 h-6 text-[#778da9]" />
-            Top Job Categories
-          </h2>
+          <div className="flex items-center justify-between mb-4">
+            <h2 className="text-xl font-bold text-[#1b263b] flex items-center gap-2">
+              <Target className="w-6 h-6 text-[#778da9]" />
+              Top Job Categories
+            </h2>
+            <span className="text-xs text-gray-500">Select a category to filter the board</span>
+          </div>
           <div className="space-y-4">
-            {[
-              { category: 'Technology', jobs: 12, percentage: 35, color: 'blue' },
-              { category: 'Healthcare', jobs: 10, percentage: 29, color: 'green' },
-              { category: 'Logistics', jobs: 7, percentage: 21, color: 'yellow' },
-              { category: 'Marketing', jobs: 5, percentage: 15, color: 'purple' }
-            ].map(cat => (
-              <div key={cat.category}>
-                <div className="flex items-center justify-between mb-2">
+            {categoryStats.map(cat => (
+              <button
+                key={cat.category}
+                onClick={() => goToCategory(cat.category)}
+                className="w-full text-left rounded-lg p-2 -m-2 hover:bg-gray-50 transition-colors"
+              >
+                <span className="flex items-center justify-between mb-2">
                   <span className="font-semibold text-gray-700">{cat.category}</span>
-                  <span className="text-sm text-gray-600">{cat.jobs} jobs ({cat.percentage}%)</span>
-                </div>
-                <div className="w-full bg-gray-200 rounded-full h-3">
-                  <div
-                    className={`bg-${cat.color}-500 h-3 rounded-full`}
+                  <span className="text-sm text-gray-600">{cat.count} jobs ({cat.percentage}%)</span>
+                </span>
+                <span className="block w-full bg-gray-200 rounded-full h-3">
+                  <span
+                    className={`${cat.barClass} h-3 rounded-full block`}
                     style={{ width: `${cat.percentage}%` }}
-                  ></div>
-                </div>
-              </div>
+                  ></span>
+                </span>
+              </button>
             ))}
           </div>
         </div>
@@ -942,14 +1472,19 @@ const PremierStaffingSolutions = () => {
           </h2>
           <div className="space-y-4">
             {RECENT_PLACEMENTS.map((placement, idx) => (
-              <div key={idx} className="flex items-start gap-3 p-3 bg-green-50 rounded-lg border-l-4 border-green-500">
+              <button
+                key={idx}
+                onClick={() => openCandidateByName(placement.candidate)}
+                className="w-full text-left flex items-start gap-3 p-3 bg-green-50 rounded-lg border-l-4 border-green-500 hover:bg-green-100 transition-colors"
+              >
                 <CheckCircle2 className="w-5 h-5 text-green-600 flex-shrink-0 mt-1" />
-                <div className="flex-1">
-                  <p className="font-semibold text-gray-900">{placement.candidate}</p>
-                  <p className="text-sm text-gray-600">{placement.job} at {placement.client}</p>
-                  <p className="text-xs text-gray-500 mt-1">{new Date(placement.date).toLocaleDateString()}</p>
-                </div>
-              </div>
+                <span className="flex-1">
+                  <span className="block font-semibold text-gray-900">{placement.candidate}</span>
+                  <span className="block text-sm text-gray-600">{placement.job} at {placement.client}</span>
+                  <span className="block text-xs text-gray-500 mt-1">{new Date(placement.date).toLocaleDateString()}</span>
+                </span>
+                <ArrowUpRight className="w-4 h-4 text-green-600 flex-shrink-0 mt-1" />
+              </button>
             ))}
           </div>
         </div>
@@ -957,7 +1492,10 @@ const PremierStaffingSolutions = () => {
 
       {/* Quick Stats */}
       <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
-        <div className="bg-white rounded-lg shadow-lg p-6">
+        <button
+          onClick={() => setShowReviews(true)}
+          className="bg-white rounded-lg shadow-lg p-6 text-left hover:shadow-xl transition-shadow"
+        >
           <div className="flex items-center justify-between mb-4">
             <h3 className="font-bold text-lg text-[#1b263b]">Client Satisfaction</h3>
             <Star className="w-6 h-6 text-yellow-500" />
@@ -970,10 +1508,14 @@ const PremierStaffingSolutions = () => {
               ))}
             </div>
             <p className="text-sm text-gray-600">Based on 127 reviews</p>
+            <p className="text-sm text-[#415a77] font-semibold mt-2">Read recent reviews</p>
           </div>
-        </div>
+        </button>
 
-        <div className="bg-white rounded-lg shadow-lg p-6">
+        <button
+          onClick={() => setShowPipeline(true)}
+          className="bg-white rounded-lg shadow-lg p-6 text-left hover:shadow-xl transition-shadow"
+        >
           <div className="flex items-center justify-between mb-4">
             <h3 className="font-bold text-lg text-[#1b263b]">Placement Rate</h3>
             <Target className="w-6 h-6 text-green-500" />
@@ -982,20 +1524,24 @@ const PremierStaffingSolutions = () => {
             <p className="text-4xl font-bold text-green-600 mb-2">87%</p>
             <p className="text-sm text-gray-600 mb-3">Average time to placement</p>
             <p className="text-2xl font-semibold text-[#1b263b]">12 days</p>
+            <p className="text-sm text-[#415a77] font-semibold mt-2">View the hiring funnel</p>
           </div>
-        </div>
+        </button>
 
-        <div className="bg-white rounded-lg shadow-lg p-6">
+        <button
+          onClick={() => setCurrentPage(isAdmin ? 'clients' : 'jobs')}
+          className="bg-white rounded-lg shadow-lg p-6 text-left hover:shadow-xl transition-shadow"
+        >
           <div className="flex items-center justify-between mb-4">
-            <h3 className="font-bold text-lg text-[#1b263b]">Active Clients</h3>
+            <h3 className="font-bold text-lg text-[#1b263b]">{isAdmin ? 'Active Clients' : 'Your Open Orders'}</h3>
             <Building2 className="w-6 h-6 text-blue-500" />
           </div>
           <div className="text-center">
-            <p className="text-4xl font-bold text-[#1b263b] mb-2">{totalClients}</p>
-            <p className="text-sm text-gray-600 mb-3">Companies working with us</p>
-            <p className="text-sm text-green-600 font-semibold">+5 new this quarter</p>
+            <p className="text-4xl font-bold text-[#1b263b] mb-2">{isAdmin ? totalClients : openJobs}</p>
+            <p className="text-sm text-gray-600 mb-3">{isAdmin ? 'Companies working with us' : 'Roles we are actively filling for you'}</p>
+            <p className="text-sm text-green-600 font-semibold">{isAdmin ? '+5 new this quarter' : `${totalApplicants} applicants in play`}</p>
           </div>
-        </div>
+        </button>
       </div>
     </div>
   );
@@ -1005,16 +1551,31 @@ const PremierStaffingSolutions = () => {
     <div className="max-w-7xl mx-auto px-4 py-8">
       <div className="flex items-center justify-between mb-8">
         <div>
-          <h1 className="text-4xl font-bold text-[#1b263b] mb-2">Job Board</h1>
-          <p className="text-gray-600">{openJobs} open positions available</p>
+          <h1 className="text-4xl font-bold text-[#1b263b] mb-2">
+            {userRole === 'Candidate' ? 'Open Roles' : 'Job Board'}
+          </h1>
+          <p className="text-gray-600">
+            {plural(openJobs, 'open position')} available
+            {filteredJobs.length !== jobList.length && ` -- showing ${filteredJobs.length} of ${jobList.length}`}
+          </p>
         </div>
-        <button
-          onClick={() => openPostJob()}
-          className="bg-[#778da9] text-white px-6 py-3 rounded-lg font-semibold hover:bg-[#1b263b] transition-colors flex items-center gap-2"
-        >
-          <Plus className="w-5 h-5" />
-          Post New Job
-        </button>
+        {canManageJobs ? (
+          <button
+            onClick={() => openPostJob()}
+            className="bg-[#778da9] text-white px-6 py-3 rounded-lg font-semibold hover:bg-[#1b263b] transition-colors flex items-center gap-2"
+          >
+            <Plus className="w-5 h-5" />
+            Post New Job
+          </button>
+        ) : (
+          <button
+            onClick={() => openApply(null)}
+            className="bg-[#778da9] text-white px-6 py-3 rounded-lg font-semibold hover:bg-[#1b263b] transition-colors flex items-center gap-2"
+          >
+            <Send className="w-5 h-5" />
+            Submit Your Resume
+          </button>
+        )}
       </div>
 
       {/* Filters */}
@@ -1146,20 +1707,32 @@ const PremierStaffingSolutions = () => {
               >
                 View Details
               </button>
-              <button
-                onClick={() => setMatchJob(job)}
-                className="px-6 py-3 bg-green-500 text-white rounded-lg font-semibold hover:bg-green-600 transition-colors flex items-center gap-2"
-              >
-                <UserPlus className="w-5 h-5" />
-                Match Candidates
-              </button>
-              <button
-                onClick={() => openEditJob(job)}
-                aria-label={`Edit ${job.title}`}
-                className="px-4 py-3 border-2 border-[#1b263b] text-[#1b263b] rounded-lg hover:bg-gray-50 transition-colors"
-              >
-                <Edit className="w-5 h-5" />
-              </button>
+              {canManageJobs ? (
+                <>
+                  <button
+                    onClick={() => setMatchJob(job)}
+                    className="px-6 py-3 bg-green-500 text-white rounded-lg font-semibold hover:bg-green-600 transition-colors flex items-center gap-2"
+                  >
+                    <UserPlus className="w-5 h-5" />
+                    Match Candidates
+                  </button>
+                  <button
+                    onClick={() => openEditJob(job)}
+                    aria-label={`Edit ${job.title}`}
+                    className="px-4 py-3 border-2 border-[#1b263b] text-[#1b263b] rounded-lg hover:bg-gray-50 transition-colors"
+                  >
+                    <Edit className="w-5 h-5" />
+                  </button>
+                </>
+              ) : (
+                <button
+                  onClick={() => openApply(job)}
+                  className="px-6 py-3 bg-green-500 text-white rounded-lg font-semibold hover:bg-green-600 transition-colors flex items-center gap-2"
+                >
+                  <Send className="w-5 h-5" />
+                  Apply Now
+                </button>
+              )}
             </div>
           </div>
         ))}
@@ -1172,21 +1745,66 @@ const PremierStaffingSolutions = () => {
     <div className="max-w-7xl mx-auto px-4 py-8">
       <div className="flex items-center justify-between mb-8">
         <div>
-          <h1 className="text-4xl font-bold text-[#1b263b] mb-2">Candidate Database</h1>
-          <p className="text-gray-600">{availableCandidates} active candidates</p>
+          <h1 className="text-4xl font-bold text-[#1b263b] mb-2">
+            {isAdmin ? 'Candidate Database' : 'Submitted Talent'}
+          </h1>
+          <p className="text-gray-600">
+            {availableCandidates} available of {totalCandidates} on file
+            {filteredCandidates.length !== candidateList.length && ` -- showing ${filteredCandidates.length}`}
+          </p>
         </div>
-        <button
-          onClick={() => setShowAddCandidate(true)}
-          className="bg-[#778da9] text-white px-6 py-3 rounded-lg font-semibold hover:bg-[#1b263b] transition-colors flex items-center gap-2"
-        >
-          <UserPlus className="w-5 h-5" />
-          Add Candidate
-        </button>
+        {isAdmin && (
+          <button
+            onClick={() => setShowAddCandidate(true)}
+            className="bg-[#778da9] text-white px-6 py-3 rounded-lg font-semibold hover:bg-[#1b263b] transition-colors flex items-center gap-2"
+          >
+            <UserPlus className="w-5 h-5" />
+            Add Candidate
+          </button>
+        )}
       </div>
+
+      {/* Filters */}
+      <div className="bg-white rounded-lg shadow-md p-4 mb-6">
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
+          <div className="md:col-span-2">
+            <input
+              type="text"
+              placeholder="Search by name, title, location, or skill..."
+              aria-label="Search candidates"
+              value={candidateSearch}
+              onChange={(e) => setCandidateSearch(e.target.value)}
+              className="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-[#1b263b] focus:border-transparent"
+            />
+          </div>
+          <select
+            aria-label="Filter candidates by status"
+            value={candidateStatusFilter}
+            onChange={(e) => setCandidateStatusFilter(e.target.value)}
+            className="px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-[#1b263b]"
+          >
+            <option>All Statuses</option>
+            {CANDIDATE_STATUSES.map(status => <option key={status}>{status}</option>)}
+          </select>
+        </div>
+      </div>
+
+      {filteredCandidates.length === 0 && (
+        <div className="bg-white rounded-lg shadow-lg p-10 text-center">
+          <Users className="w-10 h-10 text-gray-300 mx-auto mb-3" />
+          <p className="text-gray-600 font-semibold">No candidates match your search or filter.</p>
+          <button
+            onClick={() => { setCandidateSearch(''); setCandidateStatusFilter('All Statuses'); }}
+            className="mt-3 text-[#415a77] font-semibold hover:underline"
+          >
+            Clear filters
+          </button>
+        </div>
+      )}
 
       {/* Candidate Cards */}
       <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-        {candidateList.map(candidate => (
+        {filteredCandidates.map(candidate => (
           <div key={candidate.id} className="bg-white rounded-lg shadow-lg p-6 hover:shadow-xl transition-shadow">
             <div className="flex items-start justify-between mb-4">
               <div className="flex items-center gap-3">
@@ -1342,7 +1960,44 @@ const PremierStaffingSolutions = () => {
   // Page: Timesheets
   const renderTimesheetsPage = () => (
     <div className="max-w-7xl mx-auto px-4 py-8">
-      <h1 className="text-4xl font-bold text-[#1b263b] mb-8">Timesheet Management</h1>
+      <div className="flex flex-wrap items-center justify-between gap-4 mb-6">
+        <div>
+          <h1 className="text-4xl font-bold text-[#1b263b] mb-2">
+            {userRole === 'Candidate' ? 'My Hours' : 'Timesheet Management'}
+          </h1>
+          <p className="text-gray-600">
+            {plural(pendingTimesheets, 'timesheet')} awaiting approval, {billableTimesheets.length} approved and ready to bill
+          </p>
+        </div>
+        {isAdmin && (
+          <button
+            onClick={openNewTimesheet}
+            className="bg-[#778da9] text-white px-6 py-3 rounded-lg font-semibold hover:bg-[#1b263b] transition-colors flex items-center gap-2"
+          >
+            <Plus className="w-5 h-5" />
+            Log Timesheet
+          </button>
+        )}
+      </div>
+
+      <div className="flex flex-wrap gap-2 mb-6">
+        {TIMESHEET_STATUSES.map(status => {
+          const count = status === 'All' ? timesheetList.length : timesheetList.filter(t => t.status === status).length;
+          return (
+            <button
+              key={status}
+              onClick={() => setTimesheetFilter(status)}
+              className={`px-4 py-2 rounded-lg text-sm font-semibold transition-colors ${
+                timesheetFilter === status
+                  ? 'bg-[#1b263b] text-white'
+                  : 'bg-white text-[#1b263b] border border-gray-300 hover:bg-gray-50'
+              }`}
+            >
+              {status} ({count})
+            </button>
+          );
+        })}
+      </div>
 
       <div className="bg-white rounded-lg shadow-lg p-6">
         <div className="overflow-x-auto">
@@ -1361,7 +2016,7 @@ const PremierStaffingSolutions = () => {
               </tr>
             </thead>
             <tbody className="divide-y divide-gray-200">
-              {timesheetList.map(timesheet => (
+              {filteredTimesheets.map(timesheet => (
                 <tr key={timesheet.id} className="hover:bg-gray-50">
                   <td className="px-6 py-4 text-sm font-semibold text-gray-900">{timesheet.candidate}</td>
                   <td className="px-6 py-4 text-sm text-gray-700">{timesheet.client}</td>
@@ -1378,19 +2033,68 @@ const PremierStaffingSolutions = () => {
                     }`}>
                       {timesheet.status}
                     </span>
+                    {timesheet.billed && (
+                      <span className="block text-xs text-gray-500 mt-1">Invoiced</span>
+                    )}
                   </td>
                   <td className="px-6 py-4">
-                    {timesheet.status === 'Pending' && (
+                    <div className="flex items-center gap-3">
+                      {timesheet.status === 'Pending' && isAdmin && (
+                        <>
+                          <button
+                            onClick={() => approveTimesheet(timesheet.id)}
+                            className="text-green-600 hover:underline font-semibold text-sm"
+                          >
+                            Approve
+                          </button>
+                          <button
+                            onClick={() => setTimesheetStatus(timesheet.id, 'Rejected', `Timesheet returned to ${timesheet.candidate}`)}
+                            className="text-red-600 hover:underline font-semibold text-sm"
+                          >
+                            Reject
+                          </button>
+                        </>
+                      )}
+                      {timesheet.status === 'Approved' && isAdmin && (
+                        <button
+                          onClick={() => setTimesheetStatus(timesheet.id, 'Paid', `Payment released to ${timesheet.candidate}`)}
+                          className="text-blue-600 hover:underline font-semibold text-sm"
+                        >
+                          Mark Paid
+                        </button>
+                      )}
+                      {timesheet.status === 'Rejected' && isAdmin && (
+                        <button
+                          onClick={() => setTimesheetStatus(timesheet.id, 'Pending', 'Timesheet reopened for review')}
+                          className="text-[#415a77] hover:underline font-semibold text-sm"
+                        >
+                          Reopen
+                        </button>
+                      )}
                       <button
-                        onClick={() => approveTimesheet(timesheet.id)}
-                        className="text-green-600 hover:underline font-semibold text-sm"
+                        onClick={() => downloadTimesheet(timesheet)}
+                        className="text-[#415a77] hover:underline font-semibold text-sm flex items-center gap-1"
                       >
-                        Approve
+                        <Download className="w-4 h-4" />
+                        Record
                       </button>
-                    )}
+                    </div>
                   </td>
                 </tr>
               ))}
+              {filteredTimesheets.length === 0 && (
+                <tr>
+                  <td colSpan={9} className="px-6 py-10 text-center text-gray-600">
+                    No {timesheetFilter === 'All' ? '' : timesheetFilter.toLowerCase()} timesheets right now.
+                    <button
+                      onClick={() => setTimesheetFilter('All')}
+                      className="ml-2 text-[#415a77] font-semibold hover:underline"
+                    >
+                      Show all
+                    </button>
+                  </td>
+                </tr>
+              )}
             </tbody>
           </table>
         </div>
@@ -1401,7 +2105,24 @@ const PremierStaffingSolutions = () => {
   // Page: Invoicing
   const renderInvoicingPage = () => (
     <div className="max-w-7xl mx-auto px-4 py-8">
-      <h1 className="text-4xl font-bold text-[#1b263b] mb-8">Invoice Management</h1>
+      <div className="flex flex-wrap items-center justify-between gap-4 mb-8">
+        <div>
+          <h1 className="text-4xl font-bold text-[#1b263b] mb-2">Invoice Management</h1>
+          <p className="text-gray-600">
+            {plural(invoiceList.length, 'invoice')} totaling ${totalRevenue.toLocaleString()}
+            {billableTimesheets.length > 0 && ` -- ${plural(billableTimesheets.length, 'approved timesheet')} ready to bill`}
+          </p>
+        </div>
+        {isAdmin && (
+          <button
+            onClick={openCreateInvoice}
+            className="bg-[#778da9] text-white px-6 py-3 rounded-lg font-semibold hover:bg-[#1b263b] transition-colors flex items-center gap-2"
+          >
+            <Plus className="w-5 h-5" />
+            Create Invoice
+          </button>
+        )}
+      </div>
 
       <div className="space-y-6">
         {invoiceList.map(invoice => (
@@ -1462,15 +2183,24 @@ const PremierStaffingSolutions = () => {
                 className="px-6 py-3 bg-blue-500 text-white rounded-lg font-semibold hover:bg-blue-600 transition-colors flex items-center gap-2"
               >
                 <Download className="w-5 h-5" />
-                Download PDF
+                Download
               </button>
               <button
                 onClick={() => sendInvoice(invoice)}
                 className="px-6 py-3 bg-green-500 text-white rounded-lg font-semibold hover:bg-green-600 transition-colors flex items-center gap-2"
               >
                 <Send className="w-5 h-5" />
-                Send
+                {invoice.status === 'Paid' ? 'Resend Receipt' : 'Send'}
               </button>
+              {invoice.status !== 'Paid' && isAdmin && (
+                <button
+                  onClick={() => markInvoicePaid(invoice)}
+                  className="px-6 py-3 border-2 border-[#1b263b] text-[#1b263b] rounded-lg font-semibold hover:bg-gray-50 transition-colors flex items-center gap-2"
+                >
+                  <CheckCircle2 className="w-5 h-5" />
+                  Mark Paid
+                </button>
+              )}
             </div>
           </div>
         ))}
@@ -1485,16 +2215,16 @@ const PremierStaffingSolutions = () => {
 
       <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
         {[
-          { title: 'Placement Report', desc: 'Track all placements and success rates', icon: UserCheck, color: 'green' },
-          { title: 'Revenue Report', desc: 'Analyze billing and revenue trends', icon: DollarSign, color: 'blue' },
-          { title: 'Client Activity', desc: 'Client engagement and satisfaction', icon: Building2, color: 'purple' },
-          { title: 'Candidate Pipeline', desc: 'Pipeline status and conversion rates', icon: Users, color: 'orange' },
-          { title: 'Time to Fill', desc: 'Average days to fill positions', icon: Clock, color: 'red' },
-          { title: 'Compliance Status', desc: 'Document compliance overview', icon: Shield, color: 'teal' }
+          { title: 'Placement Report', desc: 'Track all placements and success rates', icon: UserCheck, bgClass: 'bg-green-100', textClass: 'text-green-600' },
+          { title: 'Revenue Report', desc: 'Analyze billing and revenue trends', icon: DollarSign, bgClass: 'bg-blue-100', textClass: 'text-blue-600' },
+          { title: 'Client Activity', desc: 'Client engagement and satisfaction', icon: Building2, bgClass: 'bg-purple-100', textClass: 'text-purple-600' },
+          { title: 'Candidate Pipeline', desc: 'Pipeline status and conversion rates', icon: Users, bgClass: 'bg-orange-100', textClass: 'text-orange-600' },
+          { title: 'Time to Fill', desc: 'Average days to fill positions', icon: Clock, bgClass: 'bg-red-100', textClass: 'text-red-600' },
+          { title: 'Compliance Status', desc: 'Document compliance overview', icon: Shield, bgClass: 'bg-teal-100', textClass: 'text-teal-600' }
         ].map(report => (
           <div key={report.title} className="bg-white rounded-lg shadow-lg p-6 hover:shadow-xl transition-shadow">
-            <div className={`w-12 h-12 bg-${report.color}-100 rounded-lg flex items-center justify-center mb-4`}>
-              <report.icon className={`w-6 h-6 text-${report.color}-600`} />
+            <div className={`w-12 h-12 ${report.bgClass} rounded-lg flex items-center justify-center mb-4`}>
+              <report.icon className={`w-6 h-6 ${report.textClass}`} />
             </div>
             <h3 className="font-bold text-lg text-[#1b263b] mb-2">{report.title}</h3>
             <p className="text-sm text-gray-600 mb-4">{report.desc}</p>
@@ -1514,7 +2244,35 @@ const PremierStaffingSolutions = () => {
   // Page: Compliance
   const renderCompliancePage = () => (
     <div className="max-w-7xl mx-auto px-4 py-8">
-      <h1 className="text-4xl font-bold text-[#1b263b] mb-8">Compliance Tracking</h1>
+      <div className="mb-6">
+        <h1 className="text-4xl font-bold text-[#1b263b] mb-2">
+          {userRole === 'Candidate' ? 'My Documents' : 'Compliance Tracking'}
+        </h1>
+        <p className="text-gray-600">
+          {docsNeedingAttention === 0
+            ? 'Every document on file is current.'
+            : `${plural(docsNeedingAttention, 'document')} ${docsNeedingAttention === 1 ? 'needs' : 'need'} attention.`}
+        </p>
+      </div>
+
+      <div className="flex flex-wrap gap-2 mb-6">
+        {(['All', 'Valid', 'Expiring', 'Expired'] as Array<ComplianceDocument['status'] | 'All'>).map(status => {
+          const count = status === 'All' ? documentList.length : documentList.filter(d => d.status === status).length;
+          return (
+            <button
+              key={status}
+              onClick={() => setComplianceFilter(status)}
+              className={`px-4 py-2 rounded-lg text-sm font-semibold transition-colors ${
+                complianceFilter === status
+                  ? 'bg-[#1b263b] text-white'
+                  : 'bg-white text-[#1b263b] border border-gray-300 hover:bg-gray-50'
+              }`}
+            >
+              {status} ({count})
+            </button>
+          );
+        })}
+      </div>
 
       <div className="bg-white rounded-lg shadow-lg p-6">
         <div className="overflow-x-auto">
@@ -1529,7 +2287,7 @@ const PremierStaffingSolutions = () => {
               </tr>
             </thead>
             <tbody className="divide-y divide-gray-200">
-              {COMPLIANCE_DOCUMENTS.map(doc => (
+              {filteredDocuments.map(doc => (
                 <tr key={doc.id} className="hover:bg-gray-50">
                   <td className="px-6 py-4 text-sm font-semibold text-gray-900">{doc.candidate}</td>
                   <td className="px-6 py-4 text-sm text-gray-700">{doc.documentType}</td>
@@ -1541,17 +2299,45 @@ const PremierStaffingSolutions = () => {
                     }`}>
                       {doc.status}
                     </span>
+                    {doc.lastReminder && (
+                      <span className="block text-xs text-gray-500 mt-1">
+                        Reminder sent {new Date(doc.lastReminder).toLocaleDateString()}
+                      </span>
+                    )}
                   </td>
                   <td className="px-6 py-4">
-                    <button
-                      onClick={() => setDetailDoc(doc)}
-                      className="text-[#1b263b] hover:underline font-semibold text-sm"
-                    >
-                      View Document
-                    </button>
+                    <div className="flex items-center gap-3">
+                      <button
+                        onClick={() => setDetailDoc(doc)}
+                        className="text-[#1b263b] hover:underline font-semibold text-sm"
+                      >
+                        View Document
+                      </button>
+                      {doc.status !== 'Valid' && isAdmin && (
+                        <button
+                          onClick={() => sendRenewalReminder(doc)}
+                          className="text-yellow-600 hover:underline font-semibold text-sm"
+                        >
+                          Send Reminder
+                        </button>
+                      )}
+                    </div>
                   </td>
                 </tr>
               ))}
+              {filteredDocuments.length === 0 && (
+                <tr>
+                  <td colSpan={5} className="px-6 py-10 text-center text-gray-600">
+                    No documents with that status.
+                    <button
+                      onClick={() => setComplianceFilter('All')}
+                      className="ml-2 text-[#415a77] font-semibold hover:underline"
+                    >
+                      Show all
+                    </button>
+                  </td>
+                </tr>
+              )}
             </tbody>
           </table>
         </div>
@@ -1677,20 +2463,20 @@ const PremierStaffingSolutions = () => {
                   <p className="text-gray-600">456 Staffing Blvd, Suite 200<br />City, ST 54321</p>
                 </div>
               </div>
-              <div className="flex items-start gap-3">
+              <a href="tel:5552345678" className="flex items-start gap-3 group">
                 <Phone className="w-5 h-5 text-[#778da9] flex-shrink-0 mt-1" />
-                <div>
-                  <p className="font-semibold text-gray-900">Phone</p>
-                  <p className="text-gray-600">(555) 234-5678</p>
-                </div>
-              </div>
-              <div className="flex items-start gap-3">
+                <span>
+                  <span className="block font-semibold text-gray-900">Phone</span>
+                  <span className="block text-gray-600 group-hover:text-[#1b263b] group-hover:underline">(555) 234-5678</span>
+                </span>
+              </a>
+              <a href="mailto:info@premierstaffing.com" className="flex items-start gap-3 group">
                 <Mail className="w-5 h-5 text-[#778da9] flex-shrink-0 mt-1" />
-                <div>
-                  <p className="font-semibold text-gray-900">Email</p>
-                  <p className="text-gray-600">info@premierstaffing.com</p>
-                </div>
-              </div>
+                <span>
+                  <span className="block font-semibold text-gray-900">Email</span>
+                  <span className="block text-gray-600 group-hover:text-[#1b263b] group-hover:underline">info@premierstaffing.com</span>
+                </span>
+              </a>
             </div>
           </div>
 
@@ -1729,24 +2515,25 @@ const PremierStaffingSolutions = () => {
           <div>
             <h4 className="font-bold mb-4">For Job Seekers</h4>
             <ul className="space-y-2 text-gray-300 text-sm">
-              <li><button onClick={() => setCurrentPage('jobs')} className="hover:text-white">Browse Jobs</button></li>
+              <li><button onClick={() => goTo('jobs')} className="hover:text-white">Browse Jobs</button></li>
               <li><button onClick={() => openApply(null)} className="hover:text-white">Submit Resume</button></li>
-              <li><button onClick={() => setCurrentPage('resources')} className="hover:text-white">Career Resources</button></li>
+              <li><button onClick={() => goTo('resources')} className="hover:text-white">Career Resources</button></li>
+              <li><button onClick={() => switchRole('Candidate')} className="hover:text-white">Candidate Portal</button></li>
             </ul>
           </div>
           <div>
             <h4 className="font-bold mb-4">For Employers</h4>
             <ul className="space-y-2 text-gray-300 text-sm">
               <li><button onClick={() => openPostJob()} className="hover:text-white">Post a Job</button></li>
-              <li><button onClick={() => setCurrentPage('candidates')} className="hover:text-white">Find Candidates</button></li>
-              <li><button onClick={() => setCurrentPage('clients')} className="hover:text-white">Client Portal</button></li>
+              <li><button onClick={() => goTo('candidates')} className="hover:text-white">Find Candidates</button></li>
+              <li><button onClick={() => switchRole('Client')} className="hover:text-white">Client Portal</button></li>
             </ul>
           </div>
           <div>
             <h4 className="font-bold mb-4">Company</h4>
             <ul className="space-y-2 text-gray-300 text-sm">
-              <li><button onClick={() => setCurrentPage('home')} className="hover:text-white">About Us</button></li>
-              <li><button onClick={() => setCurrentPage('contact')} className="hover:text-white">Contact</button></li>
+              <li><button onClick={() => goTo('home')} className="hover:text-white">About Us</button></li>
+              <li><button onClick={() => goTo('contact')} className="hover:text-white">Contact</button></li>
               <li><button onClick={() => setShowPrivacy(true)} className="hover:text-white">Privacy Policy</button></li>
             </ul>
           </div>
@@ -1865,12 +2652,18 @@ const PremierStaffingSolutions = () => {
               }`}>
                 {score >= 2 ? 'Strong match' : score === 1 ? 'Possible match' : 'Low match'}
               </span>
-              <div>
+              <div className="flex items-center gap-3 justify-end">
                 <button
                   onClick={() => { setDetailCandidate(candidate); setMatchJob(null); }}
                   className="text-sm font-semibold text-[#415a77] hover:underline"
                 >
                   View Profile
+                </button>
+                <button
+                  onClick={() => submitToClient(candidate, matchJob)}
+                  className="text-sm font-semibold text-white bg-green-500 hover:bg-green-600 px-3 py-1.5 rounded-lg transition-colors"
+                >
+                  Submit
                 </button>
               </div>
             </div>
@@ -1881,7 +2674,7 @@ const PremierStaffingSolutions = () => {
   );
 
   const renderEditJobModal = () => editJob && (
-    <Modal title={`Edit Job: ${editJob.title}`} onClose={() => setEditJob(null)}>
+    <Modal title={`Edit Job: ${editJob.title}`} onClose={() => { setEditJob(null); setConfirmDeleteJob(false); }}>
       <form onSubmit={handleEditJobSubmit} className="space-y-4">
         <div>
           <label htmlFor="staffing-edit-job-title" className={labelClass}>Job Title</label>
@@ -1951,6 +2744,37 @@ const PremierStaffingSolutions = () => {
           Save Changes
         </button>
       </form>
+      <div className="mt-5 pt-4 border-t">
+        {confirmDeleteJob ? (
+          <div className="bg-red-50 border border-red-200 rounded-lg p-4">
+            <p className="text-sm text-red-800 font-semibold mb-3">
+              Remove this posting from the board? Applicants already on file are kept.
+            </p>
+            <div className="flex gap-3">
+              <button
+                onClick={() => deleteJob(editJob)}
+                className="px-4 py-2 bg-red-600 text-white rounded-lg font-semibold hover:bg-red-700 transition-colors"
+              >
+                Yes, remove it
+              </button>
+              <button
+                onClick={() => setConfirmDeleteJob(false)}
+                className="px-4 py-2 border border-gray-300 rounded-lg font-semibold text-gray-700 hover:bg-gray-50 transition-colors"
+              >
+                Keep posting
+              </button>
+            </div>
+          </div>
+        ) : (
+          <button
+            onClick={() => setConfirmDeleteJob(true)}
+            className="flex items-center gap-2 text-sm font-semibold text-red-600 hover:underline"
+          >
+            <Trash2 className="w-4 h-4" />
+            Remove this posting
+          </button>
+        )}
+      </div>
     </Modal>
   );
 
@@ -2205,6 +3029,26 @@ const PremierStaffingSolutions = () => {
           ))}
         </div>
       </div>
+      {isAdmin && (
+        <div className="mb-6">
+          <p className="text-xs text-gray-600 mb-2 font-semibold uppercase">Pipeline status</p>
+          <div className="flex flex-wrap gap-2">
+            {CANDIDATE_STATUSES.map(status => (
+              <button
+                key={status}
+                onClick={() => updateCandidateStatus(detailCandidate, status)}
+                className={`px-3 py-1.5 rounded-full text-xs font-semibold transition-colors ${
+                  detailCandidate.status === status
+                    ? 'bg-[#1b263b] text-white'
+                    : 'bg-gray-100 text-gray-700 hover:bg-gray-200'
+                }`}
+              >
+                {status}
+              </button>
+            ))}
+          </div>
+        </div>
+      )}
       <div className="flex flex-wrap gap-3 pt-4 border-t">
         <a
           href={`mailto:${detailCandidate.email}`}
@@ -2228,6 +3072,15 @@ const PremierStaffingSolutions = () => {
           Resume
         </button>
       </div>
+      {isAdmin && (
+        <button
+          onClick={() => removeCandidate(detailCandidate)}
+          className="mt-4 flex items-center gap-2 text-sm font-semibold text-red-600 hover:underline"
+        >
+          <Trash2 className="w-4 h-4" />
+          Archive this candidate
+        </button>
+      )}
     </Modal>
   );
 
@@ -2486,8 +3339,17 @@ const PremierStaffingSolutions = () => {
           className="flex-1 bg-green-500 text-white px-6 py-3 rounded-lg font-semibold hover:bg-green-600 transition-colors flex items-center justify-center gap-2"
         >
           <Send className="w-5 h-5" />
-          Send to Client
+          {detailInvoice.status === 'Paid' ? 'Resend Receipt' : 'Send to Client'}
         </button>
+        {detailInvoice.status !== 'Paid' && isAdmin && (
+          <button
+            onClick={() => markInvoicePaid(detailInvoice)}
+            className="flex-1 border-2 border-[#1b263b] text-[#1b263b] px-6 py-3 rounded-lg font-semibold hover:bg-gray-50 transition-colors flex items-center justify-center gap-2"
+          >
+            <CheckCircle2 className="w-5 h-5" />
+            Mark Paid
+          </button>
+        )}
       </div>
     </Modal>
   );
@@ -2517,18 +3379,36 @@ const PremierStaffingSolutions = () => {
             {detailDoc.status}
           </span>
         </div>
+        {detailDoc.lastReminder && (
+          <div className="flex items-center justify-between p-3 bg-gray-50 rounded-lg">
+            <span className="text-gray-600">Last reminder</span>
+            <span className="font-semibold text-gray-900">{new Date(detailDoc.lastReminder).toLocaleDateString()}</span>
+          </div>
+        )}
       </div>
-      <div className="flex gap-3">
-        {detailDoc.status !== 'Valid' && (
-          <button
-            onClick={() => {
-              showToast(`Renewal reminder sent to ${detailDoc.candidate}`);
-              setDetailDoc(null);
-            }}
-            className="flex-1 bg-yellow-500 text-white px-6 py-3 rounded-lg font-semibold hover:bg-yellow-600 transition-colors"
-          >
-            Send Renewal Reminder
-          </button>
+      <div className="flex flex-wrap gap-3">
+        <button
+          onClick={() => downloadResource(`${detailDoc.documentType} -- ${detailDoc.candidate}`, `Status: ${detailDoc.status}. Expires ${detailDoc.expiryDate}.`)}
+          className="flex-1 border-2 border-[#1b263b] text-[#1b263b] px-6 py-3 rounded-lg font-semibold hover:bg-gray-50 transition-colors flex items-center justify-center gap-2"
+        >
+          <Download className="w-5 h-5" />
+          Download Copy
+        </button>
+        {detailDoc.status !== 'Valid' && isAdmin && (
+          <>
+            <button
+              onClick={() => sendRenewalReminder(detailDoc)}
+              className="flex-1 bg-yellow-500 text-white px-6 py-3 rounded-lg font-semibold hover:bg-yellow-600 transition-colors"
+            >
+              Send Renewal Reminder
+            </button>
+            <button
+              onClick={() => recordRenewal(detailDoc)}
+              className="flex-1 bg-green-500 text-white px-6 py-3 rounded-lg font-semibold hover:bg-green-600 transition-colors"
+            >
+              Record Renewal
+            </button>
+          </>
         )}
         <button
           onClick={() => setDetailDoc(null)}
@@ -2575,8 +3455,272 @@ const PremierStaffingSolutions = () => {
       >
         Save Preferences
       </button>
+      <div className="mt-5 pt-4 border-t">
+        <p className="text-xs text-gray-600 mb-3">
+          Jobs, candidates, timesheets, invoices, and documents you change are saved in this browser
+          so the workspace looks the same when you come back.
+        </p>
+        <button
+          onClick={resetDemoData}
+          className="flex items-center gap-2 text-sm font-semibold text-[#415a77] hover:underline"
+        >
+          <RotateCcw className="w-4 h-4" />
+          Reset demo data
+        </button>
+      </div>
     </Modal>
   );
+
+  const renderReviewsModal = () => showReviews && (
+    <Modal title="Client Reviews" onClose={() => setShowReviews(false)}>
+      <div className="flex items-center gap-3 mb-5">
+        <p className="text-4xl font-bold text-[#1b263b]">4.8</p>
+        <div>
+          <div className="flex items-center gap-1">
+            {[...Array(5)].map((_, i) => (
+              <Star key={i} className="w-4 h-4 fill-yellow-400 text-yellow-400" />
+            ))}
+          </div>
+          <p className="text-sm text-gray-600">Average across 127 client reviews</p>
+        </div>
+      </div>
+      <div className="space-y-3">
+        {CLIENT_REVIEWS.map(review => (
+          <div key={review.client} className="p-4 bg-gray-50 rounded-lg border border-gray-200">
+            <div className="flex items-center justify-between mb-1">
+              <p className="font-bold text-[#1b263b]">{review.client}</p>
+              <span className="flex items-center gap-1">
+                {[...Array(review.rating)].map((_, i) => (
+                  <Star key={i} className="w-4 h-4 fill-yellow-400 text-yellow-400" />
+                ))}
+              </span>
+            </div>
+            <p className="text-xs text-gray-500 mb-2">{review.reviewer}</p>
+            <p className="text-sm text-gray-700">{review.comment}</p>
+          </div>
+        ))}
+      </div>
+      <p className="text-xs text-gray-500 mt-4">Sample reviews shown for demonstration purposes.</p>
+    </Modal>
+  );
+
+  const renderPipelineModal = () => showPipeline && (
+    <Modal title="Hiring Funnel" onClose={() => setShowPipeline(false)}>
+      <p className="text-sm text-gray-600 mb-5">
+        Live funnel across all {totalJobs} job orders currently in the system.
+      </p>
+      <div className="space-y-4">
+        {pipelineStages.map(stage => {
+          const width = pipelineStages[0].value ? Math.round((stage.value / pipelineStages[0].value) * 100) : 0;
+          return (
+            <div key={stage.stage}>
+              <div className="flex items-center justify-between mb-1">
+                <span className="font-semibold text-gray-700 text-sm">{stage.stage}</span>
+                <span className="text-sm text-gray-600">{stage.value}</span>
+              </div>
+              <div className="w-full bg-gray-200 rounded-full h-3">
+                <div className="bg-[#415a77] h-3 rounded-full" style={{ width: `${width}%` }}></div>
+              </div>
+            </div>
+          );
+        })}
+      </div>
+      <div className="grid grid-cols-2 gap-4 mt-6 pt-4 border-t">
+        <div className="text-center p-3 bg-green-50 rounded-lg">
+          <p className="text-sm text-gray-600 mb-1">Placement rate</p>
+          <p className="text-2xl font-bold text-green-600">87%</p>
+        </div>
+        <div className="text-center p-3 bg-blue-50 rounded-lg">
+          <p className="text-sm text-gray-600 mb-1">Average time to fill</p>
+          <p className="text-2xl font-bold text-blue-600">12 days</p>
+        </div>
+      </div>
+      <button
+        onClick={() => { setShowPipeline(false); generateReport('Candidate Pipeline'); }}
+        className="w-full mt-5 bg-[#1b263b] text-white px-6 py-3 rounded-lg font-bold hover:bg-[#415a77] transition-colors flex items-center justify-center gap-2"
+      >
+        <Download className="w-5 h-5" />
+        Export Pipeline Report
+      </button>
+    </Modal>
+  );
+
+  const renderNewTimesheetModal = () => {
+    if (!showNewTimesheet) return null;
+    const previewTotal = Math.round(
+      ((Number(timesheetForm.regularHours) || 0) + (Number(timesheetForm.overtimeHours) || 0)) * (Number(timesheetForm.rate) || 0)
+    );
+    return (
+      <Modal title="Log Timesheet" onClose={() => setShowNewTimesheet(false)}>
+        <form onSubmit={handleNewTimesheetSubmit} className="space-y-4">
+          <div className="grid grid-cols-2 gap-4">
+            <div>
+              <label htmlFor="staffing-ts-candidate" className={labelClass}>Candidate</label>
+              <select
+                id="staffing-ts-candidate"
+                required
+                value={timesheetForm.candidate}
+                onChange={(e) => setTimesheetForm(prev => ({ ...prev, candidate: e.target.value }))}
+                className={inputClass}
+              >
+                {candidateList.map(c => <option key={c.id}>{c.name}</option>)}
+              </select>
+            </div>
+            <div>
+              <label htmlFor="staffing-ts-client" className={labelClass}>Client</label>
+              <select
+                id="staffing-ts-client"
+                required
+                value={timesheetForm.client}
+                onChange={(e) => setTimesheetForm(prev => ({ ...prev, client: e.target.value }))}
+                className={inputClass}
+              >
+                {CLIENTS.map(c => <option key={c.id}>{c.companyName}</option>)}
+              </select>
+            </div>
+          </div>
+          <div>
+            <label htmlFor="staffing-ts-week" className={labelClass}>Week Ending</label>
+            <input
+              id="staffing-ts-week"
+              type="date"
+              required
+              value={timesheetForm.weekEnding}
+              onChange={(e) => setTimesheetForm(prev => ({ ...prev, weekEnding: e.target.value }))}
+              className={inputClass}
+            />
+          </div>
+          <div className="grid grid-cols-3 gap-4">
+            <div>
+              <label htmlFor="staffing-ts-regular" className={labelClass}>Regular Hours</label>
+              <input
+                id="staffing-ts-regular"
+                type="number"
+                min="0"
+                max="80"
+                required
+                value={timesheetForm.regularHours}
+                onChange={(e) => setTimesheetForm(prev => ({ ...prev, regularHours: e.target.value }))}
+                className={inputClass}
+              />
+            </div>
+            <div>
+              <label htmlFor="staffing-ts-overtime" className={labelClass}>Overtime Hours</label>
+              <input
+                id="staffing-ts-overtime"
+                type="number"
+                min="0"
+                max="40"
+                value={timesheetForm.overtimeHours}
+                onChange={(e) => setTimesheetForm(prev => ({ ...prev, overtimeHours: e.target.value }))}
+                className={inputClass}
+              />
+            </div>
+            <div>
+              <label htmlFor="staffing-ts-rate" className={labelClass}>Bill Rate ($/hr)</label>
+              <input
+                id="staffing-ts-rate"
+                type="number"
+                min="0"
+                required
+                value={timesheetForm.rate}
+                onChange={(e) => setTimesheetForm(prev => ({ ...prev, rate: e.target.value }))}
+                className={inputClass}
+              />
+            </div>
+          </div>
+          <div className="flex items-center justify-between p-4 bg-gray-50 rounded-lg">
+            <span className="font-semibold text-gray-700">Billable total</span>
+            <span className="text-2xl font-bold text-green-600">${previewTotal.toLocaleString()}</span>
+          </div>
+          <button
+            type="submit"
+            className="w-full bg-[#778da9] text-white px-6 py-3 rounded-lg font-bold hover:bg-[#1b263b] transition-colors flex items-center justify-center gap-2"
+          >
+            <Plus className="w-5 h-5" />
+            Submit for Approval
+          </button>
+        </form>
+      </Modal>
+    );
+  };
+
+  const renderCreateInvoiceModal = () => {
+    if (!showCreateInvoice) return null;
+    const lines = billableTimesheets.filter(t => t.client === invoiceClient);
+    const selectedTotal = lines
+      .filter(t => invoiceSelection.includes(t.id))
+      .reduce((sum, t) => sum + t.total, 0);
+    return (
+      <Modal title="Create Invoice" onClose={() => setShowCreateInvoice(false)} maxWidth="max-w-2xl">
+        {billableClients.length === 0 ? (
+          <div className="text-center py-8">
+            <FileText className="w-12 h-12 text-gray-300 mx-auto mb-3" />
+            <p className="text-gray-700 font-semibold mb-2">Nothing is waiting to be billed.</p>
+            <p className="text-sm text-gray-600 mb-5">
+              Approve a timesheet on the Timesheets page and it will show up here, ready to invoice.
+            </p>
+            <button
+              onClick={() => { setShowCreateInvoice(false); setCurrentPage('timesheets'); setTimesheetFilter('Pending'); }}
+              className="bg-[#1b263b] text-white px-6 py-3 rounded-lg font-semibold hover:bg-[#415a77] transition-colors"
+            >
+              Go to Timesheets
+            </button>
+          </div>
+        ) : (
+          <>
+            <div className="mb-4">
+              <label htmlFor="staffing-invoice-client" className={labelClass}>Bill to</label>
+              <select
+                id="staffing-invoice-client"
+                value={invoiceClient}
+                onChange={(e) => chooseInvoiceClient(e.target.value)}
+                className={inputClass}
+              >
+                {billableClients.map(client => <option key={client}>{client}</option>)}
+              </select>
+            </div>
+            <p className="text-sm text-gray-600 mb-3">Approved timesheets ready to bill:</p>
+            <div className="space-y-2 mb-5">
+              {lines.map(t => (
+                <label
+                  key={t.id}
+                  htmlFor={`staffing-invoice-line-${t.id}`}
+                  className="flex items-center gap-3 p-3 bg-gray-50 rounded-lg cursor-pointer hover:bg-gray-100 transition-colors"
+                >
+                  <input
+                    id={`staffing-invoice-line-${t.id}`}
+                    type="checkbox"
+                    checked={invoiceSelection.includes(t.id)}
+                    onChange={() => toggleInvoiceLine(t.id)}
+                    className="w-4 h-4 accent-[#1b263b]"
+                  />
+                  <span className="flex-1">
+                    <span className="block font-semibold text-sm text-[#1b263b]">{t.candidate}</span>
+                    <span className="block text-xs text-gray-600">
+                      Week ending {new Date(t.weekEnding).toLocaleDateString()} | {t.regularHours + t.overtimeHours} hrs @ ${t.rate}/hr
+                    </span>
+                  </span>
+                  <span className="font-bold text-green-600">${t.total.toLocaleString()}</span>
+                </label>
+              ))}
+            </div>
+            <div className="flex items-center justify-between p-4 bg-gray-50 rounded-lg mb-5">
+              <span className="font-semibold text-gray-700">Invoice total</span>
+              <span className="text-2xl font-bold text-green-600">${selectedTotal.toLocaleString()}</span>
+            </div>
+            <button
+              onClick={handleCreateInvoice}
+              className="w-full bg-[#778da9] text-white px-6 py-3 rounded-lg font-bold hover:bg-[#1b263b] transition-colors flex items-center justify-center gap-2"
+            >
+              <FileText className="w-5 h-5" />
+              Create Draft Invoice
+            </button>
+          </>
+        )}
+      </Modal>
+    );
+  };
 
   const renderPrivacyModal = () => showPrivacy && (
     <Modal title="Privacy Policy" onClose={() => setShowPrivacy(false)}>
@@ -2601,6 +3745,14 @@ const PremierStaffingSolutions = () => {
   return (
     <div className="min-h-screen bg-gray-50">
       {renderNavigation()}
+      {(showNotifications || showRoleMenu) && (
+        <button
+          type="button"
+          aria-label="Close menu"
+          onClick={() => { setShowNotifications(false); setShowRoleMenu(false); }}
+          className="fixed inset-0 z-30 cursor-default"
+        />
+      )}
       <main>
         {currentPage === 'home' && renderDashboardPage()}
         {currentPage === 'jobs' && renderJobBoardPage()}
@@ -2627,6 +3779,10 @@ const PremierStaffingSolutions = () => {
       {renderComplianceModal()}
       {renderSettingsModal()}
       {renderPrivacyModal()}
+      {renderReviewsModal()}
+      {renderPipelineModal()}
+      {renderNewTimesheetModal()}
+      {renderCreateInvoiceModal()}
 
       {toast && (
         <div className="fixed bottom-6 right-6 z-[60] bg-[#1b263b] text-white px-5 py-3 rounded-lg shadow-2xl flex items-center gap-2">

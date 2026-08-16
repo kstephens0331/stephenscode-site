@@ -14,10 +14,12 @@ export default function ContactPage({ colors, onNavigate }: ContactPageProps) {
   const [formData, setFormData] = useState({ name: '', email: '', message: '' })
   const [submitting, setSubmitting] = useState(false)
   const [submitted, setSubmitted] = useState(false)
+  const [error, setError] = useState('')
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault()
     setSubmitting(true)
+    setError('')
     try {
       const response = await fetch('/api/demo-lead', {
         method: 'POST',
@@ -44,11 +46,10 @@ export default function ContactPage({ colors, onNavigate }: ContactPageProps) {
         trackConversion('leadForm')
         setSubmitted(true)
       } else {
-        alert('There was an issue sending your message. Please call us at (555) 123-4567')
+        setError('There was an issue sending your message. Please call us at (555) 123-4567.')
       }
-    } catch (error) {
-      console.error('Contact form error:', error)
-      alert('There was an issue sending your message. Please call us at (555) 123-4567')
+    } catch {
+      setError('There was an issue sending your message. Please call us at (555) 123-4567.')
     } finally {
       setSubmitting(false)
     }
@@ -131,6 +132,11 @@ export default function ContactPage({ colors, onNavigate }: ContactPageProps) {
                   className="w-full px-4 py-3 rounded-lg border"
                   style={{ borderColor: colors.border }}
                 />
+                {error && (
+                  <p className="text-sm font-medium" style={{ color: colors.error }} role="alert">
+                    {error}
+                  </p>
+                )}
                 <button
                   type="submit"
                   disabled={submitting}

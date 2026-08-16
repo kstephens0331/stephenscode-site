@@ -9,9 +9,11 @@ interface HomePageProps {
 const HomePage: React.FC<HomePageProps> = ({ onNavigate }) => {
   const [formData, setFormData] = useState({ name: '', phone: '', service: 'Select Service Type', notes: '' });
   const [submitted, setSubmitted] = useState(false);
+  const [submitError, setSubmitError] = useState(false);
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
+    setSubmitError(false);
     try {
       const response = await fetch('/api/demo-lead', {
         method: 'POST',
@@ -38,11 +40,10 @@ const HomePage: React.FC<HomePageProps> = ({ onNavigate }) => {
         trackConversion('leadForm');
         setSubmitted(true);
       } else {
-        alert('There was an issue submitting your request. Please call us at (555) 765-8237');
+        setSubmitError(true);
       }
-    } catch (error) {
-      console.error('Request service error:', error);
-      alert('There was an issue submitting your request. Please call us at (555) 765-8237');
+    } catch {
+      setSubmitError(true);
     }
   };
 
@@ -50,32 +51,38 @@ const HomePage: React.FC<HomePageProps> = ({ onNavigate }) => {
     {
       icon: Droplet,
       title: 'Drain Cleaning',
-      description: 'Expert drain cleaning for all types of clogs and blockages.'
+      description: 'Expert drain cleaning for all types of clogs and blockages.',
+      page: 'residential'
     },
     {
       icon: AlertCircle,
       title: 'Leak Detection',
-      description: 'Advanced technology to find and fix hidden leaks quickly.'
+      description: 'Advanced technology to find and fix hidden leaks quickly.',
+      page: 'residential'
     },
     {
       icon: Flame,
       title: 'Water Heaters',
-      description: 'Installation, repair, and maintenance of all water heater types.'
+      description: 'Installation, repair, and maintenance of all water heater types.',
+      page: 'residential'
     },
     {
       icon: Wrench,
       title: 'Pipe Repair',
-      description: 'Expert pipe repair and replacement for lasting solutions.'
+      description: 'Expert pipe repair and replacement for lasting solutions.',
+      page: 'residential'
     },
     {
       icon: Clock,
       title: 'Emergency Service',
-      description: '24/7 emergency plumbing service when you need it most.'
+      description: '24/7 emergency plumbing service when you need it most.',
+      page: 'emergency'
     },
     {
       icon: Shield,
       title: 'Sewer Lines',
-      description: 'Complete sewer line inspection, repair, and replacement.'
+      description: 'Complete sewer line inspection, repair, and replacement.',
+      page: 'residential'
     },
   ];
 
@@ -179,6 +186,11 @@ const HomePage: React.FC<HomePageProps> = ({ onNavigate }) => {
                       onChange={(e) => setFormData({ ...formData, notes: e.target.value })}
                       className="w-full px-4 py-3 rounded-lg bg-white/20 border border-white/30 text-white placeholder-blue-200 focus:outline-none focus:ring-2 focus:ring-white"
                     />
+                    {submitError && (
+                      <p className="bg-red-500/30 border border-red-300/50 rounded-lg px-4 py-3 text-sm text-white">
+                        There was an issue submitting your request. Please try again or call us at (555) 765-8237.
+                      </p>
+                    )}
                     <button type="submit" className="w-full bg-white text-[#0466c8] px-6 py-3 rounded-lg font-bold hover:bg-gray-100 transition-colors">
                       Request Callback
                     </button>
@@ -219,6 +231,7 @@ const HomePage: React.FC<HomePageProps> = ({ onNavigate }) => {
               return (
                 <div
                   key={index}
+                  onClick={() => onNavigate(service.page)}
                   className="bg-white rounded-xl shadow-lg p-8 hover:shadow-xl transition-shadow cursor-pointer"
                 >
                   <div className="bg-[#0466c8] w-16 h-16 rounded-lg flex items-center justify-center mb-6">
@@ -226,7 +239,13 @@ const HomePage: React.FC<HomePageProps> = ({ onNavigate }) => {
                   </div>
                   <h3 className="text-xl font-bold text-gray-900 mb-3">{service.title}</h3>
                   <p className="text-gray-600 mb-4">{service.description}</p>
-                  <button className="text-[#0466c8] font-semibold hover:text-[#0353a4] flex items-center space-x-2">
+                  <button
+                    onClick={(e) => {
+                      e.stopPropagation();
+                      onNavigate(service.page);
+                    }}
+                    className="text-[#0466c8] font-semibold hover:text-[#0353a4] flex items-center space-x-2"
+                  >
                     <span>Learn More</span>
                     <svg className="h-4 w-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                       <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />

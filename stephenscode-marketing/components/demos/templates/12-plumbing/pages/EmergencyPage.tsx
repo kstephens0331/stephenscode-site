@@ -286,10 +286,13 @@ const EmergencyPage: React.FC<EmergencyPageProps> = ({ onNavigate }) => {
                   </p>
                 </div>
               </div>
-              <button className="w-full bg-white text-red-600 px-8 py-4 rounded-lg font-bold text-lg hover:bg-gray-100 transition-colors flex items-center justify-center space-x-2">
+              <a
+                href="tel:5557658237"
+                className="w-full bg-white text-red-600 px-8 py-4 rounded-lg font-bold text-lg hover:bg-gray-100 transition-colors flex items-center justify-center space-x-2"
+              >
                 <Phone className="h-6 w-6" />
                 <span>Call Emergency Line Now</span>
-              </button>
+              </a>
             </div>
           </div>
         </div>

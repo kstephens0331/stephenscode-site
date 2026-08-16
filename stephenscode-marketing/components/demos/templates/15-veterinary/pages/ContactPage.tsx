@@ -1,5 +1,5 @@
 import React from 'react';
-import { Phone, Mail, MapPin, Clock, Send, Calendar, MessageSquare, Navigation } from 'lucide-react';
+import { Phone, Mail, MapPin, Clock, Send, Calendar, MessageSquare, Navigation, CheckCircle, Plus, Minus } from 'lucide-react';
 import { trackEvent, trackConversion } from '@/lib/analytics';
 
 interface ContactPageProps {
@@ -23,6 +23,9 @@ export default function ContactPage({ onNavigate, colors }: ContactPageProps) {
     preferredTime: '',
     message: '',
   });
+
+  const [submitted, setSubmitted] = React.useState(false);
+  const [mapZoom, setMapZoom] = React.useState(1);
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
@@ -52,7 +55,7 @@ export default function ContactPage({ onNavigate, colors }: ContactPageProps) {
       if (response.ok) {
         trackEvent('generate_lead', { form_name: 'appointment_request_form', demo_slug: 'paws-care-animal-hospital' });
         trackConversion('leadForm');
-        alert('Thank you for your appointment request! We will contact you shortly to confirm your booking.');
+        setSubmitted(true);
         setFormData({
           name: '',
           email: '',
@@ -66,7 +69,7 @@ export default function ContactPage({ onNavigate, colors }: ContactPageProps) {
         });
       }
     } catch {
-      /* existing error handling */
+      // Network/API failure -- no-op, form stays visible so the user can retry
     }
   };
 
@@ -196,6 +199,29 @@ export default function ContactPage({ onNavigate, colors }: ContactPageProps) {
               </p>
             </div>
 
+            {submitted ? (
+              <div className="text-center py-8">
+                <div className="w-20 h-20 bg-green-100 rounded-full flex items-center justify-center mx-auto mb-6">
+                  <CheckCircle className="w-12 h-12 text-green-600" />
+                </div>
+                <h3 className="text-2xl font-bold mb-3" style={{ color: colors.primary }}>
+                  Appointment Request Received!
+                </h3>
+                <p className="text-gray-600 mb-2 leading-relaxed max-w-md mx-auto">
+                  Thank you for your appointment request. Our team will contact you within 24 hours to confirm your booking.
+                </p>
+                <p className="text-sm text-gray-500 mb-8">
+                  Need us sooner? Call (555) 123-4567 anytime.
+                </p>
+                <button
+                  onClick={() => setSubmitted(false)}
+                  className="px-8 py-3 rounded-full text-white font-semibold hover:opacity-90 transition-all"
+                  style={{ backgroundColor: colors.secondary }}
+                >
+                  Request Another Appointment
+                </button>
+              </div>
+            ) : (
             <form onSubmit={handleSubmit} className="space-y-6">
               {/* Personal Information */}
               <div className="grid md:grid-cols-2 gap-6">
@@ -380,6 +406,7 @@ export default function ContactPage({ onNavigate, colors }: ContactPageProps) {
                 </p>
               </div>
             </form>
+            )}
           </div>
         </div>
       </section>
@@ -476,13 +503,75 @@ export default function ContactPage({ onNavigate, colors }: ContactPageProps) {
           </div>
 
           <div className="bg-white rounded-2xl shadow-xl overflow-hidden">
-            <div className="aspect-video bg-gradient-to-br from-teal-600 to-teal-800 flex items-center justify-center">
-              <div className="text-white text-center p-8">
-                <MapPin className="w-20 h-20 mx-auto mb-4" />
-                <p className="text-2xl font-bold mb-2">Interactive Map</p>
-                <p className="text-teal-100 max-w-md mx-auto">
-                  In a live website, this would display an interactive Google Maps widget showing our exact location with directions.
-                </p>
+            <div className="aspect-video relative overflow-hidden bg-[#e8f0e3]">
+              {/* Stylized neighborhood map */}
+              <svg
+                viewBox="0 0 800 450"
+                className="absolute inset-0 w-full h-full transition-transform duration-300"
+                style={{ transform: `scale(${mapZoom})` }}
+                role="img"
+                aria-label="Map showing Paws & Care Animal Hospital at 123 Veterinary Lane"
+              >
+                {/* Base */}
+                <rect width="800" height="450" fill="#e8f0e3" />
+                {/* Park */}
+                <rect x="530" y="60" width="200" height="130" rx="12" fill="#bfdcae" />
+                <text x="630" y="130" textAnchor="middle" fill="#4a7040" fontSize="16" fontWeight="600">Anytown Park</text>
+                {/* Water */}
+                <path d="M0 380 Q 200 350 400 385 T 800 375 L 800 450 L 0 450 Z" fill="#b3d4e6" />
+                <text x="120" y="425" fill="#4a7d99" fontSize="14" fontWeight="600">Willow Creek</text>
+                {/* Roads */}
+                <rect x="0" y="210" width="800" height="36" fill="#ffffff" stroke="#cfd8cf" />
+                <line x1="0" y1="228" x2="800" y2="228" stroke="#f0c419" strokeWidth="3" strokeDasharray="24 16" />
+                <text x="60" y="203" fill="#6b7280" fontSize="15" fontWeight="600">Main Street</text>
+                <rect x="360" y="0" width="30" height="450" fill="#ffffff" stroke="#cfd8cf" />
+                <text x="352" y="60" fill="#6b7280" fontSize="15" fontWeight="600" transform="rotate(-90 352 60)" textAnchor="end">Veterinary Lane</text>
+                <rect x="120" y="0" width="24" height="210" fill="#ffffff" stroke="#cfd8cf" />
+                <rect x="620" y="246" width="24" height="204" fill="#ffffff" stroke="#cfd8cf" />
+                {/* Blocks */}
+                <rect x="40" y="40" width="60" height="46" rx="6" fill="#d9e2d5" />
+                <rect x="180" y="50" width="140" height="60" rx="6" fill="#d9e2d5" />
+                <rect x="180" y="130" width="90" height="50" rx="6" fill="#d9e2d5" />
+                <rect x="60" y="270" width="180" height="70" rx="6" fill="#d9e2d5" />
+                <rect x="430" y="270" width="150" height="70" rx="6" fill="#d9e2d5" />
+                <rect x="680" y="260" width="90" height="60" rx="6" fill="#d9e2d5" />
+                {/* Clinic building */}
+                <rect x="410" y="120" width="96" height="72" rx="8" fill="#0f766e" />
+                <text x="458" y="152" textAnchor="middle" fill="#ffffff" fontSize="13" fontWeight="700">Paws &amp; Care</text>
+                <text x="458" y="170" textAnchor="middle" fill="#ccfbf1" fontSize="11">Animal Hospital</text>
+                {/* Parking */}
+                <rect x="516" y="132" width="52" height="48" rx="6" fill="#c9d2cc" />
+                <text x="542" y="160" textAnchor="middle" fill="#5b6b60" fontSize="11" fontWeight="600">P</text>
+                {/* Map pin */}
+                <g transform="translate(458 108)">
+                  <path d="M0 0 C -14 0 -22 -12 -22 -24 C -22 -38 -11 -47 0 -47 C 11 -47 22 -38 22 -24 C 22 -12 14 0 0 0 Z" fill="#dc2626" />
+                  <circle cx="0" cy="-26" r="9" fill="#ffffff" />
+                </g>
+                <text x="458" y="220" textAnchor="middle" fill="#374151" fontSize="12" fontWeight="600">123 Veterinary Lane</text>
+              </svg>
+
+              {/* Zoom Controls */}
+              <div className="absolute top-4 right-4 flex flex-col rounded-lg shadow-lg overflow-hidden bg-white">
+                <button
+                  onClick={() => setMapZoom((z) => Math.min(2, +(z + 0.25).toFixed(2)))}
+                  aria-label="Zoom in"
+                  className="p-2 hover:bg-gray-100 transition-colors border-b"
+                >
+                  <Plus className="w-5 h-5 text-gray-700" />
+                </button>
+                <button
+                  onClick={() => setMapZoom((z) => Math.max(1, +(z - 0.25).toFixed(2)))}
+                  aria-label="Zoom out"
+                  className="p-2 hover:bg-gray-100 transition-colors"
+                >
+                  <Minus className="w-5 h-5 text-gray-700" />
+                </button>
+              </div>
+
+              {/* Address chip */}
+              <div className="absolute bottom-4 left-4 bg-white rounded-lg shadow-lg px-4 py-2 flex items-center gap-2">
+                <MapPin className="w-4 h-4 text-red-600" />
+                <span className="text-sm font-semibold text-gray-800">123 Veterinary Lane, Anytown, ST 12345</span>
               </div>
             </div>
           </div>

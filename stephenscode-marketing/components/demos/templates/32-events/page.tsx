@@ -9,7 +9,8 @@ import {
   FileText, BarChart3, TrendingUp, Target,
   Building2, Briefcase, CreditCard,
   CheckSquare, UserPlus, Image, Palette,
-  Activity, Zap, ArrowUpRight, X
+  Activity, Zap, ArrowUpRight, X,
+  Search, Trash2, Save, RotateCcw, Eye
 } from 'lucide-react';
 import type { LucideIcon } from 'lucide-react';
 import { trackEvent, trackConversion } from '@/lib/analytics';
@@ -598,11 +599,42 @@ const resourceItems: ResourceItem[] = [
   }
 ];
 
-const notificationItems = [
-  { text: 'Task due soon: Confirm final headcount with caterer', time: 'Due Aug 8' },
-  { text: 'Invoice pending: Perfect Moments Photography', time: 'Due Aug 10' },
-  { text: 'New RSVP received from Jennifer Smith', time: 'Yesterday' }
+const notificationItems: { text: string; time: string; target: Page }[] = [
+  { text: 'Task due soon: Confirm final headcount with caterer', time: 'Due Aug 8', target: 'timeline' },
+  { text: 'Invoice pending: Perfect Moments Photography', time: 'Due Aug 10', target: 'budget' },
+  { text: 'New RSVP received from Jennifer Smith', time: 'Yesterday', target: 'guests' }
 ];
+
+// Mock reviews for this fictional demo company
+const clientReviews = [
+  {
+    name: 'Sarah & Michael J.',
+    event: 'Wedding, 200 guests',
+    rating: 5,
+    quote: 'Every detail was handled before we even thought to ask. We actually got to enjoy our own wedding.'
+  },
+  {
+    name: 'David W., TechCorp Inc.',
+    event: 'Corporate conference, 300 guests',
+    rating: 5,
+    quote: 'Three years running. The run-of-show is always tight and our vendors are never chasing answers.'
+  },
+  {
+    name: 'Emily D.',
+    event: 'Milestone birthday, 50 guests',
+    rating: 5,
+    quote: 'They kept me on budget without making it feel small. The decor came in better than the mood board.'
+  },
+  {
+    name: 'The Alvarez Family',
+    event: 'Golden anniversary, 100 guests',
+    rating: 4,
+    quote: 'Warm, organized, and patient with a very opinionated family. The slideshow moment landed perfectly.'
+  }
+];
+
+const taskCategories = ['Planning', 'Venue', 'Catering', 'Photography', 'Florals', 'Music/DJ', 'Decor', 'Other'];
+const taskAssignees = ['Sarah Martinez', 'Client', 'Vendor Team'];
 
 interface SavedState {
   timeline?: TimelineItem[];
@@ -610,10 +642,11 @@ interface SavedState {
   vendorList?: Vendor[];
   budget?: BudgetItem[];
   sentMessages?: SentMessage[];
+  readNotifications?: number[];
 }
 
-function downloadTextFile(filename: string, lines: string[]) {
-  const blob = new Blob([lines.join('\n')], { type: 'text/plain' });
+function downloadTextFile(filename: string, lines: string[], mime = 'text/plain') {
+  const blob = new Blob([lines.join('\n')], { type: mime });
   const url = URL.createObjectURL(blob);
   const link = document.createElement('a');
   link.href = url;
@@ -622,6 +655,11 @@ function downloadTextFile(filename: string, lines: string[]) {
   link.click();
   document.body.removeChild(link);
   URL.revokeObjectURL(url);
+}
+
+function csvCell(value: string | number | boolean) {
+  const text = String(value);
+  return /[",\n]/.test(text) ? `"${text.replace(/"/g, '""')}"` : text;
 }
 
 // Shared modal shell
@@ -941,6 +979,337 @@ function AddVendorModal({ onAdd, onClose }: { onAdd: (vendor: Vendor) => void; o
   );
 }
 
+// Add timeline task modal
+function AddTaskModal({ onAdd, onClose }: { onAdd: (task: TimelineItem) => void; onClose: () => void }) {
+  const [form, setForm] = useState({
+    task: '',
+    dueDate: '',
+    assignedTo: taskAssignees[0],
+    priority: 'Medium' as TimelineItem['priority'],
+    category: taskCategories[0]
+  });
+
+  const handleSubmit = (e: React.FormEvent) => {
+    e.preventDefault();
+    onAdd({
+      id: `task-${Date.now()}`,
+      task: form.task,
+      dueDate: form.dueDate || new Date().toISOString().slice(0, 10),
+      assignedTo: form.assignedTo,
+      priority: form.priority,
+      status: 'Not Started',
+      category: form.category
+    });
+  };
+
+  return (
+    <Modal title="Add Task" onClose={onClose}>
+      <form onSubmit={handleSubmit} className="space-y-4">
+        <div>
+          <label htmlFor="events-task-name" className="block text-sm font-semibold text-gray-700 mb-2">Task *</label>
+          <input
+            id="events-task-name"
+            type="text"
+            required
+            value={form.task}
+            onChange={(e) => setForm({ ...form, task: e.target.value })}
+            className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-[#d62828]"
+            placeholder="What needs to happen?"
+          />
+        </div>
+        <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
+          <div>
+            <label htmlFor="events-task-due" className="block text-sm font-semibold text-gray-700 mb-2">Due Date</label>
+            <input
+              id="events-task-due"
+              type="date"
+              value={form.dueDate}
+              onChange={(e) => setForm({ ...form, dueDate: e.target.value })}
+              className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-[#d62828]"
+            />
+          </div>
+          <div>
+            <label htmlFor="events-task-priority" className="block text-sm font-semibold text-gray-700 mb-2">Priority</label>
+            <select
+              id="events-task-priority"
+              value={form.priority}
+              onChange={(e) => setForm({ ...form, priority: e.target.value as TimelineItem['priority'] })}
+              className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-[#d62828]"
+            >
+              <option value="Low">Low</option>
+              <option value="Medium">Medium</option>
+              <option value="High">High</option>
+            </select>
+          </div>
+        </div>
+        <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
+          <div>
+            <label htmlFor="events-task-owner" className="block text-sm font-semibold text-gray-700 mb-2">Assigned To</label>
+            <select
+              id="events-task-owner"
+              value={form.assignedTo}
+              onChange={(e) => setForm({ ...form, assignedTo: e.target.value })}
+              className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-[#d62828]"
+            >
+              {taskAssignees.map(a => <option key={a} value={a}>{a}</option>)}
+            </select>
+          </div>
+          <div>
+            <label htmlFor="events-task-category" className="block text-sm font-semibold text-gray-700 mb-2">Category</label>
+            <select
+              id="events-task-category"
+              value={form.category}
+              onChange={(e) => setForm({ ...form, category: e.target.value })}
+              className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-[#d62828]"
+            >
+              {taskCategories.map(c => <option key={c} value={c}>{c}</option>)}
+            </select>
+          </div>
+        </div>
+        <button
+          type="submit"
+          className="w-full bg-[#d62828] text-white px-6 py-3 rounded-lg font-semibold hover:bg-[#f77f00] transition-colors flex items-center justify-center gap-2"
+        >
+          <Plus className="w-4 h-4" />
+          Add Task
+        </button>
+      </form>
+    </Modal>
+  );
+}
+
+// Guest detail / edit / remove modal
+function GuestDetailModal({
+  guest,
+  onSave,
+  onDelete,
+  onClose
+}: {
+  guest: Guest;
+  onSave: (guest: Guest) => void;
+  onDelete: (id: string) => void;
+  onClose: () => void;
+}) {
+  const [form, setForm] = useState<Guest>(guest);
+  const [confirmDelete, setConfirmDelete] = useState(false);
+
+  return (
+    <Modal title={guest.name} onClose={onClose}>
+      <form
+        onSubmit={(e) => {
+          e.preventDefault();
+          onSave({ ...form, table: Math.max(1, Number(form.table) || 1) });
+        }}
+        className="space-y-4"
+      >
+        <div>
+          <label htmlFor="events-edit-guest-name" className="block text-sm font-semibold text-gray-700 mb-2">Guest Name *</label>
+          <input
+            id="events-edit-guest-name"
+            type="text"
+            required
+            value={form.name}
+            onChange={(e) => setForm({ ...form, name: e.target.value })}
+            className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-[#d62828]"
+          />
+        </div>
+        <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
+          <div>
+            <label htmlFor="events-edit-guest-email" className="block text-sm font-semibold text-gray-700 mb-2">Email</label>
+            <input
+              id="events-edit-guest-email"
+              type="email"
+              value={form.email}
+              onChange={(e) => setForm({ ...form, email: e.target.value })}
+              className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-[#d62828]"
+            />
+          </div>
+          <div>
+            <label htmlFor="events-edit-guest-phone" className="block text-sm font-semibold text-gray-700 mb-2">Phone</label>
+            <input
+              id="events-edit-guest-phone"
+              type="tel"
+              value={form.phone}
+              onChange={(e) => setForm({ ...form, phone: e.target.value })}
+              className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-[#d62828]"
+            />
+          </div>
+        </div>
+        <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
+          <div>
+            <label htmlFor="events-edit-guest-rsvp" className="block text-sm font-semibold text-gray-700 mb-2">RSVP Status</label>
+            <select
+              id="events-edit-guest-rsvp"
+              value={form.rsvpStatus}
+              onChange={(e) => setForm({ ...form, rsvpStatus: e.target.value as RsvpStatus })}
+              className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-[#d62828]"
+            >
+              <option value="Pending">Pending</option>
+              <option value="Accepted">Accepted</option>
+              <option value="Declined">Declined</option>
+              <option value="Maybe">Maybe</option>
+            </select>
+          </div>
+          <div>
+            <label htmlFor="events-edit-guest-table" className="block text-sm font-semibold text-gray-700 mb-2">Table Number</label>
+            <input
+              id="events-edit-guest-table"
+              type="number"
+              min={1}
+              value={form.table}
+              onChange={(e) => setForm({ ...form, table: Number(e.target.value) })}
+              className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-[#d62828]"
+            />
+          </div>
+        </div>
+        <div>
+          <label htmlFor="events-edit-guest-dietary" className="block text-sm font-semibold text-gray-700 mb-2">Dietary Restrictions</label>
+          <input
+            id="events-edit-guest-dietary"
+            type="text"
+            value={form.dietaryRestrictions}
+            onChange={(e) => setForm({ ...form, dietaryRestrictions: e.target.value })}
+            className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-[#d62828]"
+          />
+        </div>
+        <div>
+          <label htmlFor="events-edit-guest-notes" className="block text-sm font-semibold text-gray-700 mb-2">Special Notes</label>
+          <textarea
+            id="events-edit-guest-notes"
+            rows={3}
+            value={form.specialNotes}
+            onChange={(e) => setForm({ ...form, specialNotes: e.target.value })}
+            placeholder="Seating, accessibility, or service notes"
+            className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-[#d62828]"
+          />
+        </div>
+        <label htmlFor="events-edit-guest-plus-one" className="flex items-center gap-3 text-sm font-semibold text-gray-700">
+          <input
+            id="events-edit-guest-plus-one"
+            type="checkbox"
+            checked={form.plusOne}
+            onChange={(e) => setForm({ ...form, plusOne: e.target.checked })}
+            className="w-4 h-4 accent-[#d62828]"
+          />
+          Bringing a plus-one
+        </label>
+        <button
+          type="submit"
+          className="w-full bg-[#d62828] text-white px-6 py-3 rounded-lg font-semibold hover:bg-[#f77f00] transition-colors flex items-center justify-center gap-2"
+        >
+          <Save className="w-4 h-4" />
+          Save Changes
+        </button>
+      </form>
+
+      <div className="border-t mt-6 pt-4">
+        {confirmDelete ? (
+          <div className="flex flex-wrap gap-3">
+            <button
+              onClick={() => onDelete(guest.id)}
+              className="flex-1 bg-red-600 text-white px-4 py-3 rounded-lg font-semibold hover:bg-red-700 transition-colors"
+            >
+              Yes, remove {guest.name}
+            </button>
+            <button
+              onClick={() => setConfirmDelete(false)}
+              className="flex-1 border-2 border-gray-300 text-gray-700 px-4 py-3 rounded-lg font-semibold hover:bg-gray-50 transition-colors"
+            >
+              Keep Guest
+            </button>
+          </div>
+        ) : (
+          <button
+            onClick={() => setConfirmDelete(true)}
+            className="w-full border-2 border-red-500 text-red-600 px-4 py-3 rounded-lg font-semibold hover:bg-red-50 transition-colors flex items-center justify-center gap-2"
+          >
+            <Trash2 className="w-4 h-4" />
+            Remove from Guest List
+          </button>
+        )}
+      </div>
+    </Modal>
+  );
+}
+
+// Budget line item detail / edit modal
+function BudgetItemModal({
+  item,
+  onSave,
+  onClose
+}: {
+  item: BudgetItem;
+  onSave: (item: BudgetItem) => void;
+  onClose: () => void;
+}) {
+  const [actualCost, setActualCost] = useState(String(item.actualCost));
+  const [dueDate, setDueDate] = useState(item.dueDate);
+  const variance = item.estimatedCost - (Number(actualCost) || 0);
+
+  return (
+    <Modal title={`${item.category} -- ${item.vendor}`} onClose={onClose}>
+      <div className="grid grid-cols-2 gap-4 mb-6 text-sm">
+        <div className="bg-purple-50 p-4 rounded-lg">
+          <p className="text-xs text-gray-600 mb-1">Estimated</p>
+          <p className="text-xl font-bold text-purple-700">${item.estimatedCost.toLocaleString()}</p>
+        </div>
+        <div className={`p-4 rounded-lg ${variance >= 0 ? 'bg-green-50' : 'bg-red-50'}`}>
+          <p className="text-xs text-gray-600 mb-1">{variance >= 0 ? 'Under Estimate' : 'Over Estimate'}</p>
+          <p className={`text-xl font-bold ${variance >= 0 ? 'text-green-700' : 'text-red-700'}`}>
+            ${Math.abs(variance).toLocaleString()}
+          </p>
+        </div>
+      </div>
+
+      <div className="space-y-4 mb-6">
+        <div>
+          <label htmlFor="events-budget-actual" className="block text-sm font-semibold text-gray-700 mb-2">Actual Cost</label>
+          <input
+            id="events-budget-actual"
+            type="number"
+            min={0}
+            value={actualCost}
+            onChange={(e) => setActualCost(e.target.value)}
+            className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-[#d62828]"
+          />
+        </div>
+        <div>
+          <label htmlFor="events-budget-due" className="block text-sm font-semibold text-gray-700 mb-2">Due Date</label>
+          <input
+            id="events-budget-due"
+            type="date"
+            value={dueDate}
+            onChange={(e) => setDueDate(e.target.value)}
+            className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-[#d62828]"
+          />
+        </div>
+      </div>
+
+      <div className="flex flex-wrap gap-3">
+        <button
+          onClick={() => onSave({ ...item, actualCost: Math.max(0, Number(actualCost) || 0), dueDate })}
+          className="flex-1 bg-[#d62828] text-white px-4 py-3 rounded-lg font-semibold hover:bg-[#f77f00] transition-colors flex items-center justify-center gap-2"
+        >
+          <Save className="w-4 h-4" />
+          Save Line Item
+        </button>
+        <button
+          onClick={() => onSave({ ...item, actualCost: Math.max(0, Number(actualCost) || 0), dueDate, paid: !item.paid })}
+          className={`flex-1 px-4 py-3 rounded-lg font-semibold transition-colors flex items-center justify-center gap-2 ${
+            item.paid
+              ? 'border-2 border-gray-300 text-gray-700 hover:bg-gray-50'
+              : 'bg-green-600 text-white hover:bg-green-700'
+          }`}
+        >
+          {item.paid ? <RotateCcw className="w-4 h-4" /> : <CheckCircle2 className="w-4 h-4" />}
+          {item.paid ? 'Mark Unpaid' : 'Mark as Paid'}
+        </button>
+      </div>
+      <p className="text-xs text-gray-500 text-center mt-3">Demo ledger only -- no real invoice is updated.</p>
+    </Modal>
+  );
+}
+
 // Simulated payment modal -- never a real charge
 function PaymentModal({ unpaidItems, onConfirm, onClose }: { unpaidItems: BudgetItem[]; onConfirm: () => void; onClose: () => void }) {
   const [paid, setPaid] = useState(false);
@@ -1179,7 +1548,7 @@ function EventsContactForm({ initialEventType }: { initialEventType: string }) {
 const CelebrationEventsCompany = () => {
   const [currentPage, setCurrentPage] = useState<Page>('home');
   const [userRole, setUserRole] = useState<UserRole>('Planner');
-  const [notifications, setNotifications] = useState(notificationItems.length);
+  const [readNotifications, setReadNotifications] = useState<number[]>([]);
   const [showNotifications, setShowNotifications] = useState(false);
 
   // Working demo state (persisted to localStorage)
@@ -1199,11 +1568,17 @@ const CelebrationEventsCompany = () => {
   const [messageRecipient, setMessageRecipient] = useState<string | null>(null);
   const [showAddGuest, setShowAddGuest] = useState(false);
   const [showAddVendor, setShowAddVendor] = useState(false);
+  const [showAddTask, setShowAddTask] = useState(false);
   const [showPayment, setShowPayment] = useState(false);
   const [showDocuments, setShowDocuments] = useState(false);
   const [showSettings, setShowSettings] = useState(false);
   const [showLogoutConfirm, setShowLogoutConfirm] = useState(false);
   const [showPrivacy, setShowPrivacy] = useState(false);
+  const [showAbout, setShowAbout] = useState(false);
+  const [showReviews, setShowReviews] = useState(false);
+  const [selectedGuestId, setSelectedGuestId] = useState<string | null>(null);
+  const [selectedBudgetId, setSelectedBudgetId] = useState<string | null>(null);
+  const [selectedResourceTitle, setSelectedResourceTitle] = useState<string | null>(null);
 
   // Contact form prefill (set from service/portfolio quote buttons)
   const [contactEventType, setContactEventType] = useState('');
@@ -1212,6 +1587,14 @@ const CelebrationEventsCompany = () => {
   const [filterCategory, setFilterCategory] = useState('All');
   const [filterPrice, setFilterPrice] = useState('All');
   const [filterAvailability, setFilterAvailability] = useState('All');
+  const [vendorSearch, setVendorSearch] = useState('');
+
+  // Dashboard, timeline, and guest filters
+  const [dashboardType, setDashboardType] = useState<'All' | Event['eventType']>('All');
+  const [taskStatusFilter, setTaskStatusFilter] = useState<'All' | TimelineItem['status']>('All');
+  const [taskPriorityFilter, setTaskPriorityFilter] = useState<'All' | TimelineItem['priority']>('All');
+  const [rsvpFilter, setRsvpFilter] = useState<'All' | RsvpStatus>('All');
+  const [guestSearch, setGuestSearch] = useState('');
 
   // Toast
   const [toast, setToast] = useState<string | null>(null);
@@ -1234,6 +1617,7 @@ const CelebrationEventsCompany = () => {
         if (saved.vendorList) setVendorList(saved.vendorList);
         if (saved.budget) setBudget(saved.budget);
         if (saved.sentMessages) setSentMessages(saved.sentMessages);
+        if (saved.readNotifications) setReadNotifications(saved.readNotifications);
       }
     } catch {
       // Corrupt saved state -- fall back to the initial mock data
@@ -1245,11 +1629,14 @@ const CelebrationEventsCompany = () => {
   useEffect(() => {
     if (!hydrated) return;
     try {
-      localStorage.setItem(STORAGE_KEY, JSON.stringify({ timeline, guestList, vendorList, budget, sentMessages }));
+      localStorage.setItem(
+        STORAGE_KEY,
+        JSON.stringify({ timeline, guestList, vendorList, budget, sentMessages, readNotifications })
+      );
     } catch {
       // Storage unavailable -- demo still works in memory
     }
-  }, [hydrated, timeline, guestList, vendorList, budget, sentMessages]);
+  }, [hydrated, timeline, guestList, vendorList, budget, sentMessages, readNotifications]);
 
   const events = initialEvents;
   const clients = initialClients;
@@ -1260,6 +1647,7 @@ const CelebrationEventsCompany = () => {
   const totalRevenue = events.reduce((sum, e) => sum + e.spent, 0);
   const upcomingTasks = timeline.filter(t => t.status !== 'Completed').length;
   const unpaidBudgetItems = budget.filter(i => !i.paid);
+  const unreadNotifications = notificationItems.filter((_, idx) => !readNotifications.includes(idx)).length;
 
   // Handlers
   const goTo = (page: Page) => {
@@ -1272,16 +1660,100 @@ const CelebrationEventsCompany = () => {
     showToast('Task marked complete');
   };
 
+  const setTaskStatus = (id: string, status: TimelineItem['status']) => {
+    setTimeline(prev => prev.map(t => (t.id === id ? { ...t, status } : t)));
+    showToast(`Task moved to ${status}`);
+  };
+
+  const addTask = (task: TimelineItem) => {
+    setTimeline(prev => [...prev, task]);
+    setShowAddTask(false);
+    showToast(`"${task.task}" added to the timeline`);
+  };
+
+  const deleteTask = (id: string) => {
+    const removed = timeline.find(t => t.id === id);
+    setTimeline(prev => prev.filter(t => t.id !== id));
+    showToast(removed ? `"${removed.task}" removed` : 'Task removed');
+  };
+
   const addGuest = (guest: Guest) => {
     setGuestList(prev => [...prev, guest]);
     setShowAddGuest(false);
     showToast(`${guest.name} added to the guest list`);
   };
 
+  const saveGuest = (guest: Guest) => {
+    setGuestList(prev => prev.map(g => (g.id === guest.id ? guest : g)));
+    setSelectedGuestId(null);
+    showToast(`${guest.name} updated`);
+  };
+
+  const deleteGuest = (id: string) => {
+    const removed = guestList.find(g => g.id === id);
+    setGuestList(prev => prev.filter(g => g.id !== id));
+    setSelectedGuestId(null);
+    showToast(removed ? `${removed.name} removed from the guest list` : 'Guest removed');
+  };
+
+  const exportGuestList = () => {
+    downloadTextFile(
+      'guest-list.csv',
+      [
+        'Name,Email,Phone,RSVP,Dietary,Table,PlusOne,Notes',
+        ...guestList.map(g =>
+          [g.name, g.email, g.phone, g.rsvpStatus, g.dietaryRestrictions, `Table ${g.table}`, g.plusOne ? 'Yes' : 'No', g.specialNotes]
+            .map(csvCell)
+            .join(',')
+        )
+      ],
+      'text/csv'
+    );
+    showToast('Guest list exported');
+  };
+
+  const exportBudget = () => {
+    downloadTextFile(
+      'event-budget.csv',
+      [
+        'Category,Vendor,Estimated,Actual,DueDate,Status',
+        ...budget.map(i =>
+          [i.category, i.vendor, i.estimatedCost, i.actualCost, i.dueDate, i.paid ? 'Paid' : 'Pending'].map(csvCell).join(',')
+        )
+      ],
+      'text/csv'
+    );
+    showToast('Budget exported');
+  };
+
+  const saveBudgetItem = (item: BudgetItem) => {
+    setBudget(prev => prev.map(i => (i.id === item.id ? item : i)));
+    setSelectedBudgetId(null);
+    showToast(`${item.category} line item updated`);
+  };
+
   const addVendor = (vendor: Vendor) => {
     setVendorList(prev => [...prev, vendor]);
     setShowAddVendor(false);
     showToast(`${vendor.name} added to the vendor directory`);
+  };
+
+  const setVendorAvailability = (id: string, availability: VendorAvailability) => {
+    setVendorList(prev => prev.map(v => (v.id === id ? { ...v, availability } : v)));
+    showToast(`Availability set to ${availability}`);
+  };
+
+  const deleteVendor = (id: string) => {
+    const removed = vendorList.find(v => v.id === id);
+    setVendorList(prev => prev.filter(v => v.id !== id));
+    setSelectedVendorId(null);
+    showToast(removed ? `${removed.name} removed from the directory` : 'Vendor removed');
+  };
+
+  const openNotification = (idx: number, target: Page) => {
+    setReadNotifications(prev => (prev.includes(idx) ? prev : [...prev, idx]));
+    setShowNotifications(false);
+    goTo(target);
   };
 
   const sendMessage = (to: string, body: string) => {
@@ -1305,10 +1777,19 @@ const CelebrationEventsCompany = () => {
     setVendorList(initialVendors);
     setBudget(initialBudgetItems);
     setSentMessages([]);
-    setNotifications(notificationItems.length);
+    setReadNotifications([]);
     setUserRole('Planner');
     setContactEventType('');
     setShowLogoutConfirm(false);
+    setFilterCategory('All');
+    setFilterPrice('All');
+    setFilterAvailability('All');
+    setVendorSearch('');
+    setDashboardType('All');
+    setTaskStatusFilter('All');
+    setTaskPriorityFilter('All');
+    setRsvpFilter('All');
+    setGuestSearch('');
     try {
       localStorage.removeItem(STORAGE_KEY);
     } catch {
@@ -1349,12 +1830,41 @@ const CelebrationEventsCompany = () => {
   };
 
   // Filtered vendors
+  const vendorQuery = vendorSearch.trim().toLowerCase();
   const filteredVendors = vendorList.filter(v =>
     (filterCategory === 'All' || v.category === filterCategory) &&
     (filterPrice === 'All' || v.priceRange === filterPrice) &&
-    (filterAvailability === 'All' || v.availability === filterAvailability)
+    (filterAvailability === 'All' || v.availability === filterAvailability) &&
+    (vendorQuery === '' ||
+      v.name.toLowerCase().includes(vendorQuery) ||
+      v.category.toLowerCase().includes(vendorQuery) ||
+      v.contactName.toLowerCase().includes(vendorQuery))
   );
 
+  // Filtered dashboard events
+  const dashboardEvents = [...events]
+    .filter(e => dashboardType === 'All' || e.eventType === dashboardType)
+    .sort((a, b) => new Date(a.eventDate).getTime() - new Date(b.eventDate).getTime());
+
+  // Filtered timeline tasks
+  const filteredTasks = [...timeline]
+    .filter(t => (taskStatusFilter === 'All' || t.status === taskStatusFilter) &&
+      (taskPriorityFilter === 'All' || t.priority === taskPriorityFilter))
+    .sort((a, b) => new Date(a.dueDate).getTime() - new Date(b.dueDate).getTime());
+
+  // Filtered guests
+  const guestQuery = guestSearch.trim().toLowerCase();
+  const filteredGuests = guestList.filter(g =>
+    (rsvpFilter === 'All' || g.rsvpStatus === rsvpFilter) &&
+    (guestQuery === '' ||
+      g.name.toLowerCase().includes(guestQuery) ||
+      g.email.toLowerCase().includes(guestQuery) ||
+      g.dietaryRestrictions.toLowerCase().includes(guestQuery))
+  );
+
+  const selectedGuest = guestList.find(g => g.id === selectedGuestId) || null;
+  const selectedBudgetItem = budget.find(i => i.id === selectedBudgetId) || null;
+  const selectedResource = resourceItems.find(r => r.title === selectedResourceTitle) || null;
   const selectedService = serviceOfferings.find(s => s.title === selectedServiceTitle) || null;
   const selectedPortfolio = selectedPortfolioIdx !== null ? portfolioItems[selectedPortfolioIdx] : null;
   const selectedClient = clients.find(c => c.id === selectedClientId) || null;
@@ -1375,12 +1885,20 @@ const CelebrationEventsCompany = () => {
             </div>
           </div>
           <div className="flex items-center gap-4">
-            <div className="flex items-center gap-2 bg-[#f77f00] px-3 py-2 rounded-lg">
+            <button
+              onClick={() => {
+                const next: UserRole = userRole === 'Planner' ? 'Client' : 'Planner';
+                setUserRole(next);
+                showToast(`Now viewing as ${next}`);
+              }}
+              title="Switch between the planner and client view"
+              className="flex items-center gap-2 bg-[#f77f00] px-3 py-2 rounded-lg hover:bg-[#fcbf49] hover:text-[#d62828] transition-colors"
+            >
               <User className="w-5 h-5" />
-              <div className="text-sm">
+              <div className="text-sm text-left">
                 <p className="font-semibold">{userRole}</p>
               </div>
-            </div>
+            </button>
             <div className="relative">
               <button
                 onClick={() => setShowNotifications(v => !v)}
@@ -1388,9 +1906,9 @@ const CelebrationEventsCompany = () => {
                 className="relative hover:text-[#fcbf49] transition-colors"
               >
                 <Bell className="w-5 h-5" />
-                {notifications > 0 && (
+                {unreadNotifications > 0 && (
                   <span className="absolute -top-2 -right-2 bg-white text-[#d62828] text-xs rounded-full w-5 h-5 flex items-center justify-center font-bold">
-                    {notifications}
+                    {unreadNotifications}
                   </span>
                 )}
               </button>
@@ -1406,17 +1924,25 @@ const CelebrationEventsCompany = () => {
                       <X className="w-4 h-4" />
                     </button>
                   </div>
-                  {notifications > 0 ? (
+                  {unreadNotifications > 0 ? (
                     <div>
                       {notificationItems.map((n, idx) => (
-                        <div key={idx} className="px-4 py-3 border-b last:border-b-0 hover:bg-gray-50">
+                        <button
+                          key={idx}
+                          onClick={() => openNotification(idx, n.target)}
+                          className={`w-full text-left px-4 py-3 border-b last:border-b-0 hover:bg-gray-50 transition-colors ${
+                            readNotifications.includes(idx) ? 'opacity-50' : ''
+                          }`}
+                        >
                           <p className="text-sm font-semibold text-gray-900">{n.text}</p>
-                          <p className="text-xs text-gray-500 mt-1">{n.time}</p>
-                        </div>
+                          <p className="text-xs text-gray-500 mt-1">
+                            {n.time} • {readNotifications.includes(idx) ? 'Read' : 'Tap to open'}
+                          </p>
+                        </button>
                       ))}
                       <button
                         onClick={() => {
-                          setNotifications(0);
+                          setReadNotifications(notificationItems.map((_, idx) => idx));
                           setShowNotifications(false);
                           showToast('All notifications marked as read');
                         }}
@@ -1426,7 +1952,18 @@ const CelebrationEventsCompany = () => {
                       </button>
                     </div>
                   ) : (
-                    <p className="px-4 py-6 text-sm text-gray-500 text-center">You are all caught up.</p>
+                    <div>
+                      <p className="px-4 py-6 text-sm text-gray-500 text-center">You are all caught up.</p>
+                      <button
+                        onClick={() => {
+                          setReadNotifications([]);
+                          showToast('Notifications restored');
+                        }}
+                        className="w-full px-4 py-3 text-sm font-semibold text-[#d62828] hover:bg-red-50 transition-colors border-t"
+                      >
+                        Restore demo notifications
+                      </button>
+                    </div>
                   )}
                 </div>
               )}
@@ -1484,9 +2021,12 @@ const CelebrationEventsCompany = () => {
         <p className="text-gray-600">Manage all your events and vendors in one place</p>
       </div>
 
-      {/* Key Metrics */}
+      {/* Key Metrics -- each card opens the matching workspace */}
       <div className="grid grid-cols-1 md:grid-cols-4 gap-6 mb-8">
-        <div className="bg-white rounded-lg shadow-lg p-6 border-l-4 border-[#d62828]">
+        <button
+          onClick={() => goTo('timeline')}
+          className="text-left bg-white rounded-lg shadow-lg p-6 border-l-4 border-[#d62828] hover:shadow-xl hover:-translate-y-0.5 transition-all"
+        >
           <div className="flex items-center justify-between mb-2">
             <Calendar className="w-8 h-8 text-[#d62828]" />
             <TrendingUp className="w-5 h-5 text-green-500" />
@@ -1494,9 +2034,12 @@ const CelebrationEventsCompany = () => {
           <h3 className="text-gray-600 text-sm font-semibold mb-1">Active Events</h3>
           <p className="text-3xl font-bold text-[#d62828]">{activeEvents}</p>
           <p className="text-sm text-green-600 mt-2">+{totalEvents - activeEvents} completed</p>
-        </div>
+        </button>
 
-        <div className="bg-white rounded-lg shadow-lg p-6 border-l-4 border-[#f77f00]">
+        <button
+          onClick={() => goTo('clients')}
+          className="text-left bg-white rounded-lg shadow-lg p-6 border-l-4 border-[#f77f00] hover:shadow-xl hover:-translate-y-0.5 transition-all"
+        >
           <div className="flex items-center justify-between mb-2">
             <Users className="w-8 h-8 text-[#f77f00]" />
             <Activity className="w-5 h-5 text-blue-500" />
@@ -1504,9 +2047,12 @@ const CelebrationEventsCompany = () => {
           <h3 className="text-gray-600 text-sm font-semibold mb-1">Total Clients</h3>
           <p className="text-3xl font-bold text-[#d62828]">{clients.length}</p>
           <p className="text-sm text-gray-600 mt-2">{clients.filter(c => c.status === 'Active').length} active</p>
-        </div>
+        </button>
 
-        <div className="bg-white rounded-lg shadow-lg p-6 border-l-4 border-green-500">
+        <button
+          onClick={() => goTo('budget')}
+          className="text-left bg-white rounded-lg shadow-lg p-6 border-l-4 border-green-500 hover:shadow-xl hover:-translate-y-0.5 transition-all"
+        >
           <div className="flex items-center justify-between mb-2">
             <DollarSign className="w-8 h-8 text-green-500" />
             <ArrowUpRight className="w-5 h-5 text-green-500" />
@@ -1514,9 +2060,15 @@ const CelebrationEventsCompany = () => {
           <h3 className="text-gray-600 text-sm font-semibold mb-1">Total Revenue</h3>
           <p className="text-3xl font-bold text-[#d62828]">${(totalRevenue / 1000).toFixed(0)}K</p>
           <p className="text-sm text-green-600 mt-2">+18% vs last quarter</p>
-        </div>
+        </button>
 
-        <div className="bg-white rounded-lg shadow-lg p-6 border-l-4 border-orange-500">
+        <button
+          onClick={() => {
+            setTaskStatusFilter('All');
+            goTo('timeline');
+          }}
+          className="text-left bg-white rounded-lg shadow-lg p-6 border-l-4 border-orange-500 hover:shadow-xl hover:-translate-y-0.5 transition-all"
+        >
           <div className="flex items-center justify-between mb-2">
             <CheckCircle2 className="w-8 h-8 text-orange-500" />
             <Zap className="w-5 h-5 text-orange-500" />
@@ -1524,7 +2076,7 @@ const CelebrationEventsCompany = () => {
           <h3 className="text-gray-600 text-sm font-semibold mb-1">Pending Tasks</h3>
           <p className="text-3xl font-bold text-[#d62828]">{upcomingTasks}</p>
           <p className="text-sm text-gray-600 mt-2">Due this week</p>
-        </div>
+        </button>
       </div>
 
       {/* Upcoming Events */}
@@ -1534,8 +2086,26 @@ const CelebrationEventsCompany = () => {
             <Calendar className="w-6 h-6 text-[#f77f00]" />
             Upcoming Events
           </h2>
+          <div className="flex flex-wrap gap-2 mb-4">
+            {(['All', 'Wedding', 'Corporate', 'Birthday'] as const).map(type => (
+              <button
+                key={type}
+                onClick={() => setDashboardType(type)}
+                className={`px-3 py-1.5 rounded-full text-xs font-semibold transition-colors ${
+                  dashboardType === type
+                    ? 'bg-[#d62828] text-white'
+                    : 'bg-gray-100 text-gray-700 hover:bg-[#fcbf49] hover:text-[#d62828]'
+                }`}
+              >
+                {type === 'All' ? `All (${events.length})` : `${type} (${events.filter(e => e.eventType === type).length})`}
+              </button>
+            ))}
+          </div>
           <div className="space-y-4">
-            {[...events].sort((a, b) => new Date(a.eventDate).getTime() - new Date(b.eventDate).getTime()).map(event => (
+            {dashboardEvents.length === 0 && (
+              <p className="text-sm text-gray-600 py-6 text-center">No {dashboardType.toLowerCase()} events on the calendar right now.</p>
+            )}
+            {dashboardEvents.map(event => (
               <button
                 key={event.id}
                 onClick={() => setSelectedEventId(event.id)}
@@ -1611,9 +2181,12 @@ const CelebrationEventsCompany = () => {
         </div>
       </div>
 
-      {/* Quick Stats */}
+      {/* Quick Stats -- each opens supporting detail */}
       <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
-        <div className="bg-white rounded-lg shadow-lg p-6">
+        <button
+          onClick={() => setShowReviews(true)}
+          className="text-left bg-white rounded-lg shadow-lg p-6 hover:shadow-xl hover:-translate-y-0.5 transition-all"
+        >
           <div className="flex items-center justify-between mb-4">
             <h3 className="font-bold text-lg text-[#d62828]">Client Satisfaction</h3>
             <Star className="w-6 h-6 text-yellow-500" />
@@ -1626,10 +2199,14 @@ const CelebrationEventsCompany = () => {
               ))}
             </div>
             <p className="text-sm text-gray-600">Based on 87 reviews</p>
+            <p className="text-xs font-semibold text-[#f77f00] mt-2">Read reviews</p>
           </div>
-        </div>
+        </button>
 
-        <div className="bg-white rounded-lg shadow-lg p-6">
+        <button
+          onClick={() => goTo('portfolio')}
+          className="text-left bg-white rounded-lg shadow-lg p-6 hover:shadow-xl hover:-translate-y-0.5 transition-all"
+        >
           <div className="flex items-center justify-between mb-4">
             <h3 className="font-bold text-lg text-[#d62828]">Event Success Rate</h3>
             <Target className="w-6 h-6 text-green-500" />
@@ -1639,10 +2216,14 @@ const CelebrationEventsCompany = () => {
             <p className="text-sm text-gray-600 mb-3">Events executed flawlessly</p>
             <p className="text-2xl font-semibold text-[#d62828]">156</p>
             <p className="text-sm text-gray-600">Total events managed</p>
+            <p className="text-xs font-semibold text-[#f77f00] mt-2">See the portfolio</p>
           </div>
-        </div>
+        </button>
 
-        <div className="bg-white rounded-lg shadow-lg p-6">
+        <button
+          onClick={() => goTo('vendors')}
+          className="text-left bg-white rounded-lg shadow-lg p-6 hover:shadow-xl hover:-translate-y-0.5 transition-all"
+        >
           <div className="flex items-center justify-between mb-4">
             <h3 className="font-bold text-lg text-[#d62828]">Trusted Vendors</h3>
             <Briefcase className="w-6 h-6 text-blue-500" />
@@ -1651,8 +2232,9 @@ const CelebrationEventsCompany = () => {
             <p className="text-4xl font-bold text-[#d62828] mb-2">{vendorList.length}</p>
             <p className="text-sm text-gray-600 mb-3">Professional partners</p>
             <p className="text-sm text-green-600 font-semibold">All verified & insured</p>
+            <p className="text-xs font-semibold text-[#f77f00] mt-2">Open the directory</p>
           </div>
-        </div>
+        </button>
       </div>
     </div>
   );
@@ -1849,15 +2431,28 @@ const CelebrationEventsCompany = () => {
                 <h3 className="font-bold text-lg">Sarah Martinez</h3>
                 <p className="text-sm text-gray-600 mb-4">Senior Event Planner</p>
                 <div className="space-y-2 text-sm">
-                  <p className="flex items-center justify-center gap-2 text-gray-600">
+                  <a
+                    href="tel:5551234567"
+                    className="flex items-center justify-center gap-2 text-gray-600 hover:text-[#d62828] transition-colors"
+                  >
                     <Phone className="w-4 h-4" />
                     (555) 123-4567
-                  </p>
-                  <p className="flex items-center justify-center gap-2 text-gray-600">
+                  </a>
+                  <a
+                    href="mailto:sarah@celebrationevents.com"
+                    className="flex items-center justify-center gap-2 text-gray-600 hover:text-[#d62828] transition-colors"
+                  >
                     <Mail className="w-4 h-4" />
-                    sarah@celebrations.com
-                  </p>
+                    sarah@celebrationevents.com
+                  </a>
                 </div>
+                <button
+                  onClick={() => setMessageRecipient('Sarah Martinez')}
+                  className="mt-4 w-full border-2 border-[#d62828] text-[#d62828] px-4 py-2 rounded-lg font-semibold hover:bg-red-50 transition-colors flex items-center justify-center gap-2 text-sm"
+                >
+                  <MessageSquare className="w-4 h-4" />
+                  Send a Message
+                </button>
               </div>
             </div>
           </div>
@@ -1881,14 +2476,20 @@ const CelebrationEventsCompany = () => {
               </div>
 
               <div className="space-y-2 mb-4 text-sm">
-                <div className="flex items-center gap-2 text-gray-600">
-                  <Mail className="w-4 h-4" />
+                <a
+                  href={`mailto:${client.email}`}
+                  className="flex items-center gap-2 text-gray-600 hover:text-[#d62828] transition-colors break-all"
+                >
+                  <Mail className="w-4 h-4 flex-shrink-0" />
                   {client.email}
-                </div>
-                <div className="flex items-center gap-2 text-gray-600">
-                  <Phone className="w-4 h-4" />
+                </a>
+                <a
+                  href={`tel:${client.phone.replace(/[^0-9]/g, '')}`}
+                  className="flex items-center gap-2 text-gray-600 hover:text-[#d62828] transition-colors"
+                >
+                  <Phone className="w-4 h-4 flex-shrink-0" />
                   {client.phone}
-                </div>
+                </a>
               </div>
 
               <div className="grid grid-cols-2 gap-3 mb-4">
@@ -1934,6 +2535,17 @@ const CelebrationEventsCompany = () => {
 
       {/* Filters */}
       <div className="bg-white rounded-lg shadow-md p-4 mb-6">
+        <div className="relative mb-4">
+          <Search className="w-4 h-4 text-gray-400 absolute left-3 top-1/2 -translate-y-1/2" />
+          <input
+            type="search"
+            aria-label="Search vendors"
+            value={vendorSearch}
+            onChange={(e) => setVendorSearch(e.target.value)}
+            placeholder="Search by business, category, or contact..."
+            className="w-full pl-9 pr-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-[#d62828]"
+          />
+        </div>
         <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
           <select
             aria-label="Filter by vendor category"
@@ -1972,10 +2584,41 @@ const CelebrationEventsCompany = () => {
         </div>
       </div>
 
+      <div className="flex flex-wrap items-center justify-between gap-3 mb-4">
+        <p className="text-sm text-gray-600">
+          Showing {filteredVendors.length} of {vendorList.length} vendors
+        </p>
+        {(filterCategory !== 'All' || filterPrice !== 'All' || filterAvailability !== 'All' || vendorSearch !== '') && (
+          <button
+            onClick={() => {
+              setFilterCategory('All');
+              setFilterPrice('All');
+              setFilterAvailability('All');
+              setVendorSearch('');
+            }}
+            className="text-sm font-semibold text-[#d62828] hover:text-[#f77f00] transition-colors flex items-center gap-1"
+          >
+            <RotateCcw className="w-4 h-4" />
+            Clear filters
+          </button>
+        )}
+      </div>
+
       {/* Vendor Grid */}
       {filteredVendors.length === 0 ? (
-        <div className="bg-white rounded-lg shadow-lg p-10 text-center text-gray-600">
-          No vendors match the selected filters.
+        <div className="bg-white rounded-lg shadow-lg p-10 text-center">
+          <p className="text-gray-600 mb-4">No vendors match the selected filters.</p>
+          <button
+            onClick={() => {
+              setFilterCategory('All');
+              setFilterPrice('All');
+              setFilterAvailability('All');
+              setVendorSearch('');
+            }}
+            className="bg-[#d62828] text-white px-6 py-3 rounded-lg font-semibold hover:bg-[#f77f00] transition-colors"
+          >
+            Reset Filters
+          </button>
         </div>
       ) : (
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
@@ -1997,14 +2640,28 @@ const CelebrationEventsCompany = () => {
                   <User className="w-4 h-4" />
                   {vendor.contactName || 'Not provided'}
                 </div>
-                <div className="flex items-center gap-2 text-gray-600">
-                  <Mail className="w-4 h-4" />
-                  {vendor.email || 'Not provided'}
-                </div>
-                <div className="flex items-center gap-2 text-gray-600">
-                  <Phone className="w-4 h-4" />
-                  {vendor.phone || 'Not provided'}
-                </div>
+                {vendor.email ? (
+                  <a href={`mailto:${vendor.email}`} className="flex items-center gap-2 text-gray-600 hover:text-[#d62828] transition-colors break-all">
+                    <Mail className="w-4 h-4 flex-shrink-0" />
+                    {vendor.email}
+                  </a>
+                ) : (
+                  <div className="flex items-center gap-2 text-gray-600">
+                    <Mail className="w-4 h-4" />
+                    Not provided
+                  </div>
+                )}
+                {vendor.phone ? (
+                  <a href={`tel:${vendor.phone.replace(/[^0-9]/g, '')}`} className="flex items-center gap-2 text-gray-600 hover:text-[#d62828] transition-colors">
+                    <Phone className="w-4 h-4 flex-shrink-0" />
+                    {vendor.phone}
+                  </a>
+                ) : (
+                  <div className="flex items-center gap-2 text-gray-600">
+                    <Phone className="w-4 h-4" />
+                    Not provided
+                  </div>
+                )}
               </div>
 
               <div className="flex items-center justify-between mb-4">
@@ -2049,17 +2706,26 @@ const CelebrationEventsCompany = () => {
   // Page: Budget Tracker
   const renderBudgetTrackerPage = () => (
     <div className="max-w-7xl mx-auto px-4 py-8">
-      <h1 className="text-4xl font-bold text-[#d62828] mb-8">Budget Tracker</h1>
+      <div className="flex flex-wrap items-center justify-between gap-4 mb-8">
+        <h1 className="text-4xl font-bold text-[#d62828]">Budget Tracker</h1>
+        <button
+          onClick={exportBudget}
+          className="border-2 border-[#d62828] text-[#d62828] px-5 py-2.5 rounded-lg font-semibold hover:bg-red-50 transition-colors flex items-center gap-2"
+        >
+          <Download className="w-4 h-4" />
+          Export CSV
+        </button>
+      </div>
 
       {/* Summary Cards */}
       <div className="grid grid-cols-1 md:grid-cols-4 gap-6 mb-8">
         {[
-          { label: 'Total Budget', amount: 50000, color: 'blue' },
-          { label: 'Estimated Total', amount: budget.reduce((sum, i) => sum + i.estimatedCost, 0), color: 'purple' },
-          { label: 'Actual Spent', amount: budget.reduce((sum, i) => sum + i.actualCost, 0), color: 'green' },
-          { label: 'Balance Remaining', amount: 50000 - budget.reduce((sum, i) => sum + i.actualCost, 0), color: 'orange' }
+          { label: 'Total Budget', amount: 50000, borderClass: 'border-blue-500' },
+          { label: 'Estimated Total', amount: budget.reduce((sum, i) => sum + i.estimatedCost, 0), borderClass: 'border-purple-500' },
+          { label: 'Actual Spent', amount: budget.reduce((sum, i) => sum + i.actualCost, 0), borderClass: 'border-green-500' },
+          { label: 'Balance Remaining', amount: 50000 - budget.reduce((sum, i) => sum + i.actualCost, 0), borderClass: 'border-orange-500' }
         ].map(stat => (
-          <div key={stat.label} className={`bg-white rounded-lg shadow-lg p-6 border-l-4 border-${stat.color}-500`}>
+          <div key={stat.label} className={`bg-white rounded-lg shadow-lg p-6 border-l-4 ${stat.borderClass}`}>
             <p className="text-gray-600 text-sm font-semibold mb-2">{stat.label}</p>
             <p className="text-3xl font-bold text-[#d62828]">${stat.amount.toLocaleString()}</p>
           </div>
@@ -2068,7 +2734,10 @@ const CelebrationEventsCompany = () => {
 
       {/* Budget Items Table */}
       <div className="bg-white rounded-lg shadow-lg p-6">
-        <h2 className="text-2xl font-bold text-[#d62828] mb-6">Budget Breakdown</h2>
+        <div className="flex flex-wrap items-center justify-between gap-3 mb-6">
+          <h2 className="text-2xl font-bold text-[#d62828]">Budget Breakdown</h2>
+          <p className="text-sm text-gray-600">Select any line item to edit its cost, due date, or payment status.</p>
+        </div>
         <div className="overflow-x-auto">
           <table className="w-full">
             <thead className="bg-gray-50">
@@ -2079,11 +2748,16 @@ const CelebrationEventsCompany = () => {
                 <th className="px-6 py-3 text-left text-xs font-semibold text-gray-700 uppercase">Actual</th>
                 <th className="px-6 py-3 text-left text-xs font-semibold text-gray-700 uppercase">Due Date</th>
                 <th className="px-6 py-3 text-left text-xs font-semibold text-gray-700 uppercase">Status</th>
+                <th className="px-6 py-3 text-right text-xs font-semibold text-gray-700 uppercase">Actions</th>
               </tr>
             </thead>
             <tbody className="divide-y divide-gray-200">
               {budget.map(item => (
-                <tr key={item.id} className="hover:bg-gray-50">
+                <tr
+                  key={item.id}
+                  onClick={() => setSelectedBudgetId(item.id)}
+                  className="hover:bg-gray-50 cursor-pointer"
+                >
                   <td className="px-6 py-4 text-sm font-semibold text-gray-900">{item.category}</td>
                   <td className="px-6 py-4 text-sm text-gray-700">{item.vendor}</td>
                   <td className="px-6 py-4 text-sm text-gray-700">${item.estimatedCost.toLocaleString()}</td>
@@ -2095,6 +2769,31 @@ const CelebrationEventsCompany = () => {
                     }`}>
                       {item.paid ? 'Paid' : 'Pending'}
                     </span>
+                  </td>
+                  <td className="px-6 py-4 text-right whitespace-nowrap">
+                    <button
+                      onClick={(e) => {
+                        e.stopPropagation();
+                        saveBudgetItem({ ...item, paid: !item.paid });
+                      }}
+                      className={`px-3 py-1.5 rounded-lg text-xs font-semibold transition-colors ${
+                        item.paid
+                          ? 'border-2 border-gray-300 text-gray-700 hover:bg-gray-100'
+                          : 'bg-green-600 text-white hover:bg-green-700'
+                      }`}
+                    >
+                      {item.paid ? 'Mark Unpaid' : 'Mark Paid'}
+                    </button>
+                    <button
+                      onClick={(e) => {
+                        e.stopPropagation();
+                        setSelectedBudgetId(item.id);
+                      }}
+                      aria-label={`Edit ${item.category} line item`}
+                      className="ml-2 px-3 py-1.5 rounded-lg text-xs font-semibold border-2 border-[#d62828] text-[#d62828] hover:bg-red-50 transition-colors"
+                    >
+                      Edit
+                    </button>
                   </td>
                 </tr>
               ))}
@@ -2119,10 +2818,77 @@ const CelebrationEventsCompany = () => {
   // Page: Timeline Builder
   const renderTimelineBuilderPage = () => (
     <div className="max-w-7xl mx-auto px-4 py-8">
-      <h1 className="text-4xl font-bold text-[#d62828] mb-8">Event Timeline</h1>
+      <div className="flex flex-wrap items-center justify-between gap-4 mb-6">
+        <div>
+          <h1 className="text-4xl font-bold text-[#d62828] mb-2">Event Timeline</h1>
+          <p className="text-gray-600">
+            {timeline.filter(t => t.status === 'Completed').length} of {timeline.length} tasks complete
+          </p>
+        </div>
+        <button
+          onClick={() => setShowAddTask(true)}
+          className="bg-[#d62828] text-white px-6 py-3 rounded-lg font-semibold hover:bg-[#f77f00] transition-colors flex items-center gap-2"
+        >
+          <Plus className="w-5 h-5" />
+          Add Task
+        </button>
+      </div>
+
+      {/* Timeline filters */}
+      <div className="bg-white rounded-lg shadow-md p-4 mb-6 space-y-3">
+        <div className="flex flex-wrap items-center gap-2">
+          <span className="text-xs font-semibold text-gray-600 uppercase mr-1">Status</span>
+          {(['All', 'Not Started', 'In Progress', 'Completed'] as const).map(status => (
+            <button
+              key={status}
+              onClick={() => setTaskStatusFilter(status)}
+              className={`px-3 py-1.5 rounded-full text-xs font-semibold transition-colors ${
+                taskStatusFilter === status
+                  ? 'bg-[#d62828] text-white'
+                  : 'bg-gray-100 text-gray-700 hover:bg-[#fcbf49] hover:text-[#d62828]'
+              }`}
+            >
+              {status}
+              {status !== 'All' && ` (${timeline.filter(t => t.status === status).length})`}
+            </button>
+          ))}
+        </div>
+        <div className="flex flex-wrap items-center gap-2">
+          <span className="text-xs font-semibold text-gray-600 uppercase mr-1">Priority</span>
+          {(['All', 'High', 'Medium', 'Low'] as const).map(priority => (
+            <button
+              key={priority}
+              onClick={() => setTaskPriorityFilter(priority)}
+              className={`px-3 py-1.5 rounded-full text-xs font-semibold transition-colors ${
+                taskPriorityFilter === priority
+                  ? 'bg-[#f77f00] text-white'
+                  : 'bg-gray-100 text-gray-700 hover:bg-[#fcbf49] hover:text-[#d62828]'
+              }`}
+            >
+              {priority}
+              {priority !== 'All' && ` (${timeline.filter(t => t.priority === priority).length})`}
+            </button>
+          ))}
+        </div>
+      </div>
+
+      {filteredTasks.length === 0 && (
+        <div className="bg-white rounded-lg shadow-lg p-10 text-center">
+          <p className="text-gray-600 mb-4">No tasks match these filters.</p>
+          <button
+            onClick={() => {
+              setTaskStatusFilter('All');
+              setTaskPriorityFilter('All');
+            }}
+            className="bg-[#d62828] text-white px-6 py-3 rounded-lg font-semibold hover:bg-[#f77f00] transition-colors"
+          >
+            Reset Filters
+          </button>
+        </div>
+      )}
 
       <div className="space-y-4">
-        {[...timeline].sort((a, b) => new Date(a.dueDate).getTime() - new Date(b.dueDate).getTime()).map(task => (
+        {filteredTasks.map(task => (
           <div key={task.id} className={`bg-white rounded-lg shadow-lg p-6 border-l-4 ${
             task.priority === 'High' ? 'border-red-500' :
             task.priority === 'Medium' ? 'border-yellow-500' : 'border-blue-500'
@@ -2160,14 +2926,43 @@ const CelebrationEventsCompany = () => {
               </div>
             </div>
 
-            {task.status !== 'Completed' && (
+            <div className="flex flex-wrap gap-2">
+              {task.status === 'Not Started' && (
+                <button
+                  onClick={() => setTaskStatus(task.id, 'In Progress')}
+                  className="border-2 border-[#d62828] text-[#d62828] px-4 py-2 rounded-lg font-semibold hover:bg-red-50 transition-colors text-sm flex items-center gap-2"
+                >
+                  <Clock className="w-4 h-4" />
+                  Start Task
+                </button>
+              )}
+              {task.status !== 'Completed' && (
+                <button
+                  onClick={() => completeTask(task.id)}
+                  className="bg-[#d62828] text-white px-4 py-2 rounded-lg font-semibold hover:bg-[#f77f00] transition-colors text-sm flex items-center gap-2"
+                >
+                  <CheckCircle2 className="w-4 h-4" />
+                  Mark Complete
+                </button>
+              )}
+              {task.status === 'Completed' && (
+                <button
+                  onClick={() => setTaskStatus(task.id, 'In Progress')}
+                  className="border-2 border-gray-300 text-gray-700 px-4 py-2 rounded-lg font-semibold hover:bg-gray-50 transition-colors text-sm flex items-center gap-2"
+                >
+                  <RotateCcw className="w-4 h-4" />
+                  Reopen
+                </button>
+              )}
               <button
-                onClick={() => completeTask(task.id)}
-                className="bg-[#d62828] text-white px-4 py-2 rounded-lg font-semibold hover:bg-[#f77f00] transition-colors text-sm"
+                onClick={() => deleteTask(task.id)}
+                aria-label={`Delete task ${task.task}`}
+                className="border-2 border-red-300 text-red-600 px-4 py-2 rounded-lg font-semibold hover:bg-red-50 transition-colors text-sm flex items-center gap-2"
               >
-                Mark Complete
+                <Trash2 className="w-4 h-4" />
+                Delete
               </button>
-            )}
+            </div>
           </div>
         ))}
       </div>
@@ -2177,37 +2972,83 @@ const CelebrationEventsCompany = () => {
   // Page: Guest Management
   const renderGuestManagementPage = () => (
     <div className="max-w-7xl mx-auto px-4 py-8">
-      <div className="flex items-center justify-between mb-8">
+      <div className="flex flex-wrap items-center justify-between gap-4 mb-8">
         <div>
           <h1 className="text-4xl font-bold text-[#d62828] mb-2">Guest Management</h1>
           <p className="text-gray-600">{guestList.length} guests • {guestList.filter(g => g.rsvpStatus === 'Accepted').length} confirmed</p>
         </div>
-        <button
-          onClick={() => setShowAddGuest(true)}
-          className="bg-[#d62828] text-white px-6 py-3 rounded-lg font-semibold hover:bg-[#f77f00] transition-colors flex items-center gap-2"
-        >
-          <UserPlus className="w-5 h-5" />
-          Add Guest
-        </button>
+        <div className="flex flex-wrap gap-3">
+          <button
+            onClick={exportGuestList}
+            className="border-2 border-[#d62828] text-[#d62828] px-5 py-3 rounded-lg font-semibold hover:bg-red-50 transition-colors flex items-center gap-2"
+          >
+            <Download className="w-5 h-5" />
+            Export CSV
+          </button>
+          <button
+            onClick={() => setShowAddGuest(true)}
+            className="bg-[#d62828] text-white px-6 py-3 rounded-lg font-semibold hover:bg-[#f77f00] transition-colors flex items-center gap-2"
+          >
+            <UserPlus className="w-5 h-5" />
+            Add Guest
+          </button>
+        </div>
       </div>
 
-      {/* RSVP Summary */}
-      <div className="grid grid-cols-1 md:grid-cols-4 gap-6 mb-8">
-        {[
-          { status: 'Accepted', count: guestList.filter(g => g.rsvpStatus === 'Accepted').length, color: 'green' },
-          { status: 'Pending', count: guestList.filter(g => g.rsvpStatus === 'Pending').length, color: 'yellow' },
-          { status: 'Declined', count: guestList.filter(g => g.rsvpStatus === 'Declined').length, color: 'red' },
-          { status: 'Maybe', count: guestList.filter(g => g.rsvpStatus === 'Maybe').length, color: 'blue' }
-        ].map(stat => (
-          <div key={stat.status} className={`bg-white rounded-lg shadow-lg p-6 border-l-4 border-${stat.color}-500`}>
+      {/* RSVP Summary -- click a card to filter the table */}
+      <div className="grid grid-cols-1 md:grid-cols-4 gap-6 mb-6">
+        {([
+          { status: 'Accepted' as RsvpStatus, borderClass: 'border-green-500' },
+          { status: 'Pending' as RsvpStatus, borderClass: 'border-yellow-500' },
+          { status: 'Declined' as RsvpStatus, borderClass: 'border-red-500' },
+          { status: 'Maybe' as RsvpStatus, borderClass: 'border-blue-500' }
+        ]).map(stat => (
+          <button
+            key={stat.status}
+            onClick={() => setRsvpFilter(prev => (prev === stat.status ? 'All' : stat.status))}
+            className={`text-left bg-white rounded-lg shadow-lg p-6 border-l-4 ${stat.borderClass} hover:shadow-xl hover:-translate-y-0.5 transition-all ${
+              rsvpFilter === stat.status ? 'ring-2 ring-[#d62828]' : ''
+            }`}
+          >
             <p className="text-gray-600 text-sm font-semibold mb-1">{stat.status}</p>
-            <p className="text-3xl font-bold text-[#d62828]">{stat.count}</p>
-          </div>
+            <p className="text-3xl font-bold text-[#d62828]">{guestList.filter(g => g.rsvpStatus === stat.status).length}</p>
+            <p className="text-xs font-semibold text-[#f77f00] mt-2">
+              {rsvpFilter === stat.status ? 'Filtering -- tap to clear' : 'Tap to filter'}
+            </p>
+          </button>
         ))}
       </div>
 
       {/* Guest Table */}
       <div className="bg-white rounded-lg shadow-lg p-6">
+        <div className="flex flex-wrap items-center justify-between gap-3 mb-4">
+          <div className="relative flex-1 min-w-[220px]">
+            <Search className="w-4 h-4 text-gray-400 absolute left-3 top-1/2 -translate-y-1/2" />
+            <input
+              type="search"
+              aria-label="Search guests"
+              value={guestSearch}
+              onChange={(e) => setGuestSearch(e.target.value)}
+              placeholder="Search by name, email, or dietary need..."
+              className="w-full pl-9 pr-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-[#d62828]"
+            />
+          </div>
+          <p className="text-sm text-gray-600">
+            Showing {filteredGuests.length} of {guestList.length}
+          </p>
+          {(rsvpFilter !== 'All' || guestSearch !== '') && (
+            <button
+              onClick={() => {
+                setRsvpFilter('All');
+                setGuestSearch('');
+              }}
+              className="text-sm font-semibold text-[#d62828] hover:text-[#f77f00] transition-colors flex items-center gap-1"
+            >
+              <RotateCcw className="w-4 h-4" />
+              Clear
+            </button>
+          )}
+        </div>
         <div className="overflow-x-auto">
           <table className="w-full">
             <thead className="bg-gray-50">
@@ -2218,24 +3059,51 @@ const CelebrationEventsCompany = () => {
                 <th className="px-6 py-3 text-left text-xs font-semibold text-gray-700 uppercase">Dietary</th>
                 <th className="px-6 py-3 text-left text-xs font-semibold text-gray-700 uppercase">Table</th>
                 <th className="px-6 py-3 text-left text-xs font-semibold text-gray-700 uppercase">+1</th>
+                <th className="px-6 py-3 text-right text-xs font-semibold text-gray-700 uppercase">Actions</th>
               </tr>
             </thead>
             <tbody className="divide-y divide-gray-200">
-              {guestList.map(guest => (
-                <tr key={guest.id} className="hover:bg-gray-50">
-                  <td className="px-6 py-4 text-sm font-semibold text-gray-900">{guest.name}</td>
+              {filteredGuests.length === 0 && (
+                <tr>
+                  <td colSpan={7} className="px-6 py-10 text-center text-gray-600">
+                    No guests match this view. Adjust the filters or add a guest.
+                  </td>
+                </tr>
+              )}
+              {filteredGuests.map(guest => (
+                <tr
+                  key={guest.id}
+                  onClick={() => setSelectedGuestId(guest.id)}
+                  className="hover:bg-gray-50 cursor-pointer"
+                >
+                  <td className="px-6 py-4 text-sm font-semibold text-gray-900">
+                    {guest.name}
+                    {guest.specialNotes && <p className="text-xs font-normal text-gray-500 mt-1">{guest.specialNotes}</p>}
+                  </td>
                   <td className="px-6 py-4 text-sm text-gray-700">
                     <p>{guest.email || '--'}</p>
                     <p className="text-xs text-gray-500">{guest.phone}</p>
                   </td>
-                  <td className="px-6 py-4">
-                    <span className={`px-3 py-1 rounded-full text-xs font-semibold ${
-                      guest.rsvpStatus === 'Accepted' ? 'bg-green-100 text-green-700' :
-                      guest.rsvpStatus === 'Pending' ? 'bg-yellow-100 text-yellow-700' :
-                      guest.rsvpStatus === 'Declined' ? 'bg-red-100 text-red-700' : 'bg-blue-100 text-blue-700'
-                    }`}>
-                      {guest.rsvpStatus}
-                    </span>
+                  <td className="px-6 py-4" onClick={(e) => e.stopPropagation()}>
+                    <select
+                      aria-label={`RSVP status for ${guest.name}`}
+                      value={guest.rsvpStatus}
+                      onChange={(e) => {
+                        const next = e.target.value as RsvpStatus;
+                        setGuestList(prev => prev.map(g => (g.id === guest.id ? { ...g, rsvpStatus: next } : g)));
+                        showToast(`${guest.name} marked ${next}`);
+                      }}
+                      className={`px-3 py-1 rounded-full text-xs font-semibold border-0 focus:ring-2 focus:ring-[#d62828] ${
+                        guest.rsvpStatus === 'Accepted' ? 'bg-green-100 text-green-700' :
+                        guest.rsvpStatus === 'Pending' ? 'bg-yellow-100 text-yellow-700' :
+                        guest.rsvpStatus === 'Declined' ? 'bg-red-100 text-red-700' : 'bg-blue-100 text-blue-700'
+                      }`}
+                    >
+                      <option value="Pending">Pending</option>
+                      <option value="Accepted">Accepted</option>
+                      <option value="Declined">Declined</option>
+                      <option value="Maybe">Maybe</option>
+                    </select>
                   </td>
                   <td className="px-6 py-4 text-sm text-gray-700">{guest.dietaryRestrictions}</td>
                   <td className="px-6 py-4 text-sm text-gray-700">Table {guest.table}</td>
@@ -2245,6 +3113,27 @@ const CelebrationEventsCompany = () => {
                     ) : (
                       <span className="text-gray-400">-</span>
                     )}
+                  </td>
+                  <td className="px-6 py-4 text-right whitespace-nowrap">
+                    <button
+                      onClick={(e) => {
+                        e.stopPropagation();
+                        setSelectedGuestId(guest.id);
+                      }}
+                      className="px-3 py-1.5 rounded-lg text-xs font-semibold border-2 border-[#d62828] text-[#d62828] hover:bg-red-50 transition-colors"
+                    >
+                      Edit
+                    </button>
+                    <button
+                      onClick={(e) => {
+                        e.stopPropagation();
+                        deleteGuest(guest.id);
+                      }}
+                      aria-label={`Remove ${guest.name}`}
+                      className="ml-2 px-3 py-1.5 rounded-lg text-xs font-semibold border-2 border-red-300 text-red-600 hover:bg-red-50 transition-colors"
+                    >
+                      Remove
+                    </button>
                   </td>
                 </tr>
               ))}
@@ -2271,13 +3160,22 @@ const CelebrationEventsCompany = () => {
                 <h3 className="font-bold text-lg text-[#d62828]">{resource.title}</h3>
                 <p className="text-sm text-gray-600">{resource.desc}</p>
               </div>
-              <button
-                onClick={() => downloadResource(resource)}
-                className="bg-[#d62828] text-white px-6 py-2 rounded-lg hover:bg-[#f77f00] transition-colors flex items-center gap-2"
-              >
-                <Download className="w-4 h-4" />
-                Access
-              </button>
+              <div className="flex flex-wrap gap-2">
+                <button
+                  onClick={() => setSelectedResourceTitle(resource.title)}
+                  className="border-2 border-[#d62828] text-[#d62828] px-5 py-2 rounded-lg hover:bg-red-50 transition-colors flex items-center gap-2 font-semibold"
+                >
+                  <Eye className="w-4 h-4" />
+                  Preview
+                </button>
+                <button
+                  onClick={() => downloadResource(resource)}
+                  className="bg-[#d62828] text-white px-6 py-2 rounded-lg hover:bg-[#f77f00] transition-colors flex items-center gap-2 font-semibold"
+                >
+                  <Download className="w-4 h-4" />
+                  Access
+                </button>
+              </div>
             </div>
           </div>
         ))}
@@ -2307,20 +3205,20 @@ const CelebrationEventsCompany = () => {
                   <p className="text-gray-600">789 Celebration Avenue<br />Suite 300<br />City, ST 67890</p>
                 </div>
               </div>
-              <div className="flex items-start gap-3">
+              <a href="tel:5553456789" className="flex items-start gap-3 group">
                 <Phone className="w-5 h-5 text-[#f77f00] flex-shrink-0 mt-1" />
                 <div>
                   <p className="font-semibold text-gray-900">Phone</p>
-                  <p className="text-gray-600">(555) 345-6789</p>
+                  <p className="text-gray-600 group-hover:text-[#d62828] transition-colors">(555) 345-6789</p>
                 </div>
-              </div>
-              <div className="flex items-start gap-3">
+              </a>
+              <a href="mailto:info@celebrationevents.com" className="flex items-start gap-3 group">
                 <Mail className="w-5 h-5 text-[#f77f00] flex-shrink-0 mt-1" />
                 <div>
                   <p className="font-semibold text-gray-900">Email</p>
-                  <p className="text-gray-600">info@celebrationevents.com</p>
+                  <p className="text-gray-600 group-hover:text-[#d62828] transition-colors break-all">info@celebrationevents.com</p>
                 </div>
-              </div>
+              </a>
             </div>
           </div>
 
@@ -2354,10 +3252,24 @@ const CelebrationEventsCompany = () => {
           <div>
             <h4 className="font-bold mb-4">Services</h4>
             <ul className="space-y-2 text-gray-200 text-sm">
-              <li><button onClick={() => goTo('services')} className="hover:text-white">Weddings</button></li>
-              <li><button onClick={() => goTo('services')} className="hover:text-white">Corporate Events</button></li>
-              <li><button onClick={() => goTo('services')} className="hover:text-white">Birthday Parties</button></li>
-              <li><button onClick={() => goTo('services')} className="hover:text-white">Day-of Coordination</button></li>
+              {[
+                { label: 'Weddings', service: 'Wedding Planning' },
+                { label: 'Corporate Events', service: 'Corporate Events' },
+                { label: 'Birthday Parties', service: 'Birthday Parties' },
+                { label: 'Day-of Coordination', service: 'Day-of Coordination' }
+              ].map(({ label, service }) => (
+                <li key={label}>
+                  <button
+                    onClick={() => {
+                      goTo('services');
+                      setSelectedServiceTitle(service);
+                    }}
+                    className="hover:text-white"
+                  >
+                    {label}
+                  </button>
+                </li>
+              ))}
             </ul>
           </div>
           <div>
@@ -2366,13 +3278,23 @@ const CelebrationEventsCompany = () => {
               <li><button onClick={() => goTo('resources')} className="hover:text-white">Planning Tools</button></li>
               <li><button onClick={() => goTo('vendors')} className="hover:text-white">Vendor Directory</button></li>
               <li><button onClick={() => goTo('budget')} className="hover:text-white">Budget Calculator</button></li>
-              <li><button onClick={() => goTo('resources')} className="hover:text-white">Blog</button></li>
+              <li>
+                <button
+                  onClick={() => {
+                    goTo('resources');
+                    setSelectedResourceTitle('Planning Checklist');
+                  }}
+                  className="hover:text-white"
+                >
+                  Planning Guides
+                </button>
+              </li>
             </ul>
           </div>
           <div>
             <h4 className="font-bold mb-4">Company</h4>
             <ul className="space-y-2 text-gray-200 text-sm">
-              <li><button onClick={() => goTo('home')} className="hover:text-white">About Us</button></li>
+              <li><button onClick={() => setShowAbout(true)} className="hover:text-white">About Us</button></li>
               <li><button onClick={() => goTo('portfolio')} className="hover:text-white">Portfolio</button></li>
               <li><button onClick={() => goTo('contact')} className="hover:text-white">Contact</button></li>
               <li><button onClick={() => setShowPrivacy(true)} className="hover:text-white">Privacy Policy</button></li>
@@ -2540,14 +3462,28 @@ const CelebrationEventsCompany = () => {
               <User className="w-4 h-4 text-[#f77f00]" />
               {selectedVendor.contactName || 'Contact not provided'}
             </div>
-            <div className="flex items-center gap-2 text-gray-700">
-              <Mail className="w-4 h-4 text-[#f77f00]" />
-              {selectedVendor.email || 'Email not provided'}
-            </div>
-            <div className="flex items-center gap-2 text-gray-700">
-              <Phone className="w-4 h-4 text-[#f77f00]" />
-              {selectedVendor.phone || 'Phone not provided'}
-            </div>
+            {selectedVendor.email ? (
+              <a href={`mailto:${selectedVendor.email}`} className="flex items-center gap-2 text-gray-700 hover:text-[#d62828] transition-colors break-all">
+                <Mail className="w-4 h-4 text-[#f77f00] flex-shrink-0" />
+                {selectedVendor.email}
+              </a>
+            ) : (
+              <div className="flex items-center gap-2 text-gray-700">
+                <Mail className="w-4 h-4 text-[#f77f00]" />
+                Email not provided
+              </div>
+            )}
+            {selectedVendor.phone ? (
+              <a href={`tel:${selectedVendor.phone.replace(/[^0-9]/g, '')}`} className="flex items-center gap-2 text-gray-700 hover:text-[#d62828] transition-colors">
+                <Phone className="w-4 h-4 text-[#f77f00] flex-shrink-0" />
+                {selectedVendor.phone}
+              </a>
+            ) : (
+              <div className="flex items-center gap-2 text-gray-700">
+                <Phone className="w-4 h-4 text-[#f77f00]" />
+                Phone not provided
+              </div>
+            )}
           </div>
           <div className="grid grid-cols-3 gap-3 mb-6 text-center">
             <div className="bg-red-50 p-3 rounded-lg">
@@ -2563,6 +3499,24 @@ const CelebrationEventsCompany = () => {
               <p className="font-bold text-[#d62828]">{selectedVendor.availability}</p>
             </div>
           </div>
+
+          <h4 className="font-bold text-gray-900 mb-2">Update Availability</h4>
+          <div className="flex flex-wrap gap-2 mb-6">
+            {(['Available', 'Limited', 'Booked'] as VendorAvailability[]).map(status => (
+              <button
+                key={status}
+                onClick={() => setVendorAvailability(selectedVendor.id, status)}
+                className={`px-4 py-2 rounded-lg text-sm font-semibold transition-colors ${
+                  selectedVendor.availability === status
+                    ? 'bg-[#d62828] text-white'
+                    : 'bg-gray-100 text-gray-700 hover:bg-[#fcbf49] hover:text-[#d62828]'
+                }`}
+              >
+                {status}
+              </button>
+            ))}
+          </div>
+
           <button
             onClick={() => {
               const name = selectedVendor.name;
@@ -2573,6 +3527,13 @@ const CelebrationEventsCompany = () => {
           >
             <MessageSquare className="w-4 h-4" />
             Send Message
+          </button>
+          <button
+            onClick={() => deleteVendor(selectedVendor.id)}
+            className="w-full mt-3 border-2 border-red-300 text-red-600 px-6 py-3 rounded-lg font-semibold hover:bg-red-50 transition-colors flex items-center justify-center gap-2"
+          >
+            <Trash2 className="w-4 h-4" />
+            Remove from Directory
           </button>
         </Modal>
       )}
@@ -2753,8 +3714,143 @@ const CelebrationEventsCompany = () => {
       {/* Add guest */}
       {showAddGuest && <AddGuestModal onAdd={addGuest} onClose={() => setShowAddGuest(false)} />}
 
+      {/* Edit guest */}
+      {selectedGuest && (
+        <GuestDetailModal
+          key={selectedGuest.id}
+          guest={selectedGuest}
+          onSave={saveGuest}
+          onDelete={deleteGuest}
+          onClose={() => setSelectedGuestId(null)}
+        />
+      )}
+
       {/* Add vendor */}
       {showAddVendor && <AddVendorModal onAdd={addVendor} onClose={() => setShowAddVendor(false)} />}
+
+      {/* Add timeline task */}
+      {showAddTask && <AddTaskModal onAdd={addTask} onClose={() => setShowAddTask(false)} />}
+
+      {/* Budget line item */}
+      {selectedBudgetItem && (
+        <BudgetItemModal
+          key={selectedBudgetItem.id}
+          item={selectedBudgetItem}
+          onSave={saveBudgetItem}
+          onClose={() => setSelectedBudgetId(null)}
+        />
+      )}
+
+      {/* Resource preview */}
+      {selectedResource && (
+        <Modal title={selectedResource.title} onClose={() => setSelectedResourceTitle(null)} wide>
+          <p className="text-gray-600 mb-4">{selectedResource.desc}</p>
+          <ul className="space-y-3 mb-6">
+            {selectedResource.fileLines.map(line => (
+              <li key={line} className="flex items-start gap-2 text-sm text-gray-700">
+                <CheckCircle2 className="w-4 h-4 text-green-500 flex-shrink-0 mt-0.5" />
+                {line}
+              </li>
+            ))}
+          </ul>
+          <button
+            onClick={() => downloadResource(selectedResource)}
+            className="w-full bg-[#d62828] text-white px-6 py-3 rounded-lg font-semibold hover:bg-[#f77f00] transition-colors flex items-center justify-center gap-2"
+          >
+            <Download className="w-4 h-4" />
+            Download a Copy
+          </button>
+        </Modal>
+      )}
+
+      {/* Client reviews */}
+      {showReviews && (
+        <Modal title="Client Reviews" onClose={() => setShowReviews(false)} wide>
+          <div className="flex items-center gap-3 mb-6">
+            <p className="text-4xl font-bold text-[#d62828]">4.9</p>
+            <div>
+              <div className="flex items-center gap-1">
+                {[...Array(5)].map((_, i) => (
+                  <Star key={i} className="w-4 h-4 fill-yellow-400 text-yellow-400" />
+                ))}
+              </div>
+              <p className="text-sm text-gray-600">Average across 87 reviews</p>
+            </div>
+          </div>
+          <div className="space-y-4 mb-6">
+            {clientReviews.map(review => (
+              <div key={review.name} className="border rounded-lg p-4">
+                <div className="flex items-center justify-between mb-2">
+                  <div>
+                    <p className="font-bold text-gray-900">{review.name}</p>
+                    <p className="text-xs text-gray-600">{review.event}</p>
+                  </div>
+                  <div className="flex items-center gap-1">
+                    {[...Array(review.rating)].map((_, i) => (
+                      <Star key={i} className="w-4 h-4 fill-yellow-400 text-yellow-400" />
+                    ))}
+                  </div>
+                </div>
+                <p className="text-sm text-gray-700">{review.quote}</p>
+              </div>
+            ))}
+          </div>
+          <button
+            onClick={() => {
+              setShowReviews(false);
+              requestQuote('');
+            }}
+            className="w-full bg-[#d62828] text-white px-6 py-3 rounded-lg font-semibold hover:bg-[#f77f00] transition-colors"
+          >
+            Start Planning Your Event
+          </button>
+        </Modal>
+      )}
+
+      {/* About the company */}
+      {showAbout && (
+        <Modal title="About Celebration Events Co." onClose={() => setShowAbout(false)}>
+          <p className="text-gray-600 mb-4">
+            Since 2010 our team has planned weddings, corporate programs, and milestone celebrations from first walkthrough
+            to final send-off. We handle venue selection, vendor contracts, budgets, timelines, and day-of coordination so
+            our clients can actually enjoy the event they paid for.
+          </p>
+          <div className="grid grid-cols-3 gap-3 mb-6 text-center">
+            <div className="bg-red-50 p-3 rounded-lg">
+              <p className="text-2xl font-bold text-[#d62828]">156</p>
+              <p className="text-xs text-gray-600">Events managed</p>
+            </div>
+            <div className="bg-red-50 p-3 rounded-lg">
+              <p className="text-2xl font-bold text-[#d62828]">{vendorList.length}</p>
+              <p className="text-xs text-gray-600">Partner vendors</p>
+            </div>
+            <div className="bg-red-50 p-3 rounded-lg">
+              <p className="text-2xl font-bold text-[#d62828]">4.9</p>
+              <p className="text-xs text-gray-600">Average rating</p>
+            </div>
+          </div>
+          <div className="flex flex-wrap gap-3">
+            <button
+              onClick={() => {
+                setShowAbout(false);
+                goTo('portfolio');
+              }}
+              className="flex-1 border-2 border-[#d62828] text-[#d62828] px-6 py-3 rounded-lg font-semibold hover:bg-red-50 transition-colors"
+            >
+              See Our Work
+            </button>
+            <button
+              onClick={() => {
+                setShowAbout(false);
+                requestQuote('');
+              }}
+              className="flex-1 bg-[#d62828] text-white px-6 py-3 rounded-lg font-semibold hover:bg-[#f77f00] transition-colors"
+            >
+              Contact the Team
+            </button>
+          </div>
+        </Modal>
+      )}
 
       {/* Payment simulation */}
       {showPayment && (

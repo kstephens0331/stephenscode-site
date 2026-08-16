@@ -66,7 +66,10 @@ const Layout: React.FC<LayoutProps> = ({ children, currentPage, onNavigate }) =>
                 <p className="text-sm text-gray-600">Call Now For Service</p>
                 <p className="text-2xl font-bold text-[#0466c8]">(555) 765-8237</p>
               </div>
-              <button className="bg-[#0466c8] hover:bg-[#0353a4] text-white px-6 py-3 rounded-lg font-semibold transition-colors">
+              <button
+                onClick={() => onNavigate('contact')}
+                className="bg-[#0466c8] hover:bg-[#0353a4] text-white px-6 py-3 rounded-lg font-semibold transition-colors"
+              >
                 Request Service
               </button>
             </div>
@@ -106,31 +109,59 @@ const Layout: React.FC<LayoutProps> = ({ children, currentPage, onNavigate }) =>
                 Your trusted partner for all residential and commercial plumbing needs.
               </p>
               <div className="flex space-x-4">
-                <Facebook className="h-6 w-6 cursor-pointer hover:text-blue-300" />
-                <Twitter className="h-6 w-6 cursor-pointer hover:text-blue-300" />
-                <Instagram className="h-6 w-6 cursor-pointer hover:text-blue-300" />
+                <a href="https://www.facebook.com" target="_blank" rel="noopener noreferrer" aria-label="Premier Plumbing Pros on Facebook">
+                  <Facebook className="h-6 w-6 cursor-pointer hover:text-blue-300" />
+                </a>
+                <a href="https://twitter.com" target="_blank" rel="noopener noreferrer" aria-label="Premier Plumbing Pros on Twitter">
+                  <Twitter className="h-6 w-6 cursor-pointer hover:text-blue-300" />
+                </a>
+                <a href="https://www.instagram.com" target="_blank" rel="noopener noreferrer" aria-label="Premier Plumbing Pros on Instagram">
+                  <Instagram className="h-6 w-6 cursor-pointer hover:text-blue-300" />
+                </a>
               </div>
             </div>
 
             <div>
               <h4 className="text-lg font-semibold mb-4">Services</h4>
               <ul className="space-y-2 text-blue-200">
-                <li className="hover:text-white cursor-pointer">Drain Cleaning</li>
-                <li className="hover:text-white cursor-pointer">Leak Detection</li>
-                <li className="hover:text-white cursor-pointer">Water Heaters</li>
-                <li className="hover:text-white cursor-pointer">Pipe Repair</li>
-                <li className="hover:text-white cursor-pointer">Emergency Service</li>
+                {[
+                  { label: 'Drain Cleaning', page: 'residential' },
+                  { label: 'Leak Detection', page: 'residential' },
+                  { label: 'Water Heaters', page: 'residential' },
+                  { label: 'Pipe Repair', page: 'residential' },
+                  { label: 'Emergency Service', page: 'emergency' },
+                ].map((link) => (
+                  <li key={link.label}>
+                    <button
+                      onClick={() => onNavigate(link.page)}
+                      className="hover:text-white cursor-pointer"
+                    >
+                      {link.label}
+                    </button>
+                  </li>
+                ))}
               </ul>
             </div>
 
             <div>
               <h4 className="text-lg font-semibold mb-4">Quick Links</h4>
               <ul className="space-y-2 text-blue-200">
-                <li className="hover:text-white cursor-pointer">About Us</li>
-                <li className="hover:text-white cursor-pointer">Coupons</li>
-                <li className="hover:text-white cursor-pointer">Reviews</li>
-                <li className="hover:text-white cursor-pointer">Service Areas</li>
-                <li className="hover:text-white cursor-pointer">Financing</li>
+                {[
+                  { label: 'About Us', page: 'about' },
+                  { label: 'Coupons', page: 'coupons' },
+                  { label: 'Reviews', page: 'reviews' },
+                  { label: 'Service Areas', page: 'service-areas' },
+                  { label: 'Financing', page: 'contact' },
+                ].map((link) => (
+                  <li key={link.label}>
+                    <button
+                      onClick={() => onNavigate(link.page)}
+                      className="hover:text-white cursor-pointer"
+                    >
+                      {link.label}
+                    </button>
+                  </li>
+                ))}
               </ul>
             </div>
 

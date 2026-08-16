@@ -9,14 +9,15 @@ interface ContactPageProps {
     secondary: string;
     accent: string;
   };
+  initialService?: string;
 }
 
-export default function ContactPage({ onNavigate, colors }: ContactPageProps) {
+export default function ContactPage({ onNavigate, colors, initialService }: ContactPageProps) {
   const [formData, setFormData] = useState({
     name: '',
     email: '',
     phone: '',
-    service: '',
+    service: initialService || '',
     message: '',
     urgency: 'standard',
   });
@@ -48,15 +49,16 @@ export default function ContactPage({ onNavigate, colors }: ContactPageProps) {
           'Content-Type': 'application/json',
         },
         body: JSON.stringify({
-          demo_slug: 'fixit-fast-handyman',
-          name: formData.name,
-          email: formData.email,
-          phone: formData.phone,
-          message: `Service: ${formData.service}\nUrgency: ${formData.urgency}\n\n${formData.message}`,
-          metadata: {
-            service: formData.service,
-            urgency: formData.urgency,
-          },
+          demoName: 'Fix-It Fast Handyman',
+          demoPackage: 'Plug and Play ($250)',
+          demoSlug: 'fixit-fast-handyman',
+          clientName: formData.name,
+          clientPhone: formData.phone,
+          clientEmail: formData.email,
+          service: formData.service,
+          preferredDate: '',
+          preferredTime: '',
+          notes: `Urgency: ${formData.urgency}\n\n${formData.message}`,
         }),
       });
 

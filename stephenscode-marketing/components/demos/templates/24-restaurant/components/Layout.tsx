@@ -1,5 +1,6 @@
 'use client'
 
+import { useState } from 'react'
 import type { ColorPalette } from '@/lib/demo-colors'
 
 interface LayoutProps {
@@ -8,9 +9,12 @@ interface LayoutProps {
   currentPage: string
   onNavigate: (page: string) => void
   onOrderOpen: () => void
+  cartCount: number
 }
 
-export default function Layout({ children, colors, currentPage, onNavigate, onOrderOpen }: LayoutProps) {
+export default function Layout({ children, colors, currentPage, onNavigate, onOrderOpen, cartCount }: LayoutProps) {
+  const [mobileMenuOpen, setMobileMenuOpen] = useState(false)
+
   const navItems = [
     { id: 'home', label: 'Home' },
     { id: 'menu', label: 'Menu' },
@@ -21,6 +25,22 @@ export default function Layout({ children, colors, currentPage, onNavigate, onOr
     { id: 'loyalty', label: 'Loyalty Program' },
     { id: 'giftcards', label: 'Gift Cards' },
     { id: 'contact', label: 'Contact' }
+  ]
+
+  const handleNavClick = (id: string) => {
+    setMobileMenuOpen(false)
+    if (id === 'order') {
+      onOrderOpen()
+    } else {
+      onNavigate(id)
+    }
+  }
+
+  const footerLinks = [
+    { id: 'menu', label: 'Menu' },
+    { id: 'reservations', label: 'Reservations' },
+    { id: 'order', label: 'Order Online' },
+    { id: 'catering', label: 'Catering' }
   ]
 
   return (
@@ -40,7 +60,7 @@ export default function Layout({ children, colors, currentPage, onNavigate, onOr
               {navItems.map((item) => (
                 <button
                   key={item.id}
-                  onClick={() => item.id === 'order' ? onOrderOpen() : onNavigate(item.id)}
+                  onClick={() => handleNavClick(item.id)}
                   style={{
                     color: currentPage === item.id ? '#ee9b00' : '#ffffff',
                     borderBottom: currentPage === item.id ? '2px solid #ee9b00' : 'none'
@@ -51,15 +71,57 @@ export default function Layout({ children, colors, currentPage, onNavigate, onOr
                 </button>
               ))}
             </nav>
-            <button
-              onClick={onOrderOpen}
-              style={{ backgroundColor: '#ee9b00', color: '#1a1a1a' }}
-              className="px-6 py-3 font-bold hover:opacity-90 transition"
-            >
-              Order Now
-            </button>
+            <div className="flex items-center gap-3">
+              <button
+                onClick={onOrderOpen}
+                style={{ backgroundColor: '#ee9b00', color: '#1a1a1a' }}
+                className="px-6 py-3 font-bold hover:opacity-90 transition flex items-center gap-2"
+              >
+                Order Now
+                {cartCount > 0 && (
+                  <span
+                    style={{ backgroundColor: '#1a1a1a', color: '#ee9b00' }}
+                    className="rounded-full text-xs font-bold px-2 py-1 leading-none"
+                  >
+                    {cartCount}
+                  </span>
+                )}
+              </button>
+              <button
+                onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
+                aria-label={mobileMenuOpen ? 'Close menu' : 'Open menu'}
+                aria-expanded={mobileMenuOpen}
+                className="lg:hidden p-2"
+              >
+                <span className="block w-6 space-y-1.5">
+                  <span style={{ backgroundColor: '#ffffff' }} className="block h-0.5 w-6"></span>
+                  <span style={{ backgroundColor: '#ffffff' }} className="block h-0.5 w-6"></span>
+                  <span style={{ backgroundColor: '#ffffff' }} className="block h-0.5 w-6"></span>
+                </span>
+              </button>
+            </div>
           </div>
         </div>
+        {/* Mobile Menu */}
+        {mobileMenuOpen && (
+          <nav style={{ backgroundColor: '#9b2226', borderTop: '1px solid #ae2012' }} className="lg:hidden">
+            <div className="max-w-7xl mx-auto px-4 py-4 flex flex-col gap-1">
+              {navItems.map((item) => (
+                <button
+                  key={item.id}
+                  onClick={() => handleNavClick(item.id)}
+                  style={{
+                    color: currentPage === item.id ? '#ee9b00' : '#ffffff',
+                    backgroundColor: currentPage === item.id ? 'rgba(0, 0, 0, 0.2)' : 'transparent'
+                  }}
+                  className="text-left font-bold px-4 py-3 hover:opacity-80 transition"
+                >
+                  {item.label}
+                </button>
+              ))}
+            </div>
+          </nav>
+        )}
       </header>
 
       {/* Main Content */}
@@ -81,10 +143,14 @@ export default function Layout({ children, colors, currentPage, onNavigate, onOr
             <div>
               <h4 style={{ color: '#ee9b00' }} className="font-bold mb-4">Quick Links</h4>
               <div className="space-y-2">
-                {['Menu', 'Reservations', 'Order Online', 'Catering'].map((link) => (
-                  <div key={link}>
-                    <button style={{ color: '#cccccc' }} className="hover:text-white text-sm">
-                      {link}
+                {footerLinks.map((link) => (
+                  <div key={link.id}>
+                    <button
+                      onClick={() => handleNavClick(link.id)}
+                      style={{ color: '#cccccc' }}
+                      className="hover:text-white text-sm"
+                    >
+                      {link.label}
                     </button>
                   </div>
                 ))}

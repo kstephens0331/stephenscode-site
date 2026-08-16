@@ -156,16 +156,54 @@ export default function ContactPage({ colors, onBookingOpen }: ContactPageProps)
             </p>
           </div>
 
-          {/* Map Placeholder */}
-          <div style={{ backgroundColor: '#e5e5e5', border: '2px solid #d4af37' }} className="aspect-video flex items-center justify-center">
-            <div className="text-center p-8">
-              <div className="text-6xl mb-4">🗺️</div>
-              <p style={{ color: '#666666' }} className="text-lg font-semibold">
-                Interactive Google Map Would Display Here
-              </p>
-              <p style={{ color: '#999999' }} className="text-sm mt-2">
-                123 Main Street, Suite 100, Houston, TX 77002
-              </p>
+          {/* Map */}
+          <div style={{ backgroundColor: '#eceae4', border: '2px solid #d4af37' }} className="aspect-video relative overflow-hidden">
+            <svg
+              viewBox="0 0 800 450"
+              className="w-full h-full"
+              role="img"
+              aria-label="Map showing Classic Cuts Barbershop at 123 Main Street in downtown Houston"
+              preserveAspectRatio="xMidYMid slice"
+            >
+              <rect width="800" height="450" fill="#eceae4" />
+              {/* Street grid */}
+              <g stroke="#ffffff" strokeWidth="16">
+                <line x1="0" y1="110" x2="800" y2="110" />
+                <line x1="0" y1="240" x2="800" y2="240" />
+                <line x1="0" y1="370" x2="800" y2="370" />
+                <line x1="150" y1="0" x2="150" y2="450" />
+                <line x1="340" y1="0" x2="340" y2="450" />
+                <line x1="530" y1="0" x2="530" y2="450" />
+                <line x1="690" y1="0" x2="690" y2="450" />
+              </g>
+              {/* Park */}
+              <rect x="545" y="125" width="130" height="100" rx="8" fill="#bcd9b5" />
+              <text x="610" y="180" textAnchor="middle" fontSize="15" fill="#4a6b45" fontFamily="sans-serif">Discovery Green</text>
+              {/* Street labels */}
+              <text x="14" y="98" fontSize="13" fill="#8a8a8a" fontFamily="sans-serif">Texas Ave</text>
+              <text x="14" y="228" fontSize="13" fill="#8a8a8a" fontFamily="sans-serif">Main St</text>
+              <text x="14" y="358" fontSize="13" fill="#8a8a8a" fontFamily="sans-serif">Travis St</text>
+              {/* Location pin */}
+              <g transform="translate(435, 235)">
+                <path d="M0 0 C-24 -34 -16 -62 0 -62 C16 -62 24 -34 0 0 Z" fill="#d4af37" />
+                <circle cx="0" cy="-44" r="9" fill="#1a1a1a" />
+              </g>
+              <text x="435" y="262" textAnchor="middle" fontSize="16" fontWeight="bold" fill="#1a1a1a" fontFamily="sans-serif">Classic Cuts</text>
+            </svg>
+            <div className="absolute bottom-4 left-4 right-4 sm:right-auto">
+              <div style={{ backgroundColor: '#ffffff', border: '1px solid #e5e5e5' }} className="p-4 shadow-lg sm:max-w-xs">
+                <div style={{ color: '#1a1a1a' }} className="font-bold">Classic Cuts Barbershop</div>
+                <div style={{ color: '#666666' }} className="text-sm mb-3">123 Main Street, Suite 100, Houston, TX 77002</div>
+                <a
+                  href="https://www.google.com/maps/search/?api=1&query=123+Main+Street+Houston+TX+77002"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  style={{ backgroundColor: '#d4af37', color: '#1a1a1a' }}
+                  className="inline-block px-4 py-2 text-sm font-bold hover:opacity-90 transition"
+                >
+                  Get Directions
+                </a>
+              </div>
             </div>
           </div>
 

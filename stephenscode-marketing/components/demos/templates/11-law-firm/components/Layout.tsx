@@ -30,19 +30,25 @@ export default function Layout({ children, currentPage, onNavigate, accentColor 
         <div className="max-w-7xl mx-auto px-4 py-2">
           <div className="flex flex-wrap items-center justify-between text-sm">
             <div className="flex items-center space-x-4">
-              <div className="flex items-center space-x-2">
+              <a href="tel:5551234567" className="flex items-center space-x-2 hover:opacity-80">
                 <Phone className="w-4 h-4" style={{ color: accentColor }} />
                 <span>(555) 123-4567</span>
-              </div>
-              <div className="flex items-center space-x-2">
+              </a>
+              <a href="mailto:info@justiceassociates.com" className="flex items-center space-x-2 hover:opacity-80">
                 <Mail className="w-4 h-4" style={{ color: accentColor }} />
                 <span>info@justiceassociates.com</span>
-              </div>
+              </a>
             </div>
             <div className="flex items-center space-x-4">
-              <Facebook className="w-4 h-4 cursor-pointer hover:opacity-80" style={{ color: accentColor }} />
-              <Twitter className="w-4 h-4 cursor-pointer hover:opacity-80" style={{ color: accentColor }} />
-              <Linkedin className="w-4 h-4 cursor-pointer hover:opacity-80" style={{ color: accentColor }} />
+              <a href="https://facebook.com" target="_blank" rel="noopener noreferrer" aria-label="Facebook" className="hover:opacity-80">
+                <Facebook className="w-4 h-4" style={{ color: accentColor }} />
+              </a>
+              <a href="https://twitter.com" target="_blank" rel="noopener noreferrer" aria-label="Twitter" className="hover:opacity-80">
+                <Twitter className="w-4 h-4" style={{ color: accentColor }} />
+              </a>
+              <a href="https://linkedin.com" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn" className="hover:opacity-80">
+                <Linkedin className="w-4 h-4" style={{ color: accentColor }} />
+              </a>
             </div>
           </div>
         </div>

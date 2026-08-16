@@ -7,8 +7,28 @@ interface LayoutProps {
   onNavigate: (page: string) => void;
 }
 
+const LEGAL_DOCS = {
+  privacy: {
+    title: 'Privacy Policy',
+    paragraphs: [
+      'Skyline Realty Group collects only the information you choose to share with us, such as your name, email address, phone number, and details about the property you are buying or selling. We use it to respond to your inquiries, schedule showings, and keep you informed about listings that match your search.',
+      'We never sell your personal information. Your details are shared only with the Skyline agent working on your behalf and with service providers (such as lenders or inspectors) that you ask us to coordinate with.',
+      'You may request a copy of the information we hold about you, or ask us to delete it, at any time by emailing info@skylinerealty.com or calling (555) 123-4567.',
+    ],
+  },
+  terms: {
+    title: 'Terms of Service',
+    paragraphs: [
+      'By using the Skyline Realty Group website you agree to use it for personal, non-commercial purposes related to buying, selling, or renting real estate. Listing information is provided for your convenience and is deemed reliable but not guaranteed; details such as pricing, availability, and property features should be confirmed with an agent.',
+      'Content on this site, including photography, market data, and written guides, belongs to Skyline Realty Group and may not be reproduced without permission.',
+      'Nothing on this site constitutes legal, financial, or tax advice. For guidance specific to your situation, please consult the appropriate licensed professional. Questions about these terms can be sent to info@skylinerealty.com.',
+    ],
+  },
+} as const;
+
 const Layout: React.FC<LayoutProps> = ({ children, currentPage, onNavigate }) => {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
+  const [legalDoc, setLegalDoc] = useState<keyof typeof LEGAL_DOCS | null>(null);
 
   const navItems = [
     { id: 'home', label: 'Home', icon: Home },
@@ -41,16 +61,16 @@ const Layout: React.FC<LayoutProps> = ({ children, currentPage, onNavigate }) =>
                 </a>
               </div>
               <div className="hidden md:flex items-center space-x-4">
-                <a href="#" className="hover:text-[#ffc300] transition-colors">
+                <a href="https://facebook.com" target="_blank" rel="noopener noreferrer" aria-label="Facebook" className="hover:text-[#ffc300] transition-colors">
                   <Facebook className="w-4 h-4" />
                 </a>
-                <a href="#" className="hover:text-[#ffc300] transition-colors">
+                <a href="https://instagram.com" target="_blank" rel="noopener noreferrer" aria-label="Instagram" className="hover:text-[#ffc300] transition-colors">
                   <Instagram className="w-4 h-4" />
                 </a>
-                <a href="#" className="hover:text-[#ffc300] transition-colors">
+                <a href="https://linkedin.com" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn" className="hover:text-[#ffc300] transition-colors">
                   <Linkedin className="w-4 h-4" />
                 </a>
-                <a href="#" className="hover:text-[#ffc300] transition-colors">
+                <a href="https://twitter.com" target="_blank" rel="noopener noreferrer" aria-label="Twitter" className="hover:text-[#ffc300] transition-colors">
                   <Twitter className="w-4 h-4" />
                 </a>
               </div>
@@ -156,16 +176,16 @@ const Layout: React.FC<LayoutProps> = ({ children, currentPage, onNavigate }) =>
                 Leading the way in luxury real estate since 2010. Your trusted partner in finding the perfect home.
               </p>
               <div className="flex space-x-3">
-                <a href="#" className="bg-[#001d3d] p-2 rounded-lg hover:bg-[#ffc300] hover:text-[#000814] transition-colors">
+                <a href="https://facebook.com" target="_blank" rel="noopener noreferrer" aria-label="Facebook" className="bg-[#001d3d] p-2 rounded-lg hover:bg-[#ffc300] hover:text-[#000814] transition-colors">
                   <Facebook className="w-5 h-5" />
                 </a>
-                <a href="#" className="bg-[#001d3d] p-2 rounded-lg hover:bg-[#ffc300] hover:text-[#000814] transition-colors">
+                <a href="https://instagram.com" target="_blank" rel="noopener noreferrer" aria-label="Instagram" className="bg-[#001d3d] p-2 rounded-lg hover:bg-[#ffc300] hover:text-[#000814] transition-colors">
                   <Instagram className="w-5 h-5" />
                 </a>
-                <a href="#" className="bg-[#001d3d] p-2 rounded-lg hover:bg-[#ffc300] hover:text-[#000814] transition-colors">
+                <a href="https://linkedin.com" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn" className="bg-[#001d3d] p-2 rounded-lg hover:bg-[#ffc300] hover:text-[#000814] transition-colors">
                   <Linkedin className="w-5 h-5" />
                 </a>
-                <a href="#" className="bg-[#001d3d] p-2 rounded-lg hover:bg-[#ffc300] hover:text-[#000814] transition-colors">
+                <a href="https://twitter.com" target="_blank" rel="noopener noreferrer" aria-label="Twitter" className="bg-[#001d3d] p-2 rounded-lg hover:bg-[#ffc300] hover:text-[#000814] transition-colors">
                   <Twitter className="w-5 h-5" />
                 </a>
               </div>
@@ -253,10 +273,62 @@ const Layout: React.FC<LayoutProps> = ({ children, currentPage, onNavigate }) =>
           </div>
 
           <div className="border-t border-gray-800 mt-8 pt-8 text-center text-gray-400">
-            <p>&copy; 2024 Skyline Realty Group. All rights reserved. | Privacy Policy | Terms of Service</p>
+            <p>
+              &copy; 2024 Skyline Realty Group. All rights reserved. |{' '}
+              <button
+                onClick={() => setLegalDoc('privacy')}
+                className="hover:text-[#ffc300] underline-offset-2 hover:underline transition-colors"
+              >
+                Privacy Policy
+              </button>{' '}
+              |{' '}
+              <button
+                onClick={() => setLegalDoc('terms')}
+                className="hover:text-[#ffc300] underline-offset-2 hover:underline transition-colors"
+              >
+                Terms of Service
+              </button>
+            </p>
           </div>
         </div>
       </footer>
+
+      {/* Legal Document Modal */}
+      {legalDoc && (
+        <div
+          className="fixed inset-0 z-[100] bg-black/60 flex items-center justify-center p-4"
+          onClick={() => setLegalDoc(null)}
+        >
+          <div
+            className="bg-white rounded-xl shadow-2xl w-full max-w-lg max-h-[85vh] overflow-y-auto"
+            onClick={(e) => e.stopPropagation()}
+          >
+            <div className="flex items-center justify-between p-6 border-b">
+              <h3 className="text-2xl font-bold text-[#000814]">{LEGAL_DOCS[legalDoc].title}</h3>
+              <button
+                onClick={() => setLegalDoc(null)}
+                aria-label="Close"
+                className="p-2 rounded-lg hover:bg-gray-100 transition-colors"
+              >
+                <X className="w-5 h-5 text-gray-600" />
+              </button>
+            </div>
+            <div className="p-6 space-y-4">
+              {LEGAL_DOCS[legalDoc].paragraphs.map((paragraph) => (
+                <p key={paragraph.slice(0, 40)} className="text-gray-600 leading-relaxed">
+                  {paragraph}
+                </p>
+              ))}
+              <button
+                onClick={() => setLegalDoc(null)}
+                className="w-full bg-[#000814] text-white px-6 py-3 rounded-lg font-semibold hover:bg-[#001d3d] transition-colors"
+              >
+                Close
+              </button>
+            </div>
+          </div>
+        </div>
+      )}
     </div>
   );
 };

@@ -1,16 +1,39 @@
 'use client';
 
-import { CheckCircle2, Shield, Clock, Gift, User, Mail, Phone, CreditCard, Calendar } from 'lucide-react';
+import { CheckCircle2, Shield, Clock, Gift, User, Mail, Phone, CreditCard, Calendar, X } from 'lucide-react';
 import { useState } from 'react';
-import Link from 'next/link';
 import { trackEvent, trackConversion } from '@/lib/analytics';
 
 interface JoinPageProps {
   basePath: string;
 }
 
+const policies = {
+  terms: {
+    title: 'Terms of Service',
+    sections: [
+      'Membership begins on the date of signup. The 7-day free trial grants full facility access with no payment due. If you do not cancel before the trial ends, your selected monthly membership begins automatically.',
+      'All memberships are month-to-month. You may cancel at any time with 30 days written notice at the front desk or through your member account. There are no cancellation fees or long-term contracts.',
+      'Members agree to follow posted facility rules, re-rack equipment after use, and treat staff and fellow members with respect. Iron Temple Fitness reserves the right to revoke membership for conduct that endangers others.',
+      'Guests must be accompanied by a member with guest privileges and must complete a liability waiver before using the facility.',
+      'Membership freezes of up to 3 months per calendar year are available for a small administrative fee. Contact the front desk to arrange a freeze.',
+    ],
+  },
+  privacy: {
+    title: 'Privacy Policy',
+    sections: [
+      'Iron Temple Fitness collects only the information needed to manage your membership: name, contact details, emergency contact, and billing information.',
+      'We never sell or share your personal information with third parties for marketing purposes. Payment information is processed through a secure, PCI-compliant payment provider and is never stored on our servers.',
+      'Emergency contact information is used solely in the event of a medical incident at the facility.',
+      'You may request a copy of your personal data, or ask us to delete it, at any time by contacting info@irontemple.fit. Deletion requests are processed within 30 days.',
+      'Our facility uses video surveillance in common areas for member safety. Locker rooms and restrooms are never monitored.',
+    ],
+  },
+};
+
 export default function JoinPage({ basePath }: JoinPageProps) {
   const [selectedPlan, setSelectedPlan] = useState('Premium');
+  const [activePolicy, setActivePolicy] = useState<'terms' | 'privacy' | null>(null);
   const [formData, setFormData] = useState({
     firstName: '',
     lastName: '',
@@ -361,13 +384,21 @@ export default function JoinPage({ basePath }: JoinPageProps) {
                       />
                       <span className="text-sm text-zinc-400">
                         I agree to the{' '}
-                        <a href="#" className="text-[#c1121f] hover:underline">
+                        <button
+                          type="button"
+                          onClick={() => setActivePolicy('terms')}
+                          className="text-[#c1121f] hover:underline"
+                        >
                           Terms of Service
-                        </a>{' '}
+                        </button>{' '}
                         and{' '}
-                        <a href="#" className="text-[#c1121f] hover:underline">
+                        <button
+                          type="button"
+                          onClick={() => setActivePolicy('privacy')}
+                          className="text-[#c1121f] hover:underline"
+                        >
                           Privacy Policy
-                        </a>
+                        </button>
                         . I understand that I can cancel anytime during the free trial without charge.
                       </span>
                     </label>
@@ -506,15 +537,57 @@ export default function JoinPage({ basePath }: JoinPageProps) {
 
           <div className="mt-8 text-center">
             <p className="text-zinc-400 mb-4">Still have questions?</p>
-            <Link
-              href={`${basePath}`}
-              className="text-[#c1121f] font-semibold hover:underline"
-            >
-              Contact our team
-            </Link>
+            <div className="flex flex-col sm:flex-row items-center justify-center gap-2 sm:gap-6">
+              <a
+                href="tel:555-123-4567"
+                className="text-[#c1121f] font-semibold hover:underline"
+              >
+                Call (555) 123-4567
+              </a>
+              <a
+                href="mailto:info@irontemple.fit"
+                className="text-[#c1121f] font-semibold hover:underline"
+              >
+                Email info@irontemple.fit
+              </a>
+            </div>
           </div>
         </div>
       </section>
+
+      {/* Policy Modal */}
+      {activePolicy && (
+        <div className="fixed inset-0 z-50 flex items-center justify-center p-4">
+          <div className="absolute inset-0 bg-zinc-950/80 backdrop-blur-sm" onClick={() => setActivePolicy(null)}></div>
+          <div className="relative bg-zinc-900 border border-zinc-800 rounded-2xl max-w-lg w-full max-h-[80vh] overflow-y-auto">
+            <div className="sticky top-0 bg-zinc-900/95 backdrop-blur-sm border-b border-zinc-800 px-8 py-4 flex items-center justify-between">
+              <h3 className="text-xl font-bold text-zinc-50">{policies[activePolicy].title}</h3>
+              <button
+                onClick={() => setActivePolicy(null)}
+                aria-label="Close policy dialog"
+                className="p-2 rounded-lg text-zinc-400 hover:text-zinc-50 hover:bg-zinc-800 transition-colors"
+              >
+                <X className="h-5 w-5" />
+              </button>
+            </div>
+            <div className="px-8 py-6">
+              <div className="space-y-4 mb-6">
+                {policies[activePolicy].sections.map((section, index) => (
+                  <p key={index} className="text-sm text-zinc-400 leading-relaxed">
+                    {section}
+                  </p>
+                ))}
+              </div>
+              <button
+                onClick={() => setActivePolicy(null)}
+                className="w-full py-3 bg-gradient-to-r from-[#c1121f] to-[#780000] text-zinc-50 rounded-lg font-bold hover:shadow-lg hover:shadow-[#c1121f]/30 transition-all"
+              >
+                Got It
+              </button>
+            </div>
+          </div>
+        </div>
+      )}
     </div>
   );
 }

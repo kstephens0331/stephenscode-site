@@ -13,9 +13,15 @@ interface ContactPageProps {
 export default function ContactPage({ colors, onNavigate }: ContactPageProps) {
   const [formData, setFormData] = useState({ name: '', email: '', message: '' })
   const [submitted, setSubmitted] = useState(false)
+  const [error, setError] = useState('')
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault()
+    if (!formData.name.trim() || !formData.email.trim() || !formData.message.trim()) {
+      setError('Please fill in your name, email, and message.')
+      return
+    }
+    setError('')
 
     try {
       const response = await fetch('/api/demo-lead', {
@@ -44,11 +50,10 @@ export default function ContactPage({ colors, onNavigate }: ContactPageProps) {
 
         setSubmitted(true)
       } else {
-        alert('There was an issue sending your message. Please call us at (555) 987-6543')
+        setError('There was an issue sending your message. Please try again or call us at (555) 987-6543.')
       }
-    } catch (error) {
-      console.error('Contact form error:', error)
-      alert('There was an issue sending your message. Please call us at (555) 987-6543')
+    } catch {
+      setError('There was an issue sending your message. Please try again or call us at (555) 987-6543.')
     }
   }
 
@@ -112,6 +117,7 @@ export default function ContactPage({ colors, onNavigate }: ContactPageProps) {
                   className="w-full px-4 py-3 rounded-lg border"
                   style={{ borderColor: colors.border }}
                 />
+                {error && <p className="text-sm font-medium" style={{ color: colors.error }}>{error}</p>}
                 <button type="submit" className="w-full py-3 rounded-lg font-semibold" style={{ backgroundColor: colors.primary, color: '#ffffff' }}>
                   Send Message
                 </button>

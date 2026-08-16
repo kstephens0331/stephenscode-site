@@ -1,52 +1,47 @@
 import React, { useState } from 'react';
-import { Search, Home, DollarSign, MapPin, Bed, Bath, Square, ArrowRight, TrendingUp, Users, Award, ChevronRight } from 'lucide-react';
+import { Search, Home, MapPin, Bed, Bath, Square, ArrowRight, TrendingUp, Users, Award, ChevronRight } from 'lucide-react';
+import { PROPERTIES, Property } from '../data/properties';
+import PropertyModal from '../components/PropertyModal';
+import type { ListingsSearchFilters } from './ListingsPage';
 
 interface HomePageProps {
   onNavigate: (page: string) => void;
+  onSearch: (filters: ListingsSearchFilters) => void;
 }
 
-const HomePage: React.FC<HomePageProps> = ({ onNavigate }) => {
+const HomePage: React.FC<HomePageProps> = ({ onNavigate, onSearch }) => {
   const [searchType, setSearchType] = useState<'buy' | 'rent'>('buy');
   const [propertyType, setPropertyType] = useState('all');
+  const [location, setLocation] = useState('');
+  const [priceRange, setPriceRange] = useState('any');
+  const [selectedProperty, setSelectedProperty] = useState<Property | null>(null);
 
-  const featuredProperties = [
-    {
-      id: 1,
-      title: 'Modern Downtown Penthouse',
-      price: 1850000,
-      location: 'Downtown District',
-      beds: 3,
-      baths: 3,
-      sqft: 2400,
-      image: 'https://images.unsplash.com/photo-1600596542815-ffad4c1539a9?w=800',
-      type: 'sale',
-      featured: true,
-    },
-    {
-      id: 2,
-      title: 'Luxury Waterfront Villa',
-      price: 3200000,
-      location: 'Coastal Heights',
-      beds: 5,
-      baths: 4,
-      sqft: 4200,
-      image: 'https://images.unsplash.com/photo-1613977257363-707ba9348227?w=800',
-      type: 'sale',
-      featured: true,
-    },
-    {
-      id: 3,
-      title: 'Contemporary Family Home',
-      price: 975000,
-      location: 'Suburban Valley',
-      beds: 4,
-      baths: 3,
-      sqft: 3100,
-      image: 'https://images.unsplash.com/photo-1600585154340-be6161a56a0c?w=800',
-      type: 'sale',
-      featured: true,
-    },
-  ];
+  const featuredProperties = PROPERTIES.filter((p) => p.featured).slice(0, 3);
+
+  const handleSearchType = (type: 'buy' | 'rent') => {
+    setSearchType(type);
+    // Price brackets differ between sale prices and monthly rents
+    setPriceRange('any');
+  };
+
+  const handleSearch = () => {
+    let minPrice = 0;
+    let maxPrice = Number.MAX_SAFE_INTEGER;
+    if (priceRange.endsWith('+')) {
+      minPrice = Number(priceRange.slice(0, -1));
+    } else if (priceRange.includes('-')) {
+      const [lo, hi] = priceRange.split('-');
+      minPrice = Number(lo);
+      maxPrice = Number(hi);
+    }
+    onSearch({
+      query: location,
+      type: propertyType,
+      minPrice,
+      maxPrice,
+      status: searchType === 'rent' ? 'rent' : 'sale',
+    });
+  };
 
   const stats = [
     { label: 'Properties Sold', value: '2,500+', icon: Home },
@@ -81,7 +76,7 @@ const HomePage: React.FC<HomePageProps> = ({ onNavigate }) => {
               {/* Search Type Tabs */}
               <div className="flex space-x-2 mb-6">
                 <button
-                  onClick={() => setSearchType('buy')}
+                  onClick={() => handleSearchType('buy')}
                   className={`px-6 py-3 rounded-lg font-semibold transition-all ${
                     searchType === 'buy'
                       ? 'bg-[#000814] text-white'
@@ -91,7 +86,7 @@ const HomePage: React.FC<HomePageProps> = ({ onNavigate }) => {
                   Buy
                 </button>
                 <button
-                  onClick={() => setSearchType('rent')}
+                  onClick={() => handleSearchType('rent')}
                   className={`px-6 py-3 rounded-lg font-semibold transition-all ${
                     searchType === 'rent'
                       ? 'bg-[#000814] text-white'
@@ -113,6 +108,11 @@ const HomePage: React.FC<HomePageProps> = ({ onNavigate }) => {
                     <input
                       id="realestate-home-location"
                       type="text"
+                      value={location}
+                      onChange={(e) => setLocation(e.target.value)}
+                      onKeyDown={(e) => {
+                        if (e.key === 'Enter') handleSearch();
+                      }}
                       placeholder="City, neighborhood, or ZIP"
                       className="w-full pl-10 pr-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-[#ffc300] focus:border-transparent text-gray-900"
                     />
@@ -133,25 +133,44 @@ const HomePage: React.FC<HomePageProps> = ({ onNavigate }) => {
                     <option value="house">House</option>
                     <option value="condo">Condo</option>
                     <option value="townhouse">Townhouse</option>
-                    <option value="land">Land</option>
+                    <option value="loft">Loft</option>
                   </select>
                 </div>
 
                 <div>
                   <label htmlFor="realestate-home-price-range" className="block text-sm font-medium text-gray-700 mb-2">
-                    Price Range
+                    {searchType === 'rent' ? 'Monthly Rent' : 'Price Range'}
                   </label>
-                  <select id="realestate-home-price-range" className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-[#ffc300] focus:border-transparent text-gray-900">
-                    <option>Any Price</option>
-                    <option>$0 - $500,000</option>
-                    <option>$500,000 - $1M</option>
-                    <option>$1M - $2M</option>
-                    <option>$2M+</option>
+                  <select
+                    id="realestate-home-price-range"
+                    value={priceRange}
+                    onChange={(e) => setPriceRange(e.target.value)}
+                    className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-[#ffc300] focus:border-transparent text-gray-900"
+                  >
+                    {searchType === 'rent' ? (
+                      <>
+                        <option value="any">Any Rent</option>
+                        <option value="0-2500">$0 - $2,500/mo</option>
+                        <option value="2500-3500">$2,500 - $3,500/mo</option>
+                        <option value="3500+">$3,500+/mo</option>
+                      </>
+                    ) : (
+                      <>
+                        <option value="any">Any Price</option>
+                        <option value="0-500000">$0 - $500,000</option>
+                        <option value="500000-1000000">$500,000 - $1M</option>
+                        <option value="1000000-2000000">$1M - $2M</option>
+                        <option value="2000000+">$2M+</option>
+                      </>
+                    )}
                   </select>
                 </div>
               </div>
 
-              <button className="w-full mt-6 bg-[#ffc300] text-[#000814] px-8 py-4 rounded-lg font-semibold hover:bg-[#ffcd1a] transition-colors flex items-center justify-center">
+              <button
+                onClick={handleSearch}
+                className="w-full mt-6 bg-[#ffc300] text-[#000814] px-8 py-4 rounded-lg font-semibold hover:bg-[#ffcd1a] transition-colors flex items-center justify-center"
+              >
                 <Search className="w-5 h-5 mr-2" />
                 Search Properties
               </button>
@@ -201,9 +220,10 @@ const HomePage: React.FC<HomePageProps> = ({ onNavigate }) => {
 
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
             {featuredProperties.map((property) => (
-              <div
+              <button
                 key={property.id}
-                className="bg-white rounded-xl overflow-hidden shadow-lg transition-all group cursor-pointer"
+                onClick={() => setSelectedProperty(property)}
+                className="bg-white rounded-xl overflow-hidden shadow-lg transition-all group cursor-pointer text-left"
               >
                 <div className="relative overflow-hidden h-64">
                   <img
@@ -215,7 +235,7 @@ const HomePage: React.FC<HomePageProps> = ({ onNavigate }) => {
                     ${(property.price / 1000000).toFixed(2)}M
                   </div>
                 </div>
-                <div className="p-6">
+                <div className="p-6 w-full">
                   <h3 className="text-xl font-bold text-[#000814] mb-2 group-hover:text-[#001d3d] transition-colors">
                     {property.title}
                   </h3>
@@ -238,7 +258,7 @@ const HomePage: React.FC<HomePageProps> = ({ onNavigate }) => {
                     </div>
                   </div>
                 </div>
-              </div>
+              </button>
             ))}
           </div>
 
@@ -323,6 +343,9 @@ const HomePage: React.FC<HomePageProps> = ({ onNavigate }) => {
           </div>
         </div>
       </section>
+
+      {/* Property Detail Modal */}
+      <PropertyModal property={selectedProperty} onClose={() => setSelectedProperty(null)} />
     </div>
   );
 };

@@ -1,12 +1,105 @@
-import React from 'react';
-import { Scissors, Calendar, CheckCircle, Printer, Download, Tag } from 'lucide-react';
+import React, { useEffect, useState } from 'react';
+import { Scissors, Calendar, CheckCircle, Printer, Download, Tag, X } from 'lucide-react';
 
 interface CouponsPageProps {
   onNavigate: (page: string) => void;
 }
 
+interface Coupon {
+  title: string;
+  subtitle: string;
+  description: string;
+  code: string;
+  validUntil: string;
+  terms: string;
+  featured?: boolean;
+}
+
 const CouponsPage: React.FC<CouponsPageProps> = ({ onNavigate }) => {
-  const coupons = [
+  const [activeCoupon, setActiveCoupon] = useState<Coupon | null>(null);
+  const [email, setEmail] = useState('');
+  const [emailError, setEmailError] = useState('');
+  const [emailSubmitted, setEmailSubmitted] = useState(false);
+
+  useEffect(() => {
+    if (window.localStorage.getItem('plumbing-demo-newsletter') !== null) {
+      setEmailSubmitted(true);
+    }
+  }, []);
+
+  const couponText = (coupon: Coupon) =>
+    [
+      'PREMIER PLUMBING PROS -- COUPON',
+      '',
+      `${coupon.title} -- ${coupon.subtitle}`,
+      coupon.description,
+      '',
+      `Coupon Code: ${coupon.code}`,
+      `Valid until: ${coupon.validUntil}`,
+      `Terms: ${coupon.terms}`,
+      '',
+      'Call (555) 765-8237 to schedule and mention this code.'
+    ].join('\n');
+
+  const handleDownload = (coupon: Coupon) => {
+    const blob = new Blob([couponText(coupon)], { type: 'text/plain' });
+    const url = URL.createObjectURL(blob);
+    const link = document.createElement('a');
+    link.href = url;
+    link.download = `PremierPlumbing-${coupon.code}.txt`;
+    document.body.appendChild(link);
+    link.click();
+    document.body.removeChild(link);
+    URL.revokeObjectURL(url);
+  };
+
+  const handlePrint = (coupon: Coupon) => {
+    const printWindow = window.open('', '_blank', 'width=640,height=480');
+    if (printWindow) {
+      const doc = printWindow.document;
+      doc.title = `Premier Plumbing Pros Coupon -- ${coupon.code}`;
+      doc.body.style.cssText = 'font-family: Arial, sans-serif; padding: 24px;';
+
+      const wrapper = doc.createElement('div');
+      wrapper.style.cssText = 'border: 3px dashed #0466c8; border-radius: 12px; padding: 24px; max-width: 480px;';
+
+      const lines: Array<{ text: string; css: string }> = [
+        { text: 'PREMIER PLUMBING PROS', css: 'margin: 0 0 4px; color: #0466c8; font-weight: bold;' },
+        { text: coupon.title, css: 'margin: 0 0 4px; font-size: 32px; font-weight: bold;' },
+        { text: coupon.subtitle, css: 'margin: 0 0 12px; font-size: 20px; color: #444; font-weight: bold;' },
+        { text: coupon.description, css: 'margin: 0 0 12px;' },
+        { text: `Coupon Code: ${coupon.code}`, css: 'margin: 0 0 4px; font-family: monospace; font-size: 20px; font-weight: bold;' },
+        { text: `Valid until: ${coupon.validUntil}`, css: 'margin: 0 0 4px;' },
+        { text: coupon.terms, css: 'margin: 0 0 12px; font-size: 12px; color: #666;' },
+        { text: 'Call (555) 765-8237 to schedule', css: 'margin: 0; font-weight: bold;' }
+      ];
+      lines.forEach((line) => {
+        const p = doc.createElement('p');
+        p.style.cssText = line.css;
+        p.textContent = line.text;
+        wrapper.appendChild(p);
+      });
+      doc.body.appendChild(wrapper);
+      printWindow.focus();
+      printWindow.print();
+    } else {
+      window.print();
+    }
+  };
+
+  const handleEmailSignup = (e: React.FormEvent) => {
+    e.preventDefault();
+    const trimmed = email.trim();
+    if (!/^\S+@\S+\.\S+$/.test(trimmed)) {
+      setEmailError('Please enter a valid email address.');
+      return;
+    }
+    setEmailError('');
+    window.localStorage.setItem('plumbing-demo-newsletter', trimmed);
+    setEmailSubmitted(true);
+  };
+
+  const coupons: Coupon[] = [
     {
       title: '$50 OFF',
       subtitle: 'Any Service Over $250',
@@ -133,10 +226,18 @@ const CouponsPage: React.FC<CouponsPageProps> = ({ onNavigate }) => {
                         <p className="text-2xl font-bold font-mono">{coupon.code}</p>
                       </div>
                       <div className="flex space-x-2">
-                        <button className="bg-white text-[#0466c8] p-3 rounded-lg hover:bg-gray-100 transition-colors">
+                        <button
+                          onClick={() => handlePrint(coupon)}
+                          aria-label={`Print ${coupon.code} coupon`}
+                          className="bg-white text-[#0466c8] p-3 rounded-lg hover:bg-gray-100 transition-colors"
+                        >
                           <Printer className="h-5 w-5" />
                         </button>
-                        <button className="bg-white text-[#0466c8] p-3 rounded-lg hover:bg-gray-100 transition-colors">
+                        <button
+                          onClick={() => handleDownload(coupon)}
+                          aria-label={`Download ${coupon.code} coupon`}
+                          className="bg-white text-[#0466c8] p-3 rounded-lg hover:bg-gray-100 transition-colors"
+                        >
                           <Download className="h-5 w-5" />
                         </button>
                       </div>
@@ -173,6 +274,7 @@ const CouponsPage: React.FC<CouponsPageProps> = ({ onNavigate }) => {
             {coupons.filter(c => !c.featured).map((coupon, index) => (
               <div
                 key={index}
+                onClick={() => setActiveCoupon(coupon)}
                 className="bg-white rounded-xl shadow-lg overflow-hidden border-2 border-dashed border-gray-300 hover:border-[#0466c8] transition-colors cursor-pointer group"
               >
                 <div className="bg-gradient-to-r from-[#0466c8] to-[#0353a4] p-6 text-white">
@@ -196,11 +298,24 @@ const CouponsPage: React.FC<CouponsPageProps> = ({ onNavigate }) => {
                   </div>
                   <p className="text-xs text-gray-500 mb-4 italic">{coupon.terms}</p>
                   <div className="flex space-x-2">
-                    <button className="flex-1 bg-[#0466c8] text-white px-4 py-2 rounded-lg font-semibold hover:bg-[#0353a4] transition-colors flex items-center justify-center space-x-2">
+                    <button
+                      onClick={(e) => {
+                        e.stopPropagation();
+                        handlePrint(coupon);
+                      }}
+                      className="flex-1 bg-[#0466c8] text-white px-4 py-2 rounded-lg font-semibold hover:bg-[#0353a4] transition-colors flex items-center justify-center space-x-2"
+                    >
                       <Printer className="h-4 w-4" />
                       <span>Print</span>
                     </button>
-                    <button className="bg-gray-200 text-gray-700 px-4 py-2 rounded-lg hover:bg-gray-300 transition-colors">
+                    <button
+                      onClick={(e) => {
+                        e.stopPropagation();
+                        handleDownload(coupon);
+                      }}
+                      aria-label={`Download ${coupon.code} coupon`}
+                      className="bg-gray-200 text-gray-700 px-4 py-2 rounded-lg hover:bg-gray-300 transition-colors"
+                    >
                       <Download className="h-5 w-5" />
                     </button>
                   </div>
@@ -310,20 +425,40 @@ const CouponsPage: React.FC<CouponsPageProps> = ({ onNavigate }) => {
               plumbing maintenance tips.
             </p>
             <div className="max-w-md mx-auto">
-              <div className="flex flex-col sm:flex-row gap-4">
-                <input
-                  type="email"
-                  aria-label="Email address for coupons"
-                  placeholder="Enter your email address"
-                  className="flex-1 px-4 py-3 rounded-lg border-2 border-gray-300 focus:outline-none focus:ring-2 focus:ring-[#0466c8] focus:border-transparent"
-                />
-                <button className="bg-[#0466c8] text-white px-8 py-3 rounded-lg font-bold hover:bg-[#0353a4] transition-colors whitespace-nowrap">
-                  Sign Up
-                </button>
-              </div>
-              <p className="text-sm text-gray-500 mt-4">
-                We respect your privacy. Unsubscribe anytime.
-              </p>
+              {emailSubmitted ? (
+                <div className="bg-green-50 border-2 border-green-200 rounded-xl p-6">
+                  <CheckCircle className="h-10 w-10 text-green-600 mx-auto mb-3" />
+                  <p className="text-lg font-bold text-gray-900 mb-1">You're on the list!</p>
+                  <p className="text-gray-600">
+                    Watch your inbox for exclusive coupons and seasonal promotions.
+                  </p>
+                </div>
+              ) : (
+                <form onSubmit={handleEmailSignup}>
+                  <div className="flex flex-col sm:flex-row gap-4">
+                    <input
+                      type="email"
+                      aria-label="Email address for coupons"
+                      placeholder="Enter your email address"
+                      value={email}
+                      onChange={(e) => setEmail(e.target.value)}
+                      className="flex-1 px-4 py-3 rounded-lg border-2 border-gray-300 focus:outline-none focus:ring-2 focus:ring-[#0466c8] focus:border-transparent"
+                    />
+                    <button
+                      type="submit"
+                      className="bg-[#0466c8] text-white px-8 py-3 rounded-lg font-bold hover:bg-[#0353a4] transition-colors whitespace-nowrap"
+                    >
+                      Sign Up
+                    </button>
+                  </div>
+                  {emailError && (
+                    <p className="text-sm text-red-600 mt-3">{emailError}</p>
+                  )}
+                  <p className="text-sm text-gray-500 mt-4">
+                    We respect your privacy. Unsubscribe anytime.
+                  </p>
+                </form>
+              )}
             </div>
           </div>
         </div>
@@ -343,12 +478,81 @@ const CouponsPage: React.FC<CouponsPageProps> = ({ onNavigate }) => {
             >
               Schedule Service
             </button>
-            <button className="bg-[#023e7d] text-white px-8 py-3 rounded-lg font-bold hover:bg-[#012a5c] transition-colors">
+            <a
+              href="tel:5557658237"
+              className="bg-[#023e7d] text-white px-8 py-3 rounded-lg font-bold hover:bg-[#012a5c] transition-colors inline-block"
+            >
               Call (555) 765-8237
-            </button>
+            </a>
           </div>
         </div>
       </section>
+
+      {/* Coupon Detail Modal */}
+      {activeCoupon && (
+        <div
+          className="fixed inset-0 bg-black/60 z-50 flex items-center justify-center p-4"
+          onClick={() => setActiveCoupon(null)}
+        >
+          <div
+            className="bg-white rounded-2xl max-w-md w-full shadow-2xl overflow-hidden"
+            onClick={(e) => e.stopPropagation()}
+          >
+            <div className="bg-gradient-to-r from-[#0466c8] to-[#0353a4] p-6 text-white">
+              <div className="flex items-start justify-between">
+                <div>
+                  <h3 className="text-3xl font-bold mb-1">{activeCoupon.title}</h3>
+                  <p className="text-lg text-blue-100">{activeCoupon.subtitle}</p>
+                </div>
+                <button
+                  onClick={() => setActiveCoupon(null)}
+                  aria-label="Close coupon"
+                  className="bg-white/20 hover:bg-white/30 rounded-full p-2 transition-colors"
+                >
+                  <X className="h-5 w-5" />
+                </button>
+              </div>
+            </div>
+            <div className="p-6">
+              <p className="text-gray-600 mb-4">{activeCoupon.description}</p>
+              <div className="bg-gray-100 rounded-lg p-4 mb-4 text-center">
+                <p className="text-xs text-gray-600 mb-1">Coupon Code:</p>
+                <p className="text-2xl font-bold text-[#0466c8] font-mono">{activeCoupon.code}</p>
+              </div>
+              <div className="flex items-center space-x-2 text-sm text-gray-600 mb-2">
+                <Calendar className="h-4 w-4" />
+                <span>Valid until: {activeCoupon.validUntil}</span>
+              </div>
+              <p className="text-xs text-gray-500 italic mb-6">{activeCoupon.terms}</p>
+              <div className="flex space-x-2 mb-3">
+                <button
+                  onClick={() => handlePrint(activeCoupon)}
+                  className="flex-1 bg-[#0466c8] text-white px-4 py-3 rounded-lg font-semibold hover:bg-[#0353a4] transition-colors flex items-center justify-center space-x-2"
+                >
+                  <Printer className="h-4 w-4" />
+                  <span>Print</span>
+                </button>
+                <button
+                  onClick={() => handleDownload(activeCoupon)}
+                  className="flex-1 bg-gray-200 text-gray-700 px-4 py-3 rounded-lg font-semibold hover:bg-gray-300 transition-colors flex items-center justify-center space-x-2"
+                >
+                  <Download className="h-4 w-4" />
+                  <span>Save</span>
+                </button>
+              </div>
+              <button
+                onClick={() => {
+                  setActiveCoupon(null);
+                  onNavigate('contact');
+                }}
+                className="w-full bg-[#023e7d] text-white px-4 py-3 rounded-lg font-bold hover:bg-[#012a5c] transition-colors"
+              >
+                Schedule Service with This Coupon
+              </button>
+            </div>
+          </div>
+        </div>
+      )}
     </div>
   );
 };

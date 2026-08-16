@@ -7,8 +7,46 @@ interface LayoutProps {
   onNavigate: (page: string) => void;
 }
 
+type LegalDoc = 'privacy' | 'terms' | 'hipaa';
+
+const LEGAL_CONTENT: Record<LegalDoc, { title: string; paragraphs: string[] }> = {
+  privacy: {
+    title: 'Privacy Policy',
+    paragraphs: [
+      'Bright Smile Dental respects your privacy and is committed to protecting the personal information you share with us. This policy explains what we collect, how we use it, and the choices you have.',
+      'Information we collect: When you request an appointment, contact our office, or become a patient, we collect information such as your name, phone number, email address, insurance details, and relevant health history. Our website may also collect standard usage data such as pages visited and device type.',
+      'How we use your information: We use your information to schedule and confirm appointments, coordinate your care, verify insurance benefits, process payments, and send appointment reminders. We never sell your personal information to third parties.',
+      'Sharing: We share information only with parties involved in your care and billing, such as your insurance provider, referring specialists, and payment processors, and only as permitted by law and our HIPAA Notice of Privacy Practices.',
+      'Your choices: You may request access to, correction of, or deletion of your personal information at any time by contacting our office at (555) 123-4567 or smile@brightsmile.com.'
+    ]
+  },
+  terms: {
+    title: 'Terms of Service',
+    paragraphs: [
+      'By using the Bright Smile Dental website, you agree to these terms. Please read them carefully.',
+      'Website use: The content on this site is provided for general information about our practice and services. It is not dental or medical advice. Always consult a licensed dentist about your specific situation.',
+      'Appointments: Online appointment requests are requests only and are not confirmed until our scheduling team contacts you. We ask for at least 24 hours notice to cancel or reschedule an appointment.',
+      'Payment: Payment is expected at the time of service unless other arrangements have been made in advance. Estimates of insurance coverage are good-faith estimates and not guarantees of payment.',
+      'Intellectual property: All content on this website, including text, graphics, and logos, is the property of Bright Smile Dental and may not be reproduced without written permission.',
+      'Questions about these terms can be directed to smile@brightsmile.com or (555) 123-4567.'
+    ]
+  },
+  hipaa: {
+    title: 'HIPAA Notice of Privacy Practices',
+    paragraphs: [
+      'This notice describes how medical and dental information about you may be used and disclosed and how you can get access to this information. Please review it carefully.',
+      'How we may use your health information: We use and disclose your protected health information (PHI) for treatment (coordinating your dental care), payment (billing you and your insurance), and health care operations (improving quality of care).',
+      'Appointment reminders: We may contact you by phone, text, or email to remind you of upcoming appointments or to share information about treatment options.',
+      'Your rights: You have the right to inspect and receive a copy of your dental records, request corrections, request restrictions on certain uses, request confidential communications, and receive an accounting of certain disclosures.',
+      'Our responsibilities: We are required by law to maintain the privacy of your PHI, provide this notice, and notify you if a breach of your unsecured PHI occurs.',
+      'To exercise any of these rights or file a concern, contact our Privacy Officer at (555) 123-4567 or smile@brightsmile.com. You may also file a complaint with the U.S. Department of Health and Human Services. You will not be penalized for filing a complaint.'
+    ]
+  }
+};
+
 export default function Layout({ children, currentPage, onNavigate }: LayoutProps) {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
+  const [legalDoc, setLegalDoc] = useState<LegalDoc | null>(null);
 
   const navItems = [
     { id: 'home', label: 'Home' },
@@ -206,15 +244,53 @@ export default function Layout({ children, currentPage, onNavigate }: LayoutProp
           <div className="border-t border-[#0077b6] mt-8 pt-8 text-center text-sm text-gray-300">
             <p>&copy; 2024 Bright Smile Dental. All rights reserved.</p>
             <p className="mt-2">
-              <button className="hover:text-[#48cae4] transition-colors">Privacy Policy</button>
+              <button onClick={() => setLegalDoc('privacy')} className="hover:text-[#48cae4] transition-colors">Privacy Policy</button>
               {' | '}
-              <button className="hover:text-[#48cae4] transition-colors">Terms of Service</button>
+              <button onClick={() => setLegalDoc('terms')} className="hover:text-[#48cae4] transition-colors">Terms of Service</button>
               {' | '}
-              <button className="hover:text-[#48cae4] transition-colors">HIPAA Notice</button>
+              <button onClick={() => setLegalDoc('hipaa')} className="hover:text-[#48cae4] transition-colors">HIPAA Notice</button>
             </p>
           </div>
         </div>
       </footer>
+
+      {/* Legal Document Modal */}
+      {legalDoc && (
+        <div
+          className="fixed inset-0 z-[60] bg-black/50 flex items-center justify-center p-4"
+          onClick={() => setLegalDoc(null)}
+        >
+          <div
+            className="bg-white rounded-2xl shadow-2xl w-full max-w-2xl max-h-[85vh] flex flex-col"
+            onClick={(e) => e.stopPropagation()}
+          >
+            <div className="flex items-center justify-between p-5 border-b border-gray-200">
+              <h3 className="text-xl font-bold text-[#023e8a]">{LEGAL_CONTENT[legalDoc].title}</h3>
+              <button
+                onClick={() => setLegalDoc(null)}
+                aria-label="Close"
+                className="p-2 rounded-lg text-gray-500 hover:bg-gray-100 hover:text-gray-700 transition-all"
+              >
+                <X className="w-5 h-5" />
+              </button>
+            </div>
+            <div className="p-6 overflow-y-auto space-y-4">
+              <p className="text-xs text-gray-500">Effective date: January 1, 2024 | Bright Smile Dental, 123 Dental Way, Smile City, SC 12345</p>
+              {LEGAL_CONTENT[legalDoc].paragraphs.map((paragraph, index) => (
+                <p key={index} className="text-sm text-gray-700 leading-relaxed">{paragraph}</p>
+              ))}
+            </div>
+            <div className="p-5 border-t border-gray-200">
+              <button
+                onClick={() => setLegalDoc(null)}
+                className="w-full bg-[#0077b6] text-white px-6 py-3 rounded-lg font-semibold hover:bg-[#023e8a] transition-all"
+              >
+                Close
+              </button>
+            </div>
+          </div>
+        </div>
+      )}
     </div>
   );
 }

@@ -6,9 +6,10 @@ interface HomePageProps {
   colors: ColorPalette
   onNavigate: (page: string) => void
   onOrderOpen: () => void
+  onOrderDish: (dishName: string) => void
 }
 
-export default function HomePage({ colors, onNavigate, onOrderOpen }: HomePageProps) {
+export default function HomePage({ colors, onNavigate, onOrderOpen, onOrderDish }: HomePageProps) {
   return (
     <div>
       {/* Hero Section */}
@@ -83,7 +84,7 @@ export default function HomePage({ colors, onNavigate, onOrderOpen }: HomePagePr
                   and shaved black truffles. Our most requested dish.
                 </p>
                 <button
-                  onClick={onOrderOpen}
+                  onClick={() => onOrderDish('Truffle Carbonara')}
                   style={{ backgroundColor: '#9b2226', color: '#ffffff' }}
                   className="w-full py-3 font-bold hover:opacity-90 transition"
                 >
@@ -106,7 +107,7 @@ export default function HomePage({ colors, onNavigate, onOrderOpen }: HomePagePr
                   and gremolata. A traditional Milanese masterpiece.
                 </p>
                 <button
-                  onClick={onOrderOpen}
+                  onClick={() => onOrderDish('Osso Buco Milanese')}
                   style={{ backgroundColor: '#9b2226', color: '#ffffff' }}
                   className="w-full py-3 font-bold hover:opacity-90 transition"
                 >
@@ -129,7 +130,7 @@ export default function HomePage({ colors, onNavigate, onOrderOpen }: HomePagePr
                   Made fresh daily by our pastry chef.
                 </p>
                 <button
-                  onClick={onOrderOpen}
+                  onClick={() => onOrderDish('Tiramisu Classico')}
                   style={{ backgroundColor: '#9b2226', color: '#ffffff' }}
                   className="w-full py-3 font-bold hover:opacity-90 transition"
                 >

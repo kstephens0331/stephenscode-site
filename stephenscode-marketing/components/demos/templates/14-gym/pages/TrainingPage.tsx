@@ -1,13 +1,74 @@
 'use client';
 
-import { User, Target, TrendingUp, Calendar, Award, CheckCircle2, Star, Zap } from 'lucide-react';
+import { User, Target, TrendingUp, Calendar, Award, CheckCircle2, Star, Zap, X, Clock } from 'lucide-react';
+import { useState, useEffect } from 'react';
 import Link from 'next/link';
 
 interface TrainingPageProps {
   basePath: string;
 }
 
+const SESSIONS_KEY = 'iron-temple-pt-sessions';
+
+const sessionSlots = [
+  'Monday 7:00 AM',
+  'Monday 5:30 PM',
+  'Wednesday 6:00 AM',
+  'Wednesday 12:00 PM',
+  'Friday 8:00 AM',
+  'Saturday 10:00 AM',
+];
+
 export default function TrainingPage({ basePath }: TrainingPageProps) {
+  const [bookedSessions, setBookedSessions] = useState<Record<string, string>>({});
+  const [sessionTrainer, setSessionTrainer] = useState<string | null>(null);
+  const [selectedSlot, setSelectedSlot] = useState<string | null>(null);
+  const [sessionConfirmed, setSessionConfirmed] = useState(false);
+
+  useEffect(() => {
+    try {
+      const saved = window.localStorage.getItem(SESSIONS_KEY);
+      if (saved) setBookedSessions(JSON.parse(saved));
+    } catch {
+      // Ignore unreadable storage -- demo starts with no sessions
+    }
+  }, []);
+
+  const saveSessions = (next: Record<string, string>) => {
+    setBookedSessions(next);
+    try {
+      window.localStorage.setItem(SESSIONS_KEY, JSON.stringify(next));
+    } catch {
+      // Storage unavailable -- sessions still work for this session
+    }
+  };
+
+  const openSessionModal = (trainerName: string) => {
+    setSessionTrainer(trainerName);
+    setSelectedSlot(bookedSessions[trainerName] || null);
+    setSessionConfirmed(false);
+  };
+
+  const confirmSession = () => {
+    if (!sessionTrainer || !selectedSlot) return;
+    saveSessions({ ...bookedSessions, [sessionTrainer]: selectedSlot });
+    setSessionConfirmed(true);
+  };
+
+  const cancelSession = () => {
+    if (!sessionTrainer) return;
+    const next = { ...bookedSessions };
+    delete next[sessionTrainer];
+    saveSessions(next);
+    setSessionTrainer(null);
+    setSessionConfirmed(false);
+  };
+
+  const closeSessionModal = () => {
+    setSessionTrainer(null);
+    setSelectedSlot(null);
+    setSessionConfirmed(false);
+  };
   const trainers = [
     {
       name: 'Marcus Steel',
@@ -252,8 +313,22 @@ export default function TrainingPage({ basePath }: TrainingPageProps) {
                     ))}
                   </div>
 
-                  <button className="w-full py-2 bg-zinc-800 text-zinc-50 rounded-lg text-sm font-semibold hover:bg-[#c1121f] transition-colors">
-                    Book Session
+                  <button
+                    onClick={() => openSessionModal(trainer.name)}
+                    className={`w-full py-2 rounded-lg text-sm font-semibold transition-colors ${
+                      bookedSessions[trainer.name]
+                        ? 'bg-zinc-800 text-[#fdf0d5] border border-[#c1121f]/50 hover:bg-zinc-700'
+                        : 'bg-zinc-800 text-zinc-50 hover:bg-[#c1121f]'
+                    }`}
+                  >
+                    {bookedSessions[trainer.name] ? (
+                      <span className="flex items-center justify-center">
+                        <CheckCircle2 className="h-4 w-4 mr-2" />
+                        Session Booked
+                      </span>
+                    ) : (
+                      'Book Session'
+                    )}
                   </button>
                 </div>
               </div>
@@ -398,6 +473,90 @@ export default function TrainingPage({ basePath }: TrainingPageProps) {
           </Link>
         </div>
       </section>
+
+      {/* Session Booking Modal */}
+      {sessionTrainer && (
+        <div className="fixed inset-0 z-50 flex items-center justify-center p-4">
+          <div className="absolute inset-0 bg-zinc-950/80 backdrop-blur-sm" onClick={closeSessionModal}></div>
+          <div className="relative bg-zinc-900 border border-zinc-800 rounded-2xl max-w-md w-full p-8">
+            <button
+              onClick={closeSessionModal}
+              aria-label="Close session dialog"
+              className="absolute top-4 right-4 p-2 rounded-lg text-zinc-400 hover:text-zinc-50 hover:bg-zinc-800 transition-colors"
+            >
+              <X className="h-5 w-5" />
+            </button>
+
+            {sessionConfirmed ? (
+              <div className="text-center py-4">
+                <div className="inline-flex items-center justify-center w-16 h-16 bg-[#c1121f]/10 rounded-full mb-4">
+                  <CheckCircle2 className="h-8 w-8 text-[#c1121f]" />
+                </div>
+                <h3 className="text-2xl font-bold text-zinc-50 mb-2">Session Booked!</h3>
+                <p className="text-zinc-400 mb-6">
+                  Your 1-on-1 session with {sessionTrainer} is set for {selectedSlot}. Arrive 10 minutes early to warm up.
+                </p>
+                <button
+                  onClick={closeSessionModal}
+                  className="w-full py-3 bg-gradient-to-r from-[#c1121f] to-[#780000] text-zinc-50 rounded-lg font-bold hover:shadow-lg hover:shadow-[#c1121f]/30 transition-all"
+                >
+                  Done
+                </button>
+              </div>
+            ) : (
+              <div>
+                <h3 className="text-2xl font-bold text-zinc-50 mb-1">
+                  {bookedSessions[sessionTrainer] ? 'Manage Your Session' : `Book with ${sessionTrainer}`}
+                </h3>
+                <p className="text-zinc-400 text-sm mb-6">
+                  {bookedSessions[sessionTrainer]
+                    ? `You have a session with ${sessionTrainer} on ${bookedSessions[sessionTrainer]}. Pick a new time or cancel below.`
+                    : 'Choose an available time slot for your 1-on-1 training session.'}
+                </p>
+
+                <div className="grid grid-cols-2 gap-3 mb-6">
+                  {sessionSlots.map((slot) => (
+                    <button
+                      key={slot}
+                      onClick={() => setSelectedSlot(slot)}
+                      className={`flex items-center justify-center px-3 py-3 rounded-lg text-sm font-medium border transition-all ${
+                        selectedSlot === slot
+                          ? 'bg-[#c1121f] border-[#c1121f] text-zinc-50'
+                          : 'bg-zinc-950 border-zinc-800 text-zinc-300 hover:border-[#c1121f]/50'
+                      }`}
+                    >
+                      <Clock className="h-4 w-4 mr-2 flex-shrink-0" />
+                      {slot}
+                    </button>
+                  ))}
+                </div>
+
+                <div className="space-y-3">
+                  <button
+                    onClick={confirmSession}
+                    disabled={!selectedSlot}
+                    className={`w-full py-3 rounded-lg font-bold transition-all ${
+                      selectedSlot
+                        ? 'bg-gradient-to-r from-[#c1121f] to-[#780000] text-zinc-50 hover:shadow-lg hover:shadow-[#c1121f]/30'
+                        : 'bg-zinc-800 text-zinc-500 cursor-not-allowed'
+                    }`}
+                  >
+                    {bookedSessions[sessionTrainer] ? 'Update Session' : 'Confirm Session'}
+                  </button>
+                  {bookedSessions[sessionTrainer] && (
+                    <button
+                      onClick={cancelSession}
+                      className="w-full py-3 bg-zinc-800 text-zinc-50 rounded-lg font-semibold hover:bg-zinc-700 transition-colors"
+                    >
+                      Cancel Session
+                    </button>
+                  )}
+                </div>
+              </div>
+            )}
+          </div>
+        </div>
+      )}
     </div>
   );
 }

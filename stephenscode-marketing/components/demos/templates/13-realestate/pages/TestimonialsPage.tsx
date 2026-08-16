@@ -1,8 +1,21 @@
 import React, { useState } from 'react';
-import { Star, Quote, ThumbsUp, Video, CheckCircle, Award, TrendingUp, Home } from 'lucide-react';
+import { Star, Quote, ThumbsUp, Video, CheckCircle, Award, TrendingUp, Home, X, PlayCircle } from 'lucide-react';
+import VideoModal, { DemoVideo } from '../components/VideoModal';
 
-const TestimonialsPage: React.FC = () => {
+interface TestimonialsPageProps {
+  onNavigate?: (page: string) => void;
+}
+
+const VIDEO_DURATIONS: Record<number, string> = {
+  1: '2:45',
+  4: '3:10',
+  6: '2:20',
+};
+
+const TestimonialsPage: React.FC<TestimonialsPageProps> = ({ onNavigate }) => {
   const [selectedFilter, setSelectedFilter] = useState('all');
+  const [showGallery, setShowGallery] = useState(false);
+  const [activeVideo, setActiveVideo] = useState<DemoVideo | null>(null);
 
   const testimonials = [
     {
@@ -211,9 +224,19 @@ const TestimonialsPage: React.FC = () => {
                     </div>
                   </div>
                   {testimonial.video && (
-                    <div className="bg-[#ffc300] p-2 rounded-lg">
+                    <button
+                      onClick={() =>
+                        setActiveVideo({
+                          title: `${testimonial.name} - Client Story`,
+                          duration: VIDEO_DURATIONS[testimonial.id] ?? '2:30',
+                          thumbnail: testimonial.image,
+                        })
+                      }
+                      aria-label={`Watch ${testimonial.name}'s video testimonial`}
+                      className="bg-[#ffc300] p-2 rounded-lg hover:bg-[#ffcd1a] hover:scale-105 transition-all"
+                    >
                       <Video className="w-5 h-5 text-[#000814]" />
-                    </div>
+                    </button>
                   )}
                 </div>
                 <div className="flex items-center mt-4">{renderStars(testimonial.rating)}</div>
@@ -274,7 +297,10 @@ const TestimonialsPage: React.FC = () => {
             <p className="text-gray-300 text-lg mb-8">
               See and hear from real clients sharing their experiences working with Skyline Realty Group.
             </p>
-            <button className="bg-[#ffc300] text-[#000814] px-8 py-4 rounded-lg font-semibold hover:bg-[#ffcd1a] transition-colors inline-flex items-center">
+            <button
+              onClick={() => setShowGallery(true)}
+              className="bg-[#ffc300] text-[#000814] px-8 py-4 rounded-lg font-semibold hover:bg-[#ffcd1a] transition-colors inline-flex items-center"
+            >
               <Video className="w-5 h-5 mr-2" />
               View Video Gallery
             </button>
@@ -290,11 +316,75 @@ const TestimonialsPage: React.FC = () => {
           <p className="text-gray-300 text-lg mb-8">
             Join thousands of satisfied clients who have achieved their real estate goals with Skyline Realty Group.
           </p>
-          <button className="bg-[#ffc300] text-[#000814] px-8 py-4 rounded-lg font-semibold hover:bg-[#ffcd1a] transition-colors">
+          <button
+            onClick={() => onNavigate?.('contact')}
+            className="bg-[#ffc300] text-[#000814] px-8 py-4 rounded-lg font-semibold hover:bg-[#ffcd1a] transition-colors"
+          >
             Start Your Journey
           </button>
         </div>
       </div>
+
+      {/* Video Gallery Modal */}
+      {showGallery && (
+        <div
+          className="fixed inset-0 z-[90] bg-black/70 flex items-center justify-center p-4"
+          onClick={() => setShowGallery(false)}
+        >
+          <div
+            className="bg-white rounded-xl shadow-2xl w-full max-w-3xl max-h-[90vh] overflow-y-auto"
+            onClick={(e) => e.stopPropagation()}
+          >
+            <div className="flex items-center justify-between p-6 border-b">
+              <div>
+                <h3 className="text-2xl font-bold text-[#000814]">Video Testimonials</h3>
+                <p className="text-gray-600 mt-1">Choose a client story to watch</p>
+              </div>
+              <button
+                onClick={() => setShowGallery(false)}
+                aria-label="Close gallery"
+                className="p-2 rounded-lg hover:bg-gray-100 transition-colors"
+              >
+                <X className="w-5 h-5 text-gray-600" />
+              </button>
+            </div>
+            <div className="grid grid-cols-1 sm:grid-cols-3 gap-4 p-6">
+              {testimonials
+                .filter((t) => t.video)
+                .map((t) => (
+                  <button
+                    key={t.id}
+                    onClick={() =>
+                      setActiveVideo({
+                        title: `${t.name} - Client Story`,
+                        duration: VIDEO_DURATIONS[t.id] ?? '2:30',
+                        thumbnail: t.image,
+                      })
+                    }
+                    className="text-left group"
+                  >
+                    <div className="relative h-40 rounded-lg overflow-hidden mb-2">
+                      <img src={t.image} alt={t.name} className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500" />
+                      <div className="absolute inset-0 bg-black/40 flex items-center justify-center">
+                        <span className="bg-[#ffc300] p-3 rounded-full group-hover:scale-110 transition-transform inline-flex">
+                          <PlayCircle className="w-6 h-6 text-[#000814]" />
+                        </span>
+                      </div>
+                      <div className="absolute bottom-2 right-2 bg-black/80 px-2 py-1 rounded text-white text-xs">
+                        {VIDEO_DURATIONS[t.id] ?? '2:30'}
+                      </div>
+                    </div>
+                    <div className="font-bold text-[#000814] group-hover:text-[#001d3d] transition-colors">{t.name}</div>
+                    <div className="text-sm text-gray-600">{t.propertyType} - {t.location}</div>
+                  </button>
+                ))}
+            </div>
+          </div>
+        </div>
+      )}
+
+      {/* Video Player Modal */}
+      <VideoModal video={activeVideo} onClose={() => setActiveVideo(null)} />
     </div>
   );
 };

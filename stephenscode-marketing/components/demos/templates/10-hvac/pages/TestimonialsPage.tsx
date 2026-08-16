@@ -303,7 +303,7 @@ export default function TestimonialsPage({ onNavigate }: TestimonialsPageProps) 
             {['Google Reviews', 'Yelp', 'Facebook', 'BBB'].map((platform, index) => (
               <div
                 key={index}
-                className="bg-white p-6 rounded-xl shadow-lg text-center hover:shadow-xl transition-shadow duration-300"
+                className="bg-white p-6 rounded-xl shadow-lg text-center"
               >
                 <Star className="w-12 h-12 text-[#f77f00] mx-auto mb-3" />
                 <p className="font-bold text-[#003049] mb-1">{platform}</p>

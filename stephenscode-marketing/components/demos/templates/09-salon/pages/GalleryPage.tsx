@@ -1,5 +1,7 @@
-import React, { useState } from 'react';
-import { Image, Filter, Heart, Instagram, Share2 } from 'lucide-react';
+import React, { useState, useEffect } from 'react';
+import { Image, Heart, Instagram, Share2 } from 'lucide-react';
+
+const LIKES_STORAGE_KEY = 'salon-demo-gallery-likes';
 
 interface GalleryPageProps {
   onNavigate: (page: string) => void;
@@ -8,6 +10,31 @@ interface GalleryPageProps {
 export default function GalleryPage({ onNavigate }: GalleryPageProps) {
   const [selectedCategory, setSelectedCategory] = useState('all');
   const [selectedImage, setSelectedImage] = useState<number | null>(null);
+  const [visibleCount, setVisibleCount] = useState(12);
+  const [likedItems, setLikedItems] = useState<number[]>([]);
+
+  useEffect(() => {
+    try {
+      const stored = localStorage.getItem(LIKES_STORAGE_KEY);
+      if (stored) setLikedItems(JSON.parse(stored));
+    } catch {
+      // localStorage unavailable -- likes stay session-only
+    }
+  }, []);
+
+  const toggleLike = (id: number) => {
+    setLikedItems((prev) => {
+      const next = prev.includes(id) ? prev.filter((i) => i !== id) : [...prev, id];
+      try {
+        localStorage.setItem(LIKES_STORAGE_KEY, JSON.stringify(next));
+      } catch {
+        // localStorage unavailable -- likes stay session-only
+      }
+      return next;
+    });
+  };
+
+  const likeCount = (id: number, base: number) => base + (likedItems.includes(id) ? 1 : 0);
 
   const categories = [
     { id: 'all', name: 'All Work' },
@@ -314,7 +341,10 @@ export default function GalleryPage({ onNavigate }: GalleryPageProps) {
             {categories.map((category) => (
               <button
                 key={category.id}
-                onClick={() => setSelectedCategory(category.id)}
+                onClick={() => {
+                  setSelectedCategory(category.id);
+                  setVisibleCount(12);
+                }}
                 className={`${
                   selectedCategory === category.id
                     ? 'bg-gradient-to-r from-[#d00000] to-[#e85d04] text-white'
@@ -332,7 +362,7 @@ export default function GalleryPage({ onNavigate }: GalleryPageProps) {
       <section className="py-16 bg-gray-50">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6">
-            {filteredItems.map((item) => (
+            {filteredItems.slice(0, visibleCount).map((item) => (
               <div
                 key={item.id}
                 className="bg-white rounded-2xl shadow-lg overflow-hidden transition-all duration-300 group cursor-pointer"
@@ -364,10 +394,19 @@ export default function GalleryPage({ onNavigate }: GalleryPageProps) {
                   <p className="text-sm text-gray-600 mb-2">{item.description}</p>
                   <div className="flex items-center justify-between text-sm">
                     <span className="text-gray-500">by {item.stylist}</span>
-                    <div className="flex items-center text-[#d00000]">
-                      <Heart className="w-4 h-4 mr-1 fill-current" />
-                      <span className="font-semibold">{item.likes}</span>
-                    </div>
+                    <button
+                      onClick={(e) => {
+                        e.stopPropagation();
+                        toggleLike(item.id);
+                      }}
+                      className="flex items-center text-[#d00000] hover:scale-110 transition-transform"
+                      aria-label={likedItems.includes(item.id) ? 'Unlike this look' : 'Like this look'}
+                    >
+                      <Heart
+                        className={`w-4 h-4 mr-1 ${likedItems.includes(item.id) ? 'fill-current' : ''}`}
+                      />
+                      <span className="font-semibold">{likeCount(item.id, item.likes)}</span>
+                    </button>
                   </div>
                 </div>
               </div>
@@ -375,9 +414,12 @@ export default function GalleryPage({ onNavigate }: GalleryPageProps) {
           </div>
 
           {/* Load More */}
-          {filteredItems.length > 12 && (
+          {filteredItems.length > visibleCount && (
             <div className="text-center mt-12">
-              <button className="bg-gradient-to-r from-[#d00000] to-[#e85d04] text-white px-8 py-4 rounded-full font-semibold hover:shadow-lg transition-all duration-300">
+              <button
+                onClick={() => setVisibleCount(visibleCount + 12)}
+                className="bg-gradient-to-r from-[#d00000] to-[#e85d04] text-white px-8 py-4 rounded-full font-semibold hover:shadow-lg transition-all duration-300"
+              >
                 Load More
               </button>
             </div>
@@ -546,10 +588,16 @@ export default function GalleryPage({ onNavigate }: GalleryPageProps) {
                           <p className="text-sm text-gray-500 mb-1">Service</p>
                           <p className="font-bold">{item.service}</p>
                         </div>
-                        <div className="flex items-center text-[#d00000]">
-                          <Heart className="w-6 h-6 mr-2 fill-current" />
-                          <span className="text-2xl font-bold">{item.likes}</span>
-                        </div>
+                        <button
+                          onClick={() => toggleLike(item.id)}
+                          className="flex items-center text-[#d00000] hover:scale-110 transition-transform"
+                          aria-label={likedItems.includes(item.id) ? 'Unlike this look' : 'Like this look'}
+                        >
+                          <Heart
+                            className={`w-6 h-6 mr-2 ${likedItems.includes(item.id) ? 'fill-current' : ''}`}
+                          />
+                          <span className="text-2xl font-bold">{likeCount(item.id, item.likes)}</span>
+                        </button>
                       </div>
                     </div>
                     <button

@@ -1,10 +1,16 @@
 import React, { useState } from 'react';
 import { Home, DollarSign, Camera, TrendingUp, FileText, Users, CheckCircle, ArrowRight, Calculator, Clock, Star, Zap } from 'lucide-react';
+import LeadModal from '../components/LeadModal';
 
-const SellerResourcesPage: React.FC = () => {
+interface SellerResourcesPageProps {
+  onNavigate?: (page: string) => void;
+}
+
+const SellerResourcesPage: React.FC<SellerResourcesPageProps> = ({ onNavigate }) => {
   const [homeValue, setHomeValue] = useState(750000);
   const [commission, setCommission] = useState(6);
   const [closingCosts, setClosingCosts] = useState(2);
+  const [showValuation, setShowValuation] = useState(false);
 
   const calculateProceeds = () => {
     const commissionAmount = (homeValue * commission) / 100;
@@ -259,7 +265,10 @@ const SellerResourcesPage: React.FC = () => {
                 </div>
               </div>
 
-              <button className="w-full mt-8 bg-[#ffc300] text-[#000814] px-6 py-3 rounded-lg font-semibold hover:bg-[#ffcd1a] transition-colors">
+              <button
+                onClick={() => setShowValuation(true)}
+                className="w-full mt-8 bg-[#ffc300] text-[#000814] px-6 py-3 rounded-lg font-semibold hover:bg-[#ffcd1a] transition-colors"
+              >
                 Get Free Home Valuation
               </button>
             </div>
@@ -377,16 +386,35 @@ const SellerResourcesPage: React.FC = () => {
             Get a free home valuation and connect with one of our expert agents to start the selling process today.
           </p>
           <div className="flex flex-col sm:flex-row justify-center gap-4">
-            <button className="bg-[#ffc300] text-[#000814] px-8 py-4 rounded-lg font-semibold hover:bg-[#ffcd1a] transition-colors inline-flex items-center justify-center">
+            <button
+              onClick={() => setShowValuation(true)}
+              className="bg-[#ffc300] text-[#000814] px-8 py-4 rounded-lg font-semibold hover:bg-[#ffcd1a] transition-colors inline-flex items-center justify-center"
+            >
               Get Free Home Valuation
               <ArrowRight className="ml-2 w-5 h-5" />
             </button>
-            <button className="bg-[#001d3d] text-white px-8 py-4 rounded-lg font-semibold hover:bg-[#002855] transition-colors">
+            <button
+              onClick={() => onNavigate?.('agents')}
+              className="bg-[#001d3d] text-white px-8 py-4 rounded-lg font-semibold hover:bg-[#002855] transition-colors"
+            >
               Talk to an Agent
             </button>
           </div>
         </div>
       </div>
+
+      {/* Home Valuation Modal */}
+      <LeadModal
+        open={showValuation}
+        onClose={() => setShowValuation(false)}
+        title="Free Home Valuation"
+        subtitle="Tell us about your property and we will prepare a comparative market analysis."
+        service="Home Valuation"
+        formName="home_valuation"
+        submitLabel="Request Valuation"
+        messageLabel="Property Details"
+        messagePlaceholder="Address, beds/baths, recent updates, and your selling timeline..."
+      />
     </div>
   );
 };

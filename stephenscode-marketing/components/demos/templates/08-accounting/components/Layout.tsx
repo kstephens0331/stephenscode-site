@@ -1,5 +1,5 @@
-import React from 'react';
-import { Phone, Mail, MapPin, Facebook, Twitter, Linkedin, Shield, Award } from 'lucide-react';
+import React, { useState } from 'react';
+import { Phone, Mail, MapPin, Facebook, Twitter, Linkedin, Shield, Award, X } from 'lucide-react';
 
 interface LayoutProps {
   children: React.ReactNode;
@@ -7,7 +7,76 @@ interface LayoutProps {
   onNavigate: (page: string) => void;
 }
 
+type LegalDocKey = 'privacy' | 'terms' | 'disclaimer';
+
+const LEGAL_DOCS: Record<LegalDocKey, { title: string; updated: string; sections: { heading: string; body: string }[] }> = {
+  privacy: {
+    title: 'Privacy Policy',
+    updated: 'Last updated: January 2024',
+    sections: [
+      {
+        heading: 'Information We Collect',
+        body: 'Peak Financial Advisors collects personal information you provide when you request a consultation, subscribe to our newsletter, or become a client, including your name, contact details, and financial information necessary to deliver our services.',
+      },
+      {
+        heading: 'How We Use Your Information',
+        body: 'Your information is used solely to provide financial advisory, tax, and accounting services, to communicate with you about your accounts, and to comply with legal and regulatory obligations. We never sell your personal information to third parties.',
+      },
+      {
+        heading: 'Data Security',
+        body: 'We protect client data with 256-bit encryption, multi-factor authentication, and strict internal access controls. Client documents are stored in our secure portal and retained only as long as required by law and professional standards.',
+      },
+      {
+        heading: 'Your Rights',
+        body: 'You may request a copy of the personal information we hold about you, ask for corrections, or request deletion where permitted by law. Contact our privacy officer at info@peakfinancial.com with any questions.',
+      },
+    ],
+  },
+  terms: {
+    title: 'Terms of Service',
+    updated: 'Last updated: January 2024',
+    sections: [
+      {
+        heading: 'Use of This Website',
+        body: 'This website is provided for general informational purposes. By using it you agree not to misuse the site, attempt unauthorized access, or rely on its content as a substitute for personalized professional advice.',
+      },
+      {
+        heading: 'No Advisory Relationship',
+        body: 'Viewing this website does not create an advisory, accounting, or fiduciary relationship. An engagement begins only when both parties sign a written service agreement describing the scope of services and fees.',
+      },
+      {
+        heading: 'Fees and Engagements',
+        body: 'Fees for services are disclosed in writing before any engagement begins. Investment advisory fees are billed as a percentage of assets under management; tax and accounting services are billed at fixed or hourly rates as agreed.',
+      },
+      {
+        heading: 'Limitation of Liability',
+        body: 'To the fullest extent permitted by law, Peak Financial Advisors is not liable for decisions made in reliance on general website content. All services are governed by the terms of your signed engagement letter.',
+      },
+    ],
+  },
+  disclaimer: {
+    title: 'Disclaimer',
+    updated: 'Last updated: January 2024',
+    sections: [
+      {
+        heading: 'Investment Disclosure',
+        body: 'Investing involves risk, including the potential loss of principal. Past performance does not guarantee future results. Any projected returns shown on this website are hypothetical illustrations, not promises of performance.',
+      },
+      {
+        heading: 'Tax Information',
+        body: 'Tax laws change frequently and their application depends on your individual circumstances. Content on this site reflects general rules in effect at the time of publication and should not be acted on without consulting a qualified professional.',
+      },
+      {
+        heading: 'Registration Status',
+        body: 'Securities offered through Peak Financial Advisors, LLC, member FINRA/SIPC. Investment advisory services offered through Peak Investment Advisors, a registered investment advisor. Registration does not imply a certain level of skill or training.',
+      },
+    ],
+  },
+};
+
 export default function Layout({ children, currentPage, onNavigate }: LayoutProps) {
+  const [legalDoc, setLegalDoc] = useState<LegalDocKey | null>(null);
+
   const navigation = [
     { name: 'Home', id: 'home' },
     { name: 'Services', id: 'services' },
@@ -123,13 +192,13 @@ export default function Layout({ children, currentPage, onNavigate }: LayoutProp
                 Trusted financial guidance for over 25 years. Your success is our mission.
               </p>
               <div className="flex gap-3">
-                <a href="#" className="w-8 h-8 bg-[#fca311] rounded-full flex items-center justify-center hover:bg-[#e59400] transition-colors">
+                <a href="https://www.facebook.com" target="_blank" rel="noopener noreferrer" aria-label="Peak Financial on Facebook" className="w-8 h-8 bg-[#fca311] rounded-full flex items-center justify-center hover:bg-[#e59400] transition-colors">
                   <Facebook size={16} className="text-[#14213d]" />
                 </a>
-                <a href="#" className="w-8 h-8 bg-[#fca311] rounded-full flex items-center justify-center hover:bg-[#e59400] transition-colors">
+                <a href="https://twitter.com" target="_blank" rel="noopener noreferrer" aria-label="Peak Financial on Twitter" className="w-8 h-8 bg-[#fca311] rounded-full flex items-center justify-center hover:bg-[#e59400] transition-colors">
                   <Twitter size={16} className="text-[#14213d]" />
                 </a>
-                <a href="#" className="w-8 h-8 bg-[#fca311] rounded-full flex items-center justify-center hover:bg-[#e59400] transition-colors">
+                <a href="https://www.linkedin.com" target="_blank" rel="noopener noreferrer" aria-label="Peak Financial on LinkedIn" className="w-8 h-8 bg-[#fca311] rounded-full flex items-center justify-center hover:bg-[#e59400] transition-colors">
                   <Linkedin size={16} className="text-[#14213d]" />
                 </a>
               </div>
@@ -138,22 +207,26 @@ export default function Layout({ children, currentPage, onNavigate }: LayoutProp
             <div>
               <h4 className="font-semibold text-lg mb-4 text-[#fca311]">Services</h4>
               <ul className="space-y-2 text-sm">
-                <li><a href="#" className="text-gray-300 hover:text-[#fca311] transition-colors">Tax Planning</a></li>
-                <li><a href="#" className="text-gray-300 hover:text-[#fca311] transition-colors">Retirement Planning</a></li>
-                <li><a href="#" className="text-gray-300 hover:text-[#fca311] transition-colors">Investment Management</a></li>
-                <li><a href="#" className="text-gray-300 hover:text-[#fca311] transition-colors">Estate Planning</a></li>
-                <li><a href="#" className="text-gray-300 hover:text-[#fca311] transition-colors">Business Accounting</a></li>
+                {['Tax Planning', 'Retirement Planning', 'Investment Management', 'Estate Planning', 'Business Accounting'].map((label) => (
+                  <li key={label}>
+                    <button onClick={() => onNavigate('services')} className="text-gray-300 hover:text-[#fca311] transition-colors">
+                      {label}
+                    </button>
+                  </li>
+                ))}
               </ul>
             </div>
 
             <div>
               <h4 className="font-semibold text-lg mb-4 text-[#fca311]">Resources</h4>
               <ul className="space-y-2 text-sm">
-                <li><a href="#" className="text-gray-300 hover:text-[#fca311] transition-colors">Tax Season Checklist</a></li>
-                <li><a href="#" className="text-gray-300 hover:text-[#fca311] transition-colors">Retirement Guide</a></li>
-                <li><a href="#" className="text-gray-300 hover:text-[#fca311] transition-colors">Investment Strategies</a></li>
-                <li><a href="#" className="text-gray-300 hover:text-[#fca311] transition-colors">Tax Law Updates</a></li>
-                <li><a href="#" className="text-gray-300 hover:text-[#fca311] transition-colors">Financial Blog</a></li>
+                {['Tax Season Checklist', 'Retirement Guide', 'Investment Strategies', 'Tax Law Updates', 'Financial Blog'].map((label) => (
+                  <li key={label}>
+                    <button onClick={() => onNavigate('resources')} className="text-gray-300 hover:text-[#fca311] transition-colors">
+                      {label}
+                    </button>
+                  </li>
+                ))}
               </ul>
             </div>
 
@@ -190,9 +263,9 @@ export default function Layout({ children, currentPage, onNavigate }: LayoutProp
             <div className="flex flex-col md:flex-row justify-between items-center gap-4">
               <p>&copy; 2024 Peak Financial Advisors. All rights reserved.</p>
               <div className="flex gap-6">
-                <a href="#" className="hover:text-[#fca311] transition-colors">Privacy Policy</a>
-                <a href="#" className="hover:text-[#fca311] transition-colors">Terms of Service</a>
-                <a href="#" className="hover:text-[#fca311] transition-colors">Disclaimer</a>
+                <button onClick={() => setLegalDoc('privacy')} className="hover:text-[#fca311] transition-colors">Privacy Policy</button>
+                <button onClick={() => setLegalDoc('terms')} className="hover:text-[#fca311] transition-colors">Terms of Service</button>
+                <button onClick={() => setLegalDoc('disclaimer')} className="hover:text-[#fca311] transition-colors">Disclaimer</button>
               </div>
             </div>
             <p className="text-xs text-gray-500 mt-4 text-center">
@@ -201,6 +274,48 @@ export default function Layout({ children, currentPage, onNavigate }: LayoutProp
           </div>
         </div>
       </footer>
+
+      {/* Legal Document Modal */}
+      {legalDoc && (
+        <div className="fixed inset-0 z-[60] flex items-center justify-center p-4">
+          <button
+            aria-label="Close legal document"
+            onClick={() => setLegalDoc(null)}
+            className="absolute inset-0 bg-black/60 cursor-default"
+          />
+          <div className="relative bg-white rounded-2xl shadow-2xl max-w-2xl w-full max-h-[85vh] overflow-y-auto">
+            <div className="sticky top-0 bg-[#14213d] text-white px-8 py-5 flex items-center justify-between rounded-t-2xl">
+              <div>
+                <h2 className="text-2xl font-bold">{LEGAL_DOCS[legalDoc].title}</h2>
+                <p className="text-xs text-gray-300">{LEGAL_DOCS[legalDoc].updated}</p>
+              </div>
+              <button
+                onClick={() => setLegalDoc(null)}
+                aria-label="Close"
+                className="p-2 hover:bg-[#1a2a4d] rounded-lg transition-colors"
+              >
+                <X size={22} />
+              </button>
+            </div>
+            <div className="px-8 py-6 space-y-6">
+              {LEGAL_DOCS[legalDoc].sections.map((section, index) => (
+                <div key={index}>
+                  <h3 className="text-lg font-bold text-[#14213d] mb-2">{section.heading}</h3>
+                  <p className="text-gray-700 leading-relaxed">{section.body}</p>
+                </div>
+              ))}
+              <div className="pt-4 border-t border-gray-200">
+                <button
+                  onClick={() => setLegalDoc(null)}
+                  className="w-full bg-[#14213d] text-white py-3 rounded-lg font-semibold hover:bg-[#1a2a4d] transition-colors"
+                >
+                  Close
+                </button>
+              </div>
+            </div>
+          </div>
+        </div>
+      )}
     </div>
   );
 }

@@ -6,9 +6,10 @@ import { Check, Camera, Clock, Image, Star } from 'lucide-react';
 
 interface PackagesPageProps {
   onNavigate: (page: string) => void;
+  onBookPackage?: (packageName: string) => void;
 }
 
-export default function PackagesPage({ onNavigate }: PackagesPageProps) {
+export default function PackagesPage({ onNavigate, onBookPackage }: PackagesPageProps) {
   const packages = [
     {
       name: 'Headshot Session',
@@ -230,7 +231,7 @@ export default function PackagesPage({ onNavigate }: PackagesPageProps) {
                   </ul>
 
                   <button
-                    onClick={() => onNavigate('contact')}
+                    onClick={() => (onBookPackage ? onBookPackage(pkg.name) : onNavigate('contact'))}
                     className={`w-full py-3 font-medium transition-all duration-300 ${
                       pkg.popular
                         ? 'bg-[#2d3142] text-white hover:bg-[#4f5d75]'

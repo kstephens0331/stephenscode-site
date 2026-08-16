@@ -34,9 +34,16 @@ export default function ContactPage({ onNavigate }: ContactPageProps) {
           'Content-Type': 'application/json',
         },
         body: JSON.stringify({
-          ...formData,
+          demoName: 'Sparkle Clean Services',
+          demoPackage: 'Plug and Play ($250)',
           demoSlug: 'sparkle-clean-services',
-          source: 'contact_form',
+          clientName: formData.name,
+          clientPhone: formData.phone,
+          clientEmail: formData.email,
+          service: `${formData.service} (${formData.propertySize}, ${formData.frequency})`,
+          preferredDate: formData.preferredDate,
+          preferredTime: '',
+          notes: formData.message,
         }),
       });
 
@@ -61,8 +68,7 @@ export default function ContactPage({ onNavigate }: ContactPageProps) {
       } else {
         setSubmitStatus('error');
       }
-    } catch (error) {
-      console.error('Error submitting form:', error);
+    } catch {
       setSubmitStatus('error');
     } finally {
       setIsSubmitting(false);
@@ -109,7 +115,7 @@ export default function ContactPage({ onNavigate }: ContactPageProps) {
       title: 'Office',
       detail: '123 Clean Street, Suite 100',
       subdDetail: 'Sparkle City, SC 12345',
-      link: '#',
+      link: '#cleaning-office-map',
     },
   ];
 
@@ -453,7 +459,7 @@ export default function ContactPage({ onNavigate }: ContactPageProps) {
       </section>
 
       {/* Map Section */}
-      <section className="py-16 bg-gray-50">
+      <section id="cleaning-office-map" className="py-16 bg-gray-50 scroll-mt-24">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-8">
             <h2 className="text-3xl font-bold text-gray-900 mb-4">Visit Our Office</h2>

@@ -7,6 +7,53 @@ interface PatientInfoPageProps {
 
 export default function PatientInfoPage({ onNavigate }: PatientInfoPageProps) {
   const [activeTab, setActiveTab] = useState<'new-patients' | 'insurance' | 'forms' | 'faq'>('new-patients');
+  const [downloadedForm, setDownloadedForm] = useState<string | null>(null);
+
+  const handleDownloadForm = (form: { title: string; description: string; required: boolean }) => {
+    const lines = [
+      'BRIGHT SMILE DENTAL',
+      '123 Dental Way, Smile City, SC 12345 | (555) 123-4567 | smile@brightsmile.com',
+      '',
+      form.title.toUpperCase(),
+      form.required ? 'Status: Required before your first visit' : 'Status: Optional',
+      '',
+      form.description,
+      '',
+      '--------------------------------------------------',
+      'PATIENT INFORMATION',
+      '--------------------------------------------------',
+      'Full Name:      ______________________________',
+      'Date of Birth:  ______________________________',
+      'Phone:          ______________________________',
+      'Email:          ______________________________',
+      'Address:        ______________________________',
+      '',
+      '--------------------------------------------------',
+      'DETAILS',
+      '--------------------------------------------------',
+      '__________________________________________________',
+      '__________________________________________________',
+      '__________________________________________________',
+      '__________________________________________________',
+      '',
+      'Please complete all fields and bring this form to your',
+      'appointment, or email it to forms@brightsmile.com at least',
+      '24 hours before your visit.',
+      '',
+      'Signature: ____________________   Date: ____________'
+    ];
+    const blob = new Blob([lines.join('\n')], { type: 'text/plain' });
+    const url = URL.createObjectURL(blob);
+    const link = document.createElement('a');
+    link.href = url;
+    link.download = `${form.title.toLowerCase().replace(/[^a-z0-9]+/g, '-')}.txt`;
+    document.body.appendChild(link);
+    link.click();
+    document.body.removeChild(link);
+    URL.revokeObjectURL(url);
+    setDownloadedForm(form.title);
+    setTimeout(() => setDownloadedForm(null), 2500);
+  };
 
   const insuranceProviders = [
     { name: 'Delta Dental', coverage: 'Preferred Provider' },
@@ -462,9 +509,25 @@ export default function PatientInfoPage({ onNavigate }: PatientInfoPageProps) {
                           </h3>
                           <p className="text-gray-600 text-sm">{form.description}</p>
                         </div>
-                        <button className="flex items-center gap-2 bg-[#0077b6] text-white px-4 py-2 rounded-lg font-semibold hover:bg-[#023e8a] transition-all whitespace-nowrap">
-                          <Download className="w-4 h-4" />
-                          Download
+                        <button
+                          onClick={() => handleDownloadForm(form)}
+                          className={`flex items-center gap-2 px-4 py-2 rounded-lg font-semibold transition-all whitespace-nowrap ${
+                            downloadedForm === form.title
+                              ? 'bg-green-600 text-white'
+                              : 'bg-[#0077b6] text-white hover:bg-[#023e8a]'
+                          }`}
+                        >
+                          {downloadedForm === form.title ? (
+                            <>
+                              <CheckCircle className="w-4 h-4" />
+                              Downloaded
+                            </>
+                          ) : (
+                            <>
+                              <Download className="w-4 h-4" />
+                              Download
+                            </>
+                          )}
                         </button>
                       </div>
                     </div>

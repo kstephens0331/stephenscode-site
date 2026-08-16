@@ -8,9 +8,11 @@ interface LayoutProps {
   currentPage: string
   onNavigate: (page: string) => void
   onAppointmentOpen: () => void
+  onPortalOpen: () => void
+  onPayBill: () => void
 }
 
-export default function Layout({ children, colors, currentPage, onNavigate, onAppointmentOpen }: LayoutProps) {
+export default function Layout({ children, colors, currentPage, onNavigate, onAppointmentOpen, onPortalOpen, onPayBill }: LayoutProps) {
   const navItems = [
     { id: 'home', label: 'Home' },
     { id: 'services', label: 'Services' },
@@ -28,13 +30,26 @@ export default function Layout({ children, colors, currentPage, onNavigate, onAp
     <div>
       <div style={{ backgroundColor: '#e3f2fd' }} className="py-2">
         <div className="max-w-7xl mx-auto px-4">
-          <div className="flex justify-between items-center text-sm">
+          <div className="flex flex-wrap justify-between items-center gap-2 text-sm">
             <div style={{ color: '#0353a4' }} className="font-bold">
               24/7 Urgent Care Available • (555) HEALTH-1
             </div>
-            <div className="flex gap-4">
-              <button style={{ color: '#0353a4' }} className="hover:opacity-70">Patient Portal Login</button>
-              <button style={{ color: '#0353a4' }} className="hover:opacity-70">Pay Bill Online</button>
+            <div className="flex flex-wrap items-center gap-4">
+              {navItems.slice(6).map((item) => (
+                <button
+                  key={item.id}
+                  onClick={() => onNavigate(item.id)}
+                  style={{
+                    color: '#0353a4',
+                    textDecoration: currentPage === item.id ? 'underline' : 'none'
+                  }}
+                  className="hover:opacity-70"
+                >
+                  {item.label}
+                </button>
+              ))}
+              <button onClick={onPortalOpen} style={{ color: '#0353a4' }} className="font-bold hover:opacity-70">Patient Portal Login</button>
+              <button onClick={onPayBill} style={{ color: '#0353a4' }} className="font-bold hover:opacity-70">Pay Bill Online</button>
             </div>
           </div>
         </div>
@@ -93,8 +108,17 @@ export default function Layout({ children, colors, currentPage, onNavigate, onAp
             <div>
               <h4 style={{ color: '#0496ff' }} className="font-bold mb-4">Quick Links</h4>
               <div style={{ color: '#cccccc' }} className="space-y-2 text-sm">
-                {['Book Appointment', 'Patient Portal', 'Telehealth', 'Pay Bill'].map((link) => (
-                  <div key={link}>{link}</div>
+                {[
+                  { label: 'Book Appointment', action: onAppointmentOpen },
+                  { label: 'Patient Portal', action: onPortalOpen },
+                  { label: 'Telehealth', action: () => onNavigate('telehealth') },
+                  { label: 'Pay Bill', action: onPayBill }
+                ].map((link) => (
+                  <div key={link.label}>
+                    <button onClick={link.action} className="hover:opacity-70 hover:underline text-left">
+                      {link.label}
+                    </button>
+                  </div>
                 ))}
               </div>
             </div>

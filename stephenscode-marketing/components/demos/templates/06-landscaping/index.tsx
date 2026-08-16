@@ -1,6 +1,6 @@
 'use client'
 
-import { useState } from 'react'
+import { useEffect, useState } from 'react'
 import type { Demo } from '@/lib/demos-data'
 import { getDemoColors, generateColorVars } from '@/lib/demo-colors'
 import CustomerView from './CustomerView'
@@ -13,13 +13,19 @@ interface LandscapingDemoProps {
 
 export default function LandscapingDemo({ demo, viewMode }: LandscapingDemoProps) {
   const colors = getDemoColors('green-valley-landscaping')
+  const [activeView, setActiveView] = useState<'customer' | 'admin'>(viewMode)
+
+  // Follow the outer demo shell toggle whenever it changes
+  useEffect(() => {
+    setActiveView(viewMode)
+  }, [viewMode])
 
   return (
     <div style={generateColorVars(colors)} className="min-h-screen">
-      {viewMode === 'customer' ? (
+      {activeView === 'customer' ? (
         <CustomerView />
       ) : (
-        <AdminView />
+        <AdminView onSwitchToCustomer={() => setActiveView('customer')} />
       )}
     </div>
   )

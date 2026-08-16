@@ -1,11 +1,14 @@
-import React from 'react';
-import { MapPin, CheckCircle, Clock, Phone, Navigation } from 'lucide-react';
+import React, { useState } from 'react';
+import { MapPin, CheckCircle, Clock, Phone, Navigation, AlertCircle } from 'lucide-react';
 
 interface ServiceAreasPageProps {
   onNavigate: (page: string) => void;
 }
 
 const ServiceAreasPage: React.FC<ServiceAreasPageProps> = ({ onNavigate }) => {
+  const [zipInput, setZipInput] = useState('');
+  const [zipResult, setZipResult] = useState<'covered' | 'outside' | 'invalid' | null>(null);
+  const [checkedZip, setCheckedZip] = useState('');
   const serviceAreas = [
     {
       name: 'Downtown',
@@ -59,6 +62,18 @@ const ServiceAreasPage: React.FC<ServiceAreasPageProps> = ({ onNavigate }) => {
     '10011', '10012', '10013', '10014', '10015', '10016', '10017', '10018', '10019', '10020',
     '10021', '10022', '10023', '10024', '10025', '10026', '10027', '10028', '10029', '10030'
   ];
+
+  const handleZipCheck = (e: React.FormEvent) => {
+    e.preventDefault();
+    const trimmed = zipInput.trim();
+    if (!/^\d{5}$/.test(trimmed)) {
+      setZipResult('invalid');
+      setCheckedZip(trimmed);
+      return;
+    }
+    setCheckedZip(trimmed);
+    setZipResult(zipCodes.includes(trimmed) ? 'covered' : 'outside');
+  };
 
   return (
     <div>
@@ -317,17 +332,64 @@ const ServiceAreasPage: React.FC<ServiceAreasPageProps> = ({ onNavigate }) => {
               </div>
               <div className="bg-white/10 backdrop-blur-sm rounded-xl p-6 border border-white/20">
                 <h3 className="text-2xl font-bold mb-4">Check Service Availability</h3>
-                <div className="space-y-4">
+                <form onSubmit={handleZipCheck} className="space-y-4">
                   <input
                     type="text"
                     aria-label="ZIP code"
                     placeholder="Enter your ZIP code"
+                    value={zipInput}
+                    onChange={(e) => setZipInput(e.target.value)}
+                    inputMode="numeric"
+                    maxLength={5}
                     className="w-full px-4 py-3 rounded-lg bg-white/20 border border-white/30 text-white placeholder-blue-200 focus:outline-none focus:ring-2 focus:ring-white"
                   />
-                  <button className="w-full bg-white text-[#0466c8] px-6 py-3 rounded-lg font-bold hover:bg-gray-100 transition-colors">
+                  <button
+                    type="submit"
+                    className="w-full bg-white text-[#0466c8] px-6 py-3 rounded-lg font-bold hover:bg-gray-100 transition-colors"
+                  >
                     Check Availability
                   </button>
-                </div>
+                </form>
+                {zipResult === 'covered' && (
+                  <div className="mt-4 bg-green-500/20 border border-green-300/50 rounded-lg p-4 flex items-start space-x-3">
+                    <CheckCircle className="h-6 w-6 flex-shrink-0 mt-0.5" />
+                    <div>
+                      <p className="font-bold">Great news! We serve {checkedZip}.</p>
+                      <p className="text-sm text-blue-100 mt-1">
+                        Same-day appointments are usually available.{' '}
+                        <button
+                          onClick={() => onNavigate('contact')}
+                          className="underline font-semibold hover:text-white"
+                        >
+                          Schedule service now
+                        </button>
+                      </p>
+                    </div>
+                  </div>
+                )}
+                {zipResult === 'outside' && (
+                  <div className="mt-4 bg-yellow-500/20 border border-yellow-300/50 rounded-lg p-4 flex items-start space-x-3">
+                    <AlertCircle className="h-6 w-6 flex-shrink-0 mt-0.5" />
+                    <div>
+                      <p className="font-bold">{checkedZip} is outside our primary area.</p>
+                      <p className="text-sm text-blue-100 mt-1">
+                        We may still be able to help, especially for commercial work.{' '}
+                        <button
+                          onClick={() => onNavigate('contact')}
+                          className="underline font-semibold hover:text-white"
+                        >
+                          Contact us to check
+                        </button>
+                      </p>
+                    </div>
+                  </div>
+                )}
+                {zipResult === 'invalid' && (
+                  <div className="mt-4 bg-red-500/20 border border-red-300/50 rounded-lg p-4 flex items-start space-x-3">
+                    <AlertCircle className="h-6 w-6 flex-shrink-0 mt-0.5" />
+                    <p className="font-semibold">Please enter a valid 5-digit ZIP code.</p>
+                  </div>
+                )}
                 <p className="text-sm text-blue-100 mt-4 text-center">
                   Or call us at (555) 765-8237
                 </p>

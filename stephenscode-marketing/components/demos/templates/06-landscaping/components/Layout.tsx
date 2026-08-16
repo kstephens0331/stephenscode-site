@@ -12,6 +12,7 @@ interface LayoutProps {
 export default function Layout({ children, currentPage, onNavigate }: LayoutProps) {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
   const [servicesDropdownOpen, setServicesDropdownOpen] = useState(false);
+  const [legalPage, setLegalPage] = useState<'privacy' | 'terms' | null>(null);
 
   const navigation = [
     { name: 'Home', id: 'home' },
@@ -205,13 +206,31 @@ export default function Layout({ children, currentPage, onNavigate }: LayoutProp
                 Transforming outdoor spaces with professional landscaping services for over 15 years.
               </p>
               <div className="flex gap-3">
-                <a href="#" className="w-9 h-9 bg-white/10 rounded-full flex items-center justify-center hover:bg-[#a7c957] transition-colors">
+                <a
+                  href="https://www.facebook.com"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  aria-label="Green Valley Landscaping on Facebook"
+                  className="w-9 h-9 bg-white/10 rounded-full flex items-center justify-center hover:bg-[#a7c957] transition-colors"
+                >
                   <Facebook className="h-4 w-4" />
                 </a>
-                <a href="#" className="w-9 h-9 bg-white/10 rounded-full flex items-center justify-center hover:bg-[#a7c957] transition-colors">
+                <a
+                  href="https://www.instagram.com"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  aria-label="Green Valley Landscaping on Instagram"
+                  className="w-9 h-9 bg-white/10 rounded-full flex items-center justify-center hover:bg-[#a7c957] transition-colors"
+                >
                   <Instagram className="h-4 w-4" />
                 </a>
-                <a href="#" className="w-9 h-9 bg-white/10 rounded-full flex items-center justify-center hover:bg-[#a7c957] transition-colors">
+                <a
+                  href="https://www.linkedin.com"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  aria-label="Green Valley Landscaping on LinkedIn"
+                  className="w-9 h-9 bg-white/10 rounded-full flex items-center justify-center hover:bg-[#a7c957] transition-colors"
+                >
                   <Linkedin className="h-4 w-4" />
                 </a>
               </div>
@@ -292,16 +311,91 @@ export default function Layout({ children, currentPage, onNavigate }: LayoutProp
               &copy; {new Date().getFullYear()} Green Valley Landscaping. All rights reserved.
             </p>
             <div className="flex gap-6">
-              <button className="text-sm text-gray-300 hover:text-[#a7c957] transition-colors">
+              <button
+                onClick={() => setLegalPage('privacy')}
+                className="text-sm text-gray-300 hover:text-[#a7c957] transition-colors"
+              >
                 Privacy Policy
               </button>
-              <button className="text-sm text-gray-300 hover:text-[#a7c957] transition-colors">
+              <button
+                onClick={() => setLegalPage('terms')}
+                className="text-sm text-gray-300 hover:text-[#a7c957] transition-colors"
+              >
                 Terms of Service
               </button>
             </div>
           </div>
         </div>
       </footer>
+
+      {/* Legal Modal */}
+      {legalPage !== null && (
+        <div
+          className="fixed inset-0 bg-black/60 z-[60] flex items-center justify-center p-4"
+          onClick={() => setLegalPage(null)}
+        >
+          <div
+            className="bg-white rounded-2xl shadow-2xl max-w-2xl w-full max-h-[85vh] overflow-y-auto"
+            onClick={(e) => e.stopPropagation()}
+          >
+            <div className="sticky top-0 bg-white border-b border-gray-200 px-8 py-5 flex items-center justify-between rounded-t-2xl">
+              <h2 className="text-2xl font-bold text-[#386641]">
+                {legalPage === 'privacy' ? 'Privacy Policy' : 'Terms of Service'}
+              </h2>
+              <button
+                onClick={() => setLegalPage(null)}
+                aria-label="Close"
+                className="w-9 h-9 rounded-full bg-stone-100 hover:bg-stone-200 flex items-center justify-center transition-colors"
+              >
+                <X className="h-5 w-5 text-gray-600" />
+              </button>
+            </div>
+            <div className="px-8 py-6 space-y-4 text-gray-700 text-sm leading-relaxed">
+              {legalPage === 'privacy' ? (
+                <>
+                  <p className="text-xs text-gray-500">Last updated: January 2025</p>
+                  <h3 className="font-bold text-[#386641] text-base">Information We Collect</h3>
+                  <p>
+                    When you request an estimate or contact us, we collect the information you provide, such as your name, email address, phone number, property address, and details about your project. We use this information solely to respond to your request and deliver our services.
+                  </p>
+                  <h3 className="font-bold text-[#386641] text-base">How We Use Your Information</h3>
+                  <p>
+                    Your information is used to prepare estimates, schedule consultations and service visits, process payments, and keep you informed about your project. We do not sell or rent your personal information to third parties.
+                  </p>
+                  <h3 className="font-bold text-[#386641] text-base">Site Photos</h3>
+                  <p>
+                    With your permission, we may photograph completed projects for our portfolio and gallery. You may opt out at any time by contacting us, and we will remove any images of your property on request.
+                  </p>
+                  <h3 className="font-bold text-[#386641] text-base">Contact Us</h3>
+                  <p>
+                    Questions about this policy? Reach us at info@greenvalley.com or (555) 012-3456.
+                  </p>
+                </>
+              ) : (
+                <>
+                  <p className="text-xs text-gray-500">Last updated: January 2025</p>
+                  <h3 className="font-bold text-[#386641] text-base">Estimates and Proposals</h3>
+                  <p>
+                    All estimates are free and valid for 30 days from the date issued. Final pricing may be adjusted if project scope changes after the estimate is accepted, and any changes will be confirmed with you in writing before work proceeds.
+                  </p>
+                  <h3 className="font-bold text-[#386641] text-base">Scheduling and Weather</h3>
+                  <p>
+                    Landscaping work is weather dependent. If conditions prevent safe or quality work, we will reschedule to the next available date and notify you as early as possible.
+                  </p>
+                  <h3 className="font-bold text-[#386641] text-base">Warranty</h3>
+                  <p>
+                    Plant installations include a one-year warranty when paired with an approved watering plan. Hardscape workmanship is warranted for three years. Warranty claims are handled promptly at no cost to you.
+                  </p>
+                  <h3 className="font-bold text-[#386641] text-base">Payments and Cancellations</h3>
+                  <p>
+                    Recurring maintenance may be canceled with 14 days notice. Project deposits are refundable up to 7 days before the scheduled start date.
+                  </p>
+                </>
+              )}
+            </div>
+          </div>
+        </div>
+      )}
     </div>
   );
 }

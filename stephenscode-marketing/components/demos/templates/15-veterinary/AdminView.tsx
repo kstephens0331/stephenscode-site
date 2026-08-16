@@ -14,8 +14,131 @@ import {
   Calendar,
   DollarSign,
   Stethoscope,
-  Heart
+  Heart,
+  X,
+  Plus,
+  Pencil,
+  Trash2,
+  Check
 } from 'lucide-react';
+
+type SectionKey = 'services' | 'team' | 'tips' | 'reviews';
+type ContentItem = { id: string } & Record<string, string>;
+
+interface SectionField {
+  key: string;
+  label: string;
+  textarea?: boolean;
+}
+
+interface SectionConfig {
+  title: string;
+  singular: string;
+  fields: SectionField[];
+  seed: Record<string, string>[];
+}
+
+const CONTENT_STORAGE_KEY = 'vet-demo-content';
+
+const contentSections: Record<SectionKey, SectionConfig> = {
+  services: {
+    title: 'Services',
+    singular: 'Service',
+    fields: [
+      { key: 'name', label: 'Service Name' },
+      { key: 'price', label: 'Pricing' },
+      { key: 'description', label: 'Description', textarea: true },
+    ],
+    seed: [
+      { name: 'Wellness Exams', price: 'Starting at $65', description: 'Comprehensive physical examinations to keep your pet healthy and detect issues early.' },
+      { name: 'Vaccinations', price: 'From $25 per vaccine', description: 'Core and lifestyle vaccination programs for dogs, cats, and exotic pets.' },
+      { name: 'Surgery', price: 'Contact for quote', description: 'Spay/neuter, soft tissue, and orthopedic procedures with full monitoring.' },
+      { name: 'Dental Care', price: 'Starting at $350', description: 'Cleanings, digital dental X-rays, extractions, and periodontal treatment.' },
+      { name: 'Emergency Care', price: 'Emergency fees apply', description: '24/7 emergency services with stabilization, triage, and critical care.' },
+      { name: 'Boarding', price: '$45 per night', description: 'Climate-controlled suites with veterinary supervision and daily playtime.' },
+      { name: 'Grooming', price: 'Starting at $55', description: 'Baths, haircuts, nail trims, ear cleaning, and sanitary trims.' },
+      { name: 'Pet Pharmacy', price: 'Varies by medication', description: 'On-site prescriptions, preventives, supplements, and prescription diets.' },
+      { name: 'Diagnostic Imaging', price: 'Starting at $150', description: 'Digital X-rays and ultrasound with same-day results.' },
+      { name: 'Laboratory Services', price: 'Starting at $85', description: 'In-house bloodwork, urinalysis, and fecal testing with rapid results.' },
+      { name: 'Senior Pet Care', price: 'Starting at $95', description: 'Geriatric wellness exams, arthritis management, and mobility support.' },
+      { name: 'Nutritional Counseling', price: 'Included with exam', description: 'Weight management programs and life-stage diet planning.' },
+    ],
+  },
+  team: {
+    title: 'Veterinarians',
+    singular: 'Team Member',
+    fields: [
+      { key: 'name', label: 'Name' },
+      { key: 'title', label: 'Title' },
+      { key: 'specialties', label: 'Specialties' },
+    ],
+    seed: [
+      { name: 'Dr. Sarah Martinez, DVM', title: 'Chief Veterinarian & Medical Director', specialties: 'Emergency Medicine, Surgery, Internal Medicine' },
+      { name: 'Dr. Michael Chen, DVM', title: 'Associate Veterinarian', specialties: 'Dental Care, Geriatric Medicine, Preventive Care' },
+      { name: 'Dr. Emily Rodriguez, DVM', title: 'Associate Veterinarian', specialties: 'Dermatology, Exotic Pets, Behavioral Medicine' },
+      { name: 'Dr. James Thompson, DVM', title: 'Emergency Veterinarian', specialties: 'Emergency Care, Critical Care, Trauma Medicine' },
+      { name: 'Dr. Amanda Foster, DVM', title: 'Associate Veterinarian', specialties: 'Wellness Care, Vaccinations, Puppy & Kitten Care' },
+      { name: 'Dr. Robert Kim, DVM', title: 'Associate Veterinarian', specialties: 'Orthopedics, Sports Medicine, Rehabilitation' },
+    ],
+  },
+  tips: {
+    title: 'Pet Care Tips',
+    singular: 'Article',
+    fields: [
+      { key: 'title', label: 'Article Title' },
+      { key: 'category', label: 'Category' },
+    ],
+    seed: [
+      { title: 'Essential Daily Pet Care Routine', category: 'General Care' },
+      { title: 'Hydration & Water Safety', category: 'General Care' },
+      { title: 'Exercise & Mental Stimulation', category: 'General Care' },
+      { title: 'Choosing the Right Food', category: 'Nutrition' },
+      { title: 'Portion Control & Feeding Schedule', category: 'Nutrition' },
+      { title: 'Foods to Avoid', category: 'Nutrition' },
+      { title: 'Signs of a Healthy Pet', category: 'Health Signs' },
+      { title: 'When to Call the Vet', category: 'Health Signs' },
+      { title: 'Preventive Care Schedule', category: 'Health Signs' },
+      { title: 'Caring for Aging Pets', category: 'Senior Pets' },
+      { title: 'Managing Arthritis & Joint Pain', category: 'Senior Pets' },
+      { title: 'Senior Pet Nutrition', category: 'Senior Pets' },
+      { title: 'First Year Milestones', category: 'Puppies & Kittens' },
+      { title: 'Socialization & Training', category: 'Puppies & Kittens' },
+      { title: 'Puppy & Kitten Nutrition', category: 'Puppies & Kittens' },
+    ],
+  },
+  reviews: {
+    title: 'Testimonials',
+    singular: 'Testimonial',
+    fields: [
+      { key: 'name', label: 'Client Name' },
+      { key: 'pet', label: 'Pet' },
+      { key: 'service', label: 'Service' },
+      { key: 'review', label: 'Review', textarea: true },
+    ],
+    seed: [
+      { name: 'Sarah Johnson', pet: 'Max (Golden Retriever)', service: 'Emergency Surgery', review: 'Dr. Martinez and her team saved Max\'s life during a bloat emergency at 2am. He made a full recovery.' },
+      { name: 'Michael Chen', pet: 'Whiskers (Cat)', service: 'Senior Wellness Care', review: 'The low-stress approach has made such a difference for our anxious cat. Every visit is stress-free.' },
+      { name: 'Emily Rodriguez', pet: 'Luna (Beagle)', service: 'Dental Surgery', review: 'They explained every step of Luna\'s dental work and called with updates during the procedure.' },
+      { name: 'David Thompson', pet: 'Buddy (Labrador Mix)', service: 'Wellness & Behavioral Support', review: 'Comprehensive treatment plan for our shelter adoption. Six months later Buddy is thriving.' },
+      { name: 'Jennifer Martinez', pet: 'Coco (Poodle)', service: 'Chronic Disease Management', review: 'They taught us to manage Coco\'s diabetes and are always available when we have questions.' },
+      { name: 'Robert Kim', pet: 'Shadow (German Shepherd)', service: 'Orthopedic Surgery', review: 'Exceptional ACL surgery and rehab plan. Shadow is back to running and playing.' },
+      { name: 'Amanda Foster', pet: 'Mittens (Cat)', service: 'Senior Pet Care', review: 'A comprehensive care plan that addresses all of our senior cat\'s conditions with patience.' },
+      { name: 'Lisa Anderson', pet: 'Charlie (Yorkie)', service: 'Emergency Foreign Body Removal', review: 'Charlie ate a sock and needed emergency surgery. They got us in right away and he recovered perfectly.' },
+      { name: 'Thomas Wright', pet: 'Stella (Mixed Breed)', service: 'Dermatology', review: 'Dr. Rodriguez diagnosed a skin condition other vets could not. Stella is finally comfortable.' },
+      { name: 'Maria Garcia', pet: 'Pepper (Chihuahua)', service: 'Preventive Care & Education', review: 'Incredibly patient with first-time owner questions. Pepper gets excellent care.' },
+      { name: 'James Wilson', pet: 'Milo (Tabby Cat)', service: '24/7 Emergency Care', review: 'Dr. Martinez met us at the clinic within 20 minutes on a Sunday night. The emergency line saved Milo\'s life.' },
+      { name: 'Patricia Brown', pet: 'Rocky (Bulldog)', service: 'Breed-Specific Care', review: 'They understand bulldog breathing issues and take extra precautions with his care.' },
+    ],
+  },
+};
+
+function seedContent(): Record<SectionKey, ContentItem[]> {
+  const result = {} as Record<SectionKey, ContentItem[]>;
+  (Object.keys(contentSections) as SectionKey[]).forEach((key) => {
+    result[key] = contentSections[key].seed.map((item, i) => ({ id: `${key}-seed-${i}`, ...item }));
+  });
+  return result;
+}
 
 interface AdminViewProps {
   businessInfo: {
@@ -42,11 +165,88 @@ export default function AdminView({
 }: AdminViewProps) {
   const [activeTab, setActiveTab] = React.useState('overview');
 
+  // Content management state (persisted to localStorage)
+  const [content, setContent] = React.useState<Record<SectionKey, ContentItem[]>>(seedContent);
+  const [editorSection, setEditorSection] = React.useState<SectionKey | null>(null);
+  const [editingId, setEditingId] = React.useState<string | null>(null);
+  const [addingNew, setAddingNew] = React.useState(false);
+  const [draft, setDraft] = React.useState<Record<string, string>>({});
+
+  React.useEffect(() => {
+    try {
+      const saved = window.localStorage.getItem(CONTENT_STORAGE_KEY);
+      if (saved) {
+        setContent({ ...seedContent(), ...(JSON.parse(saved) as Partial<Record<SectionKey, ContentItem[]>>) });
+      }
+    } catch {
+      // Corrupted saved data -- fall back to seeded content
+    }
+  }, []);
+
+  const persistContent = (next: Record<SectionKey, ContentItem[]>) => {
+    setContent(next);
+    try {
+      window.localStorage.setItem(CONTENT_STORAGE_KEY, JSON.stringify(next));
+    } catch {
+      // Storage unavailable -- edits still apply for this session
+    }
+  };
+
+  const emptyDraft = (section: SectionKey): Record<string, string> => {
+    const blank: Record<string, string> = {};
+    contentSections[section].fields.forEach((field) => {
+      blank[field.key] = '';
+    });
+    return blank;
+  };
+
+  const startAdd = (section: SectionKey) => {
+    setAddingNew(true);
+    setEditingId(null);
+    setDraft(emptyDraft(section));
+  };
+
+  const startEdit = (item: ContentItem) => {
+    setAddingNew(false);
+    setEditingId(item.id);
+    const { id, ...fields } = item;
+    setDraft(fields);
+  };
+
+  const cancelEditing = () => {
+    setEditingId(null);
+    setAddingNew(false);
+    setDraft({});
+  };
+
+  const saveDraft = (section: SectionKey) => {
+    if (addingNew) {
+      const newItem: ContentItem = { id: `${section}-${Date.now()}`, ...draft };
+      persistContent({ ...content, [section]: [...content[section], newItem] });
+    } else if (editingId) {
+      persistContent({
+        ...content,
+        [section]: content[section].map((item) => (item.id === editingId ? { id: item.id, ...draft } : item)),
+      });
+    }
+    cancelEditing();
+  };
+
+  const deleteItem = (section: SectionKey, id: string) => {
+    persistContent({ ...content, [section]: content[section].filter((item) => item.id !== id) });
+    if (editingId === id) cancelEditing();
+  };
+
+  const closeEditor = () => {
+    setEditorSection(null);
+    cancelEditing();
+  };
+
   const stats = [
     { label: 'Total Pages', value: '9', icon: FileText, color: colors.primary },
-    { label: 'Services Listed', value: '12', icon: Stethoscope, color: colors.secondary },
-    { label: 'Veterinarians', value: '6', icon: Users, color: colors.accent },
-    { label: 'Testimonials', value: '12', icon: Heart, color: colors.primary },
+    { label: 'Services Listed', value: String(content.services.length), icon: Stethoscope, color: colors.secondary },
+    { label: 'Veterinarians', value: String(content.team.length), icon: Users, color: colors.accent },
+    { label: 'Testimonials', value: String(content.reviews.length), icon: Heart, color: colors.primary },
   ];
 
   const pages = [
@@ -402,53 +602,213 @@ export default function AdminView({
             <h2 className="text-2xl font-bold text-gray-900">Content Management</h2>
 
             <div className="grid md:grid-cols-2 gap-6">
-              <div className="bg-white rounded-xl shadow-md p-6">
-                <div className="flex items-center gap-3 mb-4">
-                  <Stethoscope className="w-6 h-6" style={{ color: colors.primary }} />
-                  <h3 className="text-lg font-semibold text-gray-900">Services</h3>
-                </div>
-                <p className="text-gray-600 mb-4">Manage your veterinary service offerings, descriptions, and pricing.</p>
-                <button className="px-4 py-2 bg-teal-600 text-white rounded-lg hover:bg-teal-700 transition-colors">
-                  Edit Services
-                </button>
-              </div>
-
-              <div className="bg-white rounded-xl shadow-md p-6">
-                <div className="flex items-center gap-3 mb-4">
-                  <Users className="w-6 h-6" style={{ color: colors.primary }} />
-                  <h3 className="text-lg font-semibold text-gray-900">Veterinarians</h3>
-                </div>
-                <p className="text-gray-600 mb-4">Add or update veterinarian profiles, specialties, and credentials.</p>
-                <button className="px-4 py-2 bg-teal-600 text-white rounded-lg hover:bg-teal-700 transition-colors">
-                  Manage Team
-                </button>
-              </div>
-
-              <div className="bg-white rounded-xl shadow-md p-6">
-                <div className="flex items-center gap-3 mb-4">
-                  <FileText className="w-6 h-6" style={{ color: colors.primary }} />
-                  <h3 className="text-lg font-semibold text-gray-900">Pet Care Tips</h3>
-                </div>
-                <p className="text-gray-600 mb-4">Create and organize educational content for pet parents.</p>
-                <button className="px-4 py-2 bg-teal-600 text-white rounded-lg hover:bg-teal-700 transition-colors">
-                  Edit Content
-                </button>
-              </div>
-
-              <div className="bg-white rounded-xl shadow-md p-6">
-                <div className="flex items-center gap-3 mb-4">
-                  <Heart className="w-6 h-6" style={{ color: colors.primary }} />
-                  <h3 className="text-lg font-semibold text-gray-900">Testimonials</h3>
-                </div>
-                <p className="text-gray-600 mb-4">Showcase client reviews and success stories.</p>
-                <button className="px-4 py-2 bg-teal-600 text-white rounded-lg hover:bg-teal-700 transition-colors">
-                  Manage Reviews
-                </button>
-              </div>
+              {([
+                { section: 'services' as SectionKey, icon: Stethoscope, heading: 'Services', blurb: 'Manage your veterinary service offerings, descriptions, and pricing.', cta: 'Edit Services' },
+                { section: 'team' as SectionKey, icon: Users, heading: 'Veterinarians', blurb: 'Add or update veterinarian profiles, specialties, and credentials.', cta: 'Manage Team' },
+                { section: 'tips' as SectionKey, icon: FileText, heading: 'Pet Care Tips', blurb: 'Create and organize educational content for pet parents.', cta: 'Edit Content' },
+                { section: 'reviews' as SectionKey, icon: Heart, heading: 'Testimonials', blurb: 'Showcase client reviews and success stories.', cta: 'Manage Reviews' },
+              ]).map((card) => {
+                const CardIcon = card.icon;
+                return (
+                  <div key={card.section} className="bg-white rounded-xl shadow-md p-6">
+                    <div className="flex items-center justify-between mb-4">
+                      <div className="flex items-center gap-3">
+                        <CardIcon className="w-6 h-6" style={{ color: colors.primary }} />
+                        <h3 className="text-lg font-semibold text-gray-900">{card.heading}</h3>
+                      </div>
+                      <span className="px-3 py-1 bg-teal-100 text-teal-800 rounded-full text-sm font-medium">
+                        {content[card.section].length} items
+                      </span>
+                    </div>
+                    <p className="text-gray-600 mb-4">{card.blurb}</p>
+                    <button
+                      onClick={() => setEditorSection(card.section)}
+                      className="px-4 py-2 bg-teal-600 text-white rounded-lg hover:bg-teal-700 transition-colors"
+                    >
+                      {card.cta}
+                    </button>
+                  </div>
+                );
+              })}
             </div>
           </div>
         )}
       </div>
+
+      {/* Content Editor Modal */}
+      {editorSection && (
+        <div
+          className="fixed inset-0 z-50 flex items-center justify-center p-4 bg-black/60"
+          onClick={closeEditor}
+        >
+          <div
+            className="bg-white rounded-2xl shadow-2xl max-w-2xl w-full max-h-[85vh] overflow-y-auto"
+            onClick={(e) => e.stopPropagation()}
+            role="dialog"
+            aria-modal="true"
+            aria-label={`Manage ${contentSections[editorSection].title}`}
+          >
+            <div className="sticky top-0 bg-white border-b px-6 py-4 flex items-center justify-between rounded-t-2xl z-10">
+              <div>
+                <h3 className="text-xl font-bold text-gray-900">
+                  Manage {contentSections[editorSection].title}
+                </h3>
+                <p className="text-sm text-gray-500">
+                  {content[editorSection].length} items. Changes are saved to this browser automatically.
+                </p>
+              </div>
+              <button
+                onClick={closeEditor}
+                aria-label="Close editor"
+                className="p-2 rounded-lg hover:bg-gray-100 transition-colors"
+              >
+                <X className="w-5 h-5 text-gray-600" />
+              </button>
+            </div>
+
+            <div className="p-6 space-y-3">
+              {content[editorSection].map((item) => (
+                <div key={item.id} className="border-2 border-gray-100 rounded-xl p-4">
+                  {editingId === item.id ? (
+                    <div className="space-y-3">
+                      {contentSections[editorSection].fields.map((field) => (
+                        <div key={field.key}>
+                          <label
+                            htmlFor={`vet-admin-edit-${item.id}-${field.key}`}
+                            className="block text-xs font-semibold text-gray-500 uppercase mb-1"
+                          >
+                            {field.label}
+                          </label>
+                          {field.textarea ? (
+                            <textarea
+                              id={`vet-admin-edit-${item.id}-${field.key}`}
+                              value={draft[field.key] || ''}
+                              onChange={(e) => setDraft({ ...draft, [field.key]: e.target.value })}
+                              rows={3}
+                              className="w-full px-3 py-2 border-2 border-gray-200 rounded-lg focus:border-teal-500 focus:outline-none text-sm"
+                            />
+                          ) : (
+                            <input
+                              id={`vet-admin-edit-${item.id}-${field.key}`}
+                              type="text"
+                              value={draft[field.key] || ''}
+                              onChange={(e) => setDraft({ ...draft, [field.key]: e.target.value })}
+                              className="w-full px-3 py-2 border-2 border-gray-200 rounded-lg focus:border-teal-500 focus:outline-none text-sm"
+                            />
+                          )}
+                        </div>
+                      ))}
+                      <div className="flex gap-2 pt-1">
+                        <button
+                          onClick={() => saveDraft(editorSection)}
+                          className="px-4 py-2 bg-teal-600 text-white rounded-lg hover:bg-teal-700 transition-colors text-sm font-medium inline-flex items-center gap-1"
+                        >
+                          <Check className="w-4 h-4" />
+                          Save
+                        </button>
+                        <button
+                          onClick={cancelEditing}
+                          className="px-4 py-2 bg-gray-100 text-gray-700 rounded-lg hover:bg-gray-200 transition-colors text-sm font-medium"
+                        >
+                          Cancel
+                        </button>
+                      </div>
+                    </div>
+                  ) : (
+                    <div className="flex items-start justify-between gap-3">
+                      <div className="flex-1 min-w-0">
+                        <p className="font-semibold text-gray-900">
+                          {item[contentSections[editorSection].fields[0].key]}
+                        </p>
+                        {contentSections[editorSection].fields.slice(1).map((field) => (
+                          <p key={field.key} className="text-sm text-gray-600 truncate">
+                            {item[field.key]}
+                          </p>
+                        ))}
+                      </div>
+                      <div className="flex gap-1 flex-shrink-0">
+                        <button
+                          onClick={() => startEdit(item)}
+                          aria-label={`Edit ${item[contentSections[editorSection].fields[0].key]}`}
+                          className="p-2 rounded-lg hover:bg-teal-50 text-teal-700 transition-colors"
+                        >
+                          <Pencil className="w-4 h-4" />
+                        </button>
+                        <button
+                          onClick={() => deleteItem(editorSection, item.id)}
+                          aria-label={`Delete ${item[contentSections[editorSection].fields[0].key]}`}
+                          className="p-2 rounded-lg hover:bg-red-50 text-red-600 transition-colors"
+                        >
+                          <Trash2 className="w-4 h-4" />
+                        </button>
+                      </div>
+                    </div>
+                  )}
+                </div>
+              ))}
+
+              {addingNew ? (
+                <div className="border-2 border-teal-200 bg-teal-50/50 rounded-xl p-4 space-y-3">
+                  <p className="font-semibold text-gray-900">
+                    New {contentSections[editorSection].singular}
+                  </p>
+                  {contentSections[editorSection].fields.map((field) => (
+                    <div key={field.key}>
+                      <label
+                        htmlFor={`vet-admin-new-${field.key}`}
+                        className="block text-xs font-semibold text-gray-500 uppercase mb-1"
+                      >
+                        {field.label}
+                      </label>
+                      {field.textarea ? (
+                        <textarea
+                          id={`vet-admin-new-${field.key}`}
+                          value={draft[field.key] || ''}
+                          onChange={(e) => setDraft({ ...draft, [field.key]: e.target.value })}
+                          rows={3}
+                          className="w-full px-3 py-2 border-2 border-gray-200 rounded-lg focus:border-teal-500 focus:outline-none text-sm"
+                        />
+                      ) : (
+                        <input
+                          id={`vet-admin-new-${field.key}`}
+                          type="text"
+                          value={draft[field.key] || ''}
+                          onChange={(e) => setDraft({ ...draft, [field.key]: e.target.value })}
+                          className="w-full px-3 py-2 border-2 border-gray-200 rounded-lg focus:border-teal-500 focus:outline-none text-sm"
+                        />
+                      )}
+                    </div>
+                  ))}
+                  <div className="flex gap-2 pt-1">
+                    <button
+                      onClick={() => saveDraft(editorSection)}
+                      disabled={!(draft[contentSections[editorSection].fields[0].key] || '').trim()}
+                      className="px-4 py-2 bg-teal-600 text-white rounded-lg hover:bg-teal-700 transition-colors text-sm font-medium inline-flex items-center gap-1 disabled:opacity-50 disabled:cursor-not-allowed"
+                    >
+                      <Check className="w-4 h-4" />
+                      Add {contentSections[editorSection].singular}
+                    </button>
+                    <button
+                      onClick={cancelEditing}
+                      className="px-4 py-2 bg-gray-100 text-gray-700 rounded-lg hover:bg-gray-200 transition-colors text-sm font-medium"
+                    >
+                      Cancel
+                    </button>
+                  </div>
+                </div>
+              ) : (
+                <button
+                  onClick={() => startAdd(editorSection)}
+                  className="w-full border-2 border-dashed border-teal-300 rounded-xl p-4 text-teal-700 font-medium hover:bg-teal-50 transition-colors inline-flex items-center justify-center gap-2"
+                >
+                  <Plus className="w-5 h-5" />
+                  Add {contentSections[editorSection].singular}
+                </button>
+              )}
+            </div>
+          </div>
+        </div>
+      )}
     </div>
   );
 }

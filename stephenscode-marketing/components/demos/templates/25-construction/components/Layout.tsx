@@ -1,5 +1,6 @@
 'use client'
 
+import { useState } from 'react'
 import type { ColorPalette } from '@/lib/demo-colors'
 
 interface LayoutProps {
@@ -11,6 +12,8 @@ interface LayoutProps {
 }
 
 export default function Layout({ children, colors, currentPage, onNavigate, onQuoteOpen }: LayoutProps) {
+  const [mobileMenuOpen, setMobileMenuOpen] = useState(false)
+
   const navItems = [
     { id: 'home', label: 'Home' },
     { id: 'services', label: 'Services' },
@@ -24,12 +27,21 @@ export default function Layout({ children, colors, currentPage, onNavigate, onQu
     { id: 'contact', label: 'Contact' }
   ]
 
+  const handleNav = (id: string) => {
+    setMobileMenuOpen(false)
+    if (id === 'quote') {
+      onQuoteOpen()
+    } else {
+      onNavigate(id)
+    }
+  }
+
   return (
     <div>
       <header style={{ backgroundColor: '#ff6700' }} className="sticky top-0 z-40 shadow-lg">
         <div className="max-w-7xl mx-auto px-4">
           <div className="flex justify-between items-center py-4">
-            <div className="flex items-center gap-3 cursor-pointer" onClick={() => onNavigate('home')}>
+            <div className="flex items-center gap-3 cursor-pointer" onClick={() => handleNav('home')}>
               <div className="text-4xl">🏗️</div>
               <div>
                 <div style={{ color: '#ffffff' }} className="text-2xl font-bold">BuildRight Construction</div>
@@ -40,7 +52,7 @@ export default function Layout({ children, colors, currentPage, onNavigate, onQu
               {navItems.slice(0, 6).map((item) => (
                 <button
                   key={item.id}
-                  onClick={() => item.id === 'quote' ? onQuoteOpen() : onNavigate(item.id)}
+                  onClick={() => handleNav(item.id)}
                   style={{
                     color: currentPage === item.id ? '#1a1a1a' : '#ffffff',
                     borderBottom: currentPage === item.id ? '3px solid #1a1a1a' : 'none'
@@ -51,14 +63,46 @@ export default function Layout({ children, colors, currentPage, onNavigate, onQu
                 </button>
               ))}
             </nav>
-            <button
-              onClick={onQuoteOpen}
-              style={{ backgroundColor: '#1a1a1a', color: '#ffffff' }}
-              className="px-6 py-3 font-bold hover:opacity-90 transition"
-            >
-              Free Quote
-            </button>
+            <div className="flex items-center gap-3">
+              <button
+                onClick={onQuoteOpen}
+                style={{ backgroundColor: '#1a1a1a', color: '#ffffff' }}
+                className="hidden sm:block px-6 py-3 font-bold hover:opacity-90 transition"
+              >
+                Free Quote
+              </button>
+              <button
+                onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
+                aria-label={mobileMenuOpen ? 'Close menu' : 'Open menu'}
+                aria-expanded={mobileMenuOpen}
+                style={{ backgroundColor: '#1a1a1a' }}
+                className="lg:hidden p-3 flex flex-col justify-center items-center gap-1.5 hover:opacity-90 transition"
+              >
+                <span style={{ backgroundColor: '#ffffff' }} className={`block w-6 h-0.5 transition-transform ${mobileMenuOpen ? 'rotate-45 translate-y-2' : ''}`} />
+                <span style={{ backgroundColor: '#ffffff' }} className={`block w-6 h-0.5 transition-opacity ${mobileMenuOpen ? 'opacity-0' : ''}`} />
+                <span style={{ backgroundColor: '#ffffff' }} className={`block w-6 h-0.5 transition-transform ${mobileMenuOpen ? '-rotate-45 -translate-y-2' : ''}`} />
+              </button>
+            </div>
           </div>
+          {mobileMenuOpen && (
+            <nav className="lg:hidden pb-4">
+              <div className="grid grid-cols-2 gap-2">
+                {navItems.map((item) => (
+                  <button
+                    key={item.id}
+                    onClick={() => handleNav(item.id)}
+                    style={{
+                      backgroundColor: currentPage === item.id ? '#1a1a1a' : 'rgba(26,26,26,0.35)',
+                      color: '#ffffff'
+                    }}
+                    className="px-4 py-3 font-bold text-left hover:opacity-90 transition"
+                  >
+                    {item.label}
+                  </button>
+                ))}
+              </div>
+            </nav>
+          )}
         </div>
       </header>
 
@@ -66,7 +110,7 @@ export default function Layout({ children, colors, currentPage, onNavigate, onQu
 
       <footer style={{ backgroundColor: '#1a1a1a', color: '#ffffff' }} className="py-16">
         <div className="max-w-7xl mx-auto px-4">
-          <div className="grid md:grid-cols-4 gap-8 mb-12">
+          <div className="grid md:grid-cols-5 gap-8 mb-12">
             <div>
               <div className="flex items-center gap-2 mb-4">
                 <div className="text-3xl">🏗️</div>
@@ -78,9 +122,36 @@ export default function Layout({ children, colors, currentPage, onNavigate, onQu
             </div>
             <div>
               <h4 style={{ color: '#ff6700' }} className="font-bold mb-4">Services</h4>
-              <div style={{ color: '#cccccc' }} className="space-y-2 text-sm">
+              <div className="space-y-2 text-sm">
                 {['Custom Homes', 'Remodeling', 'Commercial', 'Additions'].map((s) => (
-                  <div key={s}>{s}</div>
+                  <button
+                    key={s}
+                    onClick={() => handleNav('services')}
+                    style={{ color: '#cccccc' }}
+                    className="block hover:opacity-70 transition text-left"
+                  >
+                    {s}
+                  </button>
+                ))}
+              </div>
+            </div>
+            <div>
+              <h4 style={{ color: '#ff6700' }} className="font-bold mb-4">Company</h4>
+              <div className="space-y-2 text-sm">
+                {[
+                  { id: 'about', label: 'About Us' },
+                  { id: 'testimonials', label: 'Testimonials' },
+                  { id: 'resources', label: 'Resources' },
+                  { id: 'contact', label: 'Contact' }
+                ].map((link) => (
+                  <button
+                    key={link.id}
+                    onClick={() => handleNav(link.id)}
+                    style={{ color: '#cccccc' }}
+                    className="block hover:opacity-70 transition text-left"
+                  >
+                    {link.label}
+                  </button>
                 ))}
               </div>
             </div>

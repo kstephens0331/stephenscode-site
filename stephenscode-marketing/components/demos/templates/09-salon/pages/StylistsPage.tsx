@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React from 'react';
 import { Award, Star, Calendar, Instagram, Heart } from 'lucide-react';
 
 interface StylistsPageProps {
@@ -6,8 +6,6 @@ interface StylistsPageProps {
 }
 
 export default function StylistsPage({ onNavigate }: StylistsPageProps) {
-  const [selectedStylist, setSelectedStylist] = useState<number | null>(null);
-
   const stylists = [
     {
       name: 'Jessica Ramirez',
@@ -178,13 +176,14 @@ export default function StylistsPage({ onNavigate }: StylistsPageProps) {
 
                   {/* Social & Actions */}
                   <div className="flex items-center justify-between pt-6 border-t">
-                    <a
-                      href="#"
+                    <button
+                      onClick={() => onNavigate('gallery')}
                       className="flex items-center text-[#d00000] hover:text-[#dc2f02] transition-colors"
+                      aria-label={`See ${stylist.name}'s work in the gallery`}
                     >
                       <Instagram className="w-5 h-5 mr-2" />
                       <span className="font-medium">{stylist.instagram}</span>
-                    </a>
+                    </button>
                     <button
                       onClick={() => onNavigate('booking')}
                       className="bg-gradient-to-r from-[#d00000] to-[#e85d04] text-white px-6 py-3 rounded-full font-semibold hover:shadow-lg transition-all duration-300"

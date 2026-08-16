@@ -205,11 +205,54 @@ export default function ServiceAreasPage({ onNavigate }: ServiceAreasPageProps) 
           </div>
 
           <div className="bg-white rounded-2xl shadow-xl p-8">
-            <div className="aspect-video bg-gradient-to-br from-[#003049]/10 to-[#f77f00]/10 rounded-xl flex items-center justify-center border-2 border-dashed border-gray-300">
-              <div className="text-center">
-                <MapPin className="w-20 h-20 text-[#003049] mx-auto mb-4" />
-                <p className="text-2xl font-bold text-[#003049] mb-2">Interactive Service Map</p>
-                <p className="text-gray-600">Coverage area visualization would appear here</p>
+            <div className="aspect-video rounded-xl overflow-hidden">
+              <svg viewBox="0 0 800 450" className="w-full h-full" role="img" aria-label="Coverage map showing a 50-mile service radius around the Cool Breeze HVAC headquarters">
+                <rect width="800" height="450" fill="#eef3f6" />
+                {/* Coverage rings */}
+                <circle cx="400" cy="225" r="205" fill="#f77f00" opacity="0.08" />
+                <circle cx="400" cy="225" r="150" fill="#f77f00" opacity="0.10" />
+                <circle cx="400" cy="225" r="95" fill="#f77f00" opacity="0.14" />
+                <circle cx="400" cy="225" r="205" fill="none" stroke="#f77f00" strokeWidth="2" strokeDasharray="8 6" />
+                <circle cx="400" cy="225" r="95" fill="none" stroke="#f77f00" strokeWidth="1.5" strokeDasharray="4 5" />
+                {/* Radius labels */}
+                <text x="400" y="140" textAnchor="middle" fill="#e07000" fontSize="12" fontFamily="sans-serif" fontWeight="700">25 MILES</text>
+                <text x="400" y="32" textAnchor="middle" fill="#e07000" fontSize="12" fontFamily="sans-serif" fontWeight="700">50 MILES</text>
+                {/* Region dots */}
+                <g fontFamily="sans-serif" fontSize="13" fontWeight="600" fill="#003049">
+                  <circle cx="400" cy="120" r="6" fill="#003049" />
+                  <text x="400" y="104" textAnchor="middle">North County</text>
+                  <circle cx="400" cy="335" r="6" fill="#003049" />
+                  <text x="400" y="362" textAnchor="middle">South County</text>
+                  <circle cx="545" cy="225" r="6" fill="#003049" />
+                  <text x="545" y="208" textAnchor="middle">East Valley</text>
+                  <circle cx="255" cy="225" r="6" fill="#003049" />
+                  <text x="255" y="208" textAnchor="middle">West Valley</text>
+                  <circle cx="510" cy="315" r="6" fill="#003049" />
+                  <text x="510" y="342" textAnchor="middle">Suburban Areas</text>
+                  <circle cx="290" cy="130" r="6" fill="#003049" />
+                  <text x="290" y="114" textAnchor="middle">Metro West</text>
+                </g>
+                {/* HQ pin */}
+                <g transform="translate(400 235)">
+                  <path d="M 0 0 C -20 -28 -20 -52 0 -52 C 20 -52 20 -28 0 0 Z" fill="#d62828" />
+                  <circle cx="0" cy="-36" r="9" fill="#ffffff" />
+                </g>
+                <rect x="300" y="245" width="200" height="32" rx="16" fill="#003049" />
+                <text x="400" y="266" textAnchor="middle" fill="#ffffff" fontSize="14" fontFamily="sans-serif" fontWeight="700">Cool Breeze HQ</text>
+              </svg>
+            </div>
+            <div className="mt-6 grid grid-cols-1 sm:grid-cols-3 gap-4 text-center text-sm">
+              <div className="bg-gray-50 rounded-lg p-3">
+                <p className="font-bold text-[#003049]">Inside 25 miles</p>
+                <p className="text-gray-600">Same-day service, no travel fee</p>
+              </div>
+              <div className="bg-gray-50 rounded-lg p-3">
+                <p className="font-bold text-[#003049]">25-50 miles</p>
+                <p className="text-gray-600">Next-day service, no travel fee</p>
+              </div>
+              <div className="bg-gray-50 rounded-lg p-3">
+                <p className="font-bold text-[#003049]">Emergencies</p>
+                <p className="text-gray-600">24/7 across the full radius</p>
               </div>
             </div>
           </div>

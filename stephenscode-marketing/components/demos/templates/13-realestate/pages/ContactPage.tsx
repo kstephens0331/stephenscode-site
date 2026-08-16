@@ -1,6 +1,20 @@
-import React, { useState } from 'react';
-import { Mail, Phone, MapPin, Clock, Send, CheckCircle, MessageSquare, Calendar, User, Home } from 'lucide-react';
+import React, { useRef, useState } from 'react';
+import { Mail, Phone, MapPin, Clock, Send, CheckCircle, MessageSquare, Calendar, User, Home, Navigation } from 'lucide-react';
 import { trackEvent, trackConversion } from '@/lib/analytics';
+import LeadModal from '../components/LeadModal';
+import ChatModal from '../components/ChatModal';
+
+const OFFICE_PIN_POSITIONS = [
+  { left: '28%', top: '38%' },
+  { left: '64%', top: '26%' },
+  { left: '46%', top: '66%' },
+];
+
+const OFFICE_ROUTES = [
+  '4.1 miles from city center - about a 12 minute drive',
+  '7.3 miles from city center - about an 18 minute drive',
+  '10.2 miles from city center - about a 24 minute drive',
+];
 
 const ContactPage: React.FC = () => {
   const [formData, setFormData] = useState({
@@ -11,6 +25,16 @@ const ContactPage: React.FC = () => {
     message: '',
   });
   const [submitted, setSubmitted] = useState(false);
+  const [showAppointment, setShowAppointment] = useState(false);
+  const [showValuation, setShowValuation] = useState(false);
+  const [showChat, setShowChat] = useState(false);
+  const [selectedOffice, setSelectedOffice] = useState(0);
+  const mapRef = useRef<HTMLDivElement>(null);
+
+  const handleGetDirections = (index: number) => {
+    setSelectedOffice(index);
+    mapRef.current?.scrollIntoView({ behavior: 'smooth', block: 'center' });
+  };
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
@@ -298,7 +322,10 @@ const ContactPage: React.FC = () => {
               <p className="text-gray-300 mb-6">
                 Book a free, no-obligation consultation with one of our expert agents.
               </p>
-              <button className="w-full bg-[#ffc300] text-[#000814] px-6 py-3 rounded-lg font-semibold hover:bg-[#ffcd1a] transition-colors">
+              <button
+                onClick={() => setShowAppointment(true)}
+                className="w-full bg-[#ffc300] text-[#000814] px-6 py-3 rounded-lg font-semibold hover:bg-[#ffcd1a] transition-colors"
+              >
                 Book Appointment
               </button>
             </div>
@@ -309,7 +336,10 @@ const ContactPage: React.FC = () => {
               <p className="text-gray-600 mb-6">
                 Get an accurate estimate of your home's current market value.
               </p>
-              <button className="w-full bg-[#000814] text-white px-6 py-3 rounded-lg font-semibold hover:bg-[#001d3d] transition-colors">
+              <button
+                onClick={() => setShowValuation(true)}
+                className="w-full bg-[#000814] text-white px-6 py-3 rounded-lg font-semibold hover:bg-[#001d3d] transition-colors"
+              >
                 Get Valuation
               </button>
             </div>
@@ -320,7 +350,10 @@ const ContactPage: React.FC = () => {
               <p className="text-gray-600 mb-6">
                 Chat with our team for immediate answers to your questions.
               </p>
-              <button className="w-full bg-gray-100 text-[#000814] px-6 py-3 rounded-lg font-semibold hover:bg-gray-200 transition-colors">
+              <button
+                onClick={() => setShowChat(true)}
+                className="w-full bg-gray-100 text-[#000814] px-6 py-3 rounded-lg font-semibold hover:bg-gray-200 transition-colors"
+              >
                 Start Chat
               </button>
             </div>
@@ -361,7 +394,11 @@ const ContactPage: React.FC = () => {
                       <span className="text-gray-600">{office.hours}</span>
                     </div>
                   </div>
-                  <button className="w-full mt-4 border-2 border-[#000814] text-[#000814] px-4 py-2 rounded-lg font-semibold hover:bg-[#000814] hover:text-white transition-colors">
+                  <button
+                    onClick={() => handleGetDirections(index)}
+                    className="w-full mt-4 border-2 border-[#000814] text-[#000814] px-4 py-2 rounded-lg font-semibold hover:bg-[#000814] hover:text-white transition-colors flex items-center justify-center"
+                  >
+                    <Navigation className="w-4 h-4 mr-2" />
                     Get Directions
                   </button>
                 </div>
@@ -387,15 +424,93 @@ const ContactPage: React.FC = () => {
       </div>
 
       {/* Map Section */}
-      <div className="bg-gray-200 h-96">
-        <div className="h-full flex items-center justify-center text-gray-500">
-          <div className="text-center">
-            <MapPin className="w-16 h-16 mx-auto mb-4 text-gray-400" />
-            <p className="text-lg font-semibold">Interactive Map Would Be Here</p>
-            <p className="text-sm">Showing our office locations</p>
+      <div ref={mapRef} className="relative h-96 bg-[#dce8f0] overflow-hidden">
+        {/* Stylized streets */}
+        <div className="absolute inset-x-0 top-1/4 h-3 bg-white/90" />
+        <div className="absolute inset-x-0 top-2/3 h-4 bg-white/90" />
+        <div className="absolute inset-y-0 left-1/4 w-3 bg-white/90" />
+        <div className="absolute inset-y-0 left-2/3 w-4 bg-white/90" />
+        <div className="absolute inset-x-0 top-[45%] h-2 bg-white/60 rotate-3 origin-left" />
+        {/* Park and water accents */}
+        <div className="absolute left-[8%] top-[52%] w-28 h-20 bg-green-200 rounded-2xl" />
+        <div className="absolute right-[6%] top-[8%] w-36 h-24 bg-green-200 rounded-3xl" />
+        <div className="absolute -right-10 bottom-0 w-64 h-24 bg-blue-200 rounded-tl-[80px]" />
+
+        {/* Office pins */}
+        {offices.map((office, index) => (
+          <button
+            key={office.name}
+            onClick={() => setSelectedOffice(index)}
+            aria-label={`Show ${office.name} on map`}
+            className="absolute -translate-x-1/2 -translate-y-full flex flex-col items-center group"
+            style={{ left: OFFICE_PIN_POSITIONS[index].left, top: OFFICE_PIN_POSITIONS[index].top }}
+          >
+            <span
+              className={`px-2 py-1 rounded-md text-xs font-semibold mb-1 whitespace-nowrap shadow transition-colors ${
+                selectedOffice === index
+                  ? 'bg-[#000814] text-white'
+                  : 'bg-white text-[#000814] group-hover:bg-[#ffc300]'
+              }`}
+            >
+              {office.name}
+            </span>
+            <MapPin
+              className={`w-8 h-8 drop-shadow transition-all ${
+                selectedOffice === index ? 'text-[#000814] scale-125 fill-[#ffc300]' : 'text-[#001d3d] fill-white'
+              }`}
+            />
+          </button>
+        ))}
+
+        {/* Selected office details */}
+        <div className="absolute bottom-4 left-4 right-4 sm:right-auto sm:max-w-sm bg-white rounded-xl shadow-xl p-5">
+          <h3 className="font-bold text-[#000814] mb-2">{offices[selectedOffice].name}</h3>
+          <div className="space-y-2 text-sm">
+            <div className="flex items-start">
+              <MapPin className="w-4 h-4 text-[#ffc300] mr-2 flex-shrink-0 mt-0.5" />
+              <span className="text-gray-600">{offices[selectedOffice].address}</span>
+            </div>
+            <div className="flex items-center">
+              <Navigation className="w-4 h-4 text-[#ffc300] mr-2 flex-shrink-0" />
+              <span className="text-gray-600">{OFFICE_ROUTES[selectedOffice]}</span>
+            </div>
+            <div className="flex items-center">
+              <Phone className="w-4 h-4 text-[#ffc300] mr-2 flex-shrink-0" />
+              <a href={`tel:${offices[selectedOffice].phone}`} className="text-gray-600 hover:text-[#000814]">
+                {offices[selectedOffice].phone}
+              </a>
+            </div>
           </div>
         </div>
       </div>
+
+      {/* Book Appointment Modal */}
+      <LeadModal
+        open={showAppointment}
+        onClose={() => setShowAppointment(false)}
+        title="Book an Appointment"
+        subtitle="Free, no-obligation consultation with one of our expert agents."
+        service="Consultation Appointment"
+        formName="book_appointment"
+        showDateTime
+        submitLabel="Book Appointment"
+      />
+
+      {/* Home Valuation Modal */}
+      <LeadModal
+        open={showValuation}
+        onClose={() => setShowValuation(false)}
+        title="Free Home Valuation"
+        subtitle="Tell us about your property and we will prepare a comparative market analysis."
+        service="Home Valuation"
+        formName="home_valuation"
+        submitLabel="Request Valuation"
+        messageLabel="Property Details"
+        messagePlaceholder="Address, beds/baths, recent updates, and your selling timeline..."
+      />
+
+      {/* Live Chat */}
+      <ChatModal open={showChat} onClose={() => setShowChat(false)} />
     </div>
   );
 };

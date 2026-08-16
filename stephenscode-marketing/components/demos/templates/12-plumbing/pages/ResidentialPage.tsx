@@ -1,11 +1,24 @@
-import React from 'react';
+import React, { useEffect, useState } from 'react';
 import { Home, Droplet, Wrench, Thermometer, Workflow, Bath, CheckCircle } from 'lucide-react';
 
 interface ResidentialPageProps {
   onNavigate: (page: string) => void;
 }
 
+const PLAN_STORAGE_KEY = 'plumbing-demo-maintenance-plan';
+
 const ResidentialPage: React.FC<ResidentialPageProps> = ({ onNavigate }) => {
+  const [selectedPlan, setSelectedPlan] = useState<string | null>(null);
+
+  useEffect(() => {
+    const stored = window.localStorage.getItem(PLAN_STORAGE_KEY);
+    if (stored) setSelectedPlan(stored);
+  }, []);
+
+  const handleSelectPlan = (plan: string) => {
+    setSelectedPlan(plan);
+    window.localStorage.setItem(PLAN_STORAGE_KEY, plan);
+  };
   const services = [
     {
       icon: Droplet,
@@ -161,7 +174,10 @@ const ResidentialPage: React.FC<ResidentialPageProps> = ({ onNavigate }) => {
                       </li>
                     ))}
                   </ul>
-                  <button className="mt-6 text-[#0466c8] font-semibold hover:text-[#0353a4] flex items-center space-x-2">
+                  <button
+                    onClick={() => onNavigate('contact')}
+                    className="mt-6 text-[#0466c8] font-semibold hover:text-[#0353a4] flex items-center space-x-2"
+                  >
                     <span>Request This Service</span>
                     <svg className="h-4 w-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                       <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
@@ -301,8 +317,15 @@ const ResidentialPage: React.FC<ResidentialPageProps> = ({ onNavigate }) => {
                   <span className="text-gray-700">Priority scheduling</span>
                 </li>
               </ul>
-              <button className="w-full bg-gray-200 text-gray-900 px-6 py-3 rounded-lg font-bold hover:bg-gray-300 transition-colors">
-                Select Plan
+              <button
+                onClick={() => handleSelectPlan('Basic')}
+                className={`w-full px-6 py-3 rounded-lg font-bold transition-colors ${
+                  selectedPlan === 'Basic'
+                    ? 'bg-green-600 text-white hover:bg-green-700'
+                    : 'bg-gray-200 text-gray-900 hover:bg-gray-300'
+                }`}
+              >
+                {selectedPlan === 'Basic' ? 'Plan Selected' : 'Select Plan'}
               </button>
             </div>
 
@@ -334,8 +357,15 @@ const ResidentialPage: React.FC<ResidentialPageProps> = ({ onNavigate }) => {
                   <span className="text-gray-700">Priority emergency service</span>
                 </li>
               </ul>
-              <button className="w-full bg-[#0466c8] text-white px-6 py-3 rounded-lg font-bold hover:bg-[#0353a4] transition-colors">
-                Select Plan
+              <button
+                onClick={() => handleSelectPlan('Premium')}
+                className={`w-full px-6 py-3 rounded-lg font-bold transition-colors ${
+                  selectedPlan === 'Premium'
+                    ? 'bg-green-600 text-white hover:bg-green-700'
+                    : 'bg-[#0466c8] text-white hover:bg-[#0353a4]'
+                }`}
+              >
+                {selectedPlan === 'Premium' ? 'Plan Selected' : 'Select Plan'}
               </button>
             </div>
 
@@ -368,11 +398,35 @@ const ResidentialPage: React.FC<ResidentialPageProps> = ({ onNavigate }) => {
                   <span className="text-gray-700">Transferable warranty</span>
                 </li>
               </ul>
-              <button className="w-full bg-gray-200 text-gray-900 px-6 py-3 rounded-lg font-bold hover:bg-gray-300 transition-colors">
-                Select Plan
+              <button
+                onClick={() => handleSelectPlan('Complete')}
+                className={`w-full px-6 py-3 rounded-lg font-bold transition-colors ${
+                  selectedPlan === 'Complete'
+                    ? 'bg-green-600 text-white hover:bg-green-700'
+                    : 'bg-gray-200 text-gray-900 hover:bg-gray-300'
+                }`}
+              >
+                {selectedPlan === 'Complete' ? 'Plan Selected' : 'Select Plan'}
               </button>
             </div>
           </div>
+          {selectedPlan && (
+            <div className="mt-10 max-w-2xl mx-auto bg-green-50 border-2 border-green-200 rounded-xl p-6 text-center">
+              <CheckCircle className="h-10 w-10 text-green-600 mx-auto mb-3" />
+              <h3 className="text-xl font-bold text-gray-900 mb-2">
+                You selected the {selectedPlan} plan
+              </h3>
+              <p className="text-gray-600 mb-4">
+                We'll confirm your enrollment and set up your first inspection when you schedule service.
+              </p>
+              <button
+                onClick={() => onNavigate('contact')}
+                className="bg-[#0466c8] text-white px-8 py-3 rounded-lg font-bold hover:bg-[#0353a4] transition-colors"
+              >
+                Schedule My First Visit
+              </button>
+            </div>
+          )}
         </div>
       </section>
 
@@ -390,9 +444,12 @@ const ResidentialPage: React.FC<ResidentialPageProps> = ({ onNavigate }) => {
             >
               Schedule Service
             </button>
-            <button className="bg-[#023e7d] text-white px-8 py-3 rounded-lg font-bold hover:bg-[#012a5c] transition-colors">
+            <a
+              href="tel:5557658237"
+              className="bg-[#023e7d] text-white px-8 py-3 rounded-lg font-bold hover:bg-[#012a5c] transition-colors inline-block"
+            >
               Call (555) 765-8237
-            </button>
+            </a>
           </div>
         </div>
       </section>

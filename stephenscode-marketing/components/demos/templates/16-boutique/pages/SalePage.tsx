@@ -1,19 +1,53 @@
 'use client'
 
-import { Star, Heart, ShoppingBag, Tag, Clock } from 'lucide-react'
+import { useEffect, useState } from 'react'
+import { Star, Heart, ShoppingBag, Tag, Clock, Check } from 'lucide-react'
+import { saleProducts, getSwatchColor, type BoutiqueProduct } from '../data/products'
+import ProductQuickView from '../components/ProductQuickView'
 
-export default function SalePage({ addToCart, addToWishlist }: any) {
-  const saleProducts = [
-    { id: 's1', name: 'Evening Gown', price: 199.99, originalPrice: 349.99, discount: 43, image: 'https://images.unsplash.com/photo-1566174053879-31528523f8ae?w=400', rating: 4.8, sizes: ['XS', 'S', 'M'], colors: ['Black', 'Navy'] },
-    { id: 's2', name: 'Wool Sweater', price: 79.99, originalPrice: 139.99, discount: 43, image: 'https://images.unsplash.com/photo-1576566588028-4147f3842f27?w=400', rating: 4.6, sizes: ['S', 'M', 'L'], colors: ['Gray', 'Beige'] },
-    { id: 's3', name: 'Leather Jacket', price: 249.99, originalPrice: 449.99, discount: 44, image: 'https://images.unsplash.com/photo-1551028719-00167b16eac5?w=400', rating: 4.9, sizes: ['S', 'M'], colors: ['Black'] },
-    { id: 's4', name: 'Silk Blouse', price: 69.99, originalPrice: 119.99, discount: 42, image: 'https://images.unsplash.com/photo-1594633312681-425c7b97ccd1?w=400', rating: 4.7, sizes: ['XS', 'S', 'M', 'L'], colors: ['White', 'Blush'] },
-    { id: 's5', name: 'Designer Heels', price: 129.99, originalPrice: 249.99, discount: 48, image: 'https://images.unsplash.com/photo-1543163521-1bf539c55dd2?w=400', rating: 4.5, sizes: ['7', '8', '9'], colors: ['Black', 'Nude'] },
-    { id: 's6', name: 'Pencil Skirt', price: 59.99, originalPrice: 99.99, discount: 40, image: 'https://images.unsplash.com/photo-1583496661160-fb5886a0aaaa?w=400', rating: 4.4, sizes: ['XS', 'S', 'M', 'L'], colors: ['Black', 'Navy'] },
-  ]
+const INITIAL_SECONDS = ((2 * 24 + 14) * 60 + 32) * 60 + 18 // 2 days 14 hrs 32 min 18 sec
+
+export default function SalePage({ setCurrentPage, addToCart, addToWishlist }: any) {
+  const [quickViewProduct, setQuickViewProduct] = useState<BoutiqueProduct | null>(null)
+  const [secondsLeft, setSecondsLeft] = useState(INITIAL_SECONDS)
+  const [vipFormOpen, setVipFormOpen] = useState(false)
+  const [vipEmail, setVipEmail] = useState('')
+  const [vipJoined, setVipJoined] = useState(false)
+  const [vipError, setVipError] = useState('')
+
+  useEffect(() => {
+    const interval = setInterval(() => {
+      setSecondsLeft(prev => (prev > 0 ? prev - 1 : 0))
+    }, 1000)
+    return () => clearInterval(interval)
+  }, [])
+
+  const days = Math.floor(secondsLeft / 86400)
+  const hours = Math.floor((secondsLeft % 86400) / 3600)
+  const minutes = Math.floor((secondsLeft % 3600) / 60)
+  const seconds = secondsLeft % 60
+  const pad = (n: number) => String(n).padStart(2, '0')
+
+  const handleJoinVip = () => {
+    const email = vipEmail.trim()
+    if (!email || !email.includes('@') || !email.includes('.')) {
+      setVipError('Please enter a valid email address.')
+      return
+    }
+    setVipError('')
+    setVipJoined(true)
+  }
 
   return (
     <div className="py-12">
+      <ProductQuickView
+        product={quickViewProduct}
+        onClose={() => setQuickViewProduct(null)}
+        addToCart={addToCart}
+        addToWishlist={addToWishlist}
+        onViewCart={() => { setQuickViewProduct(null); setCurrentPage('cart') }}
+      />
+
       <div className="container mx-auto px-4">
         {/* Sale Header */}
         <div className="text-center mb-12">
@@ -31,22 +65,22 @@ export default function SalePage({ addToCart, addToWishlist }: any) {
             <Clock className="w-6 h-6 text-red-600" />
             <div className="flex space-x-4">
               <div className="text-center">
-                <div className="text-3xl font-bold text-gray-900">02</div>
+                <div className="text-3xl font-bold text-gray-900">{pad(days)}</div>
                 <div className="text-xs text-gray-600">DAYS</div>
               </div>
               <div className="text-3xl font-bold text-gray-400">:</div>
               <div className="text-center">
-                <div className="text-3xl font-bold text-gray-900">14</div>
+                <div className="text-3xl font-bold text-gray-900">{pad(hours)}</div>
                 <div className="text-xs text-gray-600">HOURS</div>
               </div>
               <div className="text-3xl font-bold text-gray-400">:</div>
               <div className="text-center">
-                <div className="text-3xl font-bold text-gray-900">32</div>
+                <div className="text-3xl font-bold text-gray-900">{pad(minutes)}</div>
                 <div className="text-xs text-gray-600">MINS</div>
               </div>
               <div className="text-3xl font-bold text-gray-400">:</div>
               <div className="text-center">
-                <div className="text-3xl font-bold text-gray-900">18</div>
+                <div className="text-3xl font-bold text-gray-900">{pad(seconds)}</div>
                 <div className="text-xs text-gray-600">SECS</div>
               </div>
             </div>
@@ -74,16 +108,23 @@ export default function SalePage({ addToCart, addToWishlist }: any) {
           {saleProducts.map((product) => (
             <div key={product.id} className="group bg-white rounded-xl overflow-hidden shadow-md transition-all duration-300">
               <div className="relative overflow-hidden">
-                <img
-                  src={product.image}
-                  alt={product.name}
-                  className="w-full h-96 object-cover group-hover:scale-110 transition-transform duration-500"
-                />
-                <div className="absolute top-4 left-4 bg-red-600 text-white px-3 py-1 rounded-full text-sm font-bold">
+                <button
+                  onClick={() => setQuickViewProduct(product)}
+                  aria-label={`View ${product.name}`}
+                  className="block w-full"
+                >
+                  <img
+                    src={product.image}
+                    alt={product.name}
+                    className="w-full h-96 object-cover group-hover:scale-110 transition-transform duration-500"
+                  />
+                </button>
+                <div className="absolute top-4 left-4 bg-red-600 text-white px-3 py-1 rounded-full text-sm font-bold pointer-events-none">
                   -{product.discount}%
                 </div>
                 <button
                   onClick={() => addToWishlist(product)}
+                  aria-label={`Add ${product.name} to wishlist`}
                   className="absolute top-4 right-4 bg-white p-2 rounded-full shadow-lg hover:bg-[var(--color-primary)] hover:text-white transition-colors"
                 >
                   <Heart className="w-5 h-5" />
@@ -105,7 +146,9 @@ export default function SalePage({ addToCart, addToWishlist }: any) {
                   ))}
                   <span className="ml-2 text-sm text-gray-600">({product.rating})</span>
                 </div>
-                <h3 className="font-semibold text-gray-900 mb-2">{product.name}</h3>
+                <button onClick={() => setQuickViewProduct(product)} className="block text-left">
+                  <h3 className="font-semibold text-gray-900 mb-2 hover:text-[var(--color-primary)] transition-colors">{product.name}</h3>
+                </button>
                 <div className="flex items-center space-x-2">
                   <p className="text-2xl font-bold text-red-600">${product.price}</p>
                   <p className="text-lg text-gray-400 line-through">${product.originalPrice}</p>
@@ -119,10 +162,47 @@ export default function SalePage({ addToCart, addToWishlist }: any) {
         {/* Sale Banner */}
         <div className="mt-16 bg-gradient-to-r from-red-600 to-pink-600 rounded-2xl p-12 text-center text-white">
           <h2 className="text-3xl font-bold mb-4">Sale Ends Soon!</h2>
-          <p className="text-xl mb-8 opacity-90">Sign up for exclusive early access to future sales</p>
-          <button className="bg-white text-red-600 px-8 py-4 rounded-lg font-semibold hover:bg-gray-100 transition-colors">
-            Join VIP List
-          </button>
+          {vipJoined ? (
+            <div className="max-w-md mx-auto bg-white/20 backdrop-blur-sm rounded-xl p-6 flex items-center justify-center space-x-3">
+              <Check className="w-6 h-6" />
+              <p className="text-lg font-semibold">Welcome to the VIP list! Early sale access is headed your way.</p>
+            </div>
+          ) : vipFormOpen ? (
+            <div className="max-w-md mx-auto">
+              <p className="text-xl mb-6 opacity-90">Enter your email for exclusive early access</p>
+              <div className="flex flex-col md:flex-row gap-4">
+                <input
+                  type="email"
+                  aria-label="Email address for VIP list"
+                  placeholder="Enter your email"
+                  value={vipEmail}
+                  onChange={(e) => setVipEmail(e.target.value)}
+                  onKeyDown={(e) => { if (e.key === 'Enter') handleJoinVip() }}
+                  autoFocus
+                  className="flex-1 px-6 py-4 rounded-lg text-gray-900 focus:outline-none focus:ring-2 focus:ring-white"
+                />
+                <button
+                  onClick={handleJoinVip}
+                  className="bg-white text-red-600 px-8 py-4 rounded-lg font-semibold hover:bg-gray-100 transition-colors"
+                >
+                  Join
+                </button>
+              </div>
+              {vipError && (
+                <p className="mt-4 text-sm font-semibold bg-white/20 inline-block px-4 py-2 rounded-lg">{vipError}</p>
+              )}
+            </div>
+          ) : (
+            <>
+              <p className="text-xl mb-8 opacity-90">Sign up for exclusive early access to future sales</p>
+              <button
+                onClick={() => setVipFormOpen(true)}
+                className="bg-white text-red-600 px-8 py-4 rounded-lg font-semibold hover:bg-gray-100 transition-colors"
+              >
+                Join VIP List
+              </button>
+            </>
+          )}
         </div>
       </div>
     </div>

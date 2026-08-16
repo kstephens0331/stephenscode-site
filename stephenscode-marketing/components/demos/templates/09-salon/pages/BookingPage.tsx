@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { Calendar, Clock, User, CreditCard, CheckCircle, ChevronRight } from 'lucide-react';
+import { Calendar, Clock, User, CheckCircle, ChevronRight } from 'lucide-react';
 import { trackEvent, trackConversion } from '@/lib/analytics';
 
 interface BookingPageProps {
@@ -9,6 +9,7 @@ interface BookingPageProps {
 export default function BookingPage({ onNavigate }: BookingPageProps) {
   const [step, setStep] = useState(1);
   const [submitted, setSubmitted] = useState(false);
+  const [submitError, setSubmitError] = useState(false);
   const [bookingData, setBookingData] = useState({
     service: '',
     stylist: '',
@@ -92,6 +93,7 @@ export default function BookingPage({ onNavigate }: BookingPageProps) {
       return;
     }
 
+    setSubmitError(false);
     try {
       const response = await fetch('/api/demo-lead', {
         method: 'POST',
@@ -118,11 +120,10 @@ export default function BookingPage({ onNavigate }: BookingPageProps) {
         trackConversion('leadForm');
         setSubmitted(true);
       } else {
-        alert('There was an issue submitting your booking. Please call us at (555) 456-7890.');
+        setSubmitError(true);
       }
-    } catch (error) {
-      console.error('Booking error:', error);
-      alert('There was an issue submitting your booking. Please call us at (555) 456-7890.');
+    } catch {
+      setSubmitError(true);
     }
   };
 
@@ -499,6 +500,13 @@ export default function BookingPage({ onNavigate }: BookingPageProps) {
                   </div>
                 </div>
 
+                {submitError && (
+                  <p className="mt-6 text-sm text-red-600 bg-red-50 rounded-xl px-4 py-3">
+                    There was an issue submitting your booking. Please try again or call us at
+                    (555) 456-7890.
+                  </p>
+                )}
+
                 <div className="flex gap-4 mt-8">
                   <button
                     type="button"
@@ -511,13 +519,14 @@ export default function BookingPage({ onNavigate }: BookingPageProps) {
                     type="submit"
                     className="flex-1 bg-gradient-to-r from-[#d00000] to-[#e85d04] text-white py-4 rounded-full font-semibold hover:shadow-lg transition-all duration-300 flex items-center justify-center gap-2"
                   >
-                    <CreditCard className="w-5 h-5" />
-                    Confirm & Pay
+                    <CheckCircle className="w-5 h-5" />
+                    Confirm Booking
                   </button>
                 </div>
 
                 <p className="text-center text-sm text-gray-500 mt-4">
-                  Payment will be processed securely. Cancellation available up to 24 hours before appointment.
+                  No payment due today -- you pay at the salon after your service. Cancellation
+                  available up to 24 hours before your appointment.
                 </p>
               </div>
             )}

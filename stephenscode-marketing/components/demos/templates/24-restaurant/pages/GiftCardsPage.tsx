@@ -6,9 +6,10 @@ import { trackEvent, trackConversion } from '@/lib/analytics'
 
 interface GiftCardsPageProps {
   colors: ColorPalette
+  onNavigate: (page: string) => void
 }
 
-export default function GiftCardsPage({ colors }: GiftCardsPageProps) {
+export default function GiftCardsPage({ colors, onNavigate }: GiftCardsPageProps) {
   const [amount, setAmount] = useState('')
   const [delivery, setDelivery] = useState('')
   const [recipientEmail, setRecipientEmail] = useState('')
@@ -17,9 +18,33 @@ export default function GiftCardsPage({ colors }: GiftCardsPageProps) {
   const [buyerName, setBuyerName] = useState('')
   const [buyerEmail, setBuyerEmail] = useState('')
   const [submitted, setSubmitted] = useState(false)
+  const [submitError, setSubmitError] = useState('')
+  const [balanceCardNumber, setBalanceCardNumber] = useState('')
+  const [balanceResult, setBalanceResult] = useState('')
+  const [balanceError, setBalanceError] = useState('')
+
+  const handleBalanceCheck = (e: React.FormEvent) => {
+    e.preventDefault()
+    const digits = balanceCardNumber.replace(/\D/g, '')
+    if (digits.length < 6) {
+      setBalanceResult('')
+      setBalanceError('Please enter a valid gift card number (at least 6 digits).')
+      return
+    }
+    // Deterministic demo balance derived from the card number
+    let hash = 0
+    for (const ch of digits) {
+      hash = (hash * 31 + ch.charCodeAt(0)) % 100000
+    }
+    const dollars = 15 + (hash % 14) * 10
+    const cents = hash % 2 === 0 ? '00' : '50'
+    setBalanceError('')
+    setBalanceResult(`$${dollars}.${cents}`)
+  }
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault()
+    setSubmitError('')
     try {
       const response = await fetch('/api/demo-lead', {
         method: 'POST',
@@ -46,11 +71,10 @@ export default function GiftCardsPage({ colors }: GiftCardsPageProps) {
         trackConversion('leadForm')
         setSubmitted(true)
       } else {
-        alert('There was an issue processing your gift card order. Please email info@gourmetkitchen.com.')
+        setSubmitError('There was an issue processing your gift card order. Please email info@gourmetkitchen.com.')
       }
-    } catch (error) {
-      console.error('Gift card form error:', error)
-      alert('There was an issue processing your gift card order. Please email info@gourmetkitchen.com.')
+    } catch {
+      setSubmitError('There was an issue processing your gift card order. Please email info@gourmetkitchen.com.')
     }
   }
 
@@ -216,6 +240,11 @@ export default function GiftCardsPage({ colors }: GiftCardsPageProps) {
                   />
                 </div>
 
+                {submitError && (
+                  <div style={{ backgroundColor: '#fef2f2', border: '2px solid #ef4444', color: '#991b1b' }} className="p-4 text-sm font-bold">
+                    {submitError}
+                  </div>
+                )}
                 <button
                   type="submit"
                   style={{ backgroundColor: '#9b2226', color: '#ffffff' }}
@@ -295,6 +324,7 @@ export default function GiftCardsPage({ colors }: GiftCardsPageProps) {
                   and employee rewards programs.
                 </p>
                 <button
+                  onClick={() => onNavigate('contact')}
                   style={{ backgroundColor: '#ee9b00', color: '#1a1a1a' }}
                   className="px-6 py-3 font-bold hover:opacity-90 transition"
                 >
@@ -308,12 +338,14 @@ export default function GiftCardsPage({ colors }: GiftCardsPageProps) {
             <h2 style={{ color: '#1a1a1a' }} className="text-3xl font-bold text-center mb-8">
               Check Gift Card Balance
             </h2>
-            <form className="max-w-2xl mx-auto">
+            <form className="max-w-2xl mx-auto" onSubmit={handleBalanceCheck}>
               <div className="flex gap-4">
                 <input
                   type="text"
                   placeholder="Enter gift card number"
                   aria-label="Gift card number"
+                  value={balanceCardNumber}
+                  onChange={(e) => setBalanceCardNumber(e.target.value)}
                   style={{ backgroundColor: '#ffffff', border: '2px solid #e5e5e5', color: '#1a1a1a' }}
                   className="flex-1 px-4 py-3"
                 />
@@ -325,6 +357,22 @@ export default function GiftCardsPage({ colors }: GiftCardsPageProps) {
                   Check Balance
                 </button>
               </div>
+              {balanceError && (
+                <p style={{ color: '#991b1b' }} className="mt-4 font-bold text-center">
+                  {balanceError}
+                </p>
+              )}
+              {balanceResult && (
+                <div style={{ backgroundColor: '#ffffff', border: '3px solid #22c55e' }} className="mt-6 p-6 text-center">
+                  <div style={{ color: '#666666' }} className="text-sm font-bold uppercase mb-1">
+                    Card ending in {balanceCardNumber.replace(/\D/g, '').slice(-4)}
+                  </div>
+                  <div style={{ color: '#1a1a1a' }} className="text-4xl font-bold mb-2">{balanceResult}</div>
+                  <p style={{ color: '#666666' }} className="text-sm">
+                    Available balance (sample lookup for this demo). Valid for dine-in, takeout, delivery, and catering.
+                  </p>
+                </div>
+              )}
             </form>
           </div>
         </div>

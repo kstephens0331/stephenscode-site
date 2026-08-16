@@ -1,7 +1,7 @@
 'use client'
 
 import type { ColorPalette } from '@/lib/demo-colors'
-import { Sparkles, Gift, Calendar, Star, Users, Award } from 'lucide-react'
+import { Gift, Calendar, Award, ArrowRight } from 'lucide-react'
 
 interface HomePageProps {
   colors: ColorPalette
@@ -67,14 +67,28 @@ export default function HomePage({ colors, onNavigate }: HomePageProps) {
           <div className="bg-gradient-to-br from-purple-900 to-purple-700 rounded-2xl p-12 text-center text-white">
             <h2 className="text-3xl font-bold mb-4 font-serif">Premium Build: $2,000 Value</h2>
             <p className="text-xl mb-8 opacity-90">Complete spa and wellness business solution</p>
-            <ul className="grid md:grid-cols-2 gap-4 max-w-3xl mx-auto text-left mb-8">
-              {['10 fully functional pages', 'Member portal dashboard', 'Advanced booking system', 'Package builder tool', 'Gift certificate system', 'Product e-commerce'].map((feature, i) => (
-                <li key={i} className="flex items-start gap-3">
-                  <span className="text-green-400 text-xl">✓</span>
-                  <span>{feature}</span>
+            <ul className="grid md:grid-cols-2 gap-3 max-w-3xl mx-auto text-left mb-8">
+              {[
+                { label: '10 fully functional pages', page: 'services' },
+                { label: 'Member portal dashboard', page: 'portal' },
+                { label: 'Advanced booking system', page: 'book' },
+                { label: 'Package builder tool', page: 'packages' },
+                { label: 'Gift certificate system', page: 'gifts' },
+                { label: 'Product e-commerce', page: 'shop' }
+              ].map((feature) => (
+                <li key={feature.page}>
+                  <button
+                    onClick={() => onNavigate(feature.page)}
+                    className="w-full flex items-start gap-3 text-left rounded-lg px-3 py-2 transition-colors hover:bg-white/10"
+                  >
+                    <span className="text-green-400 text-xl leading-none">✓</span>
+                    <span className="flex-1">{feature.label}</span>
+                    <ArrowRight className="w-4 h-4 mt-1 opacity-70" />
+                  </button>
                 </li>
               ))}
             </ul>
+            <p className="text-sm opacity-80">Select any feature above to jump straight to it.</p>
           </div>
         </div>
       </section>

@@ -1,11 +1,69 @@
-import React from 'react';
-import { Building2, Factory, Store, School, Hotel, CheckCircle, Wrench, Clock } from 'lucide-react';
+import React, { useState } from 'react';
+import { Building2, Factory, Store, School, Hotel, CheckCircle, Wrench, Clock, X } from 'lucide-react';
 
 interface CommercialPageProps {
   onNavigate: (page: string) => void;
 }
 
+interface CaseStudy {
+  title: string;
+  summary: string;
+  challenge: string;
+  solution: string;
+  results: string[];
+  gradient: string;
+}
+
+const caseStudies: CaseStudy[] = [
+  {
+    title: 'Downtown Office Complex',
+    summary: 'Complete replumbing of 5-story office building with minimal tenant disruption.',
+    challenge:
+      'A 40-year-old office building suffered recurring leaks from corroded galvanized supply lines, threatening tenant offices and server rooms on every floor.',
+    solution:
+      'We phased the repipe floor by floor, working nights and weekends. Temporary bypass lines kept water service running during business hours, and each zone was pressure-tested before reopening.',
+    results: [
+      'All 5 floors repiped in 6 weeks with zero business-hour shutdowns',
+      'Water pressure improved by 30 percent building-wide',
+      'No leak incidents reported since project completion',
+      'Building insurance premium reduced after inspection'
+    ],
+    gradient: 'from-[#0466c8] to-[#0353a4]'
+  },
+  {
+    title: 'Restaurant Chain Maintenance',
+    summary: 'Ongoing preventive maintenance program for 12 local restaurant locations.',
+    challenge:
+      'A regional restaurant group was losing revenue to surprise drain backups and grease trap violations across 12 locations, with no consistent maintenance schedule.',
+    solution:
+      'We built a quarterly maintenance program: scheduled hydro-jetting, grease trap service with compliance documentation, and priority emergency coverage for every location.',
+    results: [
+      'Emergency drain calls reduced from 14 per year to 2',
+      '100 percent pass rate on health department plumbing inspections',
+      'Single monthly invoice covering all 12 locations',
+      'Guaranteed 2-hour emergency response for member locations'
+    ],
+    gradient: 'from-[#0353a4] to-[#023e7d]'
+  },
+  {
+    title: 'Medical Facility Upgrade',
+    summary: 'Emergency water heater replacement with same-day service and compliance certification.',
+    challenge:
+      'An outpatient clinic lost its commercial water heater on a Friday morning. Without hot water, health regulations required the facility to cancel procedures.',
+    solution:
+      'Our team sourced a compliant commercial unit from our supplier network, removed the failed heater, and completed installation and certification the same day.',
+    results: [
+      'Hot water restored within 9 hours of the first call',
+      'Zero patient appointments cancelled',
+      'Installation certified to medical facility code requirements',
+      'Facility enrolled in our preventive maintenance program'
+    ],
+    gradient: 'from-[#023e7d] to-[#0466c8]'
+  }
+];
+
 const CommercialPage: React.FC<CommercialPageProps> = ({ onNavigate }) => {
+  const [activeCaseStudy, setActiveCaseStudy] = useState<CaseStudy | null>(null);
   const industries = [
     {
       icon: Building2,
@@ -72,9 +130,12 @@ const CommercialPage: React.FC<CommercialPageProps> = ({ onNavigate }) => {
               >
                 Request Quote
               </button>
-              <button className="bg-[#0466c8] text-white px-8 py-3 rounded-lg font-bold hover:bg-[#0353a4] transition-colors">
+              <a
+                href="tel:5557658237"
+                className="bg-[#0466c8] text-white px-8 py-3 rounded-lg font-bold hover:bg-[#0353a4] transition-colors inline-block text-center"
+              >
                 Call (555) 765-8237
-              </button>
+              </a>
             </div>
           </div>
         </div>
@@ -265,42 +326,21 @@ const CommercialPage: React.FC<CommercialPageProps> = ({ onNavigate }) => {
             </p>
           </div>
           <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
-            <div className="bg-gray-50 rounded-xl overflow-hidden">
-              <div className="h-48 bg-gradient-to-br from-[#0466c8] to-[#0353a4]"></div>
-              <div className="p-6">
-                <h3 className="text-xl font-bold text-gray-900 mb-2">Downtown Office Complex</h3>
-                <p className="text-gray-600 mb-4">
-                  Complete replumbing of 5-story office building with minimal tenant disruption.
-                </p>
-                <button className="text-[#0466c8] font-semibold hover:text-[#0353a4]">
-                  Read Case Study →
-                </button>
+            {caseStudies.map((study) => (
+              <div key={study.title} className="bg-gray-50 rounded-xl overflow-hidden">
+                <div className={`h-48 bg-gradient-to-br ${study.gradient}`}></div>
+                <div className="p-6">
+                  <h3 className="text-xl font-bold text-gray-900 mb-2">{study.title}</h3>
+                  <p className="text-gray-600 mb-4">{study.summary}</p>
+                  <button
+                    onClick={() => setActiveCaseStudy(study)}
+                    className="text-[#0466c8] font-semibold hover:text-[#0353a4]"
+                  >
+                    Read Case Study →
+                  </button>
+                </div>
               </div>
-            </div>
-            <div className="bg-gray-50 rounded-xl overflow-hidden">
-              <div className="h-48 bg-gradient-to-br from-[#0353a4] to-[#023e7d]"></div>
-              <div className="p-6">
-                <h3 className="text-xl font-bold text-gray-900 mb-2">Restaurant Chain Maintenance</h3>
-                <p className="text-gray-600 mb-4">
-                  Ongoing preventive maintenance program for 12 local restaurant locations.
-                </p>
-                <button className="text-[#0466c8] font-semibold hover:text-[#0353a4]">
-                  Read Case Study →
-                </button>
-              </div>
-            </div>
-            <div className="bg-gray-50 rounded-xl overflow-hidden">
-              <div className="h-48 bg-gradient-to-br from-[#023e7d] to-[#0466c8]"></div>
-              <div className="p-6">
-                <h3 className="text-xl font-bold text-gray-900 mb-2">Medical Facility Upgrade</h3>
-                <p className="text-gray-600 mb-4">
-                  Emergency water heater replacement with same-day service and compliance certification.
-                </p>
-                <button className="text-[#0466c8] font-semibold hover:text-[#0353a4]">
-                  Read Case Study →
-                </button>
-              </div>
-            </div>
+            ))}
           </div>
         </div>
       </section>
@@ -319,12 +359,76 @@ const CommercialPage: React.FC<CommercialPageProps> = ({ onNavigate }) => {
             >
               Request Commercial Quote
             </button>
-            <button className="bg-[#023e7d] text-white px-8 py-3 rounded-lg font-bold hover:bg-[#012a5c] transition-colors">
+            <button
+              onClick={() => onNavigate('contact')}
+              className="bg-[#023e7d] text-white px-8 py-3 rounded-lg font-bold hover:bg-[#012a5c] transition-colors"
+            >
               Schedule Consultation
             </button>
           </div>
         </div>
       </section>
+
+      {/* Case Study Modal */}
+      {activeCaseStudy && (
+        <div
+          className="fixed inset-0 bg-black/60 z-50 flex items-center justify-center p-4"
+          onClick={() => setActiveCaseStudy(null)}
+        >
+          <div
+            className="bg-white rounded-2xl max-w-2xl w-full max-h-[85vh] overflow-y-auto shadow-2xl"
+            onClick={(e) => e.stopPropagation()}
+          >
+            <div className={`bg-gradient-to-br ${activeCaseStudy.gradient} p-6 text-white rounded-t-2xl`}>
+              <div className="flex items-start justify-between">
+                <div>
+                  <p className="text-sm font-semibold uppercase tracking-wide text-blue-200 mb-2">
+                    Commercial Case Study
+                  </p>
+                  <h3 className="text-2xl font-bold">{activeCaseStudy.title}</h3>
+                </div>
+                <button
+                  onClick={() => setActiveCaseStudy(null)}
+                  aria-label="Close case study"
+                  className="bg-white/20 hover:bg-white/30 rounded-full p-2 transition-colors"
+                >
+                  <X className="h-5 w-5" />
+                </button>
+              </div>
+            </div>
+            <div className="p-6 space-y-6">
+              <div>
+                <h4 className="text-lg font-bold text-gray-900 mb-2">The Challenge</h4>
+                <p className="text-gray-600">{activeCaseStudy.challenge}</p>
+              </div>
+              <div>
+                <h4 className="text-lg font-bold text-gray-900 mb-2">Our Solution</h4>
+                <p className="text-gray-600">{activeCaseStudy.solution}</p>
+              </div>
+              <div>
+                <h4 className="text-lg font-bold text-gray-900 mb-2">The Results</h4>
+                <ul className="space-y-2">
+                  {activeCaseStudy.results.map((result, index) => (
+                    <li key={index} className="flex items-start space-x-2">
+                      <CheckCircle className="h-5 w-5 text-green-600 flex-shrink-0 mt-0.5" />
+                      <span className="text-gray-700">{result}</span>
+                    </li>
+                  ))}
+                </ul>
+              </div>
+              <button
+                onClick={() => {
+                  setActiveCaseStudy(null);
+                  onNavigate('contact');
+                }}
+                className="w-full bg-[#0466c8] text-white px-6 py-3 rounded-lg font-bold hover:bg-[#0353a4] transition-colors"
+              >
+                Discuss a Similar Project
+              </button>
+            </div>
+          </div>
+        </div>
+      )}
     </div>
   );
 };

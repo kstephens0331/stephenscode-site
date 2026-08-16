@@ -9,6 +9,8 @@ interface CustomerViewProps {
 }
 
 export default function CustomerView({ demo, colors }: CustomerViewProps) {
+  const liveUrl = demo.externalUrl || 'https://www.fcphotohouston.com/'
+
   return (
     <div className="w-full h-screen flex flex-col">
       {/* Real Client Showcase Banner */}
@@ -17,13 +19,22 @@ export default function CustomerView({ demo, colors }: CustomerViewProps) {
           🎯 REAL CLIENT SHOWCASE: FC Photo Houston, Professional Photography Website
         </p>
         <p style={{ color: colors.textLight }} className="text-xs mt-1">
-          This is an actual live client website built by StephensCode. Package: Premium Build ($2,000)
+          This is an actual live client website built by StephensCode.{' '}
+          <a
+            href={liveUrl}
+            target="_blank"
+            rel="noopener noreferrer"
+            className="underline font-semibold hover:opacity-80 transition-opacity"
+            style={{ color: colors.accent }}
+          >
+            Open the full site in a new tab
+          </a>
         </p>
       </div>
 
       {/* Iframe displaying actual client website */}
       <iframe
-        src="https://fcphotohouston.com"
+        src={liveUrl}
         className="w-full flex-1 border-0"
         title="FC Photo Houston - Real Client Website"
         sandbox="allow-same-origin allow-scripts allow-forms allow-popups"

@@ -1,5 +1,29 @@
 import React from 'react';
-import { Star, Quote, Heart, ThumbsUp, Award, TrendingUp } from 'lucide-react';
+import { Star, Quote, Heart, ThumbsUp, Award, TrendingUp, Play, Pause, ChevronLeft, ChevronRight, X, CheckCircle } from 'lucide-react';
+
+interface Testimonial {
+  name: string;
+  pet: string;
+  image: string;
+  rating: number;
+  date: string;
+  review: string;
+  service: string;
+}
+
+const VISITOR_REVIEWS_KEY = 'vet-demo-visitor-reviews';
+
+const petTypeEmoji: Record<string, string> = {
+  dog: '\u{1F436}',
+  cat: '\u{1F431}',
+  other: '\u{1F43E}',
+};
+
+const petTypeLabel: Record<string, string> = {
+  dog: 'Dog',
+  cat: 'Cat',
+  other: 'Pet',
+};
 
 interface TestimonialsPageProps {
   onNavigate: (page: string) => void;
@@ -11,7 +35,7 @@ interface TestimonialsPageProps {
 }
 
 export default function TestimonialsPage({ onNavigate, colors }: TestimonialsPageProps) {
-  const testimonials = [
+  const testimonials: Testimonial[] = [
     {
       name: 'Sarah Johnson',
       pet: 'Max (Golden Retriever, 8 years)',
@@ -129,6 +153,96 @@ export default function TestimonialsPage({ onNavigate, colors }: TestimonialsPag
     { number: '2000+', label: 'Happy Pet Families', icon: Heart },
   ];
 
+  // Featured stories player state
+  const featuredStories = testimonials.slice(0, 5);
+  const [storyIndex, setStoryIndex] = React.useState(0);
+  const [playing, setPlaying] = React.useState(false);
+  const [platformModal, setPlatformModal] = React.useState<string | null>(null);
+
+  // Visitor-submitted reviews (persisted in this browser)
+  const [visitorReviews, setVisitorReviews] = React.useState<Testimonial[]>([]);
+  const [reviewModalOpen, setReviewModalOpen] = React.useState(false);
+  const [reviewSubmitted, setReviewSubmitted] = React.useState(false);
+  const [reviewDraft, setReviewDraft] = React.useState({
+    name: '',
+    petName: '',
+    petType: 'dog',
+    service: 'Wellness Exam',
+    rating: 5,
+    review: '',
+  });
+
+  React.useEffect(() => {
+    try {
+      const saved = window.localStorage.getItem(VISITOR_REVIEWS_KEY);
+      if (saved) {
+        setVisitorReviews(JSON.parse(saved) as Testimonial[]);
+      }
+    } catch {
+      // Corrupted saved data -- start with no visitor reviews
+    }
+  }, []);
+
+  const openReviewModal = () => {
+    setReviewSubmitted(false);
+    setReviewDraft({ name: '', petName: '', petType: 'dog', service: 'Wellness Exam', rating: 5, review: '' });
+    setReviewModalOpen(true);
+  };
+
+  const handleReviewSubmit = (e: React.FormEvent) => {
+    e.preventDefault();
+    const typeLabel = petTypeLabel[reviewDraft.petType] || 'Pet';
+    const newReview: Testimonial = {
+      name: reviewDraft.name.trim(),
+      pet: reviewDraft.petName.trim() ? `${reviewDraft.petName.trim()} (${typeLabel})` : typeLabel,
+      image: petTypeEmoji[reviewDraft.petType] || petTypeEmoji.other,
+      rating: reviewDraft.rating,
+      date: new Date().toLocaleDateString('en-US', { month: 'long', year: 'numeric' }),
+      review: reviewDraft.review.trim(),
+      service: reviewDraft.service,
+    };
+    const next = [newReview, ...visitorReviews];
+    setVisitorReviews(next);
+    try {
+      window.localStorage.setItem(VISITOR_REVIEWS_KEY, JSON.stringify(next));
+    } catch {
+      // Storage unavailable -- review still shows for this session
+    }
+    setReviewSubmitted(true);
+  };
+
+  const allTestimonials = [...visitorReviews, ...testimonials];
+
+  React.useEffect(() => {
+    if (!playing) return;
+    const timer = window.setInterval(() => {
+      setStoryIndex((current) => (current + 1) % featuredStories.length);
+    }, 4000);
+    return () => window.clearInterval(timer);
+  }, [playing, featuredStories.length]);
+
+  const goToStory = (delta: number) => {
+    setStoryIndex((current) => (current + delta + featuredStories.length) % featuredStories.length);
+  };
+
+  const platformReviews: Record<string, { name: string; pet: string; text: string }[]> = {
+    'Google Reviews': [
+      { name: 'Sarah J.', pet: 'Max the Golden Retriever', text: 'Emergency surgery at 2am and Max made a full recovery. This team is incredible.' },
+      { name: 'James W.', pet: 'Milo the Tabby', text: 'Dr. Martinez met us at the clinic within 20 minutes on a Sunday night. Lifesavers, literally.' },
+      { name: 'Maria G.', pet: 'Pepper the Chihuahua', text: 'Patient, educational, and never rushed. Best vet experience we have had as first-time owners.' },
+    ],
+    'Yelp': [
+      { name: 'Emily R.', pet: 'Luna the Beagle', text: 'Dental work went perfectly. They called with updates during and after the procedure.' },
+      { name: 'Robert K.', pet: 'Shadow the German Shepherd', text: 'ACL surgery and rehab plan were exceptional. Shadow is back to running and playing.' },
+      { name: 'Lisa A.', pet: 'Charlie the Yorkie', text: 'Charlie ate a sock and needed emergency surgery. They got us in right away and worked with our insurance.' },
+    ],
+    'Facebook': [
+      { name: 'Michael C.', pet: 'Whiskers the Cat', text: 'The low-stress handling has completely changed vet visits for our anxious cat.' },
+      { name: 'Patricia B.', pet: 'Rocky the Bulldog', text: 'They understand bulldog breathing issues and take extra precautions. We trust them completely.' },
+      { name: 'David T.', pet: 'Buddy the Lab Mix', text: 'From shelter dog with health issues to thriving family member. The whole team celebrates his progress.' },
+    ],
+  };
+
   return (
     <div className="w-full">
       {/* Hero Section */}
@@ -168,7 +282,7 @@ export default function TestimonialsPage({ onNavigate, colors }: TestimonialsPag
       <section className="py-16 bg-gradient-to-b from-teal-50 to-white">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
-            {testimonials.map((testimonial, index) => (
+            {allTestimonials.map((testimonial, index) => (
               <div
                 key={index}
                 className="bg-white rounded-2xl shadow-lg transition-all overflow-hidden flex flex-col"
@@ -266,26 +380,69 @@ export default function TestimonialsPage({ onNavigate, colors }: TestimonialsPag
         </div>
       </section>
 
-      {/* Video Testimonial Placeholder */}
+      {/* Featured Stories Player */}
       <section className="py-16 bg-gradient-to-b from-teal-50 to-white">
         <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="bg-white rounded-2xl shadow-xl p-8 md:p-12 text-center">
             <h2 className="text-3xl font-bold mb-6" style={{ color: colors.primary }}>
-              See What Our Clients Say
+              Featured Client Stories
             </h2>
 
-            <div className="aspect-video bg-gradient-to-br from-teal-600 to-teal-800 rounded-xl mb-6 flex items-center justify-center">
-              <div className="text-white text-center">
-                <div className="w-20 h-20 rounded-full bg-white/20 backdrop-blur-sm mx-auto mb-4 flex items-center justify-center">
-                  <div className="w-0 h-0 border-l-[20px] border-l-white border-t-[12px] border-t-transparent border-b-[12px] border-b-transparent ml-2"></div>
+            <div className="aspect-video bg-gradient-to-br from-teal-600 to-teal-800 rounded-xl mb-6 relative overflow-hidden">
+              <div className="absolute inset-0 flex flex-col items-center justify-center p-6 md:p-12 text-white">
+                <div className="text-5xl mb-4">{featuredStories[storyIndex].image}</div>
+                <div className="flex justify-center mb-3">
+                  {[...Array(featuredStories[storyIndex].rating)].map((_, i) => (
+                    <Star key={i} className="w-5 h-5 fill-current" style={{ color: colors.accent }} />
+                  ))}
                 </div>
-                <p className="text-xl font-semibold">Video Testimonials</p>
-                <p className="text-teal-100">Coming Soon</p>
+                <p className="text-sm md:text-lg text-teal-50 italic leading-relaxed max-w-2xl mb-4 line-clamp-4">
+                  "{featuredStories[storyIndex].review}"
+                </p>
+                <p className="font-bold">{featuredStories[storyIndex].name}</p>
+                <p className="text-sm text-teal-200">{featuredStories[storyIndex].pet}</p>
+              </div>
+
+              {/* Player Controls */}
+              <div className="absolute bottom-4 left-0 right-0 flex items-center justify-center gap-4">
+                <button
+                  onClick={() => goToStory(-1)}
+                  aria-label="Previous story"
+                  className="w-10 h-10 rounded-full bg-white/20 backdrop-blur-sm flex items-center justify-center text-white hover:bg-white/30 transition-all"
+                >
+                  <ChevronLeft className="w-5 h-5" />
+                </button>
+                <button
+                  onClick={() => setPlaying(!playing)}
+                  aria-label={playing ? 'Pause story slideshow' : 'Play story slideshow'}
+                  className="w-12 h-12 rounded-full bg-white/25 backdrop-blur-sm flex items-center justify-center text-white hover:bg-white/40 transition-all"
+                >
+                  {playing ? <Pause className="w-6 h-6" /> : <Play className="w-6 h-6 ml-0.5" />}
+                </button>
+                <button
+                  onClick={() => goToStory(1)}
+                  aria-label="Next story"
+                  className="w-10 h-10 rounded-full bg-white/20 backdrop-blur-sm flex items-center justify-center text-white hover:bg-white/30 transition-all"
+                >
+                  <ChevronRight className="w-5 h-5" />
+                </button>
+              </div>
+
+              {/* Progress Dots */}
+              <div className="absolute top-4 left-0 right-0 flex justify-center gap-2">
+                {featuredStories.map((story, i) => (
+                  <button
+                    key={i}
+                    onClick={() => setStoryIndex(i)}
+                    aria-label={`Go to story from ${story.name}`}
+                    className={`h-2 rounded-full transition-all ${i === storyIndex ? 'w-8 bg-white' : 'w-2 bg-white/40 hover:bg-white/70'}`}
+                  />
+                ))}
               </div>
             </div>
 
             <p className="text-gray-600 leading-relaxed">
-              Want to share your experience? We'd love to hear from you! Contact us to submit a testimonial or video review.
+              Press play to browse featured stories from our client families. Want to share your experience? We'd love to hear from you!
             </p>
           </div>
         </div>
@@ -307,9 +464,10 @@ export default function TestimonialsPage({ onNavigate, colors }: TestimonialsPag
               { name: 'Yelp', rating: '5/5', reviews: '150+ reviews' },
               { name: 'Facebook', rating: '4.9/5', reviews: '200+ reviews' }
             ].map((platform, index) => (
-              <div
+              <button
                 key={index}
-                className="p-6 rounded-xl shadow-lg hover:shadow-xl transition-all"
+                onClick={() => setPlatformModal(platform.name)}
+                className="p-6 rounded-xl shadow-lg hover:shadow-xl transition-all text-center"
                 style={{ backgroundColor: colors.accent + '20' }}
               >
                 <div className="flex justify-center gap-1 mb-3">
@@ -323,10 +481,68 @@ export default function TestimonialsPage({ onNavigate, colors }: TestimonialsPag
                 <p className="text-2xl font-bold mb-1" style={{ color: colors.secondary }}>
                   {platform.rating}
                 </p>
-                <p className="text-sm text-gray-600">{platform.reviews}</p>
-              </div>
+                <p className="text-sm text-gray-600 mb-3">{platform.reviews}</p>
+                <span className="text-sm font-semibold underline" style={{ color: colors.primary }}>
+                  Read Recent Reviews
+                </span>
+              </button>
             ))}
           </div>
+
+          {/* Platform Reviews Modal */}
+          {platformModal && (
+            <div
+              className="fixed inset-0 z-50 flex items-center justify-center p-4 bg-black/60"
+              onClick={() => setPlatformModal(null)}
+            >
+              <div
+                className="bg-white rounded-2xl shadow-2xl max-w-lg w-full max-h-[85vh] overflow-y-auto text-left"
+                onClick={(e) => e.stopPropagation()}
+                role="dialog"
+                aria-modal="true"
+                aria-label={`Recent reviews on ${platformModal}`}
+              >
+                <div className="sticky top-0 bg-white border-b px-6 py-4 flex items-center justify-between rounded-t-2xl">
+                  <h3 className="text-xl font-bold" style={{ color: colors.primary }}>
+                    Recent Reviews on {platformModal}
+                  </h3>
+                  <button
+                    onClick={() => setPlatformModal(null)}
+                    aria-label="Close reviews"
+                    className="p-2 rounded-lg hover:bg-gray-100 transition-colors"
+                  >
+                    <X className="w-5 h-5 text-gray-600" />
+                  </button>
+                </div>
+                <div className="p-6 space-y-4">
+                  {(platformReviews[platformModal] || []).map((review, i) => (
+                    <div key={i} className="bg-teal-50 rounded-xl p-4 border border-teal-100">
+                      <div className="flex gap-1 mb-2">
+                        {[...Array(5)].map((_, s) => (
+                          <Star key={s} className="w-4 h-4 fill-current" style={{ color: colors.accent }} />
+                        ))}
+                      </div>
+                      <p className="text-gray-800 mb-3 leading-relaxed">"{review.text}"</p>
+                      <p className="text-sm font-semibold" style={{ color: colors.primary }}>
+                        {review.name}
+                      </p>
+                      <p className="text-xs text-gray-500">{review.pet}</p>
+                    </div>
+                  ))}
+                  <button
+                    onClick={() => {
+                      setPlatformModal(null);
+                      onNavigate('contact');
+                    }}
+                    className="w-full px-6 py-3 rounded-full text-white font-semibold hover:opacity-90 transition-all"
+                    style={{ backgroundColor: colors.primary }}
+                  >
+                    Book Your First Visit
+                  </button>
+                </div>
+              </div>
+            </div>
+          )}
         </div>
       </section>
 
@@ -358,7 +574,7 @@ export default function TestimonialsPage({ onNavigate, colors }: TestimonialsPag
           <div className="mt-12 pt-8 border-t border-teal-400">
             <p className="text-teal-100 mb-4">Have a great experience? We'd love to hear about it!</p>
             <button
-              onClick={() => onNavigate('contact')}
+              onClick={openReviewModal}
               className="px-6 py-3 bg-white/20 backdrop-blur-sm rounded-full font-medium hover:bg-white/30 transition-all"
             >
               Leave a Review
@@ -366,6 +582,171 @@ export default function TestimonialsPage({ onNavigate, colors }: TestimonialsPag
           </div>
         </div>
       </section>
+
+      {/* Leave a Review Modal */}
+      {reviewModalOpen && (
+        <div
+          className="fixed inset-0 z-50 flex items-center justify-center p-4 bg-black/60"
+          onClick={() => setReviewModalOpen(false)}
+        >
+          <div
+            className="bg-white rounded-2xl shadow-2xl max-w-lg w-full max-h-[85vh] overflow-y-auto text-left"
+            onClick={(e) => e.stopPropagation()}
+            role="dialog"
+            aria-modal="true"
+            aria-label="Leave a review"
+          >
+            <div className="sticky top-0 bg-white border-b px-6 py-4 flex items-center justify-between rounded-t-2xl">
+              <h3 className="text-xl font-bold" style={{ color: colors.primary }}>
+                Share Your Experience
+              </h3>
+              <button
+                onClick={() => setReviewModalOpen(false)}
+                aria-label="Close review form"
+                className="p-2 rounded-lg hover:bg-gray-100 transition-colors"
+              >
+                <X className="w-5 h-5 text-gray-600" />
+              </button>
+            </div>
+
+            {reviewSubmitted ? (
+              <div className="p-8 text-center">
+                <div className="w-16 h-16 bg-green-100 rounded-full flex items-center justify-center mx-auto mb-4">
+                  <CheckCircle className="w-10 h-10 text-green-600" />
+                </div>
+                <h4 className="text-2xl font-bold mb-3" style={{ color: colors.primary }}>
+                  Thank You!
+                </h4>
+                <p className="text-gray-600 mb-6 leading-relaxed">
+                  Your review has been posted. You can see it at the top of the reviews on this page.
+                </p>
+                <button
+                  onClick={() => setReviewModalOpen(false)}
+                  className="px-8 py-3 rounded-full text-white font-semibold hover:opacity-90 transition-all"
+                  style={{ backgroundColor: colors.secondary }}
+                >
+                  Close
+                </button>
+              </div>
+            ) : (
+              <form onSubmit={handleReviewSubmit} className="p-6 space-y-4">
+                <div>
+                  <label htmlFor="vet-review-name" className="block text-sm font-semibold mb-2" style={{ color: colors.primary }}>
+                    Your Name *
+                  </label>
+                  <input
+                    id="vet-review-name"
+                    type="text"
+                    value={reviewDraft.name}
+                    onChange={(e) => setReviewDraft({ ...reviewDraft, name: e.target.value })}
+                    required
+                    className="w-full px-4 py-3 rounded-lg border-2 border-teal-200 focus:border-teal-500 focus:outline-none transition-colors"
+                    placeholder="Jane Smith"
+                  />
+                </div>
+
+                <div className="grid grid-cols-2 gap-4">
+                  <div>
+                    <label htmlFor="vet-review-pet-name" className="block text-sm font-semibold mb-2" style={{ color: colors.primary }}>
+                      Pet's Name
+                    </label>
+                    <input
+                      id="vet-review-pet-name"
+                      type="text"
+                      value={reviewDraft.petName}
+                      onChange={(e) => setReviewDraft({ ...reviewDraft, petName: e.target.value })}
+                      className="w-full px-4 py-3 rounded-lg border-2 border-teal-200 focus:border-teal-500 focus:outline-none transition-colors"
+                      placeholder="Max"
+                    />
+                  </div>
+                  <div>
+                    <label htmlFor="vet-review-pet-type" className="block text-sm font-semibold mb-2" style={{ color: colors.primary }}>
+                      Pet Type
+                    </label>
+                    <select
+                      id="vet-review-pet-type"
+                      value={reviewDraft.petType}
+                      onChange={(e) => setReviewDraft({ ...reviewDraft, petType: e.target.value })}
+                      className="w-full px-4 py-3 rounded-lg border-2 border-teal-200 focus:border-teal-500 focus:outline-none transition-colors"
+                    >
+                      <option value="dog">Dog</option>
+                      <option value="cat">Cat</option>
+                      <option value="other">Other</option>
+                    </select>
+                  </div>
+                </div>
+
+                <div>
+                  <label htmlFor="vet-review-service" className="block text-sm font-semibold mb-2" style={{ color: colors.primary }}>
+                    Service Received
+                  </label>
+                  <select
+                    id="vet-review-service"
+                    value={reviewDraft.service}
+                    onChange={(e) => setReviewDraft({ ...reviewDraft, service: e.target.value })}
+                    className="w-full px-4 py-3 rounded-lg border-2 border-teal-200 focus:border-teal-500 focus:outline-none transition-colors"
+                  >
+                    <option value="Wellness Exam">Wellness Exam</option>
+                    <option value="Vaccinations">Vaccinations</option>
+                    <option value="Dental Care">Dental Care</option>
+                    <option value="Surgery">Surgery</option>
+                    <option value="Emergency Care">Emergency Care</option>
+                    <option value="Boarding">Boarding</option>
+                    <option value="Grooming">Grooming</option>
+                    <option value="Other">Other</option>
+                  </select>
+                </div>
+
+                <div>
+                  <span className="block text-sm font-semibold mb-2" style={{ color: colors.primary }}>
+                    Your Rating *
+                  </span>
+                  <div className="flex gap-1">
+                    {[1, 2, 3, 4, 5].map((star) => (
+                      <button
+                        key={star}
+                        type="button"
+                        onClick={() => setReviewDraft({ ...reviewDraft, rating: star })}
+                        aria-label={`Rate ${star} star${star === 1 ? '' : 's'}`}
+                        className="p-1 hover:scale-110 transition-transform"
+                      >
+                        <Star
+                          className="w-8 h-8"
+                          style={{ color: star <= reviewDraft.rating ? colors.accent : '#d1d5db' }}
+                          fill={star <= reviewDraft.rating ? 'currentColor' : 'none'}
+                        />
+                      </button>
+                    ))}
+                  </div>
+                </div>
+
+                <div>
+                  <label htmlFor="vet-review-text" className="block text-sm font-semibold mb-2" style={{ color: colors.primary }}>
+                    Your Review *
+                  </label>
+                  <textarea
+                    id="vet-review-text"
+                    value={reviewDraft.review}
+                    onChange={(e) => setReviewDraft({ ...reviewDraft, review: e.target.value })}
+                    required
+                    rows={4}
+                    className="w-full px-4 py-3 rounded-lg border-2 border-teal-200 focus:border-teal-500 focus:outline-none transition-colors resize-none"
+                    placeholder="Tell other pet parents about your experience..."
+                  ></textarea>
+                </div>
+
+                <button
+                  type="submit"
+                  className="w-full px-6 py-3 rounded-full text-white font-semibold hover:opacity-90 transition-all"
+                  style={{ backgroundColor: colors.primary }}
+                >
+                  Post Review
+                </button>
+              </form>
+            )}
+          </div>
+        </div>
+      )}
     </div>
   );
 }
